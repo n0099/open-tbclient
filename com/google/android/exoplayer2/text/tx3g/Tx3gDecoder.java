@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Tx3gDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char BOM_UTF16_BE = 65279;
@@ -168,9 +168,9 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
                 boolean z = (bArr[0] & 32) != 0;
                 this.customVerticalPlacement = z;
                 if (z) {
-                    float f2 = ((bArr[11] & 255) | ((bArr[10] & 255) << 8)) / this.calculatedVideoTrackHeight;
-                    this.defaultVerticalPlacement = f2;
-                    this.defaultVerticalPlacement = Util.constrainValue(f2, 0.0f, 0.95f);
+                    float f = ((bArr[11] & 255) | ((bArr[10] & 255) << 8)) / this.calculatedVideoTrackHeight;
+                    this.defaultVerticalPlacement = f;
+                    this.defaultVerticalPlacement = Util.constrainValue(f, 0.0f, 0.95f);
                     return;
                 }
                 this.defaultVerticalPlacement = 0.85f;
@@ -216,7 +216,7 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
             attachFontFace(spannableStringBuilder, this.defaultFontFace, 0, 0, spannableStringBuilder.length(), 16711680);
             attachColor(spannableStringBuilder, this.defaultColorRgba, -1, 0, spannableStringBuilder.length(), 16711680);
             attachFontFamily(spannableStringBuilder, this.defaultFontFamily, "sans-serif", 0, spannableStringBuilder.length(), 16711680);
-            float f2 = this.defaultVerticalPlacement;
+            float f = this.defaultVerticalPlacement;
             while (this.parsableByteArray.bytesLeft() >= 8) {
                 int position = this.parsableByteArray.getPosition();
                 int readInt = this.parsableByteArray.readInt();
@@ -229,11 +229,11 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
                     }
                 } else if (readInt2 == TYPE_TBOX && this.customVerticalPlacement) {
                     assertTrue(this.parsableByteArray.bytesLeft() >= 2);
-                    f2 = Util.constrainValue(this.parsableByteArray.readUnsignedShort() / this.calculatedVideoTrackHeight, 0.0f, 0.95f);
+                    f = Util.constrainValue(this.parsableByteArray.readUnsignedShort() / this.calculatedVideoTrackHeight, 0.0f, 0.95f);
                 }
                 this.parsableByteArray.setPosition(position + readInt);
             }
-            return new Tx3gSubtitle(new Cue(spannableStringBuilder, null, f2, 0, 0, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE));
+            return new Tx3gSubtitle(new Cue(spannableStringBuilder, null, f, 0, 0, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE));
         }
         return (Subtitle) invokeCommon.objValue;
     }

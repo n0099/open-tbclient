@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ErrorLogInfo implements Jsonable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class ErrorLogInfo implements Jsonable {
                 this.isShowSpecialToast = jSONObject.getBoolean("isShowSpecialToast");
                 this.specialToast = jSONObject.getString("specialToast");
                 return false;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -73,7 +73,7 @@ public class ErrorLogInfo implements Jsonable {
     public JSONObject toJson() {
         InterceptResult invokeV;
         JSONObject jSONObject;
-        JSONException e2;
+        JSONException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
@@ -87,14 +87,14 @@ public class ErrorLogInfo implements Jsonable {
                     jSONObject.put("data", this.data);
                     jSONObject.put("isShowSpecialToast", this.isShowSpecialToast);
                     jSONObject.put("specialToast", this.specialToast);
-                } catch (JSONException e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
                     return jSONObject;
                 }
-            } catch (JSONException e4) {
+            } catch (JSONException e3) {
                 jSONObject = null;
-                e2 = e4;
+                e = e3;
             }
             return jSONObject;
         }

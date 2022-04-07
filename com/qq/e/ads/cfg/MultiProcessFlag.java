@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MultiProcessFlag {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f42318b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public MultiProcessFlag() {
@@ -38,11 +36,11 @@ public class MultiProcessFlag {
     public static void setMultiProcess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            if (f42318b) {
+            if (b) {
                 GDTLogger.w("MultiProcessFlag已经设置过，再次设置无效");
                 return;
             }
-            f42318b = true;
+            b = true;
             a = z;
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class h extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,17 +40,17 @@ public class h extends c {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
-            String e2 = kVar.e();
-            String h2 = kVar.h();
-            int b2 = kVar.b();
-            PublicMsg a = i.a(this.a, h2, e2, bArr);
+            String e = kVar.e();
+            String h = kVar.h();
+            int b = kVar.b();
+            PublicMsg a = i.a(this.a, h, e, bArr);
             if (a == null || TextUtils.isEmpty(a.mTitle) || TextUtils.isEmpty(a.mDescription) || TextUtils.isEmpty(a.mUrl)) {
                 i = 2;
             } else {
                 if (e.a(this.a, a)) {
                     Context context = this.a;
                     if (m.d(context, context.getPackageName())) {
-                        e.a(this.a, a, h2, b2);
+                        e.a(this.a, a, h, b);
                         i = 1;
                     }
                 }

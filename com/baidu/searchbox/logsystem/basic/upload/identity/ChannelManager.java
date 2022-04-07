@@ -19,7 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ChannelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -138,8 +138,8 @@ public class ChannelManager {
                 inputStream = AppRuntime.getAppContext().getAssets().open("file:///android_asset/channel");
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     bufferedReader = null;
                     inputStream2 = inputStream;
                     str = null;
@@ -147,8 +147,8 @@ public class ChannelManager {
                     bufferedReader = null;
                     th = th2;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 str = null;
                 bufferedReader = null;
             } catch (Throwable th3) {
@@ -163,9 +163,9 @@ public class ChannelManager {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e4) {
+                    } catch (Exception e3) {
                         if (DEBUG) {
-                            Log.e(TAG, "readLastChannelFromAssets", e4);
+                            Log.e(TAG, "readLastChannelFromAssets", e3);
                             return str2;
                         }
                         return str2;
@@ -173,8 +173,8 @@ public class ChannelManager {
                 }
                 bufferedReader.close();
                 return str2;
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e4) {
+                e = e4;
                 String str3 = str2;
                 inputStream2 = inputStream;
                 str = str3;
@@ -185,9 +185,9 @@ public class ChannelManager {
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
-                        } catch (Exception e6) {
+                        } catch (Exception e5) {
                             if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e6);
+                                Log.e(TAG, "readLastChannelFromAssets", e5);
                             }
                             return str;
                         }
@@ -203,9 +203,9 @@ public class ChannelManager {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (Exception e7) {
+                        } catch (Exception e6) {
                             if (DEBUG) {
-                                Log.e(TAG, "readLastChannelFromAssets", e7);
+                                Log.e(TAG, "readLastChannelFromAssets", e6);
                             }
                             throw th;
                         }
@@ -227,14 +227,14 @@ public class ChannelManager {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0041, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0040, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0042, code lost:
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005b, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005a, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -257,18 +257,18 @@ public class ChannelManager {
                     try {
                         openRawResource.close();
                         bufferedReader.close();
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                     if (DEBUG) {
-                        Log.e(TAG, "readLastChannelFromRaw", e3);
+                        Log.e(TAG, "readLastChannelFromRaw", e2);
                     }
                     try {
                         openRawResource.close();
                         bufferedReader.close();
-                    } catch (Exception e4) {
-                        e = e4;
+                    } catch (Exception e3) {
+                        e = e3;
                     }
                 }
                 return str;
@@ -276,9 +276,9 @@ public class ChannelManager {
                 try {
                     openRawResource.close();
                     bufferedReader.close();
-                } catch (Exception e5) {
+                } catch (Exception e4) {
                     if (DEBUG) {
-                        Log.e(TAG, "readLastChannelFromRaw", e5);
+                        Log.e(TAG, "readLastChannelFromRaw", e4);
                     }
                 }
                 throw th;

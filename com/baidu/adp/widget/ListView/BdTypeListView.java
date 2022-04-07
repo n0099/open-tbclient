@@ -6,10 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.e.g;
-import c.a.d.o.e.h;
-import c.a.d.o.e.n;
-import c.a.d.o.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,18 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ho;
+import com.repackage.no;
+import com.repackage.oo;
+import com.repackage.uo;
+import com.repackage.zo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class BdTypeListView extends BdListView implements s<BdTypeListView> {
+/* loaded from: classes.dex */
+public class BdTypeListView extends BdListView implements zo<BdTypeListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TypeAdapter G;
-    public HashMap<BdUniqueId, c.a.d.o.e.a> H;
-    public HashMap<BdUniqueId, h> I;
+    public HashMap<BdUniqueId, ho> H;
+    public HashMap<BdUniqueId, oo> I;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,17 +56,17 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             TypeAdapter typeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (typeAdapter = this.a.G) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (typeAdapter = this.a.G) == null) {
                 return;
             }
-            typeAdapter.f(adapterView, view, i, j);
+            typeAdapter.f(adapterView, view2, i, j);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +91,13 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                 TypeAdapter typeAdapter = this.a.G;
                 if (typeAdapter != null) {
-                    return typeAdapter.g(adapterView, view, i, j);
+                    return typeAdapter.g(adapterView, view2, i, j);
                 }
                 return false;
             }
@@ -126,10 +127,10 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         H();
     }
 
-    public n G(int i) {
+    public uo G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.G.getItem(i) : (n) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.G.getItem(i) : (uo) invokeI.objValue;
     }
 
     public final void H() {
@@ -149,53 +150,53 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         }
     }
 
-    @Override // c.a.d.o.e.s
-    public void a(List<c.a.d.o.e.a> list) {
+    @Override // com.repackage.zo
+    public void a(List<ho> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            for (c.a.d.o.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
-                if (aVar != null) {
+            for (ho<uo, TypeAdapter.ViewHolder> hoVar : list) {
+                if (hoVar != null) {
                     BdUniqueId bdUniqueId = null;
-                    if (aVar.y() != null) {
-                        bdUniqueId = aVar.y();
+                    if (hoVar.y() != null) {
+                        bdUniqueId = hoVar.y();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.a, bdUniqueId, aVar.f2571e);
-                            hVar.b0(aVar);
-                            this.G.a(hVar);
-                            this.I.put(bdUniqueId, hVar);
+                            oo ooVar = new oo(hoVar.a, bdUniqueId, hoVar.e);
+                            ooVar.b0(hoVar);
+                            this.G.a(ooVar);
+                            this.I.put(bdUniqueId, ooVar);
                         }
                     }
-                    if (aVar.w() != null) {
-                        bdUniqueId = aVar.w();
+                    if (hoVar.w() != null) {
+                        bdUniqueId = hoVar.w();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.a, bdUniqueId, aVar.f2571e);
-                            hVar2.b0(aVar);
-                            this.G.a(hVar2);
-                            this.I.put(bdUniqueId, hVar2);
+                            oo ooVar2 = new oo(hoVar.a, bdUniqueId, hoVar.e);
+                            ooVar2.b0(hoVar);
+                            this.G.a(ooVar2);
+                            this.I.put(bdUniqueId, ooVar2);
                         }
                     }
-                    if (aVar.x() != null) {
-                        bdUniqueId = aVar.x();
+                    if (hoVar.x() != null) {
+                        bdUniqueId = hoVar.x();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.a, bdUniqueId, aVar.f2571e);
-                            hVar3.b0(aVar);
-                            this.G.a(hVar3);
-                            this.I.put(bdUniqueId, hVar3);
+                            oo ooVar3 = new oo(hoVar.a, bdUniqueId, hoVar.e);
+                            ooVar3.b0(hoVar);
+                            this.G.a(ooVar3);
+                            this.I.put(bdUniqueId, ooVar3);
                         }
                     }
-                    if (aVar.v() != null) {
-                        bdUniqueId = aVar.v();
+                    if (hoVar.v() != null) {
+                        bdUniqueId = hoVar.v();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.a, bdUniqueId, aVar.f2571e);
-                            hVar4.b0(aVar);
-                            this.G.a(hVar4);
-                            this.I.put(bdUniqueId, hVar4);
+                            oo ooVar4 = new oo(hoVar.a, bdUniqueId, hoVar.e);
+                            ooVar4.b0(hoVar);
+                            this.G.a(ooVar4);
+                            this.I.put(bdUniqueId, ooVar4);
                         }
                     }
                     if (bdUniqueId == null) {
-                        this.G.a(aVar);
+                        this.G.a(hoVar);
                     } else {
-                        this.H.put(aVar.f2570d, aVar);
+                        this.H.put(hoVar.d, hoVar);
                     }
                 }
             }
@@ -203,8 +204,8 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         }
     }
 
-    @Override // c.a.d.o.e.s
-    public List<n> getData() {
+    @Override // com.repackage.zo
+    public List<uo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.G.d() : (List) invokeV.objValue;
@@ -212,7 +213,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, c.a.d.o.e.p
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.repackage.wo
     /* renamed from: getListView */
     public BdListView getListView2() {
         InterceptResult invokeV;
@@ -220,57 +221,57 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
     }
 
-    @Override // c.a.d.o.e.s
-    public void setData(List<? extends n> list) {
+    @Override // com.repackage.zo
+    public void setData(List<? extends uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            for (n nVar : list) {
-                if (nVar != null) {
-                    if (this.H.containsKey(nVar.getType())) {
-                        c.a.d.o.e.a aVar = this.H.get(nVar.getType());
-                        if (aVar.y() != null) {
-                            g gVar = new g();
-                            gVar.i(aVar.y());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar.position = ((BaseCardInfo) nVar).position;
-                                gVar.setSupportType(BaseCardInfo.SupportType.TOP);
+            for (uo uoVar : list) {
+                if (uoVar != null) {
+                    if (this.H.containsKey(uoVar.getType())) {
+                        ho hoVar = this.H.get(uoVar.getType());
+                        if (hoVar.y() != null) {
+                            no noVar = new no();
+                            noVar.i(hoVar.y());
+                            if (uoVar instanceof BaseCardInfo) {
+                                noVar.position = ((BaseCardInfo) uoVar).position;
+                                noVar.setSupportType(BaseCardInfo.SupportType.TOP);
                             }
-                            gVar.g(nVar);
-                            arrayList.add(gVar);
+                            noVar.g(uoVar);
+                            arrayList.add(noVar);
                         }
-                        if (aVar.w() != null) {
-                            g gVar2 = new g();
-                            gVar2.i(aVar.w());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar2.position = ((BaseCardInfo) nVar).position;
-                                gVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        if (hoVar.w() != null) {
+                            no noVar2 = new no();
+                            noVar2.i(hoVar.w());
+                            if (uoVar instanceof BaseCardInfo) {
+                                noVar2.position = ((BaseCardInfo) uoVar).position;
+                                noVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                             }
-                            gVar2.g(nVar);
-                            arrayList.add(gVar2);
+                            noVar2.g(uoVar);
+                            arrayList.add(noVar2);
                         }
-                        if (aVar.x() != null) {
-                            g gVar3 = new g();
-                            gVar3.i(aVar.x());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar3.position = ((BaseCardInfo) nVar).position;
-                                gVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        if (hoVar.x() != null) {
+                            no noVar3 = new no();
+                            noVar3.i(hoVar.x());
+                            if (uoVar instanceof BaseCardInfo) {
+                                noVar3.position = ((BaseCardInfo) uoVar).position;
+                                noVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             }
-                            gVar3.g(nVar);
-                            arrayList.add(gVar3);
+                            noVar3.g(uoVar);
+                            arrayList.add(noVar3);
                         }
-                        if (aVar.v() != null) {
-                            g gVar4 = new g();
-                            gVar4.i(aVar.v());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar4.position = ((BaseCardInfo) nVar).position;
-                                gVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        if (hoVar.v() != null) {
+                            no noVar4 = new no();
+                            noVar4.i(hoVar.v());
+                            if (uoVar instanceof BaseCardInfo) {
+                                noVar4.position = ((BaseCardInfo) uoVar).position;
+                                noVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                             }
-                            gVar4.g(nVar);
-                            arrayList.add(gVar4);
+                            noVar4.g(uoVar);
+                            arrayList.add(noVar4);
                         }
                     } else {
-                        arrayList.add(nVar);
+                        arrayList.add(uoVar);
                     }
                 }
             }

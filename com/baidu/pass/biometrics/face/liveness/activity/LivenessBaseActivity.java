@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LivenessBaseActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,10 +99,10 @@ public class LivenessBaseActivity extends BaseActivity {
                 Serializable serializable = bundle.getSerializable("PassFaceRecogDTO");
                 if (serializable instanceof PassFaceRecogDTO) {
                     this.mPassFaceRecogDTO = (PassFaceRecogDTO) serializable;
-                    a.b().a(a.f27965c, this.mPassFaceRecogDTO);
+                    a.b().a(a.c, this.mPassFaceRecogDTO);
                 }
             } else {
-                this.mPassFaceRecogDTO = (PassFaceRecogDTO) a.b().a(a.f27965c);
+                this.mPassFaceRecogDTO = (PassFaceRecogDTO) a.b().a(a.c);
             }
             this.mConfiguration = PassFaceRecogManager.getInstance().getConfiguration();
             customLiuHai();

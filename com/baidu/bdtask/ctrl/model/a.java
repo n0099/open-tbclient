@@ -2,9 +2,6 @@ package com.baidu.bdtask.ctrl.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j.i.d;
-import c.a.j.i.f;
-import c.a.j.m.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.TaskState;
 import com.baidu.bdtask.ctrl.SubTaskState;
@@ -23,6 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jv;
+import com.repackage.ks;
+import com.repackage.lv;
+import com.repackage.nx;
+import com.repackage.qw;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -39,28 +41,22 @@ import kotlin.jvm.internal.Ref;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000 H:\u0001HB\t\b\u0016¢\u0006\u0004\bD\u0010EB\u0011\b\u0016\u0012\u0006\u0010F\u001a\u00020\u0000¢\u0006\u0004\bD\u0010GJ\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u0015\u0010\b\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\u000b\u001a\u0004\u0018\u00010\u00012\u0006\u0010\n\u001a\u00020\u0006¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000e\u001a\u0004\u0018\u00010\u00012\u0006\u0010\r\u001a\u00020\u0006¢\u0006\u0004\b\u000e\u0010\fJ\u0017\u0010\u000f\u001a\u0004\u0018\u00010\u00012\u0006\u0010\n\u001a\u00020\u0006¢\u0006\u0004\b\u000f\u0010\fJ\u0017\u0010\u0011\u001a\u0004\u0018\u00010\u00012\u0006\u0010\u0010\u001a\u00020\u0006¢\u0006\u0004\b\u0011\u0010\fJ>\u0010\u001a\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00010\u00192'\b\u0002\u0010\u0018\u001a!\u0012\u0015\u0012\u0013\u0018\u00010\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u0017\u0018\u00010\u0012¢\u0006\u0004\b\u001a\u0010\u001bJ)\u0010\u001e\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00010\u00192\u0012\u0010\u001d\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060\u001c\"\u00020\u0006¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010 \u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\u0006¢\u0006\u0004\b\"\u0010#J\r\u0010$\u001a\u00020\u0017¢\u0006\u0004\b$\u0010%J-\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020\u00060(2\u0006\u0010&\u001a\u00020\u00012\b\b\u0002\u0010'\u001a\u00020\u0017H\u0002¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u0004\u0018\u00010\u0001¢\u0006\u0004\b+\u0010!J\u0015\u0010,\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u0013¢\u0006\u0004\b,\u0010-J\u0017\u0010.\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u0013H\u0002¢\u0006\u0004\b.\u0010-J'\u0010/\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0012\u0004\u0012\u00020\u00060(2\b\u0010\u0002\u001a\u0004\u0018\u00010\u0001H\u0002¢\u0006\u0004\b/\u00100J6\u00101\u001a\u0004\u0018\u00010\u00012#\u0010\u0018\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00170\u0012H\u0002¢\u0006\u0004\b1\u00102J[\u00101\u001a\u0004\u0018\u00010\u00012#\u00103\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00170\u00122#\u00104\u001a\u001f\u0012\u0015\u0012\u0013\u0018\u00010\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00170\u0012H\u0002¢\u0006\u0004\b1\u00105J\u001b\u00107\u001a\u0004\u0018\u00010\u00012\b\u0010\u0002\u001a\u0004\u0018\u000106H\u0002¢\u0006\u0004\b7\u00108R$\u00109\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010:\u001a\u0004\b;\u0010!\"\u0004\b<\u0010\u0005R(\u0010>\u001a\b\u0012\u0004\u0012\u00020\u00010=8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b>\u0010?\u001a\u0004\b@\u0010A\"\u0004\bB\u0010C¨\u0006I"}, d2 = {"Lcom/baidu/bdtask/ctrl/model/TaskStateQueue;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskState.key, "", "addIfPresent", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "", "rawString", "deserializeFromJson", "(Ljava/lang/String;)V", "actionId", "findPassiveSubTaskByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/ctrl/SubTaskState;", TaskInfo.keyActTaskId, "findSubTaskByActTaskId", "findSubTaskByActionId", "singleKey", "findSubTaskBySingleKey", "Lkotlin/Function1;", "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lkotlin/ParameterName;", "name", NextActive.keyTaskInfo, "", CloudControlRequest.REQUEST_KEY_FILTER, "", "getAllSubTask", "(Lkotlin/Function1;)Ljava/util/List;", "", "actionIds", "getAllSubTaskByActionIds", "([Ljava/lang/String;)Ljava/util/List;", "getCurActive", "()Lcom/baidu/bdtask/ctrl/SubTaskState;", "getSerializeJson", "()Ljava/lang/String;", "isEmpty", "()Z", "tempItem", "forceJudgeInterrupted", "Lkotlin/Pair;", "passiveTaskCanActiveAble", "(Lcom/baidu/bdtask/ctrl/SubTaskState;Z)Lkotlin/Pair;", "peekPassiveTask", "remove", "(Lcom/baidu/bdtask/model/info/TaskInfo;)V", "removePassiveTask", "restoreTaskCheck", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Lkotlin/Pair;", "subTaskFilter", "(Lkotlin/Function1;)Lcom/baidu/bdtask/ctrl/SubTaskState;", "initiativeTaskFilter", "passiveTaskFilter", "(Lkotlin/Function1;Lkotlin/Function1;)Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/TaskState;", "taskState2subTaskState", "(Lcom/baidu/bdtask/TaskState;)Lcom/baidu/bdtask/ctrl/SubTaskState;", "initiativeTask", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "getInitiativeTask", "setInitiativeTask", "Ljava/util/PriorityQueue;", "passiveTaskQueue", "Ljava/util/PriorityQueue;", "getPassiveTaskQueue", "()Ljava/util/PriorityQueue;", "setPassiveTaskQueue", "(Ljava/util/PriorityQueue;)V", "<init>", "()V", "other", "(Lcom/baidu/bdtask/ctrl/model/TaskStateQueue;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f24931c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final C1730a f24932d;
+    public static final ReentrantLock c;
+    public static final C0070a d;
     public transient /* synthetic */ FieldHolder $fh;
     public SubTaskState a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PriorityQueue<SubTaskState> f24933b;
+    public PriorityQueue<SubTaskState> b;
 
     /* renamed from: com.baidu.bdtask.ctrl.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C1730a {
+    /* loaded from: classes.dex */
+    public static final class C0070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1730a() {
+        public C0070a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +73,10 @@ public final class a {
         public final ReentrantLock a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f24931c : (ReentrantLock) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.c : (ReentrantLock) invokeV.objValue;
         }
 
-        public /* synthetic */ C1730a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0070a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -98,8 +94,8 @@ public final class a {
                 return;
             }
         }
-        f24932d = new C1730a(null);
-        f24931c = new ReentrantLock(true);
+        d = new C0070a(null);
+        c = new ReentrantLock(true);
     }
 
     public a() {
@@ -115,7 +111,7 @@ public final class a {
                 return;
             }
         }
-        this.f24933b = c.a.j.f.f.a.a(5);
+        this.b = ks.a(5);
     }
 
     public static /* bridge */ /* synthetic */ Pair h(a aVar, SubTaskState subTaskState, boolean z, int i, Object obj) {
@@ -132,13 +128,13 @@ public final class a {
         TaskStatus taskStatus;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 if (this.a != null && (subTaskState2 = this.a) != null && (taskStatus = subTaskState2.getTaskStatus()) != null && taskStatus.isActivated()) {
                     subTaskState = this.a;
                 } else {
-                    Iterator<SubTaskState> it = this.f24933b.iterator();
+                    Iterator<SubTaskState> it = this.b.iterator();
                     while (it.hasNext()) {
                         SubTaskState next = it.next();
                         if (next.getTaskStatus().isActivated()) {
@@ -171,7 +167,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskBySingleKey$$inlined$withLock$lambda$1(this, str));
@@ -192,7 +188,7 @@ public final class a {
                     return this.a;
                 }
             }
-            Iterator<SubTaskState> it = this.f24933b.iterator();
+            Iterator<SubTaskState> it = this.b.iterator();
             while (it.hasNext()) {
                 SubTaskState next = it.next();
                 if (function12.invoke(next.getTaskInfo()).booleanValue()) {
@@ -208,7 +204,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, function1)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 ArrayList arrayList = new ArrayList();
@@ -222,7 +218,7 @@ public final class a {
                         }
                     }
                 }
-                Iterator<SubTaskState> it = this.f24933b.iterator();
+                Iterator<SubTaskState> it = this.b.iterator();
                 while (it.hasNext()) {
                     SubTaskState next = it.next();
                     if (next != null) {
@@ -279,7 +275,7 @@ public final class a {
     public final void i(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, subTaskState) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 TaskInfo taskInfo = subTaskState.getTaskInfo();
@@ -287,7 +283,7 @@ public final class a {
                     this.a = subTaskState;
                 } else if (taskInfo.isPassiveTask()) {
                     o(subTaskState.getTaskInfo());
-                    c.a.j.f.f.a.b(this.f24933b, subTaskState, 5);
+                    ks.b(this.b, subTaskState, 5);
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {
@@ -299,7 +295,7 @@ public final class a {
     public final void j(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, taskInfo) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 if (taskInfo.isPassiveTask()) {
@@ -320,7 +316,7 @@ public final class a {
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x005e, code lost:
         com.baidu.bdtask.framework.utils.DebugTrace.a.c(com.baidu.bdtask.ctrl.model.TaskStateQueue$peekPassiveTask$1$2.INSTANCE);
-        c.a.j.k.e.a.a.f3255c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
+        com.repackage.qw.c.f(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.a.e(com.baidu.bdtask.service.ubc.model.UBCRegisterTaskInfo.Companion, r3.getTaskInfo(), r3.getTaskStatus(), (java.lang.String) r4.getSecond(), 0, 8, null));
         r2 = r3;
      */
     /*
@@ -331,24 +327,24 @@ public final class a {
         SubTaskState poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 SubTaskState a2 = a();
                 SubTaskState subTaskState = null;
                 if (a2 == null || !a2.getTaskStatus().isActivated() || a2.getTaskStatus().isInterrupted()) {
-                    PriorityQueue<SubTaskState> d2 = c.a.j.f.f.a.d(5);
-                    d2.addAll(this.f24933b);
+                    PriorityQueue<SubTaskState> d2 = ks.d(5);
+                    d2.addAll(this.b);
                     while (true) {
                         if (d2.isEmpty() || (poll = d2.poll()) == null) {
                             break;
                         }
                         DebugTrace.a.c(new TaskStateQueue$peekPassiveTask$1$1(poll));
-                        Pair h2 = h(this, poll, false, 2, null);
-                        if (((Boolean) h2.getFirst()).booleanValue()) {
+                        Pair h = h(this, poll, false, 2, null);
+                        if (((Boolean) h.getFirst()).booleanValue()) {
                             break;
                         }
-                        c.a.j.k.e.a.a.f3255c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h2.getSecond(), 0));
+                        qw.c.f(UBCRegisterTaskInfo.Companion.d(poll.getTaskInfo(), poll.getTaskStatus(), (String) h.getSecond(), 0));
                         DebugTrace.a.c(TaskStateQueue$peekPassiveTask$1$3.INSTANCE);
                         poll.getTaskStatus().reset2Interrupted();
                     }
@@ -365,7 +361,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskByActionId$$inlined$withLock$lambda$1(this, str));
@@ -393,7 +389,7 @@ public final class a {
             TaskStatus taskStatus = subTaskState.getTaskStatus();
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = "";
-            if (!g.a.c(taskInfo.getTaskRule().getExpireTime())) {
+            if (!nx.a.c(taskInfo.getTaskRule().getExpireTime())) {
                 objectRef.element = "skipCache by expireTime error";
                 DebugTrace.a.c(new TaskStateQueue$restoreTaskCheck$1(objectRef, taskInfo));
                 return new Pair<>(null, (String) objectRef.element);
@@ -425,7 +421,7 @@ public final class a {
     public final void o(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, taskInfo) == null) {
-            Iterator<SubTaskState> it = this.f24933b.iterator();
+            Iterator<SubTaskState> it = this.b.iterator();
             while (it.hasNext()) {
                 if (Intrinsics.areEqual(it.next().getTaskInfo().getId(), taskInfo.getId())) {
                     it.remove();
@@ -438,7 +434,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 return m(new TaskStateQueue$findSubTaskByActTaskId$$inlined$withLock$lambda$1(this, str));
@@ -453,20 +449,20 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 JSONArray jSONArray = new JSONArray();
-                Iterator<SubTaskState> it = this.f24933b.iterator();
+                Iterator<SubTaskState> it = this.b.iterator();
                 while (it.hasNext()) {
                     SubTaskState next = it.next();
-                    if (b.f24944e.a().e(next.getTaskInfo())) {
+                    if (b.e.a().e(next.getTaskInfo())) {
                         jSONArray.put(next.toJson());
                     }
                 }
                 JSONObject jSONObject = new JSONObject();
                 if (this.a != null) {
-                    b a2 = b.f24944e.a();
+                    b a2 = b.e.a();
                     SubTaskState subTaskState = this.a;
                     if (a2.e(subTaskState != null ? subTaskState.getTaskInfo() : null)) {
                         SubTaskState subTaskState2 = this.a;
@@ -496,32 +492,32 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$1(str));
-            ReentrantLock a = f24932d.a();
+            ReentrantLock a = d.a();
             a.lock();
             try {
                 try {
                     UBCRecoveryTaskQueue uBCRecoveryTaskQueue = new UBCRecoveryTaskQueue();
-                    f fVar = new f();
+                    lv lvVar = new lv();
                     JSONObject jSONObject = new JSONObject(str);
                     a aVar = new a();
                     String initiativeTaskJsonStr = jSONObject.optString("initiativeTask");
                     if (!TextUtils.isEmpty(initiativeTaskJsonStr)) {
-                        d a2 = fVar.a(TaskState.key);
+                        jv a2 = lvVar.a(TaskState.key);
                         Intrinsics.checkExpressionValueIsNotNull(initiativeTaskJsonStr, "initiativeTaskJsonStr");
                         aVar.a = b((TaskState) a2.a(initiativeTaskJsonStr));
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("passiveTaskQueue");
                     int i = 0;
                     if (optJSONArray != null) {
-                        PriorityQueue<SubTaskState> a3 = c.a.j.f.f.a.a(5);
+                        PriorityQueue<SubTaskState> a3 = ks.a(5);
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
-                            SubTaskState b2 = b((TaskState) fVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
-                            if (b2 != null) {
-                                c.a.j.f.f.a.b(a3, b2, 5);
+                            SubTaskState b = b((TaskState) lvVar.a(TaskState.key).a(optJSONArray.get(i2).toString()));
+                            if (b != null) {
+                                ks.b(a3, b, 5);
                             }
                         }
-                        aVar.f24933b = a3;
+                        aVar.b = a3;
                     }
                     if (!aVar.s()) {
                         if (aVar.a != null) {
@@ -538,8 +534,8 @@ public final class a {
                                 i(first2);
                             }
                         }
-                        while (!aVar.f24933b.isEmpty()) {
-                            SubTaskState subTaskState = aVar.f24933b.poll();
+                        while (!aVar.b.isEmpty()) {
+                            SubTaskState subTaskState = aVar.b.poll();
                             Pair<SubTaskState, String> n2 = n(subTaskState);
                             List<UBCRecoveryTaskInfo> passive = uBCRecoveryTaskQueue.getPassive();
                             UBCRecoveryTaskInfo.a aVar3 = UBCRecoveryTaskInfo.Companion;
@@ -557,22 +553,22 @@ public final class a {
                             }
                         }
                     }
-                    c.a.j.k.e.a.a.f3255c.e(uBCRecoveryTaskQueue);
+                    qw.c.e(uBCRecoveryTaskQueue);
                     SubTaskState a4 = a();
                     if (a4 != null && a4.getTaskInfo().isPassiveTask()) {
-                        Pair<Boolean, String> g2 = g(a4, false);
-                        if (!g2.getFirst().booleanValue()) {
+                        Pair<Boolean, String> g = g(a4, false);
+                        if (!g.getFirst().booleanValue()) {
                             a4.getTaskStatus().reset2Interrupted();
                             i = 500;
                         }
-                        c.a.j.k.e.a.a.f3255c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g2.getSecond(), i));
+                        qw.c.f(UBCRegisterTaskInfo.Companion.b(a4.getTaskInfo(), a4.getTaskStatus(), g.getSecond(), i));
                     }
                     if (a4 != null && a4.getTaskInfo().isInitiActiveTask()) {
-                        c.a.j.k.e.a.a.f3255c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
+                        qw.c.f(UBCRegisterTaskInfo.a.c(UBCRegisterTaskInfo.Companion, a4.getTaskInfo(), a4.getTaskStatus(), null, 0, 12, null));
                     }
                     DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$$inlined$withLock$lambda$1(this, str));
-                } catch (Exception e2) {
-                    DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$2$4(e2));
+                } catch (Exception e) {
+                    DebugTrace.a.c(new TaskStateQueue$deserializeFromJson$2$4(e));
                 }
                 Unit unit = Unit.INSTANCE;
             } finally {
@@ -584,7 +580,7 @@ public final class a {
     public final boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a == null && this.f24933b.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a == null && this.b.isEmpty() : invokeV.booleanValue;
     }
 
     public a(a aVar) {
@@ -602,15 +598,15 @@ public final class a {
                 return;
             }
         }
-        this.f24933b = c.a.j.f.f.a.a(5);
+        this.b = ks.a(5);
         SubTaskState subTaskState = aVar.a;
         this.a = subTaskState != null ? subTaskState.deepCopy() : null;
-        PriorityQueue<SubTaskState> a = c.a.j.f.f.a.a(5);
-        a.addAll(aVar.f24933b);
+        PriorityQueue<SubTaskState> a = ks.a(5);
+        a.addAll(aVar.b);
         while (!a.isEmpty()) {
             SubTaskState poll = a.poll();
             if (poll != null) {
-                c.a.j.f.f.a.b(this.f24933b, poll.deepCopy(), 5);
+                ks.b(this.b, poll.deepCopy(), 5);
             }
         }
     }

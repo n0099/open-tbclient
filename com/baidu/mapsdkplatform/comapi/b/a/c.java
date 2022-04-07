@@ -31,22 +31,16 @@ import java.net.URLDecoder;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f26630b = "";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f26631c = "";
+    public static String b = "";
+    public static String c = "";
     public transient /* synthetic */ FieldHolder $fh;
+    public Context d;
 
-    /* renamed from: d  reason: collision with root package name */
-    public Context f26632d;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -142,14 +136,14 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x0110 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00e6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x010e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00e4 */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x014e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0130 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0139 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x014c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x012e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x011b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0137 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r5v0 */
     /* JADX WARN: Type inference failed for: r5v1 */
     /* JADX WARN: Type inference failed for: r5v2, types: [java.io.BufferedReader] */
@@ -375,7 +369,7 @@ public class c {
             sb.append("\r\n");
             sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
             sb.append("\r\n");
-            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f26631c));
+            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + c));
             sb.append("\r\n");
             sb.append("--bd_map_sdk_cc");
             sb.append("\r\n");
@@ -436,17 +430,17 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = f26630b) == null || str2.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = a) == null || str.isEmpty() || (str2 = b) == null || str2.isEmpty()) {
             return;
         }
-        String str3 = a + File.separator + f26630b;
+        String str3 = a + File.separator + b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f26632d)) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -480,9 +474,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f26631c = strArr[0];
+            c = strArr[0];
         }
-        this.f26632d = context;
+        this.d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -490,7 +484,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f26630b = n + "_" + i.i() + "_";
+        b = n + "_" + i.i() + "_";
         d();
         e();
         f();

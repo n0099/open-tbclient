@@ -17,7 +17,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpDnsCacheForHost implements INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_DATA = "data";
@@ -88,8 +88,8 @@ public class HttpDnsCacheForHost implements INetListener {
             bdNetTask.setNet(bdNet);
             bdNetTask.setUrl(z ? httpDnsCacheForHost.getUrlIpv6Only(WebKitFactory.getContext()) : httpDnsCacheForHost.getUrl(WebKitFactory.getContext()));
             bdNet.start(bdNetTask, true);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -139,8 +139,8 @@ public class HttpDnsCacheForHost implements INetListener {
             Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
             try {
                 WebSettingsGlobalBlink.setHttpDnsDnFailed(this.mExternalHost);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -206,8 +206,8 @@ public class HttpDnsCacheForHost implements INetListener {
                     return;
                 }
                 WebSettingsGlobalBlink.setHttpDnsCache(str, 3);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

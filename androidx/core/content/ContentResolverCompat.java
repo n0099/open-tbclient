@@ -39,11 +39,11 @@ public final class ContentResolverCompat {
                 if (cancellationSignal != null) {
                     try {
                         cancellationSignalObject = cancellationSignal.getCancellationSignalObject();
-                    } catch (Exception e2) {
-                        if (e2 instanceof OperationCanceledException) {
+                    } catch (Exception e) {
+                        if (e instanceof OperationCanceledException) {
                             throw new androidx.core.os.OperationCanceledException();
                         }
-                        throw e2;
+                        throw e;
                     }
                 } else {
                     cancellationSignalObject = null;

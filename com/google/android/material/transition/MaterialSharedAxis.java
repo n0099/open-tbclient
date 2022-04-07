@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 0;
@@ -27,7 +27,7 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface Axis {
     }
 
@@ -102,13 +102,13 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
-    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        return super.onAppear(viewGroup, view, transitionValues, transitionValues2);
+    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        return super.onAppear(viewGroup, view2, transitionValues, transitionValues2);
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
-    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        return super.onDisappear(viewGroup, view, transitionValues, transitionValues2);
+    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        return super.onDisappear(viewGroup, view2, transitionValues, transitionValues2);
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility

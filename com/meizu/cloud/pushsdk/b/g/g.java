@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class g {
     public static final Logger a = Logger.getLogger(g.class.getName());
 
@@ -36,18 +36,18 @@ public final class g {
                 return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
                     @Override // com.meizu.cloud.pushsdk.b.g.l
                     public void a(b bVar, long j) throws IOException {
-                        o.a(bVar.f42003b, 0L, j);
+                        o.a(bVar.b, 0L, j);
                         while (j > 0) {
                             n.this.a();
                             j jVar = bVar.a;
-                            int min = (int) Math.min(j, jVar.f42015c - jVar.f42014b);
-                            outputStream.write(jVar.a, jVar.f42014b, min);
-                            int i = jVar.f42014b + min;
-                            jVar.f42014b = i;
+                            int min = (int) Math.min(j, jVar.c - jVar.b);
+                            outputStream.write(jVar.a, jVar.b, min);
+                            int i = jVar.b + min;
+                            jVar.b = i;
                             long j2 = min;
                             j -= j2;
-                            bVar.f42003b -= j2;
-                            if (i == jVar.f42015c) {
+                            bVar.b -= j2;
+                            if (i == jVar.c) {
                                 bVar.a = jVar.a();
                                 k.a(jVar);
                             }
@@ -98,14 +98,14 @@ public final class g {
                             return 0L;
                         } else {
                             n.this.a();
-                            j c2 = bVar.c(1);
-                            int read = inputStream.read(c2.a, c2.f42015c, (int) Math.min(j, 2048 - c2.f42015c));
+                            j c = bVar.c(1);
+                            int read = inputStream.read(c.a, c.c, (int) Math.min(j, 2048 - c.c));
                             if (read == -1) {
                                 return -1L;
                             }
-                            c2.f42015c += read;
+                            c.c += read;
                             long j2 = read;
-                            bVar.f42003b += j2;
+                            bVar.b += j2;
                             return j2;
                         }
                     }

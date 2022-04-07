@@ -12,8 +12,6 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.o0.r.l0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -25,29 +23,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.nv4;
+import com.repackage.v75;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
+/* loaded from: classes3.dex */
+public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public HeadPendantView b;
+    public View c;
+    public View d;
+    public boolean e;
+    public Animation.AnimationListener f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HeadPendantView f35505b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f35506c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f35507d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f35508e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Animation.AnimationListener f35509f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,23 +103,23 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
                 return;
             }
         }
-        this.f35509f = new a(this);
+        this.f = new a(this);
         f(context);
     }
 
-    @Override // c.a.o0.r.l0.t.b
-    public void a(View view) {
+    @Override // com.repackage.nv4
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
-            if (this.f35508e) {
+            if (this.e) {
                 return;
             }
             Context context = getContext();
-            if ((context instanceof Activity) && (context instanceof c.a.o0.p0.a)) {
+            if ((context instanceof Activity) && (context instanceof v75)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                List<String> currentPageSourceKeyList = ((c.a.o0.p0.a) context).getCurrentPageSourceKeyList();
-                if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || m.isEmpty(stringExtra)) {
+                List<String> currentPageSourceKeyList = ((v75) context).getCurrentPageSourceKeyList();
+                if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || ni.isEmpty(stringExtra)) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
@@ -136,7 +127,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -144,7 +135,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -152,14 +143,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -170,65 +161,65 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089a, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090d21);
-            this.f35505b = headPendantView;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0890, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090d29);
+            this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09041c);
-            this.f35506c = findViewById(R.id.obfuscated_res_0x7f0923ad);
-            this.f35507d = findViewById(R.id.obfuscated_res_0x7f091aab);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090425);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09238a);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091a9b);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f35505b.clearAnimation();
+            this.b.clearAnimation();
             this.a.clearAnimation();
-            this.f35506c.clearAnimation();
-            this.f35507d.clearAnimation();
+            this.c.clearAnimation();
+            this.d.clearAnimation();
             this.a.setVisibility(8);
-            this.f35506c.setVisibility(8);
-            this.f35507d.setVisibility(8);
+            this.c.setVisibility(8);
+            this.d.setVisibility(8);
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f35508e = z;
-            if (getWidth() == 0 || this.f35505b.getWidth() == 0) {
+            this.e = z;
+            if (getWidth() == 0 || this.b.getWidth() == 0) {
                 return;
             }
             if (z) {
-                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.f35505b.getWidth() / 2), 0.0f, 0.0f);
+                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.b.getWidth() / 2), 0.0f, 0.0f);
                 translateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation.setDuration(300L);
                 translateAnimation.setFillAfter(true);
-                translateAnimation.setAnimationListener(this.f35509f);
+                translateAnimation.setAnimationListener(this.f);
                 translateAnimation.setStartOffset(150L);
-                this.f35505b.startAnimation(translateAnimation);
-                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.f35505b.getWidth() / 2)), 0.0f, 0.0f);
+                this.b.startAnimation(translateAnimation);
+                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.b.getWidth() / 2)), 0.0f, 0.0f);
                 translateAnimation2.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation2.setDuration(300L);
                 translateAnimation2.setFillAfter(true);
                 translateAnimation2.setStartOffset(150L);
-                this.f35507d.startAnimation(translateAnimation2);
+                this.d.startAnimation(translateAnimation2);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setDuration(150L);
                 alphaAnimation.setFillAfter(true);
                 this.a.startAnimation(alphaAnimation);
-                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.f35505b.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.b.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
                 scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 scaleAnimation.setDuration(300L);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setStartOffset(150L);
-                this.f35506c.startAnimation(scaleAnimation);
+                this.c.startAnimation(scaleAnimation);
                 setClickable(false);
                 return;
             }
             this.a.setVisibility(0);
-            this.f35506c.setVisibility(0);
+            this.c.setVisibility(0);
             setClickable(true);
         }
     }
@@ -252,7 +243,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
                 return;
             }
         }
-        this.f35509f = new a(this);
+        this.f = new a(this);
         f(context);
     }
 
@@ -275,7 +266,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements b {
                 return;
             }
         }
-        this.f35509f = new a(this);
+        this.f = new a(this);
         f(context);
     }
 }

@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ExoPlaybackException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_RENDERER = 1;
@@ -21,7 +21,7 @@ public final class ExoPlaybackException extends Exception {
     public final int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface Type {
     }
 

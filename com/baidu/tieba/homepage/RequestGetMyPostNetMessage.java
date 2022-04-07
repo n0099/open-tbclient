@@ -1,6 +1,5 @@
 package com.baidu.tieba.homepage;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
             builder.q_type = Integer.valueOf(this.mQType);
             builder.bfrom = this.bFrom;
             builder.call_from = Integer.valueOf(this.callFrom);
-            b0.a(builder, true);
+            rc5.a(builder, true);
             GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -96,15 +96,15 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         }
     }
 
-    public void setParams(long j, long j2, long j3, int i, int i2, double d2, int i3) {
+    public void setParams(long j, long j2, long j3, int i, int i2, double d, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)}) == null) {
             this.mPostId = j2;
             this.mThreadId = j;
             this.mForumId = j3;
             this.mScrW = i;
             this.mScrH = i2;
-            this.mScrDip = d2;
+            this.mScrDip = d;
             this.mQType = i3;
         }
     }

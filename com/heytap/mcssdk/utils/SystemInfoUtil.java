@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SystemInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODEL_NULL = "0";
@@ -45,79 +45,79 @@ public class SystemInfoUtil {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String getCarrierName(Context context) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             String lowerCase = getOperator(context).toLowerCase();
             switch (lowerCase.hashCode()) {
                 case -42227884:
                     if (lowerCase.equals("china net")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 278980793:
                     if (lowerCase.equals("chinamobile")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 394699659:
                     if (lowerCase.equals("china mobile")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 507293352:
                     if (lowerCase.equals("chinaunicom")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 618558396:
                     if (lowerCase.equals("中国电信")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 618596989:
                     if (lowerCase.equals("中国移动")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 618663094:
                     if (lowerCase.equals("中国联通")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 623012218:
                     if (lowerCase.equals("china unicom")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1661280486:
                     if (lowerCase.equals("chinanet")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                 case 1:
                 case 2:
@@ -157,8 +157,8 @@ public class SystemInfoUtil {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 return telephonyManager != null ? telephonyManager.getNetworkOperatorName() : "";
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return "";
             }
         }

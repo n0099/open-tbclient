@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,8 +156,8 @@ public class c implements l {
                                     outputStream.flush();
                                     r2 = outputStream;
                                 }
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (IOException e) {
+                                e = e;
                                 if (this.qL != null) {
                                     this.qL.disconnect();
                                 }
@@ -192,8 +192,8 @@ public class c implements l {
                     }
                     throw th;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
             } catch (Throwable th2) {
                 th = th2;
                 if (0 != 0) {
@@ -228,16 +228,16 @@ public class c implements l {
                         httpURLConnection.disconnect();
                     }
                 }
-            } catch (HttpException e2) {
-                httpException = e2;
+            } catch (HttpException e) {
+                httpException = e;
             }
             try {
                 try {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (HttpException e3) {
-                httpException = e3;
+            } catch (HttpException e2) {
+                httpException = e2;
                 z2 = true;
                 z = false;
                 if (!z2) {
@@ -250,8 +250,8 @@ public class c implements l {
                     if (!z3 && this.qF != null) {
                         try {
                             this.qF.a(eJ);
-                        } catch (HttpException e4) {
-                            httpException = e4;
+                        } catch (HttpException e3) {
+                            httpException = e3;
                             z2 = z3;
                             z = true;
                             if (!z2 && !z && this.qF != null) {

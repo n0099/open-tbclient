@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaAttentionData implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_IN_LIVE = "1";
@@ -154,8 +154,8 @@ public class AlaAttentionData implements Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return (AlaAttentionData) super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return null;
             }
         }

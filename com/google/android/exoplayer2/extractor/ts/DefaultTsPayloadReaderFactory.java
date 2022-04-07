@@ -18,7 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Factory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DESCRIPTOR_TAG_CAPTION_SERVICE = 134;
@@ -33,7 +33,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     public final int flags;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface Flags {
     }
 

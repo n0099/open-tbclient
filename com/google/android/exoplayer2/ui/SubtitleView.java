@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SubtitleView extends View implements TextOutput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSOLUTE = 2;
@@ -74,21 +74,21 @@ public final class SubtitleView extends View implements TextOutput {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? CaptionStyleCompat.createFromCaptionStyle(((CaptioningManager) getContext().getSystemService("captioning")).getUserStyle()) : (CaptionStyleCompat) invokeV.objValue;
     }
 
-    private void setTextSize(int i, float f2) {
+    private void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            if (this.textSizeType == i && this.textSize == f2) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            if (this.textSizeType == i && this.textSize == f) {
                 return;
             }
             this.textSizeType = i;
-            this.textSize = f2;
+            this.textSize = f;
             invalidate();
         }
     }
 
     @Override // android.view.View
     public void dispatchDraw(Canvas canvas) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             List<Cue> list = this.cues;
@@ -105,17 +105,17 @@ public final class SubtitleView extends View implements TextOutput {
             }
             int i2 = this.textSizeType;
             if (i2 == 2) {
-                f2 = this.textSize;
+                f = this.textSize;
             } else {
-                f2 = (i2 == 0 ? paddingBottom - paddingTop : bottom - top) * this.textSize;
+                f = (i2 == 0 ? paddingBottom - paddingTop : bottom - top) * this.textSize;
             }
-            if (f2 <= 0.0f) {
+            if (f <= 0.0f) {
                 return;
             }
             while (i < size) {
                 int i3 = paddingBottom;
                 int i4 = right;
-                this.painters.get(i).draw(this.cues.get(i), this.applyEmbeddedStyles, this.applyEmbeddedFontSizes, this.style, f2, this.bottomPaddingFraction, canvas, left, paddingTop, i4, i3);
+                this.painters.get(i).draw(this.cues.get(i), this.applyEmbeddedStyles, this.applyEmbeddedFontSizes, this.style, f, this.bottomPaddingFraction, canvas, left, paddingTop, i4, i3);
                 i++;
                 paddingBottom = i3;
                 right = i4;
@@ -152,12 +152,12 @@ public final class SubtitleView extends View implements TextOutput {
         }
     }
 
-    public void setBottomPaddingFraction(float f2) {
+    public void setBottomPaddingFraction(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || this.bottomPaddingFraction == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f) == null) || this.bottomPaddingFraction == f) {
             return;
         }
-        this.bottomPaddingFraction = f2;
+        this.bottomPaddingFraction = f;
         invalidate();
     }
 
@@ -174,24 +174,24 @@ public final class SubtitleView extends View implements TextOutput {
         invalidate();
     }
 
-    public void setFixedTextSize(int i, float f2) {
+    public void setFixedTextSize(int i, float f) {
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             Context context = getContext();
             if (context == null) {
                 resources = Resources.getSystem();
             } else {
                 resources = context.getResources();
             }
-            setTextSize(2, TypedValue.applyDimension(i, f2, resources.getDisplayMetrics()));
+            setTextSize(2, TypedValue.applyDimension(i, f, resources.getDisplayMetrics()));
         }
     }
 
-    public void setFractionalTextSize(float f2) {
+    public void setFractionalTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            setFractionalTextSize(f2, false);
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            setFractionalTextSize(f, false);
         }
     }
 
@@ -246,10 +246,10 @@ public final class SubtitleView extends View implements TextOutput {
         this.bottomPaddingFraction = 0.08f;
     }
 
-    public void setFractionalTextSize(float f2, boolean z) {
+    public void setFractionalTextSize(float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
-            setTextSize(z ? 1 : 0, f2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+            setTextSize(z ? 1 : 0, f);
         }
     }
 }

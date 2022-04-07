@@ -7,9 +7,6 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.b;
-import c.a.d.a.h;
-import c.a.d.j.i.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,13 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d9;
+import com.repackage.x8;
 import java.util.Calendar;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
-    public static BdBaseApplication instance;
     public static BdBaseApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public long lastGcTime;
@@ -82,13 +80,6 @@ public class BdBaseApplication extends Application {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sApp : (BdBaseApplication) invokeV.objValue;
     }
 
-    private void initPlugin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            a.d().e();
-        }
-    }
-
     @Override // android.content.ContextWrapper
     public void attachBaseContext(Context context) {
         Interceptable interceptable = $ic;
@@ -136,31 +127,25 @@ public class BdBaseApplication extends Application {
             try {
                 this.mIsNewUser = checkInterrupt(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).firstInstallTime);
                 this.mHasCheckedNewUserStatus = true;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
             return this.mIsNewUser;
         }
         return invokeV.booleanValue;
     }
 
-    public int getActivityStackMaxSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.g().d() : invokeV.intValue;
-    }
-
     public Application getApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (Application) this.mContext.getApplicationContext() : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (Application) this.mContext.getApplicationContext() : (Application) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             AssetManager assets = getResources().getAssets();
             return assets != null ? assets : super.getAssets();
         }
@@ -170,60 +155,48 @@ public class BdBaseApplication extends Application {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public boolean getIsPluginResourcOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsPluginResourceOpen : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsPluginResourceOpen : invokeV.booleanValue;
     }
 
     public ConcurrentHashMap<String, String> getResHashMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mResHashMap : (ConcurrentHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResHashMap : (ConcurrentHashMap) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Resources resources = h.a().getResources();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            Resources resources = d9.a().getResources();
             return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
         }
         return (Resources) invokeV.objValue;
     }
 
-    public long getSmallFlowInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mSmallFlowInterval : invokeV.longValue;
-    }
-
-    public long getStartSmallFlowTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mStartSmallFlowTime : invokeV.longValue;
-    }
-
     public void handleInitMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
         }
     }
 
     public boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
     }
 
     public boolean isSmallFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
                 return this.mIsSmallFlow;
             }
@@ -234,8 +207,8 @@ public class BdBaseApplication extends Application {
 
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b.g().q();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            x8.f().p();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -247,42 +220,28 @@ public class BdBaseApplication extends Application {
     @Override // android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onCreate();
-        }
-    }
-
-    public void setDebugMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.mIsDebugMode = z;
-        }
-    }
-
-    public void setIsPluginResourceOpen(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mIsPluginResourceOpen = true;
         }
     }
 
     public void setIsSmallFlow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mIsSmallFlow = z;
         }
     }
 
     public void setSmallFlowInterval(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.mSmallFlowInterval = j;
         }
     }
 
     public void setStartSmallFlowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
             this.mStartSmallFlowTime = j;
         }
     }

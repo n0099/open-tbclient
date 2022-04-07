@@ -15,19 +15,13 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class i1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "AES/CBC/PKCS5Padding";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f38834b = "AES";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f38835c = "AES/CBC/PKCS7Padding";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f38836d = "AES/CBC/NoPadding";
+    public static final String b = "AES";
+    public static final String c = "AES/CBC/PKCS7Padding";
+    public static final String d = "AES/CBC/NoPadding";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i1() {
@@ -374,22 +368,22 @@ public final class i1 {
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 if (cipherInputStream2 != null) {
                     try {
                         cipherInputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th2;
@@ -405,8 +399,8 @@ public final class i1 {
             }
             cipher2.init(2, secretKeySpec2, new IvParameterSpec(bArr32));
             cipherInputStream = new CipherInputStream(fileInputStream, cipher2);
-        } catch (Exception e5) {
-            e5.printStackTrace();
+        } catch (Exception e4) {
+            e4.printStackTrace();
             return -1;
         }
     }
@@ -602,22 +596,22 @@ public final class i1 {
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 if (cipherInputStream2 != null) {
                     try {
                         cipherInputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th2;
@@ -633,8 +627,8 @@ public final class i1 {
             }
             cipher2.init(1, secretKeySpec2, new IvParameterSpec(bArr32));
             cipherInputStream = new CipherInputStream(fileInputStream, cipher2);
-        } catch (Exception e5) {
-            e5.printStackTrace();
+        } catch (Exception e4) {
+            e4.printStackTrace();
             return false;
         }
     }

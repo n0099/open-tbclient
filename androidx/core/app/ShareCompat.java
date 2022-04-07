@@ -504,8 +504,8 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve icon for calling activity", e2);
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.e(TAG, "Could not retrieve icon for calling activity", e);
                     return null;
                 }
             }
@@ -522,8 +522,8 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve icon for calling application", e2);
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.e(TAG, "Could not retrieve icon for calling application", e);
                     return null;
                 }
             }
@@ -541,8 +541,8 @@ public final class ShareCompat {
                 PackageManager packageManager = this.mContext.getPackageManager();
                 try {
                     return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve label for calling application", e2);
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.e(TAG, "Could not retrieve label for calling application", e);
                     return null;
                 }
             }

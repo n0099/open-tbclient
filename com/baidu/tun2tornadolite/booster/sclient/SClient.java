@@ -25,6 +25,7 @@ import com.baidu.tun2tornadolite.booster.tun.Tun;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.gson.Gson;
+import com.repackage.a;
 import java.io.OutputStream;
 import java.net.DatagramSocket;
 import java.net.Socket;
@@ -56,7 +57,7 @@ import kotlinx.coroutines.Deferred;
 import kotlinx.coroutines.Dispatchers;
 import kotlinx.coroutines.TimeoutKt;
 @Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\bÀ\u0002\u0018\u00002\u00020\u0001:\u0001FB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J!\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J!\u0010-\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J\u000e\u0010.\u001a\u00020\u000e2\u0006\u0010\b\u001a\u00020\tJ\u0011\u0010/\u001a\u00020\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0013\u00101\u001a\u0004\u0018\u00010\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\b\u00102\u001a\u00020\u000eH\u0002J\u0019\u00103\u001a\u00020\u00152\u0006\u00104\u001a\u000205H\u0086@ø\u0001\u0000¢\u0006\u0002\u00106J\u0018\u00107\u001a\u00020\u000e2\u0006\u00108\u001a\u00020+2\u0006\u00109\u001a\u00020:H\u0002J!\u0010;\u001a\u00020(2\u0006\u00104\u001a\u0002052\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010<J\u0011\u0010=\u001a\u00020\u0015H\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0011\u0010>\u001a\u00020\u0015H\u0086@ø\u0001\u0000¢\u0006\u0002\u00100J\u0006\u0010?\u001a\u00020\u000eJ;\u0010@\u001a\u0002HA\"\u0004\b\u0000\u0010A2\u0006\u0010*\u001a\u00020+2\u001a\b\u0004\u0010B\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u0002HA0C\u0012\u0004\u0012\u00020\u000e0\u001aH\u0082Hø\u0001\u0000¢\u0006\u0002\u0010DJ\u000e\u0010E\u001a\u00020\u000e2\u0006\u00109\u001a\u00020:R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0010\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u0010\"\u0004\b \u0010\u0012R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006G"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient;", "", "()V", "PACKET_SIZE", "", "UDP_PROD_PORT", "address", "", "ai", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "bodyBuffer", "Ljava/nio/ByteBuffer;", "handleLoop", "Lkotlinx/coroutines/Deferred;", "", "getHandleLoop", "()Lkotlinx/coroutines/Deferred;", "setHandleLoop", "(Lkotlinx/coroutines/Deferred;)V", "headerBuffer", "inited", "", "json", "Lcom/google/gson/Gson;", "looping", "onHandShakeSuccess", "Lkotlin/Function1;", "output", "Ljava/io/OutputStream;", DpStatConstants.KEY_PREPARED, "probeLoop", "getProbeLoop", "setProbeLoop", "socket", "Ljava/net/Socket;", "udpSocket", "Ljava/net/DatagramSocket;", "writeLock", "Ljava/util/concurrent/locks/ReentrantLock;", "connectSClient", "Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "sClient", "timeout", "", "(Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getConnectSClientTime", "init", "loop", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "loopProbe", "openWriteChannel", "prepare", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "processPacket", "i", "packet", "Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "selectSClient", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "sendHandShake", "start", IntentConfig.STOP, "suspendCoroutineWithTimeout", "T", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/coroutines/Continuation;", "(JLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", AlbumActivityConfig.FROM_WRITE, "ConnectResult", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SClient INSTANCE;
@@ -80,7 +81,7 @@ public final class SClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\t\u0010\u0013\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0014\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0007HÆ\u0003J\t\u0010\u0016\u001a\u00020\tHÆ\u0003J3\u0010\u0017\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\tHÆ\u0001J\u0013\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001b\u001a\u00020\u0007HÖ\u0001J\t\u0010\u001c\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012¨\u0006\u001d"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "", "address", "", "socket", "Ljava/net/Socket;", "status", "", "connectTime", "", "(Ljava/lang/String;Ljava/net/Socket;IJ)V", "getAddress", "()Ljava/lang/String;", "getConnectTime", "()J", "getSocket", "()Ljava/net/Socket;", "getStatus", "()I", "component1", "component2", "component3", "component4", "copy", "equals", "", "other", TTDownloadField.TT_HASHCODE, "toString", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ConnectResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,8 +299,8 @@ public final class SClient {
                             createSocket = SSLSocketFactory.getDefault().createSocket();
                             sClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1 = new SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1(null, createSocket, (String) split$default.get(0), parseInt);
                             str2 = str;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             str2 = str;
                         }
                         try {
@@ -313,8 +314,8 @@ public final class SClient {
                             str3 = str2;
                             j2 = currentTimeMillis;
                             socket2 = createSocket;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             e.printStackTrace();
                             return new ConnectResult(str2, null, 1, 0L);
                         }
@@ -327,8 +328,8 @@ public final class SClient {
                         try {
                             ResultKt.throwOnFailure(obj);
                             socket2 = socket3;
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             str2 = str3;
                             e.printStackTrace();
                             return new ConnectResult(str2, null, 1, 0L);
@@ -439,13 +440,13 @@ public final class SClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65564, this, j, sClientPacket) == null) {
             LogTo logTo = LogTo.INSTANCE;
-            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m831toStringimpl(sClientPacket.m85getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m91cmd2StrWZ4Q5Ns(sClientPacket.m86getCommandpVg5ArA()));
-            int m86getCommandpVg5ArA = sClientPacket.m86getCommandpVg5ArA();
-            if (m86getCommandpVg5ArA == 0) {
+            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m827toStringimpl(sClientPacket.m81getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m87cmd2StrWZ4Q5Ns(sClientPacket.m82getCommandpVg5ArA()));
+            int m82getCommandpVg5ArA = sClientPacket.m82getCommandpVg5ArA();
+            if (m82getCommandpVg5ArA == 0) {
                 byte[] array = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array, "packet.getBody().array()");
-                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m85getBodyLengthpVg5ArA() - 1));
-                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m85getBodyLengthpVg5ArA());
+                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m81getBodyLengthpVg5ArA() - 1));
+                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m81getBodyLengthpVg5ArA());
                 Charset defaultCharset = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset, "defaultCharset()");
                 String str = new String(sliceArray, defaultCharset);
@@ -470,13 +471,13 @@ public final class SClient {
                     return;
                 }
                 function12.invoke(Boolean.FALSE);
-            } else if (m86getCommandpVg5ArA == 1) {
+            } else if (m82getCommandpVg5ArA == 1) {
                 LogTo logTo3 = LogTo.INSTANCE;
-                logTo3.d("*****", "[CMD_IP_PACKET " + j + "] len: " + sClientPacket.m85getBodyLengthpVg5ArA());
-                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m85getBodyLengthpVg5ArA());
-            } else if (m86getCommandpVg5ArA == 2) {
-                byte[] bArr = new byte[sClientPacket.m85getBodyLengthpVg5ArA()];
-                sClientPacket.getBody().get(bArr, 0, sClientPacket.m85getBodyLengthpVg5ArA());
+                logTo3.d("*****", "[CMD_IP_PACKET " + j + "] len: " + sClientPacket.m81getBodyLengthpVg5ArA());
+                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m81getBodyLengthpVg5ArA());
+            } else if (m82getCommandpVg5ArA == 2) {
+                byte[] bArr = new byte[sClientPacket.m81getBodyLengthpVg5ArA()];
+                sClientPacket.getBody().get(bArr, 0, sClientPacket.m81getBodyLengthpVg5ArA());
                 Charset defaultCharset2 = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset2, "defaultCharset()");
                 String str2 = new String(bArr, defaultCharset2);
@@ -489,15 +490,15 @@ public final class SClient {
                     TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(61L, sClientEvent.getData().getMessage_cn());
                     looping = false;
                 }
-            } else if (m86getCommandpVg5ArA != 3) {
+            } else if (m82getCommandpVg5ArA != 3) {
             } else {
                 byte[] array2 = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array2, "packet.getBody().array()");
-                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m85getBodyLengthpVg5ArA() - 1));
-                int m786constructorimpl = UInt.m786constructorimpl(UInt.m786constructorimpl(UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[1]) & 255));
-                int m786constructorimpl2 = UInt.m786constructorimpl(UInt.m786constructorimpl(UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[3]) & 255));
-                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m786constructorimpl);
-                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m786constructorimpl2);
+                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m81getBodyLengthpVg5ArA() - 1));
+                int m782constructorimpl = UInt.m782constructorimpl(UInt.m782constructorimpl(UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[1]) & 255));
+                int m782constructorimpl2 = UInt.m782constructorimpl(UInt.m782constructorimpl(UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[3]) & 255));
+                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m782constructorimpl);
+                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m782constructorimpl2);
                 int latencyFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient();
                 int lossRateFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient();
                 if (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() >= 100) {
@@ -515,9 +516,9 @@ public final class SClient {
                 sb.append("[CMD_HEART_BEAT ");
                 sb.append(j);
                 sb.append("] remote_latency:");
-                sb.append((Object) UInt.m831toStringimpl(m786constructorimpl));
+                sb.append((Object) UInt.m827toStringimpl(m782constructorimpl));
                 sb.append(" remote_lossRate:");
-                sb.append((Object) UInt.m831toStringimpl(m786constructorimpl2));
+                sb.append((Object) UInt.m827toStringimpl(m782constructorimpl2));
                 sb.append(" local_latency:");
                 int i2 = i;
                 sb.append(i2);
@@ -612,7 +613,7 @@ public final class SClient {
                         byte[] bytes = str.getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         bodyBuffer.put(bytes);
-                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m786constructorimpl(bytes.length), null);
+                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m782constructorimpl(bytes.length), null);
                         sClientPacket.encodeHeader2Buffer(headerBuffer);
                         sClientPacket.writeBodyBuffer(bodyBuffer);
                         write(sClientPacket);
@@ -898,7 +899,7 @@ public final class SClient {
                     outputStream.write(packet.getHeader().array(), 0, 4);
                     OutputStream outputStream2 = output;
                     Intrinsics.checkNotNull(outputStream2);
-                    outputStream2.write(packet.getBody().array(), 0, packet.m85getBodyLengthpVg5ArA());
+                    outputStream2.write(packet.getBody().array(), 0, packet.m81getBodyLengthpVg5ArA());
                     Unit unit = Unit.INSTANCE;
                     reentrantLock.unlock();
                 }

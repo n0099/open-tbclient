@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDFaceGazeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,12 +14,12 @@ public class BDFaceGazeInfo {
     public float rightEyeConf;
     public BDFaceSDKCommon.BDFaceGazeDirection rightEyeGaze;
 
-    public BDFaceGazeInfo(int i, float f2, int i2, float f3) {
+    public BDFaceGazeInfo(int i, float f, int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -30,8 +30,8 @@ public class BDFaceGazeInfo {
             }
         }
         this.leftEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i];
-        this.leftEyeConf = f2;
+        this.leftEyeConf = f;
         this.rightEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i2];
-        this.rightEyeConf = f3;
+        this.rightEyeConf = f2;
     }
 }

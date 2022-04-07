@@ -244,8 +244,8 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
                 SSLContext sSLContext = Platform.get().getSSLContext();
                 sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
                 return sSLContext.getSocketFactory();
-            } catch (GeneralSecurityException e2) {
-                throw Util.assertionError("No System TLS", e2);
+            } catch (GeneralSecurityException e) {
+                throw Util.assertionError("No System TLS", e);
             }
         }
         return (SSLSocketFactory) invokeL.objValue;

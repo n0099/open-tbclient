@@ -34,7 +34,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SapiContext implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -100,7 +100,7 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f28041c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -243,8 +243,8 @@ public final class SapiContext implements NoProguard {
             if (TextUtils.isEmpty(encryptKey)) {
                 try {
                     encryptKey = SecurityUtil.md5((this.context.getPackageName() + SapiUtils.getPackageSign(this.context, this.context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
-                } catch (UnsupportedEncodingException e2) {
-                    Log.e(e2);
+                } catch (UnsupportedEncodingException e) {
+                    Log.e(e);
                 }
             }
             return encryptKey;
@@ -332,8 +332,8 @@ public final class SapiContext implements NoProguard {
             if (!TextUtils.isEmpty(decryptAccountInfo)) {
                 try {
                     jSONObject = new JSONObject(decryptAccountInfo);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             return jSONObject.optString(str);
@@ -655,8 +655,8 @@ public final class SapiContext implements NoProguard {
                 }
                 jSONObject.put("list", optJSONArray);
                 return jSONObject;
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return new JSONObject();
             }
         }
@@ -986,8 +986,8 @@ public final class SapiContext implements NoProguard {
                     jSONObject = new JSONObject(decryptAccountInfo);
                 }
                 jSONObject.put(str2, str);
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
             }
             put(KEY_CONTACTS_UID_VERSION, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), getAccountEncryptKey()));
         }

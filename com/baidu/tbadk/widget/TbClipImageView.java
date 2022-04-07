@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class TbClipImageView extends TbImageView {
         }
     }
 
-    public final void P(Context context, AttributeSet attributeSet, int i) {
+    public final void Q(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class TbClipImageView extends TbImageView {
             }
         }
         this.v0 = false;
-        P(context, attributeSet, i);
+        Q(context, attributeSet, i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

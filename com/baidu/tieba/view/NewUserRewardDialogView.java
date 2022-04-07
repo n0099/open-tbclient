@@ -8,8 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.m.i;
-import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,34 +22,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.ln;
+import com.repackage.ur4;
+import com.repackage.wr4;
+/* loaded from: classes4.dex */
 public class NewUserRewardDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlphaVideo a;
+    public RoundRelativeLayout b;
+    public TextView c;
+    public TextView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public final CustomMessageListener h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public RoundRelativeLayout f36912b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f36913c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f36914d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f36915e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36916f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f36917g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f36918h;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,37 +100,37 @@ public class NewUserRewardDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0611, this);
-            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f091560);
-            this.f36912b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091565);
-            this.f36913c = (TextView) findViewById(R.id.obfuscated_res_0x7f091566);
-            this.f36914d = (TextView) findViewById(R.id.obfuscated_res_0x7f091562);
-            this.f36915e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091561);
-            this.f36916f = (TextView) findViewById(R.id.obfuscated_res_0x7f091563);
-            this.f36917g = (TextView) findViewById(R.id.obfuscated_res_0x7f091564);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060f, this);
+            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f09155b);
+            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091560);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091561);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09155d);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09155c);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09155e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09155f);
             this.a.setKeepLastFrame(true);
-            MessageManager.getInstance().registerListener(this.f36918h);
-            this.f36912b.setRoundLayoutRadius(c.a.o0.r.v.a.y(R.string.J_X06));
+            MessageManager.getInstance().registerListener(this.h);
+            this.b.setRoundLayoutRadius(ur4.y(R.string.J_X06));
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.f36912b, R.color.CAM_X0211);
-            SkinManager.setViewTextColor(this.f36913c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f36914d, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f36915e, R.drawable.icon_use_close_n);
-            c d2 = c.d(this.f36916f);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0211);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+            SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
+            wr4 d = wr4.d(this.f);
+            d.l(R.dimen.L_X01);
+            d.k(R.color.CAM_X0902);
+            d.n(R.string.J_X01);
+            d.v(R.color.CAM_X0105);
+            wr4 d2 = wr4.d(this.g);
             d2.l(R.dimen.L_X01);
-            d2.k(R.color.CAM_X0902);
+            d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);
-            d2.v(R.color.CAM_X0105);
-            c d3 = c.d(this.f36917g);
-            d3.l(R.dimen.L_X01);
-            d3.k(R.color.CAM_X0304);
-            d3.n(R.string.J_X01);
-            d3.v(R.color.CAM_X0304);
+            d2.v(R.color.CAM_X0304);
         }
     }
 
@@ -151,26 +138,26 @@ public class NewUserRewardDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.destroy();
-            MessageManager.getInstance().unRegisterListener(this.f36918h);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 
     public View getNewUserDialogShareView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36917g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (View) invokeV.objValue;
     }
 
     public View getNewsUserDialogLookView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36916f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f36915e.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
         }
     }
 
@@ -179,17 +166,17 @@ public class NewUserRewardDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, iconStampData) == null) || iconStampData == null) {
             return;
         }
-        this.f36913c.setText(iconStampData.stampTitle);
-        this.f36914d.setText(iconStampData.stampText);
+        this.c.setText(iconStampData.stampTitle);
+        this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(i.b("post_1_times.mp4"));
+            this.a.setSourcePath(ln.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(i.b("reply_1_times.mp4"));
+            this.a.setSourcePath(ln.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(i.b("post_7_times.mp4"));
+            this.a.setSourcePath(ln.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(i.b("reply_7_times.mp4"));
+            this.a.setSourcePath(ln.b("reply_7_times.mp4"));
         }
         this.a.play();
     }
@@ -234,7 +221,7 @@ public class NewUserRewardDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f36918h = new a(this, 2001011);
+        this.h = new a(this, 2001011);
         b(context);
         c();
     }

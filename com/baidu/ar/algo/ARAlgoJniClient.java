@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARAlgoJniClient {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ARAlgoJniClient arAlgoJniClient;
@@ -49,7 +49,7 @@ public class ARAlgoJniClient {
         this.trackSystemHandler = 0L;
     }
 
-    public static native int calModelPosition(float[] fArr, float f2, float[] fArr2, float[] fArr3);
+    public static native int calModelPosition(float[] fArr, float f, float[] fArr2, float[] fArr3);
 
     public static ARAlgoJniClient getAlgoInstance() {
         InterceptResult invokeV;
@@ -93,7 +93,7 @@ public class ARAlgoJniClient {
 
     private native long nativeInitTrackerSystem();
 
-    private native int nativeInsertModel(long j, int i, int i2, int i3, String str, float f2, float[] fArr);
+    private native int nativeInsertModel(long j, int i, int i2, int i3, String str, float f, float[] fArr);
 
     private native int nativeRelease(long j);
 
@@ -109,9 +109,9 @@ public class ARAlgoJniClient {
 
     private native int nativeResetTracker(long j, int i);
 
-    private native int nativeTrackFrame(long j, byte[] bArr, double d2, float[] fArr, FrameType frameType);
+    private native int nativeTrackFrame(long j, byte[] bArr, double d, float[] fArr, FrameType frameType);
 
-    private native int nativeTrackFrameByteBuffer(long j, ByteBuffer byteBuffer, double d2, float[] fArr, FrameType frameType);
+    private native int nativeTrackFrameByteBuffer(long j, ByteBuffer byteBuffer, double d, float[] fArr, FrameType frameType);
 
     private native int nativeVpsServerReceiver(long j, int i, byte[] bArr);
 
@@ -217,15 +217,15 @@ public class ARAlgoJniClient {
         return invokeIL.intValue;
     }
 
-    public int insertModel(int i, int i2, int i3, String str, float f2, float[] fArr) {
+    public int insertModel(int i, int i2, int i3, String str, float f, float[] fArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Float.valueOf(f2), fArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Float.valueOf(f), fArr})) == null) {
             long j = this.trackSystemHandler;
             if (j == 0) {
                 return -2;
             }
-            return nativeInsertModel(j, i, i2, i3, str, f2, fArr);
+            return nativeInsertModel(j, i, i2, i3, str, f, fArr);
         }
         return invokeCommon.intValue;
     }
@@ -323,28 +323,28 @@ public class ARAlgoJniClient {
         return invokeI.intValue;
     }
 
-    public int trackFrame(ByteBuffer byteBuffer, double d2, float[] fArr, FrameType frameType) {
+    public int trackFrame(ByteBuffer byteBuffer, double d, float[] fArr, FrameType frameType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{byteBuffer, Double.valueOf(d2), fArr, frameType})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{byteBuffer, Double.valueOf(d), fArr, frameType})) == null) {
             long j = this.trackSystemHandler;
             if (j == 0) {
                 return -2;
             }
-            return nativeTrackFrameByteBuffer(j, byteBuffer, d2, fArr, frameType);
+            return nativeTrackFrameByteBuffer(j, byteBuffer, d, fArr, frameType);
         }
         return invokeCommon.intValue;
     }
 
-    public int trackFrame(byte[] bArr, double d2, float[] fArr, FrameType frameType) {
+    public int trackFrame(byte[] bArr, double d, float[] fArr, FrameType frameType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{bArr, Double.valueOf(d2), fArr, frameType})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{bArr, Double.valueOf(d), fArr, frameType})) == null) {
             long j = this.trackSystemHandler;
             if (j == 0) {
                 return -2;
             }
-            return nativeTrackFrame(j, bArr, d2, fArr, frameType);
+            return nativeTrackFrame(j, bArr, d, fArr, frameType);
         }
         return invokeCommon.intValue;
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class GeoParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,13 +17,13 @@ public final class GeoParsedResult extends ParsedResult {
     public final String query;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GeoParsedResult(double d2, double d3, double d4, String str) {
+    public GeoParsedResult(double d, double d2, double d3, String str) {
         super(ParsedResultType.GEO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), str};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,9 +34,9 @@ public final class GeoParsedResult extends ParsedResult {
                 return;
             }
         }
-        this.latitude = d2;
-        this.longitude = d3;
-        this.altitude = d4;
+        this.latitude = d;
+        this.longitude = d2;
+        this.altitude = d3;
         this.query = str;
     }
 

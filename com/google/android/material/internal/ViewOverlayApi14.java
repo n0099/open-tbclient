@@ -24,18 +24,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewOverlayApi14 implements ViewOverlayImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OverlayViewGroup overlayViewGroup;
 
-    public ViewOverlayApi14(Context context, ViewGroup viewGroup, View view) {
+    public ViewOverlayApi14(Context context, ViewGroup viewGroup, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, view};
+            Object[] objArr = {context, viewGroup, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,14 +45,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                 return;
             }
         }
-        this.overlayViewGroup = new OverlayViewGroup(context, viewGroup, view, this);
+        this.overlayViewGroup = new OverlayViewGroup(context, viewGroup, view2, this);
     }
 
-    public static ViewOverlayApi14 createFrom(View view) {
+    public static ViewOverlayApi14 createFrom(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view)) == null) {
-            ViewGroup contentView = ViewUtils.getContentView(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ViewGroup contentView = ViewUtils.getContentView(view2);
             if (contentView != null) {
                 int childCount = contentView.getChildCount();
                 for (int i = 0; i < childCount; i++) {
@@ -61,7 +61,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                         return ((OverlayViewGroup) childAt).viewOverlay;
                     }
                 }
-                return new ViewGroupOverlayApi14(contentView.getContext(), contentView, view);
+                return new ViewGroupOverlayApi14(contentView.getContext(), contentView, view2);
             }
             return null;
         }
@@ -85,7 +85,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @SuppressLint({"ViewConstructor", "PrivateApi"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class OverlayViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public static Method invalidateChildInParentFastMethod;
@@ -116,13 +116,13 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public OverlayViewGroup(Context context, ViewGroup viewGroup, View view, ViewOverlayApi14 viewOverlayApi14) {
+        public OverlayViewGroup(Context context, ViewGroup viewGroup, View view2, ViewOverlayApi14 viewOverlayApi14) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, viewGroup, view, viewOverlayApi14};
+                Object[] objArr = {context, viewGroup, view2, viewOverlayApi14};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -135,7 +135,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             }
             this.drawables = null;
             this.hostView = viewGroup;
-            this.requestingView = view;
+            this.requestingView = view2;
             setRight(viewGroup.getWidth());
             setBottom(viewGroup.getHeight());
             viewGroup.addView(this);
@@ -252,11 +252,11 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                     getOffset(new int[2]);
                     invalidateChildInParentFastMethod.invoke(this.hostView, Integer.valueOf(i), Integer.valueOf(i2), rect);
                     return null;
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                     return null;
-                } catch (InvocationTargetException e3) {
-                    e3.printStackTrace();
+                } catch (InvocationTargetException e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
@@ -298,34 +298,34 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, drawable)) == null) ? super.verifyDrawable(drawable) || ((arrayList = this.drawables) != null && arrayList.contains(drawable)) : invokeL.booleanValue;
         }
 
-        public void remove(View view) {
+        public void remove(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-                super.removeView(view);
+            if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+                super.removeView(view2);
                 disposeIfEmpty();
             }
         }
 
-        public void add(View view) {
+        public void add(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                 assertNotDisposed();
-                if (view.getParent() instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view.getParent();
+                if (view2.getParent() instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view2.getParent();
                     if (viewGroup != this.hostView && viewGroup.getParent() != null && ViewCompat.isAttachedToWindow(viewGroup)) {
                         int[] iArr = new int[2];
                         int[] iArr2 = new int[2];
                         viewGroup.getLocationOnScreen(iArr);
                         this.hostView.getLocationOnScreen(iArr2);
-                        ViewCompat.offsetLeftAndRight(view, iArr[0] - iArr2[0]);
-                        ViewCompat.offsetTopAndBottom(view, iArr[1] - iArr2[1]);
+                        ViewCompat.offsetLeftAndRight(view2, iArr[0] - iArr2[0]);
+                        ViewCompat.offsetTopAndBottom(view2, iArr[1] - iArr2[1]);
                     }
-                    viewGroup.removeView(view);
-                    if (view.getParent() != null) {
-                        viewGroup.removeView(view);
+                    viewGroup.removeView(view2);
+                    if (view2.getParent() != null) {
+                        viewGroup.removeView(view2);
                     }
                 }
-                super.addView(view);
+                super.addView(view2);
             }
         }
     }

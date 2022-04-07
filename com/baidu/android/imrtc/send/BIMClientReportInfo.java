@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMClientReportInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMClientReportInfo> CREATOR;
@@ -183,8 +183,8 @@ public class BIMClientReportInfo extends BIMRtcInfo {
                 bIMClientReportInfo.setExtInfo(jSONObject.optString(ARConfigKey.EXTRA_INFO));
                 bIMClientReportInfo.setRtcType(jSONObject.optString("rtc_type"));
                 bIMClientReportInfo.setEvent(jSONObject.optLong("event"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e);
             }
             return bIMClientReportInfo;
         }
@@ -207,8 +207,8 @@ public class BIMClientReportInfo extends BIMRtcInfo {
                 jSONObject2.put(ARConfigKey.EXTRA_INFO, this.mExtInfo);
                 jSONObject.put("rtc_quality_info", jSONObject2);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMAnswerRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMAnswerRtcInfo Exception ", e);
                 return "";
             }
         }

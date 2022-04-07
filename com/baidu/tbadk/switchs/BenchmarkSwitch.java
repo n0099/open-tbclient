@@ -1,6 +1,5 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.d.f.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class BenchmarkSwitch extends a {
+import com.repackage.xe;
+/* loaded from: classes3.dex */
+public class BenchmarkSwitch extends xe {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_BENCHMARK_SWITCH = "android_benchmark_switch";
     public static final int DEFAULT_TYPE = 1;
@@ -30,7 +30,7 @@ public class BenchmarkSwitch extends a {
         }
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -38,7 +38,7 @@ public class BenchmarkSwitch extends a {
         }
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class BenchmarkSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class BenchmarkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class BenchmarkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ANDROID_BENCHMARK_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

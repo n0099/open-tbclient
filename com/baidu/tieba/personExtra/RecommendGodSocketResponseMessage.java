@@ -1,20 +1,20 @@
 package com.baidu.tieba.personExtra;
 
-import c.a.p0.b3.e.q;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.h58;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q recommendGodData;
+    public h58 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodSocketResponseMessage() {
@@ -50,8 +50,8 @@ public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
             }
             setErrorString(getRecommendGodListResIdl.error.usermsg);
         }
-        q qVar = new q();
-        this.recommendGodData = qVar;
-        qVar.b(getRecommendGodListResIdl.data);
+        h58 h58Var = new h58();
+        this.recommendGodData = h58Var;
+        h58Var.b(getRecommendGodListResIdl.data);
     }
 }

@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] SNACKBAR_BUTTON_STYLE_ATTR;
@@ -45,7 +45,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
@@ -87,7 +87,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,18 +188,18 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
                 return;
             }
         }
-        SNACKBAR_BUTTON_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f04056a};
-        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{R.attr.obfuscated_res_0x7f04056a, R.attr.obfuscated_res_0x7f04056c};
+        SNACKBAR_BUTTON_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f0405a8};
+        SNACKBAR_CONTENT_STYLE_ATTRS = new int[]{R.attr.obfuscated_res_0x7f0405a8, R.attr.obfuscated_res_0x7f0405aa};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Snackbar(@NonNull ViewGroup viewGroup, @NonNull View view, @NonNull ContentViewCallback contentViewCallback) {
-        super(viewGroup, view, contentViewCallback);
+    public Snackbar(@NonNull ViewGroup viewGroup, @NonNull View view2, @NonNull ContentViewCallback contentViewCallback) {
+        super(viewGroup, view2, contentViewCallback);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup, view, contentViewCallback};
+            Object[] objArr = {viewGroup, view2, contentViewCallback};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -215,33 +215,33 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @Nullable
-    public static ViewGroup findSuitableParent(View view) {
+    public static ViewGroup findSuitableParent(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
             ViewGroup viewGroup = null;
-            while (!(view instanceof CoordinatorLayout)) {
-                if (view instanceof FrameLayout) {
-                    if (view.getId() == 16908290) {
-                        return (ViewGroup) view;
+            while (!(view2 instanceof CoordinatorLayout)) {
+                if (view2 instanceof FrameLayout) {
+                    if (view2.getId() == 16908290) {
+                        return (ViewGroup) view2;
                     }
-                    viewGroup = (ViewGroup) view;
+                    viewGroup = (ViewGroup) view2;
                 }
-                if (view != null) {
-                    ViewParent parent = view.getParent();
+                if (view2 != null) {
+                    ViewParent parent = view2.getParent();
                     if (parent instanceof View) {
-                        view = (View) parent;
+                        view2 = (View) parent;
                         continue;
                     } else {
-                        view = null;
+                        view2 = null;
                         continue;
                     }
                 }
-                if (view == null) {
+                if (view2 == null) {
                     return viewGroup;
                 }
             }
-            return (ViewGroup) view;
+            return (ViewGroup) view2;
         }
         return (ViewGroup) invokeL.objValue;
     }
@@ -273,13 +273,13 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @NonNull
-    public static Snackbar make(@NonNull View view, @NonNull CharSequence charSequence, int i) {
+    public static Snackbar make(@NonNull View view2, @NonNull CharSequence charSequence, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, view, charSequence, i)) == null) {
-            ViewGroup findSuitableParent = findSuitableParent(view);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, view2, charSequence, i)) == null) {
+            ViewGroup findSuitableParent = findSuitableParent(view2);
             if (findSuitableParent != null) {
-                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d0580 : R.layout.obfuscated_res_0x7f0d0220, findSuitableParent, false);
+                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d057b : R.layout.obfuscated_res_0x7f0d0221, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
                 snackbar.setText(charSequence);
                 snackbar.setDuration(i);
@@ -337,7 +337,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).getActionView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getActionView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -355,7 +355,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList)) == null) {
-            this.view.setBackgroundTintList(colorStateList);
+            this.f1027view.setBackgroundTintList(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -366,7 +366,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, mode)) == null) {
-            this.view.setBackgroundTintMode(mode);
+            this.f1027view.setBackgroundTintMode(mode);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -396,7 +396,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).setMaxInlineActionWidth(i);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).setMaxInlineActionWidth(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
@@ -407,7 +407,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charSequence)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).getMessageView().setText(charSequence);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getMessageView().setText(charSequence);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -418,7 +418,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
@@ -437,7 +437,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-            Button actionView = ((SnackbarContentLayout) this.view.getChildAt(0)).getActionView();
+            Button actionView = ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getActionView();
             if (!TextUtils.isEmpty(charSequence) && onClickListener != null) {
                 this.hasAction = true;
                 actionView.setVisibility(0);
@@ -468,10 +468,10 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
                     }
 
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.val$listener.onClick(view);
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                            this.val$listener.onClick(view2);
                             this.this$0.dispatchDismiss(1);
                         }
                     }
@@ -491,7 +491,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).getActionView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getActionView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
@@ -509,16 +509,16 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            ((SnackbarContentLayout) this.view.getChildAt(0)).getMessageView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1027view.getChildAt(0)).getMessageView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
     }
 
     @NonNull
-    public static Snackbar make(@NonNull View view, @StringRes int i, int i2) {
+    public static Snackbar make(@NonNull View view2, @StringRes int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, view, i, i2)) == null) ? make(view, view.getResources().getText(i), i2) : (Snackbar) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, view2, i, i2)) == null) ? make(view2, view2.getResources().getText(i), i2) : (Snackbar) invokeLII.objValue;
     }
 }

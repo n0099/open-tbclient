@@ -7,18 +7,15 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
+import com.repackage.rm9;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends c<PushSwitchStatus> {
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f42228b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42229c;
+    public String b;
+    public int c;
     public Map<String, Boolean> m;
 
     public f(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -32,74 +29,74 @@ public class f extends c<PushSwitchStatus> {
 
     public f(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f42229c = 0;
+        this.c = 0;
         this.m = new HashMap();
     }
 
     public f(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f42228b = str3;
+        this.b = str3;
     }
 
     private void c(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.a(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.a(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), z);
     }
 
     private void d(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.b(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.b(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), z);
     }
 
     private void e(boolean z) {
-        com.meizu.cloud.pushsdk.util.b.a(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), z);
-        com.meizu.cloud.pushsdk.util.b.b(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.a(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), z);
+        com.meizu.cloud.pushsdk.util.b.b(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), z);
     }
 
     private void f(boolean z) {
         Map<String, Boolean> map = this.m;
-        map.put(this.f42223h + "_" + this.f42229c, Boolean.valueOf(z));
+        map.put(this.h + "_" + this.c, Boolean.valueOf(z));
     }
 
     private boolean p() {
-        return com.meizu.cloud.pushsdk.util.b.e(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.e(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName());
     }
 
     private boolean q() {
-        return com.meizu.cloud.pushsdk.util.b.f(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.f(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName());
     }
 
     private boolean r() {
-        return com.meizu.cloud.pushsdk.util.b.h(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.h(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName());
     }
 
     private boolean s() {
-        return com.meizu.cloud.pushsdk.util.b.i(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName());
+        return com.meizu.cloud.pushsdk.util.b.i(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName());
     }
 
     private boolean t() {
         Map<String, Boolean> map = this.m;
-        Boolean bool = map.get(this.f42223h + "_" + this.f42229c);
+        Boolean bool = map.get(this.h + "_" + this.c);
         boolean booleanValue = bool != null ? bool.booleanValue() : true;
-        c.h.a.a.a.b("Strategy", "isSyncPushStatus " + this.f42223h + " switch type->" + this.f42229c + " flag->" + booleanValue);
+        rm9.b("Strategy", "isSyncPushStatus " + this.h + " switch type->" + this.c + " flag->" + booleanValue);
         return booleanValue;
     }
 
     public void a(int i) {
-        this.f42229c = i;
+        this.c = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(PushSwitchStatus pushSwitchStatus) {
-        PlatformMessageSender.a(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), pushSwitchStatus);
+        PlatformMessageSender.a(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), pushSwitchStatus);
     }
 
     public void a(String str) {
-        this.f42228b = str;
+        this.b = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f42221f) || TextUtils.isEmpty(this.f42222g) || TextUtils.isEmpty(this.f42228b)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.b)) ? false : true;
     }
 
     public void b(boolean z) {
@@ -109,12 +106,12 @@ public class f extends c<PushSwitchStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f42221f);
-        intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.f42222g);
-        intent.putExtra("strategy_package_name", this.f42220e.getPackageName());
-        intent.putExtra("push_id", this.f42228b);
+        intent.putExtra("app_id", this.f);
+        intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.g);
+        intent.putExtra("strategy_package_name", this.e.getPackageName());
+        intent.putExtra("push_id", this.b);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f42229c);
+        intent.putExtra("strategy_child_type", this.c);
         intent.putExtra("strategy_params", this.a ? "1" : "0");
         return intent;
     }
@@ -131,10 +128,10 @@ public class f extends c<PushSwitchStatus> {
         String str;
         PushSwitchStatus pushSwitchStatus = new PushSwitchStatus();
         pushSwitchStatus.setCode("20001");
-        if (TextUtils.isEmpty(this.f42221f)) {
+        if (TextUtils.isEmpty(this.f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f42222g)) {
-            if (TextUtils.isEmpty(this.f42228b)) {
+        } else if (!TextUtils.isEmpty(this.g)) {
+            if (TextUtils.isEmpty(this.b)) {
                 str = "pushId not empty";
             }
             return pushSwitchStatus;
@@ -160,9 +157,9 @@ public class f extends c<PushSwitchStatus> {
         int i;
         boolean p;
         PushSwitchStatus pushSwitchStatus = new PushSwitchStatus();
-        pushSwitchStatus.setPushId(this.f42228b);
+        pushSwitchStatus.setPushId(this.b);
         pushSwitchStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-        int i2 = this.f42229c;
+        int i2 = this.c;
         if (i2 != 0) {
             if (i2 != 1) {
                 if (i2 == 2) {
@@ -174,7 +171,7 @@ public class f extends c<PushSwitchStatus> {
                         pushSwitchStatus.setSwitchThroughMessage(r);
                     } else {
                         f(true);
-                        a = this.j.c(this.f42221f, this.f42222g, this.f42228b);
+                        a = this.j.c(this.f, this.g, this.b);
                     }
                 } else if (i2 == 3) {
                     pushSwitchStatus.setMessage("SWITCH_ALL");
@@ -183,39 +180,39 @@ public class f extends c<PushSwitchStatus> {
                     } else {
                         f(true);
                         e(this.a);
-                        a = this.j.a(this.f42221f, this.f42222g, this.f42228b, this.a);
+                        a = this.j.a(this.f, this.g, this.b, this.a);
                     }
                 }
                 if (a != null) {
                     if (a.b()) {
                         PushSwitchStatus pushSwitchStatus2 = new PushSwitchStatus((String) a.a());
-                        c.h.a.a.a.b("Strategy", "network pushSwitchStatus " + pushSwitchStatus2);
+                        rm9.b("Strategy", "network pushSwitchStatus " + pushSwitchStatus2);
                         if (BasicPushStatus.SUCCESS_CODE.equals(pushSwitchStatus.getCode())) {
                             f(false);
-                            c.h.a.a.a.b("Strategy", "update local switch preference");
+                            rm9.b("Strategy", "update local switch preference");
                             pushSwitchStatus.setSwitchNotificationMessage(pushSwitchStatus2.isSwitchNotificationMessage());
                             pushSwitchStatus.setSwitchThroughMessage(pushSwitchStatus2.isSwitchThroughMessage());
                             c(pushSwitchStatus2.isSwitchNotificationMessage());
                             d(pushSwitchStatus2.isSwitchThroughMessage());
                         }
                     } else {
-                        com.meizu.cloud.pushsdk.b.b.a c2 = a.c();
-                        if (c2.a() != null) {
-                            c.h.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+                        com.meizu.cloud.pushsdk.b.b.a c = a.c();
+                        if (c.a() != null) {
+                            rm9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
                         }
-                        pushSwitchStatus.setCode(String.valueOf(c2.b()));
-                        pushSwitchStatus.setMessage(c2.c());
-                        c.h.a.a.a.b("Strategy", "pushSwitchStatus " + pushSwitchStatus);
+                        pushSwitchStatus.setCode(String.valueOf(c.b()));
+                        pushSwitchStatus.setMessage(c.c());
+                        rm9.b("Strategy", "pushSwitchStatus " + pushSwitchStatus);
                     }
                 }
-                c.h.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                rm9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l && !this.k) {
-                    i = this.f42229c;
+                    i = this.c;
                     if (i != 0 || i == 1) {
-                        PlatformMessageSender.a(this.f42220e, this.f42229c, this.a, this.f42223h);
+                        PlatformMessageSender.a(this.e, this.c, this.a, this.h);
                     } else if (i == 3) {
-                        PlatformMessageSender.a(this.f42220e, 0, this.a, this.f42223h);
-                        PlatformMessageSender.a(this.f42220e, 1, this.a, this.f42223h);
+                        PlatformMessageSender.a(this.e, 0, this.a, this.h);
+                        PlatformMessageSender.a(this.e, 1, this.a, this.h);
                     }
                 }
                 return pushSwitchStatus;
@@ -224,15 +221,15 @@ public class f extends c<PushSwitchStatus> {
             if (r() != this.a || t()) {
                 f(true);
                 d(this.a);
-                a = this.j.a(this.f42221f, this.f42222g, this.f42228b, this.f42229c, this.a);
+                a = this.j.a(this.f, this.g, this.b, this.c, this.a);
                 if (a != null) {
                 }
-                c.h.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                rm9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l) {
-                    i = this.f42229c;
+                    i = this.c;
                     if (i != 0) {
                     }
-                    PlatformMessageSender.a(this.f42220e, this.f42229c, this.a, this.f42223h);
+                    PlatformMessageSender.a(this.e, this.c, this.a, this.h);
                 }
                 return pushSwitchStatus;
             }
@@ -245,10 +242,10 @@ public class f extends c<PushSwitchStatus> {
             if (p() != this.a || t()) {
                 f(true);
                 c(this.a);
-                a = this.j.a(this.f42221f, this.f42222g, this.f42228b, this.f42229c, this.a);
+                a = this.j.a(this.f, this.g, this.b, this.c, this.a);
                 if (a != null) {
                 }
-                c.h.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                rm9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l) {
                 }
                 return pushSwitchStatus;
@@ -261,7 +258,7 @@ public class f extends c<PushSwitchStatus> {
         a = null;
         if (a != null) {
         }
-        c.h.a.a.a.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+        rm9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
         if (this.l) {
         }
         return pushSwitchStatus;
@@ -271,7 +268,7 @@ public class f extends c<PushSwitchStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: j */
     public PushSwitchStatus f() {
-        int i = this.f42229c;
+        int i = this.c;
         if (i == 0) {
             c(this.a);
             return null;

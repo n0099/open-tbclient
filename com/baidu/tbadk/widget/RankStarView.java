@@ -11,7 +11,6 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
@@ -20,32 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class RankStarView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f30705b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30706c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30707d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30708e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30709f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30710g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30711h;
+    public float b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public int i;
     public Drawable j;
     public Drawable k;
@@ -55,9 +41,9 @@ public class RankStarView extends View {
     public int o;
     public a p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(float f2);
+        void a(float f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,16 +65,16 @@ public class RankStarView extends View {
             }
         }
         this.a = 5;
-        this.f30709f = R.drawable.icon_pure_evaluation_star24_n;
-        this.f30710g = R.color.CAM_X0112;
-        this.f30711h = R.drawable.icon_pure_evaluation_star24_n;
+        this.f = R.drawable.icon_pure_evaluation_star24_n;
+        this.g = R.color.CAM_X0112;
+        this.h = R.drawable.icon_pure_evaluation_star24_n;
         this.i = R.color.CAM_X0305;
         this.o = 3;
         d(context);
     }
 
     public final void a(Canvas canvas) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.j == null || this.k == null) {
             return;
@@ -96,30 +82,30 @@ public class RankStarView extends View {
         int paddingLeft = getPaddingLeft();
         int i = 0;
         while (true) {
-            f2 = this.f30705b;
-            if (i >= f2) {
+            f = this.b;
+            if (i >= f) {
                 break;
             }
             Drawable drawable = this.k;
             int paddingTop = getPaddingTop();
-            int i2 = this.f30707d;
+            int i2 = this.d;
             drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i2, i2 + getPaddingTop());
             this.k.draw(canvas);
-            paddingLeft += this.f30706c + this.f30707d;
+            paddingLeft += this.c + this.d;
             i++;
         }
-        if (f2 - ((int) f2) <= 0.0f) {
-            for (int i3 = (int) f2; i3 < this.a; i3++) {
+        if (f - ((int) f) <= 0.0f) {
+            for (int i3 = (int) f; i3 < this.a; i3++) {
                 Drawable drawable2 = this.j;
                 int paddingTop2 = getPaddingTop();
-                int i4 = this.f30707d;
+                int i4 = this.d;
                 drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
                 this.j.draw(canvas);
-                paddingLeft += this.f30706c + this.f30707d;
+                paddingLeft += this.c + this.d;
             }
             return;
         }
-        int i5 = (int) f2;
+        int i5 = (int) f;
         while (true) {
             i5++;
             if (i5 >= this.a) {
@@ -127,15 +113,15 @@ public class RankStarView extends View {
             }
             Drawable drawable3 = this.j;
             int paddingTop3 = getPaddingTop();
-            int i6 = this.f30707d;
+            int i6 = this.d;
             drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i6, i6 + getPaddingTop());
             this.j.draw(canvas);
-            paddingLeft += this.f30706c + this.f30707d;
+            paddingLeft += this.c + this.d;
         }
     }
 
     public final void b(Canvas canvas) {
-        float f2;
+        float f;
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -145,63 +131,63 @@ public class RankStarView extends View {
         int paddingLeft = getPaddingLeft();
         int i3 = 0;
         while (true) {
-            f2 = this.f30705b;
-            if (i3 >= ((int) f2)) {
+            f = this.b;
+            if (i3 >= ((int) f)) {
                 break;
             }
             Drawable drawable = this.k;
             int paddingTop = getPaddingTop();
-            int i4 = this.f30707d;
+            int i4 = this.d;
             drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i4, i4 + getPaddingTop());
             this.k.draw(canvas);
-            paddingLeft += this.f30706c + this.f30707d;
+            paddingLeft += this.c + this.d;
             i3++;
         }
-        if (f2 - ((int) f2) >= 0.5d) {
+        if (f - ((int) f) >= 0.5d) {
             Drawable drawable2 = this.k;
             int paddingTop2 = getPaddingTop();
-            int i5 = this.f30707d;
+            int i5 = this.d;
             drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
             this.k.draw(canvas);
-            i = this.f30706c;
-            i2 = this.f30707d;
-        } else if (f2 - ((int) f2) > 0.0f) {
+            i = this.c;
+            i2 = this.d;
+        } else if (f - ((int) f) > 0.0f) {
             Drawable drawable3 = this.k;
             int paddingTop3 = getPaddingTop();
-            int i6 = this.f30707d;
+            int i6 = this.d;
             drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i6, i6 + getPaddingTop());
             canvas.save();
             Rect rect = this.l;
             int paddingTop4 = getPaddingTop();
-            int i7 = this.f30707d;
+            int i7 = this.d;
             rect.set(paddingLeft, paddingTop4, (i7 / 2) + paddingLeft, i7 + getPaddingTop());
             canvas.clipRect(this.l);
             this.k.draw(canvas);
             canvas.restore();
             Drawable drawable4 = this.j;
             int paddingTop5 = getPaddingTop();
-            int i8 = this.f30707d;
+            int i8 = this.d;
             drawable4.setBounds(paddingLeft, paddingTop5, paddingLeft + i8, i8 + getPaddingTop());
             canvas.save();
             int paddingTop6 = getPaddingTop();
-            int i9 = this.f30707d;
-            this.m.set((this.f30707d / 2) + paddingLeft, paddingTop6, paddingLeft + i9, i9 + getPaddingTop());
+            int i9 = this.d;
+            this.m.set((this.d / 2) + paddingLeft, paddingTop6, paddingLeft + i9, i9 + getPaddingTop());
             canvas.clipRect(this.m);
             this.j.draw(canvas);
             canvas.restore();
-            i = this.f30706c;
-            i2 = this.f30707d;
+            i = this.c;
+            i2 = this.d;
         } else {
             Drawable drawable5 = this.j;
             int paddingTop7 = getPaddingTop();
-            int i10 = this.f30707d;
+            int i10 = this.d;
             drawable5.setBounds(paddingLeft, paddingTop7, paddingLeft + i10, i10 + getPaddingTop());
             this.j.draw(canvas);
-            i = this.f30706c;
-            i2 = this.f30707d;
+            i = this.c;
+            i2 = this.d;
         }
         int i11 = paddingLeft + i + i2;
-        int i12 = (int) this.f30705b;
+        int i12 = (int) this.b;
         while (true) {
             i12++;
             if (i12 >= this.a) {
@@ -209,23 +195,23 @@ public class RankStarView extends View {
             }
             Drawable drawable6 = this.j;
             int paddingTop8 = getPaddingTop();
-            int i13 = this.f30707d;
+            int i13 = this.d;
             drawable6.setBounds(i11, paddingTop8, i11 + i13, i13 + getPaddingTop());
             this.j.draw(canvas);
-            i11 += this.f30706c + this.f30707d;
+            i11 += this.c + this.d;
         }
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30705b != 0.0f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b != 0.0f : invokeV.booleanValue;
     }
 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f30707d = n.f(context, R.dimen.tbds63);
+            this.d = oi.f(context, R.dimen.tbds63);
             this.l = new Rect(0, 0, 0, 0);
             this.m = new Rect(0, 0, 0, 0);
             f();
@@ -244,8 +230,8 @@ public class RankStarView extends View {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.j = SvgManager.getInstance().getPureDrawable(this.f30709f, this.f30710g, null);
-            this.k = SvgManager.getInstance().getPureDrawable(this.f30711h, this.i, null);
+            this.j = SvgManager.getInstance().getPureDrawable(this.f, this.g, null);
+            this.k = SvgManager.getInstance().getPureDrawable(this.h, this.i, null);
         }
     }
 
@@ -253,11 +239,11 @@ public class RankStarView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f2 = this.f30705b;
-            if (f2 == 0.0f) {
+            float f = this.b;
+            if (f == 0.0f) {
                 return 0;
             }
-            return ((double) f2) % 1.0d == 0.0d ? (int) f2 : ((int) f2) + 1;
+            return ((double) f) % 1.0d == 0.0d ? (int) f : ((int) f) + 1;
         }
         return invokeV.intValue;
     }
@@ -285,18 +271,18 @@ public class RankStarView extends View {
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
             if (mode2 == 1073741824) {
-                this.f30707d = (size2 - getPaddingBottom()) - getPaddingTop();
+                this.d = (size2 - getPaddingBottom()) - getPaddingTop();
             } else {
-                size2 = this.f30707d + getPaddingBottom() + getPaddingTop();
+                size2 = this.d + getPaddingBottom() + getPaddingTop();
             }
-            int i3 = this.f30707d;
+            int i3 = this.d;
             int i4 = this.a;
-            int i5 = (i3 * i4) + (this.f30706c * (i4 - 1));
-            this.f30708e = i5;
+            int i5 = (i3 * i4) + (this.c * (i4 - 1));
+            this.e = i5;
             if (mode != 1073741824) {
                 size = getPaddingRight() + i5 + getPaddingLeft();
             } else if (size < i5) {
-                this.f30708e = (size - getPaddingLeft()) - getPaddingRight();
+                this.e = (size - getPaddingLeft()) - getPaddingRight();
             }
             setMeasuredDimension(size, size2);
         }
@@ -310,10 +296,10 @@ public class RankStarView extends View {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
             if (motionEvent != null && onTouchEvent) {
                 int x = (int) motionEvent.getX();
-                if (x < getPaddingLeft() - 10 || x > this.f30708e + getPaddingLeft() + 10) {
+                if (x < getPaddingLeft() - 10 || x > this.e + getPaddingLeft() + 10) {
                     return true;
                 }
-                setStarCount((((x - getPaddingLeft()) * 1.0f) / this.f30708e) * this.a);
+                setStarCount((((x - getPaddingLeft()) * 1.0f) / this.e) * this.a);
             }
             return onTouchEvent;
         }
@@ -334,23 +320,23 @@ public class RankStarView extends View {
         }
     }
 
-    public void setStarCount(float f2) {
+    public void setStarCount(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            if (f < 0.0f) {
+                f = 0.0f;
             }
             int i = this.a;
-            if (f2 > i) {
-                f2 = i;
+            if (f > i) {
+                f = i;
             }
-            if (this.f30705b != f2) {
-                this.f30705b = f2;
+            if (this.b != f) {
+                this.b = f;
                 invalidate();
             }
             a aVar = this.p;
             if (aVar != null) {
-                aVar.a(f2);
+                aVar.a(f);
             }
         }
     }
@@ -358,9 +344,9 @@ public class RankStarView extends View {
     public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048589, this, i, i2, i3, i4) == null) {
-            this.f30709f = i;
-            this.f30710g = i2;
-            this.f30711h = i3;
+            this.f = i;
+            this.g = i2;
+            this.h = i3;
             this.i = i4;
             f();
         }
@@ -369,7 +355,7 @@ public class RankStarView extends View {
     public void setStarSpacing(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.f30706c = i;
+            this.c = i;
         }
     }
 
@@ -393,9 +379,9 @@ public class RankStarView extends View {
             }
         }
         this.a = 5;
-        this.f30709f = R.drawable.icon_pure_evaluation_star24_n;
-        this.f30710g = R.color.CAM_X0112;
-        this.f30711h = R.drawable.icon_pure_evaluation_star24_n;
+        this.f = R.drawable.icon_pure_evaluation_star24_n;
+        this.g = R.color.CAM_X0112;
+        this.h = R.drawable.icon_pure_evaluation_star24_n;
         this.i = R.color.CAM_X0305;
         this.o = 3;
         d(context);
@@ -421,9 +407,9 @@ public class RankStarView extends View {
             }
         }
         this.a = 5;
-        this.f30709f = R.drawable.icon_pure_evaluation_star24_n;
-        this.f30710g = R.color.CAM_X0112;
-        this.f30711h = R.drawable.icon_pure_evaluation_star24_n;
+        this.f = R.drawable.icon_pure_evaluation_star24_n;
+        this.g = R.color.CAM_X0112;
+        this.h = R.drawable.icon_pure_evaluation_star24_n;
         this.i = R.color.CAM_X0305;
         this.o = 3;
         d(context);

@@ -16,7 +16,7 @@ import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class RefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     public float A;
     public float B;
@@ -40,27 +40,13 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     public final Animation T;
     public boolean U;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f39295b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f39296c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.refreshview.b f39297d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Animation.AnimationListener f39298e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final NestedScrollingChildHelper f39299f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final NestedScrollingParentHelper f39300g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f39301h;
+    public float b;
+    public View c;
+    public com.kwad.sdk.contentalliance.refreshview.b d;
+    public final Animation.AnimationListener e;
+    public final NestedScrollingChildHelper f;
+    public final NestedScrollingParentHelper g;
+    public float h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -81,7 +67,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     public float z;
 
     /* renamed from: com.kwad.sdk.contentalliance.refreshview.RefreshLayout$2  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] a;
 
@@ -99,29 +85,29 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum RefreshStyle {
         NORMAL,
         PINNED,
         FLOAT
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
-        void a(float f2, float f3, boolean z);
+        void a(float f, float f2, boolean z);
 
         void b();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        boolean a(float f2, boolean z);
+        boolean a(float f, boolean z);
     }
 
     private float a(MotionEvent motionEvent, int i) {
@@ -132,43 +118,43 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         return MotionEventCompat.getY(motionEvent, findPointerIndex);
     }
 
-    private void a(float f2) {
-        float f3 = f2 - this.v;
-        if (this.k && (f3 > this.u || this.a > 0.0f)) {
+    private void a(float f) {
+        float f2 = f - this.v;
+        if (this.k && (f2 > this.u || this.a > 0.0f)) {
             this.m = true;
             this.x = this.v + this.u;
         } else if (this.m) {
         } else {
             int i = this.u;
-            if (f3 > i) {
+            if (f2 > i) {
                 this.x = this.v + i;
                 this.m = true;
             }
         }
     }
 
-    private void a(float f2, boolean z) {
-        float f3;
-        this.y = f2;
+    private void a(float f, boolean z) {
+        float f2;
+        this.y = f;
         c cVar = this.L;
         int i = 0;
-        if (cVar == null || !cVar.a(f2, false)) {
+        if (cVar == null || !cVar.a(f, false)) {
             if (this.k) {
-                f3 = this.f39295b;
-                if (f2 <= f3) {
-                    f3 = f2;
+                f2 = this.b;
+                if (f <= f2) {
+                    f2 = f;
                 }
-                if (f3 < 0.0f) {
-                    f3 = 0.0f;
+                if (f2 < 0.0f) {
+                    f2 = 0.0f;
                 }
             } else {
-                f3 = AnonymousClass2.a[this.G.ordinal()] != 1 ? this.I.a(f2, this.f39295b) : this.z + this.I.a(f2, this.f39295b);
+                f2 = AnonymousClass2.a[this.G.ordinal()] != 1 ? this.I.a(f, this.b) : this.z + this.I.a(f, this.b);
             }
-            float f4 = this.f39295b;
+            float f3 = this.b;
             if (!this.k) {
-                if (f3 > f4 && !this.l) {
+                if (f2 > f3 && !this.l) {
                     this.l = true;
-                    this.f39297d.c();
+                    this.d.c();
                     b bVar = this.M;
                     if (bVar != null) {
                         bVar.a();
@@ -179,9 +165,9 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                             i++;
                         }
                     }
-                } else if (f3 <= f4 && this.l) {
+                } else if (f2 <= f3 && this.l) {
                     this.l = false;
-                    this.f39297d.d();
+                    this.d.d();
                     b bVar2 = this.M;
                     if (bVar2 != null) {
                         bVar2.b();
@@ -194,14 +180,14 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                     }
                 }
             }
-            com.kwad.sdk.core.d.a.c("RefreshLayout", f2 + " -- " + f4 + " -- " + f3 + " -- " + this.a + " -- " + this.f39295b);
-            a((int) (f3 - this.a), z);
+            com.kwad.sdk.core.d.a.c("RefreshLayout", f + " -- " + f3 + " -- " + f2 + " -- " + this.a + " -- " + this.b);
+            a((int) (f2 - this.a), z);
         }
     }
 
     private void a(int i, int i2) {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f39296c.getLayoutParams();
-        this.f39296c.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+        this.c.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0095  */
@@ -210,77 +196,77 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(int i, boolean z) {
-        View view;
+        View view2;
         if (this.H == null) {
             return;
         }
         int i2 = AnonymousClass2.a[this.G.ordinal()];
         if (i2 == 1) {
-            this.f39296c.offsetTopAndBottom(i);
-            view = this.f39296c;
+            this.c.offsetTopAndBottom(i);
+            view2 = this.c;
         } else if (i2 != 2) {
             this.H.offsetTopAndBottom(i);
-            View view2 = this.C;
-            if (view2 != null) {
-                view2.offsetTopAndBottom(i);
+            View view3 = this.C;
+            if (view3 != null) {
+                view3.offsetTopAndBottom(i);
             } else {
-                float f2 = (i / this.A) + this.B;
-                int i3 = (int) f2;
-                this.B = f2 - i3;
-                this.f39296c.offsetTopAndBottom(i3);
+                float f = (i / this.A) + this.B;
+                int i3 = (int) f;
+                this.B = f - i3;
+                this.c.offsetTopAndBottom(i3);
             }
             this.a = this.H.getTop();
             com.kwad.sdk.core.d.a.c("RefreshLayout", "refresh style" + this.a);
             com.kwad.sdk.core.d.a.c("RefreshLayout", "current offset" + this.a);
             if (AnonymousClass2.a[this.G.ordinal()] == 1) {
-                com.kwad.sdk.contentalliance.refreshview.b bVar = this.f39297d;
-                float f3 = this.a;
-                bVar.a(f3, f3 / this.f39295b);
+                com.kwad.sdk.contentalliance.refreshview.b bVar = this.d;
+                float f2 = this.a;
+                bVar.a(f2, f2 / this.b);
                 b bVar2 = this.M;
                 if (bVar2 != null) {
-                    float f4 = this.a;
-                    bVar2.a(f4, f4 / this.f39295b, z);
+                    float f3 = this.a;
+                    bVar2.a(f3, f3 / this.b, z);
                 }
                 if (this.N != null) {
                     for (int i4 = 0; i4 < this.N.size(); i4++) {
-                        float f5 = this.a;
-                        this.N.get(i4).a(f5, f5 / this.f39295b, z);
+                        float f4 = this.a;
+                        this.N.get(i4).a(f4, f4 / this.b, z);
                     }
                 }
             } else {
-                com.kwad.sdk.contentalliance.refreshview.b bVar3 = this.f39297d;
-                float f6 = this.a;
-                bVar3.a(f6, (f6 - this.z) / this.f39295b);
+                com.kwad.sdk.contentalliance.refreshview.b bVar3 = this.d;
+                float f5 = this.a;
+                bVar3.a(f5, (f5 - this.z) / this.b);
                 b bVar4 = this.M;
                 if (bVar4 != null) {
-                    float f7 = this.a;
-                    bVar4.a(f7, (f7 - this.z) / this.f39295b, z);
+                    float f6 = this.a;
+                    bVar4.a(f6, (f6 - this.z) / this.b, z);
                 }
                 if (this.N != null) {
                     for (int i5 = 0; i5 < this.N.size(); i5++) {
-                        float f8 = this.a;
-                        this.N.get(i5).a(f8, (f8 - this.z) / this.f39295b, z);
+                        float f7 = this.a;
+                        this.N.get(i5).a(f7, (f7 - this.z) / this.b, z);
                     }
                 }
             }
-            if (this.R && this.f39296c.getVisibility() != 0) {
-                this.f39296c.setVisibility(0);
+            if (this.R && this.c.getVisibility() != 0) {
+                this.c.setVisibility(0);
             }
             invalidate();
         } else {
             this.H.offsetTopAndBottom(i);
-            View view3 = this.C;
-            if (view3 != null) {
-                view3.offsetTopAndBottom(i);
+            View view4 = this.C;
+            if (view4 != null) {
+                view4.offsetTopAndBottom(i);
             }
-            view = this.H;
+            view2 = this.H;
         }
-        this.a = view.getTop();
+        this.a = view2.getTop();
         com.kwad.sdk.core.d.a.c("RefreshLayout", "current offset" + this.a);
         if (AnonymousClass2.a[this.G.ordinal()] == 1) {
         }
         if (this.R) {
-            this.f39296c.setVisibility(0);
+            this.c.setVisibility(0);
         }
         invalidate();
     }
@@ -300,30 +286,30 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 b((int) this.a, this.K);
                 return;
             }
-            this.f39297d.b();
+            this.d.b();
             postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.1
                 @Override // java.lang.Runnable
                 public void run() {
                     RefreshLayout refreshLayout = RefreshLayout.this;
-                    refreshLayout.a((int) refreshLayout.a, refreshLayout.f39298e);
+                    refreshLayout.a((int) refreshLayout.a, refreshLayout.e);
                 }
-            }, this.f39297d.e());
+            }, this.d.e());
         }
     }
 
-    private boolean a(View view) {
-        if (view == null) {
+    private boolean a(View view2) {
+        if (view2 == null) {
             return false;
         }
-        if (Build.VERSION.SDK_INT < 14 && (view instanceof AbsListView)) {
-            AbsListView absListView = (AbsListView) view;
+        if (Build.VERSION.SDK_INT < 14 && (view2 instanceof AbsListView)) {
+            AbsListView absListView = (AbsListView) view2;
             if (absListView.getChildCount() > 0) {
                 return absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop();
             }
             return false;
         }
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
+        if (view2 instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view2;
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 if (a(viewGroup.getChildAt(i))) {
@@ -331,15 +317,15 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 }
             }
         }
-        return ViewCompat.canScrollVertically(view, -1);
+        return ViewCompat.canScrollVertically(view2, -1);
     }
 
-    private int b(float f2) {
-        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- refreshing " + f2);
+    private int b(float f) {
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- refreshing " + f);
         if (AnonymousClass2.a[this.G.ordinal()] == 1) {
-            f2 -= this.z;
+            f -= this.z;
         }
-        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2 - this.f39295b) / this.f39295b)) * this.s);
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f - this.b) / this.b)) * this.s);
     }
 
     private int b(int i) {
@@ -350,15 +336,15 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         c();
         this.y = 0.0f;
         this.B = 0.0f;
-        this.f39297d.a();
-        this.f39296c.setVisibility(8);
+        this.d.a();
+        this.c.setVisibility(8);
         this.k = false;
         this.j = false;
         com.kwad.sdk.core.d.a.c("RefreshLayout", "reset");
     }
 
     private void b(int i, Animation.AnimationListener animationListener) {
-        float f2;
+        float f;
         clearAnimation();
         if (b(i) <= 0) {
             animationListener.onAnimationStart(null);
@@ -367,7 +353,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
         this.t = i;
         this.S.reset();
-        this.S.setDuration(b(f2));
+        this.S.setDuration(b(f));
         this.S.setInterpolator(this.P);
         if (animationListener != null) {
             this.S.setAnimationListener(animationListener);
@@ -384,15 +370,15 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         com.kwad.sdk.core.d.a.c("RefreshLayout", " onUp " + this.x);
     }
 
-    private int c(float f2) {
-        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- start " + f2);
-        if (f2 < this.z) {
+    private int c(float f) {
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- start " + f);
+        if (f < this.z) {
             return 0;
         }
         if (AnonymousClass2.a[this.G.ordinal()] == 1) {
-            f2 -= this.z;
+            f -= this.z;
         }
-        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2) / this.f39295b)) * this.r);
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f) / this.b)) * this.r);
     }
 
     private void c() {
@@ -421,19 +407,19 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 return;
             }
             this.k = false;
-            a((int) this.a, this.f39298e);
+            a((int) this.a, this.e);
         }
     }
 
     private void g() {
-        View view = this.C;
-        if (view != null) {
-            view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+        View view2 = this.C;
+        if (view2 != null) {
+            view2.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
         }
     }
 
     private int getTargetOrRefreshViewTop() {
-        return (AnonymousClass2.a[this.G.ordinal()] != 1 ? this.H : this.f39296c).getTop();
+        return (AnonymousClass2.a[this.G.ordinal()] != 1 ? this.H : this.c).getTop();
     }
 
     private void h() {
@@ -442,7 +428,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
         for (int i = 0; i < getChildCount(); i++) {
             View childAt = getChildAt(i);
-            if (!childAt.equals(this.f39296c) && !childAt.equals(this.C)) {
+            if (!childAt.equals(this.c) && !childAt.equals(this.C)) {
                 this.H = childAt;
                 return;
             }
@@ -464,7 +450,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     public void a(int i, Animation.AnimationListener animationListener) {
-        float f2;
+        float f;
         clearAnimation();
         if (c(i) <= 0) {
             animationListener.onAnimationStart(null);
@@ -473,7 +459,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
         this.t = i;
         this.T.reset();
-        this.T.setDuration(c(f2));
+        this.T.setDuration(c(f));
         this.T.setInterpolator(this.O);
         if (animationListener != null) {
             this.T.setAnimationListener(animationListener);
@@ -482,27 +468,27 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     public boolean a() {
-        return !this.Q && ((float) getTargetOrRefreshViewOffset()) > this.f39295b;
+        return !this.Q && ((float) getTargetOrRefreshViewOffset()) > this.b;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedFling(float f2, float f3, boolean z) {
-        return this.f39299f.dispatchNestedFling(f2, f3, z);
+    public boolean dispatchNestedFling(float f, float f2, boolean z) {
+        return this.f.dispatchNestedFling(f, f2, z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreFling(float f2, float f3) {
-        return this.f39299f.dispatchNestedPreFling(f2, f3);
+    public boolean dispatchNestedPreFling(float f, float f2) {
+        return this.f.dispatchNestedPreFling(f, f2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
-        return this.f39299f.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+        return this.f.dispatchNestedPreScroll(i, i2, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
-        return this.f39299f.dispatchNestedScroll(i, i2, i3, i4, iArr);
+        return this.f.dispatchNestedScroll(i, i2, i3, i4, iArr);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -517,11 +503,11 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        return this.f39300g.getNestedScrollAxes();
+        return this.g.getNestedScrollAxes();
     }
 
     public float getRefreshTargetOffset() {
-        return this.f39295b;
+        return this.b;
     }
 
     @Nullable
@@ -531,23 +517,23 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     public int getTargetOrRefreshViewOffset() {
         if (AnonymousClass2.a[this.G.ordinal()] != 1) {
-            View view = this.H;
-            if (view == null) {
+            View view2 = this.H;
+            if (view2 == null) {
                 return 0;
             }
-            return view.getTop();
+            return view2.getTop();
         }
-        return (int) (this.f39296c.getTop() - this.z);
+        return (int) (this.c.getTop() - this.z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        return this.f39299f.hasNestedScrollingParent();
+        return this.f.hasNestedScrollingParent();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        return this.f39299f.isNestedScrollingEnabled();
+        return this.f.isNestedScrollingEnabled();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -560,7 +546,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        View view;
+        View view2;
         if (getChildCount() == 0) {
             return;
         }
@@ -570,7 +556,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        if (this.H.getVisibility() != 8 || ((view = this.C) != null && view.getVisibility() != 8)) {
+        if (this.H.getVisibility() != 8 || ((view2 = this.C) != null && view2.getVisibility() != 8)) {
             int b2 = b(getPaddingTop());
             int paddingLeft = getPaddingLeft();
             int paddingLeft2 = ((paddingLeft + measuredWidth) - getPaddingLeft()) - getPaddingRight();
@@ -578,14 +564,14 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
             if (this.H.getVisibility() != 8) {
                 this.H.layout(paddingLeft, b2, paddingLeft2, paddingTop);
             }
-            View view2 = this.C;
-            if (view2 != null && view2.getVisibility() != 8) {
+            View view3 = this.C;
+            if (view3 != null && view3.getVisibility() != 8) {
                 this.C.layout(paddingLeft, b2, paddingLeft2, paddingTop);
             }
         }
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f39296c.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
         int a2 = (a((int) this.z) + marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin;
-        this.f39296c.layout((measuredWidth - this.f39296c.getMeasuredWidth()) / 2, a2, (measuredWidth + this.f39296c.getMeasuredWidth()) / 2, this.f39296c.getMeasuredHeight() + a2);
+        this.c.layout((measuredWidth - this.c.getMeasuredWidth()) / 2, a2, (measuredWidth + this.c.getMeasuredWidth()) / 2, this.c.getMeasuredHeight() + a2);
     }
 
     @Override // android.view.View
@@ -601,24 +587,24 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         if (!this.F && !this.E) {
             int i3 = AnonymousClass2.a[this.G.ordinal()];
             if (i3 == 1) {
-                float f2 = -this.f39296c.getMeasuredHeight();
-                this.z = f2;
-                this.a = f2;
+                float f = -this.c.getMeasuredHeight();
+                this.z = f;
+                this.a = f;
             } else if (i3 != 2) {
                 this.a = 0.0f;
-                this.z = -this.f39296c.getMeasuredHeight();
+                this.z = -this.c.getMeasuredHeight();
             } else {
                 this.z = 0.0f;
                 this.a = 0.0f;
             }
         }
-        if (!this.F && !this.D && this.f39295b < this.f39296c.getMeasuredHeight()) {
-            this.f39295b = this.f39296c.getMeasuredHeight();
+        if (!this.F && !this.D && this.b < this.c.getMeasuredHeight()) {
+            this.b = this.c.getMeasuredHeight();
         }
         this.F = true;
         this.p = -1;
         for (int i4 = 0; i4 < getChildCount(); i4++) {
-            if (getChildAt(i4) == this.f39296c) {
+            if (getChildAt(i4) == this.c) {
                 this.p = i4;
                 return;
             }
@@ -626,21 +612,21 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
-        this.f39300g.onStopNestedScroll(view);
+    public void onStopNestedScroll(View view2) {
+        this.g.onStopNestedScroll(view2);
         this.i = false;
-        if (this.f39301h > 0.0f) {
+        if (this.h > 0.0f) {
             f();
-            this.f39301h = 0.0f;
+            this.h = 0.0f;
         }
         stopNestedScroll();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        float f2;
+        float f;
         StringBuilder sb;
-        float f3;
+        float f2;
         h();
         if (this.H == null) {
             return false;
@@ -668,35 +654,35 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                         return false;
                     }
                     if (this.j) {
-                        f2 = getTargetOrRefreshViewTop();
+                        f = getTargetOrRefreshViewTop();
                         this.x = a2;
-                        this.w = f2;
+                        this.w = f;
                         sb = new StringBuilder();
                         sb.append("animatetostart overscrolly ");
-                        sb.append(f2);
+                        sb.append(f);
                         sb.append(" -- ");
-                        f3 = this.x;
+                        f2 = this.x;
                     } else {
-                        f2 = (a2 - this.x) + this.w;
+                        f = (a2 - this.x) + this.w;
                         sb = new StringBuilder();
                         sb.append("overscrolly ");
-                        sb.append(f2);
+                        sb.append(f);
                         sb.append(" --");
                         sb.append(this.x);
                         sb.append(" -- ");
-                        f3 = this.w;
+                        f2 = this.w;
                     }
-                    sb.append(f3);
+                    sb.append(f2);
                     com.kwad.sdk.core.d.a.c("RefreshLayout", sb.toString());
                     if (this.k) {
-                        if (f2 > 0.0f) {
-                            if (f2 > 0.0f && f2 < this.f39295b && this.o) {
+                        if (f > 0.0f) {
+                            if (f > 0.0f && f < this.b && this.o) {
                                 motionEvent = MotionEvent.obtain(motionEvent);
                                 motionEvent.setAction(3);
                                 this.o = false;
                             }
                             com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
-                            a(f2, true);
+                            a(f, true);
                         } else if (!this.o) {
                             motionEvent = MotionEvent.obtain(motionEvent);
                             motionEvent.setAction(0);
@@ -704,15 +690,15 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                         }
                         this.H.dispatchTouchEvent(motionEvent);
                         com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
-                        a(f2, true);
+                        a(f, true);
                     } else if (!this.m) {
                         com.kwad.sdk.core.d.a.c("RefreshLayout", "is not Being Dragged, init drag status");
                         a(a2);
-                    } else if (f2 <= 0.0f) {
+                    } else if (f <= 0.0f) {
                         com.kwad.sdk.core.d.a.c("RefreshLayout", "is Being Dragged, but over scroll Y < 0");
                         return false;
                     } else {
-                        a(f2, true);
+                        a(f, true);
                         com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner not refreshing -- " + this.w + " -- " + (a2 - this.x));
                     }
                 } else if (action != 3) {
@@ -773,7 +759,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        this.f39299f.setNestedScrollingEnabled(z);
+        this.f.setNestedScrollingEnabled(z);
     }
 
     public void setOnRefreshListener(a aVar) {
@@ -792,8 +778,8 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         this.Q = z;
     }
 
-    public void setRefreshInitialOffset(float f2) {
-        this.z = f2;
+    public void setRefreshInitialOffset(float f) {
+        this.z = f;
         this.E = true;
         requestLayout();
     }
@@ -802,8 +788,8 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         this.G = refreshStyle;
     }
 
-    public void setRefreshTargetOffset(float f2) {
-        this.f39295b = f2;
+    public void setRefreshTargetOffset(float f) {
+        this.b = f;
         this.D = true;
         requestLayout();
     }
@@ -837,11 +823,11 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean startNestedScroll(int i) {
-        return this.f39299f.startNestedScroll(i);
+        return this.f.startNestedScroll(i);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        this.f39299f.stopNestedScroll();
+        this.f.stopNestedScroll();
     }
 }

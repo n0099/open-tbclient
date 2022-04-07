@@ -19,14 +19,12 @@ public interface ae extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ae$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2057a implements ae {
+        public static class C0601a implements ae {
             public static ae a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43217b;
-
-            public C2057a(IBinder iBinder) {
-                this.f43217b = iBinder;
+            public C0601a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -41,7 +39,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43217b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -54,7 +52,7 @@ public interface ae extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43217b;
+                return this.b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -69,7 +67,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43217b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -92,7 +90,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43217b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().c(downloadInfo);
                     }
                     obtain2.readException();
@@ -116,7 +114,7 @@ public interface ae extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ae)) {
                 return (ae) queryLocalInterface;
             }
-            return new C2057a(iBinder);
+            return new C0601a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -134,9 +132,9 @@ public interface ae extends IInterface {
                 return true;
             } else if (i == 2) {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.INotificationClickAidlCallback");
-                boolean b2 = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
+                boolean b = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
-                parcel2.writeInt(b2 ? 1 : 0);
+                parcel2.writeInt(b ? 1 : 0);
                 return true;
             } else if (i != 3) {
                 if (i != 1598968902) {
@@ -146,15 +144,15 @@ public interface ae extends IInterface {
                 return true;
             } else {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.INotificationClickAidlCallback");
-                boolean c2 = c(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
+                boolean c = c(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
-                parcel2.writeInt(c2 ? 1 : 0);
+                parcel2.writeInt(c ? 1 : 0);
                 return true;
             }
         }
 
         public static ae a() {
-            return C2057a.a;
+            return C0601a.a;
         }
     }
 }

@@ -37,19 +37,19 @@ public class j {
     }
 
     public static void a(String str) {
-        a c2;
-        if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
+        a c;
+        if (TextUtils.isEmpty(str) || (c = c(str)) == null) {
             return;
         }
-        c2.a();
+        c.a();
     }
 
     public static void a(String str, String str2) {
-        a c2;
-        if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
+        a c;
+        if (TextUtils.isEmpty(str) || (c = c(str)) == null) {
             return;
         }
-        c2.a(str2);
+        c.a(str2);
     }
 
     public static void a(String str, a aVar) {

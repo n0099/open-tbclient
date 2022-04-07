@@ -18,7 +18,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UDPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UDPMgr";
@@ -111,8 +111,8 @@ public class UDPMgr {
                                 if (i2 > 0) {
                                     try {
                                         datagramSocket.send(datagramPacket);
-                                    } catch (SocketTimeoutException e2) {
-                                        e = e2;
+                                    } catch (SocketTimeoutException e) {
+                                        e = e;
                                         LogTools.printError(TAG, "queryByUDP：" + e.getMessage());
                                         i2++;
                                         if (i2 < GlobalTools.UDP_RETRY_TIME) {
@@ -123,8 +123,8 @@ public class UDPMgr {
                                 if (datagramPacket2.getLength() > 0) {
                                     try {
                                         str3 = new String(bArr, 0, datagramPacket2.getLength());
-                                    } catch (SocketTimeoutException e3) {
-                                        e = e3;
+                                    } catch (SocketTimeoutException e2) {
+                                        e = e2;
                                         z = true;
                                         LogTools.printError(TAG, "queryByUDP：" + e.getMessage());
                                         i2++;
@@ -139,14 +139,14 @@ public class UDPMgr {
                         } finally {
                             returnPort(Integer.valueOf(enablePort));
                         }
-                    } catch (BindException e4) {
-                        LogTools.printError(TAG, "queryByUDP：" + e4.getMessage());
+                    } catch (BindException e3) {
+                        LogTools.printError(TAG, "queryByUDP：" + e3.getMessage());
                     }
-                } catch (SocketException e5) {
-                    LogTools.printError(TAG, "queryByUDP：" + e5.getMessage());
+                } catch (SocketException e4) {
+                    LogTools.printError(TAG, "queryByUDP：" + e4.getMessage());
                 }
-            } catch (IOException e6) {
-                LogTools.printError(TAG, "queryByUDP：" + e6.getMessage());
+            } catch (IOException e5) {
+                LogTools.printError(TAG, "queryByUDP：" + e5.getMessage());
             }
             return str3;
         }

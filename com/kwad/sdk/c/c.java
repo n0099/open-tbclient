@@ -25,38 +25,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static volatile c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public d f39161b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f39163d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b f39164e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f39165f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f39166g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<com.kwad.sdk.c.kwai.d> f39167h;
+    public d b;
+    public Context d;
+    public b e;
+    public List<com.kwad.sdk.c.kwai.d> f;
+    public List<com.kwad.sdk.c.kwai.d> g;
+    public List<com.kwad.sdk.c.kwai.d> h;
     public List<com.kwad.sdk.c.kwai.d> k;
     public com.kwad.sdk.c.a.c m;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f39162c = new HashMap();
+    public final Map<String, String> c = new HashMap();
     public volatile boolean j = false;
     public final LinkedHashSet<String> l = new LinkedHashSet<>();
     public final NetworkMonitor.a n = new NetworkMonitor.a() { // from class: com.kwad.sdk.c.c.2
         @Override // com.kwad.sdk.core.NetworkMonitor.a
         public void a(NetworkMonitor.NetworkState networkState) {
-            if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && c.this.f39166g != null && c.this.f39166g.size() > 0) {
+            if ((networkState == NetworkMonitor.NetworkState.NETWORK_WIFI || networkState == NetworkMonitor.NetworkState.NETWORK_MOBILE) && c.this.g != null && c.this.g.size() > 0) {
                 c.this.b();
             }
         }
@@ -64,17 +50,17 @@ public class c {
     public final Lock i = new ReentrantLock();
 
     private WebResourceResponse a(String str, String str2) {
-        synchronized (this.f39162c) {
-            String str3 = this.f39162c.get(str);
-            com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.f39162c.size());
+        synchronized (this.c) {
+            String str3 = this.c.get(str);
+            com.kwad.sdk.core.d.a.a("WebResourceResponse", str3 + " | " + str2 + " | " + str + "| packageStatusMap size:" + this.c.size());
             if (TextUtils.isEmpty(str3)) {
                 b(str);
                 return null;
             }
-            synchronized (this.f39161b) {
-                com.kwad.sdk.c.kwai.d c2 = c(str);
-                if (c2 != null) {
-                    return this.f39161b.a(str2, c2, str3);
+            synchronized (this.b) {
+                com.kwad.sdk.c.kwai.d c = c(str);
+                if (c != null) {
+                    return this.b.a(str2, c, str3);
                 }
                 return null;
             }
@@ -102,8 +88,8 @@ public class c {
         String str = null;
         try {
             fileInputStream = new FileInputStream(file);
-        } catch (FileNotFoundException e2) {
-            e2.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
             fileInputStream = null;
         }
         if (fileInputStream == null) {
@@ -111,8 +97,8 @@ public class c {
         }
         try {
             str = h.b(new InputStreamReader(fileInputStream));
-        } catch (IOException e3) {
-            e3.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
         }
         return t.a(str, new com.kwad.sdk.core.c<com.kwad.sdk.c.kwai.d>() { // from class: com.kwad.sdk.c.c.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -131,13 +117,13 @@ public class c {
         }
         this.k = new ArrayList();
         for (com.kwad.sdk.c.kwai.d dVar : list) {
-            for (com.kwad.sdk.c.kwai.d dVar2 : this.f39166g) {
-                if (TextUtils.equals(dVar.f39181d, dVar2.f39181d)) {
+            for (com.kwad.sdk.c.kwai.d dVar2 : this.g) {
+                if (TextUtils.equals(dVar.d, dVar2.d)) {
                     if (dVar.c().equals(dVar2.c())) {
-                        if (this.f39167h == null) {
-                            this.f39167h = new ArrayList();
+                        if (this.h == null) {
+                            this.h = new ArrayList();
                         }
-                        list2 = this.f39167h;
+                        list2 = this.h;
                     } else {
                         list2 = this.k;
                     }
@@ -145,7 +131,7 @@ public class c {
                 }
             }
         }
-        a(this.f39166g, this.f39167h);
+        a(this.g, this.h);
         a(list, this.k);
         b(this.k);
     }
@@ -164,22 +150,22 @@ public class c {
     }
 
     private boolean a(com.kwad.sdk.c.kwai.d dVar, com.kwad.sdk.c.kwai.d dVar2) {
-        return TextUtils.equals(dVar.f39181d, dVar2.f39181d) && TextUtils.equals(dVar.c(), dVar2.c());
+        return TextUtils.equals(dVar.d, dVar2.d) && TextUtils.equals(dVar.c(), dVar2.c());
     }
 
     private boolean a(com.kwad.sdk.c.kwai.d dVar, String str) {
-        return dVar.f39184g == 3 && TextUtils.equals(dVar.b(), str);
+        return dVar.g == 3 && TextUtils.equals(dVar.b(), str);
     }
 
     private void b(Context context) {
-        List<com.kwad.sdk.c.kwai.d> c2 = c(context);
-        this.f39165f = c2;
-        if (c2 == null || c2.size() <= 0) {
+        List<com.kwad.sdk.c.kwai.d> c = c(context);
+        this.f = c;
+        if (c == null || c.size() <= 0) {
             return;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f39165f) {
-            synchronized (this.f39162c) {
-                this.f39162c.put(dVar.b(), dVar.f39179b);
+        for (com.kwad.sdk.c.kwai.d dVar : this.f) {
+            synchronized (this.c) {
+                this.c.put(dVar.b(), dVar.b);
                 if (dVar.i) {
                     this.l.add(dVar.b());
                 }
@@ -189,7 +175,7 @@ public class c {
 
     private void b(List<com.kwad.sdk.c.kwai.d> list) {
         for (com.kwad.sdk.c.kwai.d dVar : list) {
-            String a2 = com.kwad.sdk.c.b.a.a(this.f39163d, dVar.f());
+            String a2 = com.kwad.sdk.c.b.a.a(this.d, dVar.f());
             if (!TextUtils.isEmpty(a2)) {
                 q.c(new File(a2));
             }
@@ -197,9 +183,9 @@ public class c {
     }
 
     private com.kwad.sdk.c.kwai.d c(String str) {
-        for (int i = 0; i < this.f39165f.size(); i++) {
-            if (TextUtils.equals(str, this.f39165f.get(i).a)) {
-                return this.f39165f.get(i);
+        for (int i = 0; i < this.f.size(); i++) {
+            if (TextUtils.equals(str, this.f.get(i).a)) {
+                return this.f.get(i);
             }
         }
         return null;
@@ -221,11 +207,11 @@ public class c {
     }
 
     private List<com.kwad.sdk.c.kwai.d> c(Context context) {
-        String c2 = com.kwad.sdk.c.b.a.c(context);
-        if (c2 == null) {
+        String c = com.kwad.sdk.c.b.a.c(context);
+        if (c == null) {
             return null;
         }
-        File file = new File(c2);
+        File file = new File(c);
         if (file.exists()) {
             return a(file);
         }
@@ -239,20 +225,20 @@ public class c {
     }
 
     private boolean d(com.kwad.sdk.c.kwai.d dVar) {
-        if (dVar.f39184g != 1) {
-            return com.ksad.download.c.b.b(this.f39163d) && dVar.f39184g == 2;
+        if (dVar.g != 1) {
+            return com.ksad.download.c.b.b(this.d) && dVar.g == 2;
         }
         return true;
     }
 
     private void e(com.kwad.sdk.c.kwai.d dVar) {
-        List<com.kwad.sdk.c.kwai.d> list = this.f39166g;
+        List<com.kwad.sdk.c.kwai.d> list = this.g;
         if (list == null) {
             return;
         }
         int indexOf = list.indexOf(dVar);
         if (indexOf >= 0) {
-            this.f39166g.remove(indexOf);
+            this.g.remove(indexOf);
         }
         if (this.j) {
             d();
@@ -260,12 +246,12 @@ public class c {
     }
 
     private boolean e() {
-        List<com.kwad.sdk.c.kwai.d> list = this.f39166g;
+        List<com.kwad.sdk.c.kwai.d> list = this.g;
         if (list == null || list.size() <= 0) {
             return false;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f39166g) {
-            if (dVar.f39184g != 3) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.g) {
+            if (dVar.g != 3) {
                 return true;
             }
         }
@@ -276,29 +262,29 @@ public class c {
     private void f(com.kwad.sdk.c.kwai.d dVar) {
         boolean z;
         com.kwad.sdk.c.b.b.a(dVar, 3);
-        com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.f39182e);
-        File file = new File(com.kwad.sdk.c.b.a.c(this.f39163d));
+        com.kwad.sdk.core.d.a.a("updatePackageIndexFile", dVar.a + "|" + dVar.e);
+        File file = new File(com.kwad.sdk.c.b.a.c(this.d));
         if (!file.exists()) {
             try {
                 z = file.createNewFile();
-            } catch (IOException e2) {
-                com.kwad.sdk.c.b.b.a(dVar, 3, e2.getMessage());
+            } catch (IOException e) {
+                com.kwad.sdk.c.b.b.a(dVar, 3, e.getMessage());
                 z = false;
             }
             if (!z) {
                 return;
             }
         }
-        if (this.f39165f == null) {
-            this.f39165f = a(file);
+        if (this.f == null) {
+            this.f = a(file);
         }
-        int indexOf = this.f39165f.indexOf(dVar);
+        int indexOf = this.f.indexOf(dVar);
         if (indexOf >= 0) {
-            this.f39165f.get(indexOf).b(dVar.f39182e);
+            this.f.get(indexOf).b(dVar.e);
         } else {
-            this.f39165f.add(dVar);
+            this.f.add(dVar);
         }
-        String jSONArray = t.b(this.f39165f).toString();
+        String jSONArray = t.b(this.f).toString();
         try {
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -309,8 +295,8 @@ public class c {
                     com.kwad.sdk.core.d.a.e("updatePackageIndexFile", "write packageIndex file error");
                     fileOutputStream.close();
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
         } catch (Exception unused2) {
             com.kwad.sdk.core.d.a.e("updatePackageIndexFile", "read packageIndex file error");
@@ -318,7 +304,7 @@ public class c {
     }
 
     public WebResourceResponse a(String str) {
-        String a2 = this.f39161b.a(str);
+        String a2 = this.b.a(str);
         if (!TextUtils.isEmpty(a2)) {
             this.l.add(a2);
             return a(a2, str);
@@ -335,9 +321,9 @@ public class c {
 
     public void a(Context context) {
         if (com.kwad.sdk.core.config.b.J()) {
-            this.f39163d = context;
-            this.f39161b = new d(context);
-            this.f39164e = new b(context);
+            this.d = context;
+            this.b = new d(context);
+            this.e = new b(context);
             r.a(context);
             b(context);
             this.m = new d.a();
@@ -347,19 +333,19 @@ public class c {
     public void a(com.kwad.sdk.c.kwai.d dVar) {
         if (dVar != null && this.m.a(dVar)) {
             this.i.lock();
-            String a2 = this.f39164e.a(dVar, false);
+            String a2 = this.e.a(dVar, false);
             this.i.unlock();
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
             com.kwad.sdk.core.d.a.a("installPackage", "version" + dVar.c());
             f(dVar);
-            if (this.f39165f == null) {
-                this.f39165f = new ArrayList();
+            if (this.f == null) {
+                this.f = new ArrayList();
             }
-            this.f39165f.add(dVar);
-            synchronized (this.f39162c) {
-                this.f39162c.put(dVar.b(), dVar.f39179b);
+            this.f.add(dVar);
+            synchronized (this.c) {
+                this.c.put(dVar.b(), dVar.b);
                 if (dVar.i) {
                     this.l.add(dVar.b());
                 }
@@ -370,35 +356,35 @@ public class c {
 
     public void b() {
         if (com.kwad.sdk.core.config.b.J()) {
-            if (this.f39165f == null) {
-                this.f39165f = c(this.f39163d);
+            if (this.f == null) {
+                this.f = c(this.d);
             }
-            boolean z = this.f39165f == null;
-            List<com.kwad.sdk.c.kwai.d> c2 = c();
-            if (c2 == null) {
+            boolean z = this.f == null;
+            List<com.kwad.sdk.c.kwai.d> c = c();
+            if (c == null) {
                 return;
             }
-            this.f39166g = new ArrayList();
-            if (c2.size() > 0) {
-                this.f39166g.addAll(c2);
+            this.g = new ArrayList();
+            if (c.size() > 0) {
+                this.g.addAll(c);
             }
             if (!z) {
-                a(this.f39165f);
+                a(this.f);
             }
-            ArrayList arrayList = new ArrayList(this.f39166g.size());
-            for (com.kwad.sdk.c.kwai.d dVar : this.f39166g) {
-                if (dVar.f39185h == 1) {
+            ArrayList arrayList = new ArrayList(this.g.size());
+            for (com.kwad.sdk.c.kwai.d dVar : this.g) {
+                if (dVar.h == 1) {
                     arrayList.add(dVar);
                 }
             }
-            this.f39166g.clear();
-            this.f39166g.addAll(arrayList);
-            for (int i = 0; i < this.f39166g.size(); i++) {
-                com.kwad.sdk.c.kwai.d dVar2 = this.f39166g.get(i);
+            this.g.clear();
+            this.g.addAll(arrayList);
+            for (int i = 0; i < this.g.size(); i++) {
+                com.kwad.sdk.c.kwai.d dVar2 = this.g.get(i);
                 if (d(dVar2)) {
-                    new a(this.f39163d).a(dVar2, new com.kwad.sdk.c.a.a(this));
+                    new a(this.d).a(dVar2, new com.kwad.sdk.c.a.a(this));
                 }
-                if (i == this.f39166g.size() - 1) {
+                if (i == this.g.size() - 1) {
                     if (d(dVar2)) {
                         this.j = true;
                     } else {
@@ -406,14 +392,14 @@ public class c {
                     }
                 }
             }
-            this.f39162c.clear();
-            List<com.kwad.sdk.c.kwai.d> list = this.f39167h;
+            this.c.clear();
+            List<com.kwad.sdk.c.kwai.d> list = this.h;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            for (com.kwad.sdk.c.kwai.d dVar3 : this.f39167h) {
-                synchronized (this.f39162c) {
-                    this.f39162c.put(dVar3.b(), dVar3.f39179b);
+            for (com.kwad.sdk.c.kwai.d dVar3 : this.h) {
+                synchronized (this.c) {
+                    this.c.put(dVar3.b(), dVar3.b);
                 }
             }
         }
@@ -421,13 +407,13 @@ public class c {
 
     public void b(com.kwad.sdk.c.kwai.d dVar) {
         com.kwad.sdk.core.d.a.a("download", "success");
-        List<com.kwad.sdk.c.kwai.d> list = this.f39166g;
+        List<com.kwad.sdk.c.kwai.d> list = this.g;
         if (list == null) {
             return;
         }
         int indexOf = list.indexOf(dVar);
         if (indexOf >= 0) {
-            dVar = this.f39166g.remove(indexOf);
+            dVar = this.g.remove(indexOf);
         }
         com.kwad.sdk.core.d.a.a("performDownloadSuccess", "installPackage");
         a(dVar);
@@ -437,13 +423,13 @@ public class c {
     }
 
     public void b(String str) {
-        List<com.kwad.sdk.c.kwai.d> list = this.f39166g;
+        List<com.kwad.sdk.c.kwai.d> list = this.g;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (com.kwad.sdk.c.kwai.d dVar : this.f39166g) {
+        for (com.kwad.sdk.c.kwai.d dVar : this.g) {
             if (a(dVar, str)) {
-                new a(this.f39163d).a(dVar, new com.kwad.sdk.c.a.a(this));
+                new a(this.d).a(dVar, new com.kwad.sdk.c.a.a(this));
             }
         }
     }

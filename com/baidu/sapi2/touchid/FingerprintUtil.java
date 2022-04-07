@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FingerprintUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public class FingerprintUtil {
                 FingerprintManager fingerprintManager = null;
                 try {
                     fingerprintManager = (FingerprintManager) sapiConfiguration.context.getSystemService(FingerprintManager.class);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints()) ? 0 : 104;
             }

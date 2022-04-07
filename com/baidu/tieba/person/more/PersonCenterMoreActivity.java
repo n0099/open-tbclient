@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.d.f.p.n;
-import c.a.p0.h0.b0;
-import c.a.p0.y2.j.b;
-import c.a.p0.z2.d.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,22 +22,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.e28;
+import com.repackage.k18;
+import com.repackage.oi;
+import com.repackage.rx5;
+import com.repackage.vl4;
+/* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h mItemData;
-    public b mMoreController;
-    public b0 mOnCardSubClickListenner;
+    public e28 mItemData;
+    public k18 mMoreController;
+    public rx5 mOnCardSubClickListenner;
     public Bundle mUrlBundle;
 
-    /* loaded from: classes5.dex */
-    public class a extends b0<h> {
+    /* loaded from: classes3.dex */
+    public class a extends rx5<e28> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f35365b;
+        public final /* synthetic */ PersonCenterMoreActivity b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -58,21 +57,21 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f35365b = personCenterMoreActivity;
+            this.b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.h0.b0
+        @Override // com.repackage.rx5
         /* renamed from: d */
-        public void a(View view, h hVar) {
+        public void a(View view2, e28 e28Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f35365b.mItemData = hVar;
-                if (this.f35365b.mItemData == null || this.f35365b.requestPermission()) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, e28Var) == null) {
+                this.b.mItemData = e28Var;
+                if (this.b.mItemData == null || this.b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f35365b;
-                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.f20950g);
+                PersonCenterMoreActivity personCenterMoreActivity = this.b;
+                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.g);
             }
         }
     }
@@ -119,14 +118,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                n.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0448);
+                oi.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f044f);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.o0.l.a.v(getPageContext().getPageActivity(), true, str);
+            vl4.v(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -149,9 +148,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            b bVar = this.mMoreController;
-            if (bVar != null) {
-                bVar.c();
+            k18 k18Var = this.mMoreController;
+            if (k18Var != null) {
+                k18Var.c();
             }
         }
     }
@@ -165,10 +164,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.mUrlBundle = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d06b5);
-            b bVar = new b(getPageContext(), this.mUrlBundle, this.mOnCardSubClickListenner);
-            this.mMoreController = bVar;
-            bVar.b();
+            setContentView(R.layout.obfuscated_res_0x7f0d06b2);
+            k18 k18Var = new k18(getPageContext(), this.mUrlBundle, this.mOnCardSubClickListenner);
+            this.mMoreController = k18Var;
+            k18Var.b();
         }
     }
 
@@ -176,7 +175,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
-            dealUrlMapClick(this.mItemData.f20950g);
+            dealUrlMapClick(this.mItemData.g);
         }
     }
 }

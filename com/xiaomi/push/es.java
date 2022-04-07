@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.er;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class es implements er.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class es implements er.a {
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{alarmManager, Long.valueOf(j), pendingIntent}) == null) {
             try {
                 AlarmManager.class.getMethod("setExact", Integer.TYPE, Long.TYPE, PendingIntent.class).invoke(alarmManager, 0, Long.valueOf(j), pendingIntent);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
     }

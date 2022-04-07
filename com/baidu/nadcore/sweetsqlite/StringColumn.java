@@ -1,14 +1,14 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.a0.c0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oz0;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StringColumn extends Column implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1864671329325341265L;
@@ -16,18 +16,18 @@ public class StringColumn extends Column implements Serializable {
     public String value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StringColumn(b bVar) {
-        super(bVar);
+    public StringColumn(oz0 oz0Var) {
+        super(oz0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {oz0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b) newInitContext.callArgs[0]);
+                super((oz0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,7 +86,7 @@ public class StringColumn extends Column implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.field.f1052b + ":" + this.value + ":" + this.field.f1052b + ":" + this.field.f1054d;
+            return this.field.b + ":" + this.value + ":" + this.field.b + ":" + this.field.d;
         }
         return (String) invokeV.objValue;
     }

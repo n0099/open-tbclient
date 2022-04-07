@@ -1,8 +1,6 @@
 package com.baidu.swan.apps;
 
 import android.util.Log;
-import c.a.n0.a.u.d;
-import c.a.n0.a.v0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -10,7 +8,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.gl2;
+import com.repackage.jx1;
+/* loaded from: classes2.dex */
 public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SwanAppClearCacheErrorActivity";
@@ -49,13 +49,13 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
             if (this.mHasGotoClearCache) {
                 this.mHasGotoClearCache = false;
                 try {
-                    b launchInfo = getLaunchInfo();
+                    gl2 launchInfo = getLaunchInfo();
                     if (SwanAppNetworkUtils.i(this)) {
                         SwanLauncher.j().n(launchInfo, null);
                         finish();
                     }
-                } catch (Exception e2) {
-                    d.l(TAG, "SwanAppClearCacheErrorActivity#onRestart", e2);
+                } catch (Exception e) {
+                    jx1.l(TAG, "SwanAppClearCacheErrorActivity#onRestart", e);
                 }
             }
         }

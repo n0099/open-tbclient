@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WriteVoteData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VOTE_CONTENT_PREFIX_FORMAT = "#(poll,%s)";
@@ -80,8 +80,8 @@ public class WriteVoteData extends OrmObject implements Serializable {
                 try {
                     writeVoteItemData.parseJson(optJSONArray.getJSONObject(i));
                     this.options.add(writeVoteItemData);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface DownloadStore extends BreakpointStore {
     @Nullable
     BreakpointInfo getAfterCompleted(int i);

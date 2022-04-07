@@ -9,13 +9,11 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f38660b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -58,18 +56,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f38671b) {
-                String str = q.f38677h;
+            if (q.b) {
+                String str = q.h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f38672c == null) {
+                if (q.c == null) {
                     Context context2 = q.a;
-                    q.f38672c = new s(q.i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f38672c);
+                    q.c = new s(q.i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.c);
                 }
-                return q.f38677h;
+                return q.h;
             }
             return null;
         }

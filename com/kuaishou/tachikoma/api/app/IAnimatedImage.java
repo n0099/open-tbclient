@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.kuaishou.tachikoma.api.model.TKCDNUrl;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface IAnimatedImage {
     ImageView getImageViewHost(Context context);
 
@@ -14,7 +14,7 @@ public interface IAnimatedImage {
 
     void setBorderRadius(ImageView imageView, int i);
 
-    void setBorderWidth(ImageView imageView, double d2);
+    void setBorderWidth(ImageView imageView, double d);
 
     void setCDNUrls(ImageView imageView, List<TKCDNUrl> list, int i, int i2, String str);
 

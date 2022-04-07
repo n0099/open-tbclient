@@ -17,7 +17,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -124,8 +124,8 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
             try {
                 this.mAnimatedImageCompositor.renderFrame(i, bitmap);
                 return true;
-            } catch (IllegalStateException e2) {
-                FLog.e(TAG, e2, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
+            } catch (IllegalStateException e) {
+                FLog.e(TAG, e, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
                 return false;
             }
         }

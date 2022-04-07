@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.util.Assertions;
 import java.lang.Exception;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends OutputBuffer, E extends Exception> implements Decoder<I, O, E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -157,10 +157,10 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
     }
 
     private void maybeThrowException() throws Exception {
-        E e2;
+        E e;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (e2 = this.exception) != null) {
-            throw e2;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (e = this.exception) != null) {
+            throw e;
         }
     }
 
@@ -192,8 +192,8 @@ public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends Outp
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             do {
                 try {
-                } catch (InterruptedException e2) {
-                    throw new IllegalStateException(e2);
+                } catch (InterruptedException e) {
+                    throw new IllegalStateException(e);
                 }
             } while (decode());
         }

@@ -330,9 +330,9 @@ public class Base64 {
             int i4;
             int i5;
             int i6;
+            byte b;
             byte b2;
             byte b3;
-            byte b4;
             int i7;
             int i8;
             Interceptable interceptable = $ic;
@@ -405,12 +405,12 @@ public class Base64 {
                         int i16 = this.tailLen;
                         if (i3 - i16 == i10 - 1) {
                             if (i16 > 0) {
-                                b4 = this.tail[0];
+                                b3 = this.tail[0];
                                 i12 = 1;
                             } else {
-                                b4 = bArr[i3];
+                                b3 = bArr[i3];
                             }
-                            int i17 = (b4 & 255) << 4;
+                            int i17 = (b3 & 255) << 4;
                             this.tailLen -= i12;
                             int i18 = i5 + 1;
                             bArr3[i5] = bArr2[(i17 >> 6) & 63];
@@ -433,21 +433,21 @@ public class Base64 {
                             }
                         } else if (i3 - i16 == i10 - 2) {
                             if (i16 > 1) {
-                                b2 = this.tail[0];
+                                b = this.tail[0];
                                 i12 = 1;
                             } else {
-                                byte b5 = bArr[i3];
+                                byte b4 = bArr[i3];
                                 i3++;
-                                b2 = b5;
+                                b = b4;
                             }
-                            int i20 = (b2 & 255) << 10;
+                            int i20 = (b & 255) << 10;
                             if (this.tailLen > 0) {
-                                b3 = this.tail[i12];
+                                b2 = this.tail[i12];
                                 i12++;
                             } else {
-                                b3 = bArr[i3];
+                                b2 = bArr[i3];
                             }
-                            int i21 = i20 | ((b3 & 255) << 2);
+                            int i21 = i20 | ((b2 & 255) << 2);
                             this.tailLen -= i12;
                             int i22 = i5 + 1;
                             bArr3[i5] = bArr2[(i21 >> 12) & 63];
@@ -546,8 +546,8 @@ public class Base64 {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) {
             try {
                 return new String(encode(bArr, i), "US-ASCII");
-            } catch (UnsupportedEncodingException e2) {
-                throw new AssertionError(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeLI.objValue;
@@ -614,8 +614,8 @@ public class Base64 {
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65544, null, bArr, i, i2, i3)) == null) {
             try {
                 return new String(encode(bArr, i, i2, i3), "US-ASCII");
-            } catch (UnsupportedEncodingException e2) {
-                throw new AssertionError(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeLIII.objValue;

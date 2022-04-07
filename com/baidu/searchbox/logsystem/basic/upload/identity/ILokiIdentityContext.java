@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.basic.upload.identity;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ILokiIdentityContext {
     String getBDVCInfo();
 

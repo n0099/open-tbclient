@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class y extends AsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a0 a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public MsaIdInterface f38002b;
+    public MsaIdInterface b;
 
     public y(MsaIdInterface msaIdInterface, a0 a0Var) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        this.f38002b = msaIdInterface;
+        this.b = msaIdInterface;
         this.a = a0Var;
     }
 
@@ -46,13 +44,13 @@ public class y extends AsyncTask<Void, Void, Boolean> {
         a0 a0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            if (this.f38002b == null) {
+            if (this.b == null) {
                 return Boolean.FALSE;
             }
             int i = 0;
             while (true) {
                 try {
-                    isDataArrived = this.f38002b.isDataArrived();
+                    isDataArrived = this.b.isDataArrived();
                 } catch (RemoteException | InterruptedException unused) {
                 }
                 if (isDataArrived) {
@@ -65,7 +63,7 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 }
             }
             if (isDataArrived && (a0Var = this.a) != null) {
-                a0Var.a(this.f38002b);
+                a0Var.a(this.b);
             }
             return Boolean.valueOf(isDataArrived);
         }

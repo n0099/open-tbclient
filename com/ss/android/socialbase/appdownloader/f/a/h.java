@@ -4,12 +4,8 @@ import java.io.PrintStream;
 /* loaded from: classes7.dex */
 public class h extends Exception {
     public Throwable a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f43086b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f43087c;
+    public int b;
+    public int c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -37,11 +33,11 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f43086b = -1;
-        this.f43087c = -1;
+        this.b = -1;
+        this.c = -1;
         if (gVar != null) {
-            this.f43086b = gVar.c();
-            this.f43087c = gVar.f();
+            this.b = gVar.c();
+            this.c = gVar.f();
         }
         this.a = th;
     }

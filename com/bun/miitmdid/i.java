@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class i extends l implements IDIDBinderStatusListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +55,10 @@ public class i extends l implements IDIDBinderStatusListener {
                 c();
                 this.j.init(this);
                 b();
-            } catch (Exception e2) {
-                e0.b("AsusProvider", "doStart: Exception: " + e2.getMessage());
+            } catch (Exception e) {
+                e0.b("AsusProvider", "doStart: Exception: " + e.getMessage());
                 a();
-                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                a(this.c, this.d, this.e, this.f, this.g);
             }
         }
     }
@@ -79,7 +79,7 @@ public class i extends l implements IDIDBinderStatusListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             e0.d("AsusProvider", "onError");
             a();
-            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+            a(this.c, this.d, this.e, this.f, this.g);
             shutDown();
         }
     }
@@ -94,29 +94,29 @@ public class i extends l implements IDIDBinderStatusListener {
             }
             try {
                 try {
-                    this.f37986f = iDidAidlInterface.isSupport();
+                    this.f = iDidAidlInterface.isSupport();
                     String oaid = iDidAidlInterface.getOAID();
                     String vaid = iDidAidlInterface.getVAID();
                     String aaid = iDidAidlInterface.getAAID();
-                    this.f37987g = false;
+                    this.g = false;
                     if (oaid == null) {
                         oaid = "";
                     }
-                    this.f37983c = oaid;
+                    this.c = oaid;
                     if (vaid == null) {
                         vaid = "";
                     }
-                    this.f37984d = vaid;
+                    this.d = vaid;
                     if (aaid == null) {
                         aaid = "";
                     }
-                    this.f37985e = aaid;
-                } catch (Exception e2) {
-                    e0.b("AsusProvider", "onSuccess: Exception: " + e2.getMessage());
+                    this.e = aaid;
+                } catch (Exception e) {
+                    e0.b("AsusProvider", "onSuccess: Exception: " + e.getMessage());
                     a();
                 }
             } finally {
-                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                a(this.c, this.d, this.e, this.f, this.g);
                 shutDown();
             }
         }

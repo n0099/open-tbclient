@@ -32,7 +32,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -126,7 +126,7 @@ public class ProxyURLConnection {
     private String getRealUrl(String str) {
         InterceptResult invokeL;
         String str2;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, str)) != null) {
             return (String) invokeL.objValue;
@@ -179,18 +179,18 @@ public class ProxyURLConnection {
                         }
                     };
                     return str2;
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
                     return str2;
                 }
             } catch (MalformedURLException unused) {
                 setUsingDNSProxy(false);
                 return str;
             }
-        } catch (Exception e4) {
+        } catch (Exception e3) {
             str2 = str;
-            e2 = e4;
+            e = e3;
         }
     }
 
@@ -369,8 +369,8 @@ public class ProxyURLConnection {
                             }
                         }}, new SecureRandom());
                         ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sSLContext.getSocketFactory());
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 if (usingDNSProxy() && this.mHostnameVerifier != null) {

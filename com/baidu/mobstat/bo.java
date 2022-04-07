@@ -24,13 +24,11 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
     public static final Proxy a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f27331b;
+    public static final Proxy b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +45,7 @@ public final class bo {
             }
         }
         a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f27331b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -65,40 +63,41 @@ public final class bo {
 
     public static String b(String str) {
         InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        File a2 = a(str);
-        if (a2 == null || !a2.exists()) {
-            return "";
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(a2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            File a2 = a(str);
+            if (a2 == null || !a2.exists()) {
+                return "";
+            }
+            FileInputStream fileInputStream2 = null;
             try {
-                byte[] a3 = a(fileInputStream2);
+                fileInputStream = new FileInputStream(a2);
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] a3 = a(fileInputStream);
                 if (a3 == null) {
-                    bu.a(fileInputStream2);
+                    bu.a(fileInputStream);
                     return "";
                 }
                 String str2 = new String(a3, IMAudioTransRequest.CHARSET);
-                bu.a(fileInputStream2);
+                bu.a(fileInputStream);
                 return str2;
-            } catch (Exception unused) {
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
+            } catch (Exception unused2) {
+                fileInputStream2 = fileInputStream;
+                bu.a(fileInputStream2);
                 return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                bu.a(fileInputStream2);
                 throw th;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean c(String str) {
@@ -132,8 +131,8 @@ public final class bo {
             } catch (Exception unused) {
             }
             if (!z) {
-                bc c2 = bc.c();
-                c2.b("[WARNING] not have permission " + str + ", please add it in AndroidManifest.xml according our developer doc");
+                bc c = bc.c();
+                c.b("[WARNING] not have permission " + str + ", please add it in AndroidManifest.xml according our developer doc");
             }
             return z;
         }
@@ -276,7 +275,7 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f27331b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(b);
                         }
                     } else {
                         httpURLConnection = (HttpURLConnection) url.openConnection(a);

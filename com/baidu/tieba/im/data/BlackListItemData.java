@@ -9,20 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BlackListItemData extends AbstractImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f33773b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f33774c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f33775d;
+    public String b;
+    public String c;
+    public String d;
 
     public BlackListItemData() {
         Interceptable interceptable = $ic;
@@ -41,14 +35,14 @@ public class BlackListItemData extends AbstractImageProvider {
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f33774c = str;
+            this.c = str;
         }
     }
 
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f33775d = str;
+            this.d = str;
         }
     }
 
@@ -80,24 +74,24 @@ public class BlackListItemData extends AbstractImageProvider {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f33773b = str;
+            this.b = str;
         }
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33774c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (StringUtils.isNull(this.f33775d)) {
-                return this.f33773b;
+            if (StringUtils.isNull(this.d)) {
+                return this.b;
             }
-            return this.f33775d;
+            return this.d;
         }
         return (String) invokeV.objValue;
     }

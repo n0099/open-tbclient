@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NetInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_CLASS_2_G = 1;
@@ -75,8 +75,8 @@ public class NetInfoUtil {
                     return upperCase;
                 }
                 return "0";
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return "0";
             }
         }
@@ -139,8 +139,8 @@ public class NetInfoUtil {
                 } else {
                     i = -1;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             int networkClassByType = getNetworkClassByType(i);
             return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
@@ -160,8 +160,8 @@ public class NetInfoUtil {
                     }
                 }
                 return true;
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return false;
             }
         }
@@ -180,8 +180,8 @@ public class NetInfoUtil {
                     }
                 }
                 return true;
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return false;
             }
         }
@@ -198,8 +198,8 @@ public class NetInfoUtil {
                     return activeNetworkInfo.isConnected();
                 }
                 return false;
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return false;
             }
         }
@@ -222,8 +222,8 @@ public class NetInfoUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 return getNetType(context).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return false;
             }
         }

@@ -156,7 +156,7 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         init(context, cursor, 1);
     }
 
-    public abstract void bindView(View view, Context context, Cursor cursor);
+    public abstract void bindView(View view2, Context context, Cursor cursor);
 
     public void changeCursor(Cursor cursor) {
         Cursor swapCursor;
@@ -195,17 +195,17 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
+    public View getDropDownView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             if (this.mDataValid) {
                 this.mCursor.moveToPosition(i);
-                if (view == null) {
-                    view = newDropDownView(this.mContext, this.mCursor, viewGroup);
+                if (view2 == null) {
+                    view2 = newDropDownView(this.mContext, this.mCursor, viewGroup);
                 }
-                bindView(view, this.mContext, this.mCursor);
-                return view;
+                bindView(view2, this.mContext, this.mCursor);
+                return view2;
             }
             return null;
         }
@@ -261,17 +261,17 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
             if (this.mDataValid) {
                 if (this.mCursor.moveToPosition(i)) {
-                    if (view == null) {
-                        view = newView(this.mContext, this.mCursor, viewGroup);
+                    if (view2 == null) {
+                        view2 = newView(this.mContext, this.mCursor, viewGroup);
                     }
-                    bindView(view, this.mContext, this.mCursor);
-                    return view;
+                    bindView(view2, this.mContext, this.mCursor);
+                    return view2;
                 }
                 throw new IllegalStateException("couldn't move cursor to position " + i);
             }

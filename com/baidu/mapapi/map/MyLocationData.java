@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MyLocationData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,26 +17,16 @@ public class MyLocationData {
     public final int satellitesNum;
     public final float speed;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public double f26248b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public float f26249c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public float f26250d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public float f26251e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f26252f;
+        public double b;
+        public float c;
+        public float d;
+        public float e;
+        public int f;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -52,11 +42,11 @@ public class MyLocationData {
             }
         }
 
-        public Builder accuracy(float f2) {
+        public Builder accuracy(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                this.f26251e = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                this.e = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -65,34 +55,34 @@ public class MyLocationData {
         public MyLocationData build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MyLocationData(this.a, this.f26248b, this.f26249c, this.f26250d, this.f26251e, this.f26252f) : (MyLocationData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MyLocationData(this.a, this.b, this.c, this.d, this.e, this.f) : (MyLocationData) invokeV.objValue;
         }
 
-        public Builder direction(float f2) {
+        public Builder direction(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
-                this.f26250d = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+                this.d = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
 
-        public Builder latitude(double d2) {
+        public Builder latitude(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)})) == null) {
-                this.a = d2;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)})) == null) {
+                this.a = d;
                 return this;
             }
             return (Builder) invokeCommon.objValue;
         }
 
-        public Builder longitude(double d2) {
+        public Builder longitude(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)})) == null) {
-                this.f26248b = d2;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)})) == null) {
+                this.b = d;
                 return this;
             }
             return (Builder) invokeCommon.objValue;
@@ -102,29 +92,29 @@ public class MyLocationData {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.f26252f = i;
+                this.f = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder speed(float f2) {
+        public Builder speed(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-                this.f26249c = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+                this.c = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
     }
 
-    public MyLocationData(double d2, double d3, float f2, float f3, float f4, int i) {
+    public MyLocationData(double d, double d2, float f, float f2, float f3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -134,11 +124,11 @@ public class MyLocationData {
                 return;
             }
         }
-        this.latitude = d2;
-        this.longitude = d3;
-        this.speed = f2;
-        this.direction = f3;
-        this.accuracy = f4;
+        this.latitude = d;
+        this.longitude = d2;
+        this.speed = f;
+        this.direction = f2;
+        this.accuracy = f3;
         this.satellitesNum = i;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlayerSpeedTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -142,8 +142,8 @@ public class PlayerSpeedTracker {
             if (obj != null) {
                 try {
                     extStatisticsLogClone.put("statistic", obj.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             if (j > 0) {

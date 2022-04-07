@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,8 +66,8 @@ public class a {
                             }
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return this.xu;

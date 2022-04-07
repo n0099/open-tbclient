@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;
@@ -88,20 +88,20 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0);
             int min = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.getSelectedItemPosition()) + 15);
-            View view = null;
+            View view2 = null;
             int i2 = 0;
             for (int max = Math.max(0, min - 15); max < min; max++) {
                 int itemViewType = adapter.getItemViewType(max);
                 if (itemViewType != i) {
-                    view = null;
+                    view2 = null;
                     i = itemViewType;
                 }
-                view = adapter.getView(max, view, findTextInputLayoutAncestor);
-                if (view.getLayoutParams() == null) {
-                    view.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+                view2 = adapter.getView(max, view2, findTextInputLayoutAncestor);
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
                 }
-                view.measure(makeMeasureSpec, makeMeasureSpec2);
-                i2 = Math.max(i2, view.getMeasuredWidth());
+                view2.measure(makeMeasureSpec, makeMeasureSpec2);
+                i2 = Math.max(i2, view2.getMeasuredWidth());
             }
             Drawable background = this.modalListPopup.getBackground();
             if (background != null) {
@@ -233,7 +233,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         }
         this.tempRect = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16843296}, i, R.style.obfuscated_res_0x7f1002ae, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16843296}, i, R.style.obfuscated_res_0x7f1002af, new int[0]);
         if (obtainStyledAttributes.hasValue(0) && obtainStyledAttributes.getInt(0, 0) == 0) {
             setKeyListener(null);
         }
@@ -268,18 +268,18 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i4, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
                     this.this$0.updateText(i4 < 0 ? this.this$0.modalListPopup.getSelectedItem() : this.this$0.getAdapter().getItem(i4));
                     AdapterView.OnItemClickListener onItemClickListener = this.this$0.getOnItemClickListener();
                     if (onItemClickListener != null) {
-                        if (view == null || i4 < 0) {
-                            view = this.this$0.modalListPopup.getSelectedView();
+                        if (view2 == null || i4 < 0) {
+                            view2 = this.this$0.modalListPopup.getSelectedView();
                             i4 = this.this$0.modalListPopup.getSelectedItemPosition();
                             j = this.this$0.modalListPopup.getSelectedItemId();
                         }
-                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view, i4, j);
+                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view2, i4, j);
                     }
                     this.this$0.modalListPopup.dismiss();
                 }

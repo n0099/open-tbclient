@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import c.a.d.f.p.n;
-import c.a.o0.c1.o0;
-import c.a.p0.w2.j.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,36 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fd5;
+import com.repackage.oi;
+import com.repackage.ws7;
+/* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f30359d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f30360e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f30361f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f30362g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f30363h;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
+    public static final int h;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageUrlData a;
+    public ws7.a b;
+    public ws7 c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c.a f30364b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c f30365c;
-
-    /* loaded from: classes5.dex */
-    public class a implements c.a {
+    /* loaded from: classes3.dex */
+    public class a implements ws7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView a;
@@ -75,48 +61,46 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // c.a.p0.w2.j.c.a
-        public boolean a(View view, MotionEvent motionEvent) {
+        @Override // com.repackage.ws7.a
+        public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 return false;
             }
             return invokeLL.booleanValue;
         }
 
-        @Override // c.a.p0.w2.j.c.a
-        public boolean b(View view, MotionEvent motionEvent) {
+        @Override // com.repackage.ws7.a
+        public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
                 this.a.c();
                 return true;
             }
             return invokeLL.booleanValue;
         }
 
-        @Override // c.a.p0.w2.j.c.a
-        public boolean c(View view, MotionEvent motionEvent) {
+        @Override // com.repackage.ws7.a
+        public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
                 return false;
             }
             return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends c {
+    /* loaded from: classes3.dex */
+    public class b extends ws7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f30366d;
+        public final /* synthetic */ AbsFloorImageTextView d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
+        public b(AbsFloorImageTextView absFloorImageTextView, ws7.a aVar) {
             super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -127,30 +111,30 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((c.a) newInitContext.callArgs[0]);
+                    super((ws7.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30366d = absFloorImageTextView;
+            this.d = absFloorImageTextView;
         }
 
-        @Override // c.a.p0.w2.j.c, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        @Override // com.repackage.ws7, android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 return false;
             }
             return invokeCommon.booleanValue;
         }
 
-        @Override // c.a.p0.w2.j.c, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        @Override // com.repackage.ws7, android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 return false;
             }
             return invokeCommon.booleanValue;
@@ -170,12 +154,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        f30359d = n.f(TbadkApplication.getInst(), R.dimen.tbds34);
-        f30360e = n.f(TbadkApplication.getInst(), R.dimen.tbds28);
-        f30361f = n.f(TbadkApplication.getInst(), R.dimen.tbds44);
-        f30362g = n.f(TbadkApplication.getInst(), R.dimen.tbds44);
-        f30363h = (n.k(TbadkApplication.getInst()) - f30361f) - f30362g;
-        i = n.f(TbadkApplication.getInst(), R.dimen.tbds42);
+        d = oi.f(TbadkApplication.getInst(), R.dimen.tbds34);
+        e = oi.f(TbadkApplication.getInst(), R.dimen.tbds28);
+        f = oi.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        g = oi.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        h = (oi.k(TbadkApplication.getInst()) - f) - g;
+        i = oi.f(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,8 +181,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f30364b = aVar;
-        this.f30365c = new b(this, aVar);
+        this.b = aVar;
+        this.c = new b(this, aVar);
     }
 
     public void a(int i2) {
@@ -208,18 +192,18 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    public void b(View view, int i2) {
+    public void b(View view2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i2) == null) || view2 == null) {
             return;
         }
-        int height = view.getHeight();
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        int height = view2.getHeight();
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         if (layoutParams == null || height == i2) {
             return;
         }
         layoutParams.height = i2;
-        view.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 
     public void c() {
@@ -244,7 +228,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public Pair<Integer, Integer> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? o0.i(str, i, f30363h) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? fd5.i(str, i, h) : (Pair) invokeL.objValue;
     }
 
     public abstract void e(boolean z);

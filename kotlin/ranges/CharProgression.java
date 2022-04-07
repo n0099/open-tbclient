@@ -24,8 +24,8 @@ public class CharProgression implements Iterable<Character>, KMappedMarker {
         public Companion() {
         }
 
-        public final CharProgression fromClosedRange(char c2, char c3, int i) {
-            return new CharProgression(c2, c3, i);
+        public final CharProgression fromClosedRange(char c, char c2, int i) {
+            return new CharProgression(c, c2, i);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -33,13 +33,13 @@ public class CharProgression implements Iterable<Character>, KMappedMarker {
         }
     }
 
-    public CharProgression(char c2, char c3, int i) {
+    public CharProgression(char c, char c2, int i) {
         if (i == 0) {
             throw new IllegalArgumentException("Step must be non-zero.");
         }
         if (i != Integer.MIN_VALUE) {
-            this.first = c2;
-            this.last = (char) ProgressionUtilKt.getProgressionLastElement((int) c2, (int) c3, i);
+            this.first = c;
+            this.last = (char) ProgressionUtilKt.getProgressionLastElement((int) c, (int) c2, i);
             this.step = i;
             return;
         }

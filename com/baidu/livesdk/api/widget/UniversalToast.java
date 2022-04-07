@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.widget;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface UniversalToast {
     void show(String str);
 }

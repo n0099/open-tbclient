@@ -18,7 +18,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HIIDO_FIXED_THREAD_NAME = "hiido_fixed_thread";

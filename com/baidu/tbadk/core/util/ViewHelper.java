@@ -9,11 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.k.a;
-import c.a.d.f.p.m;
-import c.a.d.m.d;
-import c.a.d.m.e;
-import c.a.d.m.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -35,8 +30,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cg;
+import com.repackage.gn;
+import com.repackage.hn;
+import com.repackage.lt4;
+import com.repackage.mn;
+import com.repackage.ni;
+import com.repackage.pg;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW = "skin_arrow";
@@ -53,23 +55,23 @@ public class ViewHelper {
     public static final int TYPE_DOWN = 2;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_UP = 0;
-    public static a<Integer, Integer> cachedSkinInViews = null;
+    public static cg<Integer, Integer> cachedSkinInViews = null;
     public static Context mAppContext = null;
     public static boolean mIsNeedInit = false;
     public static int mMore_color = -1;
     public static int mSkin_1_common_color = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface ViewCallback {
-        boolean onViewFound(View view);
+        boolean onViewFound(View view2);
     }
 
     static {
@@ -85,7 +87,7 @@ public class ViewHelper {
                 return;
             }
         }
-        cachedSkinInViews = new a<>(500);
+        cachedSkinInViews = new cg<>(500);
         mAppContext = null;
     }
 
@@ -103,22 +105,22 @@ public class ViewHelper {
         }
     }
 
-    public static void addStateBarViewSpace(View view, int i, boolean z) {
+    public static void addStateBarViewSpace(View view2, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || view == null || view.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || view2 == null || view2.getParent() == null) {
             return;
         }
-        View view2 = (View) view.getParent().getParent();
-        if (view2 instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view2;
+        View view3 = (View) view2.getParent().getParent();
+        if (view3 instanceof LinearLayout) {
+            LinearLayout linearLayout = (LinearLayout) view3;
             linearLayout.setOrientation(1);
-            View view3 = new View(view.getContext());
+            View view4 = new View(view2.getContext());
             if (z) {
-                SkinManager.setBackgroundColor(view3, i);
+                SkinManager.setBackgroundColor(view4, i);
             } else {
-                view3.setBackgroundResource(i);
+                view4.setBackgroundResource(i);
             }
-            linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            linearLayout.addView(view4, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
     }
 
@@ -158,7 +160,7 @@ public class ViewHelper {
                         }
                     }
                 };
-                j jVar = new j(str3) { // from class: com.baidu.tbadk.core.util.ViewHelper.3
+                mn mnVar = new mn(str3) { // from class: com.baidu.tbadk.core.util.ViewHelper.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$soName;
@@ -181,7 +183,7 @@ public class ViewHelper {
                         this.val$soName = str3;
                     }
 
-                    @Override // c.a.d.m.j
+                    @Override // com.repackage.mn
                     public void onSoFileLoaded(String str4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
@@ -190,9 +192,9 @@ public class ViewHelper {
                     }
                 };
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(e.a);
+                requestParams.setRunType(hn.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new d(str2, defaultDownloadCallback, jVar));
+                requestParams.addChannel(new gn(str2, defaultDownloadCallback, mnVar));
                 PmsManager.getInstance().execute(requestParams);
                 return;
             }
@@ -260,7 +262,7 @@ public class ViewHelper {
     public static void loadPassFaceSo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
-            c.a.d.f.m.e.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.ViewHelper.4
+            pg.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.ViewHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$soName;
@@ -298,12 +300,12 @@ public class ViewHelper {
         }
     }
 
-    public static void prepareNewView(View view) {
+    public static void prepareNewView(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65550, null, view2) == null) || view2 == null) {
             return;
         }
-        cachedSkinInViews.i(Integer.valueOf(System.identityHashCode(view)));
+        cachedSkinInViews.i(Integer.valueOf(System.identityHashCode(view2)));
     }
 
     public static void processAllViewsIn(ViewGroup viewGroup, boolean z, ViewCallback viewCallback) {
@@ -333,10 +335,10 @@ public class ViewHelper {
         }
     }
 
-    public static void processCurrentSkin(View view) {
+    public static void processCurrentSkin(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65552, null, view) == null) && (view instanceof ViewGroup)) {
-            processSkin((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeL(65552, null, view2) == null) && (view2 instanceof ViewGroup)) {
+            processSkin((ViewGroup) view2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -344,8 +346,8 @@ public class ViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65553, null, viewGroup, i) == null) {
             int identityHashCode = System.identityHashCode(viewGroup);
-            Integer f2 = cachedSkinInViews.f(Integer.valueOf(identityHashCode));
-            if (f2 == null || i != f2.intValue()) {
+            Integer f = cachedSkinInViews.f(Integer.valueOf(identityHashCode));
+            if (f == null || i != f.intValue()) {
                 processSkin0(viewGroup, i);
                 cachedSkinInViews.h(Integer.valueOf(identityHashCode), Integer.valueOf(i));
             }
@@ -381,56 +383,56 @@ public class ViewHelper {
                 }
 
                 @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-                public boolean onViewFound(View view) {
+                public boolean onViewFound(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) {
-                        Object tag = view.getTag();
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
+                        Object tag = view2.getTag();
                         if (tag != null) {
                             if (ViewHelper.TEXT_GROUP.equals(tag)) {
-                                ViewHelper.setTextColor((TextView) view, this.val$skinType);
+                                ViewHelper.setTextColor((TextView) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.TEXT_CONTENT.equals(tag)) {
-                                ViewHelper.setTextColor((TextView) view, this.val$skinType);
+                                ViewHelper.setTextColor((TextView) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.TEXT_NUM.equals(tag)) {
-                                ViewHelper.setGroupTextColor((TextView) view, this.val$skinType);
+                                ViewHelper.setGroupTextColor((TextView) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.CHECK_BOX.equals(tag)) {
-                                ViewHelper.setTextColor((CheckBox) view, this.val$skinType);
+                                ViewHelper.setTextColor((CheckBox) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
-                                ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003ef : R.style.obfuscated_res_0x7f1003ee);
+                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f2 : R.style.obfuscated_res_0x7f1003f1);
                                 return false;
                             } else if (ViewHelper.MORE_UP.equals(tag)) {
-                                if (view instanceof RadioButton) {
-                                    ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
+                                if (view2 instanceof RadioButton) {
+                                    ((RadioButton) view2).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, R.drawable.more_up);
+                                SkinManager.setBackgroundResource(view2, R.drawable.more_up);
                                 return false;
                             } else if (ViewHelper.MORE_MIDDLE.equals(tag)) {
-                                if (view instanceof RadioButton) {
-                                    ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
+                                if (view2 instanceof RadioButton) {
+                                    ((RadioButton) view2).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, R.drawable.more_middle);
+                                SkinManager.setBackgroundResource(view2, R.drawable.more_middle);
                                 return false;
                             } else if (ViewHelper.MORE_DOWN.equals(tag)) {
-                                if (view instanceof RadioButton) {
-                                    ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
+                                if (view2 instanceof RadioButton) {
+                                    ((RadioButton) view2).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, R.drawable.more_down);
+                                SkinManager.setBackgroundResource(view2, R.drawable.more_down);
                                 return false;
                             } else if (ViewHelper.MORE_ALL.equals(tag)) {
-                                if (view instanceof RadioButton) {
-                                    ((RadioButton) view).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
+                                if (view2 instanceof RadioButton) {
+                                    ((RadioButton) view2).setTextColor(ViewHelper.getCommonColor(this.val$isNight));
                                 }
-                                SkinManager.setBackgroundResource(view, R.drawable.more_all);
+                                SkinManager.setBackgroundResource(view2, R.drawable.more_all);
                                 return false;
                             } else if (ViewHelper.ARROW.equals(tag)) {
-                                SkinManager.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
+                                SkinManager.setImageResource((ImageView) view2, R.drawable.icon_ba_top_arrow_big);
                                 return false;
                             } else if (ViewHelper.LIST_ITEM_LINE.equals(tag)) {
-                                ViewHelper.setSkinForListDivider(view, this.val$skinType);
+                                ViewHelper.setSkinForListDivider(view2, this.val$skinType);
                                 return false;
                             } else {
                                 return false;
@@ -444,14 +446,14 @@ public class ViewHelper {
         }
     }
 
-    public static void removeStateBarViewSpace(View view) {
+    public static void removeStateBarViewSpace(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, null, view) == null) || view == null || view.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65555, null, view2) == null) || view2 == null || view2.getParent() == null) {
             return;
         }
-        View view2 = (View) view.getParent().getParent();
-        if (view2 instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) view2;
+        View view3 = (View) view2.getParent().getParent();
+        if (view3 instanceof LinearLayout) {
+            LinearLayout linearLayout = (LinearLayout) view3;
             if (linearLayout.getChildCount() >= 2) {
                 linearLayout.removeViewAt(0);
             }
@@ -470,30 +472,30 @@ public class ViewHelper {
         }
     }
 
-    public static void setSkinForListDivider(View view, int i) {
+    public static void setSkinForListDivider(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65557, null, view, i) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65557, null, view2, i) == null) || view2 == null) {
             return;
         }
         if (i != 1 && i != 4) {
-            view.setBackgroundColor(-1183760);
+            view2.setBackgroundColor(-1183760);
         } else {
-            view.setBackgroundColor(-14078923);
+            view2.setBackgroundColor(-14078923);
         }
     }
 
-    public static void setSkinForListItem(View view, int i, int i2) {
+    public static void setSkinForListItem(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65558, null, view, i, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65558, null, view2, i, i2) == null) || view2 == null) {
             return;
         }
-        view.setBackgroundDrawable(null);
+        view2.setBackgroundDrawable(null);
         if (i == 0) {
-            SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_up);
+            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_up);
         } else if (i == 2) {
-            SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_down);
+            SkinManager.setBackgroundResource(view2, R.drawable.auto_skin_list_item_bg_down);
         } else {
-            SkinManager.setBackgroundResource(view, R.drawable.list_selector_item);
+            SkinManager.setBackgroundResource(view2, R.drawable.list_selector_item);
         }
     }
 
@@ -517,7 +519,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65563, null, context, str, str2) == null) || context == null) {
             return;
         }
-        c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        lt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -527,7 +529,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65564, null, context) == null) || context == null) {
             return;
         }
-        c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        lt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -557,20 +559,20 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLL(65562, null, context, str) == null) || context == null) {
             return;
         }
-        c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        lt4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
         checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
         checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
         checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
         LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-        if (!m.isEmpty(str)) {
+        if (!ni.isEmpty(str)) {
             loginActivityConfig.setFrom(str);
         }
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(e.a);
+            requestParams.setRunType(hn.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new d("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+            requestParams.addChannel(new gn("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
             PmsManager.getInstance().execute(requestParams);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));

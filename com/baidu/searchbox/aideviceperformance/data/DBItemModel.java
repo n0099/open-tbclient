@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DBItemModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LaunchTimeItemModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class DBItemModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class UserStickinessItemModel {
         public static /* synthetic */ Interceptable $ic;
         public static final int DEFAULT_COUNT = 0;
@@ -63,7 +63,7 @@ public class DBItemModel {
         public HashMap<String, ItemDetailModel> mIdToItemDetailMap;
         public long timeStamp;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class ItemDetailModel {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

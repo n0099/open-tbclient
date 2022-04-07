@@ -84,11 +84,11 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
                         schedule = this.executor.schedule((Callable) scheduledRunnable, j, timeUnit);
                     }
                     scheduledRunnable.setFuture(schedule);
-                } catch (RejectedExecutionException e2) {
+                } catch (RejectedExecutionException e) {
                     if (disposableContainer != null) {
                         disposableContainer.remove(scheduledRunnable);
                     }
-                    RxJavaPlugins.onError(e2);
+                    RxJavaPlugins.onError(e);
                 }
                 return scheduledRunnable;
             }
@@ -111,8 +111,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
                 }
                 scheduledDirectTask.setFuture(schedule);
                 return scheduledDirectTask;
-            } catch (RejectedExecutionException e2) {
-                RxJavaPlugins.onError(e2);
+            } catch (RejectedExecutionException e) {
+                RxJavaPlugins.onError(e);
                 return EmptyDisposable.INSTANCE;
             }
         }
@@ -135,8 +135,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
                     }
                     instantPeriodicTask.setFirst(schedule);
                     return instantPeriodicTask;
-                } catch (RejectedExecutionException e2) {
-                    RxJavaPlugins.onError(e2);
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
             }
@@ -144,8 +144,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
             try {
                 scheduledDirectPeriodicTask.setFuture(this.executor.scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                 return scheduledDirectPeriodicTask;
-            } catch (RejectedExecutionException e3) {
-                RxJavaPlugins.onError(e3);
+            } catch (RejectedExecutionException e2) {
+                RxJavaPlugins.onError(e2);
                 return EmptyDisposable.INSTANCE;
             }
         }

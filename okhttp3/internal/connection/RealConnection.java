@@ -2,7 +2,6 @@ package okhttp3.internal.connection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,14 +119,14 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 try {
                     this.source = Okio.buffer(Okio.source(this.rawSocket));
                     this.sink = Okio.buffer(Okio.sink(this.rawSocket));
-                } catch (NullPointerException e2) {
-                    if (NPE_THROW_WITH_NULL.equals(e2.getMessage())) {
-                        throw new IOException(e2);
+                } catch (NullPointerException e) {
+                    if (NPE_THROW_WITH_NULL.equals(e.getMessage())) {
+                        throw new IOException(e);
                     }
                 }
-            } catch (ConnectException e3) {
+            } catch (ConnectException e2) {
                 ConnectException connectException = new ConnectException("Failed to connect to " + this.route.socketAddress());
-                connectException.initCause(e3);
+                connectException.initCause(e2);
                 throw connectException;
             }
         }
@@ -143,8 +142,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             try {
                 try {
                     sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
-                } catch (AssertionError e2) {
-                    e = e2;
+                } catch (AssertionError e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -178,8 +177,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 }
                 X509Certificate x509Certificate = (X509Certificate) handshake.peerCertificates().get(0);
                 throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
-            } catch (AssertionError e3) {
-                e = e3;
+            } catch (AssertionError e2) {
+                e = e2;
                 if (!Util.isAndroidGetsocknameError(e)) {
                     throw e;
                 }
@@ -246,7 +245,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             } else if (code == 407) {
                 Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, build);
                 if (authenticate != null) {
-                    if (IntentConfig.CLOSE.equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
+                    if ("close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
                         return authenticate;
                     }
                     request = authenticate;
@@ -367,8 +366,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             } else {
                                 try {
                                     connectSocket(i, i2, call, eventListener);
-                                } catch (IOException e2) {
-                                    e = e2;
+                                } catch (IOException e) {
+                                    e = e;
                                     Util.closeQuietly(this.socket);
                                     Util.closeQuietly(this.rawSocket);
                                     this.socket = null;
@@ -402,8 +401,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             }
                             if (this.http2Connection == null) {
                             }
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             Util.closeQuietly(this.socket);
                             Util.closeQuietly(this.rawSocket);
                             this.socket = null;
@@ -434,8 +433,8 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             } while (connectionSpecSelector.connectionFailed(e));
                             throw routeException;
                         }
-                    } catch (IOException e4) {
-                        e = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                     }
                 } while (connectionSpecSelector.connectionFailed(e));
                 throw routeException;

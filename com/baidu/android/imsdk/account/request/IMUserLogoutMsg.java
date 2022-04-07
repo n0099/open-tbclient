@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUserLogoutMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,9 +73,9 @@ public class IMUserLogoutMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("device_id", this.mDeviceId);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(IMUserLogoutMsg.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(IMUserLogoutMsg.class.getSimpleName(), "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

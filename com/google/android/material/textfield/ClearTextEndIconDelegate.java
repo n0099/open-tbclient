@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ClearTextEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_DURATION = 100;
@@ -121,11 +121,11 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z) {
+            public void onFocusChange(View view2, boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z) == null) {
+                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
                     boolean z2 = true;
-                    this.this$0.animateIcon(((TextUtils.isEmpty(((EditText) view).getText()) ^ true) && z) ? false : false);
+                    this.this$0.animateIcon(((TextUtils.isEmpty(((EditText) view2).getText()) ^ true) && z) ? false : false);
                 }
             }
         };
@@ -397,9 +397,9 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080d69));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080d6a));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f03cf));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f03d6));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -424,10 +424,10 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Editable text;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (text = this.this$0.textInputLayout.getEditText().getText()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || (text = this.this$0.textInputLayout.getEditText().getText()) == null) {
                         return;
                     }
                     text.clear();

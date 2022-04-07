@@ -17,29 +17,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static C1702a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f24754b;
+    public static C0042a a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1702a {
+    /* loaded from: classes.dex */
+    public static class C0042a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
+        public final JobScheduler b;
+        public boolean c;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final JobScheduler f24755b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f24756c;
-
-        public C1702a(Context context) {
+        public C0042a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,14 +49,14 @@ public class a {
                 }
             }
             this.a = context;
-            this.f24755b = (JobScheduler) context.getSystemService("jobscheduler");
+            this.b = (JobScheduler) context.getSystemService("jobscheduler");
         }
 
         private void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                this.f24756c = false;
-                this.f24755b.cancel(1);
+                this.c = false;
+                this.b.cancel(1);
             }
         }
 
@@ -70,13 +64,13 @@ public class a {
         public void a(boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (z || this.f24756c) {
+                if (z || this.c) {
                     long j = 300000;
                     if (z) {
                         a();
                         j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                     }
-                    this.f24756c = true;
+                    this.c = true;
                     JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.a.getPackageName(), PushJobService.class.getName()));
                     builder.setMinimumLatency(j);
                     builder.setOverrideDeadline(j);
@@ -85,7 +79,7 @@ public class a {
                     PersistableBundle persistableBundle = new PersistableBundle();
                     persistableBundle.putInt("push_start_source", i);
                     builder.setExtras(persistableBundle);
-                    this.f24755b.schedule(builder.build());
+                    this.b.schedule(builder.build());
                 }
             }
         }
@@ -94,8 +88,8 @@ public class a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-                this.f24756c = false;
-                this.f24755b.cancelAll();
+                this.c = false;
+                this.b.cancelAll();
             }
         }
     }
@@ -106,9 +100,9 @@ public class a {
             synchronized (a.class) {
                 if (a == null && Build.VERSION.SDK_INT >= 21) {
                     try {
-                        a = new C1702a(context);
-                    } catch (Exception e2) {
-                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                        a = new C0042a(context);
+                    } catch (Exception e) {
+                        new b.c(context).a(Log.getStackTraceString(e)).a();
                     }
                 }
             }
@@ -121,10 +115,10 @@ public class a {
             synchronized (a.class) {
                 if (a != null) {
                     try {
-                        f24754b = true;
+                        b = true;
                         a.a(z, i);
-                    } catch (Exception e2) {
-                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    } catch (Exception e) {
+                        new b.c(context).a(Log.getStackTraceString(e)).a();
                     }
                 }
             }
@@ -134,7 +128,7 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24754b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : invokeV.booleanValue;
     }
 
     public static synchronized void b(Context context) {
@@ -144,11 +138,11 @@ public class a {
                 if (a != null) {
                     try {
                         a.b();
-                    } catch (Exception e2) {
-                        new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    } catch (Exception e) {
+                        new b.c(context).a(Log.getStackTraceString(e)).a();
                     }
                     a = null;
-                    f24754b = false;
+                    b = false;
                 }
             }
         }

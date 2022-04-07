@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class BackpressureDrainManager extends AtomicLong implements f {
+public final class BackpressureDrainManager extends AtomicLong implements wy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         boolean z;
         long j2;

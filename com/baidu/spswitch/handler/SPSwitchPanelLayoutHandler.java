@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,12 +18,12 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
     public boolean mIsSoftInputShowing;
     public final View mPanelLayout;
 
-    public SPSwitchPanelLayoutHandler(View view) {
+    public SPSwitchPanelLayoutHandler(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
         }
         this.mIsHide = false;
         this.mIsSoftInputShowing = false;
-        this.mPanelLayout = view;
+        this.mPanelLayout = view2;
     }
 
     public boolean filterSetVisibility(int i) {

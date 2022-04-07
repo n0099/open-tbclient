@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,8 +79,8 @@ public class c implements k {
                 jSONObject.put("device_id", Build.MODEL.toLowerCase());
                 jSONObject.put("ar_key", ARConfig.getARKey());
                 jSONObject.put("ar_type", ARConfig.getARType());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -98,8 +98,8 @@ public class c implements k {
                 }
                 String substring = l.substring(0, l.lastIndexOf("-"));
                 return substring + "-" + DuMixARConfig.getAipAppId();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -174,10 +174,10 @@ public class c implements k {
                 if (iHttpResponse.isSuccess()) {
                     try {
                         jSONObject = new JSONObject(iHttpResponse.getContent());
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         cVar = this.jA;
                         iAuthCallback2 = this.jl;
-                        httpException = new HttpException(4, e2.getMessage());
+                        httpException = new HttpException(4, e.getMessage());
                     }
                     if (jSONObject != null) {
                         return;
@@ -185,8 +185,8 @@ public class c implements k {
                     if (jSONObject != null && jSONObject.has(GameCodeGetResponseMsg.PARAM_ERROR_MSG)) {
                         try {
                             message = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                        } catch (JSONException e3) {
-                            message = e3.getMessage();
+                        } catch (JSONException e2) {
+                            message = e2.getMessage();
                         }
                         IAuthCallback iAuthCallback3 = this.jl;
                         if (iAuthCallback3 != null) {

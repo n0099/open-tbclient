@@ -1,7 +1,5 @@
 package com.baidu.tieba.ala.alasquare.recent_history.message;
 
-import c.a.p0.c0.f.f.b.a;
-import c.a.p0.c0.f.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -10,14 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hq5;
+import com.repackage.iq5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mHistoryData;
+    public hq5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -45,28 +45,28 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            a aVar = new a();
-            this.mHistoryData = aVar;
-            aVar.a = jSONObject.optInt("has_more") == 1;
+            hq5 hq5Var = new hq5();
+            this.mHistoryData = hq5Var;
+            hq5Var.a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    b bVar = new b();
-                    bVar.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(bVar);
+                    iq5 iq5Var = new iq5();
+                    iq5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(iq5Var);
                 }
                 arrayList = arrayList2;
             }
-            this.mHistoryData.f13055b = arrayList;
+            this.mHistoryData.b = arrayList;
         }
     }
 
-    public a getRecentHistoryData() {
+    public hq5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (hq5) invokeV.objValue;
     }
 }

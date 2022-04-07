@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ActivityThreadCompat {
     public static /* synthetic */ Interceptable $ic;
     public static Object sActivityThread;
@@ -120,8 +120,8 @@ public class ActivityThreadCompat {
                                 synchronized (this.val$sLock) {
                                     this.val$sLock.notifyAll();
                                 }
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                                 synchronized (this.val$sLock) {
                                     this.val$sLock.notifyAll();
                                 }

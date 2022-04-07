@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class MathUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,22 +25,22 @@ public final class MathUtils {
         }
     }
 
-    public static float distance(float f2, float f3, float f4, float f5) {
+    public static float distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f - f3;
             float f6 = f2 - f4;
-            float f7 = f3 - f5;
-            return (float) Math.sqrt((f6 * f6) + (f7 * f7));
+            return (float) Math.sqrt((f5 * f5) + (f6 * f6));
         }
         return invokeCommon.floatValue;
     }
 
-    public static int round(float f2) {
+    public static int round(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) {
-            return (int) (f2 + (f2 < 0.0f ? -0.5f : 0.5f));
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            return (int) (f + (f < 0.0f ? -0.5f : 0.5f));
         }
         return invokeF.intValue;
     }

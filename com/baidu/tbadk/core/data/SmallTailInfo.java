@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_PREFIX = "#(";
@@ -29,7 +29,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2017172862365526905L;
@@ -99,9 +99,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ee) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1330) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f5) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1338) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ee) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f5) + str;
         }
         return (String) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             try {
                 this.showColorId = Color.parseColor(getShowColorText(this.color));
             } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f132f)));
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1337)));
             }
         }
     }
@@ -131,9 +131,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                     sb.append(str);
                 }
             } else if (i == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                String f2 = TbFaceManager.e().f(smallTailInfoContent.text);
-                if (!StringUtils.isNull(f2)) {
-                    sb.append(EMOTION_PREFIX + f2 + EMOTION_SUFFIX);
+                String f = TbFaceManager.e().f(smallTailInfoContent.text);
+                if (!StringUtils.isNull(f)) {
+                    sb.append(EMOTION_PREFIX + f + EMOTION_SUFFIX);
                 }
             }
         }

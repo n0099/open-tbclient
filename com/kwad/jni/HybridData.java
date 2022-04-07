@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.jni.DestructorThread;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class HybridData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class HybridData {
     public Destructor mDestructor;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Destructor extends DestructorThread.Destructor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +73,8 @@ public class HybridData {
         }
         try {
             System.loadLibrary("kwad-fb");
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

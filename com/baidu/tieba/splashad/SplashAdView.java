@@ -5,24 +5,20 @@ import android.content.res.Configuration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import c.a.p0.u3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.qg8;
+/* loaded from: classes4.dex */
 public class SplashAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f35976b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35977c;
+    public qg8 a;
+    public BaseFragmentActivity b;
+    public int c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SplashAdView(BaseFragmentActivity baseFragmentActivity, int i) {
@@ -42,28 +38,28 @@ public class SplashAdView extends FrameLayout {
                 return;
             }
         }
-        this.f35977c = 0;
-        this.f35977c = i;
-        this.f35976b = baseFragmentActivity;
+        this.c = 0;
+        this.c = i;
+        this.b = baseFragmentActivity;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void a() {
-        a aVar;
+        qg8 qg8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (qg8Var = this.a) == null) {
             return;
         }
-        aVar.e();
+        qg8Var.e();
     }
 
     public void b() {
-        a aVar;
+        qg8 qg8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (qg8Var = this.a) == null) {
             return;
         }
-        aVar.f();
+        qg8Var.f();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -71,20 +67,20 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            a aVar = new a();
-            this.a = aVar;
-            aVar.a(this.f35976b, this, this.f35977c);
+            qg8 qg8Var = new qg8();
+            this.a = qg8Var;
+            qg8Var.a(this.b, this, this.c);
         }
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(@NonNull Configuration configuration) {
-        a aVar;
+        qg8 qg8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (qg8Var = this.a) == null) {
             return;
         }
-        aVar.d(configuration);
+        qg8Var.d(configuration);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -92,9 +88,9 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.g();
+            qg8 qg8Var = this.a;
+            if (qg8Var != null) {
+                qg8Var.g();
             }
             this.a = null;
         }

@@ -178,10 +178,10 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @JvmName(name = "averageOfByte")
     public static final double averageOfByte(Iterable<Byte> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Byte b2 : average) {
-            d2 += b2.byteValue();
+        for (Byte b : average) {
+            d += b.byteValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -190,16 +190,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfDouble")
     public static final double averageOfDouble(Iterable<Double> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Double d3 : average) {
-            d2 += d3.doubleValue();
+        for (Double d2 : average) {
+            d += d2.doubleValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -208,16 +208,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfFloat")
     public static final double averageOfFloat(Iterable<Float> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Float f2 : average) {
-            d2 += f2.floatValue();
+        for (Float f : average) {
+            d += f.floatValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -226,16 +226,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfInt")
     public static final double averageOfInt(Iterable<Integer> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Integer num : average) {
-            d2 += num.intValue();
+            d += num.intValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -244,16 +244,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfLong")
     public static final double averageOfLong(Iterable<Long> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Long l : average) {
-            d2 += l.longValue();
+            d += l.longValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -262,16 +262,16 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfShort")
     public static final double averageOfShort(Iterable<Short> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Short sh : average) {
-            d2 += sh.shortValue();
+            d += sh.shortValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -280,7 +280,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @SinceKotlin(version = "1.2")
@@ -772,7 +772,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @InlineOnly
     @JvmName(name = "flatMapIndexedIterableTo")
     @OverloadResolutionByLambdaReturnType
-    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Iterable<? extends T> iterable, C c2, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
+    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Iterable<? extends T> iterable, C c, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
         Iterator<? extends T> it = iterable.iterator();
         int i = 0;
         while (it.hasNext()) {
@@ -784,10 +784,10 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c2, function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
-        return c2;
+        return c;
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
@@ -819,7 +819,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @InlineOnly
     @JvmName(name = "flatMapIndexedSequenceTo")
     @OverloadResolutionByLambdaReturnType
-    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Iterable<? extends T> iterable, C c2, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
+    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Iterable<? extends T> iterable, C c, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
         Iterator<? extends T> it = iterable.iterator();
         int i = 0;
         while (it.hasNext()) {
@@ -831,10 +831,10 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c2, function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
-        return c2;
+        return c;
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -1371,9 +1371,9 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max */
-    public static final Double m1115max(Iterable<Double> max) {
+    public static final Double m1111max(Iterable<Double> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1121maxOrNull(max);
+        return m1117maxOrNull(max);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0020 */
@@ -1466,7 +1466,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull */
-    public static final <T> Double m1119maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
+    public static final <T> Double m1115maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1526,7 +1526,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull */
-    public static final Double m1121maxOrNull(Iterable<Double> maxOrNull) {
+    public static final Double m1117maxOrNull(Iterable<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Double> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -1572,9 +1572,9 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min */
-    public static final Double m1123min(Iterable<Double> min) {
+    public static final Double m1119min(Iterable<Double> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1129minOrNull(min);
+        return m1125minOrNull(min);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0020 */
@@ -1667,7 +1667,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull */
-    public static final <T> Double m1127minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
+    public static final <T> Double m1123minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1727,7 +1727,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull */
-    public static final Double m1129minOrNull(Iterable<Double> minOrNull) {
+    public static final Double m1125minOrNull(Iterable<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Double> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -2336,19 +2336,19 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(sumByDouble, "$this$sumByDouble");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sumByDouble.iterator();
-        double d2 = 0.0d;
+        double d = 0.0d;
         while (it.hasNext()) {
-            d2 += selector.invoke((T) it.next()).doubleValue();
+            d += selector.invoke((T) it.next()).doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfByte")
     public static final int sumOfByte(Iterable<Byte> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
-        for (Byte b2 : sum) {
-            i += b2.byteValue();
+        for (Byte b : sum) {
+            i += b.byteValue();
         }
         return i;
     }
@@ -2359,22 +2359,22 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @JvmName(name = "sumOfDouble")
     @OverloadResolutionByLambdaReturnType
     public static final <T> double sumOfDouble(Iterable<? extends T> iterable, Function1<? super T, Double> function1) {
-        double d2 = 0;
+        double d = 0;
         Iterator<? extends T> it = iterable.iterator();
         while (it.hasNext()) {
-            d2 += function1.invoke((T) it.next()).doubleValue();
+            d += function1.invoke((T) it.next()).doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfFloat")
     public static final float sumOfFloat(Iterable<Float> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
-        float f2 = 0.0f;
-        for (Float f3 : sum) {
-            f2 += f3.floatValue();
+        float f = 0.0f;
+        for (Float f2 : sum) {
+            f += f2.floatValue();
         }
-        return f2;
+        return f;
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -2422,12 +2422,12 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Iterable<? extends T> iterable, Function1<? super T, UInt> function1) {
-        int m786constructorimpl = UInt.m786constructorimpl(0);
+        int m782constructorimpl = UInt.m782constructorimpl(0);
         Iterator<? extends T> it = iterable.iterator();
         while (it.hasNext()) {
-            m786constructorimpl = UInt.m786constructorimpl(m786constructorimpl + function1.invoke((T) it.next()).m837unboximpl());
+            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke((T) it.next()).m833unboximpl());
         }
-        return m786constructorimpl;
+        return m782constructorimpl;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
@@ -2437,12 +2437,12 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Iterable<? extends T> iterable, Function1<? super T, ULong> function1) {
-        long m864constructorimpl = ULong.m864constructorimpl(0);
+        long m860constructorimpl = ULong.m860constructorimpl(0);
         Iterator<? extends T> it = iterable.iterator();
         while (it.hasNext()) {
-            m864constructorimpl = ULong.m864constructorimpl(m864constructorimpl + function1.invoke((T) it.next()).m915unboximpl());
+            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke((T) it.next()).m911unboximpl());
         }
-        return m864constructorimpl;
+        return m860constructorimpl;
     }
 
     public static final <T> List<T> take(Iterable<? extends T> take, int i) {
@@ -2557,8 +2557,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(toByteArray, "$this$toByteArray");
         byte[] bArr = new byte[toByteArray.size()];
         int i = 0;
-        for (Byte b2 : toByteArray) {
-            bArr[i] = b2.byteValue();
+        for (Byte b : toByteArray) {
+            bArr[i] = b.byteValue();
             i++;
         }
         return bArr;
@@ -2588,8 +2588,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(toDoubleArray, "$this$toDoubleArray");
         double[] dArr = new double[toDoubleArray.size()];
         int i = 0;
-        for (Double d2 : toDoubleArray) {
-            dArr[i] = d2.doubleValue();
+        for (Double d : toDoubleArray) {
+            dArr[i] = d.doubleValue();
             i++;
         }
         return dArr;
@@ -2599,8 +2599,8 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         Intrinsics.checkNotNullParameter(toFloatArray, "$this$toFloatArray");
         float[] fArr = new float[toFloatArray.size()];
         int i = 0;
-        for (Float f2 : toFloatArray) {
-            fArr[i] = f2.floatValue();
+        for (Float f : toFloatArray) {
+            fArr[i] = f.floatValue();
             i++;
         }
         return fArr;
@@ -2743,7 +2743,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
         return new IndexingIterable(new CollectionsKt___CollectionsKt$withIndex$1(withIndex));
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: alaim.AlaMgetLiveStatus.DataReq$Builder */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: alaim.AlaMgetLiveStatus.DataReq$a */
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
     /* JADX WARN: Multi-variable type inference failed */
     public static final <T, R, V> List<V> zip(Iterable<? extends T> zip, R[] other, Function2<? super T, ? super R, ? extends V> transform) {
@@ -2794,18 +2794,18 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max */
-    public static final Float m1116max(Iterable<Float> max) {
+    public static final Float m1112max(Iterable<Float> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1122maxOrNull(max);
+        return m1118maxOrNull(max);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min */
-    public static final Float m1124min(Iterable<Float> min) {
+    public static final Float m1120min(Iterable<Float> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1130minOrNull(min);
+        return m1126minOrNull(min);
     }
 
     @InlineOnly
@@ -2952,11 +2952,11 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @JvmName(name = "sumOfDouble")
     public static final double sumOfDouble(Iterable<Double> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
-        double d2 = 0.0d;
-        for (Double d3 : sum) {
-            d2 += d3.doubleValue();
+        double d = 0.0d;
+        for (Double d2 : sum) {
+            d += d2.doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfInt")
@@ -3226,7 +3226,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf */
-    public static final <T> float m1117maxOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
+    public static final <T> float m1113maxOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -3244,7 +3244,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull */
-    public static final <T> Float m1120maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
+    public static final <T> Float m1116maxOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -3258,7 +3258,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull */
-    public static final Float m1122maxOrNull(Iterable<Float> maxOrNull) {
+    public static final Float m1118maxOrNull(Iterable<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Float> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -3277,7 +3277,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf */
-    public static final <T> float m1125minOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
+    public static final <T> float m1121minOf(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -3295,7 +3295,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull */
-    public static final <T> Float m1128minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
+    public static final <T> Float m1124minOfOrNull(Iterable<? extends T> iterable, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -3309,7 +3309,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull */
-    public static final Float m1130minOrNull(Iterable<Float> minOrNull) {
+    public static final Float m1126minOrNull(Iterable<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Float> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -3541,7 +3541,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf */
-    public static final <T, R extends Comparable<? super R>> R m1118maxOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1114maxOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());
@@ -3599,7 +3599,7 @@ public class CollectionsKt___CollectionsKt extends CollectionsKt___CollectionsJv
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf */
-    public static final <T, R extends Comparable<? super R>> R m1126minOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1122minOf(Iterable<? extends T> iterable, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = iterable.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());

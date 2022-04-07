@@ -97,12 +97,12 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         }
     }
 
-    public ForwardingListener(View view) {
+    public ForwardingListener(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -113,10 +113,10 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
             }
         }
         this.mTmpLocation = new int[2];
-        this.mSrc = view;
-        view.setLongClickable(true);
-        view.addOnAttachStateChangeListener(this);
-        this.mScaledTouchSlop = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
+        this.mSrc = view2;
+        view2.setLongClickable(true);
+        view2.addOnAttachStateChangeListener(this);
+        this.mScaledTouchSlop = ViewConfiguration.get(view2.getContext()).getScaledTouchSlop();
         int tapTimeout = ViewConfiguration.getTapTimeout();
         this.mTapTimeout = tapTimeout;
         this.mLongPressTimeout = (tapTimeout + ViewConfiguration.getLongPressTimeout()) / 2;
@@ -141,13 +141,13 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         DropDownListView dropDownListView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, motionEvent)) == null) {
-            View view = this.mSrc;
+            View view2 = this.mSrc;
             ShowableListMenu popup = getPopup();
             if (popup == null || !popup.isShowing() || (dropDownListView = (DropDownListView) popup.getListView()) == null || !dropDownListView.isShown()) {
                 return false;
             }
             MotionEvent obtainNoHistory = MotionEvent.obtainNoHistory(motionEvent);
-            toGlobalMotionEvent(view, obtainNoHistory);
+            toGlobalMotionEvent(view2, obtainNoHistory);
             toLocalMotionEvent(dropDownListView, obtainNoHistory);
             boolean onForwardedEvent = dropDownListView.onForwardedEvent(obtainNoHistory, this.mActivePointerId);
             obtainNoHistory.recycle();
@@ -167,16 +167,16 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, motionEvent)) == null) {
-            View view = this.mSrc;
-            if (view.isEnabled()) {
+            View view2 = this.mSrc;
+            if (view2.isEnabled()) {
                 int actionMasked = motionEvent.getActionMasked();
                 if (actionMasked != 0) {
                     if (actionMasked != 1) {
                         if (actionMasked == 2) {
                             int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                            if (findPointerIndex >= 0 && !pointInView(view, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
+                            if (findPointerIndex >= 0 && !pointInView(view2, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
                                 clearCallbacks();
-                                view.getParent().requestDisallowInterceptTouchEvent(true);
+                                view2.getParent().requestDisallowInterceptTouchEvent(true);
                                 return true;
                             }
                         }
@@ -187,11 +187,11 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
                     if (this.mDisallowIntercept == null) {
                         this.mDisallowIntercept = new DisallowIntercept(this);
                     }
-                    view.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
+                    view2.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
                     if (this.mTriggerLongPress == null) {
                         this.mTriggerLongPress = new TriggerLongPress(this);
                     }
-                    view.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
+                    view2.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
                 }
                 return false;
             }
@@ -200,34 +200,34 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         return invokeL.booleanValue;
     }
 
-    public static boolean pointInView(View view, float f2, float f3, float f4) {
+    public static boolean pointInView(View view2, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float f5 = -f4;
-            return f2 >= f5 && f3 >= f5 && f2 < ((float) (view.getRight() - view.getLeft())) + f4 && f3 < ((float) (view.getBottom() - view.getTop())) + f4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float f4 = -f3;
+            return f >= f4 && f2 >= f4 && f < ((float) (view2.getRight() - view2.getLeft())) + f3 && f2 < ((float) (view2.getBottom() - view2.getTop())) + f3;
         }
         return invokeCommon.booleanValue;
     }
 
-    private boolean toGlobalMotionEvent(View view, MotionEvent motionEvent) {
+    private boolean toGlobalMotionEvent(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, motionEvent)) == null) {
             int[] iArr = this.mTmpLocation;
-            view.getLocationOnScreen(iArr);
+            view2.getLocationOnScreen(iArr);
             motionEvent.offsetLocation(iArr[0], iArr[1]);
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    private boolean toLocalMotionEvent(View view, MotionEvent motionEvent) {
+    private boolean toLocalMotionEvent(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, view2, motionEvent)) == null) {
             int[] iArr = this.mTmpLocation;
-            view.getLocationOnScreen(iArr);
+            view2.getLocationOnScreen(iArr);
             motionEvent.offsetLocation(-iArr[0], -iArr[1]);
             return true;
         }
@@ -268,12 +268,12 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             clearCallbacks();
-            View view = this.mSrc;
-            if (view.isEnabled() && !view.isLongClickable() && onForwardingStarted()) {
-                view.getParent().requestDisallowInterceptTouchEvent(true);
+            View view2 = this.mSrc;
+            if (view2.isEnabled() && !view2.isLongClickable() && onForwardingStarted()) {
+                view2.getParent().requestDisallowInterceptTouchEvent(true);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                view.onTouchEvent(obtain);
+                view2.onTouchEvent(obtain);
                 obtain.recycle();
                 this.mForwarding = true;
             }
@@ -281,11 +281,11 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
             boolean z2 = this.mForwarding;
             if (z2) {
                 z = onTouchForwarded(motionEvent) || !onForwardingStopped();
@@ -305,16 +305,16 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewAttachedToWindow(View view) {
+    public void onViewAttachedToWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
         }
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewDetachedFromWindow(View view) {
+    public void onViewDetachedFromWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             this.mForwarding = false;
             this.mActivePointerId = -1;
             Runnable runnable = this.mDisallowIntercept;

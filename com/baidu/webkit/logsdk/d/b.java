@@ -7,20 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f37924b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f37925c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public byte[] f37926d;
+    public int b;
+    public int c;
+    public byte[] d;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -37,7 +31,7 @@ public final class b {
                 return;
             }
         }
-        this.f37926d = str.getBytes();
+        this.d = str.getBytes();
     }
 
     public static String a(String str, String str2) {
@@ -48,9 +42,9 @@ public final class b {
             try {
                 b bVar = new b(str2);
                 byte[] decode = Base64.decode(str.getBytes(), 0);
-                byte[] bArr = bVar.f37926d;
-                bVar.f37924b = 0;
-                bVar.f37925c = 0;
+                byte[] bArr = bVar.d;
+                bVar.b = 0;
+                bVar.c = 0;
                 if (bVar.a == null) {
                     bVar.a = new byte[256];
                 }
@@ -61,10 +55,10 @@ public final class b {
                 int i3 = 0;
                 for (int i4 = 0; i4 < 256; i4++) {
                     i3 = ((bArr[i2] & 255) + bVar.a[i4] + i3) & 255;
-                    byte b2 = bVar.a[i4];
+                    byte b = bVar.a[i4];
                     byte[] bArr2 = bVar.a;
                     bArr2[i4] = bArr2[i3];
-                    bVar.a[i3] = b2;
+                    bVar.a[i3] = b;
                     i2 = (i2 + 1) % bArr.length;
                 }
                 int length = decode.length;
@@ -75,13 +69,13 @@ public final class b {
                     str3 = "input buffer too short, buffer length=" + decode.length + ", input length=" + i5;
                 } else if (i5 <= length) {
                     for (int i6 = 0; i6 < length2; i6++) {
-                        int i7 = (bVar.f37924b + 1) & 255;
-                        bVar.f37924b = i7;
-                        int i8 = (bVar.a[i7] + bVar.f37925c) & 255;
-                        bVar.f37925c = i8;
-                        byte b3 = bVar.a[i7];
+                        int i7 = (bVar.b + 1) & 255;
+                        bVar.b = i7;
+                        int i8 = (bVar.a[i7] + bVar.c) & 255;
+                        bVar.c = i8;
+                        byte b2 = bVar.a[i7];
                         bVar.a[i7] = bVar.a[i8];
-                        bVar.a[i8] = b3;
+                        bVar.a[i8] = b2;
                         int i9 = i6 + 0;
                         bArr3[i9] = (byte) (bVar.a[(bVar.a[i7] + bVar.a[i8]) & 255] ^ decode[i9]);
                     }
@@ -91,8 +85,8 @@ public final class b {
                 }
                 Log.e("BdLogRC4Utils", str3);
                 return new String(bArr3);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

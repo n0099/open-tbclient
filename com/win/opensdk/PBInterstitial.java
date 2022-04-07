@@ -1,32 +1,28 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import c.m.a.j1;
-import c.m.a.m0;
-import c.m.a.q0;
-import c.m.a.r0;
-import c.m.a.v;
-import c.m.a.v4;
-import c.m.a.x4;
-import c.m.a.y0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hq9;
+import com.repackage.kp9;
+import com.repackage.op9;
+import com.repackage.pp9;
+import com.repackage.to9;
+import com.repackage.tt9;
+import com.repackage.vt9;
+import com.repackage.wp9;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PBInterstitial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public j1 f43992b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public PBInterstitialListener f43993c;
+    public hq9 b;
+    public PBInterstitialListener c;
 
     public PBInterstitial(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -45,21 +41,21 @@ public class PBInterstitial {
         }
         Context applicationContext = context.getApplicationContext();
         this.a = str;
-        j1 j1Var = new j1(applicationContext, str);
-        this.f43992b = j1Var;
-        j1Var.f23476h = new x4(this);
+        hq9 hq9Var = new hq9(applicationContext, str);
+        this.b = hq9Var;
+        hq9Var.h = new vt9(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j1 j1Var = this.f43992b;
-            j1Var.f23473e = false;
-            j1Var.f23471c = false;
-            j1Var.f23472d = false;
-            v4 v4Var = j1Var.i;
-            if (v4Var != null) {
-                v4Var.b();
+            hq9 hq9Var = this.b;
+            hq9Var.e = false;
+            hq9Var.c = false;
+            hq9Var.d = false;
+            tt9 tt9Var = hq9Var.i;
+            if (tt9Var != null) {
+                tt9Var.b();
             }
         }
     }
@@ -74,9 +70,9 @@ public class PBInterstitial {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            j1 j1Var = this.f43992b;
-            if (!j1Var.c()) {
-                if (!(j1Var.f23472d && !j1Var.f23473e && j1Var.e() && !j1Var.f23474f.isShown() && j1Var.f23474f.isEffective())) {
+            hq9 hq9Var = this.b;
+            if (!hq9Var.c()) {
+                if (!(hq9Var.d && !hq9Var.e && hq9Var.e() && !hq9Var.f.isShown() && hq9Var.f.isEffective())) {
                     return false;
                 }
             }
@@ -88,43 +84,43 @@ public class PBInterstitial {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j1 j1Var = this.f43992b;
-            if (j1Var.e() && j1Var.f23474f.isEffective() && !j1Var.f23474f.isShown()) {
-                j1Var.b(j1Var.f23474f);
+            hq9 hq9Var = this.b;
+            if (hq9Var.e() && hq9Var.f.isEffective() && !hq9Var.f.isShown()) {
+                hq9Var.b(hq9Var.f);
                 return;
             }
-            if (j1Var.i == null) {
-                j1Var.i = new v4(j1Var.f23470b, j1Var.a, L.f43985b);
+            if (hq9Var.i == null) {
+                hq9Var.i = new tt9(hq9Var.b, hq9Var.a, L.b);
             }
-            j1Var.i.f23601g = new y0(j1Var);
-            j1Var.i.g();
+            hq9Var.i.g = new wp9(hq9Var);
+            hq9Var.i.g();
         }
     }
 
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBInterstitialListener) == null) {
-            this.f43993c = pBInterstitialListener;
+            this.c = pBInterstitialListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j1 j1Var = this.f43992b;
-            if (!r0.H(j1Var.f23470b)) {
-                PBInterstitialListener pBInterstitialListener = j1Var.f23476h;
+            hq9 hq9Var = this.b;
+            if (!pp9.H(hq9Var.b)) {
+                PBInterstitialListener pBInterstitialListener = hq9Var.h;
                 if (pBInterstitialListener != null) {
                     pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
                 }
-            } else if (j1Var.g() && j1Var.c() && j1Var.e()) {
-                j1Var.f23471c = false;
-                v.b().d(v.c(j1Var.f23474f.getTraceid(), j1Var.f23474f.getId(), j1Var.f23474f.getPid()), j1Var.f23475g);
-                j1Var.f23474f.setShown(true);
-                r0.l(j1Var.f23470b, j1Var.f23474f);
-                m0.a().c(v.c(j1Var.f23474f.getTraceid(), j1Var.f23474f.getId(), j1Var.a), j1Var.f23474f);
-                H5Activity.a(j1Var.f23470b, j1Var.f23474f, j1Var.a);
-                q0.b(j1Var.f23474f.getId() + j1Var.a, j1Var);
+            } else if (hq9Var.g() && hq9Var.c() && hq9Var.e()) {
+                hq9Var.c = false;
+                to9.b().d(to9.c(hq9Var.f.getTraceid(), hq9Var.f.getId(), hq9Var.f.getPid()), hq9Var.g);
+                hq9Var.f.setShown(true);
+                pp9.l(hq9Var.b, hq9Var.f);
+                kp9.a().c(to9.c(hq9Var.f.getTraceid(), hq9Var.f.getId(), hq9Var.a), hq9Var.f);
+                H5Activity.a(hq9Var.b, hq9Var.f, hq9Var.a);
+                op9.b(hq9Var.f.getId() + hq9Var.a, hq9Var);
             }
         }
     }

@@ -3,7 +3,6 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.v0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hl2;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_NEW_FAVOR = 1;
@@ -84,7 +84,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
 
     public int getFrameTypeFromScheme(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             String authority = Uri.parse(str).getAuthority();
@@ -92,17 +92,17 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
                 int hashCode = authority.hashCode();
                 if (hashCode != -319738621) {
                     if (hashCode == 3543441 && authority.equals("swan")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else {
                     if (authority.equals(SCHEME_AUTHORITY_SWAN_GAME)) {
-                        c2 = 1;
+                        c = 1;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 }
-                if (c2 != 0) {
-                    return c2 != 1 ? -1 : 1;
+                if (c != 0) {
+                    return c != 1 ? -1 : 1;
                 }
                 return 0;
             }
@@ -138,7 +138,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
     public String getSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : hl2.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
     }
 
     public void setAppFrameType(int i) {

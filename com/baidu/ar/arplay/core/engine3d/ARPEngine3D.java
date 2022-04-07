@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPEngine3D extends AbstractARPEngine3D {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         }
     }
 
-    public static void a(Vector3f vector3f, float f2) {
+    public static void a(Vector3f vector3f, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65537, null, vector3f, f2) == null) {
-            nativeSetMovePlane(vector3f.getX(), vector3f.getY(), vector3f.getZ(), f2);
+        if (interceptable == null || interceptable.invokeLF(65537, null, vector3f, f) == null) {
+            nativeSetMovePlane(vector3f.getX(), vector3f.getY(), vector3f.getZ(), f);
         }
     }
 
@@ -60,7 +60,7 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         return (IARPScene) invokeV.objValue;
     }
 
-    public static native void nativeSetMovePlane(float f2, float f3, float f4, float f5);
+    public static native void nativeSetMovePlane(float f, float f2, float f3, float f4);
 
     @Override // com.baidu.ar.arplay.core.engine.d
     public void destroy() {

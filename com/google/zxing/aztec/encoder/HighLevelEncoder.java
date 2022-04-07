@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CHAR_MAP;
@@ -137,11 +137,11 @@ public final class HighLevelEncoder {
     private void updateStateForChar(State state, int i, Collection<State> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, this, state, i, collection) == null) {
-            char c2 = (char) (this.text[i] & 255);
-            boolean z = CHAR_MAP[state.getMode()][c2] > 0;
+            char c = (char) (this.text[i] & 255);
+            boolean z = CHAR_MAP[state.getMode()][c] > 0;
             State state2 = null;
             for (int i2 = 0; i2 <= 4; i2++) {
-                int i3 = CHAR_MAP[i2][c2];
+                int i3 = CHAR_MAP[i2][c];
                 if (i3 > 0) {
                     if (state2 == null) {
                         state2 = state.endBinaryShift(i);
@@ -154,7 +154,7 @@ public final class HighLevelEncoder {
                     }
                 }
             }
-            if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c2] == 0) {
+            if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c] == 0) {
                 collection.add(state.addBinaryShiftChar(i));
             }
         }
@@ -221,10 +221,10 @@ public final class HighLevelEncoder {
             byte[] bArr = this.text;
             if (i2 < bArr.length) {
                 int i3 = i2 + 1;
-                byte b2 = i3 < bArr.length ? bArr[i3] : (byte) 0;
-                byte b3 = this.text[i2];
-                if (b3 == 13) {
-                    if (b2 == 10) {
+                byte b = i3 < bArr.length ? bArr[i3] : (byte) 0;
+                byte b2 = this.text[i2];
+                if (b2 == 13) {
+                    if (b == 10) {
                         i = 2;
                         if (i <= 0) {
                         }
@@ -234,8 +234,8 @@ public final class HighLevelEncoder {
                     if (i <= 0) {
                     }
                     i2++;
-                } else if (b3 == 44) {
-                    if (b2 == 32) {
+                } else if (b2 == 44) {
+                    if (b == 32) {
                         i = 4;
                         if (i <= 0) {
                         }
@@ -245,8 +245,8 @@ public final class HighLevelEncoder {
                     if (i <= 0) {
                     }
                     i2++;
-                } else if (b3 != 46) {
-                    if (b3 == 58 && b2 == 32) {
+                } else if (b2 != 46) {
+                    if (b2 == 58 && b == 32) {
                         i = 5;
                         if (i <= 0) {
                             singletonList = updateStateListForPair(singletonList, i2, i);
@@ -261,7 +261,7 @@ public final class HighLevelEncoder {
                     }
                     i2++;
                 } else {
-                    if (b2 == 32) {
+                    if (b == 32) {
                         i = 3;
                         if (i <= 0) {
                         }

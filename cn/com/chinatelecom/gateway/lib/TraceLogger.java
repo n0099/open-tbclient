@@ -1,5 +1,5 @@
 package cn.com.chinatelecom.gateway.lib;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface TraceLogger {
     void debug(String str, String str2);
 

@@ -31,7 +31,7 @@ import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OKSender implements MessageSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class OKSender implements MessageSender {
     public MediaType mediaType;
 
     /* renamed from: com.yy.hiidostatis.message.sender.OKSender$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class MyCallback implements Callback {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -121,21 +121,21 @@ public class OKSender implements MessageSender {
                                 this.this$0.host.onFailure(call, null);
                             }
                             response.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                             response.close();
                         }
                     } catch (Throwable th) {
                         try {
                             response.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         throw th;
                     }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                     while (true) {
-                        e4.printStackTrace();
+                        e3.printStackTrace();
                         return;
                     }
                 }
@@ -147,7 +147,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class MyDns implements Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ReqTag {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,14 +249,14 @@ public class OKSender implements MessageSender {
             String str2 = "";
             try {
                 str = URLEncoder.encode(NoNull.noNull(this.appInfo.getAppAppkey()), "UTF-8");
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 str = "";
             }
             try {
                 str2 = URLEncoder.encode(NoNull.noNull(this.appInfo.getAppVer()), "UTF-8");
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 e.printStackTrace();
                 if (!message.isSingle()) {
                 }
@@ -273,8 +273,8 @@ public class OKSender implements MessageSender {
             if (this.mediaType == null) {
                 try {
                     this.mediaType = MediaType.parse("text/plain");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             RequestBody create = RequestBody.create(this.mediaType, message.toBody());

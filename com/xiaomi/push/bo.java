@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bo extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public class bo extends ai.a {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m117a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m113a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100887" : (String) invokeV.objValue;
@@ -55,8 +55,8 @@ public class bo extends ai.a {
                     com.xiaomi.clientreport.manager.a.a(this.a).c();
                     com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + "perf  begin upload");
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e);
             }
         }
     }

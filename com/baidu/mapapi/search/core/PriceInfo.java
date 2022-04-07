@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PriceInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PriceInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public double f26377b;
+    public double b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +64,7 @@ public class PriceInfo implements Parcelable {
             }
         }
         this.a = parcel.readInt();
-        this.f26377b = parcel.readDouble();
+        this.b = parcel.readDouble();
     }
 
     @Override // android.os.Parcelable
@@ -82,7 +80,7 @@ public class PriceInfo implements Parcelable {
     public double getTicketPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26377b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.doubleValue;
     }
 
     public int getTicketType() {
@@ -91,10 +89,10 @@ public class PriceInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void setTicketPrice(double d2) {
+    public void setTicketPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f26377b = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.b = d;
         }
     }
 
@@ -110,7 +108,7 @@ public class PriceInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             parcel.writeInt(this.a);
-            parcel.writeDouble(this.f26377b);
+            parcel.writeDouble(this.b);
         }
     }
 }

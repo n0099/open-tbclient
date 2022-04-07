@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int[] f38108b;
+    public int[] b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -38,11 +36,11 @@ public final class f {
                 return null;
             }
             int i2 = iArr[i];
-            int a = a(this.f38108b, i2);
+            int a = a(this.b, i2);
             StringBuilder sb = new StringBuilder(a);
             while (a != 0) {
                 i2 += 2;
-                sb.append((char) a(this.f38108b, i2));
+                sb.append((char) a(this.b, i2));
                 a--;
             }
             return sb.toString();
@@ -66,12 +64,12 @@ public final class f {
                 return -1;
             }
             int i2 = iArr[i];
-            int a = a(this.f38108b, i2);
+            int a = a(this.b, i2);
             if (a == str.length()) {
                 int i3 = 0;
                 while (i3 != a) {
                     i2 += 2;
-                    if (str.charAt(i3) != a(this.f38108b, i2)) {
+                    if (str.charAt(i3) != a(this.b, i2)) {
                         break;
                     }
                     i3++;

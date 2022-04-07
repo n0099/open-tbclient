@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
@@ -48,13 +47,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChatSessionManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SessionManagerImpl";
@@ -328,9 +328,9 @@ public class ChatSessionManagerImpl {
                                     next.onChatSessionUpdate(chatSession.m29clone(), z);
                                     LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                                 }
-                            } catch (CloneNotSupportedException e2) {
-                                LogUtils.e(TAG, "ChatSessionChangerCallBack throw RuntimeException", e2);
-                                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                            } catch (CloneNotSupportedException e) {
+                                LogUtils.e(TAG, "ChatSessionChangerCallBack throw RuntimeException", e);
+                                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                                 throw new RuntimeException("ChatSession Clone Error!");
                             }
                         }
@@ -473,8 +473,8 @@ public class ChatSessionManagerImpl {
                         return;
                     }
                     chatSession.setLastMsg(optString2);
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "it doesn't matter>" + e2.getMessage());
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "it doesn't matter>" + e.getMessage());
                 }
             }
         }
@@ -814,10 +814,10 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.g(mContext).f(mContext, creatMethodIntent);
-            } catch (Exception e2) {
+                p70.g(mContext).f(mContext, creatMethodIntent);
+            } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
-                LogUtils.e(TAG, "Exception ", e2);
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

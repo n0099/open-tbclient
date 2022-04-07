@@ -32,16 +32,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38136b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f38137c;
+    public static String b;
+    public static Map<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,19 +53,19 @@ public final class b {
                 return;
             }
         }
-        f38137c = new HashMap();
+        c = new HashMap();
         if (g.a()) {
-            f38136b = Build.SUPPORTED_ABIS[0];
+            b = Build.SUPPORTED_ABIS[0];
         } else {
-            f38136b = Build.CPU_ABI;
+            b = Build.CPU_ABI;
         }
-        f38137c.put("arm64-v8a", 64);
-        f38137c.put(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, 32);
-        f38137c.put("armeabi", 32);
-        f38137c.put("x86_64", 64);
-        f38137c.put("x86", 32);
-        f38137c.put("mips64", 64);
-        f38137c.put("mips", 32);
+        c.put("arm64-v8a", 64);
+        c.put(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, 32);
+        c.put("armeabi", 32);
+        c.put("x86_64", 64);
+        c.put("x86", 32);
+        c.put("mips64", 64);
+        c.put("mips", 32);
         a = c();
     }
 
@@ -92,7 +88,7 @@ public final class b {
                     if (!a2.isEmpty()) {
                         linkedList = new LinkedList();
                         HashSet hashSet = new HashSet();
-                        String str2 = a != null ? a : f38136b;
+                        String str2 = a != null ? a : b;
                         char c2 = 65535;
                         switch (str2.hashCode()) {
                             case -1073971299:
@@ -199,16 +195,16 @@ public final class b {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f38137c.get(a()).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.get(a()).intValue() : invokeV.intValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            JSONObject d2 = d();
-            String a2 = a(d2);
-            return a2 == null ? b(d2) : a2;
+            JSONObject d = d();
+            String a2 = a(d);
+            return a2 == null ? b(d) : a2;
         }
         return (String) invokeV.objValue;
     }
@@ -227,8 +223,8 @@ public final class b {
                 jSONObject.put("defaultABI", "0");
                 jSONObject.put("autoError", "0");
                 jSONObject.put("manualError", "0");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -288,8 +284,8 @@ public final class b {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 Enumeration<? extends ZipEntry> entries = zipFile.entries();
@@ -312,8 +308,8 @@ public final class b {
                     ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, close sourceApkZipFile error!");
                 }
                 return false;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 zipFile2 = zipFile;
                 ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper hasNativeLib, get sourceApk ZipFile failed!", e);
                 if (zipFile2 != null) {
@@ -352,7 +348,7 @@ public final class b {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && compile.matcher(nextElement.getName()).matches() && (split = nextElement.getName().split(File.separator)) != null && split.length >= 2) {
                     String str = split[split.length - 2];
-                    if (f38137c.containsKey(str)) {
+                    if (c.containsKey(str)) {
                         if (hashMap.get(str) == null) {
                             hashMap.put(str, new LinkedList());
                         }
@@ -396,9 +392,9 @@ public final class b {
                     a(zipFile.getInputStream(zipEntry), new FileOutputStream(file2));
                     z = true;
                     continue;
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     if (i >= 3) {
-                        throw e2;
+                        throw e;
                     }
                     i++;
                     continue;
@@ -466,7 +462,7 @@ public final class b {
                         }
                         a(jSONObject, "processMode", String.valueOf(i));
                         if (i != 0) {
-                            if (f38137c.get(str).intValue() == i) {
+                            if (c.get(str).intValue() == i) {
                                 ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
                                 return str;
                             }
@@ -476,8 +472,8 @@ public final class b {
                         return str;
                     }
                     return null;
-                } catch (Exception e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto failed!", e2);
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto failed!", e);
                     a(jSONObject, "autoError", "1");
                     return null;
                 }
@@ -500,8 +496,8 @@ public final class b {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 Map<String, List<ZipEntry>> a2 = a(zipFile);
@@ -522,8 +518,8 @@ public final class b {
                     ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, close sourceApkZipFile error!");
                 }
                 return containsKey;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 zipFile2 = zipFile;
                 ZeusLogger.e(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi, get sourceApk ZipFile failed!", e);
                 if (zipFile2 != null) {
@@ -557,8 +553,8 @@ public final class b {
         if (interceptable == null || interceptable.invokeLLL(65544, null, jSONObject, str, str2) == null) {
             try {
                 jSONObject.put(str, str2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

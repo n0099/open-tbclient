@@ -13,9 +13,7 @@ import java.util.ArrayList;
 public class PInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42556c;
+    public String c;
     public ArrayList<String> imei;
     public String mac;
     public String n;
@@ -38,7 +36,7 @@ public class PInfo {
     public String getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42556c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getImei() {
@@ -68,7 +66,7 @@ public class PInfo {
     public void setC(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f42556c = str;
+            this.c = str;
         }
     }
 

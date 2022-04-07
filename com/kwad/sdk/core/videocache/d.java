@@ -6,32 +6,24 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f39923d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f39924e = Pattern.compile("GET /(.*) HTTP");
+    public static final Pattern d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern e = Pattern.compile("GET /(.*) HTTP");
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final long f39925b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final boolean f39926c;
+    public final long b;
+    public final boolean c;
 
     public d(String str) {
         j.a(str);
         long a = a(str);
-        this.f39925b = Math.max(0L, a);
-        this.f39926c = a >= 0;
+        this.b = Math.max(0L, a);
+        this.c = a >= 0;
         this.a = b(str);
     }
 
     private long a(String str) {
-        Matcher matcher = f39923d.matcher(str);
+        Matcher matcher = d.matcher(str);
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
@@ -52,7 +44,7 @@ public class d {
     }
 
     private String b(String str) {
-        Matcher matcher = f39924e.matcher(str);
+        Matcher matcher = e.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -60,6 +52,6 @@ public class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f39925b + ", partial=" + this.f39926c + ", uri='" + this.a + "'}";
+        return "GetRequest{rangeOffset=" + this.b + ", partial=" + this.c + ", uri='" + this.a + "'}";
     }
 }

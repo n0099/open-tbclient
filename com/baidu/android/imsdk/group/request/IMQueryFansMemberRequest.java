@@ -26,7 +26,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansMemberRequest";
@@ -35,7 +35,7 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,10 +107,10 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
                         GroupInfoDAOImpl.modifyGroupMemberVersion(this.this$0.mContext, this.this$0.mGroupId, jSONObject2.optLong("member_version"), System.currentTimeMillis());
                         GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, jSONObject2.optInt("member_count"));
                     }
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

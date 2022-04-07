@@ -15,7 +15,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class RequestMethod {
     public static final /* synthetic */ RequestMethod[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public final class RequestMethod {
     public final String value;
 
     /* renamed from: com.baidu.searchbox.network.outback.core.RequestMethod$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$network$outback$core$RequestMethod;
         public static /* synthetic */ Interceptable $ic;
@@ -120,72 +120,72 @@ public final class RequestMethod {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static RequestMethod reverse(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String upperCase = str.toUpperCase(Locale.ENGLISH);
             switch (upperCase.hashCode()) {
                 case -531492226:
                     if (upperCase.equals(HttpOptions.METHOD_NAME)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 70454:
                     if (upperCase.equals("GET")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 79599:
                     if (upperCase.equals(HttpPut.METHOD_NAME)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2213344:
                     if (upperCase.equals("HEAD")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2461856:
                     if (upperCase.equals("POST")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 75900968:
                     if (upperCase.equals("PATCH")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 80083237:
                     if (upperCase.equals(HttpTrace.METHOD_NAME)) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2012838315:
                     if (upperCase.equals(HttpDelete.METHOD_NAME)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     return GET;
                 case 1:

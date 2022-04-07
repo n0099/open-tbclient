@@ -11,7 +11,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DnsInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsInfo";
@@ -26,7 +26,9 @@ public class DnsInfo {
     public int status;
     public int ttl;
     public String uip;
-    public String view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public String f1034view;
 
     public DnsInfo() {
         Interceptable interceptable = $ic;
@@ -51,7 +53,7 @@ public class DnsInfo {
         if (interceptable == null || interceptable.invokeL(1048576, this, dnsInfo) == null) {
             this.host = dnsInfo.getHost();
             this.uip = dnsInfo.getUip();
-            this.view = dnsInfo.getView();
+            this.f1034view = dnsInfo.getView();
             this.ttl = dnsInfo.getTtl();
             this.probeTime = dnsInfo.getProbeTime();
             this.endTime = dnsInfo.getEndTime();
@@ -78,8 +80,8 @@ public class DnsInfo {
                     jSONObject.put("pe", this.cmd.isPe());
                     jSONObject.put("re", this.cmd.isRe());
                     return jSONObject.toString();
-                } catch (Exception e2) {
-                    LogTools.printError(TAG, "getCmdStr() exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "getCmdStr() exception:" + e.getMessage());
                 }
             }
             return "";
@@ -164,7 +166,7 @@ public class DnsInfo {
     public String getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.view : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1034view : (String) invokeV.objValue;
     }
 
     public void setCmd(CmdInfo cmdInfo) {
@@ -188,8 +190,8 @@ public class DnsInfo {
             if (jSONObject.has("re")) {
                 this.cmd.setRe(jSONObject.getBoolean("re"));
             }
-        } catch (Exception e2) {
-            LogTools.printError(TAG, "setCmdStr() exception:" + e2.getMessage());
+        } catch (Exception e) {
+            LogTools.printError(TAG, "setCmdStr() exception:" + e.getMessage());
         }
     }
 
@@ -263,9 +265,9 @@ public class DnsInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.ttl = i;
-            float f2 = i;
-            this.endTime = System.currentTimeMillis() + ((int) (GlobalTools.TTL_EXPIRED_FACTOR * f2 * 1000.0f));
-            this.probeTime = System.currentTimeMillis() + ((int) (f2 * GlobalTools.TTL_PROBE_FACTOR * 1000.0f));
+            float f = i;
+            this.endTime = System.currentTimeMillis() + ((int) (GlobalTools.TTL_EXPIRED_FACTOR * f * 1000.0f));
+            this.probeTime = System.currentTimeMillis() + ((int) (f * GlobalTools.TTL_PROBE_FACTOR * 1000.0f));
         }
     }
 
@@ -279,7 +281,7 @@ public class DnsInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.view = str;
+            this.f1034view = str;
         }
     }
 

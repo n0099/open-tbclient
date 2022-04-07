@@ -6,7 +6,6 @@ import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-import c.a.j0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
@@ -20,13 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ge1;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -39,7 +39,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,8 +241,8 @@ public class WebGLImageLoader {
                                     inputStream = V8Engine.getAppContext().getResources().getAssets().open(this.val$fileName);
                                     try {
                                         WebGLImageLoader.loadImageFromConvertedSource(this.val$image, this.val$imageId, this.val$src, inputStream);
-                                    } catch (IOException e2) {
-                                        e = e2;
+                                    } catch (IOException e) {
+                                        e = e;
                                         e.printStackTrace();
                                         WebGLImageLoader.loadBitmapData(this.val$image, this.val$imageId, null);
                                         if (inputStream != null) {
@@ -255,14 +255,14 @@ public class WebGLImageLoader {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (IOException e3) {
-                                            e3.printStackTrace();
+                                        } catch (IOException e2) {
+                                            e2.printStackTrace();
                                         }
                                     }
                                     throw th;
                                 }
-                            } catch (IOException e4) {
-                                e = e4;
+                            } catch (IOException e3) {
+                                e = e3;
                                 inputStream = null;
                             } catch (Throwable th3) {
                                 inputStream = null;
@@ -274,8 +274,8 @@ public class WebGLImageLoader {
                             if (inputStream != null) {
                                 inputStream.close();
                             }
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                 }
@@ -455,7 +455,7 @@ public class WebGLImageLoader {
             ImageBitmapBean imageBitmapBean = null;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (a.b(str2)) {
+                if (ge1.b(str2)) {
                     decodeStream = BitmapFactory.decodeFile(str2, options);
                     if (decodeStream == null) {
                         decodeStream = BitmapFactory.decodeFile(str2);

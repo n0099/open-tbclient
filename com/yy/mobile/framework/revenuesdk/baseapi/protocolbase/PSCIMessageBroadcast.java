@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PSCIMessageBroadcast extends ResponsePacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class PSCIMessageBroadcast extends ResponsePacket {
             JSONObject jSONObject = new JSONObject(str);
             this.data = jSONObject;
             this.uri = jSONObject.optLong("uri", 0L);
-        } catch (Exception e2) {
-            RLog.error("PSCIMessageBroadcast", "popPacketData error.", e2);
+        } catch (Exception e) {
+            RLog.error("PSCIMessageBroadcast", "popPacketData error.", e);
         }
     }
 
@@ -68,8 +68,8 @@ public class PSCIMessageBroadcast extends ResponsePacket {
                 JSONObject jSONObject = new JSONObject(this.jsonData);
                 this.data = jSONObject;
                 this.uri = jSONObject.optLong("uri", 0L);
-            } catch (Exception e2) {
-                RLog.error("PSCIMessageBroadcast", "popPacketData error.", e2);
+            } catch (Exception e) {
+                RLog.error("PSCIMessageBroadcast", "popPacketData error.", e);
             }
         }
     }

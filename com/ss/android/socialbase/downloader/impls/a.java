@@ -24,27 +24,13 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 /* loaded from: classes7.dex */
 public abstract class a implements h.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f43394b = new SparseArray<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f43395c = new SparseArray<>();
-
-    /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f43396d = new SparseArray<>();
-
-    /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f43397e = new SparseArray<>();
-
-    /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f43398f = new SparseArray<>();
-
-    /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<SparseArray<DownloadTask>> f43399g = new SparseArray<>();
-
-    /* renamed from: h  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.h<Integer, DownloadTask> f43400h = new com.ss.android.socialbase.downloader.i.h<>();
+    public final SparseArray<DownloadTask> b = new SparseArray<>();
+    public final SparseArray<DownloadTask> c = new SparseArray<>();
+    public final SparseArray<DownloadTask> d = new SparseArray<>();
+    public final SparseArray<DownloadTask> e = new SparseArray<>();
+    public final SparseArray<DownloadTask> f = new SparseArray<>();
+    public final SparseArray<SparseArray<DownloadTask>> g = new SparseArray<>();
+    public final com.ss.android.socialbase.downloader.i.h<Integer, DownloadTask> h = new com.ss.android.socialbase.downloader.i.h<>();
     public final SparseArray<Long> i = new SparseArray<>();
     public final LinkedBlockingDeque<DownloadTask> j = new LinkedBlockingDeque<>();
     public final com.ss.android.socialbase.downloader.h.h a = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
@@ -93,14 +79,14 @@ public abstract class a implements h.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadTask o(int i) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask == null) {
-            DownloadTask downloadTask2 = this.f43396d.get(i);
+            DownloadTask downloadTask2 = this.d.get(i);
             if (downloadTask2 == null) {
-                DownloadTask downloadTask3 = this.f43395c.get(i);
+                DownloadTask downloadTask3 = this.c.get(i);
                 if (downloadTask3 == null) {
-                    DownloadTask downloadTask4 = this.f43397e.get(i);
-                    return downloadTask4 == null ? this.f43398f.get(i) : downloadTask4;
+                    DownloadTask downloadTask4 = this.e.get(i);
+                    return downloadTask4 == null ? this.f.get(i) : downloadTask4;
                 }
                 return downloadTask3;
             }
@@ -139,38 +125,38 @@ public abstract class a implements h.a {
     public abstract com.ss.android.socialbase.downloader.h.c c(int i);
 
     public synchronized DownloadInfo d(int i) {
-        DownloadInfo b2;
+        DownloadInfo b;
         DownloadTask downloadTask;
-        b2 = this.k.b(i);
-        if (b2 == null && (downloadTask = this.f43394b.get(i)) != null) {
-            b2 = downloadTask.getDownloadInfo();
+        b = this.k.b(i);
+        if (b == null && (downloadTask = this.b.get(i)) != null) {
+            b = downloadTask.getDownloadInfo();
         }
-        return b2;
+        return b;
     }
 
     public synchronized boolean e(int i) {
         com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "pause id=" + i);
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 == null || b2.getStatus() != 11) {
-            synchronized (this.f43394b) {
+        DownloadInfo b = this.k.b(i);
+        if (b == null || b.getStatus() != 11) {
+            synchronized (this.b) {
                 b(i);
             }
-            if (b2 == null) {
-                DownloadTask downloadTask = this.f43394b.get(i);
+            if (b == null) {
+                DownloadTask downloadTask = this.b.get(i);
                 if (downloadTask != null) {
                     new com.ss.android.socialbase.downloader.downloader.f(downloadTask, this.a).d();
                     return true;
                 }
             } else {
-                a(b2);
-                if (b2.getStatus() == 1) {
-                    DownloadTask downloadTask2 = this.f43394b.get(i);
+                a(b);
+                if (b.getStatus() == 1) {
+                    DownloadTask downloadTask2 = this.b.get(i);
                     if (downloadTask2 != null) {
                         new com.ss.android.socialbase.downloader.downloader.f(downloadTask2, this.a).d();
                         return true;
                     }
-                } else if (DownloadStatus.isDownloading(b2.getStatus())) {
-                    b2.setStatus(-2);
+                } else if (DownloadStatus.isDownloading(b.getStatus())) {
+                    b.setStatus(-2);
                     return true;
                 }
             }
@@ -180,7 +166,7 @@ public abstract class a implements h.a {
     }
 
     public synchronized boolean f(int i) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null) {
             DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
             if (downloadInfo != null) {
@@ -194,9 +180,9 @@ public abstract class a implements h.a {
     }
 
     public synchronized boolean g(int i) {
-        DownloadTask downloadTask = this.f43396d.get(i);
+        DownloadTask downloadTask = this.d.get(i);
         if (downloadTask == null) {
-            downloadTask = this.f43397e.get(i);
+            downloadTask = this.e.get(i);
         }
         if (downloadTask != null) {
             DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
@@ -210,23 +196,23 @@ public abstract class a implements h.a {
     }
 
     public synchronized af h(int i) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null) {
             return downloadTask.getNotificationClickCallback();
         }
-        DownloadTask downloadTask2 = this.f43395c.get(i);
+        DownloadTask downloadTask2 = this.c.get(i);
         if (downloadTask2 != null) {
             return downloadTask2.getNotificationClickCallback();
         }
-        DownloadTask downloadTask3 = this.f43396d.get(i);
+        DownloadTask downloadTask3 = this.d.get(i);
         if (downloadTask3 != null) {
             return downloadTask3.getNotificationClickCallback();
         }
-        DownloadTask downloadTask4 = this.f43397e.get(i);
+        DownloadTask downloadTask4 = this.e.get(i);
         if (downloadTask4 != null) {
             return downloadTask4.getNotificationClickCallback();
         }
-        DownloadTask downloadTask5 = this.f43398f.get(i);
+        DownloadTask downloadTask5 = this.f.get(i);
         if (downloadTask5 != null) {
             return downloadTask5.getNotificationClickCallback();
         }
@@ -234,23 +220,23 @@ public abstract class a implements h.a {
     }
 
     public synchronized z i(int i) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null) {
             return downloadTask.getNotificationEventListener();
         }
-        DownloadTask downloadTask2 = this.f43395c.get(i);
+        DownloadTask downloadTask2 = this.c.get(i);
         if (downloadTask2 != null) {
             return downloadTask2.getNotificationEventListener();
         }
-        DownloadTask downloadTask3 = this.f43396d.get(i);
+        DownloadTask downloadTask3 = this.d.get(i);
         if (downloadTask3 != null) {
             return downloadTask3.getNotificationEventListener();
         }
-        DownloadTask downloadTask4 = this.f43397e.get(i);
+        DownloadTask downloadTask4 = this.e.get(i);
         if (downloadTask4 != null) {
             return downloadTask4.getNotificationEventListener();
         }
-        DownloadTask downloadTask5 = this.f43398f.get(i);
+        DownloadTask downloadTask5 = this.f.get(i);
         if (downloadTask5 != null) {
             return downloadTask5.getNotificationEventListener();
         }
@@ -258,23 +244,23 @@ public abstract class a implements h.a {
     }
 
     public synchronized IDownloadFileUriProvider j(int i) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null) {
             return downloadTask.getFileUriProvider();
         }
-        DownloadTask downloadTask2 = this.f43395c.get(i);
+        DownloadTask downloadTask2 = this.c.get(i);
         if (downloadTask2 != null) {
             return downloadTask2.getFileUriProvider();
         }
-        DownloadTask downloadTask3 = this.f43396d.get(i);
+        DownloadTask downloadTask3 = this.d.get(i);
         if (downloadTask3 != null) {
             return downloadTask3.getFileUriProvider();
         }
-        DownloadTask downloadTask4 = this.f43397e.get(i);
+        DownloadTask downloadTask4 = this.e.get(i);
         if (downloadTask4 != null) {
             return downloadTask4.getFileUriProvider();
         }
-        DownloadTask downloadTask5 = this.f43398f.get(i);
+        DownloadTask downloadTask5 = this.f.get(i);
         if (downloadTask5 != null) {
             return downloadTask5.getFileUriProvider();
         }
@@ -283,23 +269,23 @@ public abstract class a implements h.a {
 
     public synchronized boolean k(int i) {
         DownloadInfo downloadInfo;
-        DownloadTask downloadTask = this.f43397e.get(i);
+        DownloadTask downloadTask = this.e.get(i);
         if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
             if (downloadInfo.canStartRetryDelayTask()) {
                 a(downloadTask, false);
             }
             return true;
         }
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 != null && b2.canStartRetryDelayTask()) {
-            a(new DownloadTask(b2), false);
+        DownloadInfo b = this.k.b(i);
+        if (b != null && b.canStartRetryDelayTask()) {
+            a(new DownloadTask(b), false);
         }
         return false;
     }
 
     public synchronized boolean l(int i) {
         DownloadInfo downloadInfo;
-        DownloadTask downloadTask = this.f43398f.get(i);
+        DownloadTask downloadTask = this.f.get(i);
         if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
             return false;
         }
@@ -311,7 +297,7 @@ public abstract class a implements h.a {
 
     public synchronized void m(int i) {
         DownloadInfo downloadInfo;
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
             downloadInfo.setForceIgnoreRecommendSize(true);
             a(downloadTask);
@@ -319,7 +305,7 @@ public abstract class a implements h.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0011, code lost:
-        if (r1.f43396d.get(r2) != null) goto L13;
+        if (r1.d.get(r2) != null) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -327,7 +313,7 @@ public abstract class a implements h.a {
     public synchronized boolean n(int i) {
         boolean z;
         if (i != 0) {
-            if (this.f43394b.get(i) == null) {
+            if (this.b.get(i) == null) {
             }
             z = true;
         }
@@ -343,10 +329,10 @@ public abstract class a implements h.a {
         if (hashCodeForSameTask == 0) {
             return;
         }
-        SparseArray<DownloadTask> sparseArray = this.f43399g.get(downloadTask.getDownloadId());
+        SparseArray<DownloadTask> sparseArray = this.g.get(downloadTask.getDownloadId());
         if (sparseArray == null) {
             sparseArray = new SparseArray<>();
-            this.f43399g.put(downloadTask.getDownloadId(), sparseArray);
+            this.g.put(downloadTask.getDownloadId(), sparseArray);
         }
         com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "tryCacheSameTaskWithListenerHashCode id:" + downloadTask.getDownloadId() + " listener hasCode:" + hashCodeForSameTask);
         sparseArray.put(hashCodeForSameTask, downloadTask);
@@ -374,17 +360,17 @@ public abstract class a implements h.a {
         if (z) {
             a(downloadInfo);
         }
-        if (this.f43396d.get(id) != null) {
-            this.f43396d.remove(id);
+        if (this.d.get(id) != null) {
+            this.d.remove(id);
         }
-        if (this.f43395c.get(id) != null) {
-            this.f43395c.remove(id);
+        if (this.c.get(id) != null) {
+            this.c.remove(id);
         }
-        if (this.f43397e.get(id) != null) {
-            this.f43397e.remove(id);
+        if (this.e.get(id) != null) {
+            this.e.remove(id);
         }
-        if (this.f43398f.get(id) != null) {
-            this.f43398f.remove(id);
+        if (this.f.get(id) != null) {
+            this.f.remove(id);
         }
         if (a(id) && !downloadInfo.canReStartAsyncTask()) {
             com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "another task with same id is downloading when tryDownload");
@@ -396,11 +382,11 @@ public abstract class a implements h.a {
         if (downloadInfo.canReStartAsyncTask()) {
             downloadInfo.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_RESTART);
         }
-        if (com.ss.android.socialbase.downloader.i.a.a(32768) && (remove = this.f43400h.remove(Integer.valueOf(id))) != null) {
+        if (com.ss.android.socialbase.downloader.i.a.a(32768) && (remove = this.h.remove(Integer.valueOf(id))) != null) {
             downloadTask.copyListenerFromPendingTask(remove);
         }
         long uptimeMillis = SystemClock.uptimeMillis();
-        DownloadTask downloadTask2 = this.f43394b.get(id);
+        DownloadTask downloadTask2 = this.b.get(id);
         if (downloadTask2 == null || (downloadInfo2 = downloadTask2.getDownloadInfo()) == null) {
             i = 0;
         } else {
@@ -415,7 +401,7 @@ public abstract class a implements h.a {
             return;
         }
         b(downloadTask);
-        this.f43394b.put(id, downloadTask);
+        this.b.put(id, downloadTask);
         this.i.put(id, Long.valueOf(uptimeMillis));
         a(id, downloadTask);
     }
@@ -423,40 +409,40 @@ public abstract class a implements h.a {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d(int i, boolean z) {
         com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "clearDownloadDataInSubThread::id=" + i + " deleteTargetFile=" + z);
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 != null) {
+        DownloadInfo b = this.k.b(i);
+        if (b != null) {
             if (z) {
-                com.ss.android.socialbase.downloader.i.f.a(b2);
+                com.ss.android.socialbase.downloader.i.f.a(b);
             } else {
-                com.ss.android.socialbase.downloader.i.f.c(b2.getTempPath(), b2.getTempName());
+                com.ss.android.socialbase.downloader.i.f.c(b.getTempPath(), b.getTempName());
             }
-            b2.erase();
+            b.erase();
         }
         try {
             this.k.f(i);
-        } catch (SQLiteException e2) {
-            e2.printStackTrace();
+        } catch (SQLiteException e) {
+            e.printStackTrace();
         }
         a(i, 0, -4);
-        if (this.f43396d.get(i) != null) {
-            this.f43396d.remove(i);
+        if (this.d.get(i) != null) {
+            this.d.remove(i);
         }
-        if (this.f43395c.get(i) != null) {
-            this.f43395c.remove(i);
+        if (this.c.get(i) != null) {
+            this.c.remove(i);
         }
-        this.f43400h.remove(Integer.valueOf(i));
+        this.h.remove(Integer.valueOf(i));
         com.ss.android.socialbase.downloader.g.a.b(i);
     }
 
     public synchronized void b(List<String> list) {
         DownloadInfo downloadInfo;
         try {
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         if (com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N())) {
-            for (int i = 0; i < this.f43394b.size(); i++) {
-                DownloadTask downloadTask = this.f43394b.get(this.f43394b.keyAt(i));
+            for (int i = 0; i < this.b.size(); i++) {
+                DownloadTask downloadTask = this.b.get(this.b.keyAt(i));
                 if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && b(downloadInfo)) {
                     downloadInfo.setAutoResumed(true);
                     downloadInfo.setShowNotificationForNetworkResumed(true);
@@ -472,9 +458,9 @@ public abstract class a implements h.a {
     }
 
     public void c(final int i, final boolean z) {
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 != null) {
-            a(b2);
+        DownloadInfo b = this.k.b(i);
+        if (b != null) {
+            a(b);
         }
         this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.4
             @Override // java.lang.Runnable
@@ -494,24 +480,24 @@ public abstract class a implements h.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i, boolean z) {
         try {
-            DownloadInfo b2 = this.k.b(i);
-            if (b2 != null) {
-                com.ss.android.socialbase.downloader.i.f.a(b2, z);
-                b2.erase();
+            DownloadInfo b = this.k.b(i);
+            if (b != null) {
+                com.ss.android.socialbase.downloader.i.f.a(b, z);
+                b.erase();
             }
             try {
                 this.k.d(i);
-                this.k.a(b2);
-            } catch (SQLiteException e2) {
-                e2.printStackTrace();
+                this.k.a(b);
+            } catch (SQLiteException e) {
+                e.printStackTrace();
             }
-            if (this.f43396d.get(i) != null) {
-                this.f43396d.remove(i);
+            if (this.d.get(i) != null) {
+                this.d.remove(i);
             }
-            if (this.f43395c.get(i) != null) {
-                this.f43395c.remove(i);
+            if (this.c.get(i) != null) {
+                this.c.remove(i);
             }
-            this.f43400h.remove(Integer.valueOf(i));
+            this.h.remove(Integer.valueOf(i));
             com.ss.android.socialbase.downloader.g.a.b(i);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -536,9 +522,9 @@ public abstract class a implements h.a {
     }
 
     public void b(final int i, final boolean z) {
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 != null) {
-            a(b2);
+        DownloadInfo b = this.k.b(i);
+        if (b != null) {
+            a(b);
         }
         this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.2
             @Override // java.lang.Runnable
@@ -579,9 +565,9 @@ public abstract class a implements h.a {
         }
         ArrayList arrayList = new ArrayList();
         for (Integer num : a()) {
-            DownloadInfo d2 = d(num.intValue());
-            if (d2 != null && str.equals(d2.getMimeType())) {
-                arrayList.add(d2);
+            DownloadInfo d = d(num.intValue());
+            if (d != null && str.equals(d.getMimeType())) {
+                arrayList.add(d);
             }
         }
         return arrayList;
@@ -604,9 +590,9 @@ public abstract class a implements h.a {
     }
 
     public void b(int i, long j) {
-        DownloadInfo b2 = this.k.b(i);
-        if (b2 != null) {
-            b2.setThrottleNetSpeed(j);
+        DownloadInfo b = this.k.b(i);
+        if (b != null) {
+            b.setThrottleNetSpeed(j);
         }
         a(i, j);
     }
@@ -618,9 +604,9 @@ public abstract class a implements h.a {
         List<DownloadInfo> a = this.k.a(str);
         if (a == null || a.isEmpty()) {
             ArrayList arrayList = new ArrayList();
-            int size = this.f43394b.size();
+            int size = this.b.size();
             for (int i = 0; i < size; i++) {
-                DownloadTask valueAt = this.f43394b.valueAt(i);
+                DownloadTask valueAt = this.b.valueAt(i);
                 if (valueAt != null && valueAt.getDownloadInfo() != null && str.equals(valueAt.getDownloadInfo().getUrl())) {
                     arrayList.add(valueAt.getDownloadInfo());
                 }
@@ -631,7 +617,7 @@ public abstract class a implements h.a {
     }
 
     public synchronized boolean a(int i, boolean z) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask == null && com.ss.android.socialbase.downloader.i.a.a(65536)) {
             downloadTask = o(i);
         }
@@ -672,13 +658,13 @@ public abstract class a implements h.a {
                 }
             });
         }
-        DownloadInfo b2 = this.k.b(i);
+        DownloadInfo b = this.k.b(i);
         if (com.ss.android.socialbase.downloader.i.a.a(65536)) {
-            if (b2 != null) {
-                b2.setStatus(-4);
+            if (b != null) {
+                b.setStatus(-4);
             }
-        } else if (b2 != null && DownloadStatus.isDownloading(b2.getStatus())) {
-            b2.setStatus(-4);
+        } else if (b != null && DownloadStatus.isDownloading(b.getStatus())) {
+            b.setStatus(-4);
         }
         b(i, z);
         return true;
@@ -699,7 +685,7 @@ public abstract class a implements h.a {
     }
 
     public synchronized void a(int i, z zVar) {
-        DownloadTask downloadTask = this.f43394b.get(i);
+        DownloadTask downloadTask = this.b.get(i);
         if (downloadTask != null) {
             downloadTask.setNotificationEventListener(zVar);
         }
@@ -708,24 +694,24 @@ public abstract class a implements h.a {
     public synchronized void a(List<String> list) {
         DownloadInfo downloadInfo;
         try {
-            boolean b2 = com.ss.android.socialbase.downloader.i.a.a(1048576) ? com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N()) : true;
-            for (int i = 0; i < this.f43396d.size(); i++) {
-                DownloadTask downloadTask = this.f43396d.get(this.f43396d.keyAt(i));
-                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && (!downloadInfo.isOnlyWifi() || b2)) {
+            boolean b = com.ss.android.socialbase.downloader.i.a.a(1048576) ? com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N()) : true;
+            for (int i = 0; i < this.d.size(); i++) {
+                DownloadTask downloadTask = this.d.get(this.d.keyAt(i));
+                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && (!downloadInfo.isOnlyWifi() || b)) {
                     downloadInfo.setAutoResumed(true);
                     downloadInfo.setShowNotificationForNetworkResumed(true);
                     a(downloadTask);
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public synchronized void a(int i, int i2, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
         DownloadTask o = o(i);
         if (o == null) {
-            o = this.f43400h.get(Integer.valueOf(i));
+            o = this.h.get(Integer.valueOf(i));
         }
         if (o != null) {
             o.removeDownloadListener(i2, iDownloadListener, fVar, z);
@@ -733,7 +719,7 @@ public abstract class a implements h.a {
     }
 
     public synchronized void a(int i, int i2, final IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
-        DownloadInfo b2;
+        DownloadInfo b;
         DownloadTask o = o(i);
         if (o != null) {
             o.addDownloadListener(i2, iDownloadListener, fVar, z);
@@ -758,11 +744,11 @@ public abstract class a implements h.a {
                     });
                 }
             }
-        } else if (com.ss.android.socialbase.downloader.i.a.a(32768) && (b2 = this.k.b(i)) != null && b2.getStatus() != -3) {
-            DownloadTask downloadTask = this.f43400h.get(Integer.valueOf(i));
+        } else if (com.ss.android.socialbase.downloader.i.a.a(32768) && (b = this.k.b(i)) != null && b.getStatus() != -3) {
+            DownloadTask downloadTask = this.h.get(Integer.valueOf(i));
             if (downloadTask == null) {
-                downloadTask = new DownloadTask(b2);
-                this.f43400h.put(Integer.valueOf(i), downloadTask);
+                downloadTask = new DownloadTask(b);
+                this.h.put(Integer.valueOf(i), downloadTask);
             }
             downloadTask.addDownloadListener(i2, iDownloadListener, fVar, z);
         }
@@ -782,59 +768,59 @@ public abstract class a implements h.a {
     private void a(int i, int i2) {
         com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "removeTask id: " + i + " listener hasCode: " + i2);
         if (i2 == 0) {
-            this.f43394b.remove(i);
-            this.f43399g.remove(i);
+            this.b.remove(i);
+            this.g.remove(i);
             return;
         }
-        SparseArray<DownloadTask> sparseArray = this.f43399g.get(i);
+        SparseArray<DownloadTask> sparseArray = this.g.get(i);
         if (sparseArray != null) {
             sparseArray.remove(i2);
             com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "after downloadTaskWithListenerMap removeTask taskArray.size: " + sparseArray.size());
             if (sparseArray.size() == 0) {
-                this.f43394b.remove(i);
-                this.f43399g.remove(i);
+                this.b.remove(i);
+                this.g.remove(i);
                 return;
             }
             return;
         }
-        this.f43394b.remove(i);
+        this.b.remove(i);
     }
 
     public synchronized void a(int i, int i2, int i3) {
         if (i3 != -7) {
             if (i3 == -6) {
-                this.f43395c.put(i, this.f43394b.get(i));
+                this.c.put(i, this.b.get(i));
                 a(i, i2);
             } else if (i3 == -4) {
                 a(i, i2);
                 p(i);
             } else if (i3 == -3) {
-                this.f43395c.put(i, this.f43394b.get(i));
+                this.c.put(i, this.b.get(i));
                 a(i, i2);
                 p(i);
             } else if (i3 != -1) {
                 if (i3 == 7) {
-                    DownloadTask downloadTask = this.f43394b.get(i);
+                    DownloadTask downloadTask = this.b.get(i);
                     if (downloadTask != null) {
-                        if (this.f43397e.get(i) == null) {
-                            this.f43397e.put(i, downloadTask);
+                        if (this.e.get(i) == null) {
+                            this.e.put(i, downloadTask);
                         }
                         a(i, i2);
                     }
                     p(i);
                 } else if (i3 == 8) {
-                    DownloadTask downloadTask2 = this.f43394b.get(i);
-                    if (downloadTask2 != null && this.f43398f.get(i) == null) {
-                        this.f43398f.put(i, downloadTask2);
+                    DownloadTask downloadTask2 = this.b.get(i);
+                    if (downloadTask2 != null && this.f.get(i) == null) {
+                        this.f.put(i, downloadTask2);
                     }
                     p(i);
                 }
             }
         }
-        DownloadTask downloadTask3 = this.f43394b.get(i);
+        DownloadTask downloadTask3 = this.b.get(i);
         if (downloadTask3 != null) {
-            if (this.f43396d.get(i) == null) {
-                this.f43396d.put(i, downloadTask3);
+            if (this.d.get(i) == null) {
+                this.d.put(i, downloadTask3);
             }
             a(i, i2);
         }
@@ -851,9 +837,9 @@ public abstract class a implements h.a {
         BaseException baseException = obj instanceof Exception ? (BaseException) obj : null;
         synchronized (this) {
             if (i2 == 0) {
-                downloadTask = this.f43394b.get(i);
+                downloadTask = this.b.get(i);
             } else {
-                SparseArray<DownloadTask> sparseArray = this.f43399g.get(i);
+                SparseArray<DownloadTask> sparseArray = this.g.get(i);
                 if (sparseArray != null) {
                     downloadTask = sparseArray.get(i2);
                 }

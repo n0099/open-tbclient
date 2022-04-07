@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SP_CLOUDCONTROL = "cloudControlCCS117";
@@ -108,8 +108,8 @@ public class CloudControlManager {
             } else if (AppConfig.isDebug()) {
                 try {
                     throw new Exception("runType " + str + " is error please check runType");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -123,9 +123,9 @@ public class CloudControlManager {
                 CloudControlData parseConnectResponse = new CloudControlResponseParse(str).parseConnectResponse(jSONObject, jSONObject2);
                 new DataRouter().routeServiceData(parseConnectResponse);
                 return parseConnectResponse != null;
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "connect response parse is error" + e2.toString());
+                    Log.d(TAG, "connect response parse is error" + e.toString());
                 }
                 return false;
             }
@@ -142,9 +142,9 @@ public class CloudControlManager {
             HashMap<String, ICloudControlProcessor> processors = this.mProcessors.getProcessors();
             try {
                 jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "drage is not json  " + e2.toString());
+                    Log.d(TAG, "drage is not json  " + e.toString());
                 }
                 jSONObject = null;
             }
@@ -158,8 +158,8 @@ public class CloudControlManager {
                                 if (!this.mProcessors.containKey(key)) {
                                     throw new Exception(key + " service is not register");
                                 }
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                             }
                         } else {
                             throw new Exception(key + " service get post data is error ");
@@ -298,9 +298,9 @@ public class CloudControlManager {
             if (isDegradeTime()) {
                 try {
                     jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
-                } catch (JSONException e2) {
+                } catch (JSONException e) {
                     if (AppConfig.isDebug()) {
-                        Log.d(TAG, "drage is not json  " + e2.toString());
+                        Log.d(TAG, "drage is not json  " + e.toString());
                     }
                     jSONObject = null;
                 }

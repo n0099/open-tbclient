@@ -242,12 +242,12 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean applyInsets(@NonNull View view, @NonNull Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
+    private boolean applyInsets(@NonNull View view2, @NonNull Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         boolean z5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view, rect, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view2, rect, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             if (z) {
                 int i = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
                 int i2 = rect.left;
@@ -293,17 +293,17 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         return invokeCommon.booleanValue;
     }
 
-    private DecorToolbar getDecorToolbar(View view) {
+    private DecorToolbar getDecorToolbar(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, view)) == null) {
-            if (view instanceof DecorToolbar) {
-                return (DecorToolbar) view;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, view2)) == null) {
+            if (view2 instanceof DecorToolbar) {
+                return (DecorToolbar) view2;
             }
-            if (view instanceof Toolbar) {
-                return ((Toolbar) view).getWrapper();
+            if (view2 instanceof Toolbar) {
+                return ((Toolbar) view2).getWrapper();
             }
-            throw new IllegalStateException("Can't make a decor toolbar out of " + view.getClass().getSimpleName());
+            throw new IllegalStateException("Can't make a decor toolbar out of " + view2.getClass().getSimpleName());
         }
         return (DecorToolbar) invokeL.objValue;
     }
@@ -346,11 +346,11 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         }
     }
 
-    private boolean shouldHideActionBarOnFling(float f2) {
+    private boolean shouldHideActionBarOnFling(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f2)) == null) {
-            this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f)) == null) {
+            this.mFlingEstimator.fling(0, 0, 0, (int) f, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
             return this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight();
         }
         return invokeF.booleanValue;
@@ -681,12 +681,12 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
+    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             if (this.mHideOnContentScroll && z) {
-                if (shouldHideActionBarOnFling(f3)) {
+                if (shouldHideActionBarOnFling(f2)) {
                     addActionBarHideOffset();
                 } else {
                     removeActionBarHideOffset();
@@ -700,58 +700,58 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f2, float f3) {
+    public boolean onNestedPreFling(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr, int i3) {
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) && i3 == 0) {
-            onNestedPreScroll(view, i, i2, iArr);
+        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) && i3 == 0) {
+            onNestedPreScroll(view2, i, i2, iArr);
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent3
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4, int i5, int[] iArr) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
-            onNestedScroll(view, i, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
+            onNestedScroll(view2, i, i2, i3, i4, i5);
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view, View view2, int i, int i2) {
+    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(1048611, this, view, view2, i, i2) == null) && i2 == 0) {
-            onNestedScrollAccepted(view, view2, i);
+        if ((interceptable == null || interceptable.invokeLLII(1048611, this, view2, view3, i, i2) == null) && i2 == 0) {
+            onNestedScrollAccepted(view2, view3, i);
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public boolean onStartNestedScroll(View view, View view2, int i, int i2) {
+    public boolean onStartNestedScroll(View view2, View view3, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048613, this, view, view2, i, i2)) == null) ? i2 == 0 && onStartNestedScroll(view, view2, i) : invokeLLII.booleanValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048613, this, view2, view3, i, i2)) == null) ? i2 == 0 && onStartNestedScroll(view2, view3, i) : invokeLLII.booleanValue;
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onStopNestedScroll(View view, int i) {
+    public void onStopNestedScroll(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048615, this, view, i) == null) && i == 0) {
-            onStopNestedScroll(view);
+        if ((interceptable == null || interceptable.invokeLI(1048615, this, view2, i) == null) && i == 0) {
+            onStopNestedScroll(view2);
         }
     }
 
@@ -1124,18 +1124,18 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4, int i5) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && i5 == 0) {
-            onNestedScroll(view, i, i2, i3, i4);
+        if ((interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && i5 == 0) {
+            onNestedScroll(view2, i, i2, i3, i4);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048610, this, view, view2, i) == null) {
-            this.mParentHelper.onNestedScrollAccepted(view, view2, i);
+        if (interceptable == null || interceptable.invokeLLI(1048610, this, view2, view3, i) == null) {
+            this.mParentHelper.onNestedScrollAccepted(view2, view3, i);
             this.mHideOnContentScrollReference = getActionBarHideOffset();
             haltActionBarHideOffsetAnimations();
             ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
@@ -1146,10 +1146,10 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
+    public boolean onStartNestedScroll(View view2, View view3, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048612, this, view, view2, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048612, this, view2, view3, i)) == null) {
             if ((i & 2) == 0 || this.mActionBarTop.getVisibility() != 0) {
                 return false;
             }
@@ -1159,9 +1159,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
+    public void onStopNestedScroll(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, view2) == null) {
             if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
                 if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
                     postRemoveActionBarHideOffset();
@@ -1184,9 +1184,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int i5 = this.mHideOnContentScrollReference + i2;
             this.mHideOnContentScrollReference = i5;
             setActionBarHideOffset(i5);

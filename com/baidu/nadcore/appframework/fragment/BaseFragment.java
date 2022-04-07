@@ -17,14 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Application a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f27441b;
+    public BaseActivity b;
 
     public BaseFragment() {
         Interceptable interceptable = $ic;
@@ -62,7 +60,7 @@ public class BaseFragment extends Fragment {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             super.onAttach(activity);
             BaseActivity baseActivity = (BaseActivity) activity;
-            this.f27441b = baseActivity;
+            this.b = baseActivity;
             this.a = baseActivity.getApplication();
         }
     }
@@ -110,7 +108,7 @@ public class BaseFragment extends Fragment {
     public void onDetach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f27441b = null;
+            this.b = null;
             super.onDetach();
         }
     }

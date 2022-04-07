@@ -1,4 +1,4 @@
 package com.facebook.common.internal;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public @interface VisibleForTesting {
 }

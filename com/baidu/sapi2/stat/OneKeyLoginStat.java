@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OneKeyLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OneKeyLoginStat";
     public static final String UBC_ID_ONEKEY_LOGIN = "4920";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class CheckAbility {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -114,8 +114,8 @@ public class OneKeyLoginStat {
                     jSONObject2.put("page", VALUE_PAGE);
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
                 resetData();
@@ -123,7 +123,7 @@ public class OneKeyLoginStat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LoadLogin {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -209,8 +209,8 @@ public class OneKeyLoginStat {
                     jSONObject2.put("page", VALUE_PAGE);
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
                 resetData();
@@ -218,7 +218,7 @@ public class OneKeyLoginStat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class OauthToken {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -304,8 +304,8 @@ public class OneKeyLoginStat {
                     jSONObject2.put("page", VALUE_PAGE);
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
                 resetData();
@@ -313,7 +313,7 @@ public class OneKeyLoginStat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PreGetPhoneStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -405,8 +405,8 @@ public class OneKeyLoginStat {
                     jSONObject2.put("page", VALUE_PAGE);
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
                 resetData();

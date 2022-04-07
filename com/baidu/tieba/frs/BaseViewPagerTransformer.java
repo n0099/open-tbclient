@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseViewPagerTransformer implements ViewPager.PageTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,48 +45,48 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         return invokeV.booleanValue;
     }
 
-    public void c(View view, float f2) {
+    public void c(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
         }
     }
 
-    public void d(View view, float f2) {
+    public void d(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, view, f2) == null) {
-            float width = view.getWidth();
-            float f3 = 0.0f;
-            view.setRotationX(0.0f);
-            view.setRotationY(0.0f);
-            view.setRotation(0.0f);
-            view.setScaleX(1.0f);
-            view.setScaleY(1.0f);
-            view.setPivotX(0.0f);
-            view.setPivotY(0.0f);
-            view.setTranslationY(0.0f);
-            view.setTranslationX(b() ? 0.0f : (-width) * f2);
+        if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+            float width = view2.getWidth();
+            float f2 = 0.0f;
+            view2.setRotationX(0.0f);
+            view2.setRotationY(0.0f);
+            view2.setRotation(0.0f);
+            view2.setScaleX(1.0f);
+            view2.setScaleY(1.0f);
+            view2.setPivotX(0.0f);
+            view2.setPivotY(0.0f);
+            view2.setTranslationY(0.0f);
+            view2.setTranslationX(b() ? 0.0f : (-width) * f);
             if (a()) {
-                if (f2 > -1.0f && f2 < 1.0f) {
-                    f3 = 1.0f;
+                if (f > -1.0f && f < 1.0f) {
+                    f2 = 1.0f;
                 }
-                view.setAlpha(f3);
-                view.setEnabled(false);
+                view2.setAlpha(f2);
+                view2.setEnabled(false);
                 return;
             }
-            view.setEnabled(true);
-            view.setAlpha(1.0f);
+            view2.setEnabled(true);
+            view2.setAlpha(1.0f);
         }
     }
 
-    public abstract void e(View view, float f2);
+    public abstract void e(View view2, float f);
 
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
-    public void transformPage(View view, float f2) {
+    public void transformPage(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048581, this, view, f2) == null) {
-            d(view, f2);
-            e(view, f2);
-            c(view, f2);
+        if (interceptable == null || interceptable.invokeLF(1048581, this, view2, f) == null) {
+            d(view2, f);
+            e(view2, f);
+            c(view2, f);
         }
     }
 }

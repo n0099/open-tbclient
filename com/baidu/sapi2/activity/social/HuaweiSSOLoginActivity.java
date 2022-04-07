@@ -23,7 +23,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p;
@@ -66,15 +66,15 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private void a(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
-            if (((BaseSSOLoginActivity) this).f28475g == 2001) {
+            if (((BaseSSOLoginActivity) this).g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f28476h.setResultCode(i);
-                ((BaseSSOLoginActivity) this).f28476h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f28476h);
+                ((BaseSSOLoginActivity) this).h.setResultCode(i);
+                ((BaseSSOLoginActivity) this).h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
                 CoreViewRouter.getInstance().release();
             }
             finish();
@@ -85,7 +85,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f1044));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f104c));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -123,12 +123,12 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                         b(authHuaweiId.getAuthorizationCode());
                         return;
                     }
-                    a(-202, getString(R.string.obfuscated_res_0x7f0f1020));
+                    a(-202, getString(R.string.obfuscated_res_0x7f0f1028));
                     String str2 = p;
                     Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1044));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f104c));
                 return;
             }
             Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
@@ -141,7 +141,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                 b(authHuaweiId2.getAccessToken());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f1020));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f1028));
             String str5 = p;
             Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
         }
@@ -161,11 +161,11 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f104e);
+            setTitleText(R.string.obfuscated_res_0x7f0f1056);
             try {
                 d();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 finish();
             }
         }

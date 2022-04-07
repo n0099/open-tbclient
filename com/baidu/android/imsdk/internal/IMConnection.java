@@ -7,7 +7,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
@@ -28,6 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class IMConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_LOGIN_FAIL = 20;
@@ -72,7 +72,7 @@ public final class IMConnection {
     public boolean mStoped;
     public Object mSync;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public final class ConnectTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,15 +180,15 @@ public final class IMConnection {
                         return;
                     }
                     this.this$0.mMessageHandler.onSessionOpened();
-                } catch (Exception e2) {
-                    LogUtils.e(IMConnection.TAG, "connectRunable", e2);
+                } catch (Exception e) {
+                    LogUtils.e(IMConnection.TAG, "connectRunable", e);
                     this.this$0.mConnectting.set(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ConnectTimeOutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ReadThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,14 +340,14 @@ public final class IMConnection {
                                 }
                             }
                             ConversationStudioManImpl.getInstance(this.this$0.mContext).setMcastQuickHeartBeat();
-                        } catch (IOException e2) {
-                            LogUtils.e(IMConnection.TAG, "ReadThread exception: " + e2, e2);
+                        } catch (IOException e) {
+                            LogUtils.e(IMConnection.TAG, "ReadThread exception: " + e, e);
                             this.this$0.mStoped = false;
                             this.this$0.disconnectedByPeer();
                             return;
                         }
-                    } catch (Exception e3) {
-                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                    } catch (Exception e2) {
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e2);
                         this.this$0.mStoped = false;
                         this.this$0.disconnectedByPeer();
                         return;
@@ -357,7 +357,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class SendThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -395,12 +395,12 @@ public final class IMConnection {
                 while (!this.this$0.mClose) {
                     try {
                         try {
-                        } catch (InterruptedException e2) {
-                            e = e2;
+                        } catch (InterruptedException e) {
+                            e = e;
                             message = null;
                         }
-                    } catch (Exception e3) {
-                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                    } catch (Exception e2) {
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e2);
                         this.this$0.disconnectedByPeer();
                         return;
                     }
@@ -417,8 +417,8 @@ public final class IMConnection {
                                             try {
                                                 throw th;
                                                 break;
-                                            } catch (InterruptedException e4) {
-                                                e = e4;
+                                            } catch (InterruptedException e3) {
+                                                e = e3;
                                                 LogUtils.e(IMConnection.TAG, "SendThread wait exception: " + e);
                                                 this.this$0.mMessageHandler.handleMessage(message, null, false);
                                                 this.this$0.disconnectedByPeer();
@@ -469,8 +469,8 @@ public final class IMConnection {
                                             } else if (!message.isHeartbeat() && !message.isNeedReplay()) {
                                                 message.handleMessageResult(this.this$0.mContext, null, 0, "sucess");
                                             }
-                                        } catch (Exception e5) {
-                                            LogUtils.e(LogUtils.TAG, "SendThread:", e5);
+                                        } catch (Exception e4) {
+                                            LogUtils.e(LogUtils.TAG, "SendThread:", e4);
                                             if (message.getType() == 50) {
                                                 Utility.writeLoginFlag(this.this$0.mContext, "17N_1", "Send LoginMsg exception");
                                             }
@@ -504,7 +504,7 @@ public final class IMConnection {
                             th = th2;
                             message = null;
                         }
-                        LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                        LogUtils.e(LogUtils.TAG, "onStartCommand", e2);
                         this.this$0.disconnectedByPeer();
                         return;
                     }
@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f21228e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || p70.e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -640,8 +640,8 @@ public final class IMConnection {
                     socketState.mOutputStream.close();
                     socketState.mOutputStream = null;
                 }
-            } catch (IOException e2) {
-                LogUtils.e(TAG, "destroy:" + e2.getMessage(), e2);
+            } catch (IOException e) {
+                LogUtils.e(TAG, "destroy:" + e.getMessage(), e);
             }
         }
     }
@@ -660,7 +660,7 @@ public final class IMConnection {
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || p70.e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -718,14 +718,14 @@ public final class IMConnection {
                         try {
                             lastIndexOf = str.lastIndexOf(":");
                             i = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             i = -1;
                         }
                         try {
                             str2 = str.substring(0, lastIndexOf);
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             e.printStackTrace();
                             new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                             str2 = null;
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || p70.e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -801,9 +801,9 @@ public final class IMConnection {
             this.mMessageHandler.onSessionClosed();
             try {
                 this.mMessageHandler.socketClose();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 this.mMessageHandler.setCurrentSocketState(null);
-                LogUtils.e(LogUtils.TAG, "Exception destroy:", e2);
+                LogUtils.e(LogUtils.TAG, "Exception destroy:", e);
             }
         }
         this.mConnected.set(false);
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || p70.e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

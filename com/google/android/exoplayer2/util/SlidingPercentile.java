@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SlidingPercentile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<Sample> INDEX_COMPARATOR;
@@ -29,7 +29,7 @@ public class SlidingPercentile {
     public final ArrayList<Sample> samples;
     public int totalWeight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Sample {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,12 +115,12 @@ public class SlidingPercentile {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, sample, sample2)) == null) {
-                    float f2 = sample.value;
-                    float f3 = sample2.value;
-                    if (f2 < f3) {
+                    float f = sample.value;
+                    float f2 = sample2.value;
+                    if (f < f2) {
                         return -1;
                     }
-                    return f3 < f2 ? 1 : 0;
+                    return f2 < f ? 1 : 0;
                 }
                 return invokeLL.intValue;
             }
@@ -166,10 +166,10 @@ public class SlidingPercentile {
         this.currentSortOrder = 0;
     }
 
-    public void addSample(int i, float f2) {
+    public void addSample(int i, float f) {
         Sample sample;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) != null) {
             return;
         }
         ensureSortedByIndex();
@@ -186,7 +186,7 @@ public class SlidingPercentile {
         this.nextSampleIndex = i4 + 1;
         sample.index = i4;
         sample.weight = i;
-        sample.value = f2;
+        sample.value = f;
         this.samples.add(sample);
         this.totalWeight += i;
         while (true) {
@@ -214,17 +214,17 @@ public class SlidingPercentile {
         }
     }
 
-    public float getPercentile(float f2) {
+    public float getPercentile(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
             ensureSortedByValue();
-            float f3 = f2 * this.totalWeight;
+            float f2 = f * this.totalWeight;
             int i = 0;
             for (int i2 = 0; i2 < this.samples.size(); i2++) {
                 Sample sample = this.samples.get(i2);
                 i += sample.weight;
-                if (i >= f3) {
+                if (i >= f2) {
                     return sample.value;
                 }
             }

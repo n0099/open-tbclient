@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a;
 import com.tencent.open.log.SLog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SecureJsInterface extends a.b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isPWDEdit;
@@ -52,9 +52,9 @@ public class SecureJsInterface extends a.b {
             SLog.i("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
             try {
                 JniInterface.clearAllPWD();
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.SecureJsInterface", "-->clear all edit exception: " + e2.getMessage());
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->clear all edit exception: " + e.getMessage());
+                throw new RuntimeException(e);
             }
         }
     }
@@ -66,16 +66,16 @@ public class SecureJsInterface extends a.b {
             SLog.d("openSDK_LOG.SecureJsInterface", "-->curPosFromJS: " + str);
             try {
                 i = Integer.parseInt(str);
-            } catch (NumberFormatException e2) {
-                SLog.e("openSDK_LOG.SecureJsInterface", "-->curPosFromJS number format exception.", e2);
+            } catch (NumberFormatException e) {
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->curPosFromJS number format exception.", e);
                 i = -1;
             }
             if (i >= 0) {
-                boolean z = a.f43815c;
-                boolean z2 = a.f43814b;
+                boolean z = a.c;
+                boolean z2 = a.b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i)).booleanValue()) {
-                        a.f43814b = false;
+                        a.b = false;
                         return;
                     }
                     return;
@@ -109,9 +109,9 @@ public class SecureJsInterface extends a.b {
                 String pWDKeyToMD5 = JniInterface.getPWDKeyToMD5(null);
                 SLog.v("openSDK_LOG.SecureJsInterface", "-->getMD5FromNative, MD5= " + pWDKeyToMD5);
                 return pWDKeyToMD5;
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.SecureJsInterface", "-->get md5 form native exception: " + e2.getMessage());
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->get md5 form native exception: " + e.getMessage());
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeV.objValue;
@@ -124,8 +124,8 @@ public class SecureJsInterface extends a.b {
             SLog.i("openSDK_LOG.SecureJsInterface", "-->is pswd edit, flag: " + str);
             try {
                 i = Integer.parseInt(str);
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.SecureJsInterface", "-->is pswd edit exception: " + e2.getMessage());
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.SecureJsInterface", "-->is pswd edit exception: " + e.getMessage());
                 i = -1;
             }
             if (i != 0 && i != 1) {

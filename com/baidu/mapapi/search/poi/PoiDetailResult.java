@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiDetailResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PoiDetailResult> CREATOR;
@@ -318,17 +318,17 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setEnvironmentRating(double d2) {
+    public void setEnvironmentRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.environmentRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.environmentRating = d;
         }
     }
 
-    public void setFacilityRating(double d2) {
+    public void setFacilityRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.facilityRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.facilityRating = d;
         }
     }
 
@@ -346,10 +346,10 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setHygieneRating(double d2) {
+    public void setHygieneRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.hygieneRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.hygieneRating = d;
         }
     }
 
@@ -374,24 +374,24 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setOverallRating(double d2) {
+    public void setOverallRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.overallRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.overallRating = d;
         }
     }
 
-    public void setPrice(double d2) {
+    public void setPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.price = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.price = d;
         }
     }
 
-    public void setServiceRating(double d2) {
+    public void setServiceRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.serviceRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.serviceRating = d;
         }
     }
 
@@ -409,17 +409,17 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setTasteRating(double d2) {
+    public void setTasteRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.tasteRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.tasteRating = d;
         }
     }
 
-    public void setTechnologyRating(double d2) {
+    public void setTechnologyRating(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.technologyRating = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.technologyRating = d;
         }
     }
 

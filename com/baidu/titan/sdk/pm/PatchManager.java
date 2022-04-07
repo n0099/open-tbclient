@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.pm.IPatchInstallObserver;
 import com.baidu.titan.sdk.pm.IPatchManager;
 import com.baidu.titan.sdk.sandbox.WorkerService;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchManager {
     public static final String ACTION_CLEAN_PATCH = "action_clean_patch";
     public static final String ACTION_INSTALL_PATCH = "action_install_patch";
@@ -39,7 +39,7 @@ public class PatchManager {
     public static PatchManager sInstance;
     public final Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class PatchCleanWrapper extends RemoteServiceWrapper {
         public static final int MSG_WHAT_UNBIND = 1;
         public Handler mUiHandler;
@@ -61,19 +61,19 @@ public class PatchManager {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 IPatchManager.Stub.asInterface(iBinder).requestCleanPatches();
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
                 this.mUiHandler.obtainMessage(1, -100, 0, null).sendToTarget();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface PatchInstallObserver {
         void onPatchInstalled(int i, Bundle bundle);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class PatchInstallWrapper extends RemoteServiceWrapper {
         public static final int MSG_WHAT_PATCH_INSTALL = 1;
         public Bundle mExtra;
@@ -82,7 +82,7 @@ public class PatchManager {
         public Handler mUiHandler;
         public Uri mUri;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public class PatchInstallObserverImpl extends IPatchInstallObserver.Stub {
             public PatchInstallObserverImpl() {
             }
@@ -119,20 +119,20 @@ public class PatchManager {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 IPatchManager.Stub.asInterface(iBinder).install(this.mUri, 0, this.mExtra, this.mRemoteObserver);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
                 this.mUiHandler.obtainMessage(1, -100, 0, null).sendToTarget();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class RemoteServiceWrapper {
         public String mAction;
         public Context mContext;
         public ServiceConnectionImpl mServiceConnection = new ServiceConnectionImpl();
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public class ServiceConnectionImpl implements ServiceConnection {
             public ServiceConnectionImpl() {
             }

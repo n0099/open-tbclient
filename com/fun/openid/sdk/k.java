@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
 import com.fun.openid.sdk.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,15 +59,15 @@ public class k implements f {
         cVar.getClass();
         try {
             packageInfo = applicationContext.getPackageManager().getPackageInfo("com.heytap.openid", 0);
-        } catch (PackageManager.NameNotFoundException e2) {
-            e2.printStackTrace();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f38660b = z;
+                b.b = z;
                 b.a = true;
-                if (!b.f38660b) {
+                if (!b.b) {
                     if (FunOpenIDSdk.isLogEnabled()) {
                         Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
                     }
@@ -82,20 +82,20 @@ public class k implements f {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f38664e, 1)) {
-                                    synchronized (cVar2.f38663d) {
+                                if (applicationContext2.bindService(intent, cVar2.e, 1)) {
+                                    synchronized (cVar2.d) {
                                         try {
-                                            cVar2.f38663d.wait(3000L);
-                                        } catch (InterruptedException e3) {
-                                            e3.printStackTrace();
+                                            cVar2.d.wait(3000L);
+                                        } catch (InterruptedException e2) {
+                                            e2.printStackTrace();
                                         }
                                     }
                                 }
                             }
                             try {
                                 a = cVar2.a(applicationContext2, "OUID");
-                            } catch (RemoteException e4) {
-                                e4.printStackTrace();
+                            } catch (RemoteException e3) {
+                                e3.printStackTrace();
                                 a = "";
                                 aVar.a(true, a);
                                 return;
@@ -111,17 +111,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f38660b = z;
+            b.b = z;
             b.a = true;
-            if (!b.f38660b) {
+            if (!b.b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f38660b = z;
+            b.b = z;
             b.a = true;
-            if (!b.f38660b) {
+            if (!b.b) {
             }
         }
     }

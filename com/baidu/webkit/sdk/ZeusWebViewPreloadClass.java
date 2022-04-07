@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusWebViewPreloadClass {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTINGS_KEY = "preload_webview_class";
@@ -139,8 +139,8 @@ public class ZeusWebViewPreloadClass {
                     }
                     Log.i(LOG_TAG, "isSavingClassesFileExist path not exist: ".concat(String.valueOf(savingClassesFilePath)));
                     return false;
-                } catch (Exception e2) {
-                    str = "isSavingClassesFileExist path: " + savingClassesFilePath + ", hit error=" + e2.getMessage();
+                } catch (Exception e) {
+                    str = "isSavingClassesFileExist path: " + savingClassesFilePath + ", hit error=" + e.getMessage();
                 }
             }
             Log.i(LOG_TAG, str);
@@ -192,9 +192,9 @@ public class ZeusWebViewPreloadClass {
                         Log.i(LOG_TAG, "deleteSavingClassesFile path exist: ".concat(String.valueOf(savingClassesFilePath)));
                         file.delete();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1018);
-                    Log.i(LOG_TAG, "deleteSavingClassesFile path: " + savingClassesFilePath + ", hit error=" + e2.getMessage());
+                    Log.i(LOG_TAG, "deleteSavingClassesFile path: " + savingClassesFilePath + ", hit error=" + e.getMessage());
                 }
             }
         }
@@ -269,16 +269,16 @@ public class ZeusWebViewPreloadClass {
                                     }
                                     file.createNewFile();
                                     bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
-                                } catch (IOException e2) {
-                                    e = e2;
+                                } catch (IOException e) {
+                                    e = e;
                                     file2 = file;
                                     bufferedWriter = null;
                                 }
                             } catch (Throwable th) {
                                 th = th;
                             }
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             bufferedWriter = null;
                         }
                         try {
@@ -290,14 +290,14 @@ public class ZeusWebViewPreloadClass {
                             bufferedWriter2.flush();
                             try {
                                 bufferedWriter2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                             zeusWebViewPreloadClass = this.this$0;
-                        } catch (IOException e5) {
+                        } catch (IOException e4) {
                             file2 = file;
                             bufferedWriter = bufferedWriter2;
-                            e = e5;
+                            e = e4;
                             file3 = file2;
                             if (file3 != null) {
                                 try {
@@ -308,8 +308,8 @@ public class ZeusWebViewPreloadClass {
                                     if (bufferedWriter3 != null) {
                                         try {
                                             bufferedWriter3.close();
-                                        } catch (IOException e6) {
-                                            e6.printStackTrace();
+                                        } catch (IOException e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
                                     this.this$0.destroy();
@@ -320,8 +320,8 @@ public class ZeusWebViewPreloadClass {
                             if (bufferedWriter != null) {
                                 try {
                                     bufferedWriter.close();
-                                } catch (IOException e7) {
-                                    e7.printStackTrace();
+                                } catch (IOException e6) {
+                                    e6.printStackTrace();
                                 }
                             }
                             zeusWebViewPreloadClass = this.this$0;
@@ -399,9 +399,9 @@ public class ZeusWebViewPreloadClass {
                 */
                 public void run() {
                     File file;
-                    ClassNotFoundException e2;
+                    ClassNotFoundException e;
                     BufferedReader bufferedReader;
-                    IOException e3;
+                    IOException e2;
                     Throwable th;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -426,22 +426,8 @@ public class ZeusWebViewPreloadClass {
                                                         } else if (this.val$zeusClassLoader != null) {
                                                             this.val$zeusClassLoader.loadClass(readLine);
                                                         }
-                                                    } catch (IOException e4) {
-                                                        e3 = e4;
-                                                        if (file != null) {
-                                                            file.delete();
-                                                        }
-                                                        e3.printStackTrace();
-                                                        if (bufferedReader != null) {
-                                                            try {
-                                                                bufferedReader.close();
-                                                            } catch (IOException e5) {
-                                                                e = e5;
-                                                                e.printStackTrace();
-                                                            }
-                                                        }
-                                                    } catch (ClassNotFoundException e6) {
-                                                        e2 = e6;
+                                                    } catch (IOException e3) {
+                                                        e2 = e3;
                                                         if (file != null) {
                                                             file.delete();
                                                         }
@@ -449,8 +435,22 @@ public class ZeusWebViewPreloadClass {
                                                         if (bufferedReader != null) {
                                                             try {
                                                                 bufferedReader.close();
-                                                            } catch (IOException e7) {
-                                                                e = e7;
+                                                            } catch (IOException e4) {
+                                                                e = e4;
+                                                                e.printStackTrace();
+                                                            }
+                                                        }
+                                                    } catch (ClassNotFoundException e5) {
+                                                        e = e5;
+                                                        if (file != null) {
+                                                            file.delete();
+                                                        }
+                                                        e.printStackTrace();
+                                                        if (bufferedReader != null) {
+                                                            try {
+                                                                bufferedReader.close();
+                                                            } catch (IOException e6) {
+                                                                e = e6;
                                                                 e.printStackTrace();
                                                             }
                                                         }
@@ -461,16 +461,16 @@ public class ZeusWebViewPreloadClass {
                                             if (bufferedReader2 != null) {
                                                 try {
                                                     bufferedReader2.close();
-                                                } catch (IOException e8) {
-                                                    e = e8;
+                                                } catch (IOException e7) {
+                                                    e = e7;
                                                     e.printStackTrace();
                                                 }
                                             }
-                                        } catch (IOException e9) {
-                                            e3 = e9;
+                                        } catch (IOException e8) {
+                                            e2 = e8;
                                             bufferedReader = null;
-                                        } catch (ClassNotFoundException e10) {
-                                            e2 = e10;
+                                        } catch (ClassNotFoundException e9) {
+                                            e = e9;
                                             bufferedReader = null;
                                         }
                                     } catch (Throwable th2) {
@@ -478,8 +478,8 @@ public class ZeusWebViewPreloadClass {
                                         if (savingClassesFilePath != 0) {
                                             try {
                                                 savingClassesFilePath.close();
-                                            } catch (IOException e11) {
-                                                e11.printStackTrace();
+                                            } catch (IOException e10) {
+                                                e10.printStackTrace();
                                             }
                                         }
                                         throw th;
@@ -491,13 +491,13 @@ public class ZeusWebViewPreloadClass {
                                     }
                                     throw th;
                                 }
-                            } catch (IOException e12) {
+                            } catch (IOException e11) {
                                 file = null;
-                                e3 = e12;
+                                e2 = e11;
                                 bufferedReader = null;
-                            } catch (ClassNotFoundException e13) {
+                            } catch (ClassNotFoundException e12) {
                                 file = null;
-                                e2 = e13;
+                                e = e12;
                                 bufferedReader = null;
                             }
                         }

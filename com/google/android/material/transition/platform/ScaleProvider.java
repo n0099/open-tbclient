@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ScaleProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,37 +45,37 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
         }
     }
 
-    public static Animator createScaleAnimator(View view, float f2, float f3) {
+    public static Animator createScaleAnimator(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.SCALE_X, f2, f3), PropertyValuesHolder.ofFloat(View.SCALE_Y, f2, f3)) : (Animator) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.SCALE_X, f, f2), PropertyValuesHolder.ofFloat(View.SCALE_Y, f, f2)) : (Animator) invokeCommon.objValue;
     }
 
     @Override // com.google.android.material.transition.platform.VisibilityAnimatorProvider
     @Nullable
-    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
             if (this.growing) {
-                return createScaleAnimator(view, this.incomingStartScale, this.incomingEndScale);
+                return createScaleAnimator(view2, this.incomingStartScale, this.incomingEndScale);
             }
-            return createScaleAnimator(view, this.outgoingEndScale, this.outgoingStartScale);
+            return createScaleAnimator(view2, this.outgoingEndScale, this.outgoingStartScale);
         }
         return (Animator) invokeLL.objValue;
     }
 
     @Override // com.google.android.material.transition.platform.VisibilityAnimatorProvider
     @Nullable
-    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) {
             if (this.scaleOnDisappear) {
                 if (this.growing) {
-                    return createScaleAnimator(view, this.outgoingStartScale, this.outgoingEndScale);
+                    return createScaleAnimator(view2, this.outgoingStartScale, this.outgoingEndScale);
                 }
-                return createScaleAnimator(view, this.incomingEndScale, this.incomingStartScale);
+                return createScaleAnimator(view2, this.incomingEndScale, this.incomingStartScale);
             }
             return null;
         }
@@ -125,31 +125,31 @@ public final class ScaleProvider implements VisibilityAnimatorProvider {
         }
     }
 
-    public void setIncomingEndScale(float f2) {
+    public void setIncomingEndScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.incomingEndScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.incomingEndScale = f;
         }
     }
 
-    public void setIncomingStartScale(float f2) {
+    public void setIncomingStartScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.incomingStartScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.incomingStartScale = f;
         }
     }
 
-    public void setOutgoingEndScale(float f2) {
+    public void setOutgoingEndScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.outgoingEndScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
+            this.outgoingEndScale = f;
         }
     }
 
-    public void setOutgoingStartScale(float f2) {
+    public void setOutgoingStartScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.outgoingStartScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            this.outgoingStartScale = f;
         }
     }
 

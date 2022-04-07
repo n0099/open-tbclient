@@ -34,7 +34,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsFullScreenVideoActivity.class)
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -104,7 +104,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     };
 
     private boolean initData() {
-        File b2;
+        File b;
         String str;
         Serializable serializableExtra = getIntent().getSerializableExtra("key_video_play_config");
         if (serializableExtra instanceof KsVideoPlayConfig) {
@@ -121,7 +121,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 AdInfo j = d.j(adTemplate2);
                 this.mAdInfo = j;
                 String a = com.kwad.sdk.core.response.a.a.a(j);
-                if (com.kwad.sdk.core.config.b.C() >= 0 || ((b2 = com.kwad.sdk.core.diskcache.a.a.a().b(a)) != null && b2.exists())) {
+                if (com.kwad.sdk.core.config.b.C() >= 0 || ((b = com.kwad.sdk.core.diskcache.a.a.a().b(a)) != null && b.exists())) {
                     KsVideoPlayConfig ksVideoPlayConfig = (KsVideoPlayConfig) serializableExtra;
                     this.mVideoPlayConfig = ksVideoPlayConfig;
                     this.mScreenOrientation = ksVideoPlayConfig.isShowLandscape() ? 1 : 0;
@@ -151,9 +151,9 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091131);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112a);
         this.mRootContainer = adBaseFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091177);
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091170);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }
@@ -217,7 +217,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             return;
         }
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
-        setContentView(R.layout.obfuscated_res_0x7f0d041a);
+        setContentView(R.layout.obfuscated_res_0x7f0d0415);
         initView();
         onActivityCreated(this.mRootContainer);
     }
@@ -225,16 +225,16 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f40748h = getActivity();
+        aVar.h = getActivity();
         aVar.i = this.mContext;
-        aVar.f40742b = this.mAdOpenInteractionListener;
-        aVar.f40746f = this.mScreenOrientation;
+        aVar.b = this.mAdOpenInteractionListener;
+        aVar.f = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f40744d = ksVideoPlayConfig;
-        aVar.f40745e = this.mReportExtData;
+        aVar.d = ksVideoPlayConfig;
+        aVar.e = this.mReportExtData;
         aVar.j = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f40747g = adTemplate;
+        aVar.g = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
         aVar.k = aVar2;
         aVar.a.add(aVar2);

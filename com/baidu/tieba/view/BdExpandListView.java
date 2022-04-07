@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int j0 = 1;
@@ -43,7 +43,7 @@ public class BdExpandListView extends BdTypeListView {
     public Runnable h0;
     public int i0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,23 +78,21 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(float f2);
+        void a(float f);
 
         void b();
 
         void onRefresh();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f36806b;
+        public int b;
 
         public c(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -112,13 +110,13 @@ public class BdExpandListView extends BdTypeListView {
                 }
             }
             this.a = i2;
-            this.f36806b = i4;
+            this.b = i4;
         }
 
-        public int a(float f2) {
+        public int a(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (int) (this.a + (f / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -166,7 +164,7 @@ public class BdExpandListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f0401ee});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f04025c});
         this.R = obtainStyledAttributes.getDimensionPixelSize(j0, 0);
         obtainStyledAttributes.recycle();
     }
@@ -220,13 +218,13 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    public final void K(float f2) {
+    public final void K(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            float f3 = 360.0f - ((f2 * 360.0f) / this.R);
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            float f2 = 360.0f - ((f * 360.0f) / this.R);
             b bVar = this.S;
             if (bVar != null) {
-                bVar.a(f3);
+                bVar.a(f2);
             }
         }
     }
@@ -245,7 +243,7 @@ public class BdExpandListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.O == null) {
             return;
         }
-        if (this.L.getHeight() >= this.O.f36806b - (this.R / 2)) {
+        if (this.L.getHeight() >= this.O.b - (this.R / 2)) {
             L();
         } else {
             b bVar = this.S;
@@ -300,11 +298,11 @@ public class BdExpandListView extends BdTypeListView {
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float f2 = y - this.M;
-                            if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f2) >= this.Q && this.T > 400) {
+                            float f = y - this.M;
+                            if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f) >= this.Q && this.T > 400) {
                                 int a2 = this.O.a(this.N - this.M);
                                 c cVar = this.O;
-                                if (a2 > cVar.a && a2 <= cVar.f36806b) {
+                                if (a2 > cVar.a && a2 <= cVar.b) {
                                     this.P = true;
                                     setClickEventEnabled(false);
                                     this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
@@ -313,7 +311,7 @@ public class BdExpandListView extends BdTypeListView {
                                     c cVar2 = this.O;
                                     if (a2 <= cVar2.a) {
                                         this.P = false;
-                                    } else if (a2 > cVar2.f36806b) {
+                                    } else if (a2 > cVar2.b) {
                                         this.P = true;
                                         setClickEventEnabled(false);
                                     } else {
@@ -382,10 +380,10 @@ public class BdExpandListView extends BdTypeListView {
         return invokeL.booleanValue;
     }
 
-    public void setExpandView(View view, int i) {
+    public void setExpandView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i) == null) {
-            this.L = view;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
+            this.L = view2;
         }
     }
 

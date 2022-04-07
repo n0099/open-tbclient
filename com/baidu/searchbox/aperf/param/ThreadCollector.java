@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ThreadCollector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,8 +94,8 @@ public class ThreadCollector {
                             sb.append(")\n");
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
+                } catch (Exception e) {
+                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e);
                 }
             }
             return sb.toString();
@@ -116,8 +116,8 @@ public class ThreadCollector {
                             sb.append(stackTraceElement.toString() + "\r\n");
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
+                } catch (Exception e) {
+                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e);
                 }
             }
             return sb.toString();

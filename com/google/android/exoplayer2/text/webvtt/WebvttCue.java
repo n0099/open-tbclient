@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.Cue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebvttCue extends Cue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class WebvttCue extends Cue {
     public final long startTime;
 
     /* renamed from: com.google.android.exoplayer2.text.webvtt.WebvttCue$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$text$Layout$Alignment;
         public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public final class WebvttCue extends Cue {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "WebvttCueBuilder";
@@ -152,11 +152,11 @@ public final class WebvttCue extends Cue {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setLine(float f2) {
+        public Builder setLine(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) {
-                this.line = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+                this.line = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -182,11 +182,11 @@ public final class WebvttCue extends Cue {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setPosition(float f2) {
+        public Builder setPosition(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-                this.position = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+                this.position = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -232,11 +232,11 @@ public final class WebvttCue extends Cue {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setWidth(float f2) {
+        public Builder setWidth(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f2)) == null) {
-                this.width = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+                this.width = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -292,13 +292,13 @@ public final class WebvttCue extends Cue {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebvttCue(long j, long j2, CharSequence charSequence, Layout.Alignment alignment, float f2, int i, int i2, float f3, int i3, float f4) {
-        super(charSequence, alignment, f2, i, i2, f3, i3, f4);
+    public WebvttCue(long j, long j2, CharSequence charSequence, Layout.Alignment alignment, float f, int i, int i2, float f2, int i3, float f3) {
+        super(charSequence, alignment, f, i, i2, f2, i3, f3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), charSequence, alignment, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {

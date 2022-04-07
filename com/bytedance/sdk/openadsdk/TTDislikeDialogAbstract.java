@@ -7,19 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f38219b;
+    public TTDislikeController b;
 
     public TTDislikeDialogAbstract(Context context) {
         super(context);
     }
 
     public void a() {
-        if (this.f38219b == null || this.a == null) {
+        if (this.b == null || this.a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
@@ -28,7 +26,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
                 View findViewById = this.a.findViewById(i);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f38219b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -42,7 +40,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void b() {
-        TTDislikeController tTDislikeController = this.f38219b;
+        TTDislikeController tTDislikeController = this.b;
         if (tTDislikeController != null) {
             tTDislikeController.onDislikeEvent(getContext(), true);
         }
@@ -61,11 +59,11 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         this.a = inflate;
         if (inflate != null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            View view = this.a;
+            View view2 = this.a;
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(-1, -1);
             }
-            setContentView(view, layoutParams);
+            setContentView(view2, layoutParams);
             a();
             return;
         }
@@ -73,7 +71,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void setDislikeModel(TTDislikeController tTDislikeController) {
-        this.f38219b = tTDislikeController;
+        this.b = tTDislikeController;
         a();
     }
 
@@ -84,10 +82,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void startPersonalizePromptActivity() {
-        TTDislikeController tTDislikeController = this.f38219b;
+        TTDislikeController tTDislikeController = this.b;
         if (tTDislikeController != null) {
             tTDislikeController.openWebPage(getContext(), true);
-            this.f38219b.onDislikeEvent(getContext(), false);
+            this.b.onDislikeEvent(getContext(), false);
         }
     }
 

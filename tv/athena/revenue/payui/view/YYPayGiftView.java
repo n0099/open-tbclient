@@ -18,47 +18,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.j6a;
+import com.repackage.o6a;
+import com.repackage.u6a;
+import com.repackage.v6a;
+import com.repackage.z5a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import h.a.a.e.g.b;
-import h.a.a.e.h.j;
-import h.a.a.e.h.o;
-import h.a.a.e.i.d;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes8.dex */
-public class YYPayGiftView extends LinearLayout implements d {
+/* loaded from: classes9.dex */
+public class YYPayGiftView extends LinearLayout implements u6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f45864b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Button f45865c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public GridView f45866d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f45867e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f45868f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public d.a f45869g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public GiftBagsInfo f45870h;
+    public int b;
+    public Button c;
+    public GridView d;
+    public View e;
+    public TextView f;
+    public u6a.a g;
+    public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public h.a.a.e.i.e.a k;
+    public v6a k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,12 +70,12 @@ public class YYPayGiftView extends LinearLayout implements d {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f45869g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
                 return;
             }
-            this.a.f45869g.a();
+            this.a.g.a();
         }
     }
 
@@ -112,57 +99,57 @@ public class YYPayGiftView extends LinearLayout implements d {
         }
         this.j = new ArrayList();
         this.a = i;
-        this.f45864b = i2;
+        this.b = i2;
         this.i = payUIKitConfig;
         b(context);
-        b.d(this.a, this.f45864b, "17", "", "", "");
+        z5a.d(this.a, this.b, "17", "", "", "");
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d066c, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090418);
-            this.f45865c = button;
+            LayoutInflater.from(new ContextThemeWrapper(context, o6a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0668, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090421);
+            this.c = button;
             button.setOnClickListener(new a(this));
-            this.f45868f = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.f45867e = findViewById(R.id.obfuscated_res_0x7f091ac7);
-            this.f45866d = (GridView) findViewById(R.id.obfuscated_res_0x7f090cec);
-            h.a.a.e.i.e.a aVar = new h.a.a.e.i.e.a(context, this.j, this.i);
-            this.k = aVar;
-            this.f45866d.setAdapter((ListAdapter) aVar);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092201);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091ab7);
+            this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090cf3);
+            v6a v6aVar = new v6a(context, this.j, this.i);
+            this.k = v6aVar;
+            this.d.setAdapter((ListAdapter) v6aVar);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.f45870h.successButtonMsg)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.h.successButtonMsg)) {
             return;
         }
-        this.f45865c.setText(this.f45870h.successButtonMsg);
+        this.c.setText(this.h.successButtonMsg);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(this.f45870h.successTitle)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(this.h.successTitle)) {
             return;
         }
-        this.f45868f.setText(this.f45870h.successTitle);
+        this.f.setText(this.h.successTitle);
     }
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RLog.info("YYPayGiftView", "refreshView mGiftBagsInfo:" + this.f45870h);
-            GiftBagsInfo giftBagsInfo = this.f45870h;
+            RLog.info("YYPayGiftView", "refreshView mGiftBagsInfo:" + this.h);
+            GiftBagsInfo giftBagsInfo = this.h;
             if (giftBagsInfo == null) {
                 RLog.error("YYPayGiftView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
@@ -170,9 +157,9 @@ public class YYPayGiftView extends LinearLayout implements d {
             List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
                 this.j.clear();
-                this.j.addAll(this.f45870h.giftbag);
+                this.j.addAll(this.h.giftbag);
                 this.k.notifyDataSetChanged();
-                j.a(this.j.size(), this.f45867e, this.f45866d);
+                j6a.a(this.j.size(), this.e, this.d);
                 d();
                 c();
                 return;
@@ -181,20 +168,20 @@ public class YYPayGiftView extends LinearLayout implements d {
         }
     }
 
-    @Override // h.a.a.e.i.d
-    public void setCallback(d.a aVar) {
+    @Override // com.repackage.u6a
+    public void setCallback(u6a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f45869g = aVar;
+            this.g = aVar;
         }
     }
 
-    @Override // h.a.a.e.i.d
+    @Override // com.repackage.u6a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, giftBagsInfo) == null) {
             RLog.info("YYPayGiftView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.f45870h = giftBagsInfo;
+            this.h = giftBagsInfo;
         }
     }
 }

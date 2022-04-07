@@ -360,14 +360,14 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     private boolean isFragmentViewBound(long j) {
         InterceptResult invokeJ;
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) {
             if (this.mItemIdToViewHolder.containsKey(j)) {
                 return true;
             }
             Fragment fragment = this.mFragments.get(j);
-            return (fragment == null || (view = fragment.getView()) == null || view.getParent() == null) ? false : true;
+            return (fragment == null || (view2 = fragment.getView()) == null || view2.getParent() == null) ? false : true;
         }
         return invokeJ.booleanValue;
     }
@@ -537,31 +537,31 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
 
                 @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-                public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment2, @NonNull View view, @Nullable Bundle bundle) {
+                public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment2, @NonNull View view2, @Nullable Bundle bundle) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLLL(1048576, this, fragmentManager, fragment2, view, bundle) == null) && fragment2 == this.val$fragment) {
+                    if ((interceptable2 == null || interceptable2.invokeLLLL(1048576, this, fragmentManager, fragment2, view2, bundle) == null) && fragment2 == this.val$fragment) {
                         fragmentManager.unregisterFragmentLifecycleCallbacks(this);
-                        this.this$0.addViewToContainer(view, this.val$container);
+                        this.this$0.addViewToContainer(view2, this.val$container);
                     }
                 }
             }, false);
         }
     }
 
-    public void addViewToContainer(@NonNull View view, @NonNull FrameLayout frameLayout) {
+    public void addViewToContainer(@NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, frameLayout) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, frameLayout) == null) {
             if (frameLayout.getChildCount() <= 1) {
-                if (view.getParent() == frameLayout) {
+                if (view2.getParent() == frameLayout) {
                     return;
                 }
                 if (frameLayout.getChildCount() > 0) {
                     frameLayout.removeAllViews();
                 }
-                if (view.getParent() != null) {
-                    ((ViewGroup) view.getParent()).removeView(view);
+                if (view2.getParent() != null) {
+                    ((ViewGroup) view2.getParent()).removeView(view2);
                 }
-                frameLayout.addView(view);
+                frameLayout.addView(view2);
                 return;
             }
             throw new IllegalStateException("Design assumption violated.");
@@ -649,21 +649,21 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             Fragment fragment = this.mFragments.get(fragmentViewHolder.getItemId());
             if (fragment != null) {
                 FrameLayout container = fragmentViewHolder.getContainer();
-                View view = fragment.getView();
-                if (!fragment.isAdded() && view != null) {
+                View view2 = fragment.getView();
+                if (!fragment.isAdded() && view2 != null) {
                     throw new IllegalStateException("Design assumption violated.");
                 }
-                if (fragment.isAdded() && view == null) {
+                if (fragment.isAdded() && view2 == null) {
                     scheduleViewAttach(fragment, container);
                     return;
-                } else if (fragment.isAdded() && view.getParent() != null) {
-                    if (view.getParent() != container) {
-                        addViewToContainer(view, container);
+                } else if (fragment.isAdded() && view2.getParent() != null) {
+                    if (view2.getParent() != container) {
+                        addViewToContainer(view2, container);
                         return;
                     }
                     return;
                 } else if (fragment.isAdded()) {
-                    addViewToContainer(view, container);
+                    addViewToContainer(view2, container);
                     return;
                 } else if (!shouldDelayFragmentTransactions()) {
                     scheduleViewAttach(fragment, container);
@@ -858,9 +858,9 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                         }
 
                         @Override // android.view.View.OnLayoutChangeListener
-                        public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+                        public void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) || this.val$container.getParent() == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) || this.val$container.getParent() == null) {
                                 return;
                             }
                             this.val$container.removeOnLayoutChangeListener(this);

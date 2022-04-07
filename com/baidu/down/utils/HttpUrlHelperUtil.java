@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpUrlHelperUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -64,21 +64,21 @@ public class HttpUrlHelperUtil {
         return invokeL.booleanValue;
     }
 
-    public static int decodeHexDigit(char c2) {
+    public static int decodeHexDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < '0' || c2 > '9') {
-                char c3 = 'a';
-                if (c2 < 'a' || c2 > 'f') {
-                    c3 = 'A';
-                    if (c2 < 'A' || c2 > 'F') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
                         return -1;
                     }
                 }
-                return (c2 - c3) + 10;
+                return (c - c2) + 10;
             }
-            return c2 - '0';
+            return c - '0';
         }
         return invokeCommon.intValue;
     }
@@ -170,8 +170,8 @@ public class HttpUrlHelperUtil {
             }
             try {
                 return URLEncoder.encode(new String(bArr), IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -231,12 +231,12 @@ public class HttpUrlHelperUtil {
         return (byte[]) invokeI.objValue;
     }
 
-    public static int delimiterOffset(String str, int i, int i2, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
             while (i < i2) {
-                if (str.charAt(i) == c2) {
+                if (str.charAt(i) == c) {
                     return i;
                 }
                 i++;

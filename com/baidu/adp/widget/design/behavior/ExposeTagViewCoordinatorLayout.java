@@ -12,16 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
+    public NestedScrollAcceptedListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public NestedScrollAcceptedListener f24058b;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface NestedScrollAcceptedListener {
         void onNestedScrollAccepted(boolean z);
     }
@@ -50,11 +48,11 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.a;
-            if (view == null) {
+            View view2 = this.a;
+            if (view2 == null) {
                 return true;
             }
-            return view.canScrollVertically(-1);
+            return view2.canScrollVertically(-1);
         }
         return invokeV.booleanValue;
     }
@@ -73,22 +71,22 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout, androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view, View view2, int i, int i2) {
+    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, view, view2, i, i2) == null) {
-            this.a = view2;
-            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f24058b;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, view2, view3, i, i2) == null) {
+            this.a = view3;
+            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.b;
             if (nestedScrollAcceptedListener != null) {
                 nestedScrollAcceptedListener.onNestedScrollAccepted(canDrag());
             }
-            super.onNestedScrollAccepted(view, view2, i, i2);
+            super.onNestedScrollAccepted(view2, view3, i, i2);
         }
     }
 
     public void setListener(NestedScrollAcceptedListener nestedScrollAcceptedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nestedScrollAcceptedListener) == null) {
-            this.f24058b = nestedScrollAcceptedListener;
+            this.b = nestedScrollAcceptedListener;
         }
     }
 

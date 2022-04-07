@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RomTypeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -115,16 +115,16 @@ public class RomTypeUtil {
                 bufferedReader.close();
                 try {
                     bufferedReader.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return readLine;
             } catch (IOException unused2) {
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 return null;
@@ -134,8 +134,8 @@ public class RomTypeUtil {
                 if (bufferedReader2 != null) {
                     try {
                         bufferedReader2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th;

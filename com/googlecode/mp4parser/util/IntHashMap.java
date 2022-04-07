@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class IntHashMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class IntHashMap {
     public transient Entry[] table;
     public int threshold;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,12 +259,12 @@ public class IntHashMap {
         }
     }
 
-    public IntHashMap(int i, float f2) {
+    public IntHashMap(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -276,13 +276,13 @@ public class IntHashMap {
         }
         if (i < 0) {
             throw new IllegalArgumentException("Illegal Capacity: " + i);
-        } else if (f2 > 0.0f) {
+        } else if (f > 0.0f) {
             i = i == 0 ? 1 : i;
-            this.loadFactor = f2;
+            this.loadFactor = f;
             this.table = new Entry[i];
-            this.threshold = (int) (i * f2);
+            this.threshold = (int) (i * f);
         } else {
-            throw new IllegalArgumentException("Illegal Load: " + f2);
+            throw new IllegalArgumentException("Illegal Load: " + f);
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class IdentifierManager {
     public static /* synthetic */ Interceptable $ic;
     public static Class<?> sClass;
@@ -42,8 +42,8 @@ public class IdentifierManager {
             sGetOAID = sClass.getMethod("getOAID", Context.class);
             sGetVAID = sClass.getMethod("getVAID", Context.class);
             sGetAAID = sClass.getMethod("getAAID", Context.class);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -99,8 +99,8 @@ public class IdentifierManager {
                     return (String) invoke;
                 }
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

@@ -54,12 +54,12 @@ public class StatsReport {
     }
 
     @CalledByNative
-    public StatsReport(String str, String str2, double d2, Value[] valueArr) {
+    public StatsReport(String str, String str2, double d, Value[] valueArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Double.valueOf(d2), valueArr};
+            Object[] objArr = {str, str2, Double.valueOf(d), valueArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class StatsReport {
         }
         this.id = str;
         this.type = str2;
-        this.timestamp = d2;
+        this.timestamp = d;
         this.values = valueArr;
     }
 

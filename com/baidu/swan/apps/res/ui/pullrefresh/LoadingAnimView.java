@@ -10,38 +10,26 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+/* loaded from: classes2.dex */
 public class LoadingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
+    public ValueAnimator b;
+    public Bitmap c;
+    public Canvas d;
+    public Camera e;
+    public Matrix f;
+    public Paint g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ValueAnimator f29156b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Bitmap f29157c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Canvas f29158d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Camera f29159e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Matrix f29160f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f29161g;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,10 +96,10 @@ public class LoadingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f29161g = paint;
+            this.g = paint;
             paint.setAntiAlias(true);
-            this.f29159e = new Camera();
-            this.f29160f = new Matrix();
+            this.e = new Camera();
+            this.f = new Matrix();
             d();
         }
     }
@@ -119,33 +107,33 @@ public class LoadingAnimView extends View {
     public final void c() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.f29156b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.b) == null) {
             return;
         }
         valueAnimator.setRepeatCount(0);
-        this.f29156b.removeAllUpdateListeners();
-        this.f29156b.removeAllListeners();
-        this.f29156b.end();
-        this.f29156b.cancel();
+        this.b.removeAllUpdateListeners();
+        this.b.removeAllListeners();
+        this.b.end();
+        this.b.cancel();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f29156b != null) {
+            if (this.b != null) {
                 c();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f29156b = ofFloat;
+            this.b = ofFloat;
             ofFloat.setDuration(750L);
-            this.f29156b.setRepeatCount(20);
-            this.f29156b.setRepeatMode(1);
-            this.f29156b.setInterpolator(new LinearInterpolator());
-            this.f29156b.addUpdateListener(new a(this));
-            if (this.f29156b.isRunning()) {
+            this.b.setRepeatCount(20);
+            this.b.setRepeatMode(1);
+            this.b.setInterpolator(new LinearInterpolator());
+            this.b.addUpdateListener(new a(this));
+            if (this.b.isRunning()) {
                 return;
             }
-            this.f29156b.start();
+            this.b.start();
         }
     }
 
@@ -162,28 +150,28 @@ public class LoadingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f29157c == null || this.f29158d == null) {
+            if (this.c == null || this.d == null) {
                 return;
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f2 = n0.f(getContext(), 6.0f);
-            this.f29157c.eraseColor(0);
-            this.f29161g.setStyle(Paint.Style.FILL);
-            this.f29161g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ce));
-            this.f29161g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
-            float f3 = measuredWidth / 2.0f;
-            float f4 = measuredHeight / 2.0f;
-            this.f29158d.drawCircle(f3, f4, f2, this.f29161g);
-            this.f29160f.reset();
-            this.f29159e.save();
-            this.f29159e.setLocation(0.0f, 0.0f, -100.0f);
-            this.f29159e.rotateY(this.a * 360.0f);
-            this.f29159e.getMatrix(this.f29160f);
-            this.f29159e.restore();
-            this.f29160f.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
-            this.f29160f.postTranslate(f3, f4);
-            canvas.drawBitmap(this.f29157c, this.f29160f, null);
+            int f = ae3.f(getContext(), 6.0f);
+            this.c.eraseColor(0);
+            this.g.setStyle(Paint.Style.FILL);
+            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ce));
+            this.g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
+            float f2 = measuredWidth / 2.0f;
+            float f3 = measuredHeight / 2.0f;
+            this.d.drawCircle(f2, f3, f, this.g);
+            this.f.reset();
+            this.e.save();
+            this.e.setLocation(0.0f, 0.0f, -100.0f);
+            this.e.rotateY(this.a * 360.0f);
+            this.e.getMatrix(this.f);
+            this.e.restore();
+            this.f.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
+            this.f.postTranslate(f2, f3);
+            canvas.drawBitmap(this.c, this.f, null);
         }
     }
 
@@ -192,8 +180,8 @@ public class LoadingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.f29157c = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-            this.f29158d = new Canvas(this.f29157c);
+            this.c = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+            this.d = new Canvas(this.c);
         }
     }
 

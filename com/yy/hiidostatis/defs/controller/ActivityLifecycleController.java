@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActivityLifecycleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean isRegister;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ActivityLifecycleCallback {
         void onActivityPaused(Activity activity);
 

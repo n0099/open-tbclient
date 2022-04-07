@@ -7,46 +7,32 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.m.a.b5;
-import c.m.a.e4;
-import c.m.a.f5;
-import c.m.a.i4;
-import c.m.a.j5;
-import c.m.a.m4;
-import c.m.a.u4;
-import c.m.a.y4;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.repackage.ct9;
+import com.repackage.du9;
+import com.repackage.gt9;
+import com.repackage.hu9;
+import com.repackage.kt9;
+import com.repackage.st9;
+import com.repackage.wt9;
+import com.repackage.zt9;
+/* loaded from: classes8.dex */
 public class GifImageView extends ImageView implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e4 a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Bitmap f44026b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Handler f44027c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f44028d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f44029e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f44030f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Thread f44031g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f44032h;
+    public ct9 a;
+    public Bitmap b;
+    public final Handler c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public Thread g;
+    public long h;
     public final Runnable i;
     public final Runnable j;
 
@@ -68,10 +54,10 @@ public class GifImageView extends ImageView implements Runnable {
                 return;
             }
         }
-        this.f44027c = new Handler(Looper.getMainLooper());
-        this.f44032h = -1L;
-        this.i = new u4(this);
-        this.j = new y4(this);
+        this.c = new Handler(Looper.getMainLooper());
+        this.h = -1L;
+        this.i = new st9(this);
+        this.j = new wt9(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,31 +79,31 @@ public class GifImageView extends ImageView implements Runnable {
                 return;
             }
         }
-        this.f44027c = new Handler(Looper.getMainLooper());
-        this.f44032h = -1L;
-        this.i = new u4(this);
-        this.j = new y4(this);
+        this.c = new Handler(Looper.getMainLooper());
+        this.h = -1L;
+        this.i = new st9(this);
+        this.j = new wt9(this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44028d = false;
-            this.f44029e = false;
-            this.f44030f = true;
+            this.d = false;
+            this.e = false;
+            this.f = true;
             f();
-            this.f44027c.post(this.j);
+            this.c.post(this.j);
         }
     }
 
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            e4 e4Var = this.a;
-            if (e4Var.n == i || !e4Var.g(i - 1) || this.f44028d) {
+            ct9 ct9Var = this.a;
+            if (ct9Var.n == i || !ct9Var.g(i - 1) || this.d) {
                 return;
             }
-            this.f44029e = true;
+            this.e = true;
             e();
         }
     }
@@ -125,7 +111,7 @@ public class GifImageView extends ImageView implements Runnable {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f44028d = true;
+            this.d = true;
             e();
         }
     }
@@ -133,9 +119,9 @@ public class GifImageView extends ImageView implements Runnable {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.f44028d || this.f44029e) && this.a != null && this.f44031g == null) {
+            if ((this.d || this.e) && this.a != null && this.g == null) {
                 Thread thread = new Thread(this);
-                this.f44031g = thread;
+                this.g = thread;
                 thread.start();
             }
         }
@@ -144,11 +130,11 @@ public class GifImageView extends ImageView implements Runnable {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f44028d = false;
-            Thread thread = this.f44031g;
+            this.d = false;
+            Thread thread = this.g;
             if (thread != null) {
                 thread.interrupt();
-                this.f44031g = null;
+                this.g = null;
             }
         }
     }
@@ -156,43 +142,43 @@ public class GifImageView extends ImageView implements Runnable {
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.p.f23499c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.p.c : invokeV.intValue;
     }
 
     public long getFramesDisplayDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44032h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : invokeV.longValue;
     }
 
     public int getGifHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.p.f23503g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.p.g : invokeV.intValue;
     }
 
     public int getGifWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.p.f23502f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.p.f : invokeV.intValue;
     }
 
-    public f5 getOnAnimationStop() {
+    public du9 getOnAnimationStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (f5) invokeV.objValue;
+        return (du9) invokeV.objValue;
     }
 
-    public j5 getOnFrameAvailable() {
+    public hu9 getOnFrameAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (j5) invokeV.objValue;
+        return (hu9) invokeV.objValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -214,50 +200,50 @@ public class GifImageView extends ImageView implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        e4 e4Var;
-        m4 m4Var;
+        ct9 ct9Var;
+        kt9 kt9Var;
         int i;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             do {
-                if (!this.f44028d && !this.f44029e) {
+                if (!this.d && !this.e) {
                     break;
                 }
-                e4 e4Var2 = this.a;
-                int i4 = e4Var2.p.f23499c;
+                ct9 ct9Var2 = this.a;
+                int i4 = ct9Var2.p.c;
                 int i5 = -1;
                 boolean z = true;
                 if (i4 > 0) {
-                    if (e4Var2.n == i4 - 1) {
-                        e4Var2.o++;
+                    if (ct9Var2.n == i4 - 1) {
+                        ct9Var2.o++;
                     }
-                    int i6 = e4Var2.p.m;
-                    if (i6 == -1 || e4Var2.o <= i6) {
-                        e4Var2.n = (e4Var2.n + 1) % e4Var2.p.f23499c;
+                    int i6 = ct9Var2.p.m;
+                    if (i6 == -1 || ct9Var2.o <= i6) {
+                        ct9Var2.n = (ct9Var2.n + 1) % ct9Var2.p.c;
                         long nanoTime = System.nanoTime();
-                        this.f44026b = this.a.h();
+                        this.b = this.a.h();
                         long j = (System.nanoTime() - nanoTime) / 1000000;
-                        this.f44027c.post(this.i);
-                        this.f44029e = false;
-                        if (this.f44028d || !z) {
-                            this.f44028d = false;
+                        this.c.post(this.i);
+                        this.e = false;
+                        if (this.d || !z) {
+                            this.d = false;
                             break;
                         }
                         try {
-                            e4Var = this.a;
-                            m4Var = e4Var.p;
-                            i = m4Var.f23499c;
+                            ct9Var = this.a;
+                            kt9Var = ct9Var.p;
+                            i = kt9Var.c;
                         } catch (InterruptedException unused) {
                         }
-                        if (i > 0 && (i3 = e4Var.n) >= 0) {
+                        if (i > 0 && (i3 = ct9Var.n) >= 0) {
                             if (i3 >= 0 && i3 < i) {
-                                i5 = ((i4) m4Var.f23501e.get(i3)).i;
+                                i5 = ((gt9) kt9Var.e.get(i3)).i;
                             }
                             i2 = (int) (i5 - j);
                             if (i2 > 0) {
-                                Thread.sleep(this.f44032h > 0 ? this.f44032h : i2);
+                                Thread.sleep(this.h > 0 ? this.h : i2);
                             }
                         }
                         i5 = 0;
@@ -268,30 +254,30 @@ public class GifImageView extends ImageView implements Runnable {
                 }
                 z = false;
                 long nanoTime2 = System.nanoTime();
-                this.f44026b = this.a.h();
+                this.b = this.a.h();
                 long j2 = (System.nanoTime() - nanoTime2) / 1000000;
-                this.f44027c.post(this.i);
-                this.f44029e = false;
-                if (this.f44028d) {
+                this.c.post(this.i);
+                this.e = false;
+                if (this.d) {
                 }
-                this.f44028d = false;
+                this.d = false;
                 break;
-            } while (this.f44028d);
-            if (this.f44030f) {
-                this.f44027c.post(this.j);
+            } while (this.d);
+            if (this.f) {
+                this.c.post(this.j);
             }
-            this.f44031g = null;
+            this.g = null;
         }
     }
 
     public void setBytes(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            e4 e4Var = new e4();
-            this.a = e4Var;
+            ct9 ct9Var = new ct9();
+            this.a = ct9Var;
             try {
-                e4Var.a(bArr);
-                if (this.f44028d) {
+                ct9Var.a(bArr);
+                if (this.d) {
                     e();
                 } else {
                     b(0);
@@ -305,25 +291,25 @@ public class GifImageView extends ImageView implements Runnable {
     public void setFramesDisplayDuration(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.f44032h = j;
+            this.h = j;
         }
     }
 
-    public void setOnAnimationStart(b5 b5Var) {
+    public void setOnAnimationStart(zt9 zt9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, b5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, zt9Var) == null) {
         }
     }
 
-    public void setOnAnimationStop(f5 f5Var) {
+    public void setOnAnimationStop(du9 du9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, f5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, du9Var) == null) {
         }
     }
 
-    public void setOnFrameAvailable(j5 j5Var) {
+    public void setOnFrameAvailable(hu9 hu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, j5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, hu9Var) == null) {
         }
     }
 }

@@ -25,7 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class PictureCropView extends PictureView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
@@ -36,14 +37,12 @@ public class PictureCropView extends PictureView {
     public Paint m;
     public boolean n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements ZoomImageView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ZoomImageView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f29437b;
+        public final /* synthetic */ PictureCropView b;
 
         public a(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -60,7 +59,7 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f29437b = pictureCropView;
+            this.b = pictureCropView;
             this.a = zoomImageView;
         }
 
@@ -68,9 +67,9 @@ public class PictureCropView extends PictureView {
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f29437b.n = drawable != null;
+                this.b.n = drawable != null;
                 if (drawable != null) {
-                    this.f29437b.q(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    this.b.q(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
             }
         }
@@ -79,22 +78,20 @@ public class PictureCropView extends PictureView {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.f29437b.n = bitmap != null;
+                this.b.n = bitmap != null;
                 if (bitmap != null) {
-                    this.f29437b.q(this.a, bitmap.getWidth(), bitmap.getHeight());
+                    this.b.q(this.a, bitmap.getWidth(), bitmap.getHeight());
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements BdImageViewTouchBase.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ZoomImageView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f29438b;
+        public final /* synthetic */ PictureCropView b;
 
         public b(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -111,7 +108,7 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f29438b = pictureCropView;
+            this.b = pictureCropView;
             this.a = zoomImageView;
         }
 
@@ -119,19 +116,17 @@ public class PictureCropView extends PictureView {
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f29438b.o(this.a, drawable);
+                this.b.o(this.a, drawable);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements ZoomImageView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RectF a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f29439b;
+        public final /* synthetic */ PictureCropView b;
 
         public c(PictureCropView pictureCropView) {
             Interceptable interceptable = $ic;
@@ -148,18 +143,18 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f29439b = pictureCropView;
+            this.b = pictureCropView;
             this.a = new RectF();
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
-        public boolean a(ZoomImageView zoomImageView, double d2, double d3) {
+        public boolean a(ZoomImageView zoomImageView, double d, double d2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zoomImageView, Double.valueOf(d2), Double.valueOf(d3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zoomImageView, Double.valueOf(d), Double.valueOf(d2)})) == null) {
                 RectF bitmapRect = zoomImageView.getBitmapRect();
-                this.a.set((float) d2, (float) d3, 0.0f, 0.0f);
-                this.f29439b.t(bitmapRect, this.a);
+                this.a.set((float) d, (float) d2, 0.0f, 0.0f);
+                this.b.t(bitmapRect, this.a);
                 RectF rectF = this.a;
                 zoomImageView.v(rectF.left, rectF.top);
                 return true;
@@ -168,11 +163,11 @@ public class PictureCropView extends PictureView {
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
-        public boolean b(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean b(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                zoomImageView.w(-f2, -f3);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                zoomImageView.w(-f, -f2);
                 zoomImageView.invalidate();
                 return true;
             }
@@ -180,10 +175,10 @@ public class PictureCropView extends PictureView {
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
-        public boolean c(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean c(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -203,7 +198,7 @@ public class PictureCropView extends PictureView {
                 return;
             }
         }
-        o = c.a.n0.a.a.a;
+        o = tg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -237,7 +232,7 @@ public class PictureCropView extends PictureView {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.m.setColor(this.l);
             this.m.setStyle(Paint.Style.FILL);
-            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081120);
+            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081127);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);
@@ -282,15 +277,15 @@ public class PictureCropView extends PictureView {
                     return Bitmap.createBitmap(imageViewBitmap, rect.left, rect.top, rect.width(), rect.height());
                 }
                 return null;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (o) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return null;
                 }
                 return null;
-            } catch (OutOfMemoryError e3) {
+            } catch (OutOfMemoryError e2) {
                 if (o) {
-                    e3.printStackTrace();
+                    e2.printStackTrace();
                     return null;
                 }
                 return null;
@@ -325,9 +320,9 @@ public class PictureCropView extends PictureView {
     }
 
     public final void p() {
+        float f;
         float f2;
         float f3;
-        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             WallpaperManager wallpaperManager = WallpaperManager.getInstance(getContext());
@@ -336,25 +331,25 @@ public class PictureCropView extends PictureView {
             if (o) {
                 Log.d("PictureCropView", "PictureCropView#configureBounds, desiredMinWidth = " + desiredMinimumWidth + ", desiredMinHeight = " + desiredMinimumHeight);
             }
-            float f5 = desiredMinimumWidth;
-            float f6 = desiredMinimumHeight;
+            float f4 = desiredMinimumWidth;
+            float f5 = desiredMinimumHeight;
             int width = getWidth();
             float height = getHeight();
-            float f7 = width;
-            if (f5 * height > f7 * f6) {
-                f4 = f7 / f5;
-                f2 = (height - (f6 * f4)) * 0.5f;
-                f3 = 0.0f;
-            } else {
-                float f8 = height / f6;
+            float f6 = width;
+            if (f4 * height > f6 * f5) {
+                f3 = f6 / f4;
+                f = (height - (f5 * f3)) * 0.5f;
                 f2 = 0.0f;
-                f3 = (f7 - (f5 * f8)) * 0.5f;
-                f4 = f8;
+            } else {
+                float f7 = height / f5;
+                f = 0.0f;
+                f2 = (f6 - (f4 * f7)) * 0.5f;
+                f3 = f7;
             }
             Matrix matrix = new Matrix();
-            matrix.setScale(f4, f4);
-            matrix.postTranslate((int) (f3 + 0.5f), (int) (f2 + 0.5f));
-            RectF rectF = new RectF(0.0f, 0.0f, f5, f6);
+            matrix.setScale(f3, f3);
+            matrix.postTranslate((int) (f2 + 0.5f), (int) (f + 0.5f));
+            RectF rectF = new RectF(0.0f, 0.0f, f4, f5);
             boolean mapRect = matrix.mapRect(rectF);
             rectF.round(this.k);
             if (o) {
@@ -374,12 +369,12 @@ public class PictureCropView extends PictureView {
             width = this.k.width();
             height = this.k.height();
         }
-        float f2 = i * height > width * i2 ? height / i2 : width / i;
+        float f = i * height > width * i2 ? height / i2 : width / i;
         if (o) {
-            Log.d("PictureCropView", "PictureCropView#configureZoomRange() scale = " + f2);
+            Log.d("PictureCropView", "PictureCropView#configureZoomRange() scale = " + f);
         }
-        if (f2 > 0.0f) {
-            zoomImageView.setZoomRange(f2, 3.0f + f2);
+        if (f > 0.0f) {
+            zoomImageView.setZoomRange(f, 3.0f + f);
         }
     }
 
@@ -401,23 +396,23 @@ public class PictureCropView extends PictureView {
             int width = canvas.getWidth();
             int height = canvas.getHeight();
             Paint paint = this.m;
-            float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, rect.top, paint);
-            float f3 = height;
-            canvas.drawRect(0.0f, rect.top, rect.left, f3, paint);
-            canvas.drawRect(rect.left, rect.bottom, f2, f3, paint);
-            canvas.drawRect(rect.right, rect.top, f2, rect.bottom, paint);
+            float f = width;
+            canvas.drawRect(0.0f, 0.0f, f, rect.top, paint);
+            float f2 = height;
+            canvas.drawRect(0.0f, rect.top, rect.left, f2, paint);
+            canvas.drawRect(rect.left, rect.bottom, f, f2, paint);
+            canvas.drawRect(rect.right, rect.top, f, rect.bottom, paint);
         }
     }
 
     public final boolean t(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
+        float f;
         float f2;
         float f3;
         float f4;
         float f5;
         float f6;
-        float f7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rectF, rectF2)) == null) {
             if (rectF == null) {
@@ -428,27 +423,27 @@ public class PictureCropView extends PictureView {
             int i2 = rect.left;
             int i3 = rect.right;
             int i4 = rect.bottom;
-            float f8 = rectF2.left;
-            float f9 = rectF2.top;
-            float f10 = i;
-            if (rectF.top >= f10 && rectF.bottom <= i4) {
-                rectF2.top = f10;
+            float f7 = rectF2.left;
+            float f8 = rectF2.top;
+            float f9 = i;
+            if (rectF.top >= f9 && rectF.bottom <= i4) {
+                rectF2.top = f9;
             }
-            float f11 = i2;
-            if (rectF.left >= f11 && rectF.right <= i3) {
-                rectF2.left = f11;
+            float f10 = i2;
+            if (rectF.left >= f10 && rectF.right <= i3) {
+                rectF2.left = f10;
             }
-            if (rectF.top + f9 >= f10) {
-                rectF2.top = (int) (f10 - f2);
+            if (rectF.top + f8 >= f9) {
+                rectF2.top = (int) (f9 - f);
             }
-            if (f9 + rectF.bottom <= i4) {
-                rectF2.top = (int) (f4 - f3);
+            if (f8 + rectF.bottom <= i4) {
+                rectF2.top = (int) (f3 - f2);
             }
-            if (rectF.left + f8 >= f11) {
-                rectF2.left = (int) (f11 - f5);
+            if (rectF.left + f7 >= f10) {
+                rectF2.left = (int) (f10 - f4);
             }
-            if (f8 + rectF.right <= i3) {
-                rectF2.left = (int) (f7 - f6);
+            if (f7 + rectF.right <= i3) {
+                rectF2.left = (int) (f6 - f5);
                 return true;
             }
             return true;

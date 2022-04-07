@@ -5,10 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.l1.d;
-import c.a.n0.a.p2.n0;
-import c.a.n0.a.p2.q0;
-import c.a.n0.a.p2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pyramid.annotation.Autowired;
@@ -22,8 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ae3;
+import com.repackage.de3;
+import com.repackage.gl2;
+import com.repackage.i03;
+import com.repackage.id3;
+import com.repackage.kv2;
+import com.repackage.tg1;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -32,8 +35,8 @@ public class SwanAppLauncherActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public Object mPermissionDialog;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.b {
+    /* loaded from: classes2.dex */
+    public class a implements kv2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppLauncherActivity a;
@@ -57,7 +60,7 @@ public class SwanAppLauncherActivity extends Activity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +106,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        DEBUG = c.a.n0.a.a.a;
+        DEBUG = tg1.a;
     }
 
     public SwanAppLauncherActivity() {
@@ -125,23 +128,23 @@ public class SwanAppLauncherActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            c.a.n0.a.t1.d.L().post(new b(this));
+            i03.L().post(new b(this));
         }
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, c.a.n0.a.v0.e.b bVar, String str) {
+    public static void startSwanApp(Context context, gl2 gl2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, str) == null) {
-            SwanLauncher.j().n(bVar, null);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, gl2Var, str) == null) {
+            SwanLauncher.j().n(gl2Var, null);
         }
     }
 
     @Inject(force = false)
-    public d getPermissionDialogIOC() {
+    public kv2 getPermissionDialogIOC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? kv2.a : (kv2) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -149,14 +152,14 @@ public class SwanAppLauncherActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int c0 = q0.c0(this);
+            int c0 = de3.c0(this);
             super.onCreate(bundle);
-            q0.g(this, c0);
-            n0.b(this);
+            de3.g(this, c0);
+            ae3.b(this);
             if (DEBUG) {
                 Log.d(TAG, "onCreate");
             }
-            if (v.a(this)) {
+            if (id3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }

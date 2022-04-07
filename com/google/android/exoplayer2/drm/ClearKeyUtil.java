@@ -18,7 +18,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ClearKeyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern REQUEST_KIDS_PATTERN;
@@ -93,8 +93,8 @@ public final class ClearKeyUtil {
                     jSONObject2.put("kid", base64UrlToBase64(jSONObject2.getString("kid")));
                 }
                 return Util.getUtf8Bytes(jSONObject.toString());
-            } catch (JSONException e2) {
-                Log.e(TAG, "Failed to adjust response data: " + Util.fromUtf8Bytes(bArr), e2);
+            } catch (JSONException e) {
+                Log.e(TAG, "Failed to adjust response data: " + Util.fromUtf8Bytes(bArr), e);
                 return bArr;
             }
         }

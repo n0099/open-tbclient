@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,16 +55,16 @@ public class SapiDeviceUtils {
                     if (str.contains("passport.baidu.com")) {
                         try {
                             fileInputStream.close();
-                        } catch (Exception e2) {
-                            Log.e(Log.TAG, e2.toString());
+                        } catch (Exception e) {
+                            Log.e(Log.TAG, e.toString());
                         }
                         return true;
                     }
                 }
                 try {
                     fileInputStream.close();
-                } catch (Exception e3) {
-                    Log.e(Log.TAG, e3.toString());
+                } catch (Exception e2) {
+                    Log.e(Log.TAG, e2.toString());
                 }
                 return false;
             } catch (Throwable th2) {
@@ -74,8 +74,8 @@ public class SapiDeviceUtils {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (Exception e4) {
-                            Log.e(Log.TAG, e4.toString());
+                        } catch (Exception e3) {
+                            Log.e(Log.TAG, e3.toString());
                         }
                     }
                     return false;
@@ -83,8 +83,8 @@ public class SapiDeviceUtils {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (Exception e5) {
-                            Log.e(Log.TAG, e5.toString());
+                        } catch (Exception e4) {
+                            Log.e(Log.TAG, e4.toString());
                         }
                     }
                     throw th3;

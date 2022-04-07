@@ -18,13 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.n45;
+import com.repackage.oi4;
+import com.repackage.pi4;
+/* loaded from: classes4.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener H;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +64,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,12 +92,12 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.f36692c.n(i, i2, z);
+                this.a.c.n(i, i2, z);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,12 +125,12 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.f36692c.n(i, i2, z);
+                this.a.c.n(i, i2, z);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d implements VideoChannelHeaderLayout.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,13 +160,13 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 VideoChannelFragment videoChannelFragment = this.a;
-                if (videoChannelFragment.f36692c == null || (videoChannelViewPager = videoChannelFragment.f36691b) == null || ListUtils.getItem(videoChannelFragment.f36697h, videoChannelViewPager.getCurrentItem()) == null) {
+                if (videoChannelFragment.c == null || (videoChannelViewPager = videoChannelFragment.b) == null || ListUtils.getItem(videoChannelFragment.h, videoChannelViewPager.getCurrentItem()) == null) {
                     return;
                 }
                 VideoChannelFragment videoChannelFragment2 = this.a;
-                if (((c.a.o0.h0.c) ListUtils.getItem(videoChannelFragment2.f36697h, videoChannelFragment2.f36691b.getCurrentItem())).a instanceof BaseFragment) {
+                if (((n45) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
                     VideoChannelFragment videoChannelFragment3 = this.a;
-                    videoChannelFragment3.f36692c.f(((BaseFragment) ((c.a.o0.h0.c) ListUtils.getItem(videoChannelFragment3.f36697h, videoChannelFragment3.f36691b.getCurrentItem())).a).getUniqueId());
+                    videoChannelFragment3.c.f(((BaseFragment) ((n45) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
                 }
             }
         }
@@ -213,7 +216,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public void Z0() {
         VideoChannelHeaderLayout videoChannelHeaderLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (videoChannelHeaderLayout = this.f36692c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (videoChannelHeaderLayout = this.c) == null) {
             return;
         }
         videoChannelHeaderLayout.setOnAchieveRefresh(new d(this));
@@ -242,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (c.a.o0.a.d.y().A(c.a.o0.a.c.c0)) {
-                c.a.o0.a.d.y().G();
+            if (pi4.y().A(oi4.c0)) {
+                pi4.y().G();
             }
         }
     }
@@ -255,8 +258,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (c.a.o0.a.d.y().A(c.a.o0.a.c.c0)) {
-                c.a.o0.a.d.y().G();
+            } else if (pi4.y().A(oi4.c0)) {
+                pi4.y().G();
             }
         }
     }
@@ -273,7 +276,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c.a.o0.a.d.y().P(c.a.o0.a.c.c0);
+            pi4.y().P(oi4.c0);
         }
     }
 
@@ -288,6 +291,6 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public ViewGroup taskAttachParentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36695f : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (ViewGroup) invokeV.objValue;
     }
 }

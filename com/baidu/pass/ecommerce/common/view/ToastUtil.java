@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ToastUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE_IMG = -1;
@@ -55,12 +55,12 @@ public class ToastUtil {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04ca, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04cc, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) null);
             }
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd7);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd8);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc6);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc7);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

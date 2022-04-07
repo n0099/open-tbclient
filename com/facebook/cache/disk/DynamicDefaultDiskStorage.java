@@ -22,7 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -35,7 +35,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public final int mVersion;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class State {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,9 +145,9 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
             try {
                 FileUtils.mkdirs(file);
                 FLog.d(TAG, "Created cache directory %s", file.getAbsolutePath());
-            } catch (FileUtils.CreateDirectoryException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, "createRootDirectoryIfNecessary", e2);
-                throw e2;
+            } catch (FileUtils.CreateDirectoryException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, "createRootDirectoryIfNecessary", e);
+                throw e;
             }
         }
     }
@@ -255,8 +255,8 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             try {
                 get().purgeUnexpectedResources();
-            } catch (IOException e2) {
-                FLog.e(TAG, "purgeUnexpectedResources", e2);
+            } catch (IOException e) {
+                FLog.e(TAG, "purgeUnexpectedResources", e);
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] IDENTITY_MATRIX;

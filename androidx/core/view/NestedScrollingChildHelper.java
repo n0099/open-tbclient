@@ -20,12 +20,12 @@ public class NestedScrollingChildHelper {
     public int[] mTempNestedScrollConsumed;
     public final View mView;
 
-    public NestedScrollingChildHelper(@NonNull View view) {
+    public NestedScrollingChildHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class NestedScrollingChildHelper {
                 return;
             }
         }
-        this.mView = view;
+        this.mView = view2;
     }
 
     private boolean dispatchNestedScrollInternal(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @Nullable int[] iArr2) {
@@ -122,28 +122,28 @@ public class NestedScrollingChildHelper {
         }
     }
 
-    public boolean dispatchNestedFling(float f2, float f3, boolean z) {
+    public boolean dispatchNestedFling(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             if (!isNestedScrollingEnabled() || (nestedScrollingParentForType = getNestedScrollingParentForType(0)) == null) {
                 return false;
             }
-            return ViewParentCompat.onNestedFling(nestedScrollingParentForType, this.mView, f2, f3, z);
+            return ViewParentCompat.onNestedFling(nestedScrollingParentForType, this.mView, f, f2, z);
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedPreFling(float f2, float f3) {
+    public boolean dispatchNestedPreFling(float f, float f2) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (!isNestedScrollingEnabled() || (nestedScrollingParentForType = getNestedScrollingParentForType(0)) == null) {
                 return false;
             }
-            return ViewParentCompat.onNestedPreFling(nestedScrollingParentForType, this.mView, f2, f3);
+            return ViewParentCompat.onNestedPreFling(nestedScrollingParentForType, this.mView, f, f2);
         }
         return invokeCommon.booleanValue;
     }
@@ -179,9 +179,9 @@ public class NestedScrollingChildHelper {
         }
     }
 
-    public void onStopNestedScroll(@NonNull View view) {
+    public void onStopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
             ViewCompat.stopNestedScroll(this.mView);
         }
     }
@@ -271,15 +271,15 @@ public class NestedScrollingChildHelper {
                 return true;
             }
             if (isNestedScrollingEnabled()) {
-                View view = this.mView;
+                View view2 = this.mView;
                 for (ViewParent parent = this.mView.getParent(); parent != null; parent = parent.getParent()) {
-                    if (ViewParentCompat.onStartNestedScroll(parent, view, this.mView, i, i2)) {
+                    if (ViewParentCompat.onStartNestedScroll(parent, view2, this.mView, i, i2)) {
                         setNestedScrollingParentForType(i2, parent);
-                        ViewParentCompat.onNestedScrollAccepted(parent, view, this.mView, i, i2);
+                        ViewParentCompat.onNestedScrollAccepted(parent, view2, this.mView, i, i2);
                         return true;
                     }
                     if (parent instanceof View) {
-                        view = (View) parent;
+                        view2 = (View) parent;
                     }
                 }
                 return false;

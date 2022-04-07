@@ -15,7 +15,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static final String a = "e";
 
@@ -96,9 +96,9 @@ public class e {
             Object a2 = a(entry.getValue());
             try {
                 jSONObject.put(str, a2);
-            } catch (JSONException e2) {
-                c.a(a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                c.a(a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e);
+                e.printStackTrace();
             }
         }
         return jSONObject;
@@ -115,8 +115,8 @@ public class e {
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isConnected();
             c.b(a, "Tracker connection online: %s", Boolean.valueOf(z));
             return z;
-        } catch (Exception e2) {
-            c.a(a, "Security exception checking connection: %s", e2.toString());
+        } catch (Exception e) {
+            c.a(a, "Security exception checking connection: %s", e.toString());
             return true;
         }
     }
@@ -132,8 +132,8 @@ public class e {
                 return telephonyManager.getNetworkOperatorName();
             }
             return null;
-        } catch (Exception e2) {
-            c.a(a, "getCarrier: %s", e2.toString());
+        } catch (Exception e) {
+            c.a(a, "getCarrier: %s", e.toString());
             return null;
         }
     }
@@ -156,8 +156,8 @@ public class e {
             Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
             c.b(a, "Location found: %s", lastKnownLocation);
             return lastKnownLocation;
-        } catch (Exception e2) {
-            c.a(a, "Failed to retrieve location: %s", e2.toString());
+        } catch (Exception e) {
+            c.a(a, "Failed to retrieve location: %s", e.toString());
             return null;
         }
     }

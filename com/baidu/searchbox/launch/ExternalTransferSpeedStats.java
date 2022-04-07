@@ -16,7 +16,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ExternalTransferSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST_EXTERNAL_TRANSFER_OPT_KEY = "external_transfer_opt_enable";
@@ -177,8 +177,8 @@ public class ExternalTransferSpeedStats {
                             if (DEBUG) {
                                 Log.d(TAG, jSONObject.toString());
                             }
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         resetFlow();
                         return;
@@ -302,8 +302,8 @@ public class ExternalTransferSpeedStats {
                     } else {
                         mergeJson(additionInfos, jSONObject);
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -346,8 +346,8 @@ public class ExternalTransferSpeedStats {
                             if (DEBUG) {
                                 Log.d(TAG, "set additionInfos: " + additionInfos.toString());
                             }
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                     }
                 }

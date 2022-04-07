@@ -4,11 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.d.f.p.n;
-import c.a.o0.h0.c;
-import c.a.o0.h0.d;
-import c.a.o0.h0.e;
-import c.a.o0.h0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -40,21 +35,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class PersonInfoDelegateStatic extends c.a.o0.h0.b {
+import com.repackage.dk8;
+import com.repackage.l45;
+import com.repackage.m45;
+import com.repackage.n45;
+import com.repackage.o45;
+import com.repackage.oi;
+import com.repackage.p45;
+import com.repackage.q45;
+import com.repackage.t45;
+import com.repackage.wt4;
+/* loaded from: classes3.dex */
+public class PersonInfoDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MessageRedDotView c;
+    public Boolean d;
+    public CustomMessageListener e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public MessageRedDotView f35373c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Boolean f35374d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f35375e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,21 +81,21 @@ public class PersonInfoDelegateStatic extends c.a.o0.h0.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c b2;
+            n45 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
-            ((d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-            if (((d) customResponsedMessage.getData()).getContext() == null || (b2 = personInfoDelegateStatic.b()) == null) {
+            ((o45) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((o45) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
                 return;
             }
-            b2.a.setArguments(new Bundle());
+            b.a.setArguments(new Bundle());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,17 +126,17 @@ public class PersonInfoDelegateStatic extends c.a.o0.h0.b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof c.a.o0.h0.a)) {
-                this.a.f35374d = Boolean.valueOf(((c.a.o0.h0.a) customResponsedMessage.getData()).a);
-                if (this.a.f35374d.booleanValue()) {
-                    this.a.f35373c.f(0);
-                    this.a.f35373c.setVisibility(0);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof l45)) {
+                this.a.d = Boolean.valueOf(((l45) customResponsedMessage.getData()).a);
+                if (this.a.d.booleanValue()) {
+                    this.a.c.f(0);
+                    this.a.c.setVisibility(0);
                 } else {
-                    this.a.f35373c.setVisibility(8);
+                    this.a.c.setVisibility(8);
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (!this.a.f35374d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    c.a.o0.r.j0.b.k().u("member_close_ad_mine_clicked", true);
+                if (!this.a.d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                    wt4.k().u("member_close_ad_mine_clicked", true);
                 }
             }
         }
@@ -179,14 +178,14 @@ public class PersonInfoDelegateStatic extends c.a.o0.h0.b {
                 return;
             }
         }
-        this.f35374d = Boolean.FALSE;
+        this.d = Boolean.FALSE;
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            c.a.p0.a4.g0.a.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, c.a.p0.a4.g0.a.a("c/u/user/profile", 303012));
+            dk8.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, dk8.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -196,79 +195,79 @@ public class PersonInfoDelegateStatic extends c.a.o0.h0.b {
         }
     }
 
-    @Override // c.a.o0.h0.b
-    public c a() {
+    @Override // com.repackage.m45
+    public n45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c();
-            cVar.a = new PersonCenterFragment();
-            cVar.f10299e = 8;
-            cVar.f10296b = R.string.mine;
-            cVar.f10300f = R.raw.lottie_tab_my;
-            cVar.i = c.n;
-            cVar.f10302h = c.a.o0.h0.g.c.d().c("person");
-            cVar.j = true;
-            return cVar;
+            n45 n45Var = new n45();
+            n45Var.a = new PersonCenterFragment();
+            n45Var.e = 8;
+            n45Var.b = R.string.mine;
+            n45Var.f = R.raw.lottie_tab_my;
+            n45Var.i = n45.n;
+            n45Var.h = t45.d().c("person");
+            n45Var.j = true;
+            return n45Var;
         }
-        return (c) invokeV.objValue;
+        return (n45) invokeV.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (e.e().a()) {
-                this.f10295b = (MaintabBottomIndicator) e.e().d(8);
+            if (p45.e().a()) {
+                this.b = (MaintabBottomIndicator) p45.e().d(8);
             } else if (PreInitMainTabViewSwitch.getIsOn()) {
-                this.f10295b = f.b().a();
+                this.b = q45.b().a();
             }
-            if (this.f10295b == null) {
-                this.f10295b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+            if (this.b == null) {
+                this.b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
             }
-            this.f35373c = new MessageRedDotView(context);
+            this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f30586f = this.f10295b;
-            aVar.f30583c = n.d(context, 10.0f);
-            aVar.a = this.f35373c;
-            this.f10295b.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h2 = c.a.o0.r.j0.b.k().h("key_feedback_tip_tab_show", false);
-            if (!this.f35374d.booleanValue() && !h2) {
-                this.f35373c.setVisibility(8);
+            aVar.f = this.b;
+            aVar.c = oi.d(context, 10.0f);
+            aVar.a = this.c;
+            this.b.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
+            boolean h = wt4.k().h("key_feedback_tip_tab_show", false);
+            if (!this.d.booleanValue() && !h) {
+                this.c.setVisibility(8);
             } else {
-                this.f35373c.f(0);
-                this.f35373c.setVisibility(0);
+                this.c.f(0);
+                this.c.setVisibility(0);
             }
-            return this.f10295b;
+            return this.b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             b bVar = new b(this, 2007014);
-            this.f35375e = bVar;
+            this.e = bVar;
             bVar.setPriority(9);
-            MessageManager.getInstance().registerListener(this.f35375e);
+            MessageManager.getInstance().registerListener(this.e);
         }
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.f();
-            MessageManager.getInstance().unRegisterListener(this.f35375e);
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 }

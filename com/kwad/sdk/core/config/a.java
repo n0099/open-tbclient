@@ -7,7 +7,7 @@ import androidx.annotation.WorkerThread;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final Map<String, com.kwad.sdk.core.config.item.b> a = new ConcurrentHashMap();
 
@@ -24,8 +24,8 @@ public class a {
             for (String str : a.keySet()) {
                 try {
                     a.get(str).a(sharedPreferences);
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.b(e2);
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.b(e);
                 }
             }
         }

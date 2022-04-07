@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeSet;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,7 +28,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
     public Handler mUiHandler;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TimeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -4,8 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import c.a.d.f.p.l;
-import c.a.o0.e0.a;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
@@ -13,8 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.z35;
 import org.apache.http.conn.params.ConnRoutePNames;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                if (Build.VERSION.SDK_INT >= 24 || !l.z()) {
+                if (Build.VERSION.SDK_INT >= 24 || !mi.z()) {
                     return;
                 }
-                a.b(0, 0, 0, 1, 6);
+                z35.b(0, 0, 0, 1, 6);
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (ImgHttpClient.class) {
@@ -49,11 +49,11 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                     ImgHttpClient.proxyHost = null;
                 }
             } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {
-                if (!l.z() || BdSocketLinkService.isOpen()) {
+                if (!mi.z() || BdSocketLinkService.isOpen()) {
                     TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 0);
                     return;
                 }
-                a.b(0, 0, 0, 1, 7);
+                z35.b(0, 0, 0, 1, 7);
                 BdSocketLinkService.startService(false, "frombaidupushservice");
                 TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 1);
             } else {

@@ -28,22 +28,22 @@ public final class PathKt {
     }
 
     @RequiresApi(26)
-    public static final Iterable<PathSegment> flatten(Path path, float f2) {
+    public static final Iterable<PathSegment> flatten(Path path, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, path, f2)) == null) {
-            Collection<PathSegment> flatten = PathUtils.flatten(path, f2);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, path, f)) == null) {
+            Collection<PathSegment> flatten = PathUtils.flatten(path, f);
             Intrinsics.checkExpressionValueIsNotNull(flatten, "PathUtils.flatten(this, error)");
             return flatten;
         }
         return (Iterable) invokeLF.objValue;
     }
 
-    public static /* synthetic */ Iterable flatten$default(Path path, float f2, int i, Object obj) {
+    public static /* synthetic */ Iterable flatten$default(Path path, float f, int i, Object obj) {
         if ((i & 1) != 0) {
-            f2 = 0.5f;
+            f = 0.5f;
         }
-        return flatten(path, f2);
+        return flatten(path, f);
     }
 
     @RequiresApi(19)

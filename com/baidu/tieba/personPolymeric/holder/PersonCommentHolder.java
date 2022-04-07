@@ -4,8 +4,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.d.o.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ColumnLayout;
@@ -27,34 +25,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fo;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static a p;
+    public static fo p;
     public static String q;
     public transient /* synthetic */ FieldHolder $fh;
     public ReplyLinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f35464b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final LinearLayout f35465c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final LinearLayout f35466d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final ColumnLayout f35467e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final ColumnLayout f35468f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f35469g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f35470h;
+    public TextView b;
+    public final LinearLayout c;
+    public final LinearLayout d;
+    public final ColumnLayout e;
+    public final ColumnLayout f;
+    public int g;
+    public LinearLayout h;
     public HeadImageView i;
     public TextView j;
     public TextView k;
@@ -64,13 +50,13 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     public boolean o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCommentHolder(View view, TbPageContext<?> tbPageContext, boolean z) {
-        super(view);
+    public PersonCommentHolder(View view2, TbPageContext<?> tbPageContext, boolean z) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {view2, tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,22 +69,22 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         }
         this.n = tbPageContext;
         this.o = z;
-        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view.findViewById(R.id.obfuscated_res_0x7f0906df);
+        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906e8);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.f35464b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09161e);
-        this.f35470h = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f0920c0);
-        this.i = (HeadImageView) view.findViewById(R.id.obfuscated_res_0x7f0918a4);
-        this.j = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0922e5);
-        this.k = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091a6c);
-        this.l = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090a67);
-        this.m = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091a5c);
-        this.f35466d = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090f62);
-        this.f35467e = (ColumnLayout) view.findViewById(R.id.obfuscated_res_0x7f090f77);
-        this.f35468f = (ColumnLayout) view.findViewById(R.id.obfuscated_res_0x7f090f6d);
-        this.f35465c = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f0917a3);
-        this.f35469g = n.d(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f35466d;
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091618);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920a5);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091897);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c6);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a5b);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a69);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a4c);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f5c);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f71);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09179f);
+        this.g = oi.d(view2.getContext(), 42.0f);
+        LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -106,17 +92,17 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.j.setOnClickListener(this);
         this.l.setOnClickListener(this);
         this.m.setOnClickListener(this);
-        this.f35467e.setOnClickListener(this);
-        this.f35468f.setOnClickListener(this);
-        this.f35464b.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.f.setOnClickListener(this);
+        this.b.setOnClickListener(this);
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setBackgroundResource(this.f35464b, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.b, R.color.CAM_X0205);
             SkinManager.setBackgroundColor(b(), R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f35465c, R.drawable.daily_recommend_item_selector);
+            SkinManager.setBackgroundResource(this.c, R.drawable.daily_recommend_item_selector);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
@@ -131,15 +117,15 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (str2 != null && !str2.equals(str)) {
                 p = null;
             }
-            a aVar = p;
-            if (aVar != null) {
-                this.i.setImageBitmap(aVar.p());
+            fo foVar = p;
+            if (foVar != null) {
+                this.i.setImageBitmap(foVar.p());
                 q = str;
                 return;
             }
             HeadImageView headImageView = this.i;
-            int i = this.f35469g;
-            headImageView.G(str, 12, i, i, false);
+            int i = this.g;
+            headImageView.H(str, 12, i, i, false);
         }
     }
 
@@ -302,29 +288,29 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.k.setText(r2);
             this.l.setText(r3);
             this.l.setTag(r3);
-            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f03f9), new Object[]{obj6}));
+            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0400), new Object[]{obj6}));
             this.l.setOnClickListener(this);
             d(str);
-            LinearLayout linearLayout = this.f35466d;
+            LinearLayout linearLayout = this.d;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }
-            this.f35467e.setTag(strArr);
-            this.f35468f.setTag(strArr);
+            this.e.setTag(strArr);
+            this.f.setTag(strArr);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.o ? 1 : 2));
-            if (view == this.l) {
+            if (view2 == this.l) {
                 if (this.n != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.n.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.n.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));
                 }
-            } else if (view != this.f35464b || (strArr = (String[]) view.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
+            } else if (view2 != this.b || (strArr = (String[]) view2.getTag()) == null || strArr.length < 4 || strArr[3] == null) {
             } else {
                 if ("0".equals(strArr[2]) || strArr[1] == null) {
                     PbActivityConfig createNormalCfg = new PbActivityConfig(this.n.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");

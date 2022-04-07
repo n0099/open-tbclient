@@ -4,28 +4,26 @@ import java.io.IOException;
 /* loaded from: classes7.dex */
 public class f {
     public int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int[] f43085b;
+    public int[] b;
 
     public static f a(d dVar) throws IOException {
         b.a(dVar, 1835009);
+        int b = dVar.b();
         int b2 = dVar.b();
         int b3 = dVar.b();
-        int b4 = dVar.b();
         dVar.b();
+        int b4 = dVar.b();
         int b5 = dVar.b();
-        int b6 = dVar.b();
         f fVar = new f();
-        fVar.a = dVar.b(b3);
-        if (b4 != 0) {
-            dVar.b(b4);
+        fVar.a = dVar.b(b2);
+        if (b3 != 0) {
+            dVar.b(b3);
         }
-        int i = (b6 == 0 ? b2 : b6) - b5;
+        int i = (b5 == 0 ? b : b5) - b4;
         if (i % 4 == 0) {
-            fVar.f43085b = dVar.b(i / 4);
-            if (b6 != 0) {
-                int i2 = b2 - b6;
+            fVar.b = dVar.b(i / 4);
+            if (b5 != 0) {
+                int i2 = b - b5;
                 if (i2 % 4 == 0) {
                     dVar.b(i2 / 4);
                 } else {
@@ -43,11 +41,11 @@ public class f {
             return null;
         }
         int i2 = iArr[i];
-        int a = a(this.f43085b, i2);
+        int a = a(this.b, i2);
         StringBuilder sb = new StringBuilder(a);
         while (a != 0) {
             i2 += 2;
-            sb.append((char) a(this.f43085b, i2));
+            sb.append((char) a(this.b, i2));
             a--;
         }
         return sb.toString();

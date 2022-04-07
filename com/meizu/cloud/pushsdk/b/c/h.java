@@ -6,53 +6,35 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class h extends j {
     public static final g a = g.a("multipart/mixed");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f41956b = g.a("multipart/alternative");
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final g f41957c = g.a("multipart/digest");
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final g f41958d = g.a("multipart/parallel");
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final g f41959e = g.a(IMAudioTransRequest.CONTENT_TYPE);
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final byte[] f41960f = {58, 32};
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f41961g = {13, 10};
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f41962h = {45, 45};
+    public static final g b = g.a("multipart/alternative");
+    public static final g c = g.a("multipart/digest");
+    public static final g d = g.a("multipart/parallel");
+    public static final g e = g.a(IMAudioTransRequest.CONTENT_TYPE);
+    public static final byte[] f = {58, 32};
+    public static final byte[] g = {13, 10};
+    public static final byte[] h = {45, 45};
     public final com.meizu.cloud.pushsdk.b.g.e i;
     public final g j;
     public final g k;
     public final List<b> l;
     public long m = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public final com.meizu.cloud.pushsdk.b.g.e a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public g f41963b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final List<b> f41964c;
+        public g b;
+        public final List<b> c;
 
         public a() {
             this(UUID.randomUUID().toString());
         }
 
         public a(String str) {
-            this.f41963b = h.a;
-            this.f41964c = new ArrayList();
+            this.b = h.a;
+            this.c = new ArrayList();
             this.a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
@@ -63,7 +45,7 @@ public final class h extends j {
         public a a(g gVar) {
             if (gVar != null) {
                 if (gVar.a().equals("multipart")) {
-                    this.f41963b = gVar;
+                    this.b = gVar;
                     return this;
                 }
                 throw new IllegalArgumentException("multipart != " + gVar);
@@ -73,30 +55,28 @@ public final class h extends j {
 
         public a a(b bVar) {
             if (bVar != null) {
-                this.f41964c.add(bVar);
+                this.c.add(bVar);
                 return this;
             }
             throw new NullPointerException("part == null");
         }
 
         public h a() {
-            if (this.f41964c.isEmpty()) {
+            if (this.c.isEmpty()) {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
-            return new h(this.a, this.f41963b, this.f41964c);
+            return new h(this.a, this.b, this.c);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public final c a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final j f41965b;
+        public final j b;
 
         public b(c cVar, j jVar) {
             this.a = cVar;
-            this.f41965b = jVar;
+            this.b = jVar;
         }
 
         public static b a(c cVar, j jVar) {
@@ -137,39 +117,39 @@ public final class h extends j {
         for (int i = 0; i < size; i++) {
             b bVar2 = this.l.get(i);
             c cVar2 = bVar2.a;
-            j jVar = bVar2.f41965b;
-            cVar.c(f41962h);
+            j jVar = bVar2.b;
+            cVar.c(h);
             cVar.b(this.i);
-            cVar.c(f41961g);
+            cVar.c(g);
             if (cVar2 != null) {
                 int a2 = cVar2.a();
                 for (int i2 = 0; i2 < a2; i2++) {
-                    cVar.b(cVar2.a(i2)).c(f41960f).b(cVar2.b(i2)).c(f41961g);
+                    cVar.b(cVar2.a(i2)).c(f).b(cVar2.b(i2)).c(g);
                 }
             }
             g a3 = jVar.a();
             if (a3 != null) {
-                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(f41961g);
+                cVar.b(Part.CONTENT_TYPE).b(a3.toString()).c(g);
             }
             long b2 = jVar.b();
             if (b2 != -1) {
-                cVar.b("Content-Length: ").e(b2).c(f41961g);
+                cVar.b("Content-Length: ").e(b2).c(g);
             } else if (z) {
                 bVar.j();
                 return -1L;
             }
-            cVar.c(f41961g);
+            cVar.c(g);
             if (z) {
                 j += b2;
             } else {
                 jVar.a(cVar);
             }
-            cVar.c(f41961g);
+            cVar.c(g);
         }
-        cVar.c(f41962h);
+        cVar.c(h);
         cVar.b(this.i);
-        cVar.c(f41962h);
-        cVar.c(f41961g);
+        cVar.c(h);
+        cVar.c(g);
         if (z) {
             long a4 = j + bVar.a();
             bVar.j();

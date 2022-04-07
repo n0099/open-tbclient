@@ -128,8 +128,8 @@ public class AdDownloadController implements DownloadController {
             builder.setEnableAH(jSONObject.optInt("enable_ah", 1) == 1);
             builder.setEnableAM(jSONObject.optInt("enable_am", 1) == 1);
             builder.setExtraJson(jSONObject.optJSONObject("extra"));
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadController fromJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadController fromJson");
         }
         return builder.build();
     }
@@ -265,8 +265,8 @@ public class AdDownloadController implements DownloadController {
                 i = 0;
             }
             jSONObject.putOpt("enable_am", Integer.valueOf(i));
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadController toJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadController toJson");
         }
         return jSONObject;
     }

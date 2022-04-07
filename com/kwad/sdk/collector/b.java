@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a implements com.kwad.sdk.collector.a {
         public static String a(String str) {
             int lastIndexOf = str.lastIndexOf("/");
@@ -68,10 +68,10 @@ public class b {
                 }
                 com.kwad.sdk.collector.model.kwai.a aVar2 = (com.kwad.sdk.collector.model.kwai.a) aVar;
                 String a = aVar2.a();
-                Set<String> b2 = aVar2.b();
-                com.kwad.sdk.collector.model.kwai.b c2 = aVar2.c();
-                if (c2 != null) {
-                    for (String str4 : b2) {
+                Set<String> b = aVar2.b();
+                com.kwad.sdk.collector.model.kwai.b c = aVar2.c();
+                if (c != null) {
+                    for (String str4 : b) {
                         int i4 = 0;
                         if (str4.endsWith(AppStatusRules.SUFFIX_ALL_CHILDREN)) {
                             File file4 = new File(file3, str4.replace(AppStatusRules.SUFFIX_ALL_CHILDREN, ""));
@@ -84,7 +84,7 @@ public class b {
                                         strArr = list;
                                         i2 = length;
                                         file = file4;
-                                        a(c2, file5.lastModified(), arrayList, currentTimeMillis, strategy);
+                                        a(c, file5.lastModified(), arrayList, currentTimeMillis, strategy);
                                     } else {
                                         i = i4;
                                         strArr = list;
@@ -117,7 +117,7 @@ public class b {
                                             file2 = file6;
                                             str2 = replace;
                                             str3 = str5;
-                                            a(c2, file7.lastModified(), arrayList, currentTimeMillis, strategy);
+                                            a(c, file7.lastModified(), arrayList, currentTimeMillis, strategy);
                                             i4 = i3 + 1;
                                             length2 = i5;
                                             file6 = file2;
@@ -145,7 +145,7 @@ public class b {
                         } else if (str4.startsWith(a)) {
                             File file8 = new File(file3, str4);
                             if (file8.exists()) {
-                                a(c2, file8.lastModified(), arrayList, currentTimeMillis, strategy);
+                                a(c, file8.lastModified(), arrayList, currentTimeMillis, strategy);
                             }
                         }
                     }
@@ -167,11 +167,11 @@ public class b {
                     return arrayList;
                 }
                 com.kwad.sdk.collector.model.kwai.c cVar = (com.kwad.sdk.collector.model.kwai.c) dVar;
-                List<String> b2 = cVar.b();
-                if (b2 != null) {
+                List<String> b = cVar.b();
+                if (b != null) {
                     String a = cVar.a();
                     if (new File(str, a).exists()) {
-                        for (String str2 : b2) {
+                        for (String str2 : b) {
                             String a2 = a(str2);
                             int i = 0;
                             if (str2.endsWith(AppStatusRules.SUFFIX_ALL_CHILDREN)) {
@@ -209,8 +209,8 @@ public class b {
     }
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1949b implements com.kwad.sdk.collector.a {
+    /* loaded from: classes5.dex */
+    public static class C0289b implements com.kwad.sdk.collector.a {
         @Override // com.kwad.sdk.collector.a
         public List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
             ArrayList arrayList = new ArrayList();
@@ -255,6 +255,6 @@ public class b {
     }
 
     public static com.kwad.sdk.collector.a a() {
-        return com.kwad.sdk.core.config.b.ai() ? new C1949b() : new a();
+        return com.kwad.sdk.core.config.b.ai() ? new C0289b() : new a();
     }
 }

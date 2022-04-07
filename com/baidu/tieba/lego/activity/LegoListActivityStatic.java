@@ -1,10 +1,5 @@
 package com.baidu.tieba.lego.activity;
 
-import c.a.p0.b2.l;
-import c.a.p0.b2.m.c;
-import c.a.p0.b2.m.e;
-import c.a.p0.b2.o.d;
-import c.a.p0.b2.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,12 +13,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fe7;
+import com.repackage.lc7;
+import com.repackage.mc7;
+import com.repackage.nc7;
+import com.repackage.oc7;
+import com.repackage.ok4;
+import com.repackage.pc7;
+import com.repackage.pk4;
+import com.repackage.qc7;
+import com.repackage.tc7;
+import com.repackage.vc7;
+/* loaded from: classes3.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.a.set(new l());
+        fe7.a.set(new lc7());
         TbConfig.setLegoLibVersion("3.0.0");
-        c.a.p0.b2.o.b.h().g(d.f());
+        tc7.h().g(vc7.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        c.a.p0.b2.m.b.a().b(new e());
-        c.a.p0.b2.m.a.a().b(new c());
-        c.a.p0.b2.m.a.a().b(new c.a.p0.b2.m.d());
-        c.a.o0.b.c.a.set(c.a.p0.b2.m.b.a());
-        c.a.o0.b.b.a.set(c.a.p0.b2.m.a.a());
+        nc7.a().b(new qc7());
+        mc7.a().b(new oc7());
+        mc7.a().b(new pc7());
+        pk4.a.set(nc7.a());
+        ok4.a.set(mc7.a());
     }
 
     public LegoListActivityStatic() {

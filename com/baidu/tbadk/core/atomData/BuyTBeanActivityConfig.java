@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -29,13 +29,13 @@ public class BuyTBeanActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuyTBeanActivityConfig(Context context, float f2) {
+    public BuyTBeanActivityConfig(Context context, float f) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2)};
+            Object[] objArr = {context, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public class BuyTBeanActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_tbean", f2);
+        getIntent().putExtra("gift_tbean", f);
     }
 
     public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i) {
@@ -88,13 +88,13 @@ public class BuyTBeanActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuyTBeanActivityConfig(Context context, float f2, int i, String str, PageDialogHelper$PayForm pageDialogHelper$PayForm) {
+    public BuyTBeanActivityConfig(Context context, float f, int i, String str, PageDialogHelper$PayForm pageDialogHelper$PayForm) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i), str, pageDialogHelper$PayForm};
+            Object[] objArr = {context, Float.valueOf(f), Integer.valueOf(i), str, pageDialogHelper$PayForm};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -105,7 +105,7 @@ public class BuyTBeanActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_tbean", f2);
+        getIntent().putExtra("gift_tbean", f);
         getIntent().putExtra("scene_id", str);
         getIntent().putExtra("pay_type", i);
         getIntent().putExtra(PAY_FORM, pageDialogHelper$PayForm);

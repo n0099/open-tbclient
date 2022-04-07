@@ -2,7 +2,6 @@ package com.baidu.tieba.forumsearch.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.p0.e1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
@@ -12,11 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.nc6;
+/* loaded from: classes3.dex */
 public class ForumSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b mController;
+    public nc6 mController;
 
     public ForumSearchActivity() {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class ForumSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            b bVar = new b(getPageContext());
-            this.mController = bVar;
-            setContentView(bVar.o().f13771b);
+            nc6 nc6Var = new nc6(getPageContext());
+            this.mController = nc6Var;
+            setContentView(nc6Var.o().b);
             Intent intent = getIntent();
             if (intent != null) {
-                this.mController.w(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
-                this.mController.x(intent.getLongExtra("extra_key_live_id", 0L));
-                this.mController.E(intent.getStringExtra("extra_key_yy_anchor_bduid"));
-                this.mController.B((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
-                this.mController.u((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
-                this.mController.C(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
-                this.mController.D(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
-                this.mController.y(intent.getStringExtra("more_forum_img"));
-                this.mController.A(intent.getStringExtra("more_forum_url"));
-                this.mController.z(intent.getStringExtra("more_forum_title"));
+                this.mController.x(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
+                this.mController.y(intent.getLongExtra("extra_key_live_id", 0L));
+                this.mController.F(intent.getStringExtra("extra_key_yy_anchor_bduid"));
+                this.mController.C((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
+                this.mController.v((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
+                this.mController.D(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
+                this.mController.E(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
+                this.mController.z(intent.getStringExtra("more_forum_img"));
+                this.mController.B(intent.getStringExtra("more_forum_url"));
+                this.mController.A(intent.getStringExtra("more_forum_title"));
             }
         }
     }
@@ -61,7 +61,7 @@ public class ForumSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            this.mController.t();
+            this.mController.u();
         }
     }
 }

@@ -16,8 +16,6 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.o;
-import c.a.d.o.d.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,6 +27,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fo;
+import com.repackage.pi;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -37,7 +37,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BitmapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_2_BITMAP_MUL = 10;
@@ -115,8 +115,8 @@ public class BitmapHelper {
                     }
                 } catch (OutOfMemoryError unused) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
-                } catch (Error e2) {
-                    e2.printStackTrace();
+                } catch (Error e) {
+                    e.printStackTrace();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -146,27 +146,27 @@ public class BitmapHelper {
                                 bitmap = BitmapFactory.decodeStream(byteArrayInputStream, rect, options);
                             }
                             byteArrayInputStream.close();
-                        } catch (OutOfMemoryError e2) {
+                        } catch (OutOfMemoryError e) {
                             TbadkCoreApplication.getInst().onAppMemoryLow();
-                            e2.printStackTrace();
+                            e.printStackTrace();
                             byteArrayInputStream.close();
                         }
-                    } catch (Error e3) {
+                    } catch (Error e2) {
+                        e2.printStackTrace();
+                        byteArrayInputStream.close();
+                    } catch (Exception e3) {
                         e3.printStackTrace();
                         byteArrayInputStream.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                        byteArrayInputStream.close();
                     }
-                } catch (IOException e5) {
-                    BdLog.d(e5.getMessage());
+                } catch (IOException e4) {
+                    BdLog.d(e4.getMessage());
                 }
                 return bitmap;
             } catch (Throwable th) {
                 try {
                     byteArrayInputStream.close();
-                } catch (IOException e6) {
-                    BdLog.d(e6.getMessage());
+                } catch (IOException e5) {
+                    BdLog.d(e5.getMessage());
                 }
                 throw th;
             }
@@ -199,16 +199,16 @@ public class BitmapHelper {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
-    public static a checkIsValidPhotoMemoryCache(String str, a aVar, int i, int i2) {
+    public static fo checkIsValidPhotoMemoryCache(String str, fo foVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, aVar, i, i2)) == null) ? aVar : (a) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, foVar, i, i2)) == null) ? foVar : (fo) invokeLLII.objValue;
     }
 
-    public static a checkIsValidPicMemoryCache(String str, a aVar, int i, int i2) {
+    public static fo checkIsValidPicMemoryCache(String str, fo foVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, aVar, i, i2)) == null) ? aVar : (a) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, foVar, i, i2)) == null) ? foVar : (fo) invokeLLII.objValue;
     }
 
     public static void clearCashBitmap() {
@@ -255,16 +255,16 @@ public class BitmapHelper {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap fastblur(Bitmap bitmap, int i, float f2) {
+    public static Bitmap fastblur(Bitmap bitmap, int i, float f) {
         InterceptResult invokeCommon;
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bitmap, Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bitmap, Integer.valueOf(i), Float.valueOf(f)})) == null) {
             int i2 = i;
-            if (i2 < 1 || bitmap == null || f2 <= 0.0f) {
+            if (i2 < 1 || bitmap == null || f <= 0.0f) {
                 return null;
             }
-            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, Math.round(bitmap.getWidth() * f2), Math.round(bitmap.getHeight() * f2), false);
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, Math.round(bitmap.getWidth() * f), Math.round(bitmap.getHeight() * f), false);
             Bitmap copy = createScaledBitmap.copy(createScaledBitmap.getConfig(), true);
             int width = copy.getWidth();
             int height = copy.getHeight();
@@ -677,19 +677,19 @@ public class BitmapHelper {
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
                 int width = bitmap.getWidth();
-                float f2 = i2;
+                float f = i2;
                 float height = bitmap.getHeight();
-                float f3 = f2 / height;
-                float f4 = i;
-                float f5 = width;
-                float f6 = f4 / f5;
-                if (f3 < f6) {
-                    f3 = f6;
+                float f2 = f / height;
+                float f3 = i;
+                float f4 = width;
+                float f5 = f3 / f4;
+                if (f2 < f5) {
+                    f2 = f5;
                 }
                 synchronized (lockForSyncImageDecoder) {
                     Matrix matrix = new Matrix();
-                    matrix.postScale(f3, f3);
-                    matrix.postTranslate((f4 - (f5 * f3)) / 2.0f, (f2 - (height * f3)) / 2.0f);
+                    matrix.postScale(f2, f2);
+                    matrix.postTranslate((f3 - (f4 * f2)) / 2.0f, (f - (height * f2)) / 2.0f);
                     try {
                         bitmap2 = Bitmap.createBitmap(i, i2, bitmap.getConfig());
                         try {
@@ -726,14 +726,14 @@ public class BitmapHelper {
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
-                float f2 = i2 / height;
-                float f3 = i / width;
-                if (f2 > f3) {
-                    f2 = f3;
+                float f = i2 / height;
+                float f2 = i / width;
+                if (f > f2) {
+                    f = f2;
                 }
                 synchronized (lockForSyncImageDecoder) {
                     Matrix matrix = new Matrix();
-                    matrix.postScale(f2, f2);
+                    matrix.postScale(f, f);
                     createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
                 }
                 return createBitmap;
@@ -743,10 +743,10 @@ public class BitmapHelper {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float f2, boolean z) {
+    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float f, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{bitmap, Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{bitmap, Float.valueOf(f), Boolean.valueOf(z)})) == null) {
             Bitmap bitmap2 = null;
             try {
                 synchronized (lockForSyncImageDecoder) {
@@ -758,7 +758,7 @@ public class BitmapHelper {
                     paint.setAntiAlias(true);
                     canvas.drawARGB(0, 0, 0, 0);
                     paint.setColor(-12434878);
-                    canvas.drawRoundRect(rectF, f2, f2, paint);
+                    canvas.drawRoundRect(rectF, f, f, paint);
                     paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
                     canvas.drawBitmap(bitmap, rect, rect, paint);
                 }
@@ -847,7 +847,7 @@ public class BitmapHelper {
                             options.inJustDecodeBounds = false;
                             FileInputStream fileInputStream = new FileInputStream(file);
                             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, options);
-                            o.e(fileInputStream);
+                            pi.e(fileInputStream);
                             return decodeStream;
                         } catch (Throwable th) {
                             th = th;
@@ -855,7 +855,7 @@ public class BitmapHelper {
                             try {
                                 throw th;
                             } catch (Throwable unused) {
-                                o.e(inputStream);
+                                pi.e(inputStream);
                                 return null;
                             }
                         }
@@ -893,7 +893,7 @@ public class BitmapHelper {
                             if (str.length() > 0 && i > 0 && i2 > 0) {
                                 File file = new File(str);
                                 if (!file.exists()) {
-                                    o.e(null);
+                                    pi.e(null);
                                     return null;
                                 }
                                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -902,7 +902,7 @@ public class BitmapHelper {
                                 FileInputStream fileInputStream = new FileInputStream(file);
                                 BitmapFactory.decodeStream(fileInputStream, null, options);
                                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                                o.e(fileInputStream);
+                                pi.e(fileInputStream);
                                 while (true) {
                                     int i4 = i3 * 2;
                                     if (options.outWidth / i4 <= i && options.outHeight / i4 <= i2) {
@@ -911,7 +911,7 @@ public class BitmapHelper {
                                         FileInputStream fileInputStream2 = new FileInputStream(file);
                                         try {
                                             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                            o.e(fileInputStream2);
+                                            pi.e(fileInputStream2);
                                             return decodeStream;
                                         } catch (Throwable th) {
                                             th = th;
@@ -919,7 +919,7 @@ public class BitmapHelper {
                                             try {
                                                 throw th;
                                             } catch (Throwable unused) {
-                                                o.e(interceptable);
+                                                pi.e(interceptable);
                                                 return null;
                                             }
                                         }
@@ -932,7 +932,7 @@ public class BitmapHelper {
                             interceptable = 0;
                         }
                     }
-                    o.e(null);
+                    pi.e(null);
                     return null;
                 } catch (Throwable th3) {
                     th = th3;
@@ -983,14 +983,14 @@ public class BitmapHelper {
             if ((bitmap.getWidth() > i || bitmap.getHeight() > i2) && bitmap.getWidth() > 0 && bitmap.getHeight() > 0) {
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
-                float f2 = i2 / height;
-                float f3 = i / width;
-                if (f2 > f3) {
-                    f2 = f3;
+                float f = i2 / height;
+                float f2 = i / width;
+                if (f > f2) {
+                    f = f2;
                 }
                 synchronized (lockForSyncImageDecoder) {
                     Matrix matrix = new Matrix();
-                    matrix.postScale(f2, f2);
+                    matrix.postScale(f, f);
                     createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
                     if (createBitmap != bitmap && z) {
                         bitmap.recycle();
@@ -1022,17 +1022,17 @@ public class BitmapHelper {
             }
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            float f2 = i / width;
-            float f3 = i2 / height;
-            if (f2 <= f3) {
-                f2 = f3;
+            float f = i / width;
+            float f2 = i2 / height;
+            if (f <= f2) {
+                f = f2;
             }
-            if (f2 >= 1.0f) {
+            if (f >= 1.0f) {
                 return bitmap;
             }
             synchronized (lockForSyncImageDecoder) {
                 Matrix matrix = new Matrix();
-                matrix.postScale(f2, f2);
+                matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
                 if (createBitmap != bitmap) {
                     bitmap.recycle();
@@ -1144,7 +1144,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        o.e(GetStreamFromFile);
+                        pi.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -1152,7 +1152,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(str);
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                o.e(GetStreamFromFile2);
+                                pi.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }
@@ -1180,7 +1180,7 @@ public class BitmapHelper {
                         InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(new File(str));
                         BitmapFactory.decodeStream(GetStreamFromFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        o.e(GetStreamFromFile);
+                        pi.e(GetStreamFromFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
@@ -1188,7 +1188,7 @@ public class BitmapHelper {
                                 options.inSampleSize = i2;
                                 InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(new File(str));
                                 decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                o.e(GetStreamFromFile2);
+                                pi.e(GetStreamFromFile2);
                             }
                             i2 = i3;
                         }
@@ -1254,7 +1254,7 @@ public class BitmapHelper {
                                 FileInputStream fileInputStream2 = new FileInputStream(file);
                                 try {
                                     Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
-                                    o.e(fileInputStream2);
+                                    pi.e(fileInputStream2);
                                     return decodeStream;
                                 } catch (Throwable th) {
                                     fileInputStream = fileInputStream2;
@@ -1264,7 +1264,7 @@ public class BitmapHelper {
                                             try {
                                                 break;
                                             } catch (Throwable unused) {
-                                                o.e(fileInputStream);
+                                                pi.e(fileInputStream);
                                                 return null;
                                             }
                                         } catch (Throwable th2) {
@@ -1274,7 +1274,7 @@ public class BitmapHelper {
                                     throw th;
                                 }
                             }
-                            o.e(null);
+                            pi.e(null);
                             return null;
                         }
                     } catch (Throwable th3) {
@@ -1282,7 +1282,7 @@ public class BitmapHelper {
                         fileInputStream = null;
                     }
                 }
-                o.e(null);
+                pi.e(null);
                 return null;
             }
         } catch (Throwable unused2) {
@@ -1312,19 +1312,19 @@ public class BitmapHelper {
                 return bitmap;
             }
             int width = bitmap.getWidth();
-            float f2 = i2;
+            float f = i2;
             float height = bitmap.getHeight();
-            float f3 = f2 / height;
-            float f4 = i;
-            float f5 = width;
-            float f6 = f4 / f5;
-            if (f3 < f6) {
-                f3 = f6;
+            float f2 = f / height;
+            float f3 = i;
+            float f4 = width;
+            float f5 = f3 / f4;
+            if (f2 < f5) {
+                f2 = f5;
             }
             synchronized (lockForSyncImageDecoder) {
                 Matrix matrix = new Matrix();
-                matrix.postScale(f3, f3);
-                matrix.postTranslate((f4 - (f5 * f3)) / 2.0f, (f2 - (height * f3)) / 2.0f);
+                matrix.postScale(f2, f2);
+                matrix.postTranslate((f3 - (f4 * f2)) / 2.0f, (f - (height * f2)) / 2.0f);
                 createBitmap = Bitmap.createBitmap(i, i2, bitmap.getConfig());
                 new Canvas(createBitmap).drawBitmap(bitmap, matrix, null);
             }

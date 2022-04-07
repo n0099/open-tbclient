@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.kwad.yoga.YogaNodeJNIBase;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Base64 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte INTERNAL_PADDING = 35;
@@ -64,13 +64,13 @@ public class Base64 implements INoProGuard {
             int i2 = 0;
             int i3 = 0;
             boolean z = false;
-            for (byte b2 : bArr) {
-                if (b2 == 35) {
+            for (byte b : bArr) {
+                if (b == 35) {
                     z = true;
-                } else if (((48 > b2 || b2 > 57) && ((65 > b2 || b2 > 90) && !((97 <= b2 && b2 <= 122) || b2 == 43 || b2 == 47))) || z) {
+                } else if (((48 > b || b > 57) && ((65 > b || b > 90) && !((97 <= b && b <= 122) || b == 43 || b == 47))) || z) {
                     return null;
                 } else {
-                    bArr2[i3] = base64DecMap[b2];
+                    bArr2[i3] = base64DecMap[b];
                     i3++;
                 }
             }

@@ -13,15 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f31321b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int[] f31322c;
+    public static final String[] b;
+    public static final int[] c;
     public transient /* synthetic */ FieldHolder $fh;
     public Fragment[] a;
 
@@ -38,8 +34,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        f31321b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11ad), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11ae)};
-        f31322c = new int[]{100, 200};
+        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11b5), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11b6)};
+        c = new int[]{100, 200};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,8 +58,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
         }
         Fragment[] fragmentArr = new Fragment[2];
         this.a = fragmentArr;
-        fragmentArr[0] = AlaRecentHistoryFragment.H0(0);
-        this.a[1] = AlaRecentHistoryFragment.H0(1);
+        fragmentArr[0] = AlaRecentHistoryFragment.G0(0);
+        this.a[1] = AlaRecentHistoryFragment.G0(1);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -87,13 +83,13 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     public int getPageType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? f31322c[i] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? c[i] : invokeI.intValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? f31321b[i] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b[i] : (String) invokeI.objValue;
     }
 }

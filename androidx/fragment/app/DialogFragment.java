@@ -254,11 +254,11 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
             if (this.mShowsDialog) {
-                View view = getView();
+                View view2 = getView();
                 if (this.mDialog != null) {
-                    if (view != null) {
-                        if (view.getParent() == null) {
-                            this.mDialog.setContentView(view);
+                    if (view2 != null) {
+                        if (view2.getParent() == null) {
+                            this.mDialog.setContentView(view2);
                         } else {
                             throw new IllegalStateException("DialogFragment can not be attached to a container view");
                         }

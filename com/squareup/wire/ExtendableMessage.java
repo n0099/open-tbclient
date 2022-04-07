@@ -50,14 +50,14 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
             return (E) invokeL.objValue;
         }
 
-        public <E> ExtendableBuilder<T> setExtension(Extension<T, E> extension, E e2) {
+        public <E> ExtendableBuilder<T> setExtension(Extension<T, E> extension, E e) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extension, e2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extension, e)) == null) {
                 if (this.extensionMap == null) {
                     this.extensionMap = new ExtensionMap<>();
                 }
-                this.extensionMap.put(extension, e2);
+                this.extensionMap.put(extension, e);
                 return this;
             }
             return (ExtendableBuilder) invokeLL.objValue;

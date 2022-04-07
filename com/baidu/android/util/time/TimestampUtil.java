@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TimestampUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static long SECONDUNIT = 1000;
@@ -64,8 +64,8 @@ public final class TimestampUtil {
         }
         try {
             mDelta = Long.parseLong(str) - (System.currentTimeMillis() / SECONDUNIT);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             mDelta = 0L;
         }
     }

@@ -23,7 +23,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "iloc";
@@ -275,7 +275,7 @@ public class ItemLocationBox extends AbstractFullBox {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) ? new Item(this, byteBuffer) : (Item) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class Extent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,7 +393,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class Item {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

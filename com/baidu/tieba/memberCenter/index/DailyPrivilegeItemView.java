@@ -12,26 +12,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DailyPrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34462b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34463c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f34464d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public PrivilegeTextView f34465e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f34466f;
+    public View b;
+    public TbImageView c;
+    public TbImageView d;
+    public PrivilegeTextView e;
+    public TextView f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeItemView(Context context) {
@@ -58,15 +48,15 @@ public class DailyPrivilegeItemView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e7, this);
-            this.f34462b = inflate;
-            this.f34463c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091904);
-            TbImageView tbImageView = (TbImageView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091912);
-            this.f34464d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f34464d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f34465e = (PrivilegeTextView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091913);
-            this.f34466f = (TextView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091903);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e4, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918f7);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091905);
+            this.d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091906);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918f6);
         }
     }
 

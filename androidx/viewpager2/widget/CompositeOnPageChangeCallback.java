@@ -58,22 +58,22 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
                     onPageChangeCallback.onPageScrollStateChanged(i);
                 }
-            } catch (ConcurrentModificationException e2) {
-                throwCallbackListModifiedWhileInUse(e2);
+            } catch (ConcurrentModificationException e) {
+                throwCallbackListModifiedWhileInUse(e);
             }
         }
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrolled(int i, float f2, @Px int i2) {
+    public void onPageScrolled(int i, float f, @Px int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
             try {
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
-                    onPageChangeCallback.onPageScrolled(i, f2, i2);
+                    onPageChangeCallback.onPageScrolled(i, f, i2);
                 }
-            } catch (ConcurrentModificationException e2) {
-                throwCallbackListModifiedWhileInUse(e2);
+            } catch (ConcurrentModificationException e) {
+                throwCallbackListModifiedWhileInUse(e);
             }
         }
     }
@@ -86,8 +86,8 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
                     onPageChangeCallback.onPageSelected(i);
                 }
-            } catch (ConcurrentModificationException e2) {
-                throwCallbackListModifiedWhileInUse(e2);
+            } catch (ConcurrentModificationException e) {
+                throwCallbackListModifiedWhileInUse(e);
             }
         }
     }

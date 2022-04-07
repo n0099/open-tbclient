@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConnectivityMonitor";
@@ -96,9 +96,9 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         try {
             this.context.registerReceiver(this.connectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             this.isRegistered = true;
-        } catch (SecurityException e2) {
+        } catch (SecurityException e) {
             if (Log.isLoggable("ConnectivityMonitor", 5)) {
-                Log.w("ConnectivityMonitor", "Failed to register", e2);
+                Log.w("ConnectivityMonitor", "Failed to register", e);
             }
         }
     }
@@ -119,9 +119,9 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
                 return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            } catch (RuntimeException e2) {
+            } catch (RuntimeException e) {
                 if (Log.isLoggable("ConnectivityMonitor", 5)) {
-                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e2);
+                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e);
                 }
                 return true;
             }

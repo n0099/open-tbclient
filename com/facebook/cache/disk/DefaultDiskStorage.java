@@ -3,6 +3,7 @@ package com.facebook.cache.disk;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
@@ -52,14 +53,14 @@ public class DefaultDiskStorage implements DiskStorage {
     public final File mVersionDirectory;
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +137,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,13 +220,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +257,7 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,8 +306,8 @@ public class DefaultDiskStorage implements DiskStorage {
                         contentFileFor.setLastModified(this.this$0.mClock.now());
                     }
                     return FileBinaryResource.createOrNull(contentFileFor);
-                } catch (FileUtils.RenameException e2) {
-                    Throwable cause = e2.getCause();
+                } catch (FileUtils.RenameException e) {
+                    Throwable cause = e.getCause();
                     if (cause != null) {
                         if (!(cause instanceof FileUtils.ParentDirNotFoundException)) {
                             if (cause instanceof FileNotFoundException) {
@@ -320,8 +321,8 @@ public class DefaultDiskStorage implements DiskStorage {
                     } else {
                         cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_RENAME_FILE_OTHER;
                     }
-                    this.this$0.mCacheErrorLogger.logError(cacheErrorCategory, DefaultDiskStorage.TAG, "commit", e2);
-                    throw e2;
+                    this.this$0.mCacheErrorLogger.logError(cacheErrorCategory, DefaultDiskStorage.TAG, "commit", e);
+                    throw e;
                 }
             }
             return (BinaryResource) invokeL.objValue;
@@ -346,15 +347,15 @@ public class DefaultDiskStorage implements DiskStorage {
                         fileOutputStream.close();
                         throw th;
                     }
-                } catch (FileNotFoundException e2) {
-                    this.this$0.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.TAG, "updateResource", e2);
-                    throw e2;
+                } catch (FileNotFoundException e) {
+                    this.this$0.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_UPDATE_FILE_NOT_FOUND, DefaultDiskStorage.TAG, "updateResource", e);
+                    throw e;
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -588,18 +589,18 @@ public class DefaultDiskStorage implements DiskStorage {
             try {
                 try {
                     return file.getCanonicalPath().contains(externalStorageDirectory.toString());
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.OTHER;
                     Class<?> cls = TAG;
                     cacheErrorLogger.logError(cacheErrorCategory, cls, "failed to read folder to check if external: " + ((String) null), e);
                     return false;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
             }
-        } catch (Exception e4) {
-            cacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.OTHER, TAG, "failed to get the external storage directory!", e4);
+        } catch (Exception e3) {
+            cacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.OTHER, TAG, "failed to get the external storage directory!", e3);
             return false;
         }
     }
@@ -609,9 +610,9 @@ public class DefaultDiskStorage implements DiskStorage {
         if (interceptable == null || interceptable.invokeLL(65554, this, file, str) == null) {
             try {
                 FileUtils.mkdirs(file);
-            } catch (FileUtils.CreateDirectoryException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, str, e2);
-                throw e2;
+            } catch (FileUtils.CreateDirectoryException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, str, e);
+                throw e;
             }
         }
     }
@@ -657,7 +658,7 @@ public class DefaultDiskStorage implements DiskStorage {
     private String typeOfBytes(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? NativeConstants.TYPE_GIF : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
@@ -743,9 +744,9 @@ public class DefaultDiskStorage implements DiskStorage {
             }
             try {
                 return new InserterImpl(this, str, fileInfo.createTempFile(subdirectory));
-            } catch (IOException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, TAG, "insert", e2);
-                throw e2;
+            } catch (IOException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, TAG, "insert", e);
+                throw e;
             }
         }
         return (DiskStorage.Inserter) invokeLL.objValue;
@@ -783,7 +784,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

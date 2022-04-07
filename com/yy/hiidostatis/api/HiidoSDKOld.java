@@ -68,7 +68,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HiidoSDKOld implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -112,7 +112,7 @@ public class HiidoSDKOld implements HiidoApi {
     public volatile boolean userAgreed;
 
     /* renamed from: com.yy.hiidostatis.api.HiidoSDKOld$41  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass41 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,12 +214,12 @@ public class HiidoSDKOld implements HiidoApi {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -713,8 +713,8 @@ public class HiidoSDKOld implements HiidoApi {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
                                 Thread.sleep(1000L);
-                            } catch (InterruptedException e2) {
-                                e2.printStackTrace();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
                             }
                             DataTrack.instance.triggerTrack(true);
                         }
@@ -1954,10 +1954,10 @@ public class HiidoSDKOld implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d2) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.32
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HiidoSDKOld this$0;
@@ -1970,7 +1970,7 @@ public class HiidoSDKOld implements HiidoApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d2)};
+                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1983,7 +1983,7 @@ public class HiidoSDKOld implements HiidoApi {
                     this.this$0 = this;
                     this.val$uid = j;
                     this.val$eid = str;
-                    this.val$evalue = d2;
+                    this.val$evalue = d;
                 }
 
                 @Override // java.lang.Runnable
@@ -2296,10 +2296,10 @@ public class HiidoSDKOld implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportLocation(double d2, double d3, double d4) {
+    public void reportLocation(double d, double d2, double d3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, d2, d3, d4) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.47
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, d, d2, d3) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.47
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HiidoSDKOld this$0;
@@ -2312,7 +2312,7 @@ public class HiidoSDKOld implements HiidoApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
+                        Object[] objArr = {this, Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -2323,9 +2323,9 @@ public class HiidoSDKOld implements HiidoApi {
                         }
                     }
                     this.this$0 = this;
-                    this.val$longitude = d2;
-                    this.val$latitude = d3;
-                    this.val$altitude = d4;
+                    this.val$longitude = d;
+                    this.val$latitude = d2;
+                    this.val$altitude = d3;
                 }
 
                 @Override // java.lang.Runnable
@@ -3009,10 +3009,10 @@ public class HiidoSDKOld implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d2, str2) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.33
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d, str2) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HiidoSDKOld this$0;
@@ -3026,7 +3026,7 @@ public class HiidoSDKOld implements HiidoApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d2), str2};
+                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d), str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -3039,7 +3039,7 @@ public class HiidoSDKOld implements HiidoApi {
                     this.this$0 = this;
                     this.val$uid = j;
                     this.val$eid = str;
-                    this.val$evalue = d2;
+                    this.val$evalue = d;
                     this.val$label = str2;
                 }
 
@@ -3249,10 +3249,10 @@ public class HiidoSDKOld implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d2, str2, property == null ? null : property.copy()) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.34
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, j, str, d, str2, property == null ? null : property.copy()) { // from class: com.yy.hiidostatis.api.HiidoSDKOld.34
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HiidoSDKOld this$0;
@@ -3267,7 +3267,7 @@ public class HiidoSDKOld implements HiidoApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d2), str2, r13};
+                        Object[] objArr = {this, Long.valueOf(j), str, Double.valueOf(d), str2, r13};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -3280,7 +3280,7 @@ public class HiidoSDKOld implements HiidoApi {
                     this.this$0 = this;
                     this.val$uid = j;
                     this.val$eid = str;
-                    this.val$evalue = d2;
+                    this.val$evalue = d;
                     this.val$label = str2;
                     this.val$pro = r13;
                 }

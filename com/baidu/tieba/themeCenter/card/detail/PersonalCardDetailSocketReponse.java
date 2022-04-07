@@ -1,6 +1,5 @@
 package com.baidu.tieba.themeCenter.card.detail;
 
-import c.a.p0.f4.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aq8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a cardData;
+    public aq8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -35,10 +35,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         }
     }
 
-    public a getCardData() {
+    public aq8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (aq8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,10 +64,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        a aVar = new a();
-        this.cardData = aVar;
+        aq8 aq8Var = new aq8();
+        this.cardData = aq8Var;
         if (personalCardDetailRequest != null) {
-            aVar.m(personalCardDetailRequest.getCardId());
+            aq8Var.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);

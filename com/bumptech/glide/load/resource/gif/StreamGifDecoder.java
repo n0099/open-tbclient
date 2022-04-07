@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamGifDecoder";
@@ -66,9 +66,9 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
                     return byteArrayOutputStream.toByteArray();
                 }
             }
-        } catch (IOException e2) {
+        } catch (IOException e) {
             if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Error reading data from stream", e2);
+                Log.w(TAG, "Error reading data from stream", e);
                 return null;
             }
             return null;

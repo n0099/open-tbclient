@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class x implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public final class x implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 this.a.startService(this.f80a);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a(e2.getMessage());
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a(e.getMessage());
             }
         }
     }

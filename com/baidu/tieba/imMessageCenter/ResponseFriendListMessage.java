@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter;
 
 import android.text.TextUtils;
-import c.a.o0.s.f.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
@@ -12,14 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jy4;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<a> friendList;
+    public LinkedList<jy4> friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseFriendListMessage(int i) {
@@ -57,22 +57,22 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            a aVar = new a();
-                            aVar.o(metaData.getUserName());
-                            aVar.p(metaData.getName_show());
-                            aVar.q(metaData.getPortrait());
-                            aVar.n(metaData.getUserIdLong());
-                            this.friendList.add(aVar);
+                            jy4 jy4Var = new jy4();
+                            jy4Var.o(metaData.getUserName());
+                            jy4Var.p(metaData.getName_show());
+                            jy4Var.q(metaData.getPortrait());
+                            jy4Var.n(metaData.getUserIdLong());
+                            this.friendList.add(jy4Var);
                         }
                     }
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }
 
-    public LinkedList<a> getFriendList() {
+    public LinkedList<jy4> getFriendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendList : (LinkedList) invokeV.objValue;

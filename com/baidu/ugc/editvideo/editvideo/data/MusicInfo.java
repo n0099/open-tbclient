@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MusicInfo implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MusicInfo> CREATOR;
@@ -139,7 +139,7 @@ public class MusicInfo implements Parcelable, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MusicInfo m94clone() {
+    public MusicInfo m90clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

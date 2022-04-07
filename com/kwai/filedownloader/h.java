@@ -14,20 +14,20 @@ import com.kwai.filedownloader.message.MessageSnapshot;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<a.b> a;
 
     /* renamed from: com.kwai.filedownloader.h$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
@@ -122,26 +122,26 @@ public class h {
         boolean remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, messageSnapshot)) == null) {
-            byte b2 = messageSnapshot.b();
+            byte b = messageSnapshot.b();
             synchronized (this.a) {
                 remove = this.a.remove(bVar);
             }
             if (com.kwai.filedownloader.e.d.a && this.a.size() == 0) {
-                com.kwai.filedownloader.e.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b2), Integer.valueOf(this.a.size()));
+                com.kwai.filedownloader.e.d.e(this, "remove %s left %d %d", bVar, Byte.valueOf(b), Integer.valueOf(this.a.size()));
             }
             if (remove) {
-                t d2 = bVar.G().d();
-                if (b2 == -4) {
-                    d2.g(messageSnapshot);
-                } else if (b2 == -3) {
-                    d2.e(com.kwai.filedownloader.message.f.a(messageSnapshot));
-                } else if (b2 == -2) {
-                    d2.i(messageSnapshot);
-                } else if (b2 == -1) {
-                    d2.h(messageSnapshot);
+                t d = bVar.G().d();
+                if (b == -4) {
+                    d.g(messageSnapshot);
+                } else if (b == -3) {
+                    d.e(com.kwai.filedownloader.message.f.a(messageSnapshot));
+                } else if (b == -2) {
+                    d.i(messageSnapshot);
+                } else if (b == -1) {
+                    d.h(messageSnapshot);
                 }
             } else {
-                com.kwai.filedownloader.e.d.a(this, "remove error, not exist: %s %d", bVar, Byte.valueOf(b2));
+                com.kwai.filedownloader.e.d.a(this, "remove error, not exist: %s %d", bVar, Byte.valueOf(b));
             }
             return remove;
         }

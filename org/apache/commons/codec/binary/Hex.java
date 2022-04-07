@@ -50,10 +50,10 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         return (char[]) invokeL.objValue;
     }
 
-    public static int toDigit(char c2, int i) throws DecoderException {
+    public static int toDigit(char c, int i) throws DecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.intValue;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,13 +124,13 @@ public class b {
         }
     }
 
-    public void c(float f2, float f3, float f4) {
+    public void c(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             com.baidu.ar.vo.c.b bVar = new com.baidu.ar.vo.c.b();
-            bVar.x = f2;
-            bVar.y = f3;
-            bVar.yZ = f4;
+            bVar.x = f;
+            bVar.y = f2;
+            bVar.yZ = f3;
             bVar.type = 2;
             a(bVar);
         }

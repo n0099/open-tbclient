@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BindTestPhoneController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,28 +56,28 @@ public class BindTestPhoneController {
         try {
             sb.append("&sjp=");
             sb.append(URLEncoder.encode(ArdUtil.getSjp(context), "UTF-8"));
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
         try {
             sb.append("&sjm=");
             sb.append(URLEncoder.encode(ArdUtil.getSjm(context), "UTF-8"));
-        } catch (UnsupportedEncodingException e3) {
-            e3.printStackTrace();
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
         }
         sb.append("&sys=");
         sb.append(2);
         try {
             sb.append("&mbos=");
             sb.append(URLEncoder.encode(ArdUtil.getOS(), "UTF-8"));
-        } catch (UnsupportedEncodingException e4) {
-            e4.printStackTrace();
+        } catch (UnsupportedEncodingException e3) {
+            e3.printStackTrace();
         }
         try {
             sb.append("&name=");
             sb.append(URLEncoder.encode(ArdUtil.getDeviceName(context), "UTF-8"));
-        } catch (UnsupportedEncodingException e5) {
-            e5.printStackTrace();
+        } catch (UnsupportedEncodingException e4) {
+            e4.printStackTrace();
         }
         ThreadPool.getPool().execute(new Runnable(sb.toString()) { // from class: com.yy.hiidostatis.defs.controller.BindTestPhoneController.1
             public static /* synthetic */ Interceptable $ic;

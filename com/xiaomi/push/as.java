@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class as implements ar, InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public static final String[][] a;
@@ -42,29 +42,17 @@ public class as implements ar, InvocationHandler {
 
     /* renamed from: a  reason: collision with other field name */
     public Method f111a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Class f44092b;
+    public Class b;
 
     /* renamed from: b  reason: collision with other field name */
     public Method f112b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Method f;
+    public Method g;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Method f44093c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Method f44094d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Method f44095e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Method f44096f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Method f44097g;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,15 +63,9 @@ public class as implements ar, InvocationHandler {
 
         /* renamed from: a  reason: collision with other field name */
         public String f114a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f44098b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f44099c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f44100d;
+        public String b;
+        public String c;
+        public String d;
 
         public a(as asVar) {
             Interceptable interceptable = $ic;
@@ -103,9 +85,9 @@ public class as implements ar, InvocationHandler {
             this.a = asVar;
             this.f113a = null;
             this.f114a = null;
-            this.f44098b = null;
-            this.f44099c = null;
-            this.f44100d = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
         }
 
         public /* synthetic */ a(as asVar, at atVar) {
@@ -116,7 +98,7 @@ public class as implements ar, InvocationHandler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f114a) || !TextUtils.isEmpty(this.f44098b) || !TextUtils.isEmpty(this.f44099c) || !TextUtils.isEmpty(this.f44100d)) {
+                if (!TextUtils.isEmpty(this.f114a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
                     this.f113a = Boolean.TRUE;
                 }
                 return this.f113a != null;
@@ -157,14 +139,14 @@ public class as implements ar, InvocationHandler {
             }
         }
         this.f109a = null;
-        this.f44092b = null;
+        this.b = null;
         this.f111a = null;
         this.f112b = null;
-        this.f44093c = null;
-        this.f44094d = null;
-        this.f44095e = null;
-        this.f44096f = null;
-        this.f44097g = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
         this.f110a = new Object();
         this.f105a = 0;
         this.f106a = 0L;
@@ -262,13 +244,13 @@ public class as implements ar, InvocationHandler {
             }
             this.f109a = a2;
             this.f111a = a(a2, "InitSdk", Context.class, cls);
-            this.f44092b = cls;
+            this.b = cls;
             this.f112b = a(cls2, "getUDID", new Class[0]);
-            this.f44093c = a(cls2, "getOAID", new Class[0]);
-            this.f44094d = a(cls2, "getVAID", new Class[0]);
-            this.f44095e = a(cls2, "getAAID", new Class[0]);
-            this.f44096f = a(cls2, "isSupported", new Class[0]);
-            this.f44097g = a(cls2, "shutDown", new Class[0]);
+            this.c = a(cls2, "getOAID", new Class[0]);
+            this.d = a(cls2, "getVAID", new Class[0]);
+            this.e = a(cls2, "getAAID", new Class[0]);
+            this.f = a(cls2, "isSupported", new Class[0]);
+            this.g = a(cls2, "shutDown", new Class[0]);
         }
     }
 
@@ -315,14 +297,14 @@ public class as implements ar, InvocationHandler {
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long j = -elapsedRealtime;
-            Class cls = this.f44092b;
+            Class cls = this.b;
             if (cls != null) {
                 try {
                     ClassLoader classLoader = cls.getClassLoader();
                     if (classLoader == null) {
                         classLoader = context.getClassLoader();
                     }
-                    a(this.f111a, this.f109a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f44092b}, this));
+                    a(this.f111a, this.f109a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
                 } catch (Throwable th) {
                     b("call init sdk error:" + th);
                 }
@@ -336,7 +318,7 @@ public class as implements ar, InvocationHandler {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m112a("mdid:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m108a("mdid:" + str);
         }
     }
 
@@ -367,7 +349,7 @@ public class as implements ar, InvocationHandler {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo191b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -375,7 +357,7 @@ public class as implements ar, InvocationHandler {
             if (this.f108a == null) {
                 return null;
             }
-            return this.f108a.f44098b;
+            return this.f108a.b;
         }
         return (String) invokeV.objValue;
     }
@@ -389,7 +371,7 @@ public class as implements ar, InvocationHandler {
             if (this.f108a == null) {
                 return null;
             }
-            return this.f108a.f44099c;
+            return this.f108a.c;
         }
         return (String) invokeV.objValue;
     }
@@ -403,7 +385,7 @@ public class as implements ar, InvocationHandler {
             if (this.f108a == null) {
                 return null;
             }
-            return this.f108a.f44100d;
+            return this.f108a.d;
         }
         return (String) invokeV.objValue;
     }
@@ -425,11 +407,11 @@ public class as implements ar, InvocationHandler {
                     Object obj2 = objArr[i];
                     if (obj2 != null && !a(obj2)) {
                         aVar.f114a = (String) a(this.f112b, obj2, new Object[0]);
-                        aVar.f44098b = (String) a(this.f44093c, obj2, new Object[0]);
-                        aVar.f44099c = (String) a(this.f44094d, obj2, new Object[0]);
-                        aVar.f44100d = (String) a(this.f44095e, obj2, new Object[0]);
-                        aVar.f113a = (Boolean) a(this.f44096f, obj2, new Object[0]);
-                        a(this.f44097g, obj2, new Object[0]);
+                        aVar.b = (String) a(this.c, obj2, new Object[0]);
+                        aVar.c = (String) a(this.d, obj2, new Object[0]);
+                        aVar.d = (String) a(this.e, obj2, new Object[0]);
+                        aVar.f113a = (Boolean) a(this.f, obj2, new Object[0]);
+                        a(this.g, obj2, new Object[0]);
                         if (aVar.a()) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("has get succ, check duplicate:");

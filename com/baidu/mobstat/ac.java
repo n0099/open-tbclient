@@ -7,17 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f27160b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f27161c;
+    public String b;
+    public boolean c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -33,8 +29,8 @@ public class ac {
             }
         }
         this.a = false;
-        this.f27160b = "";
-        this.f27161c = false;
+        this.b = "";
+        this.c = false;
     }
 
     public JSONObject a() {
@@ -44,18 +40,18 @@ public class ac {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("SDK_BPLUS_SERVICE", this.a);
+            } catch (JSONException e) {
+                bb.c().b(e);
+            }
+            try {
+                jSONObject.put("SDK_PRODUCT_LY", this.b);
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f27160b);
+                jSONObject.put("SDK_LOCAL_SERVER", this.c);
             } catch (JSONException e3) {
                 bb.c().b(e3);
-            }
-            try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f27161c);
-            } catch (JSONException e4) {
-                bb.c().b(e4);
             }
             return jSONObject;
         }
@@ -78,22 +74,22 @@ public class ac {
             }
         }
         this.a = false;
-        this.f27160b = "";
-        this.f27161c = false;
+        this.b = "";
+        this.c = false;
         try {
             this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+        } catch (Exception e) {
+            bb.c().b(e);
+        }
+        try {
+            this.b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f27160b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e3) {
             bb.c().b(e3);
-        }
-        try {
-            this.f27161c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
-        } catch (Exception e4) {
-            bb.c().b(e4);
         }
     }
 }

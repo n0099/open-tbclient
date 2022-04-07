@@ -1,8 +1,5 @@
 package com.baidu.tbadk.core.util;
 
-import c.a.d.m.d;
-import c.a.d.m.e;
-import c.a.d.m.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
@@ -14,7 +11,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.gn;
+import com.repackage.hn;
+import com.repackage.mn;
+import com.repackage.pg;
+/* loaded from: classes3.dex */
 public class SoLoadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public class SoLoadUtils {
                         }
                     }
                 };
-                j jVar = new j(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
+                mn mnVar = new mn(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$soName;
@@ -92,7 +93,7 @@ public class SoLoadUtils {
                         this.val$soName = str3;
                     }
 
-                    @Override // c.a.d.m.j
+                    @Override // com.repackage.mn
                     public void onSoFileLoaded(String str4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
@@ -101,9 +102,9 @@ public class SoLoadUtils {
                     }
                 };
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(e.a);
+                requestParams.setRunType(hn.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new d(str2, defaultDownloadCallback, jVar));
+                requestParams.addChannel(new gn(str2, defaultDownloadCallback, mnVar));
                 PmsManager.getInstance().execute(requestParams);
                 return;
             }
@@ -114,7 +115,7 @@ public class SoLoadUtils {
     public static void loadPassFaceSo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            c.a.d.f.m.e.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.3
+            pg.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$soName;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Preference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,10 +101,10 @@ public class Preference {
         return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) ? getSharedPreferences(context).getBoolean(str, z) : invokeLLZ.booleanValue;
     }
 
-    public float getPrefFloat(Context context, String str, float f2) {
+    public float getPrefFloat(Context context, String str, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, str, Float.valueOf(f2)})) == null) ? getSharedPreferences(context).getFloat(str, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, str, Float.valueOf(f)})) == null) ? getSharedPreferences(context).getFloat(str, f) : invokeCommon.floatValue;
     }
 
     public int getPrefInt(Context context, String str, int i) {
@@ -143,14 +143,14 @@ public class Preference {
         }
     }
 
-    public void setPrefFloat(Context context, String str, float f2) {
+    public void setPrefFloat(Context context, String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, str, Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, str, Float.valueOf(f)}) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences(context);
             if (Build.VERSION.SDK_INT >= 9) {
-                sharedPreferences.edit().putFloat(str, f2).apply();
+                sharedPreferences.edit().putFloat(str, f).apply();
             } else {
-                sharedPreferences.edit().putFloat(str, f2).commit();
+                sharedPreferences.edit().putFloat(str, f).commit();
             }
         }
     }

@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface ShuffleOrder {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public interface ShuffleOrder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class UnshuffledShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

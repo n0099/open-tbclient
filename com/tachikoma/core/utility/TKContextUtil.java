@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.debug.TKDebuggerUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKContextUtil {
     public static /* synthetic */ Interceptable $ic;
     public static Context ApplicationContext;
@@ -43,8 +43,8 @@ public class TKContextUtil {
                         ApplicationContext = application;
                         return application;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 try {
                     Application application2 = (Application) Class.forName("android.app.AppGlobals").getMethod("getInitialApplication", new Class[0]).invoke(null, null);
@@ -52,8 +52,8 @@ public class TKContextUtil {
                         ApplicationContext = application2;
                         return application2;
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 throw new IllegalStateException("ContextHolder is not initialed, it is recommend to init with application context.");
             }

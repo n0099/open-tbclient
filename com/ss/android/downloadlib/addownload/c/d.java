@@ -13,18 +13,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class d {
     public static volatile d a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f42791b = 0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f42792c = new ConcurrentHashMap<>();
-
-    /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Integer> f42793d = new HashMap<>();
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<String> f42794e = new CopyOnWriteArrayList();
+    public long b = 0;
+    public ConcurrentHashMap<String, e> c = new ConcurrentHashMap<>();
+    public HashMap<String, Integer> d = new HashMap<>();
+    public List<String> e = new CopyOnWriteArrayList();
 
     public static d a() {
         if (a == null) {
@@ -38,22 +30,22 @@ public class d {
     }
 
     public long b() {
-        return this.f42791b;
+        return this.b;
     }
 
     public void c() {
-        this.f42791b = System.currentTimeMillis();
+        this.b = System.currentTimeMillis();
     }
 
     public int b(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        if (this.f42793d == null) {
-            this.f42793d = new HashMap<>();
+        if (this.d == null) {
+            this.d = new HashMap<>();
         }
-        if (this.f42793d.containsKey(str)) {
-            return this.f42793d.get(str).intValue();
+        if (this.d.containsKey(str)) {
+            return this.d.get(str).intValue();
         }
         return 0;
     }
@@ -62,14 +54,14 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f42792c.put(str, eVar);
+        this.c.put(str, eVar);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f42792c.remove(str);
+        this.c.remove(str);
     }
 
     @WorkerThread
@@ -95,8 +87,8 @@ public class d {
             if (file.isFile() && file.exists()) {
                 file.delete();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

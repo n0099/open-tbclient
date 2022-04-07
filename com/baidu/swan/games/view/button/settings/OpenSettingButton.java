@@ -2,9 +2,6 @@ package com.baidu.swan.games.view.button.settings;
 
 import android.content.Context;
 import android.view.View;
-import c.a.n0.a.s1.b.f.e;
-import c.a.n0.a.w0.f;
-import c.a.n0.a.x.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.view.button.base.ApiButton;
@@ -13,7 +10,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.b03;
+import com.repackage.sz1;
+import com.repackage.wl2;
+/* loaded from: classes2.dex */
 public class OpenSettingButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,23 +39,23 @@ public class OpenSettingButton extends ApiButton {
     }
 
     @Override // com.baidu.swan.games.view.button.base.ApiButton, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            u();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            v();
         }
     }
 
-    public void u() {
+    public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g V = f.U().V();
+            sz1 V = wl2.U().V();
             if (V == null) {
-                e.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f019b).G();
+                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f019c).G();
                 return;
             }
-            g.b i = V.i("navigateTo");
-            i.n(g.f7048g, g.i);
+            sz1.b i = V.i("navigateTo");
+            i.n(sz1.g, sz1.i);
             i.k("authority", null).a();
         }
     }

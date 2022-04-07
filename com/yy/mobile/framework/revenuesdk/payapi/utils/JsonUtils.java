@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public class JsonUtils {
                     hashMap.put(next, jSONObject.get(next));
                 }
                 return hashMap;
-            } catch (Exception e2) {
-                RLog.error("JsonUtils", "getMapForJson Exception:" + e2.getLocalizedMessage(), new Object[0]);
+            } catch (Exception e) {
+                RLog.error("JsonUtils", "getMapForJson Exception:" + e.getLocalizedMessage(), new Object[0]);
                 return null;
             }
         }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BORDER = 4;
@@ -51,7 +51,7 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public YogaNodeJNIBase mOwner;
 
     /* renamed from: com.kwad.yoga.YogaNodeJNIBase$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaEdge;
         public static /* synthetic */ Interceptable $ic;
@@ -210,16 +210,16 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @DoNotStrip
-    public final float baseline(float f2, float f3) {
+    public final float baseline(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.mBaselineFunction.baseline(this, f2, f3) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.mBaselineFunction.baseline(this, f, f2) : invokeCommon.floatValue;
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void calculateLayout(float f2, float f3) {
+    public void calculateLayout(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
             for (int i = 0; i < arrayList.size(); i++) {
@@ -233,7 +233,7 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
             for (int i2 = 0; i2 < yogaNodeJNIBaseArr.length; i2++) {
                 jArr[i2] = yogaNodeJNIBaseArr[i2].mNativePointer;
             }
-            YogaNative.jni_YGNodeCalculateLayout(this.mNativePointer, f2, f3, jArr, yogaNodeJNIBaseArr);
+            YogaNative.jni_YGNodeCalculateLayout(this.mNativePointer, f, f2, jArr, yogaNodeJNIBaseArr);
         }
     }
 
@@ -250,8 +250,8 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
                 yogaNodeJNIBase.mNativePointer = jni_YGNodeClone;
                 yogaNodeJNIBase.clearChildren();
                 return yogaNodeJNIBase;
-            } catch (CloneNotSupportedException e2) {
-                throw new RuntimeException(e2);
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
             }
         }
         return (YogaNodeJNIBase) invokeV.objValue;
@@ -749,12 +749,12 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @DoNotStrip
-    public final long measure(float f2, int i, float f3, int i2) {
+    public final long measure(float f, int i, float f2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
             if (isMeasureDefined()) {
-                return this.mMeasureFunction.measure(this, f2, YogaMeasureMode.fromInt(i), f3, YogaMeasureMode.fromInt(i2));
+                return this.mMeasureFunction.measure(this, f, YogaMeasureMode.fromInt(i), f2, YogaMeasureMode.fromInt(i2));
             }
             throw new RuntimeException("Measure function isn't defined!");
         }
@@ -826,10 +826,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setAspectRatio(float f2) {
+    public void setAspectRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048641, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetAspectRatio(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048641, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetAspectRatio(this.mNativePointer, f);
         }
     }
 
@@ -843,10 +843,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setBorder(YogaEdge yogaEdge, float f2) {
+    public void setBorder(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048643, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetBorder(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048643, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetBorder(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
@@ -875,18 +875,18 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setFlex(float f2) {
+    public void setFlex(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048647, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetFlex(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048647, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetFlex(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setFlexBasis(float f2) {
+    public void setFlexBasis(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048648, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetFlexBasis(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048648, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetFlexBasis(this.mNativePointer, f);
         }
     }
 
@@ -899,10 +899,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setFlexBasisPercent(float f2) {
+    public void setFlexBasisPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048650, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetFlexBasisPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048650, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetFlexBasisPercent(this.mNativePointer, f);
         }
     }
 
@@ -915,26 +915,26 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setFlexGrow(float f2) {
+    public void setFlexGrow(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048652, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetFlexGrow(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048652, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetFlexGrow(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setFlexShrink(float f2) {
+    public void setFlexShrink(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048653, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetFlexShrink(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048653, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetFlexShrink(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setHeight(float f2) {
+    public void setHeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048654, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetHeight(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048654, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetHeight(this.mNativePointer, f);
         }
     }
 
@@ -947,10 +947,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setHeightPercent(float f2) {
+    public void setHeightPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048656, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetHeightPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048656, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetHeightPercent(this.mNativePointer, f);
         }
     }
 
@@ -971,10 +971,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMargin(YogaEdge yogaEdge, float f2) {
+    public void setMargin(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048659, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMargin(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048659, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMargin(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
@@ -987,42 +987,42 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMarginPercent(YogaEdge yogaEdge, float f2) {
+    public void setMarginPercent(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048661, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMarginPercent(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048661, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMarginPercent(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMaxHeight(float f2) {
+    public void setMaxHeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048662, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMaxHeight(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048662, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMaxHeight(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMaxHeightPercent(float f2) {
+    public void setMaxHeightPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048663, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMaxHeightPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048663, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMaxHeightPercent(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMaxWidth(float f2) {
+    public void setMaxWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048664, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMaxWidth(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048664, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMaxWidth(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMaxWidthPercent(float f2) {
+    public void setMaxWidthPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048665, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMaxWidthPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048665, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMaxWidthPercent(this.mNativePointer, f);
         }
     }
 
@@ -1036,34 +1036,34 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMinHeight(float f2) {
+    public void setMinHeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048667, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMinHeight(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048667, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMinHeight(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMinHeightPercent(float f2) {
+    public void setMinHeightPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048668, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMinHeightPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048668, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMinHeightPercent(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMinWidth(float f2) {
+    public void setMinWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048669, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMinWidth(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048669, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMinWidth(this.mNativePointer, f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setMinWidthPercent(float f2) {
+    public void setMinWidthPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048670, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetMinWidthPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048670, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetMinWidthPercent(this.mNativePointer, f);
         }
     }
 
@@ -1076,34 +1076,34 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setPadding(YogaEdge yogaEdge, float f2) {
+    public void setPadding(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048672, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetPadding(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048672, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetPadding(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setPaddingPercent(YogaEdge yogaEdge, float f2) {
+    public void setPaddingPercent(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048673, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetPaddingPercent(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048673, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetPaddingPercent(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setPosition(YogaEdge yogaEdge, float f2) {
+    public void setPosition(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048674, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetPosition(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048674, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetPosition(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setPositionPercent(YogaEdge yogaEdge, float f2) {
+    public void setPositionPercent(YogaEdge yogaEdge, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048675, this, yogaEdge, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetPositionPercent(this.mNativePointer, yogaEdge.intValue(), f2);
+        if (interceptable == null || interceptable.invokeLF(1048675, this, yogaEdge, f) == null) {
+            YogaNative.jni_YGNodeStyleSetPositionPercent(this.mNativePointer, yogaEdge.intValue(), f);
         }
     }
 
@@ -1124,10 +1124,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setWidth(float f2) {
+    public void setWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048678, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetWidth(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048678, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetWidth(this.mNativePointer, f);
         }
     }
 
@@ -1140,10 +1140,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setWidthPercent(float f2) {
+    public void setWidthPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048680, this, f2) == null) {
-            YogaNative.jni_YGNodeStyleSetWidthPercent(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048680, this, f) == null) {
+            YogaNative.jni_YGNodeStyleSetWidthPercent(this.mNativePointer, f);
         }
     }
 

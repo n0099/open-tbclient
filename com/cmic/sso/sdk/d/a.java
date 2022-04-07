@@ -15,34 +15,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
     public CopyOnWriteArrayList<Throwable> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f38474b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38475c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f38476d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f38477e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f38478f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f38479g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f38480h;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
     public String i;
     public String j;
     public String k;
@@ -75,13 +61,13 @@ public class a extends g {
                 return;
             }
         }
-        this.f38474b = null;
-        this.f38475c = null;
-        this.f38476d = null;
-        this.f38477e = null;
-        this.f38478f = null;
-        this.f38479g = null;
-        this.f38480h = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
         this.i = null;
         this.j = null;
         this.k = "";
@@ -144,7 +130,7 @@ public class a extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f38474b = str;
+            this.b = str;
         }
     }
 
@@ -200,21 +186,21 @@ public class a extends g {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f38476d = str;
+            this.d = str;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f38477e = str;
+            this.e = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f38478f = str;
+            this.f = str;
         }
     }
 
@@ -263,14 +249,14 @@ public class a extends g {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f38475c = str;
+            this.c = str;
         }
     }
 
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.f38479g = str;
+            this.g = str;
         }
     }
 
@@ -284,7 +270,7 @@ public class a extends g {
     public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f38480h = str;
+            this.h = str;
         }
     }
 
@@ -316,15 +302,15 @@ public class a extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("appid", this.f38474b);
-                jSONObject.put("traceId", this.f38475c);
-                jSONObject.put("appName", this.f38476d);
-                jSONObject.put("appVersion", this.f38477e);
+                jSONObject.put("appid", this.b);
+                jSONObject.put("traceId", this.c);
+                jSONObject.put("appName", this.d);
+                jSONObject.put("appVersion", this.e);
                 jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
                 jSONObject.put("clientType", "android");
-                jSONObject.put("timeOut", this.f38478f);
-                jSONObject.put("requestTime", this.f38479g);
-                jSONObject.put("responseTime", this.f38480h);
+                jSONObject.put("timeOut", this.f);
+                jSONObject.put("requestTime", this.g);
+                jSONObject.put("responseTime", this.h);
                 jSONObject.put("elapsedTime", this.i);
                 jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.j);
                 jSONObject.put("interfaceType", this.k);
@@ -345,8 +331,8 @@ public class a extends g {
                 jSONObject.put("AID", this.z);
                 jSONObject.put("sysOperType", this.A);
                 jSONObject.put("scripType", this.B);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

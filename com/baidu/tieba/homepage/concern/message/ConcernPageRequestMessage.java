@@ -1,10 +1,6 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.o0.c1.b0;
-import c.a.o0.c1.g;
-import c.a.p0.l3.m0.b;
-import c.a.p0.q1.d.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
@@ -17,13 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
+import com.repackage.rc8;
+import com.repackage.vb5;
+import com.repackage.wt4;
+import com.repackage.zt6;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g adInfo;
+    public vb5 adInfo;
     public String pageTag;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,20 +51,20 @@ public class ConcernPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             boolean isEmpty = TextUtils.isEmpty(this.pageTag);
-            int e2 = isEmpty ? 0 : b.f().e("CONCERN");
+            int e = isEmpty ? 0 : rc8.f().e("CONCERN");
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
-            String d2 = isEmpty ? "" : b.f().d("CONCERN");
-            g gVar = this.adInfo;
-            if (gVar != null && !isEmpty) {
-                str = gVar.f9941b;
+            String d = isEmpty ? "" : rc8.f().d("CONCERN");
+            vb5 vb5Var = this.adInfo;
+            if (vb5Var != null && !isEmpty) {
+                str = vb5Var.b;
             }
-            AdExtParam.a b2 = AdExtParam.a.b();
-            b2.g(e2);
-            b2.d(cuidGalaxy2);
-            b2.e(str);
-            b2.c(d2);
-            return b2.a();
+            AdExtParam.a b = AdExtParam.a.b();
+            b.g(e);
+            b.d(cuidGalaxy2);
+            b.e(str);
+            b.c(d);
+            return b.a();
         }
         return (String) invokeV.objValue;
     }
@@ -76,18 +77,18 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (d.H()) {
-                    if (!d.A()) {
-                        builder.page_tag = d.v();
+                if (zt6.H()) {
+                    if (!zt6.A()) {
+                        builder.page_tag = zt6.v();
                     } else {
-                        builder.page_tag = d.u();
+                        builder.page_tag = zt6.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.o0.r.j0.b.k().m(c.a.o0.r.j0.b.o("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(wt4.k().m(wt4.o("concern_data_res_request_time"), 0L));
                 int i = 1;
-                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? c.a.o0.r.j0.b.k().l("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? wt4.k().l("key_home_concern_all_status", 0) : 1);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    b0.a(builder, true);
+                    rc5.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i = 2;
@@ -110,10 +111,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageTag : (String) invokeV.objValue;
     }
 
-    public void setAdInfo(g gVar) {
+    public void setAdInfo(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.adInfo = gVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vb5Var) == null) {
+            this.adInfo = vb5Var;
         }
     }
 

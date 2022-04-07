@@ -3,11 +3,6 @@ package com.baidu.tieba.homepage.personalize.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.o0.n0.c;
-import c.a.p0.h0.b0;
-import c.a.p0.h0.e0.j;
-import c.a.p0.v.e;
-import c.a.p0.v.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,31 +18,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
+import com.repackage.cy5;
+import com.repackage.d07;
+import com.repackage.ho;
+import com.repackage.p75;
+import com.repackage.pi5;
+import com.repackage.qi5;
+import com.repackage.rx5;
+import com.repackage.zw5;
+/* loaded from: classes3.dex */
+public class HomePageAlaFriendRoomAdapter extends ho<cy5, HomePageAlaLiveThreadViewHolder> implements qi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
     public TbPageContext<?> j;
-    public c.a.p0.h0.j k;
+    public zw5 k;
     public NEGFeedBackView.b l;
     public String m;
-    public b0<j> n;
+    public rx5<cy5> n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.p0.h0.j a;
+        public zw5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HomePageAlaLiveThreadViewHolder(c.a.p0.h0.j jVar) {
-            super(jVar.k());
+        public HomePageAlaLiveThreadViewHolder(zw5 zw5Var) {
+            super(zw5Var.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jVar};
+                Object[] objArr = {zw5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,17 +61,15 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.a = jVar;
+            this.a = zw5Var;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends b0<j> {
+    /* loaded from: classes3.dex */
+    public class a extends rx5<cy5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaFriendRoomAdapter f33375b;
+        public final /* synthetic */ HomePageAlaFriendRoomAdapter b;
 
         public a(HomePageAlaFriendRoomAdapter homePageAlaFriendRoomAdapter) {
             Interceptable interceptable = $ic;
@@ -85,43 +86,43 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f33375b = homePageAlaFriendRoomAdapter;
+            this.b = homePageAlaFriendRoomAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:16:0x0058, code lost:
-            if (r5.getId() == r4.f33375b.k.K().getId()) goto L6;
+            if (r5.getId() == r4.b.k.L().getId()) goto L6;
          */
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
-            if (r5.getId() == r4.f33375b.k.L().getId()) goto L6;
+            if (r5.getId() == r4.b.k.M().getId()) goto L6;
          */
-        @Override // c.a.p0.h0.b0
+        @Override // com.repackage.rx5
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(View view, j jVar) {
+        public void a(View view2, cy5 cy5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, cy5Var) == null) {
                 int i = 2;
-                if (this.f33375b.k.w == view) {
+                if (this.b.k.w == view2) {
                     i = 1;
-                } else if (view == this.f33375b.k.l.getCommentContainer()) {
-                    this.f33375b.b0(jVar, view);
+                } else if (view2 == this.b.k.l.getCommentContainer()) {
+                    this.b.b0(cy5Var, view2);
                     i = 5;
                 } else {
-                    if (view == this.f33375b.k.m.getCommentContainer()) {
-                        this.f33375b.b0(jVar, view);
+                    if (view2 == this.b.k.m.getCommentContainer()) {
+                        this.b.b0(cy5Var, view2);
                     } else {
-                        if (this.f33375b.k.K() != null) {
+                        if (this.b.k.L() != null) {
                         }
-                        if (this.f33375b.k.L() != null) {
+                        if (this.b.k.M() != null) {
                         }
                     }
                     i = 0;
                 }
                 if (i != 0) {
-                    c.a.p0.q1.i.m.a.d(jVar.a, this.f33375b.i, jVar.q(), i);
+                    d07.d(cy5Var.a, this.b.i, cy5Var.q(), i);
                 }
             }
         }
@@ -151,24 +152,24 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
         this.j = tbPageContext;
     }
 
-    public final void b0(j jVar, View view) {
+    public final void b0(cy5 cy5Var, View view2) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jVar, view) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cy5Var, view2) == null) {
             String str2 = "";
-            if (jVar == null || jVar.getThreadData() == null) {
+            if (cy5Var == null || cy5Var.getThreadData() == null) {
                 str = "";
             } else {
-                str2 = jVar.getThreadData().getTid();
-                str = jVar.getThreadData().getNid();
+                str2 = cy5Var.getThreadData().getTid();
+                str = cy5Var.getThreadData().getNid();
             }
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 1);
             statisticItem.param("obj_type", 5);
             statisticItem.param("tid", str2);
-            statisticItem.param("obj_source", jVar.r());
+            statisticItem.param("obj_source", cy5Var.r());
             statisticItem.param("nid", str);
-            c findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view);
+            p75 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }
@@ -180,18 +181,18 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: c0 */
     public HomePageAlaLiveThreadViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.p0.h0.j jVar = new c.a.p0.h0.j(this.j, this.i);
-            this.k = jVar;
-            jVar.C(2);
+            zw5 zw5Var = new zw5(this.j, this.i);
+            this.k = zw5Var;
+            zw5Var.D(2);
             BdUniqueId bdUniqueId = this.i;
             if (bdUniqueId != null) {
-                this.k.R(bdUniqueId);
+                this.k.S(bdUniqueId);
             }
             return new HomePageAlaLiveThreadViewHolder(this.k);
         }
@@ -199,27 +200,27 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: d0 */
-    public View S(int i, View view, ViewGroup viewGroup, j jVar, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, cy5 cy5Var, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view, viewGroup, jVar, homePageAlaLiveThreadViewHolder})) == null) {
-            jVar.I(jVar.position + 1);
-            jVar.a.statFloor = jVar.q();
-            c.a.p0.h0.j jVar2 = homePageAlaLiveThreadViewHolder.a;
-            if (jVar2 instanceof e) {
-                jVar2.e(this.m);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cy5Var, homePageAlaLiveThreadViewHolder})) == null) {
+            cy5Var.I(cy5Var.position + 1);
+            cy5Var.a.statFloor = cy5Var.q();
+            zw5 zw5Var = homePageAlaLiveThreadViewHolder.a;
+            if (zw5Var instanceof pi5) {
+                zw5Var.b(this.m);
             }
-            homePageAlaLiveThreadViewHolder.a.T(i + 1);
-            homePageAlaLiveThreadViewHolder.a.l(jVar);
+            homePageAlaLiveThreadViewHolder.a.U(i + 1);
+            homePageAlaLiveThreadViewHolder.a.l(cy5Var);
             homePageAlaLiveThreadViewHolder.a.n(this.n);
-            homePageAlaLiveThreadViewHolder.a.B(this.l);
-            c.a.p0.q1.i.m.a.h(jVar.a, this.i, jVar.q());
-            if (jVar.getThreadData() != null && jVar.getThreadData().getThreadAlaInfo() != null) {
+            homePageAlaLiveThreadViewHolder.a.C(this.l);
+            d07.h(cy5Var.a, this.i, cy5Var.q());
+            if (cy5Var.getThreadData() != null && cy5Var.getThreadData().getThreadAlaInfo() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_param1", jVar.getThreadData().getThreadAlaInfo().live_id);
+                statisticItem.param("obj_param1", cy5Var.getThreadData().getThreadAlaInfo().live_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
             }
@@ -235,7 +236,7 @@ public class HomePageAlaFriendRoomAdapter extends c.a.d.o.e.a<j, HomePageAlaLive
         }
     }
 
-    @Override // c.a.p0.v.f
+    @Override // com.repackage.qi5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {

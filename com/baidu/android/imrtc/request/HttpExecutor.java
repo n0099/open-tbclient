@@ -21,7 +21,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpExecutor";
@@ -29,7 +29,7 @@ public class HttpExecutor {
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient okHttpClient;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class HttpExecutorLogger implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public class HttpExecutor {
                     bIMRtcEvent.ext = sb.toString();
                     LogUtils.d("HttpExecutor", ">>>>>request time=" + j + ", url=" + request.url().toString());
                     return proceed;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return chain.proceed(chain.request());
                 }
             }
@@ -80,7 +80,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -95,7 +95,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ResponseHandler {
         void onFailure(int i, String str);
 
@@ -209,15 +209,15 @@ public class HttpExecutor {
                             responseHandler.onSuccess(bytes);
                             return;
                         }
-                    } catch (IOException e2) {
-                        failedResponse(responseHandler, 10003, e2.getMessage());
-                        LogUtils.e("HttpExecutor", "exception :" + e2.getMessage());
+                    } catch (IOException e) {
+                        failedResponse(responseHandler, 10003, e.getMessage());
+                        LogUtils.e("HttpExecutor", "exception :" + e.getMessage());
                         return;
                     }
                 }
                 failedResponse(responseHandler, 10000, "request args exception");
-            } catch (Exception e3) {
-                failedResponse(responseHandler, 10004, "request exception :" + e3);
+            } catch (Exception e2) {
+                failedResponse(responseHandler, 10004, "request exception :" + e2);
             }
         }
     }

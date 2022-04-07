@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.recyclerview.export.TKWaterLayoutConfiguration;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
         this.mConfiguration = tKWaterLayoutConfiguration;
     }
 
-    private void offsetGridLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
+    private void offsetGridLayoutRowAndEdge(Rect rect, View view2, RecyclerView recyclerView) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, this, rect, view, recyclerView) == null) && (recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
+        if ((interceptable == null || interceptable.invokeLLL(65537, this, rect, view2, recyclerView) == null) && (recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
             int spanCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
             if (spanCount <= 1) {
-                offsetLinearLayoutRowAndEdge(rect, view, recyclerView);
+                offsetLinearLayoutRowAndEdge(rect, view2, recyclerView);
                 return;
             }
-            int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
+            int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
             if (childAdapterPosition == -1) {
                 return;
             }
@@ -69,12 +69,12 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    private void offsetLinearLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
+    private void offsetLinearLayoutRowAndEdge(Rect rect, View view2, RecyclerView recyclerView) {
         int childAdapterPosition;
         RecyclerView.Adapter adapter;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, this, rect, view, recyclerView) == null) || (childAdapterPosition = recyclerView.getChildAdapterPosition(view)) == -1 || (adapter = recyclerView.getAdapter()) == null || !(recyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, this, rect, view2, recyclerView) == null) || (childAdapterPosition = recyclerView.getChildAdapterPosition(view2)) == -1 || (adapter = recyclerView.getAdapter()) == null || !(recyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
             return;
         }
         if (((LinearLayoutManager) recyclerView.getLayoutManager()).getOrientation() == 1) {
@@ -98,14 +98,14 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
         rect.right = i;
     }
 
-    private void offsetStaggerGridLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
+    private void offsetStaggerGridLayoutRowAndEdge(Rect rect, View view2, RecyclerView recyclerView) {
         TKWaterLayoutConfiguration tKWaterLayoutConfiguration;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, this, rect, view, recyclerView) == null) && (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager)) {
+        if ((interceptable == null || interceptable.invokeLLL(65539, this, rect, view2, recyclerView) == null) && (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager)) {
             int spanCount = ((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
-            int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
+            int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
             if (spanCount > 1) {
-                int spanIndex = ((StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams()).getSpanIndex();
+                int spanIndex = ((StaggeredGridLayoutManager.LayoutParams) view2.getLayoutParams()).getSpanIndex();
                 if (spanIndex == -1) {
                     return;
                 }
@@ -137,16 +137,16 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            super.getItemOffsets(rect, view, recyclerView, state);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+            super.getItemOffsets(rect, view2, recyclerView, state);
             if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
-                offsetGridLayoutRowAndEdge(rect, view, recyclerView);
+                offsetGridLayoutRowAndEdge(rect, view2, recyclerView);
             } else if (recyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
-                offsetStaggerGridLayoutRowAndEdge(rect, view, recyclerView);
+                offsetStaggerGridLayoutRowAndEdge(rect, view2, recyclerView);
             } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-                offsetLinearLayoutRowAndEdge(rect, view, recyclerView);
+                offsetLinearLayoutRowAndEdge(rect, view2, recyclerView);
             }
         }
     }

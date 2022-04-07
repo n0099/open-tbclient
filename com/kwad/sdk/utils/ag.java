@@ -16,7 +16,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ag {
     public static String a(String str) {
         PackageInfo packageArchiveInfo;
@@ -47,8 +47,8 @@ public class ag {
                 try {
                     as.a(context, str2, c.b(file));
                     return;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.a(e);
                     return;
                 }
             }
@@ -85,9 +85,9 @@ public class ag {
         if (context == null) {
             return 0;
         }
-        long b2 = as.b(context, str);
-        String c2 = as.c(context, str);
-        if (TextUtils.isEmpty(c2) || b2 <= 0) {
+        long b = as.b(context, str);
+        String c = as.c(context, str);
+        if (TextUtils.isEmpty(c) || b <= 0) {
             str3 = "cannot judge package, has no download apk info.";
         } else {
             try {
@@ -98,22 +98,22 @@ public class ag {
                     File file = new File(packageInfo.applicationInfo.publicSourceDir);
                     if (!file.exists()) {
                         str3 = "cannot judge package, insgtalled apk is not exists.";
-                    } else if (b2 != file.length()) {
+                    } else if (b != file.length()) {
                         return 1;
                     } else {
-                        if (TextUtils.isEmpty(c2)) {
+                        if (TextUtils.isEmpty(c)) {
                             str3 = "cannot judge package, cannot calculate md5 of download file.";
                         } else {
-                            String b3 = c.b(file);
-                            if (!TextUtils.isEmpty(b3)) {
-                                return c2.equalsIgnoreCase(b3) ? 2 : 1;
+                            String b2 = c.b(file);
+                            if (!TextUtils.isEmpty(b2)) {
+                                return c.equalsIgnoreCase(b2) ? 2 : 1;
                             }
                             str3 = "cannot judge package, cannot calculate md5 of installed file.";
                         }
                     }
                 }
-            } catch (PackageManager.NameNotFoundException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                com.kwad.sdk.core.d.a.a(e);
                 return 0;
             }
         }

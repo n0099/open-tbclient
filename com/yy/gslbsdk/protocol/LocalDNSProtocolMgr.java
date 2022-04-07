@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.net.InetAddress;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LocalDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalDNSProtocolMgr";
@@ -43,8 +43,8 @@ public class LocalDNSProtocolMgr {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                LogTools.printError(TAG, "LocalDNSProtocolMgr.requestProtocol() exception:" + e2.getMessage());
+            } catch (Exception e) {
+                LogTools.printError(TAG, "LocalDNSProtocolMgr.requestProtocol() exception:" + e.getMessage());
             }
             if (linkedList.isEmpty()) {
                 return null;

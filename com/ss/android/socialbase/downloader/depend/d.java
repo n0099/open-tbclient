@@ -8,38 +8,38 @@ public abstract class d extends AbsDownloadListener implements s {
         if (downloadInfo == null || !downloadInfo.canShowNotification() || i == 4) {
             return;
         }
-        com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
-        if (e2 == null) {
-            e2 = a();
+        com.ss.android.socialbase.downloader.notification.a e = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
+        if (e == null) {
+            e = a();
         }
-        e2.b(downloadInfo.getTotalBytes());
+        e.b(downloadInfo.getTotalBytes());
         if (i == -3) {
-            e2.a(downloadInfo.getTotalBytes());
+            e.a(downloadInfo.getTotalBytes());
         } else {
-            e2.a(downloadInfo.getCurBytes());
+            e.a(downloadInfo.getCurBytes());
         }
-        e2.a(i, baseException, z);
+        e.a(i, baseException, z);
     }
 
     private void b(DownloadInfo downloadInfo) {
         if (downloadInfo == null || !downloadInfo.canShowNotification()) {
             return;
         }
-        com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
-        if (e2 == null) {
+        com.ss.android.socialbase.downloader.notification.a e = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
+        if (e == null) {
             com.ss.android.socialbase.downloader.notification.b.a().a(a());
             return;
         }
-        e2.a(downloadInfo);
+        e.a(downloadInfo);
     }
 
     private void c(DownloadInfo downloadInfo) {
         if (downloadInfo != null && downloadInfo.canShowNotification() && downloadInfo.getStatus() == 4) {
-            com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
-            if (e2 == null) {
-                e2 = a();
+            com.ss.android.socialbase.downloader.notification.a e = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
+            if (e == null) {
+                e = a();
             }
-            e2.a(downloadInfo.getCurBytes(), downloadInfo.getTotalBytes());
+            e.a(downloadInfo.getCurBytes(), downloadInfo.getTotalBytes());
         }
     }
 

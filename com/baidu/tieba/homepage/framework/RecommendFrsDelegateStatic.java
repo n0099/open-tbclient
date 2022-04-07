@@ -4,11 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.d.f.p.n;
-import c.a.o0.h0.c;
-import c.a.o0.h0.d;
-import c.a.o0.h0.e;
-import c.a.o0.h0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,15 +21,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
+import com.repackage.m45;
+import com.repackage.n45;
+import com.repackage.o45;
+import com.repackage.oi;
+import com.repackage.p45;
+import com.repackage.q45;
+import com.repackage.t45;
+/* loaded from: classes3.dex */
+public class RecommendFrsDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MessageRedDotView c;
 
-    /* renamed from: c  reason: collision with root package name */
-    public MessageRedDotView f33251c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,21 +62,21 @@ public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c b2;
+            n45 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
-            ((d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
-            if (((d) customResponsedMessage.getData()).getContext() == null || (b2 = recommendFrsDelegateStatic.b()) == null || b2.a.isAdded()) {
+            ((o45) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
+            if (((o45) customResponsedMessage.getData()).getContext() == null || (b = recommendFrsDelegateStatic.b()) == null || b.a.isAdded()) {
                 return;
             }
-            b2.a.setArguments(new Bundle());
+            b.a.setArguments(new Bundle());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,17 +109,17 @@ public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
                 int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                TbFragmentTabIndicator.a d2 = this.a.f10295b.d("godFeed");
-                if (d2 == null) {
+                TbFragmentTabIndicator.a d = this.a.b.d("godFeed");
+                if (d == null) {
                     return;
                 }
                 if (intValue <= 0) {
-                    this.a.f33251c.setVisibility(8);
+                    this.a.c.setVisibility(8);
                     return;
                 }
-                this.a.f33251c.f(0);
-                this.a.f33251c.setVisibility(0);
-                d2.b(TbadkCoreApplication.getInst().getSkinType());
+                this.a.c.f(0);
+                this.a.c.setVisibility(0);
+                d.b(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -156,50 +156,50 @@ public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
         }
     }
 
-    @Override // c.a.o0.h0.b
-    public c a() {
+    @Override // com.repackage.m45
+    public n45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c();
-            cVar.a = new RecommendFrsControlFragment();
-            cVar.f10299e = 2;
-            cVar.f10296b = R.string.obfuscated_res_0x7f0f084a;
-            cVar.f10300f = R.raw.lottie_tab_home;
-            cVar.i = c.m;
-            cVar.f10302h = c.a.o0.h0.g.c.d().c("homePage");
-            return cVar;
+            n45 n45Var = new n45();
+            n45Var.a = new RecommendFrsControlFragment();
+            n45Var.e = 2;
+            n45Var.b = R.string.obfuscated_res_0x7f0f084b;
+            n45Var.f = R.raw.lottie_tab_home;
+            n45Var.i = n45.m;
+            n45Var.h = t45.d().c("homePage");
+            return n45Var;
         }
-        return (c) invokeV.objValue;
+        return (n45) invokeV.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (e.e().a()) {
-                this.f10295b = (MaintabBottomIndicator) e.e().d(2);
+            if (p45.e().a()) {
+                this.b = (MaintabBottomIndicator) p45.e().d(2);
             } else if (PreInitMainTabViewSwitch.getIsOn()) {
-                this.f10295b = f.b().a();
+                this.b = q45.b().a();
             }
-            if (this.f10295b == null) {
-                this.f10295b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+            if (this.b == null) {
+                this.b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
             }
-            this.f33251c = new MessageRedDotView(context);
+            this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f30586f = this.f10295b;
-            aVar.f30583c = n.d(context, 12.0f);
-            MessageRedDotView messageRedDotView = this.f33251c;
+            aVar.f = this.b;
+            aVar.c = oi.d(context, 12.0f);
+            MessageRedDotView messageRedDotView = this.c;
             aVar.a = messageRedDotView;
             messageRedDotView.setVisibility(8);
-            this.f10295b.b("godFeed", aVar);
-            return this.f10295b;
+            this.b.b("godFeed", aVar);
+            return this.b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -217,7 +217,7 @@ public class RecommendFrsDelegateStatic extends c.a.o0.h0.b {
         }
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

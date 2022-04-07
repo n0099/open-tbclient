@@ -1,7 +1,5 @@
 package com.baidu.searchbox.retrieve.upload;
 
-import c.a.g0.a.b.b;
-import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult_ActiveUploadObserver_ListProvider;
@@ -9,12 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.rb1;
+import com.repackage.tb1;
+/* loaded from: classes2.dex */
 public class ActiveUploadObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public d<IActiveUploadResult> mActiveObserverList;
+    public tb1<IActiveUploadResult> mActiveObserverList;
 
     public ActiveUploadObserver() {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class ActiveUploadObserver {
     public void initmActiveObserverList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b b2 = b.b();
-            this.mActiveObserverList = b2;
-            b2.a(new IActiveUploadResult_ActiveUploadObserver_ListProvider());
+            rb1 b = rb1.b();
+            this.mActiveObserverList = b;
+            b.a(new IActiveUploadResult_ActiveUploadObserver_ListProvider());
         }
     }
 }

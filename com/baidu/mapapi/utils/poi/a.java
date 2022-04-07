@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class a implements a.InterfaceC1779a<c> {
+/* loaded from: classes2.dex */
+public final class a implements a.InterfaceC0120a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
@@ -34,12 +34,12 @@ public final class a implements a.InterfaceC1779a<c> {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1779a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0120a
     public void a(HttpClient.HttpStateError httpStateError) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            int i = b.f26566b[httpStateError.ordinal()];
+            int i = b.b[httpStateError.ordinal()];
             if (i == 1) {
                 str = "current network is not available";
             } else if (i != 2) {
@@ -52,7 +52,7 @@ public final class a implements a.InterfaceC1779a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1779a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0120a
     public void a(c cVar) {
         String str;
         Interceptable interceptable = $ic;
@@ -75,8 +75,8 @@ public final class a implements a.InterfaceC1779a<c> {
                     try {
                         BaiduMapPoiSearch.b(cVar.b(), this.a);
                         return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return;
                     }
                 }

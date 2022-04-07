@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GL2JNILib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,5 +42,5 @@ public class GL2JNILib {
 
     public static native void stretch(int i, int i2);
 
-    public static native void transform(int i, float f2, float f3, float f4, float f5, int i2);
+    public static native void transform(int i, float f, float f2, float f3, float f4, int i2);
 }

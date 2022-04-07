@@ -32,7 +32,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
@@ -46,7 +46,7 @@ public class HttpHelper {
     public static Context mContext;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -65,14 +65,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ResponseResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,9 +288,9 @@ public class HttpHelper {
                                     i = this.val$request.getMethod().equals("POST") ? 16 : 256;
                                 }
                                 HttpExecutor.getInstance().execute(i, this.val$request.getHost(), this.val$request.getRequestParameter(), this.val$request.getHeaders(), this.val$request.getContentType(), this.val$handler);
-                            } catch (Exception e2) {
-                                LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e2);
-                                this.val$handler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
+                            } catch (Exception e) {
+                                LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
+                                this.val$handler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
                             }
                         }
                     }
@@ -314,8 +314,8 @@ public class HttpHelper {
                 } else {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -382,25 +382,25 @@ public class HttpHelper {
                         try {
                             byteArrayOutputStream.close();
                             return byteArray;
-                        } catch (IOException e2) {
-                            LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e2);
+                        } catch (IOException e) {
+                            LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e);
                             return byteArray;
                         }
                     }
-                } catch (IOException e3) {
-                    LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e3);
+                } catch (IOException e2) {
+                    LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e2);
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e4) {
-                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
+                    } catch (IOException e3) {
+                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e3);
                     }
                     return null;
                 }
             } catch (Throwable th) {
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e5) {
-                    LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e5);
+                } catch (IOException e4) {
+                    LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
                 }
                 throw th;
             }

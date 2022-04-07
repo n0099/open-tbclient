@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ CommonDialog a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f28162b;
+    public final /* synthetic */ CommonDialog.Builder b;
 
     public a(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -30,17 +28,17 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.f28162b = builder;
+        this.b = builder;
         this.a = commonDialog;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f28162b.i;
-            onClickListener.onClick(view);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            onClickListener = this.b.i;
+            onClickListener.onClick(view2);
             this.a.dismiss();
         }
     }

@@ -24,27 +24,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f41787b;
+    public AnimationDrawable b;
     @DrawableRes
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f41788c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f41789d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f41790e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f41791f;
+    public int c;
+    public View d;
+    public TextView e;
+    public TextView f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(Context context, @Nullable AttributeSet attributeSet) {
@@ -86,7 +76,7 @@ public class e extends FrameLayout {
                 return;
             }
         }
-        this.f41788c = R.drawable.obfuscated_res_0x7f080bc1;
+        this.c = R.drawable.obfuscated_res_0x7f080bc2;
         a(context, attributeSet, 0);
     }
 
@@ -100,10 +90,10 @@ public class e extends FrameLayout {
     private void a(Context context, AttributeSet attributeSet, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d044c, this);
-            this.f41789d = findViewById(R.id.obfuscated_res_0x7f091199);
-            this.f41790e = (TextView) findViewById(R.id.obfuscated_res_0x7f091198);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5}, 0, i);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0447, this);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091192);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091191);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040432, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f040435}, 0, i);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             CharSequence text = obtainStyledAttributes.getText(2);
             float dimension = obtainStyledAttributes.getDimension(3, 0.0f);
@@ -111,15 +101,15 @@ public class e extends FrameLayout {
             obtainStyledAttributes.recycle();
             setLoadingText(text);
             if (resourceId != 0) {
-                this.f41788c = resourceId;
+                this.c = resourceId;
             }
             if (dimension <= 0.0f || dimension2 <= 0.0f) {
                 return;
             }
-            ViewGroup.LayoutParams layoutParams = this.f41789d.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
             layoutParams.width = (int) dimension;
             layoutParams.height = (int) dimension2;
-            this.f41789d.setLayoutParams(layoutParams);
+            this.d.setLayoutParams(layoutParams);
         }
     }
 
@@ -136,10 +126,10 @@ public class e extends FrameLayout {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f41789d.getBackground() == null) {
-            AnimationDrawable animationDrawable = (AnimationDrawable) getContext().getResources().getDrawable(this.f41788c);
-            this.f41787b = animationDrawable;
-            this.f41789d.setBackground(animationDrawable);
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.d.getBackground() == null) {
+            AnimationDrawable animationDrawable = (AnimationDrawable) getContext().getResources().getDrawable(this.c);
+            this.b = animationDrawable;
+            this.d.setBackground(animationDrawable);
         }
     }
 
@@ -147,7 +137,7 @@ public class e extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c();
-            AnimationDrawable animationDrawable = this.f41787b;
+            AnimationDrawable animationDrawable = this.b;
             if (animationDrawable != null) {
                 animationDrawable.start();
             }
@@ -156,7 +146,7 @@ public class e extends FrameLayout {
 
     public void a(boolean z, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, charSequence) == null) || this.f41789d == null) {
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, charSequence) == null) || this.d == null) {
             return;
         }
         if (z || charSequence != null) {
@@ -164,24 +154,24 @@ public class e extends FrameLayout {
         } else {
             setVisibility(8);
         }
-        this.f41789d.setVisibility(z ? 0 : 8);
+        this.d.setVisibility(z ? 0 : 8);
         try {
-            this.f41790e.setText(charSequence);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            this.e.setText(charSequence);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.f41790e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         if (TextUtils.isEmpty(charSequence)) {
-            this.f41790e.setVisibility(8);
+            this.e.setVisibility(8);
         } else {
-            this.f41790e.setVisibility(0);
+            this.e.setVisibility(0);
         }
     }
 
     public void b() {
         AnimationDrawable animationDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (animationDrawable = this.f41787b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (animationDrawable = this.b) == null) {
             return;
         }
         animationDrawable.stop();
@@ -191,18 +181,18 @@ public class e extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f41791f == null) {
-                TextView textView = new TextView(getContext(), null, R.style.obfuscated_res_0x7f100261);
-                this.f41791f = textView;
+            if (this.f == null) {
+                TextView textView = new TextView(getContext(), null, R.style.obfuscated_res_0x7f100262);
+                this.f = textView;
                 textView.setGravity(17);
-                this.f41791f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060777));
-                this.f41791f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070936));
+                this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060780));
+                this.f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070943));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.topMargin = g.a(getContext(), 5.0f);
                 layoutParams.gravity = 1;
-                ((LinearLayout) this.f41789d.getParent()).addView(this.f41791f, layoutParams);
+                ((LinearLayout) this.d.getParent()).addView(this.f, layoutParams);
             }
-            return this.f41791f;
+            return this.f;
         }
         return (TextView) invokeV.objValue;
     }
@@ -210,7 +200,7 @@ public class e extends FrameLayout {
     public TextView getTitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41790e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (TextView) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -266,7 +256,7 @@ public class e extends FrameLayout {
     public void setAnimRes(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f41788c = i;
+            this.c = i;
         }
     }
 
@@ -275,12 +265,12 @@ public class e extends FrameLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, charSequence) == null) {
-            this.f41790e.setText(charSequence);
+            this.e.setText(charSequence);
             if (TextUtils.isEmpty(charSequence)) {
-                textView = this.f41790e;
+                textView = this.e;
                 i = 8;
             } else {
-                textView = this.f41790e;
+                textView = this.e;
                 i = 0;
             }
             textView.setVisibility(i);
@@ -295,7 +285,7 @@ public class e extends FrameLayout {
                 getTitleDetailView().setText(charSequence);
                 return;
             }
-            TextView textView = this.f41791f;
+            TextView textView = this.f;
             if (textView != null) {
                 textView.setVisibility(8);
             }

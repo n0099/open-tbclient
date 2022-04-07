@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "odaf";
@@ -141,12 +141,12 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
         return invokeV.booleanValue;
     }
 
-    public void setAllBits(byte b2) {
+    public void setAllBits(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048582, this, b2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.byteObject(b2)));
-            this.allBits = b2;
-            this.selectiveEncryption = (b2 & 128) == 128;
+        if (interceptable == null || interceptable.invokeB(1048582, this, b) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.byteObject(b)));
+            this.allBits = b;
+            this.selectiveEncryption = (b & 128) == 128;
         }
     }
 

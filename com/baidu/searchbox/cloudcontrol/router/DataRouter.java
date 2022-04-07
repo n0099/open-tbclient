@@ -24,7 +24,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DataRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DataRouter";
@@ -158,9 +158,9 @@ public class DataRouter {
                                                 if (jSONObject3 != null) {
                                                     try {
                                                         this.this$1.this$0.mServiceInfo.put(this.val$serviceName, jSONObject3);
-                                                    } catch (JSONException e2) {
+                                                    } catch (JSONException e) {
                                                         if (AppConfig.isDebug()) {
-                                                            Log.d(DataRouter.TAG, "routeServiceData back json is error" + e2.toString());
+                                                            Log.d(DataRouter.TAG, "routeServiceData back json is error" + e.toString());
                                                         }
                                                     }
                                                 }
@@ -169,8 +169,8 @@ public class DataRouter {
                                         }
                                     });
                                 }
-                            } catch (Exception e2) {
-                                this.this$0.onError(e2.getMessage());
+                            } catch (Exception e) {
+                                this.this$0.onError(e.getMessage());
                             }
                         } else {
                             Boolean bool = (Boolean) this.val$forceDispatchs.get(key);
@@ -242,18 +242,18 @@ public class DataRouter {
                                             }
                                         });
                                     }
-                                } catch (JSONException e3) {
-                                    this.this$0.onError(e3.getMessage());
+                                } catch (JSONException e2) {
+                                    this.this$0.onError(e2.getMessage());
                                 }
                             }
                         }
                     }
                     try {
                         countDownLatch.await(15L, TimeUnit.SECONDS);
-                    } catch (InterruptedException e4) {
+                    } catch (InterruptedException e3) {
                         if (AppConfig.isDebug()) {
-                            Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());
-                            e4.printStackTrace();
+                            Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e3.toString());
+                            e3.printStackTrace();
                         }
                     }
                     CloudControlUBCData cloudControlUBCData = this.val$cloudControlData.getCloudControlUBCData();

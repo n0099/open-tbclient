@@ -21,7 +21,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
@@ -191,8 +191,8 @@ public class FileUtils {
                     mediaMetadataRetriever.setDataSource(str);
                     bitmap = mediaMetadataRetriever.getFrameAtTime();
                     return BitmapUtils.scaleCover(bitmap, Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)), Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)), true);
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Exception unused) {
@@ -261,10 +261,10 @@ public class FileUtils {
                 }
                 fileOutputStream.flush();
                 fileOutputStream.close();
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e2) {
                 e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
             }
             return file.getAbsolutePath();
         }

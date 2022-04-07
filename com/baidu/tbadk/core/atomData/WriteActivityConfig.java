@@ -6,10 +6,6 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.p0.a4.t0.b;
-import c.a.p0.a4.t0.c;
-import c.a.p0.a4.t0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -34,7 +30,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes4.dex */
+import com.repackage.oi;
+import com.repackage.rm8;
+import com.repackage.sm8;
+import com.repackage.tm8;
+/* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -124,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.f12397g = new Intent(getIntent());
+            tm8.g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -635,10 +635,10 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = b.k().q();
-            c.a("发帖阻拦状态 = " + q);
+            boolean q = rm8.k().q();
+            sm8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                n.N(currentActivity, "正在发布，请稍后");
+                oi.N(currentActivity, "正在发布，请稍后");
             }
             return q;
         }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
-import c.a.g0.b.b.a;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ExceptionHandlerServiceFetcher extends a<ExceptionHandler> {
+import com.repackage.fc1;
+/* loaded from: classes2.dex */
+public class ExceptionHandlerServiceFetcher extends fc1<ExceptionHandler> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class ExceptionHandlerServiceFetcher extends a<ExceptionHandler> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.g0.b.b.a
+    @Override // com.repackage.fc1
     public ExceptionHandler createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

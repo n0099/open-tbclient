@@ -2,12 +2,12 @@ package com.baidu.nps;
 
 import android.app.Application;
 import android.os.Build;
-import c.a.b0.a.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.v51;
+/* loaded from: classes2.dex */
 public class NPSHookManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,6 +31,6 @@ public class NPSHookManager {
         if (!(interceptable == null || interceptable.invokeL(65537, null, application) == null) || Build.VERSION.SDK_INT >= 28) {
             return;
         }
-        a.a(application);
+        v51.a(application);
     }
 }

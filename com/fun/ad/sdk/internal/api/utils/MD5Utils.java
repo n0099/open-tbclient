@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic;
     public static char[] HEX_DIGITS;
@@ -58,12 +58,12 @@ public class MD5Utils {
             StringBuffer stringBuffer = new StringBuffer(length * 2);
             int i = length + 0;
             for (int i2 = 0; i2 < i; i2++) {
-                byte b2 = bArr[i2];
+                byte b = bArr[i2];
                 char[] cArr = HEX_DIGITS;
-                char c2 = cArr[(b2 & 240) >> 4];
-                char c3 = cArr[b2 & 15];
+                char c = cArr[(b & 240) >> 4];
+                char c2 = cArr[b & 15];
+                stringBuffer.append(c);
                 stringBuffer.append(c2);
-                stringBuffer.append(c3);
             }
             return stringBuffer.toString();
         }
@@ -140,8 +140,8 @@ public class MD5Utils {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(str.getBytes());
                 return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException e2) {
-                LogPrinter.e(e2);
+            } catch (NoSuchAlgorithmException e) {
+                LogPrinter.e(e);
                 return str;
             }
         }
@@ -156,8 +156,8 @@ public class MD5Utils {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(bArr);
                 return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException e2) {
-                LogPrinter.e(e2);
+            } catch (NoSuchAlgorithmException e) {
+                LogPrinter.e(e);
                 return "";
             }
         }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuzhanUpMsgCreator {
     public static /* synthetic */ Interceptable $ic = null;
     public static int REQ_TYPE_BOX = 0;
@@ -74,8 +74,8 @@ public class DuzhanUpMsgCreator {
                 str = jSONObject.toString();
                 LogUtils.d(TAG, "generateExtJson :" + str);
                 return str;
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "generateExtJson :" + e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "generateExtJson :" + e);
                 return str;
             }
         }
@@ -99,8 +99,8 @@ public class DuzhanUpMsgCreator {
                     jSONObject2.put("ext", jSONObject.get("ext"));
                 }
                 return jSONObject2;
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "create json excepiton " + e2.getMessage());
+            } catch (Exception e) {
+                LogUtils.e(TAG, "create json excepiton " + e.getMessage());
                 return new JSONObject();
             }
         }
@@ -119,8 +119,8 @@ public class DuzhanUpMsgCreator {
                     }
                     return new JSONObject(jsonContent);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "getMsgExtContent :", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getMsgExtContent :", e);
             }
             return new JSONObject();
         }

@@ -9,7 +9,6 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n.c.g;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.RomUtils;
@@ -24,6 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.g;
+import com.repackage.f30;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,7 +35,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FALSE = "0";
@@ -58,7 +59,7 @@ public class CommonUtils {
     public static final ConcurrentHashMap<String, String> sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";
@@ -158,8 +159,8 @@ public class CommonUtils {
                 try {
                     Context appContext = AppRuntime.getAppContext();
                     sAppVersion = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
                 if (sAppVersion == null) {
                     sAppVersion = "";
@@ -177,12 +178,12 @@ public class CommonUtils {
             if (sCPU == null) {
                 String str = Build.HARDWARE;
                 String num = Integer.toString(CpuInfoUtils.getNumCores());
-                String f2 = Float.toString(Math.round(CpuInfoUtils.getMaxCpuFrequency() * 10.0f) / 10.0f);
+                String f = Float.toString(Math.round(CpuInfoUtils.getMaxCpuFrequency() * 10.0f) / 10.0f);
                 String arrays = Arrays.toString(DeviceUtils.CPUInfo.getSupportedABIs());
                 if (!TextUtils.isEmpty(arrays)) {
                     arrays = arrays.replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "");
                 }
-                sCPU = str + ";" + num + ";" + f2 + ";" + arrays;
+                sCPU = str + ";" + num + ";" + f + ";" + arrays;
             }
             return sCPU;
         }
@@ -312,7 +313,7 @@ public class CommonUtils {
     public static String getNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new g().b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new f30().b() : (String) invokeV.objValue;
     }
 
     public static String getOSVersion() {
@@ -416,7 +417,7 @@ public class CommonUtils {
     public static String getSDKVersion(String str) {
         InterceptResult invokeL;
         JsonReader jsonReader;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (sSDKVersionMap.get(str) == null) {
@@ -437,9 +438,9 @@ public class CommonUtils {
                                 }
                                 jsonReader.endObject();
                                 jsonReader.close();
-                            } catch (Exception e3) {
-                                e2 = e3;
-                                e2.printStackTrace();
+                            } catch (Exception e2) {
+                                e = e2;
+                                e.printStackTrace();
                                 if (jsonReader != null) {
                                     jsonReader.close();
                                 }
@@ -451,23 +452,23 @@ public class CommonUtils {
                             if (jsonReader2 != 0) {
                                 try {
                                     jsonReader2.close();
-                                } catch (IOException e4) {
-                                    e4.printStackTrace();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
                                 }
                             }
                             throw th;
                         }
-                    } catch (Exception e5) {
+                    } catch (Exception e4) {
                         jsonReader = null;
-                        e2 = e5;
+                        e = e4;
                     } catch (Throwable th2) {
                         th = th2;
                         if (jsonReader2 != 0) {
                         }
                         throw th;
                     }
-                } catch (IOException e6) {
-                    e6.printStackTrace();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
             }
             return sSDKVersionMap.get(str);
@@ -536,40 +537,40 @@ public class CommonUtils {
                                                             upperCase = upperCase.substring(0, upperCase.lastIndexOf(" KB"));
                                                         }
                                                         if (!TextUtils.isEmpty(upperCase)) {
-                                                            char c2 = 65535;
+                                                            char c = 65535;
                                                             switch (trim.hashCode()) {
                                                                 case -1729713066:
                                                                     if (trim.equals("VmPeak")) {
-                                                                        c2 = 1;
+                                                                        c = 1;
                                                                         break;
                                                                     }
                                                                     break;
                                                                 case -1729619080:
                                                                     if (trim.equals("VmSize")) {
-                                                                        c2 = 3;
+                                                                        c = 3;
                                                                         break;
                                                                     }
                                                                     break;
                                                                 case 82741991:
                                                                     if (trim.equals(VSSConstants.VMHWM)) {
-                                                                        c2 = 0;
+                                                                        c = 0;
                                                                         break;
                                                                     }
                                                                     break;
                                                                 case 82751483:
                                                                     if (trim.equals(VSSConstants.VMRSS)) {
-                                                                        c2 = 2;
+                                                                        c = 2;
                                                                         break;
                                                                     }
                                                                     break;
                                                             }
-                                                            if (c2 == 0) {
+                                                            if (c == 0) {
                                                                 str2 = upperCase;
-                                                            } else if (c2 == 1) {
+                                                            } else if (c == 1) {
                                                                 str = upperCase;
-                                                            } else if (c2 == 2) {
+                                                            } else if (c == 2) {
                                                                 str3 = upperCase;
-                                                            } else if (c2 == 3) {
+                                                            } else if (c == 3) {
                                                                 bufferedReader2 = upperCase;
                                                             }
                                                         }
@@ -580,16 +581,16 @@ public class CommonUtils {
                                             r0 = bufferedReader2;
                                             bufferedReader2 = bufferedReader3;
                                         }
-                                    } catch (FileNotFoundException e2) {
-                                        e = e2;
+                                    } catch (FileNotFoundException e) {
+                                        e = e;
                                         bufferedReader = bufferedReader2;
                                         bufferedReader2 = bufferedReader3;
                                         e.printStackTrace();
                                         if (bufferedReader2 != null) {
                                             try {
                                                 bufferedReader2.close();
-                                            } catch (IOException e3) {
-                                                e = e3;
+                                            } catch (IOException e2) {
+                                                e = e2;
                                                 e.printStackTrace();
                                                 r0 = bufferedReader;
                                                 return r0 + ";" + str + ";" + str3 + ";" + str2;
@@ -597,16 +598,16 @@ public class CommonUtils {
                                         }
                                         r0 = bufferedReader;
                                         return r0 + ";" + str + ";" + str3 + ";" + str2;
-                                    } catch (IOException e4) {
-                                        e = e4;
+                                    } catch (IOException e3) {
+                                        e = e3;
                                         bufferedReader = bufferedReader2;
                                         bufferedReader2 = bufferedReader3;
                                         e.printStackTrace();
                                         if (bufferedReader2 != null) {
                                             try {
                                                 bufferedReader2.close();
-                                            } catch (IOException e5) {
-                                                e = e5;
+                                            } catch (IOException e4) {
+                                                e = e4;
                                                 e.printStackTrace();
                                                 r0 = bufferedReader;
                                                 return r0 + ";" + str + ";" + str3 + ";" + str2;
@@ -624,20 +625,20 @@ public class CommonUtils {
                                 if (bufferedReader2 != null) {
                                     try {
                                         bufferedReader2.close();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                                 throw th;
                             }
-                        } catch (FileNotFoundException e7) {
-                            e = e7;
+                        } catch (FileNotFoundException e6) {
+                            e = e6;
                             bufferedReader = null;
                             str = null;
                             str2 = null;
                             str3 = null;
-                        } catch (IOException e8) {
-                            e = e8;
+                        } catch (IOException e7) {
+                            e = e7;
                             bufferedReader = null;
                             str = null;
                             str2 = null;
@@ -652,21 +653,21 @@ public class CommonUtils {
                     if (bufferedReader2 != null) {
                         try {
                             bufferedReader2.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
                         }
                     }
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (FileNotFoundException e10) {
-                e = e10;
+            } catch (FileNotFoundException e9) {
+                e = e9;
                 bufferedReader = null;
                 str = null;
                 str2 = null;
                 str3 = null;
-            } catch (IOException e11) {
-                e = e11;
+            } catch (IOException e10) {
+                e = e10;
                 bufferedReader = null;
                 str = null;
                 str2 = null;
@@ -729,7 +730,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             String prop = RomUtils.getProp("ro.product.model");
             if (!TextUtils.isEmpty(prop) && !prop.toLowerCase().contains("sdk") && !prop.toLowerCase().contains("google_sdk") && !prop.contains("Emulator")) {
-                String prop2 = RomUtils.getProp(com.kuaishou.weapon.un.g.q);
+                String prop2 = RomUtils.getProp(g.q);
                 if (!TextUtils.isEmpty(prop2) && !prop2.toLowerCase().contains("unknown") && !prop2.contains("Genymotion")) {
                     String prop3 = RomUtils.getProp("ro.product.device");
                     if (!TextUtils.isEmpty(prop3) && !prop3.toLowerCase().contains("generic")) {

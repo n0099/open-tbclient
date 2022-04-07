@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypeMap;

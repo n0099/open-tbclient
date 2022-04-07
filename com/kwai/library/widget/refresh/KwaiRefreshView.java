@@ -19,26 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KwaiRefreshView extends RelativeLayout implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f41783b;
+    public boolean b;
     @DrawableRes
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f41784c;
+    public int c;
     @Nullable
-
-    /* renamed from: d  reason: collision with root package name */
-    public AnimationDrawable f41785d;
+    public AnimationDrawable d;
     @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public Runnable f41786e;
+    public Runnable e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KwaiRefreshView(Context context) {
@@ -101,21 +93,21 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 return;
             }
         }
-        this.f41784c = R.drawable.obfuscated_res_0x7f080bc2;
+        this.c = R.drawable.obfuscated_res_0x7f080bc3;
         a(context, attributeSet);
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403f2});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040432});
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             if (resourceId != 0) {
-                this.f41784c = resourceId;
+                this.c = resourceId;
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0451, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091977);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d044c, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091968);
             post(new Runnable(this) { // from class: com.kwai.library.widget.refresh.KwaiRefreshView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -152,9 +144,9 @@ public class KwaiRefreshView extends RelativeLayout implements f {
 
     private void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.f41785d == null) {
-            this.a.setBackgroundResource(this.f41784c);
-            this.f41785d = (AnimationDrawable) this.a.getBackground();
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.d == null) {
+            this.a.setBackgroundResource(this.c);
+            this.d = (AnimationDrawable) this.a.getBackground();
         }
     }
 
@@ -162,27 +154,27 @@ public class KwaiRefreshView extends RelativeLayout implements f {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41783b = false;
-            AnimationDrawable animationDrawable = this.f41785d;
+            this.b = false;
+            AnimationDrawable animationDrawable = this.d;
             if (animationDrawable == null || !animationDrawable.isRunning()) {
                 return;
             }
-            this.f41785d.stop();
+            this.d.stop();
         }
     }
 
     @Override // com.kwai.library.widget.refresh.f
-    public void a(float f2, float f3) {
+    public void a(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f41783b) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.b) {
             return;
         }
         g();
-        AnimationDrawable animationDrawable = this.f41785d;
+        AnimationDrawable animationDrawable = this.d;
         if (animationDrawable != null) {
-            animationDrawable.selectDrawable(Math.min(40, (int) (40.0f * f3)));
+            animationDrawable.selectDrawable(Math.min(40, (int) (40.0f * f2)));
         }
-        if (f3 > 0.5f || getAlpha() != 0.0f) {
+        if (f2 > 0.5f || getAlpha() != 0.0f) {
             return;
         }
         setAlpha(1.0f);
@@ -192,14 +184,14 @@ public class KwaiRefreshView extends RelativeLayout implements f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Runnable runnable = this.f41786e;
+            Runnable runnable = this.e;
             if (runnable != null) {
                 g.a(runnable);
-                this.f41786e = null;
+                this.e = null;
             }
-            this.f41783b = true;
+            this.b = true;
             g();
-            AnimationDrawable animationDrawable = this.f41785d;
+            AnimationDrawable animationDrawable = this.d;
             if (animationDrawable != null) {
                 animationDrawable.start();
             }
@@ -238,15 +230,15 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.a.f41785d != null) {
-                            this.a.f41785d.stop();
+                        if (this.a.d != null) {
+                            this.a.d.stop();
                         }
                         this.a.setAlpha(0.0f);
-                        this.a.f41783b = false;
+                        this.a.b = false;
                     }
                 }
             };
-            this.f41786e = runnable;
+            this.e = runnable;
             g.a(runnable, 500L);
         }
     }

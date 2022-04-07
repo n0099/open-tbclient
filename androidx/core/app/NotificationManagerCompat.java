@@ -320,8 +320,8 @@ public final class NotificationManagerCompat {
                             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
                                 Log.d(NotificationManagerCompat.TAG, "Remote service has died: " + listenerRecord.componentName);
                             }
-                        } catch (RemoteException e2) {
-                            Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e2);
+                        } catch (RemoteException e) {
+                            Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e);
                         }
                     }
                     if (listenerRecord.taskQueue.isEmpty()) {

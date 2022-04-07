@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPCamera extends ARPNode implements IARPCamera {
     public static /* synthetic */ Interceptable $ic;
     public static ARPCamera fJ;
@@ -128,23 +128,23 @@ public class ARPCamera extends ARPNode implements IARPCamera {
 
     public native float nativeGetZNear(long j);
 
-    public native void nativeSetFieldOfView(long j, float f2);
+    public native void nativeSetFieldOfView(long j, float f);
 
     public native void nativeSetViewMatrix(long j, float[] fArr);
 
-    public native void nativeSetZFar(long j, float f2);
+    public native void nativeSetZFar(long j, float f);
 
-    public native void nativeSetZNear(long j, float f2);
+    public native void nativeSetZNear(long j, float f);
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPCamera
-    public void setFieldOfView(float f2) {
+    public void setFieldOfView(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
             long j = this.fK;
             if (j == -1) {
                 Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
             } else {
-                nativeSetFieldOfView(j, f2);
+                nativeSetFieldOfView(j, f);
             }
         }
     }
@@ -164,27 +164,27 @@ public class ARPCamera extends ARPNode implements IARPCamera {
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPCamera
-    public void setZFar(float f2) {
+    public void setZFar(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
             long j = this.fK;
             if (j == -1) {
                 Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
             } else {
-                nativeSetZFar(j, f2);
+                nativeSetZFar(j, f);
             }
         }
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPCamera
-    public void setZNear(float f2) {
+    public void setZNear(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
             long j = this.fK;
             if (j == -1) {
                 Log.e(ARPCamera.class.getSimpleName(), "node addr is error");
             } else {
-                nativeSetZNear(j, f2);
+                nativeSetZNear(j, f);
             }
         }
     }

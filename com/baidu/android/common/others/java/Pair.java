@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Pair<F, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final F mFirst;
     public final S mSecond;
 
-    public Pair(F f2, S s) {
+    public Pair(F f, S s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, s};
+            Object[] objArr = {f, s};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,14 +29,14 @@ public class Pair<F, S> {
                 return;
             }
         }
-        this.mFirst = f2;
+        this.mFirst = f;
         this.mSecond = s;
     }
 
-    public static <A, B> Pair<A, B> create(A a, B b2) {
+    public static <A, B> Pair<A, B> create(A a, B b) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b2)) == null) ? new Pair<>(a, b2) : (Pair) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b)) == null) ? new Pair<>(a, b) : (Pair) invokeLL.objValue;
     }
 
     public boolean equals(Object obj) {

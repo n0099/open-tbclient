@@ -4,11 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.d.f.p.m;
-import c.a.d.o.e.n;
-import c.a.o0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -31,6 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b27;
+import com.repackage.ij4;
+import com.repackage.mg;
+import com.repackage.mi;
+import com.repackage.ni;
+import com.repackage.uo;
+import com.repackage.x17;
+import com.repackage.x8;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -39,8 +42,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.p0.q1.l.b.a {
+/* loaded from: classes3.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements x17 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -52,7 +55,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +87,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.topicID = b.g(str, -1L);
+                this.a.topicID = mg.g(str, -1L);
             }
         }
     }
@@ -115,7 +118,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                w.b(statisticItem, paramPair);
+                ij4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -125,7 +128,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!m.isEmpty(paramPair.get("ext_log"))) {
+                if (!ni.isEmpty(paramPair.get("ext_log"))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
@@ -133,8 +136,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                             String next = keys.next();
                             statisticItem.param(next, jSONObject.getString(next));
                         }
-                    } catch (JSONException e2) {
-                        BdLog.e(e2.getMessage());
+                    } catch (JSONException e) {
+                        BdLog.e(e.getMessage());
                     }
                 }
                 TiebaStatic.log(statisticItem);
@@ -165,14 +168,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.q1.l.b.a
+    @Override // com.repackage.x17
     public void loadData() {
         int i;
         String substring;
@@ -206,7 +209,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.topicID = b.g(substring, -1L);
+                        this.topicID = mg.g(substring, -1L);
                     }
                 }
             } else {
@@ -214,12 +217,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             }
             if (this.topicID < 0) {
                 finish();
-            } else if (!l.A()) {
-                this.mTopicDetailView.r();
-                this.mTopicDetailView.B(true);
-            } else {
+            } else if (!mi.A()) {
                 this.mTopicDetailView.s();
-                this.mTopicDetailView.A(false);
+                this.mTopicDetailView.C(true);
+            } else {
+                this.mTopicDetailView.t();
+                this.mTopicDetailView.B(false);
                 TopicDetailView topicDetailView = this.mTopicDetailView;
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.mTopicDetailView.getEditor().I(this.topicID);
@@ -229,22 +232,22 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.p0.q1.l.b.a
-    public void netCallback(int i, c.a.p0.q1.l.b.c.a aVar) {
+    @Override // com.repackage.x17
+    public void netCallback(int i, b27 b27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, aVar) == null) {
-            this.mTopicDetailView.r();
-            if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17550f)) {
-                this.mTopicDetailView.s();
-                this.mTopicDetailView.setData(aVar);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, b27Var) == null) {
+            this.mTopicDetailView.s();
+            if (i == 0 && b27Var != null && !ListUtils.isEmpty(b27Var.f)) {
+                this.mTopicDetailView.t();
+                this.mTopicDetailView.setData(b27Var);
                 return;
             }
-            this.mTopicDetailView.B(true);
+            this.mTopicDetailView.C(true);
         }
     }
 
-    @Override // c.a.p0.q1.l.b.a
-    public void netThreadCallback(int i, boolean z, List<n> list) {
+    @Override // com.repackage.x17
+    public void netThreadCallback(int i, boolean z, List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.mTopicDetailView.setNextData(i, z, list);
@@ -269,7 +272,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mTopicDetailView.x();
+            this.mTopicDetailView.y();
         }
     }
 
@@ -286,7 +289,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.F(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

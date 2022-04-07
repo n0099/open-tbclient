@@ -11,21 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CoachInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CoachInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26371b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26372c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26373d;
+    public String b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +70,9 @@ public class CoachInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f26371b = parcel.readString();
-        this.f26372c = parcel.readString();
-        this.f26373d = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
+        this.d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -94,7 +88,7 @@ public class CoachInfo extends TransitBaseInfo {
     public String getBooking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26371b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public double getPrice() {
@@ -106,40 +100,40 @@ public class CoachInfo extends TransitBaseInfo {
     public String getProviderName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26372c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public String getProviderUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26373d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public void setBooking(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26371b = str;
+            this.b = str;
         }
     }
 
-    public void setPrice(double d2) {
+    public void setPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.a = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.a = d;
         }
     }
 
     public void setProviderName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f26372c = str;
+            this.c = str;
         }
     }
 
     public void setProviderUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f26373d = str;
+            this.d = str;
         }
     }
 
@@ -149,9 +143,9 @@ public class CoachInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f26371b);
-            parcel.writeString(this.f26372c);
-            parcel.writeString(this.f26373d);
+            parcel.writeString(this.b);
+            parcel.writeString(this.c);
+            parcel.writeString(this.d);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
-/* loaded from: classes5.dex */
-public class NewGodData extends p implements Serializable {
+/* loaded from: classes3.dex */
+public class NewGodData extends go4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mFieldId;
@@ -100,7 +100,7 @@ public class NewGodData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
@@ -112,8 +112,8 @@ public class NewGodData extends p implements Serializable {
             this.mFieldName = jSONObject.optString("field_name", "");
             this.mType = jSONObject.optInt("type", 0);
             this.mTypeName = jSONObject.optString("type_name", "");
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e extends com.baidu.ar.e.a<String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
             try {
                 o.g(jSONObject);
                 o.b(context, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -168,8 +168,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
                                 if (this.bT != null) {
                                     this.bT.run(aO);
                                 }
-                            } catch (JSONException e2) {
-                                JSONException jSONException2 = e2;
+                            } catch (JSONException e) {
+                                JSONException jSONException2 = e;
                                 jSONException2.printStackTrace();
                                 i = 3;
                                 message = jSONException2.getMessage();
@@ -179,8 +179,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
                                 exc = exc2;
                                 if (TextUtils.isEmpty(str3)) {
                                 }
-                            } catch (Exception e3) {
-                                Exception exc3 = e3;
+                            } catch (Exception e2) {
+                                Exception exc3 = e2;
                                 exc3.printStackTrace();
                                 i = 1;
                                 message = exc3.getMessage();

@@ -90,8 +90,8 @@ public class ConscryptPlatform extends Platform {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 return SSLContext.getInstance("TLS", getProvider());
-            } catch (NoSuchAlgorithmException e2) {
-                throw new IllegalStateException("No TLS provider", e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException("No TLS provider", e);
             }
         }
         return (SSLContext) invokeV.objValue;
@@ -125,8 +125,8 @@ public class ConscryptPlatform extends Platform {
                     return (X509TrustManager) Platform.readFieldOrNull(readFieldOrNull, X509TrustManager.class, "x509TrustManager");
                 }
                 return null;
-            } catch (Exception e2) {
-                throw new UnsupportedOperationException("clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on Conscrypt", e2);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException("clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on Conscrypt", e);
             }
         }
         return (X509TrustManager) invokeL.objValue;

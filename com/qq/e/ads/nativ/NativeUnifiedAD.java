@@ -20,16 +20,12 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AdListenerAdapter f42361g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public NativeADUnifiedListener f42362h;
+    public AdListenerAdapter g;
+    public NativeADUnifiedListener h;
     public List<Integer> i;
     public List<String> j;
     public volatile int k;
@@ -37,7 +33,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public String m;
     public LoadAdParams n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,8 +105,8 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             }
         }
         this.i = new ArrayList();
-        this.f42362h = nativeADUnifiedListener;
-        this.f42361g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.h = nativeADUnifiedListener;
+        this.g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str);
     }
 
@@ -130,8 +126,8 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             }
         }
         this.i = new ArrayList();
-        this.f42362h = nativeADUnifiedListener;
-        this.f42361g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.h = nativeADUnifiedListener;
+        this.g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str, str2);
     }
 
@@ -185,7 +181,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f42361g) : invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.g) : invokeLLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -211,7 +207,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public void b(int i) {
         NativeADUnifiedListener nativeADUnifiedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (nativeADUnifiedListener = this.f42362h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (nativeADUnifiedListener = this.h) == null) {
             return;
         }
         nativeADUnifiedListener.onNoAD(AdErrorConvertor.formatErrorCode(i));

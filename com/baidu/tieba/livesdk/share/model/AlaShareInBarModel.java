@@ -19,16 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ue7;
+/* loaded from: classes3.dex */
 public class AlaShareInBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f34328b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +69,9 @@ public class AlaShareInBarModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, c.a.p0.e2.e.b.a aVar);
+        void a(int i, String str, ue7 ue7Var);
     }
 
     public AlaShareInBarModel() {
@@ -88,9 +87,9 @@ public class AlaShareInBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.f34328b = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
         z();
-        MessageManager.getInstance().registerListener(this.f34328b);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
     public void A(String str, String str2, String str3, String str4) {
@@ -141,7 +140,7 @@ public class AlaShareInBarModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-            MessageManager.getInstance().unRegisterListener(this.f34328b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 

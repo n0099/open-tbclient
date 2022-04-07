@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VmTraceData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +37,13 @@ public class VmTraceData {
     public final VmClockType mVmClockType;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceData$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Builder implements VmTraceHandler {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -333,7 +333,7 @@ public class VmTraceData {
         return (SearchResult) invokeLL.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ProfileDataBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

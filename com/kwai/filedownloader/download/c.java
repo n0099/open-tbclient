@@ -13,57 +13,35 @@ import com.kwai.filedownloader.download.e;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import java.io.IOException;
 import java.net.SocketException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final ConnectTask f41662b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final f f41663c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final String f41664d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final boolean f41665e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public e f41666f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f41667g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final int f41668h;
+    public final ConnectTask b;
+    public final f c;
+    public final String d;
+    public final boolean e;
+    public e f;
+    public volatile boolean g;
+    public final int h;
 
     /* renamed from: com.kwai.filedownloader.download.c$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ConnectTask.a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public f f41669b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f41670c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Boolean f41671d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Integer f41672e;
+        public f b;
+        public String c;
+        public Boolean d;
+        public Integer e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -115,7 +93,7 @@ public class c implements Runnable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
-                this.f41669b = fVar;
+                this.b = fVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -125,7 +103,7 @@ public class c implements Runnable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, num)) == null) {
-                this.f41672e = num;
+                this.e = num;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -145,7 +123,7 @@ public class c implements Runnable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f41671d = Boolean.valueOf(z);
+                this.d = Boolean.valueOf(z);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -155,11 +133,11 @@ public class c implements Runnable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (this.f41669b == null || this.f41670c == null || this.f41671d == null || this.f41672e == null) {
-                    throw new IllegalArgumentException(com.kwai.filedownloader.e.f.a("%s %s %B", this.f41669b, this.f41670c, this.f41671d));
+                if (this.b == null || this.c == null || this.d == null || this.e == null) {
+                    throw new IllegalArgumentException(com.kwai.filedownloader.e.f.a("%s %s %B", this.b, this.c, this.d));
                 }
                 ConnectTask a = this.a.a();
-                return new c(a.a, this.f41672e.intValue(), a, this.f41669b, this.f41671d.booleanValue(), this.f41670c, null);
+                return new c(a.a, this.e.intValue(), a, this.b, this.d.booleanValue(), this.c, null);
             }
             return (c) invokeV.objValue;
         }
@@ -178,7 +156,7 @@ public class c implements Runnable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f41670c = str;
+                this.c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -200,13 +178,13 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f41668h = i;
+        this.h = i;
         this.a = i2;
-        this.f41667g = false;
-        this.f41663c = fVar;
-        this.f41664d = str;
-        this.f41662b = connectTask;
-        this.f41665e = z;
+        this.g = false;
+        this.c = fVar;
+        this.d = str;
+        this.b = connectTask;
+        this.e = z;
     }
 
     public /* synthetic */ c(int i, int i2, ConnectTask connectTask, f fVar, boolean z, String str, AnonymousClass1 anonymousClass1) {
@@ -216,8 +194,8 @@ public class c implements Runnable {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41667g = true;
-            e eVar = this.f41666f;
+            this.g = true;
+            e eVar = this.f;
             if (eVar != null) {
                 eVar.a();
             }
@@ -235,48 +213,48 @@ public class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        Exception e2;
+        Exception e;
         e.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Process.setThreadPriority(10);
-            long j = this.f41662b.e().f41654b;
+            long j = this.b.e().b;
             com.kwai.filedownloader.kwai.b bVar = null;
             boolean z2 = false;
-            while (!this.f41667g) {
+            while (!this.g) {
                 try {
                     try {
-                        bVar = this.f41662b.a();
-                        int e3 = bVar.e();
+                        bVar = this.b.a();
+                        int e2 = bVar.e();
                         if (com.kwai.filedownloader.e.d.a) {
-                            com.kwai.filedownloader.e.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.a), Integer.valueOf(this.f41668h), this.f41662b.e(), Integer.valueOf(e3));
+                            com.kwai.filedownloader.e.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.a), Integer.valueOf(this.h), this.b.e(), Integer.valueOf(e2));
                         }
-                        if (e3 != 206 && e3 != 200) {
-                            throw new SocketException(com.kwai.filedownloader.e.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.f41662b.d(), bVar.c(), Integer.valueOf(e3), Integer.valueOf(this.f41668h), Integer.valueOf(this.a)));
+                        if (e2 != 206 && e2 != 200) {
+                            throw new SocketException(com.kwai.filedownloader.e.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.b.d(), bVar.c(), Integer.valueOf(e2), Integer.valueOf(this.h), Integer.valueOf(this.a)));
                             break;
                         }
-                    } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e4) {
-                        e2 = e4;
+                    } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e3) {
+                        e = e3;
                         z = false;
                     }
-                } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e5) {
+                } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e4) {
                     z = z2;
-                    e2 = e5;
+                    e = e4;
                 }
                 try {
                     aVar = new e.a();
-                } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e6) {
-                    e2 = e6;
+                } catch (FileDownloadGiveUpRetryException | IOException | IllegalAccessException | IllegalArgumentException e5) {
+                    e = e5;
                     z = true;
                     try {
-                        if (this.f41663c.a(e2)) {
+                        if (this.c.a(e)) {
                             if (!z) {
-                                this.f41663c.a(e2, 0L);
-                            } else if (this.f41666f != null) {
-                                this.f41663c.a(e2, this.f41666f.a - j);
+                                this.c.a(e, 0L);
+                            } else if (this.f != null) {
+                                this.c.a(e, this.f.a - j);
                             } else {
-                                com.kwai.filedownloader.e.d.d(this, "it is valid to retry and connection is valid but create fetch-data-task failed, so give up directly with %s", e2);
-                                this.f41663c.b(e2);
+                                com.kwai.filedownloader.e.d.d(this, "it is valid to retry and connection is valid but create fetch-data-task failed, so give up directly with %s", e);
+                                this.c.b(e);
                                 if (bVar == null) {
                                     return;
                                 }
@@ -286,7 +264,7 @@ public class c implements Runnable {
                             }
                             z2 = z;
                         } else {
-                            this.f41663c.b(e2);
+                            this.c.b(e);
                             if (bVar == null) {
                                 return;
                             }
@@ -298,18 +276,18 @@ public class c implements Runnable {
                         }
                     }
                 }
-                if (this.f41667g) {
+                if (this.g) {
                     if (bVar != null) {
                         bVar.f();
                         return;
                     }
                     return;
                 }
-                e a2 = aVar.b(this.f41668h).a(this.a).a(this.f41663c).a(this).a(this.f41665e).a(bVar).a(this.f41662b.e()).a(this.f41664d).a();
-                this.f41666f = a2;
+                e a2 = aVar.b(this.h).a(this.a).a(this.c).a(this).a(this.e).a(bVar).a(this.b.e()).a(this.d).a();
+                this.f = a2;
                 a2.b();
-                if (this.f41667g) {
-                    this.f41666f.a();
+                if (this.g) {
+                    this.f.a();
                 }
                 if (bVar == null) {
                     return;

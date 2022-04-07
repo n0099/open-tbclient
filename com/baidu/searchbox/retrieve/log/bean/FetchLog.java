@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FetchLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -63,7 +63,7 @@ public class FetchLog {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00c2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -111,8 +111,8 @@ public class FetchLog {
                 str2 = optString3;
                 try {
                     return new FetchLogBean(optString2, optString, optString3, longValue, parseLong, parseLong2, Long.parseLong(optJSONObject.optString("maxTotalFileSize")), arrayList, optJSONObject.optString("network"));
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     jSONObject2 = jSONObject;
                     reportTaskCheckFail(optString, str, str2, jSONObject2);
                     if (DEBUG) {
@@ -120,8 +120,8 @@ public class FetchLog {
                     reportTaskCheckFail(optString, str, str2, jSONObject2);
                     return null;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 jSONObject2 = jSONObject;
                 str = optString2;
                 str2 = optString3;
@@ -132,8 +132,8 @@ public class FetchLog {
                 reportTaskCheckFail(optString, str, str2, jSONObject2);
                 return null;
             }
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
             str = optString2;
             str2 = optString3;
         }

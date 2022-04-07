@@ -18,7 +18,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_TYPE = "application/json; charset=utf-8";
@@ -61,8 +61,8 @@ public abstract class AbstractBceClient {
             if (endpoint == null) {
                 try {
                     endpoint = isRegionSupported() ? String.format("%s://%s.%s.%s", this.config.getProtocol(), this.serviceId, this.config.getRegion(), DEFAULT_SERVICE_DOMAIN) : String.format("%s://%s.%s", this.config.getProtocol(), this.serviceId, DEFAULT_SERVICE_DOMAIN);
-                } catch (URISyntaxException e2) {
-                    throw new IllegalArgumentException("Invalid endpoint." + endpoint, e2);
+                } catch (URISyntaxException e) {
+                    throw new IllegalArgumentException("Invalid endpoint." + endpoint, e);
                 }
             }
             return new URI(endpoint);

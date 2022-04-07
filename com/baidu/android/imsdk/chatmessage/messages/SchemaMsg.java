@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SchemaMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SchemaMsg> CREATOR;
@@ -83,8 +83,8 @@ public class SchemaMsg extends NormalMsg {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 spanned = Html.fromHtml(URLDecoder.decode(getText()));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 spanned = null;
             }
             return (spanned == null || TextUtils.isEmpty(spanned.toString())) ? "" : spanned.toString();
@@ -108,8 +108,8 @@ public class SchemaMsg extends NormalMsg {
                 try {
                     this.mContent = new JSONObject(jsonContent).optString("src");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e("TextMsg", "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e("TextMsg", "parse json err!", e);
                 }
             }
             return false;

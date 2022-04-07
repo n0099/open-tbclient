@@ -1,8 +1,5 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
-import c.a.o0.r.l;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,9 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cn4;
+import com.repackage.oi;
+import com.repackage.rc5;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;
@@ -55,12 +55,12 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.activity_name = this.tabCode;
                 builder.pn = Integer.valueOf(this.pn);
                 builder.rn = 20;
-                builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(l.c().e());
+                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) oi.h(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(cn4.c().e());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    b0.a(builder, true);
+                    rc5.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

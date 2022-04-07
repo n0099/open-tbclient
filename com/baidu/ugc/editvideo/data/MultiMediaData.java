@@ -9,8 +9,6 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
-import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,6 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
+import com.repackage.f99;
+import com.repackage.yb9;
 import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MultiMediaData> CREATOR;
@@ -84,7 +84,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public float y;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface MultiMediaType {
         public static final int TYPE_IMAGE = 0;
         public static final int TYPE_VIDEO = 1;
@@ -229,7 +229,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (h.e(list)) {
+            if (yb9.e(list)) {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
@@ -238,7 +238,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                 multiMediaData.textureId = 0;
                 arrayList.add(multiMediaData);
             }
-            return h.e(arrayList) ? "" : new b().a(arrayList);
+            return yb9.e(arrayList) ? "" : new f99().a(arrayList);
         }
         return (String) invokeL.objValue;
     }
@@ -247,7 +247,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
-            if (h.e(list) || TextUtils.isEmpty(str)) {
+            if (yb9.e(list) || TextUtils.isEmpty(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
@@ -273,7 +273,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new b().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+                return (List) new f99().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -304,8 +304,8 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return new MultiMediaData();
             }
         }
@@ -418,8 +418,8 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                         }
                         this.player = null;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 this.player = null;
@@ -440,8 +440,8 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                 } finally {
                     this.surfaceTexture = null;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             try {
                 try {
@@ -449,8 +449,8 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                         this.surface.release();
                         this.surface = null;
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             } finally {
                 this.surface = null;
@@ -477,9 +477,9 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             VLogSimplePlayer vLogSimplePlayer = this.player;
             if (vLogSimplePlayer != null) {
                 float speed = vLogSimplePlayer.getSpeed();
-                float f2 = this.mSpeed;
-                if (speed != f2) {
-                    this.player.setSpeed(f2);
+                float f = this.mSpeed;
+                if (speed != f) {
+                    this.player.setSpeed(f);
                     return true;
                 }
                 return false;

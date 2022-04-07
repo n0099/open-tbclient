@@ -74,9 +74,9 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
     }
 
     @InlineOnly
-    public static final void set(StringBuilder set, int i, char c2) {
+    public static final void set(StringBuilder set, int i, char c) {
         Intrinsics.checkNotNullParameter(set, "$this$set");
-        set.setCharAt(i, c2);
+        set.setCharAt(i, c);
     }
 
     @SinceKotlin(version = "1.4")
@@ -156,8 +156,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use appendLine instead. Note that the new method always appends the line feed character '\\n' regardless of the system line separator.", replaceWith = @ReplaceWith(expression = "appendLine(value)", imports = {}))
     @InlineOnly
-    public static final Appendable appendln(Appendable appendable, char c2) {
-        Appendable append = appendable.append(c2);
+    public static final Appendable appendln(Appendable appendable, char c) {
+        Appendable append = appendable.append(c);
         Intrinsics.checkNotNullExpressionValue(append, "append(value)");
         return appendln(append);
     }
@@ -182,8 +182,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @SinceKotlin(version = "1.4")
     @InlineOnly
-    public static final StringBuilder appendLine(StringBuilder sb, byte b2) {
-        sb.append((int) b2);
+    public static final StringBuilder appendLine(StringBuilder sb, byte b) {
+        sb.append((int) b);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value.toInt())");
         sb.append('\n');
         Intrinsics.checkNotNullExpressionValue(sb, "append('\\n')");
@@ -218,8 +218,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @SinceKotlin(version = "1.4")
     @InlineOnly
-    public static final StringBuilder appendLine(StringBuilder sb, float f2) {
-        sb.append(f2);
+    public static final StringBuilder appendLine(StringBuilder sb, float f) {
+        sb.append(f);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         sb.append('\n');
         Intrinsics.checkNotNullExpressionValue(sb, "append('\\n')");
@@ -236,8 +236,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @SinceKotlin(version = "1.4")
     @InlineOnly
-    public static final StringBuilder appendLine(StringBuilder sb, double d2) {
-        sb.append(d2);
+    public static final StringBuilder appendLine(StringBuilder sb, double d) {
+        sb.append(d);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         sb.append('\n');
         Intrinsics.checkNotNullExpressionValue(sb, "append('\\n')");
@@ -270,8 +270,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use appendLine instead. Note that the new method always appends the line feed character '\\n' regardless of the system line separator.", replaceWith = @ReplaceWith(expression = "appendLine(value)", imports = {}))
     @InlineOnly
-    public static final StringBuilder appendln(StringBuilder sb, char c2) {
-        sb.append(c2);
+    public static final StringBuilder appendln(StringBuilder sb, char c) {
+        sb.append(c);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         return appendln(sb);
     }
@@ -302,8 +302,8 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use appendLine instead. Note that the new method always appends the line feed character '\\n' regardless of the system line separator.", replaceWith = @ReplaceWith(expression = "appendLine(value)", imports = {}))
     @InlineOnly
-    public static final StringBuilder appendln(StringBuilder sb, byte b2) {
-        sb.append((int) b2);
+    public static final StringBuilder appendln(StringBuilder sb, byte b) {
+        sb.append((int) b);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value.toInt())");
         return appendln(sb);
     }
@@ -318,16 +318,16 @@ public class StringsKt__StringBuilderJVMKt extends StringsKt__RegexExtensionsKt 
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use appendLine instead. Note that the new method always appends the line feed character '\\n' regardless of the system line separator.", replaceWith = @ReplaceWith(expression = "appendLine(value)", imports = {}))
     @InlineOnly
-    public static final StringBuilder appendln(StringBuilder sb, float f2) {
-        sb.append(f2);
+    public static final StringBuilder appendln(StringBuilder sb, float f) {
+        sb.append(f);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         return appendln(sb);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use appendLine instead. Note that the new method always appends the line feed character '\\n' regardless of the system line separator.", replaceWith = @ReplaceWith(expression = "appendLine(value)", imports = {}))
     @InlineOnly
-    public static final StringBuilder appendln(StringBuilder sb, double d2) {
-        sb.append(d2);
+    public static final StringBuilder appendln(StringBuilder sb, double d) {
+        sb.append(d);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         return appendln(sb);
     }

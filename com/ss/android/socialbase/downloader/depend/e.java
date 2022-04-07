@@ -14,14 +14,12 @@ public interface e extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2060a implements e {
+        public static class C0604a implements e {
             public static e a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43220b;
-
-            public C2060a(IBinder iBinder) {
-                this.f43220b = iBinder;
+            public C0604a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.e
@@ -31,7 +29,7 @@ public interface e extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                     obtain.writeLong(j);
-                    if (!this.f43220b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j);
                     }
                     obtain2.readException();
@@ -44,7 +42,7 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43220b;
+                return this.b;
             }
         }
 
@@ -60,7 +58,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C2060a(iBinder);
+            return new C0604a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -85,7 +83,7 @@ public interface e extends IInterface {
         }
 
         public static e a() {
-            return C2060a.a;
+            return C0604a.a;
         }
     }
 }

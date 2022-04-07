@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ConfigMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ConfigMsg> CREATOR;
@@ -98,8 +98,8 @@ public class ConfigMsg extends NormalMsg {
                 try {
                     this.dataList = new JSONObject(jsonContent).optString("data_list");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e("TextMsg", "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e("TextMsg", "parse json err!", e);
                 }
             }
             return false;

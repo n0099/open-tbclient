@@ -57,17 +57,17 @@ public class TransitionUtils {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
-        public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
+        public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), matrix, matrix2})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), matrix, matrix2})) == null) {
                 matrix.getValues(this.mTempStartValues);
                 matrix2.getValues(this.mTempEndValues);
                 for (int i = 0; i < 9; i++) {
                     float[] fArr = this.mTempEndValues;
-                    float f3 = fArr[i];
+                    float f2 = fArr[i];
                     float[] fArr2 = this.mTempStartValues;
-                    fArr[i] = fArr2[i] + ((f3 - fArr2[i]) * f2);
+                    fArr[i] = fArr2[i] + ((f2 - fArr2[i]) * f);
                 }
                 this.mTempMatrix.setValues(this.mTempEndValues);
                 return this.mTempMatrix;
@@ -108,23 +108,23 @@ public class TransitionUtils {
         }
     }
 
-    public static View copyViewImage(ViewGroup viewGroup, View view, View view2) {
+    public static View copyViewImage(ViewGroup viewGroup, View view2, View view3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, viewGroup, view, view2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, viewGroup, view2, view3)) == null) {
             Matrix matrix = new Matrix();
-            matrix.setTranslate(-view2.getScrollX(), -view2.getScrollY());
-            ViewUtils.transformMatrixToGlobal(view, matrix);
+            matrix.setTranslate(-view3.getScrollX(), -view3.getScrollY());
+            ViewUtils.transformMatrixToGlobal(view2, matrix);
             ViewUtils.transformMatrixToLocal(viewGroup, matrix);
-            RectF rectF = new RectF(0.0f, 0.0f, view.getWidth(), view.getHeight());
+            RectF rectF = new RectF(0.0f, 0.0f, view2.getWidth(), view2.getHeight());
             matrix.mapRect(rectF);
             int round = Math.round(rectF.left);
             int round2 = Math.round(rectF.top);
             int round3 = Math.round(rectF.right);
             int round4 = Math.round(rectF.bottom);
-            ImageView imageView = new ImageView(view.getContext());
+            ImageView imageView = new ImageView(view2.getContext());
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Bitmap createViewBitmap = createViewBitmap(view, matrix, rectF, viewGroup);
+            Bitmap createViewBitmap = createViewBitmap(view2, matrix, rectF, viewGroup);
             if (createViewBitmap != null) {
                 imageView.setImageBitmap(createViewBitmap);
             }
@@ -140,7 +140,7 @@ public class TransitionUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Bitmap createViewBitmap(View view, Matrix matrix, RectF rectF, ViewGroup viewGroup) {
+    public static Bitmap createViewBitmap(View view2, Matrix matrix, RectF rectF, ViewGroup viewGroup) {
         InterceptResult invokeLLLL;
         boolean z;
         boolean z2;
@@ -149,9 +149,9 @@ public class TransitionUtils {
         int round;
         int round2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, view, matrix, rectF, viewGroup)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, view2, matrix, rectF, viewGroup)) == null) {
             if (HAS_IS_ATTACHED_TO_WINDOW) {
-                z = !view.isAttachedToWindow();
+                z = !view2.isAttachedToWindow();
                 if (viewGroup != null) {
                     z2 = viewGroup.isAttachedToWindow();
                     Bitmap bitmap = null;
@@ -161,9 +161,9 @@ public class TransitionUtils {
                     } else if (!z2) {
                         return null;
                     } else {
-                        viewGroup2 = (ViewGroup) view.getParent();
-                        i = viewGroup2.indexOfChild(view);
-                        viewGroup.getOverlay().add(view);
+                        viewGroup2 = (ViewGroup) view2.getParent();
+                        i = viewGroup2.indexOfChild(view2);
+                        viewGroup.getOverlay().add(view2);
                     }
                     round = Math.round(rectF.width());
                     round2 = Math.round(rectF.height());
@@ -177,19 +177,19 @@ public class TransitionUtils {
                             Picture picture = new Picture();
                             Canvas beginRecording = picture.beginRecording(round3, round4);
                             beginRecording.concat(matrix);
-                            view.draw(beginRecording);
+                            view2.draw(beginRecording);
                             picture.endRecording();
                             bitmap = Bitmap.createBitmap(picture);
                         } else {
                             bitmap = Bitmap.createBitmap(round3, round4, Bitmap.Config.ARGB_8888);
                             Canvas canvas = new Canvas(bitmap);
                             canvas.concat(matrix);
-                            view.draw(canvas);
+                            view2.draw(canvas);
                         }
                     }
                     if (HAS_OVERLAY && z) {
-                        viewGroup.getOverlay().remove(view);
-                        viewGroup2.addView(view, i);
+                        viewGroup.getOverlay().remove(view2);
+                        viewGroup2.addView(view2, i);
                     }
                     return bitmap;
                 }
@@ -214,8 +214,8 @@ public class TransitionUtils {
                 }
             }
             if (HAS_OVERLAY) {
-                viewGroup.getOverlay().remove(view);
-                viewGroup2.addView(view, i);
+                viewGroup.getOverlay().remove(view2);
+                viewGroup2.addView(view2, i);
             }
             return bitmap2;
         }

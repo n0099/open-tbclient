@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public /* synthetic */ class b {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f26566b;
+    public static final /* synthetic */ int[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,27 +28,27 @@ public /* synthetic */ class b {
             }
         }
         int[] iArr = new int[HttpClient.HttpStateError.values().length];
-        f26566b = iArr;
+        b = iArr;
         try {
             iArr[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f26566b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+            b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[PanoStateError.values().length];
         a = iArr2;
         try {
-            iArr2[PanoStateError.f28190b.ordinal()] = 1;
+            iArr2[PanoStateError.b.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[PanoStateError.f28191c.ordinal()] = 2;
+            a[PanoStateError.c.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[PanoStateError.f28192d.ordinal()] = 3;
+            a[PanoStateError.d.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
         try {

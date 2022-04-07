@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BonusMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BonusMsg> CREATOR;
@@ -205,8 +205,8 @@ public class BonusMsg extends NormalMsg {
                 this.mSkipType = jSONObject2.getInt("skip_type");
                 this.mSkipAddr = jSONObject2.getString("skip_addr");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "parseJsonString JSONException", e);
                 return false;
             }
         }

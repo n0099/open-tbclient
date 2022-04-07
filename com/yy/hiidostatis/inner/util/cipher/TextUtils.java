@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<MessageDigest> MD5_DIGEST;
@@ -59,8 +59,8 @@ public class TextUtils {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
                         return MessageDigest.getInstance("MD5");
-                    } catch (NoSuchAlgorithmException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (NoSuchAlgorithmException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return (MessageDigest) invokeV.objValue;
@@ -88,12 +88,12 @@ public class TextUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             char[] cArr = new char[bArr.length * 2];
             int i = 0;
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 int i2 = i + 1;
                 char[] cArr2 = hexDigits;
-                cArr[i] = cArr2[(b2 >>> 4) & 15];
+                cArr[i] = cArr2[(b >>> 4) & 15];
                 i = i2 + 1;
-                cArr[i2] = cArr2[b2 & 15];
+                cArr[i2] = cArr2[b & 15];
             }
             return new String(cArr);
         }

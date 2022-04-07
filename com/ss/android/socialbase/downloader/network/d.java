@@ -1,37 +1,31 @@
 package com.ss.android.socialbase.downloader.network;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public final double a;
+    public final int b;
+    public double c = -1.0d;
+    public int d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final int f43524b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public double f43525c = -1.0d;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f43526d;
-
-    public d(double d2) {
-        this.a = d2;
-        this.f43524b = d2 == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d2);
+    public d(double d) {
+        this.a = d;
+        this.b = d == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d);
     }
 
-    public void a(double d2) {
-        double d3 = 1.0d - this.a;
-        int i = this.f43526d;
-        if (i > this.f43524b) {
-            this.f43525c = Math.exp((d3 * Math.log(this.f43525c)) + (this.a * Math.log(d2)));
+    public void a(double d) {
+        double d2 = 1.0d - this.a;
+        int i = this.d;
+        if (i > this.b) {
+            this.c = Math.exp((d2 * Math.log(this.c)) + (this.a * Math.log(d)));
         } else if (i > 0) {
-            double d4 = (d3 * i) / (i + 1.0d);
-            this.f43525c = Math.exp((d4 * Math.log(this.f43525c)) + ((1.0d - d4) * Math.log(d2)));
+            double d3 = (d2 * i) / (i + 1.0d);
+            this.c = Math.exp((d3 * Math.log(this.c)) + ((1.0d - d3) * Math.log(d)));
         } else {
-            this.f43525c = d2;
+            this.c = d;
         }
-        this.f43526d++;
+        this.d++;
     }
 
     public double a() {
-        return this.f43525c;
+        return this.c;
     }
 }

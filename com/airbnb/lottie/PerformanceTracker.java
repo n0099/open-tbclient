@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PerformanceTracker {
     public boolean enabled = false;
     public final Set<FrameListener> frameListeners = new ArraySet();
@@ -29,9 +29,9 @@ public class PerformanceTracker {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface FrameListener {
-        void onFrameRendered(float f2);
+        void onFrameRendered(float f);
     }
 
     public void addFrameListener(FrameListener frameListener) {
@@ -65,17 +65,17 @@ public class PerformanceTracker {
         }
     }
 
-    public void recordRenderTime(String str, float f2) {
+    public void recordRenderTime(String str, float f) {
         if (this.enabled) {
             MeanCalculator meanCalculator = this.layerRenderTimes.get(str);
             if (meanCalculator == null) {
                 meanCalculator = new MeanCalculator();
                 this.layerRenderTimes.put(str, meanCalculator);
             }
-            meanCalculator.add(f2);
+            meanCalculator.add(f);
             if (str.equals("__container")) {
                 for (FrameListener frameListener : this.frameListeners) {
-                    frameListener.onFrameRendered(f2);
+                    frameListener.onFrameRendered(f);
                 }
             }
         }

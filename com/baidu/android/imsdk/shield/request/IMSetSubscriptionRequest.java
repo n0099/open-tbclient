@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetSubscriptionRequest";
@@ -78,8 +78,8 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

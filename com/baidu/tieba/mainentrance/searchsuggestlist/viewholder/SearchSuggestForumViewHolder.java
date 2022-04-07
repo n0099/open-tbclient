@@ -9,38 +9,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchSuggestForumViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f34356b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f34357c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f34358d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34359e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f34360f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f34361g;
+    public TbImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public View g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchSuggestForumViewHolder(View view) {
-        super(view);
+    public SearchSuggestForumViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,12 +39,12 @@ public class SearchSuggestForumViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
-        this.f34356b = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f091c27);
-        this.f34357c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c2a);
-        this.f34358d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c28);
-        this.f34359e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c26);
-        this.f34360f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c29);
-        this.f34361g = view.findViewById(R.id.obfuscated_res_0x7f091c49);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091ade);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c16);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c19);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c17);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c15);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c18);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091c38);
     }
 }

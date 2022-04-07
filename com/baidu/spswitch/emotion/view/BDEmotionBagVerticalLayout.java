@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionBagVerticalLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_BAG = -460552;
@@ -91,7 +91,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     public RectF mValidLongPressedRect;
     public ViewPager mViewPager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseViewHolder<DATA> extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,13 +100,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BaseViewHolder(View view, Context context, int i, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
-            super(view);
+        public BaseViewHolder(View view2, Context context, int i, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, context, Integer.valueOf(i), bDEmotionBagVerticalLayout};
+                Object[] objArr = {view2, context, Integer.valueOf(i), bDEmotionBagVerticalLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -132,13 +132,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                         if (i != 2) {
                             return null;
                         }
-                        View view = new View(context);
-                        view.setLayoutParams(new ViewGroup.MarginLayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031a)));
-                        return new PaddingViewHolder(view, context, bDEmotionBagVerticalLayout);
+                        View view2 = new View(context);
+                        view2.setLayoutParams(new ViewGroup.MarginLayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070324)));
+                        return new PaddingViewHolder(view2, context, bDEmotionBagVerticalLayout);
                     }
-                    return new EmotionViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0274, viewGroup, false), context, bDEmotionBagVerticalLayout);
+                    return new EmotionViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0275, viewGroup, false), context, bDEmotionBagVerticalLayout);
                 }
-                return new TitleViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0277, viewGroup, false), context, bDEmotionBagVerticalLayout);
+                return new TitleViewHolder(from.inflate(R.layout.obfuscated_res_0x7f0d0278, viewGroup, false), context, bDEmotionBagVerticalLayout);
             }
             return (BaseViewHolder) invokeLILL.objValue;
         }
@@ -152,7 +152,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public abstract void onBindViewHolder(int i, DATA data);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,12 +167,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public StatisticData mStatisticData;
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public interface LongClickCallback {
-            void onLongClick(View view);
+            void onLongClick(View view2);
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class StatisticData {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -300,18 +300,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
-                if (view == null) {
-                    frameLayout = (FrameLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d0272, viewGroup, false);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    frameLayout = (FrameLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d0273, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = frameLayout.getLayoutParams();
                     layoutParams.height = BDEmotionBagVerticalLayout.sExpressionHeightWithPadding;
                     frameLayout.setLayoutParams(layoutParams);
                 } else {
-                    frameLayout = (FrameLayout) view;
+                    frameLayout = (FrameLayout) view2;
                 }
                 frameLayout.setOnClickListener(new View.OnClickListener(this, i) { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.EmotionGridViewAdapter.1
                     public static /* synthetic */ Interceptable $ic;
@@ -339,9 +339,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
 
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && view2.isEnabled()) {
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) && view3.isEnabled()) {
                             GlobalOnItemClickListenerManager.getInstance().verticalOnItemClick(this.this$0.getItem(this.val$position), this.this$0.mStatisticData, this.val$position);
                         }
                     }
@@ -374,13 +374,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
 
                     @Override // android.view.View.OnLongClickListener
-                    public boolean onLongClick(View view2) {
+                    public boolean onLongClick(View view3) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
-                            if (view2.isEnabled()) {
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view3)) == null) {
+                            if (view3.isEnabled()) {
                                 if (this.this$0.mLongClickCallback != null) {
-                                    this.this$0.mLongClickCallback.onLongClick(view2);
+                                    this.this$0.mLongClickCallback.onLongClick(view3);
                                 }
                                 if (this.this$0.mVerticalLayout == null || this.this$0.mVerticalLayout.getPopupEmotionManager() == null) {
                                     return true;
@@ -393,7 +393,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                         return invokeL.booleanValue;
                     }
                 });
-                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090eba);
+                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090eb5);
                 processAlpha(frameLayout, imageView, this.mList.get(i), i);
                 Bitmap emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i));
                 if (emotionBitmapByName != null) {
@@ -450,7 +450,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,7 +542,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -595,14 +595,14 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public boolean isViewFromObject(View view, Object obj) {
+        public boolean isViewFromObject(View view2, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -626,7 +626,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionViewHolder extends BaseViewHolder<EmotionTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -641,13 +641,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public boolean mValidTouch;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EmotionViewHolder(View view, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
-            super(view, context, 1, bDEmotionBagVerticalLayout);
+        public EmotionViewHolder(View view2, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+            super(view2, context, 1, bDEmotionBagVerticalLayout);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, context, bDEmotionBagVerticalLayout};
+                Object[] objArr = {view2, context, bDEmotionBagVerticalLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -660,7 +660,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
             }
             this.mCtx = context;
-            GridView gridView = (GridView) view.findViewById(R.id.obfuscated_res_0x7f090e1c);
+            GridView gridView = (GridView) view2.findViewById(R.id.obfuscated_res_0x7f090e1a);
             this.mIconGridList = gridView;
             gridView.setSelector(new ColorDrawable(0));
             this.mIconGridList.setNumColumns(7);
@@ -676,17 +676,17 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean releaseLongPressedIfNecessary(View view, MotionEvent motionEvent) {
+        public boolean releaseLongPressedIfNecessary(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, view2, motionEvent)) == null) {
                 if (this.mIsLongPressed) {
                     this.mIsLongPressed = false;
                     this.mIsAnchorInited = false;
                     this.mIconGridList.requestDisallowInterceptTouchEvent(false);
                     dismissLongPressedIfNecessary();
                     motionEvent.setAction(3);
-                    view.dispatchTouchEvent(motionEvent);
+                    view2.dispatchTouchEvent(motionEvent);
                     return true;
                 }
                 return false;
@@ -695,18 +695,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void showLongPressedIfNecessary(float f2, float f3, EmotionTemplateData emotionTemplateData) {
+        public void showLongPressedIfNecessary(float f, float f2, EmotionTemplateData emotionTemplateData) {
             BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout;
             int[] iconRowAndColIndex;
             int[] iArr;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), emotionTemplateData}) == null) || (bDEmotionBagVerticalLayout = this.mVerticalLayout) == null || bDEmotionBagVerticalLayout.getPopupEmotionManager() == null || !this.mIsLongPressed) {
+            if (!(interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), emotionTemplateData}) == null) || (bDEmotionBagVerticalLayout = this.mVerticalLayout) == null || bDEmotionBagVerticalLayout.getPopupEmotionManager() == null || !this.mIsLongPressed) {
                 return;
             }
             RectF validLongPressedRect = this.mVerticalLayout.getValidLongPressedRect();
-            if ((validLongPressedRect == null || validLongPressedRect.contains((int) f2, (int) f3)) && !this.mVerticalLayout.getPopupEmotionManager().isPostRunning()) {
+            if ((validLongPressedRect == null || validLongPressedRect.contains((int) f, (int) f2)) && !this.mVerticalLayout.getPopupEmotionManager().isPostRunning()) {
                 if (this.mIsAnchorInited) {
-                    iconRowAndColIndex = this.mVerticalLayout.getIconRowAndColIndex(f2, f3);
+                    iconRowAndColIndex = this.mVerticalLayout.getIconRowAndColIndex(f, f2);
                     int i = iconRowAndColIndex[0];
                     int[] iArr2 = this.mAnchorRowColBase;
                     iArr = new int[]{i - iArr2[0], iconRowAndColIndex[1] - iArr2[1]};
@@ -715,7 +715,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     int[] iArr3 = new int[2];
                     this.mAnchorLocationBase = iArr3;
                     this.mPressedView.getLocationOnScreen(iArr3);
-                    iconRowAndColIndex = this.mVerticalLayout.getIconRowAndColIndex(f2, f3);
+                    iconRowAndColIndex = this.mVerticalLayout.getIconRowAndColIndex(f, f2);
                     this.mAnchorRowColBase = iconRowAndColIndex;
                     iArr = new int[]{0, 0};
                 }
@@ -781,17 +781,17 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
 
                     @Override // android.view.View.OnTouchListener
-                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                    public boolean onTouch(View view2, MotionEvent motionEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                             int pointerId = motionEvent.getPointerId(motionEvent.getActionIndex());
                             int action = motionEvent.getAction();
                             if (action == 0) {
                                 this.this$0.mActivePointerId = pointerId;
                                 this.this$0.mValidTouch = true;
                             } else if (action == 1) {
-                                return this.this$0.releaseLongPressedIfNecessary(view, motionEvent);
+                                return this.this$0.releaseLongPressedIfNecessary(view2, motionEvent);
                             } else {
                                 if (action != 2) {
                                     if (action == 5 || action == 6) {
@@ -831,11 +831,11 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
 
                     @Override // com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.EmotionGridViewAdapter.LongClickCallback
-                    public void onLongClick(View view) {
+                    public void onLongClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                             this.this$0.mIsLongPressed = true;
-                            this.this$0.mPressedView = view;
+                            this.this$0.mPressedView = view2;
                             this.this$0.mIconGridList.requestDisallowInterceptTouchEvent(true);
                         }
                     }
@@ -882,7 +882,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ListMetaData<DATA> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -909,7 +909,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class OffsetLinearLayoutManager extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -971,7 +971,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PaddingTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -991,19 +991,19 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PaddingViewHolder extends BaseViewHolder<PaddingTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PaddingViewHolder(View view, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
-            super(view, context, 2, bDEmotionBagVerticalLayout);
+        public PaddingViewHolder(View view2, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+            super(view2, context, 2, bDEmotionBagVerticalLayout);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, context, bDEmotionBagVerticalLayout};
+                Object[] objArr = {view2, context, bDEmotionBagVerticalLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1026,7 +1026,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TitleTemplateData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1048,7 +1048,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TitleViewHolder extends BaseViewHolder<TitleTemplateData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1057,13 +1057,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public TextView mTitle;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public TitleViewHolder(View view, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
-            super(view, context, 0, bDEmotionBagVerticalLayout);
+        public TitleViewHolder(View view2, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+            super(view2, context, 0, bDEmotionBagVerticalLayout);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, context, bDEmotionBagVerticalLayout};
+                Object[] objArr = {view2, context, bDEmotionBagVerticalLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1075,9 +1075,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     return;
                 }
             }
-            this.mTitle = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0908b2);
-            this.mCommonPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031b);
-            this.mAllPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070319);
+            this.mTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ba);
+            this.mCommonPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325);
+            this.mAllPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1244,17 +1244,17 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int[] getIconRowAndColIndex(float f2, float f3) {
+    public int[] getIconRowAndColIndex(float f, float f2) {
         InterceptResult invokeCommon;
         RecyclerView recyclerView;
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (sExpressionWidthWithPadding == 0 || (recyclerView = this.mEmotionRecyclerView) == null) {
                 return null;
             }
             recyclerView.getLocationOnScreen(new int[2]);
-            float f4 = f3 - iArr[1];
+            float f3 = f2 - iArr[1];
             int[] iArr2 = new int[2];
             if (r6 < 0) {
                 r6 = -1;
@@ -1306,12 +1306,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (i == 1) {
                 setPadding(0, 0, 0, 0);
             } else if (i == 2) {
-                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070952);
+                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07095f);
                 setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
-            sExprTotalExtraHeight = (this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031f) * 2) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031b) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070319);
-            sExpressionHeightWithPadding = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031e);
-            sExprCrossSectionFixedHeight = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07031c);
+            sExprTotalExtraHeight = (this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070329) * 2) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
+            sExpressionHeightWithPadding = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070328);
+            sExprCrossSectionFixedHeight = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070326);
             PopupEmotionManager popupEmotionManager = new PopupEmotionManager(this.mCtx);
             this.mPopupEmotionManager = popupEmotionManager;
             popupEmotionManager.setShowListener(GlobalOnItemClickListenerManager.getInstance().getPopupEmotionShowListener());
@@ -1320,15 +1320,15 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             } else {
                 setBackgroundColor(COLOR_EMOTION_BAG);
             }
-            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0276, this);
-            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f0923d4);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090ef1);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0277, this);
+            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f0923b0);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090eed);
             ArrayList arrayList = new ArrayList();
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0275, (ViewGroup) this, false);
-            ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09076e);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0276, (ViewGroup) this, false);
+            ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090777);
             this.mDelBtn = imageView;
             imageView.setImageDrawable(this.mCtx.getResources().getDrawable(R.drawable.emotion_delete));
-            this.mDelBtn.setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804bc));
+            this.mDelBtn.setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804ba));
             this.mDelBtn.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1392,9 +1392,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         GlobalOnItemClickListenerManager.getInstance().performVerticalDelClick();
                     }
                 }
@@ -1423,10 +1423,10 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
 
                 @Override // android.view.View.OnLongClickListener
-                public boolean onLongClick(View view) {
+                public boolean onLongClick(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) {
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
                         GlobalOnItemClickListenerManager.getInstance().performDelLongClick();
                         return false;
                     }
@@ -1457,10 +1457,10 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
+                public boolean onTouch(View view2, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                         int action = motionEvent.getAction();
                         if (action == 0) {
                             this.this$0.mDelBtn.setImageAlpha(51);
@@ -1525,7 +1525,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
                 }
             });
-            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a26);
+            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a16);
             OffsetLinearLayoutManager offsetLinearLayoutManager = new OffsetLinearLayoutManager(this.mCtx);
             this.mLayoutManager = offsetLinearLayoutManager;
             this.mEmotionRecyclerView.setLayoutManager(offsetLinearLayoutManager);
@@ -1598,14 +1598,14 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view, int i) {
+    public void onVisibilityChanged(@NonNull View view2, int i) {
         List<ListMetaData> dataList;
         ListMetaData listMetaData;
         DATA data;
         PopupEmotionManager popupEmotionManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
-            if (view.getClass() == SPSwitchPanelLinearLayout.class || view.getClass() == BDEmotionBagVerticalLayout.class) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            if (view2.getClass() == SPSwitchPanelLinearLayout.class || view2.getClass() == BDEmotionBagVerticalLayout.class) {
                 if (i == 0) {
                     enableIdleAlphaTemporarily();
                     GlobalOnItemClickListenerManager.getInstance().resetEmotionShownData();

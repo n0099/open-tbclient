@@ -3,7 +3,7 @@ package com.baidu.ar.auth;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,8 +30,8 @@ public class m {
                 try {
                     Thread.currentThread();
                     Thread.sleep(j);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 currentTimeMillis = System.currentTimeMillis();
                 i3 = i4;

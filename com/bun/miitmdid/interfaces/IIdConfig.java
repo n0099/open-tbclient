@@ -1,5 +1,5 @@
 package com.bun.miitmdid.interfaces;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IIdConfig {
     String getVivoAppID();
 }

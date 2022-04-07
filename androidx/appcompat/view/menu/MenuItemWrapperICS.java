@@ -180,13 +180,13 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
         public final android.view.CollapsibleActionView mWrappedView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CollapsibleActionViewWrapper(View view) {
-            super(view.getContext());
+        public CollapsibleActionViewWrapper(View view2) {
+            super(view2.getContext());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -197,8 +197,8 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                     return;
                 }
             }
-            this.mWrappedView = (android.view.CollapsibleActionView) view;
-            addView(view);
+            this.mWrappedView = (android.view.CollapsibleActionView) view2;
+            addView(view2);
         }
 
         public View getWrappedView() {
@@ -546,25 +546,25 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setActionView(View view) {
+    public MenuItem setActionView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, view)) == null) {
-            if (view instanceof android.view.CollapsibleActionView) {
-                view = new CollapsibleActionViewWrapper(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, view2)) == null) {
+            if (view2 instanceof android.view.CollapsibleActionView) {
+                view2 = new CollapsibleActionViewWrapper(view2);
             }
-            this.mWrappedObject.setActionView(view);
+            this.mWrappedObject.setActionView(view2);
             return this;
         }
         return (MenuItem) invokeL.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2) {
+    public MenuItem setAlphabeticShortcut(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.mWrappedObject.setAlphabeticShortcut(c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Character.valueOf(c)})) == null) {
+            this.mWrappedObject.setAlphabeticShortcut(c);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -622,8 +622,8 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                     this.mSetExclusiveCheckableMethod = this.mWrappedObject.getClass().getDeclaredMethod("setExclusiveCheckable", Boolean.TYPE);
                 }
                 this.mSetExclusiveCheckableMethod.invoke(this.mWrappedObject, Boolean.valueOf(z));
-            } catch (Exception e2) {
-                Log.w(LOG_TAG, "Error while calling setExclusiveCheckable", e2);
+            } catch (Exception e) {
+                Log.w(LOG_TAG, "Error while calling setExclusiveCheckable", e);
             }
         }
     }
@@ -673,11 +673,11 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2) {
+    public MenuItem setNumericShortcut(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.mWrappedObject.setNumericShortcut(c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Character.valueOf(c)})) == null) {
+            this.mWrappedObject.setNumericShortcut(c);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -706,11 +706,11 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3) {
+    public MenuItem setShortcut(char c, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) {
-            this.mWrappedObject.setShortcut(c2, c3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{Character.valueOf(c), Character.valueOf(c2)})) == null) {
+            this.mWrappedObject.setShortcut(c, c2);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -776,11 +776,11 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i) {
+    public MenuItem setAlphabeticShortcut(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            this.mWrappedObject.setAlphabeticShortcut(c2, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            this.mWrappedObject.setAlphabeticShortcut(c, i);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -798,22 +798,22 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i) {
+    public MenuItem setNumericShortcut(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            this.mWrappedObject.setNumericShortcut(c2, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            this.mWrappedObject.setNumericShortcut(c, i);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
+    public MenuItem setShortcut(char c, char c2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            this.mWrappedObject.setShortcut(c2, c3, i, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Character.valueOf(c), Character.valueOf(c2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.mWrappedObject.setShortcut(c, c2, i, i2);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;

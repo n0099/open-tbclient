@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AppUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class AppUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -63,8 +63,8 @@ public class AppUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 packageInfo = null;
             }
             return packageInfo != null;

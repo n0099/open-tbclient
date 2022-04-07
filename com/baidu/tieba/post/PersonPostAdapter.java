@@ -11,17 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f35608b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f35609c;
+    public PersonThreadFragment b;
+    public PersonReplyFragment c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -46,14 +42,14 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f35609c = personReplyFragment;
+        this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f35609c.T0(personPostActivity);
+        this.c.S0(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f35608b = personThreadFragment;
+        this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f35608b.S0(personPostActivity);
-        this.f35608b.R0(personPostActivity);
+        this.b.R0(personPostActivity);
+        this.b.Q0(personPostActivity);
         this.a = new int[]{0, 1};
     }
 
@@ -66,7 +62,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public PersonThreadFragment c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35608b : (PersonThreadFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (PersonThreadFragment) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -88,9 +84,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
                 if (i != 1) {
                     return null;
                 }
-                return this.f35609c;
+                return this.c;
             }
-            return this.f35608b;
+            return this.b;
         }
         return (Fragment) invokeI.objValue;
     }

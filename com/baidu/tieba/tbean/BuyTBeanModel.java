@@ -2,8 +2,6 @@ package com.baidu.tieba.tbean;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
-import c.a.p0.a4.k0.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -25,13 +23,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.bn8;
+import com.repackage.dn8;
+import com.repackage.en8;
+import com.repackage.fn8;
+import com.repackage.gn8;
+import com.repackage.nk8;
+import com.repackage.ya;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_BIG_TBEAN_WALLET_H5 = "tbmall/getPayUrl";
@@ -39,24 +45,14 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public static final int SUPER_MEMBER = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public BuyTBeanActivity a;
+    public e b;
+    public List<en8> c;
+    public List<dn8> d;
+    public fn8 e;
+    public UserInfo f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public e f36220b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<c.a.p0.b4.e.b> f36221c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<c.a.p0.b4.e.a> f36222d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.b4.e.c f36223e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public UserInfo f36224f;
-
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.c.g.c {
+    /* loaded from: classes4.dex */
+    public class a extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyTBeanModel a;
@@ -88,15 +84,15 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
                 if (getYinJiResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                        this.a.f36220b.onFailed(getYinJiResponseMessage.getErrorString());
+                        this.a.b.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     }
                     if (this.a.a == null || getYinJiResponseMessage.getError() != 1990055) {
                         return;
@@ -104,18 +100,18 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     this.a.a.finish();
                     return;
                 }
-                this.a.f36224f = getYinJiResponseMessage.getUserInfo();
+                this.a.f = getYinJiResponseMessage.getUserInfo();
                 this.a.C(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2e));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c31));
                 } else {
-                    this.a.f36220b.onSuccess();
+                    this.a.b.onSuccess();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,14 +144,14 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof GetBigTbeanWalletH5ResponseMessage)) {
                 GetBigTbeanWalletH5ResponseMessage getBigTbeanWalletH5ResponseMessage = (GetBigTbeanWalletH5ResponseMessage) httpResponsedMessage;
-                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.f36220b != null) {
-                    this.a.f36220b.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
+                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.b != null) {
+                    this.a.b.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,15 +184,15 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                        this.a.f36220b.onFailed(getYinJiHttpResponseMessage.getErrorString());
+                        this.a.b.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     }
                     if (this.a.a == null || getYinJiHttpResponseMessage.getError() != 1990055) {
                         return;
@@ -204,18 +200,18 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     this.a.a.finish();
                     return;
                 }
-                this.a.f36224f = getYinJiHttpResponseMessage.getUserInfo();
+                this.a.f = getYinJiHttpResponseMessage.getUserInfo();
                 this.a.C(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2e));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c31));
                 } else {
-                    this.a.f36220b.onSuccess();
+                    this.a.b.onSuccess();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +245,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
                     if (this.a.a != null) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                         return;
                     }
                     return;
@@ -261,24 +257,24 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
                         if (this.a.a != null) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0351);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0353);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
                             if (this.a.a != null) {
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0351);
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0353);
                                 return;
                             }
                         } else {
-                            c.a.p0.b4.c.a("c10297");
+                            bn8.a("c10297");
                             String str = httpMessage.getExtra() instanceof String ? (String) httpMessage.getExtra() : "";
-                            g gVar = new g();
-                            gVar.d(str);
-                            gVar.c(pay_status);
-                            gVar.b(this.a.a.isFromDecreaseGiftStepStrategy());
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, gVar));
+                            nk8 nk8Var = new nk8();
+                            nk8Var.d(str);
+                            nk8Var.c(pay_status);
+                            nk8Var.b(this.a.a.isFromDecreaseGiftStepStrategy());
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, nk8Var));
                             if (this.a.a != null) {
                                 this.a.a.finish();
                                 return;
@@ -289,13 +285,13 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
                     this.a.a.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void onFailed(String str);
 
@@ -316,92 +312,92 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36221c = new LinkedList();
-        this.f36222d = new LinkedList();
+        this.c = new LinkedList();
+        this.d = new LinkedList();
         this.a = buyTBeanActivity;
-        this.f36220b = eVar;
+        this.b = eVar;
     }
 
-    public final void C(c.a.p0.b4.f.a aVar) {
+    public final void C(gn8 gn8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getUserInfo() == null || ListUtils.isEmpty(aVar.getIconInfoList())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, gn8Var) == null) || gn8Var == null || gn8Var.getUserInfo() == null || ListUtils.isEmpty(gn8Var.getIconInfoList())) {
             return;
         }
-        List<c.a.p0.b4.e.b> list = this.f36221c;
+        List<en8> list = this.c;
         if (list != null) {
             list.clear();
         }
-        List<c.a.p0.b4.e.a> list2 = this.f36222d;
+        List<dn8> list2 = this.d;
         if (list2 != null) {
             list2.clear();
         }
-        ArrayList<c.a.p0.b4.e.a> arrayList = new ArrayList();
+        ArrayList<dn8> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        if (!ListUtils.isEmpty(aVar.getCustomList())) {
-            for (Custom custom : aVar.getCustomList()) {
+        if (!ListUtils.isEmpty(gn8Var.getCustomList())) {
+            for (Custom custom : gn8Var.getCustomList()) {
                 if (custom.is_custom_price.intValue() == 1) {
-                    c.a.p0.b4.e.c cVar = new c.a.p0.b4.e.c();
-                    cVar.a = custom;
-                    arrayList2.add(cVar);
+                    fn8 fn8Var = new fn8();
+                    fn8Var.a = custom;
+                    arrayList2.add(fn8Var);
                 } else if (custom.is_custom_price.intValue() == 0) {
-                    c.a.p0.b4.e.a aVar2 = new c.a.p0.b4.e.a();
-                    aVar2.a = custom;
-                    arrayList.add(aVar2);
+                    dn8 dn8Var = new dn8();
+                    dn8Var.a = custom;
+                    arrayList.add(dn8Var);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            for (c.a.p0.b4.e.a aVar3 : arrayList) {
-                aVar3.f12833b = aVar.getSetting();
-                this.f36222d.add(aVar3);
+            for (dn8 dn8Var2 : arrayList) {
+                dn8Var2.b = gn8Var.getSetting();
+                this.d.add(dn8Var2);
             }
         }
-        if (!ListUtils.isEmpty(aVar.getIconInfoList())) {
-            for (IconInfo iconInfo : aVar.getIconInfoList()) {
-                c.a.p0.b4.e.b bVar = new c.a.p0.b4.e.b();
-                bVar.f12835b = iconInfo;
-                aVar.getUserInfo();
-                bVar.a = aVar.getSetting();
-                this.f36221c.add(bVar);
+        if (!ListUtils.isEmpty(gn8Var.getIconInfoList())) {
+            for (IconInfo iconInfo : gn8Var.getIconInfoList()) {
+                en8 en8Var = new en8();
+                en8Var.b = iconInfo;
+                gn8Var.getUserInfo();
+                en8Var.a = gn8Var.getSetting();
+                this.c.add(en8Var);
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
-        c.a.p0.b4.e.c cVar2 = (c.a.p0.b4.e.c) ListUtils.getItem(arrayList2, 0);
-        this.f36223e = cVar2;
-        cVar2.f12838c = aVar.getSetting();
-        this.f36223e.f12837b = aVar.getUserInfo();
+        fn8 fn8Var2 = (fn8) ListUtils.getItem(arrayList2, 0);
+        this.e = fn8Var2;
+        fn8Var2.c = gn8Var.getSetting();
+        this.e.b = gn8Var.getUserInfo();
     }
 
-    public List<c.a.p0.b4.e.b> D() {
+    public List<en8> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36221c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public List<c.a.p0.b4.e.a> E() {
+    public List<dn8> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36222d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
-    public c.a.p0.b4.e.c F() {
+    public fn8 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36223e : (c.a.p0.b4.e.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (fn8) invokeV.objValue;
     }
 
     public UserInfo G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36224f : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (UserInfo) invokeV.objValue;
     }
 
     public void H() {

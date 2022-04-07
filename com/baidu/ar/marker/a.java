@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a extends d implements IMarker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,23 +99,23 @@ public class a extends d implements IMarker {
     }
 
     @Override // com.baidu.ar.marker.IMarker
-    public void postArrow(float f2, float f3, float f4) {
+    public void postArrow(float f, float f2, float f3) {
         WeakReference<IMarker> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postArrow(f2, f3, f4);
+        this.sZ.get().postArrow(f, f2, f3);
     }
 
     @Override // com.baidu.ar.marker.IMarker
-    public void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3) {
+    public void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f, float f2) {
         WeakReference<IMarker> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), dArr, dArr2, dArr3, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), dArr, dArr2, dArr3, Float.valueOf(f), Float.valueOf(f2)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postArrow(str, i, dArr, dArr2, dArr3, f2, f3);
+        this.sZ.get().postArrow(str, i, dArr, dArr2, dArr3, f, f2);
     }
 
     @Override // com.baidu.ar.marker.IMarker

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.b;
-import c.a.d.f.p.m;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -26,7 +24,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+import com.repackage.rt4;
+import com.repackage.x8;
+/* loaded from: classes3.dex */
 public class DealIntentService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTION_ON_POST_EXSIT = "TaskExsits";
@@ -70,14 +71,12 @@ public class DealIntentService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mDealAsyncTask;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DealIntentService f30351b;
+        public final /* synthetic */ DealIntentService b;
 
         public a(DealIntentService dealIntentService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -94,7 +93,7 @@ public class DealIntentService extends BdBaseService {
                     return;
                 }
             }
-            this.f30351b = dealIntentService;
+            this.b = dealIntentService;
             this.a = null;
             this.a = intent;
         }
@@ -109,11 +108,11 @@ public class DealIntentService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i == 6) {
-                    TiebaStatic.eventStat(this.f30351b, "notify_to_pk_before", "click");
+                    TiebaStatic.eventStat(this.b, "notify_to_pk_before", "click");
                 } else if (i == 7) {
-                    TiebaStatic.eventStat(this.f30351b, "notify_to_pk_end", "click");
+                    TiebaStatic.eventStat(this.b, "notify_to_pk_end", "click");
                 } else if (i == 8) {
-                    TiebaStatic.eventStat(this.f30351b, "notify_to_vote_list", "click");
+                    TiebaStatic.eventStat(this.b, "notify_to_vote_list", "click");
                 } else if (i != 14) {
                 } else {
                     TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
@@ -162,7 +161,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!m.isEmpty(stringExtra2) && j == 0) {
+                if (!ni.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -198,9 +197,9 @@ public class DealIntentService extends BdBaseService {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
-                if (b.g().b() != null) {
+                if (x8.f().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (b.g().b().getClass().getName().equalsIgnoreCase(c.a.o0.r.f0.b.c())) {
+                        if (x8.f().b().getClass().getName().equalsIgnoreCase(rt4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -211,7 +210,7 @@ public class DealIntentService extends BdBaseService {
                     return DealIntentService.ACTION_ON_POST_EXSIT;
                 }
                 if (i == 27) {
-                    TiebaStatic.eventStat(this.f30351b, "open_push", "start", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.b, "open_push", "start", 1, new Object[0]);
                 }
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
                     b(i);
@@ -229,7 +228,7 @@ public class DealIntentService extends BdBaseService {
                 if (str != null) {
                     if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
                         if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.f30351b, this.a)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.b, this.a)));
                         }
                     } else {
                         this.a.addFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -238,7 +237,7 @@ public class DealIntentService extends BdBaseService {
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
                 }
-                this.f30351b.stopSelf();
+                this.b.stopSelf();
             }
         }
     }

@@ -3,14 +3,14 @@ package com.baidu.tbadk.download;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.p0.l3.g0.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.bb8;
+/* loaded from: classes3.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL_DOWNLOAD = "action_cancel_download";
@@ -39,23 +39,23 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (downloadData = (DownloadData) intent.getSerializableExtra("download_data")) == null) {
             return;
         }
-        int p = e.p(downloadData);
+        int p = bb8.p(downloadData);
         if ("action_pause_download".equals(intent.getAction())) {
             if (downloadData.getDownloadStaticsData() != null) {
                 downloadData.getDownloadStaticsData().setDa_range_nt("1");
             }
             if (p == 7) {
                 downloadData.setStatus(5);
-                e.n().E(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                e.n().A(downloadData);
+                bb8.n().E(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                bb8.n().A(downloadData);
             } else if (p == 1 || p == 5) {
                 downloadData.setStatus(4);
-                e.n().g(downloadData.getUrl(), downloadData.getId(), true);
-                e.n().v(downloadData);
+                bb8.n().g(downloadData.getUrl(), downloadData.getId(), true);
+                bb8.n().v(downloadData);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else if ("action_cancel_download".equals(intent.getAction())) {
-            e.n().i(downloadData);
+            bb8.n().i(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
         }
     }

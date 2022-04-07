@@ -42,7 +42,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -60,7 +60,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -157,10 +157,10 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             return (CornerData) invokeL.objValue;
         }
 
-        public static CornerData end(CornerData cornerData, View view) {
+        public static CornerData end(CornerData cornerData, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cornerData, view)) == null) ? ViewUtils.isLayoutRtl(view) ? left(cornerData) : right(cornerData) : (CornerData) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cornerData, view2)) == null) ? ViewUtils.isLayoutRtl(view2) ? left(cornerData) : right(cornerData) : (CornerData) invokeLL.objValue;
         }
 
         public static CornerData left(CornerData cornerData) {
@@ -185,10 +185,10 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             return (CornerData) invokeL.objValue;
         }
 
-        public static CornerData start(CornerData cornerData, View view) {
+        public static CornerData start(CornerData cornerData, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cornerData, view)) == null) ? ViewUtils.isLayoutRtl(view) ? right(cornerData) : left(cornerData) : (CornerData) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cornerData, view2)) == null) ? ViewUtils.isLayoutRtl(view2) ? right(cornerData) : left(cornerData) : (CornerData) invokeLL.objValue;
         }
 
         public static CornerData top(CornerData cornerData) {
@@ -203,12 +203,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100360;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100361;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -302,11 +302,11 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @NonNull
-    private LinearLayout.LayoutParams buildLayoutParams(@NonNull View view) {
+    private LinearLayout.LayoutParams buildLayoutParams(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, view)) == null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 return (LinearLayout.LayoutParams) layoutParams;
             }
@@ -357,14 +357,14 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int getIndexWithinVisibleButtons(@Nullable View view) {
+    public int getIndexWithinVisibleButtons(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, view)) == null) {
-            if (view instanceof MaterialButton) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, view2)) == null) {
+            if (view2 instanceof MaterialButton) {
                 int i = 0;
                 for (int i2 = 0; i2 < getChildCount(); i2++) {
-                    if (getChildAt(i2) == view) {
+                    if (getChildAt(i2) == view2) {
                         return i;
                     }
                     if ((getChildAt(i2) instanceof MaterialButton) && isChildVisible(i2)) {
@@ -545,15 +545,15 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, layoutParams) == null) {
-            if (!(view instanceof MaterialButton)) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, layoutParams) == null) {
+            if (!(view2 instanceof MaterialButton)) {
                 Log.e(LOG_TAG, "Child views must be of type MaterialButton.");
                 return;
             }
-            super.addView(view, i, layoutParams);
-            MaterialButton materialButton = (MaterialButton) view;
+            super.addView(view2, i, layoutParams);
+            MaterialButton materialButton = (MaterialButton) view2;
             setGeneratedIdIfNeeded(materialButton);
             setupButtonChild(materialButton);
             if (materialButton.isChecked()) {
@@ -586,11 +586,11 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                 }
 
                 @Override // androidx.core.view.AccessibilityDelegateCompat
-                public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+                public void onInitializeAccessibilityNodeInfo(View view3, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
-                        super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
-                        accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(0, 1, this.this$0.getIndexWithinVisibleButtons(view2), 1, false, ((MaterialButton) view2).isChecked()));
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view3, accessibilityNodeInfoCompat) == null) {
+                        super.onInitializeAccessibilityNodeInfo(view3, accessibilityNodeInfoCompat);
+                        accessibilityNodeInfoCompat.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(0, 1, this.this$0.getIndexWithinVisibleButtons(view3), 1, false, ((MaterialButton) view3).isChecked()));
                     }
                 }
             });
@@ -732,16 +732,16 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void onViewRemoved(View view) {
+    public void onViewRemoved(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            super.onViewRemoved(view);
-            if (view instanceof MaterialButton) {
-                MaterialButton materialButton = (MaterialButton) view;
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            super.onViewRemoved(view2);
+            if (view2 instanceof MaterialButton) {
+                MaterialButton materialButton = (MaterialButton) view2;
                 materialButton.removeOnCheckedChangeListener(this.checkedStateTracker);
                 materialButton.setOnPressedChangeListenerInternal(null);
             }
-            int indexOfChild = indexOfChild(view);
+            int indexOfChild = indexOfChild(view2);
             if (indexOfChild >= 0) {
                 this.originalCornerData.remove(indexOfChild);
             }
@@ -803,7 +803,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040409);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040449);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -885,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011d, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040560}, i, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f04057f, R.attr.obfuscated_res_0x7f04059e}, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);

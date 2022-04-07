@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -93,19 +93,19 @@ public final class BdZeusUtil implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "unKnown" : (String) invokeV.objValue;
     }
 
-    public static String dealWithEmulatorResult(float f2, List<Integer> list) {
+    public static String dealWithEmulatorResult(float f, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), list})) == null) {
-            float f3 = (f2 / 6.0f) * 100.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), list})) == null) {
+            float f2 = (f / 6.0f) * 100.0f;
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("result", f2 > 0.0f ? "true" : "false");
-                jSONObject.put("probability", f3 + "%");
+                jSONObject.put("result", f > 0.0f ? "true" : "false");
+                jSONObject.put("probability", f2 + "%");
                 jSONObject.put("hitreasons", list);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "unKnown";
             }
         }
@@ -225,8 +225,8 @@ public final class BdZeusUtil implements INoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

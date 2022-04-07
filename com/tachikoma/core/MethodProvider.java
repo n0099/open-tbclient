@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -667,7 +666,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             hashMap28.put(TbConfig.TMP_LOG_DIR_NAME, new Class[]{String.class});
             hashMap28.put("registerProgressListener", new Class[]{V8Function.class});
             hashMap28.put("convert", new Class[0]);
-            hashMap28.put(IntentConfig.CLOSE, new Class[0]);
+            hashMap28.put("close", new Class[0]);
             hashMap28.put("nonActionbarClick", new Class[]{String.class});
             hashMap28.put("getData", new Class[0]);
             this.exportMethodMap.put("com_tachikoma_core_module_TKWebCardBridgeImpl", hashMap28);
@@ -716,7 +715,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.methodNameMap.put("setPlaceholder", "setPlaceholder");
             this.methodNameMap.put(SharedPreferenceManager.OPERATION_GET_PERFIX, SharedPreferenceManager.OPERATION_GET_PERFIX);
             this.methodNameMap.put("setDirection", "setDirection");
-            this.methodNameMap.put(IntentConfig.CLOSE, IntentConfig.CLOSE);
+            this.methodNameMap.put("close", "close");
             this.methodNameMap.put("getData", "getData");
             this.methodNameMap.put("stopAnimation", "stopAnimation");
             this.methodNameMap.put("clearFocus", "clearFocus");

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ShadowDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL = 4369;
@@ -50,11 +50,11 @@ public class ShadowDrawable extends Drawable {
     public int mShape;
     public int mShapeRadius;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public @interface ShadowSide {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public @interface Shape {
     }
 
@@ -134,13 +134,13 @@ public class ShadowDrawable extends Drawable {
         return invokeV.intValue;
     }
 
-    public void into(View view) {
+    public void into(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null) {
             return;
         }
-        view.setLayerType(1, null);
-        ViewCompat.setBackground(view, this);
+        view2.setLayerType(1, null);
+        ViewCompat.setBackground(view2, this);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -159,10 +159,10 @@ public class ShadowDrawable extends Drawable {
                 return;
             }
             RectF rectF = this.mRect;
-            float f2 = rectF.left;
+            float f = rectF.left;
             float height = rectF.height() / 2.0f;
             RectF rectF2 = this.mRect;
-            this.mLinearGradient = new LinearGradient(f2, height, rectF2.right, rectF2.height() / 2.0f, this.mBgColor, (float[]) null, Shader.TileMode.CLAMP);
+            this.mLinearGradient = new LinearGradient(f, height, rectF2.right, rectF2.height() / 2.0f, this.mBgColor, (float[]) null, Shader.TileMode.CLAMP);
         }
     }
 
@@ -251,11 +251,11 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeIIII.objValue;
     }
 
-    public ShadowDrawable setShadowOpacity(int i, float f2) {
+    public ShadowDrawable setShadowOpacity(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
-            int color = SelectorHelper.getColor(i, f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            int color = SelectorHelper.getColor(i, f);
             this.mShadowColor = color;
             this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
             return this;
@@ -341,14 +341,14 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeL.objValue;
     }
 
-    public ShadowDrawable setShadowLayer(int i, float f2, int i2, int i3, int i4) {
+    public ShadowDrawable setShadowLayer(int i, float f, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             this.mShadowRadius = i4;
             this.mOffsetX = i2;
             this.mOffsetY = i3;
-            setShadowOpacity(i, f2);
+            setShadowOpacity(i, f);
             return this;
         }
         return (ShadowDrawable) invokeCommon.objValue;

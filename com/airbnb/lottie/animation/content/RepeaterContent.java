@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RepeaterContent implements DrawingContent, PathContent, GreedyContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public ContentGroup contentGroup;
     public final BaseKeyframeAnimation<Float, Float> copies;
@@ -86,9 +86,9 @@ public class RepeaterContent implements DrawingContent, PathContent, GreedyConte
         float floatValue4 = this.transform.getEndOpacity().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            float f2 = i2;
-            this.matrix.preConcat(this.transform.getMatrixForRepeater(f2 + floatValue2));
-            this.contentGroup.draw(canvas, this.matrix, (int) (i * MiscUtils.lerp(floatValue3, floatValue4, f2 / floatValue)));
+            float f = i2;
+            this.matrix.preConcat(this.transform.getMatrixForRepeater(f + floatValue2));
+            this.contentGroup.draw(canvas, this.matrix, (int) (i * MiscUtils.lerp(floatValue3, floatValue4, f / floatValue)));
         }
     }
 

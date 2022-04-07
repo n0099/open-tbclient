@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReportDb {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALTER_TABLE = "alter table r add i integer default 0;";
@@ -48,7 +48,7 @@ public class ReportDb {
     public SQLiteDatabase mDB;
     public DataBaseHelper mDBHelper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class DataBaseHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,8 +169,8 @@ public class ReportDb {
             int reportOverTime = sharedPreferenceManager.getReportOverTime() * 86400000;
             try {
                 return this.mDB.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - reportOverTime)});
-            } catch (Exception e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (Exception e) {
+                CommonMethods.handleNuLException(e);
                 return -1;
             }
         }
@@ -191,14 +191,14 @@ public class ReportDb {
                         if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                CommonMethods.handleNuLException(e2);
+                            } catch (Exception e) {
+                                CommonMethods.handleNuLException(e);
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e3) {
-                    CommonMethods.handleNuLException(e3);
+                } catch (Exception e2) {
+                    CommonMethods.handleNuLException(e2);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -206,8 +206,8 @@ public class ReportDb {
                 if (cursor != null) {
                     cursor.close();
                 }
-            } catch (Exception e4) {
-                CommonMethods.handleNuLException(e4);
+            } catch (Exception e3) {
+                CommonMethods.handleNuLException(e3);
             }
             return r1;
         }
@@ -239,36 +239,36 @@ public class ReportDb {
                                 String string = cursor.getString(cursor.getColumnIndex("h"));
                                 try {
                                     string = new String(F.getInstance().ae(Base64.decode(string, 0), KEY.getBytes(IMAudioTransRequest.CHARSET)));
-                                } catch (Exception e2) {
-                                    CommonMethods.handleNuLException(e2);
+                                } catch (Exception e) {
+                                    CommonMethods.handleNuLException(e);
                                 }
                                 reportItemInfo.data = string;
                                 arrayList.add(reportItemInfo);
                             }
                         }
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                    } catch (Exception e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (Exception e2) {
+                        CommonMethods.handleNuLException(e2);
                         if (cursor != null) {
                             cursor.close();
                         }
                     }
-                } catch (Exception e4) {
-                    CommonMethods.handleNuLException(e4);
-                }
-                return arrayList;
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    try {
+                    if (cursor != null) {
                         cursor.close();
-                    } catch (Exception e5) {
-                        CommonMethods.handleNuLException(e5);
                     }
+                } catch (Throwable th) {
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            CommonMethods.handleNuLException(e3);
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Exception e4) {
+                CommonMethods.handleNuLException(e4);
             }
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
@@ -314,34 +314,34 @@ public class ReportDb {
                                 String string = cursor.getString(cursor.getColumnIndex("h"));
                                 try {
                                     string = new String(F.getInstance().ad(Base64.decode(string, 0), KEY.getBytes(IMAudioTransRequest.CHARSET)));
-                                } catch (Exception e2) {
-                                    CommonMethods.handleNuLException(e2);
+                                } catch (Exception e) {
+                                    CommonMethods.handleNuLException(e);
                                 }
                                 reportItemInfo.data = string;
                                 arrayList.add(reportItemInfo);
                             }
                         }
+                    } catch (Throwable th) {
                         if (cursor != null) {
-                            cursor.close();
+                            try {
+                                cursor.close();
+                            } catch (Exception e2) {
+                                CommonMethods.handleNuLException(e2);
+                            }
                         }
-                    } catch (Exception e3) {
-                        CommonMethods.handleNuLException(e3);
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    if (0 != 0) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e4) {
-                            CommonMethods.handleNuLException(e4);
-                        }
-                    }
-                    throw th;
+                } catch (Exception e3) {
+                    CommonMethods.handleNuLException(e3);
                 }
-            } catch (Exception e5) {
-                CommonMethods.handleNuLException(e5);
+            } catch (Exception e4) {
+                CommonMethods.handleNuLException(e4);
                 if (cursor != null) {
                     cursor.close();
                 }
+            }
+            if (cursor != null) {
+                cursor.close();
             }
             return arrayList;
         }
@@ -385,15 +385,15 @@ public class ReportDb {
                                 String string = cursor.getString(cursor.getColumnIndex("h"));
                                 try {
                                     string = new String(F.getInstance().ad(Base64.decode(string, 0), KEY.getBytes(IMAudioTransRequest.CHARSET)));
-                                } catch (Exception e2) {
-                                    CommonMethods.handleNuLException(e2);
+                                } catch (Exception e) {
+                                    CommonMethods.handleNuLException(e);
                                 }
                                 reportItemInfo.data = string;
                                 arrayList.add(reportItemInfo);
                             }
                         }
-                    } catch (Exception e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (Exception e2) {
+                        CommonMethods.handleNuLException(e2);
                         if (cursor != null) {
                             cursor.close();
                         }
@@ -405,14 +405,14 @@ public class ReportDb {
                     if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e4) {
-                            CommonMethods.handleNuLException(e4);
+                        } catch (Exception e3) {
+                            CommonMethods.handleNuLException(e3);
                         }
                     }
                     throw th;
                 }
-            } catch (Exception e5) {
-                CommonMethods.handleNuLException(e5);
+            } catch (Exception e4) {
+                CommonMethods.handleNuLException(e4);
             }
             return arrayList;
         }
@@ -444,8 +444,8 @@ public class ReportDb {
                                 String string = cursor.getString(cursor.getColumnIndex("h"));
                                 try {
                                     string = new String(F.getInstance().ad(Base64.decode(string, 0), KEY.getBytes(IMAudioTransRequest.CHARSET)));
-                                } catch (Exception e2) {
-                                    CommonMethods.handleNuLException(e2);
+                                } catch (Exception e) {
+                                    CommonMethods.handleNuLException(e);
                                 }
                                 reportItemInfo.data = string;
                                 arrayList.add(reportItemInfo);
@@ -454,22 +454,22 @@ public class ReportDb {
                         if (cursor != null) {
                             cursor.close();
                         }
-                    } catch (Exception e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (Exception e2) {
+                        CommonMethods.handleNuLException(e2);
                         if (cursor != null) {
                             cursor.close();
                         }
                     }
-                } catch (Exception e4) {
-                    CommonMethods.handleNuLException(e4);
+                } catch (Exception e3) {
+                    CommonMethods.handleNuLException(e3);
                 }
                 return arrayList;
             } catch (Throwable th) {
                 if (cursor != null) {
                     try {
                         cursor.close();
-                    } catch (Exception e5) {
-                        CommonMethods.handleNuLException(e5);
+                    } catch (Exception e4) {
+                        CommonMethods.handleNuLException(e4);
                     }
                 }
                 throw th;
@@ -510,8 +510,8 @@ public class ReportDb {
             String str = reportItemInfo.data;
             try {
                 str = Base64.encodeToString(F.getInstance().ae(str.getBytes(), KEY.getBytes(IMAudioTransRequest.CHARSET)), 0);
-            } catch (Exception e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (Exception e) {
+                CommonMethods.handleNuLException(e);
             }
             contentValues.put("h", str);
             try {
@@ -537,8 +537,8 @@ public class ReportDb {
                 if (query != null) {
                     query.close();
                 }
-            } catch (Exception e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (Exception e) {
+                CommonMethods.handleNuLException(e);
             }
             return z;
         }

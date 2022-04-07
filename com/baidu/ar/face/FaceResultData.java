@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FaceResultData implements Parcelable, IFaceResultData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FaceResultData> CREATOR;
@@ -246,14 +246,14 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.nV == null && (fArr = this.nQ) != null && (i = this.nP) > 0 && (i2 = this.nO) > 0) {
                 this.nV = new float[fArr.length];
-                float f2 = i2;
-                float f3 = i;
+                float f = i2;
+                float f2 = i;
                 int length = fArr.length;
                 for (int i3 = 0; i3 < length; i3++) {
                     if (i3 % 2 == 0) {
-                        this.nV[i3] = this.nQ[i3] / f2;
+                        this.nV[i3] = this.nQ[i3] / f;
                     } else {
-                        this.nV[i3] = this.nQ[i3] / f3;
+                        this.nV[i3] = this.nQ[i3] / f2;
                     }
                 }
             }
@@ -269,12 +269,12 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.nW == null && this.nR != null && this.nP > 0 && this.nO > 0) {
                 this.nW = new ArrayList();
-                float f2 = this.nO;
-                float f3 = this.nP;
+                float f = this.nO;
+                float f2 = this.nP;
                 int size = this.nR.size();
                 for (int i = 0; i < size; i++) {
                     PointF pointF = this.nR.get(i);
-                    this.nW.add(new PointF(pointF.x / f2, pointF.y / f3));
+                    this.nW.add(new PointF(pointF.x / f, pointF.y / f2));
                 }
             }
             return this.nW;

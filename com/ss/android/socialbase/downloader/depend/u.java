@@ -15,14 +15,12 @@ public interface u extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.u$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2070a implements u {
+        public static class C0614a implements u {
             public static u a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43230b;
-
-            public C2070a(IBinder iBinder) {
-                this.f43230b = iBinder;
+            public C0614a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.u
@@ -32,7 +30,7 @@ public interface u extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                     obtain.writeStrongBinder(tVar != null ? tVar.asBinder() : null);
-                    if (!this.f43230b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(tVar);
                     }
                     obtain2.readException();
@@ -45,7 +43,7 @@ public interface u extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43230b;
+                return this.b;
             }
         }
 
@@ -61,7 +59,7 @@ public interface u extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof u)) {
                 return (u) queryLocalInterface;
             }
-            return new C2070a(iBinder);
+            return new C0614a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -86,7 +84,7 @@ public interface u extends IInterface {
         }
 
         public static u a() {
-            return C2070a.a;
+            return C0614a.a;
         }
     }
 }

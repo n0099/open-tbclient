@@ -12,7 +12,7 @@ import com.tachikoma.core.event.base.TKBaseEvent;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKSwipeEvent extends TKBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIRECTION_DOWN = "down";

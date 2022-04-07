@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextAppearance";
@@ -69,7 +69,7 @@ public class TextAppearance {
             }
         }
         this.fontResolved = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f04021b, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f04061c});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f04029d, R.attr.obfuscated_res_0x7f040638, R.attr.obfuscated_res_0x7f04065a});
         this.textSize = obtainStyledAttributes.getDimension(0, 0.0f);
         this.textColor = MaterialResources.getColorStateList(context, obtainStyledAttributes, 3);
         this.textColorHint = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);
@@ -137,8 +137,8 @@ public class TextAppearance {
                         this.font = Typeface.create(font, this.textStyle);
                     }
                 } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error loading font " + this.fontFamily, e2);
+                } catch (Exception e) {
+                    Log.d(TAG, "Error loading font " + this.fontFamily, e);
                 }
             }
             createFallbackFont();
@@ -212,8 +212,8 @@ public class TextAppearance {
             } catch (Resources.NotFoundException unused) {
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(1);
-            } catch (Exception e2) {
-                Log.d(TAG, "Error loading font " + this.fontFamily, e2);
+            } catch (Exception e) {
+                Log.d(TAG, "Error loading font " + this.fontFamily, e);
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(-3);
             }
@@ -226,11 +226,11 @@ public class TextAppearance {
             updateMeasureState(context, textPaint, textAppearanceFontCallback);
             ColorStateList colorStateList = this.textColor;
             textPaint.setColor(colorStateList != null ? colorStateList.getColorForState(textPaint.drawableState, colorStateList.getDefaultColor()) : -16777216);
-            float f2 = this.shadowRadius;
-            float f3 = this.shadowDx;
-            float f4 = this.shadowDy;
+            float f = this.shadowRadius;
+            float f2 = this.shadowDx;
+            float f3 = this.shadowDy;
             ColorStateList colorStateList2 = this.shadowColor;
-            textPaint.setShadowLayer(f2, f3, f4, colorStateList2 != null ? colorStateList2.getColorForState(textPaint.drawableState, colorStateList2.getDefaultColor()) : 0);
+            textPaint.setShadowLayer(f, f2, f3, colorStateList2 != null ? colorStateList2.getColorForState(textPaint.drawableState, colorStateList2.getDefaultColor()) : 0);
         }
     }
 

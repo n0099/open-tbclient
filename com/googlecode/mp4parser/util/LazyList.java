@@ -12,7 +12,7 @@ import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class LazyList<E> extends AbstractList<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;

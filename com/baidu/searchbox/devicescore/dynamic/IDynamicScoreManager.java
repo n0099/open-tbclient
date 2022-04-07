@@ -2,7 +2,7 @@ package com.baidu.searchbox.devicescore.dynamic;
 
 import android.content.Context;
 import com.baidu.searchbox.devicescore.ScoreMetaData;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IDynamicScoreManager {
     float getScore(Context context);
 

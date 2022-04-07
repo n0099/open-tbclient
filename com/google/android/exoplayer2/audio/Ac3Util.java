@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 import org.apache.http.HttpStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Ac3Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AC3_SYNCFRAME_AUDIO_SAMPLE_COUNT = 1536;
@@ -33,13 +33,13 @@ public final class Ac3Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.audio.Ac3Util$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Ac3SyncFrameInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STREAM_TYPE_TYPE0 = 0;

@@ -133,8 +133,8 @@ public class ImageUtils {
         }
         try {
             file.createNewFile();
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -154,8 +154,8 @@ public class ImageUtils {
                     BitmapFactory.decodeStream(fileInputStream, null, options);
                     try {
                         fileInputStream.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     int i3 = 0;
                     while (true) {
@@ -179,8 +179,8 @@ public class ImageUtils {
                         }
                         try {
                             fileOutputStream.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         safeDecodeBimtapFile.recycle();
                         return;
@@ -212,8 +212,8 @@ public class ImageUtils {
                     BitmapFactory.decodeStream(fileInputStream, null, options);
                     try {
                         fileInputStream.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     int i4 = 0;
                     while (true) {
@@ -258,8 +258,8 @@ public class ImageUtils {
                         }
                         try {
                             fileOutputStream.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         safeDecodeBimtapFile.recycle();
                         return;
@@ -277,7 +277,7 @@ public class ImageUtils {
         InterceptResult invokeLL;
         BitmapFactory.Options options2;
         FileInputStream fileInputStream;
-        OutOfMemoryError e2;
+        OutOfMemoryError e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, options)) == null) {
             if (options == null) {
@@ -299,25 +299,25 @@ public class ImageUtils {
                         bitmap = BitmapFactory.decodeStream(fileInputStream, null, options);
                         try {
                             fileInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                         return bitmap;
-                    } catch (OutOfMemoryError e4) {
-                        e2 = e4;
-                        e2.printStackTrace();
+                    } catch (OutOfMemoryError e3) {
+                        e = e3;
+                        e.printStackTrace();
                         options2.inSampleSize *= 2;
                         try {
                             fileInputStream.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                         i++;
                         fileInputStream2 = fileInputStream;
                     }
-                } catch (OutOfMemoryError e6) {
+                } catch (OutOfMemoryError e5) {
                     fileInputStream = fileInputStream2;
-                    e2 = e6;
+                    e = e5;
                 }
             }
             return bitmap;

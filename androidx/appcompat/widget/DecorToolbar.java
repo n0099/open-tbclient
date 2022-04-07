@@ -77,7 +77,7 @@ public interface DecorToolbar {
 
     void setCollapsible(boolean z);
 
-    void setCustomView(View view);
+    void setCustomView(View view2);
 
     void setDefaultNavigationContentDescription(int i);
 

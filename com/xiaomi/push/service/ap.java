@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -45,8 +45,8 @@ public class ap {
             if (Build.VERSION.SDK_INT >= 17) {
                 try {
                     return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("get user aggregate failed, " + e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.m108a("get user aggregate failed, " + e);
                 }
             }
             return 0;
@@ -107,8 +107,8 @@ public class ap {
                         if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
                             break;
                         }
-                    } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m112a("not found xm browser:" + e2);
+                    } catch (Exception e) {
+                        com.xiaomi.channel.commonutils.logger.b.m108a("not found xm browser:" + e);
                     }
                 }
                 i++;
@@ -137,7 +137,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m640a(ContentResolver contentResolver) {
+    public static boolean m636a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, contentResolver)) == null) {

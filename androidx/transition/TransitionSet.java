@@ -176,11 +176,11 @@ public class TransitionSet extends Transition {
     @Override // androidx.transition.Transition
     public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, transitionValues) == null) && isValidTarget(transitionValues.view)) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, transitionValues) == null) && isValidTarget(transitionValues.f980view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
             while (it.hasNext()) {
                 Transition next = it.next();
-                if (next.isValidTarget(transitionValues.view)) {
+                if (next.isValidTarget(transitionValues.f980view)) {
                     next.captureEndValues(transitionValues);
                     transitionValues.mTargetedTransitions.add(next);
                 }
@@ -203,11 +203,11 @@ public class TransitionSet extends Transition {
     @Override // androidx.transition.Transition
     public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, transitionValues) == null) && isValidTarget(transitionValues.view)) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, transitionValues) == null) && isValidTarget(transitionValues.f980view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
             while (it.hasNext()) {
                 Transition next = it.next();
-                if (next.isValidTarget(transitionValues.view)) {
+                if (next.isValidTarget(transitionValues.f980view)) {
                     next.captureStartValues(transitionValues);
                     transitionValues.mTargetedTransitions.add(next);
                 }
@@ -239,14 +239,14 @@ public class TransitionSet extends Transition {
 
     @Override // androidx.transition.Transition
     @NonNull
-    public Transition excludeTarget(@NonNull View view, boolean z) {
+    public Transition excludeTarget(@NonNull View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, view, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, view2, z)) == null) {
             for (int i = 0; i < this.mTransitions.size(); i++) {
-                this.mTransitions.get(i).excludeTarget(view, z);
+                this.mTransitions.get(i).excludeTarget(view2, z);
             }
-            return super.excludeTarget(view, z);
+            return super.excludeTarget(view2, z);
         }
         return (Transition) invokeLZ.objValue;
     }
@@ -291,13 +291,13 @@ public class TransitionSet extends Transition {
 
     @Override // androidx.transition.Transition
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void pause(View view) {
+    public void pause(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, view) == null) {
-            super.pause(view);
+        if (interceptable == null || interceptable.invokeL(1048602, this, view2) == null) {
+            super.pause(view2);
             int size = this.mTransitions.size();
             for (int i = 0; i < size; i++) {
-                this.mTransitions.get(i).pause(view);
+                this.mTransitions.get(i).pause(view2);
             }
         }
     }
@@ -316,13 +316,13 @@ public class TransitionSet extends Transition {
 
     @Override // androidx.transition.Transition
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void resume(View view) {
+    public void resume(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, view) == null) {
-            super.resume(view);
+        if (interceptable == null || interceptable.invokeL(1048614, this, view2) == null) {
+            super.resume(view2);
             int size = this.mTransitions.size();
             for (int i = 0; i < size; i++) {
-                this.mTransitions.get(i).resume(view);
+                this.mTransitions.get(i).resume(view2);
             }
         }
     }
@@ -605,14 +605,14 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet addTarget(@NonNull View view) {
+    public TransitionSet addTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
             for (int i = 0; i < this.mTransitions.size(); i++) {
-                this.mTransitions.get(i).addTarget(view);
+                this.mTransitions.get(i).addTarget(view2);
             }
-            return (TransitionSet) super.addTarget(view);
+            return (TransitionSet) super.addTarget(view2);
         }
         return (TransitionSet) invokeL.objValue;
     }
@@ -693,14 +693,14 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet removeTarget(@NonNull View view) {
+    public TransitionSet removeTarget(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view2)) == null) {
             for (int i = 0; i < this.mTransitions.size(); i++) {
-                this.mTransitions.get(i).removeTarget(view);
+                this.mTransitions.get(i).removeTarget(view2);
             }
-            return (TransitionSet) super.removeTarget(view);
+            return (TransitionSet) super.removeTarget(view2);
         }
         return (TransitionSet) invokeL.objValue;
     }

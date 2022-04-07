@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayerCallbackBaseManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,80 +54,80 @@ public class VideoPlayerCallbackBaseManager {
     public void dispatchPlayerAction(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoEvent) == null) {
-            char c2 = 4;
+            char c = 4;
             if (videoEvent.getType() == 4 || videoEvent.getType() == 2) {
                 String action = videoEvent.getAction();
                 switch (action.hashCode()) {
                     case -1502879971:
                         if (action.equals(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED)) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1244137507:
                         break;
                     case -525235558:
                         if (action.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -461848373:
                         if (action.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 154871702:
                         if (action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 720027695:
                         if (action.equals(ControlEvent.ACTION_PAUSE)) {
-                            c2 = '\b';
+                            c = '\b';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 723345051:
                         if (action.equals(ControlEvent.ACTION_START)) {
-                            c2 = 6;
+                            c = 6;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 906917140:
                         if (action.equals(ControlEvent.ACTION_RESUME)) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1370689931:
                         if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1547354793:
                         if (action.equals(ControlEvent.ACTION_STOP)) {
-                            c2 = '\t';
+                            c = '\t';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                switch (c2) {
+                switch (c) {
                     case 0:
                         int intExtra = videoEvent.getIntExtra(1);
                         onInfo(intExtra, videoEvent.getIntExtra(2), videoEvent.getExtra(3));

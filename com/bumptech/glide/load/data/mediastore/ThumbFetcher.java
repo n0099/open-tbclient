@@ -25,7 +25,7 @@ import com.bumptech.glide.load.data.ExifOrientationStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStoreThumbFetcher";
@@ -34,7 +34,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
     public final Uri mediaStoreImageUri;
     public final ThumbnailStreamOpener opener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ImageThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -84,7 +84,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VideoThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -227,11 +227,11 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
                 InputStream openThumbInputStream = openThumbInputStream();
                 this.inputStream = openThumbInputStream;
                 dataCallback.onDataReady(openThumbInputStream);
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to find thumbnail file", e2);
+                    Log.d(TAG, "Failed to find thumbnail file", e);
                 }
-                dataCallback.onLoadFailed(e2);
+                dataCallback.onLoadFailed(e);
             }
         }
     }

@@ -216,31 +216,31 @@ public class RendererCommon {
         return invokeL.floatValue;
     }
 
-    public static Point getDisplaySize(ScalingType scalingType, float f2, int i, int i2) {
+    public static Point getDisplaySize(ScalingType scalingType, float f, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scalingType, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? getDisplaySize(convertScalingTypeToVisibleFraction(scalingType), f2, i, i2) : (Point) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scalingType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? getDisplaySize(convertScalingTypeToVisibleFraction(scalingType), f, i, i2) : (Point) invokeCommon.objValue;
     }
 
-    public static float[] getLayoutMatrix(boolean z, float f2, float f3) {
+    public static float[] getLayoutMatrix(boolean z, float f, float f2) {
         InterceptResult invokeCommon;
+        float f3;
         float f4;
-        float f5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f3 > f2) {
-                f5 = f2 / f3;
-                f4 = 1.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (f2 > f) {
+                f4 = f / f2;
+                f3 = 1.0f;
             } else {
-                f4 = f3 / f2;
-                f5 = 1.0f;
+                f3 = f2 / f;
+                f4 = 1.0f;
             }
             if (z) {
-                f4 *= -1.0f;
+                f3 *= -1.0f;
             }
             float[] fArr = new float[16];
             android.opengl.Matrix.setIdentityM(fArr, 0);
-            android.opengl.Matrix.scaleM(fArr, 0, f4, f5, 1.0f);
+            android.opengl.Matrix.scaleM(fArr, 0, f3, f4, 1.0f);
             adjustOrigin(fArr);
             return fArr;
         }
@@ -279,8 +279,8 @@ public class RendererCommon {
                 int defaultSize = View.getDefaultSize(Integer.MAX_VALUE, i);
                 int defaultSize2 = View.getDefaultSize(Integer.MAX_VALUE, i2);
                 if (i3 != 0 && i4 != 0 && defaultSize != 0 && defaultSize2 != 0) {
-                    float f2 = i3 / i4;
-                    Point displaySize = RendererCommon.getDisplaySize(((f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1)) > 0) == (((float) defaultSize) / ((float) defaultSize2) > 1.0f) ? this.scalingTypeMatchOrientation : this.scalingTypeMismatchOrientation, f2, defaultSize, defaultSize2);
+                    float f = i3 / i4;
+                    Point displaySize = RendererCommon.getDisplaySize(((f > 1.0f ? 1 : (f == 1.0f ? 0 : -1)) > 0) == (((float) defaultSize) / ((float) defaultSize2) > 1.0f) ? this.scalingTypeMatchOrientation : this.scalingTypeMismatchOrientation, f, defaultSize, defaultSize2);
                     if (View.MeasureSpec.getMode(i) == 1073741824) {
                         displaySize.x = defaultSize;
                     }
@@ -311,12 +311,12 @@ public class RendererCommon {
         }
     }
 
-    public static Point getDisplaySize(float f2, float f3, int i, int i2) {
+    public static Point getDisplaySize(float f, float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f2 != 0.0f && f3 != 0.0f) {
-                return new Point(Math.min(i, Math.round((i2 / f2) * f3)), Math.min(i2, Math.round((i / f2) / f3)));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f != 0.0f && f2 != 0.0f) {
+                return new Point(Math.min(i, Math.round((i2 / f) * f2)), Math.min(i2, Math.round((i / f) / f2)));
             }
             return new Point(i, i2);
         }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdImageViewTouch extends BdImageViewTouchBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
     public c I;
     public ScaleGestureDetector z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
                 BdImageViewTouch bdImageViewTouch = this.a;
                 if (bdImageViewTouch.E) {
-                    bdImageViewTouch.f29419g = true;
+                    bdImageViewTouch.g = true;
                     float scale = bdImageViewTouch.getScale();
                     BdImageViewTouch bdImageViewTouch2 = this.a;
                     this.a.C(Math.min(this.a.getMaxScale(), Math.max(bdImageViewTouch2.F(scale, bdImageViewTouch2.getMaxScale()), this.a.getMinScale())), motionEvent.getX(), motionEvent.getY(), 200.0f);
@@ -83,14 +83,14 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 if (this.a.G && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
                     ScaleGestureDetector scaleGestureDetector = this.a.z;
                     if ((scaleGestureDetector == null || !scaleGestureDetector.isInProgress()) && this.a.getScale() != 1.0f) {
-                        return this.a.H(motionEvent, motionEvent2, f2, f3);
+                        return this.a.H(motionEvent, motionEvent2, f, f2);
                     }
                     return false;
                 }
@@ -111,14 +111,14 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 if (this.a.G && motionEvent != null && motionEvent2 != null && motionEvent.getPointerCount() <= 1 && motionEvent2.getPointerCount() <= 1) {
                     ScaleGestureDetector scaleGestureDetector = this.a.z;
                     if (scaleGestureDetector == null || !scaleGestureDetector.isInProgress()) {
-                        return this.a.I(motionEvent, motionEvent2, f2, f3);
+                        return this.a.I(motionEvent, motionEvent2, f, f2);
                     }
                     return false;
                 }
@@ -148,24 +148,22 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouch f29413b;
+        public final /* synthetic */ BdImageViewTouch b;
 
         public d(BdImageViewTouch bdImageViewTouch) {
             Interceptable interceptable = $ic;
@@ -182,7 +180,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
                     return;
                 }
             }
-            this.f29413b = bdImageViewTouch;
+            this.b = bdImageViewTouch;
             this.a = false;
         }
 
@@ -192,13 +190,13 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
                 float currentSpan = scaleGestureDetector.getCurrentSpan() - scaleGestureDetector.getPreviousSpan();
-                float scale = this.f29413b.getScale() * scaleGestureDetector.getScaleFactor();
-                BdImageViewTouch bdImageViewTouch = this.f29413b;
+                float scale = this.b.getScale() * scaleGestureDetector.getScaleFactor();
+                BdImageViewTouch bdImageViewTouch = this.b;
                 if (bdImageViewTouch.F) {
                     if (this.a && currentSpan != 0.0f) {
-                        bdImageViewTouch.f29419g = true;
-                        this.f29413b.B(Math.min(bdImageViewTouch.getMaxScale(), Math.max(scale, this.f29413b.getMinScale() - 0.0f)), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-                        this.f29413b.invalidate();
+                        bdImageViewTouch.g = true;
+                        this.b.B(Math.min(bdImageViewTouch.getMaxScale(), Math.max(scale, this.b.getMinScale() - 0.0f)), scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                        this.b.invalidate();
                         return true;
                     } else if (!this.a) {
                         this.a = true;
@@ -233,13 +231,13 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         this.G = true;
     }
 
-    public float F(float f2, float f3) {
+    public float F(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (this.B == 1) {
                 this.B = -1;
-                return f3;
+                return f2;
             }
             this.B = 1;
             return 1.0f;
@@ -256,14 +254,14 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         return invokeL.booleanValue;
     }
 
-    public boolean H(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+    public boolean H(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             float x = motionEvent2.getX() - motionEvent.getX();
             float y = motionEvent2.getY() - motionEvent.getY();
-            if (Math.abs(f2) > 800.0f || Math.abs(f3) > 800.0f) {
-                this.f29419g = true;
+            if (Math.abs(f) > 800.0f || Math.abs(f2) > 800.0f) {
+                this.g = true;
                 x(x / 2.0f, y / 2.0f, 300.0d);
                 invalidate();
                 return true;
@@ -273,15 +271,15 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         return invokeCommon.booleanValue;
     }
 
-    public boolean I(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+    public boolean I(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (getScale() == 1.0f) {
                 return false;
             }
-            this.f29419g = true;
-            w(-f2, -f3);
+            this.g = true;
+            w(-f, -f2);
             invalidate();
             return true;
         }
@@ -320,10 +318,10 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
     }
 
     @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase
-    public void d(Drawable drawable, Matrix matrix, float f2, float f3) {
+    public void d(Drawable drawable, Matrix matrix, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{drawable, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            super.d(drawable, matrix, f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{drawable, matrix, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.d(drawable, matrix, f, f2);
             getMaxScale();
         }
     }
@@ -381,9 +379,9 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
     }
 
     @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase
-    public void s(float f2) {
+    public void s(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || f2 >= getMinScale()) {
+        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || f >= getMinScale()) {
             return;
         }
         A(getMinScale(), 50.0f);

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_DEPTH = 4;
@@ -45,8 +45,8 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
 
     private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, List<Result> list, int i, int i2, int i3) {
         boolean z;
+        float f;
         float f2;
-        float f3;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
@@ -76,50 +76,50 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
             }
             int width = binaryBitmap.getWidth();
             int height = binaryBitmap.getHeight();
-            float f4 = width;
-            float f5 = height;
+            float f3 = width;
+            float f4 = height;
+            float f5 = 0.0f;
             float f6 = 0.0f;
-            float f7 = 0.0f;
             for (ResultPoint resultPoint : resultPoints) {
                 if (resultPoint != null) {
                     float x = resultPoint.getX();
                     float y = resultPoint.getY();
-                    if (x < f4) {
-                        f4 = x;
+                    if (x < f3) {
+                        f3 = x;
                     }
-                    if (y < f5) {
-                        f5 = y;
+                    if (y < f4) {
+                        f4 = y;
                     }
-                    if (x > f6) {
-                        f6 = x;
+                    if (x > f5) {
+                        f5 = x;
                     }
-                    if (y > f7) {
-                        f7 = y;
+                    if (y > f6) {
+                        f6 = y;
                     }
                 }
             }
-            if (f4 > 100.0f) {
-                f2 = f6;
-                f3 = f5;
-                i4 = height;
-                i5 = width;
-                doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f4, height), map, list, i, i2, i3 + 1);
-            } else {
-                f2 = f6;
-                f3 = f5;
-                i4 = height;
-                i5 = width;
-            }
             if (f3 > 100.0f) {
-                doDecodeMultiple(binaryBitmap.crop(0, 0, i5, (int) f3), map, list, i, i2, i3 + 1);
+                f = f5;
+                f2 = f4;
+                i4 = height;
+                i5 = width;
+                doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f3, height), map, list, i, i2, i3 + 1);
+            } else {
+                f = f5;
+                f2 = f4;
+                i4 = height;
+                i5 = width;
             }
-            float f8 = f2;
-            if (f8 < i5 - 100) {
-                int i6 = (int) f8;
+            if (f2 > 100.0f) {
+                doDecodeMultiple(binaryBitmap.crop(0, 0, i5, (int) f2), map, list, i, i2, i3 + 1);
+            }
+            float f7 = f;
+            if (f7 < i5 - 100) {
+                int i6 = (int) f7;
                 doDecodeMultiple(binaryBitmap.crop(i6, 0, i5 - i6, i4), map, list, i + i6, i2, i3 + 1);
             }
-            if (f7 < i4 - 100) {
-                int i7 = (int) f7;
+            if (f6 < i4 - 100) {
+                int i7 = (int) f6;
                 doDecodeMultiple(binaryBitmap.crop(0, i7, i5, i4 - i7), map, list, i, i2 + i7, i3 + 1);
             }
         } catch (ReaderException unused) {

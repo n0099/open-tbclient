@@ -19,55 +19,55 @@ public class CharsKt__CharKt extends CharsKt__CharJVMKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final int digitToInt(char c2) {
-        int digitOf = CharsKt__CharJVMKt.digitOf(c2, 10);
+    public static final int digitToInt(char c) {
+        int digitOf = CharsKt__CharJVMKt.digitOf(c, 10);
         if (digitOf >= 0) {
             return digitOf;
         }
-        throw new IllegalArgumentException("Char " + c2 + " is not a decimal digit");
+        throw new IllegalArgumentException("Char " + c + " is not a decimal digit");
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final Integer digitToIntOrNull(char c2) {
-        Integer valueOf = Integer.valueOf(CharsKt__CharJVMKt.digitOf(c2, 10));
+    public static final Integer digitToIntOrNull(char c) {
+        Integer valueOf = Integer.valueOf(CharsKt__CharJVMKt.digitOf(c, 10));
         if (valueOf.intValue() >= 0) {
             return valueOf;
         }
         return null;
     }
 
-    public static final boolean equals(char c2, char c3, boolean z) {
-        if (c2 == c3) {
+    public static final boolean equals(char c, char c2, boolean z) {
+        if (c == c2) {
             return true;
         }
         if (z) {
-            char upperCase = Character.toUpperCase(c2);
-            char upperCase2 = Character.toUpperCase(c3);
+            char upperCase = Character.toUpperCase(c);
+            char upperCase2 = Character.toUpperCase(c2);
             return upperCase == upperCase2 || Character.toLowerCase(upperCase) == Character.toLowerCase(upperCase2);
         }
         return false;
     }
 
-    public static /* synthetic */ boolean equals$default(char c2, char c3, boolean z, int i, Object obj) {
+    public static /* synthetic */ boolean equals$default(char c, char c2, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        return equals(c2, c3, z);
+        return equals(c, c2, z);
     }
 
-    public static final boolean isSurrogate(char c2) {
-        return 55296 <= c2 && 57343 >= c2;
+    public static final boolean isSurrogate(char c) {
+        return 55296 <= c && 57343 >= c;
     }
 
     @InlineOnly
-    public static final String plus(char c2, String str) {
-        return String.valueOf(c2) + str;
+    public static final String plus(char c, String str) {
+        return String.valueOf(c) + str;
     }
 
     @SinceKotlin(version = "1.5")
-    public static final String titlecase(char c2) {
-        return _OneToManyTitlecaseMappingsKt.titlecaseImpl(c2);
+    public static final String titlecase(char c) {
+        return _OneToManyTitlecaseMappingsKt.titlecaseImpl(c);
     }
 
     @SinceKotlin(version = "1.5")
@@ -84,9 +84,9 @@ public class CharsKt__CharKt extends CharsKt__CharJVMKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final Integer digitToIntOrNull(char c2, int i) {
+    public static final Integer digitToIntOrNull(char c, int i) {
         CharsKt__CharJVMKt.checkRadix(i);
-        Integer valueOf = Integer.valueOf(CharsKt__CharJVMKt.digitOf(c2, i));
+        Integer valueOf = Integer.valueOf(CharsKt__CharJVMKt.digitOf(c, i));
         if (valueOf.intValue() >= 0) {
             return valueOf;
         }
@@ -95,11 +95,11 @@ public class CharsKt__CharKt extends CharsKt__CharJVMKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final int digitToInt(char c2, int i) {
-        Integer digitToIntOrNull = digitToIntOrNull(c2, i);
+    public static final int digitToInt(char c, int i) {
+        Integer digitToIntOrNull = digitToIntOrNull(c, i);
         if (digitToIntOrNull != null) {
             return digitToIntOrNull.intValue();
         }
-        throw new IllegalArgumentException("Char " + c2 + " is not a digit in the given radix=" + i);
+        throw new IllegalArgumentException("Char " + c + " is not a digit in the given radix=" + i);
     }
 }

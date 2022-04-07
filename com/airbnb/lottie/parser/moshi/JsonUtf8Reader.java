@@ -10,7 +10,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import org.apache.http.message.BasicHeaderValueFormatter;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class JsonUtf8Reader extends JsonReader {
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
     public static final int NUMBER_CHAR_DECIMAL = 3;
@@ -323,8 +323,8 @@ public final class JsonUtf8Reader extends JsonReader {
                     }
                     return -1;
                 }
-                byte b2 = this.buffer.getByte(i);
-                if (b2 != 10 && b2 != 32 && b2 != 13 && b2 != 9) {
+                byte b = this.buffer.getByte(i);
+                if (b != 10 && b != 32 && b != 13 && b != 9) {
                     break;
                 }
                 i = i2;
@@ -368,16 +368,16 @@ public final class JsonUtf8Reader extends JsonReader {
         int i;
         String str;
         String str2;
-        byte b2 = this.buffer.getByte(0L);
-        if (b2 == 116 || b2 == 84) {
+        byte b = this.buffer.getByte(0L);
+        if (b == 116 || b == 84) {
             i = 5;
             str = "true";
             str2 = "TRUE";
-        } else if (b2 == 102 || b2 == 70) {
+        } else if (b == 102 || b == 70) {
             i = 6;
             str = "false";
             str2 = "FALSE";
-        } else if (b2 != 110 && b2 != 78) {
+        } else if (b != 110 && b != 78) {
             return 0;
         } else {
             i = 7;
@@ -391,8 +391,8 @@ public final class JsonUtf8Reader extends JsonReader {
             if (!this.source.request(i3)) {
                 return 0;
             }
-            byte b3 = this.buffer.getByte(i2);
-            if (b3 != str.charAt(i2) && b3 != str2.charAt(i2)) {
+            byte b2 = this.buffer.getByte(i2);
+            if (b2 != str.charAt(i2) && b2 != str2.charAt(i2)) {
                 return 0;
             }
             i2 = i3;
@@ -466,11 +466,11 @@ public final class JsonUtf8Reader extends JsonReader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int peekNumber() throws IOException {
-        char c2 = 1;
+        char c = 1;
         int i = 0;
         long j = 0;
         int i2 = 0;
-        char c3 = 0;
+        char c2 = 0;
         boolean z = true;
         boolean z2 = false;
         while (true) {
@@ -478,58 +478,58 @@ public final class JsonUtf8Reader extends JsonReader {
             if (!this.source.request(i3)) {
                 break;
             }
-            byte b2 = this.buffer.getByte(i2);
-            if (b2 != 43) {
-                if (b2 == 69 || b2 == 101) {
-                    if (c3 != 2 && c3 != 4) {
+            byte b = this.buffer.getByte(i2);
+            if (b != 43) {
+                if (b == 69 || b == 101) {
+                    if (c2 != 2 && c2 != 4) {
                         return i;
                     }
-                    c3 = 5;
-                } else if (b2 != 45) {
-                    if (b2 != 46) {
-                        if (b2 < 48 || b2 > 57) {
+                    c2 = 5;
+                } else if (b != 45) {
+                    if (b != 46) {
+                        if (b < 48 || b > 57) {
                             break;
-                        } else if (c3 == c2 || c3 == 0) {
-                            j = -(b2 - 48);
+                        } else if (c2 == c || c2 == 0) {
+                            j = -(b - 48);
                             i = 0;
-                            c3 = 2;
+                            c2 = 2;
                         } else {
-                            if (c3 == 2) {
+                            if (c2 == 2) {
                                 if (j == 0) {
                                     return i;
                                 }
-                                long j2 = (10 * j) - (b2 - 48);
+                                long j2 = (10 * j) - (b - 48);
                                 int i4 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
                                 z &= i4 > 0 || (i4 == 0 && j2 < j);
                                 j = j2;
-                            } else if (c3 == 3) {
+                            } else if (c2 == 3) {
                                 i = 0;
-                                c3 = 4;
-                            } else if (c3 == 5 || c3 == 6) {
+                                c2 = 4;
+                            } else if (c2 == 5 || c2 == 6) {
                                 i = 0;
-                                c3 = 7;
+                                c2 = 7;
                             }
                             i = 0;
                         }
-                    } else if (c3 != 2) {
+                    } else if (c2 != 2) {
                         return i;
                     } else {
-                        c3 = 3;
+                        c2 = 3;
                     }
-                } else if (c3 == 0) {
-                    c3 = 1;
+                } else if (c2 == 0) {
+                    c2 = 1;
                     z2 = true;
-                } else if (c3 != 5) {
+                } else if (c2 != 5) {
                     return i;
                 }
                 i2 = i3;
-                c2 = 1;
-            } else if (c3 != 5) {
+                c = 1;
+            } else if (c2 != 5) {
                 return i;
             }
-            c3 = 6;
+            c2 = 6;
             i2 = i3;
-            c2 = 1;
+            c = 1;
         }
     }
 
@@ -552,26 +552,26 @@ public final class JsonUtf8Reader extends JsonReader {
                                     }
                                     throw syntaxError("Invalid escape sequence: \\" + ((char) readByte));
                                 } else if (this.source.request(4L)) {
-                                    char c2 = 0;
+                                    char c = 0;
                                     for (int i3 = 0; i3 < 4; i3++) {
-                                        byte b2 = this.buffer.getByte(i3);
-                                        char c3 = (char) (c2 << 4);
-                                        if (b2 < 48 || b2 > 57) {
-                                            if (b2 >= 97 && b2 <= 102) {
-                                                i = b2 - 97;
-                                            } else if (b2 < 65 || b2 > 70) {
+                                        byte b = this.buffer.getByte(i3);
+                                        char c2 = (char) (c << 4);
+                                        if (b < 48 || b > 57) {
+                                            if (b >= 97 && b <= 102) {
+                                                i = b - 97;
+                                            } else if (b < 65 || b > 70) {
                                                 throw syntaxError("\\u" + this.buffer.readUtf8(4L));
                                             } else {
-                                                i = b2 - 65;
+                                                i = b - 65;
                                             }
                                             i2 = i + 10;
                                         } else {
-                                            i2 = b2 - 48;
+                                            i2 = b - 48;
                                         }
-                                        c2 = (char) (c3 + i2);
+                                        c = (char) (c2 + i2);
                                     }
                                     this.buffer.skip(4L);
-                                    return c2;
+                                    return c;
                                 } else {
                                     throw new EOFException("Unterminated escape sequence at path " + getPath());
                                 }

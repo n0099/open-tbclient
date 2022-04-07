@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunchTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -185,10 +185,10 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
         }
     }
 
-    public void setScore(double d2) {
+    public void setScore(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.score = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.score = d;
         }
     }
 

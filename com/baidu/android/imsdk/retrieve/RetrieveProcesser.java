@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RetrieveProcesser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RetrieveProcesser";
@@ -41,7 +41,7 @@ public class RetrieveProcesser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, context)) == null) {
             synchronized (RetrieveProcesser.class) {
-                char c2 = 0;
+                char c = 0;
                 if (jSONObject == null) {
                     LogUtils.d(TAG, "retrieve-->data is null");
                     RetrieveReportImpl.getInstance(context).reportDispatchCheckFail("", "", "", "0", null);
@@ -68,7 +68,7 @@ public class RetrieveProcesser {
                         }
                     }
                     if (optString.hashCode() == 3143036 && optString.equals("file")) {
-                        if (c2 == 0) {
+                        if (c == 0) {
                             LogUtils.d(TAG, "retrieve-->不支持的回捞类型：" + optString);
                             RetrieveReportImpl.getInstance(context).reportDispatch(optString, optString2, optString3, jSONObject, "2", null);
                         } else {
@@ -119,8 +119,8 @@ public class RetrieveProcesser {
                         }
                         return true;
                     }
-                    c2 = 65535;
-                    if (c2 == 0) {
+                    c = 65535;
+                    if (c == 0) {
                     }
                     return true;
                 }

@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface f extends IInterface {
     int a();
 
     void a(ComponentName componentName, IBinder iBinder);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public interface f extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                     return (f) queryLocalInterface;
                 }
-                return new C1919a(iBinder);
+                return new C0259a(iBinder);
             }
             return (f) invokeL.objValue;
         }
@@ -57,7 +57,7 @@ public interface f extends IInterface {
         public static f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1919a.a : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0259a.a : (f) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -95,16 +95,14 @@ public interface f extends IInterface {
         }
 
         /* renamed from: com.bytedance.pangle.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1919a implements f {
+        /* loaded from: classes4.dex */
+        public static class C0259a implements f {
             public static /* synthetic */ Interceptable $ic;
             public static f a;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f38109b;
-
-            public C1919a(IBinder iBinder) {
+            public C0259a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +117,7 @@ public interface f extends IInterface {
                         return;
                     }
                 }
-                this.f38109b = iBinder;
+                this.b = iBinder;
             }
 
             @Override // com.bytedance.pangle.f
@@ -137,7 +135,7 @@ public interface f extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(iBinder);
-                        if (!this.f38109b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(componentName, iBinder);
                         } else {
                             obtain2.readException();
@@ -153,7 +151,7 @@ public interface f extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38109b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.pangle.f
@@ -165,7 +163,7 @@ public interface f extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.ServiceConnection");
-                        if (!this.f38109b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();

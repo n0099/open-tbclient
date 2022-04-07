@@ -50,7 +50,7 @@ public class g {
         if (downloadTask == null) {
             return null;
         }
-        return new a.AbstractBinderC2077a() { // from class: com.ss.android.socialbase.downloader.i.g.1
+        return new a.AbstractBinderC0621a() { // from class: com.ss.android.socialbase.downloader.i.g.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
                 return DownloadTask.this.getDownloadInfo();
@@ -405,8 +405,8 @@ public class g {
             public void a(List<String> list) {
                 try {
                     t.this.a(list);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -414,8 +414,8 @@ public class g {
             public boolean a() {
                 try {
                     return t.this.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -443,8 +443,8 @@ public class g {
             public void a() {
                 try {
                     o.this.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         };
@@ -474,8 +474,8 @@ public class g {
                 }
                 try {
                     x.this.a(new JSONObject(str));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -526,25 +526,25 @@ public class g {
         try {
             DownloadTask downloadTask = new DownloadTask(aVar.a());
             downloadTask.chunkStategy(a(aVar.b())).notificationEventListener(a(aVar.c())).interceptor(a(aVar.e())).depend(a(aVar.f())).monitorDepend(a(aVar.j())).forbiddenHandler(a(aVar.g())).diskSpaceHandler(a(aVar.i())).fileUriProvider(a(aVar.k())).notificationClickCallback(a(aVar.d())).retryDelayTimeCalculator(a(aVar.h()));
-            com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.MAIN.ordinal());
+            com.ss.android.socialbase.downloader.depend.i b = aVar.b(com.ss.android.socialbase.downloader.constants.f.MAIN.ordinal());
+            if (b != null) {
+                downloadTask.mainThreadListenerWithHashCode(b.hashCode(), a(b));
+            }
+            com.ss.android.socialbase.downloader.depend.i b2 = aVar.b(com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
             if (b2 != null) {
-                downloadTask.mainThreadListenerWithHashCode(b2.hashCode(), a(b2));
+                downloadTask.subThreadListenerWithHashCode(b2.hashCode(), a(b2));
             }
-            com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
+            com.ss.android.socialbase.downloader.depend.i b3 = aVar.b(com.ss.android.socialbase.downloader.constants.f.NOTIFICATION.ordinal());
             if (b3 != null) {
-                downloadTask.subThreadListenerWithHashCode(b3.hashCode(), a(b3));
-            }
-            com.ss.android.socialbase.downloader.depend.i b4 = aVar.b(com.ss.android.socialbase.downloader.constants.f.NOTIFICATION.ordinal());
-            if (b4 != null) {
-                downloadTask.notificationListenerWithHashCode(b4.hashCode(), a(b4));
+                downloadTask.notificationListenerWithHashCode(b3.hashCode(), a(b3));
             }
             a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.MAIN);
             a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.SUB);
             a(downloadTask, aVar, com.ss.android.socialbase.downloader.constants.f.NOTIFICATION);
             a(downloadTask, aVar);
             return downloadTask;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -562,9 +562,9 @@ public class g {
 
     public static void a(DownloadTask downloadTask, com.ss.android.socialbase.downloader.model.a aVar) throws RemoteException {
         for (int i = 0; i < aVar.l(); i++) {
-            l c2 = aVar.c(i);
-            if (c2 != null) {
-                downloadTask.addDownloadCompleteHandler(a(c2));
+            l c = aVar.c(i);
+            if (c != null) {
+                downloadTask.addDownloadCompleteHandler(a(c));
             }
         }
     }
@@ -578,8 +578,8 @@ public class g {
             public void a(int i, DownloadInfo downloadInfo, String str, String str2) {
                 try {
                     y.this.a(i, downloadInfo, str, str2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -587,8 +587,8 @@ public class g {
             public boolean a(boolean z) {
                 try {
                     return y.this.a(z);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -597,8 +597,8 @@ public class g {
             public String a() {
                 try {
                     return y.this.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -614,8 +614,8 @@ public class g {
             public void a(DownloadInfo downloadInfo) throws BaseException {
                 try {
                     l.this.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    throw new BaseException(1008, e2);
+                } catch (RemoteException e) {
+                    throw new BaseException(1008, e);
                 }
             }
 
@@ -623,8 +623,8 @@ public class g {
             public boolean b(DownloadInfo downloadInfo) {
                 try {
                     return l.this.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -640,8 +640,8 @@ public class g {
             public void a(DownloadInfo downloadInfo) throws RemoteException {
                 try {
                     m.this.a(downloadInfo);
-                } catch (BaseException e2) {
-                    throw new IllegalArgumentException(e2);
+                } catch (BaseException e) {
+                    throw new IllegalArgumentException(e);
                 }
             }
 
@@ -661,8 +661,8 @@ public class g {
             public boolean a(DownloadInfo downloadInfo) {
                 try {
                     return ae.this.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -671,8 +671,8 @@ public class g {
             public boolean b(DownloadInfo downloadInfo) {
                 try {
                     return ae.this.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -681,8 +681,8 @@ public class g {
             public boolean c(DownloadInfo downloadInfo) {
                 try {
                     return ae.this.c(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -698,8 +698,8 @@ public class g {
             public int a(long j) {
                 try {
                     return com.ss.android.socialbase.downloader.depend.e.this.a(j);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return 0;
                 }
             }
@@ -718,8 +718,8 @@ public class g {
                 }
                 try {
                     com.ss.android.socialbase.downloader.depend.f.this.a(downloadInfo, baseException, i);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         };
@@ -737,8 +737,8 @@ public class g {
                 }
                 try {
                     com.ss.android.socialbase.downloader.depend.j.this.a(jSONObject.toString());
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -746,8 +746,8 @@ public class g {
             public String b() {
                 try {
                     return com.ss.android.socialbase.downloader.depend.j.this.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return "";
                 }
             }
@@ -756,8 +756,8 @@ public class g {
             public int[] a() {
                 try {
                     return com.ss.android.socialbase.downloader.depend.j.this.b();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -773,8 +773,8 @@ public class g {
             public boolean a(v vVar) {
                 try {
                     return u.this.a(g.a(vVar));
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -819,8 +819,8 @@ public class g {
             public void a(int i, int i2) {
                 try {
                     aj.this.a(i, i2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         };
@@ -835,8 +835,8 @@ public class g {
             public boolean a(long j, long j2, q qVar) {
                 try {
                     return p.this.a(j, j2, g.a(qVar));
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -864,8 +864,8 @@ public class g {
             public long a(int i, int i2) {
                 try {
                     return ah.this.a(i, i2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return 0L;
                 }
             }
@@ -881,8 +881,8 @@ public class g {
             public boolean intercepte() {
                 try {
                     return com.ss.android.socialbase.downloader.depend.h.this.a();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -898,8 +898,8 @@ public class g {
             public Uri getUriForFile(String str, String str2) {
                 try {
                     return com.ss.android.socialbase.downloader.depend.g.this.a(str, str2);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -915,8 +915,8 @@ public class g {
             public void a(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.i(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -924,8 +924,8 @@ public class g {
             public void onCanceled(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.f(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -933,8 +933,8 @@ public class g {
             public void onFailed(DownloadInfo downloadInfo, BaseException baseException) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.a(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -942,8 +942,8 @@ public class g {
             public void onFirstStart(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.g(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -951,8 +951,8 @@ public class g {
             public void onFirstSuccess(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.h(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -960,8 +960,8 @@ public class g {
             public void onPause(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.d(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -969,8 +969,8 @@ public class g {
             public void onPrepare(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.a(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -978,8 +978,8 @@ public class g {
             public void onProgress(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.c(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -987,8 +987,8 @@ public class g {
             public void onRetry(DownloadInfo downloadInfo, BaseException baseException) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.b(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -996,8 +996,8 @@ public class g {
             public void onRetryDelay(DownloadInfo downloadInfo, BaseException baseException) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.c(downloadInfo, baseException);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -1005,8 +1005,8 @@ public class g {
             public void onStart(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.b(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -1014,8 +1014,8 @@ public class g {
             public void onSuccessed(DownloadInfo downloadInfo) {
                 try {
                     com.ss.android.socialbase.downloader.depend.i.this.e(downloadInfo);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         };

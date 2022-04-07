@@ -3,8 +3,6 @@ package com.baidu.tieba.themeCenter.background;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.p0.d;
-import c.a.p0.f4.e.j;
 import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.c35;
+import com.repackage.qq8;
+import com.repackage.y75;
+/* loaded from: classes4.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +26,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public int mInUse;
     public BackgroundPreviewModel mModel;
     public int mPropId;
-    public j mView;
+    public qq8 mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements BackgroundPreviewModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +68,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdExpandListView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,9 +93,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
-        public void a(float f2) {
+        public void a(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             }
         }
 
@@ -129,7 +130,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,18 +144,18 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d getPageStayDurationItem() {
+    public y75 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d pageStayDurationItem = super.getPageStayDurationItem();
+            y75 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
                 pageStayDurationItem.i = String.valueOf(this.mPropId);
             }
             return pageStayDurationItem;
         }
-        return (d) invokeV.objValue;
+        return (y75) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -162,9 +163,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            j jVar = this.mView;
-            if (jVar != null) {
-                jVar.g();
+            qq8 qq8Var = this.mView;
+            if (qq8Var != null) {
+                qq8Var.g();
             }
         }
     }
@@ -184,9 +185,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.mPropId, this.mInUse);
             this.mModel = backgroundPreviewModel;
             backgroundPreviewModel.D(this.mCallback);
-            j jVar = new j(this);
-            this.mView = jVar;
-            showLoadingView(jVar.f());
+            qq8 qq8Var = new qq8(this);
+            this.mView = qq8Var;
+            showLoadingView(qq8Var.f());
             this.mView.j(new b(this));
             this.mModel.loadData();
         }
@@ -201,21 +202,21 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            j jVar = this.mView;
-            if (jVar != null) {
-                jVar.h();
+            qq8 qq8Var = this.mView;
+            if (qq8Var != null) {
+                qq8Var.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        j jVar;
+        qq8 qq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (jVar = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (qq8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(jVar.f());
+        showLoadingView(qq8Var.f());
         this.mModel.loadData();
     }
 
@@ -238,7 +239,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                c.a.o0.z.b.d().h();
+                c35.d().h();
             }
         }
     }

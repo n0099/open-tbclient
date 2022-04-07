@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.api.IRouterInner;
 import com.tachikoma.core.bridge.JSContext;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RouterManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile RouterManager routerManager;
@@ -57,8 +57,8 @@ public class RouterManager {
         }
         try {
             this.routers.get(jSContext).navigateTo(Uri.parse(str));
-        } catch (NullPointerException e2) {
-            e2.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 

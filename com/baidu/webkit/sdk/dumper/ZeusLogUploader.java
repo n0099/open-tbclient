@@ -35,7 +35,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ZeusLogUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
@@ -67,7 +67,7 @@ public final class ZeusLogUploader {
     public String mType;
     public boolean mUseHttps;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class MyRunner implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public final class ZeusLogUploader {
             boolean z;
             Exception exc;
             FileInputStream fileInputStream;
-            Exception e2;
+            Exception e;
             boolean z2;
             OnFinishedListener onFinishedListener;
             byte[] bArr;
@@ -219,16 +219,16 @@ public final class ZeusLogUploader {
                                 available = fileInputStream.available();
                             } while (available > 0);
                             z2 = ZeusLogUploader.uploadFileEncryptJudge(bArr);
-                        } catch (Exception e3) {
-                            e2 = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             z = false;
                             this.status = 5;
-                            e2.printStackTrace();
+                            e.printStackTrace();
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
                                 }
                             }
                             z2 = z;
@@ -252,12 +252,12 @@ public final class ZeusLogUploader {
                                 this.status = 4;
                             }
                             fileInputStream.close();
-                        } catch (Exception e5) {
-                            exc = e5;
+                        } catch (Exception e4) {
+                            exc = e4;
                             z = z2;
-                            e2 = exc;
+                            e = exc;
                             this.status = 5;
-                            e2.printStackTrace();
+                            e.printStackTrace();
                             if (fileInputStream != null) {
                             }
                             z2 = z;
@@ -267,9 +267,9 @@ public final class ZeusLogUploader {
                             if (onFinishedListener != null) {
                             }
                         }
-                    } catch (Exception e6) {
+                    } catch (Exception e5) {
                         z = false;
-                        exc = e6;
+                        exc = e5;
                         fileInputStream = null;
                     }
                     if (ZeusLogUploader.mUploadCrashLogFailedEncrypt && this.status != 0 && this.logType.equals("crashlog") && !z2 && this.this$0.encryptUploadFailedFile(str, true) != 6) {
@@ -284,7 +284,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
@@ -329,8 +329,8 @@ public final class ZeusLogUploader {
         jSONArray.put("CUID").put(str2);
         try {
             jSONObject.put("CUID", jSONArray);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         this.mCuid = jSONObject.toString();
     }
@@ -377,16 +377,16 @@ public final class ZeusLogUploader {
                             return byteArrayOutputStream.toByteArray();
                         }
                         gZIPOutputStream2.write(bArr2, 0, read);
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         gZIPOutputStream = gZIPOutputStream2;
-                        e = e2;
+                        e = e;
                         e.printStackTrace();
                         stringBuffer.append(e.getMessage());
                         if (byteArrayInputStream != null) {
                             try {
                                 byteArrayInputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                                 return null;
                             }
                         }
@@ -397,12 +397,12 @@ public final class ZeusLogUploader {
                         return null;
                     }
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 gZIPOutputStream = null;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
+            e = e4;
             gZIPOutputStream = null;
             byteArrayInputStream = null;
         }
@@ -496,8 +496,8 @@ public final class ZeusLogUploader {
                         Log.v(TAG, "no local server url ");
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         byte[] bArr2 = new byte[4096];
@@ -558,8 +558,8 @@ public final class ZeusLogUploader {
                             stringBuffer.append("doUpload Failed, The server has responsed Code ".concat(String.valueOf(responseCode)));
                             httpsURLConnection.disconnect();
                             return false;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             byteArrayInputStream = byteArrayInputStream2;
                             outputStream = null;
                             stringBuffer.append(e.getMessage());
@@ -586,8 +586,8 @@ public final class ZeusLogUploader {
                         httpsURLConnection2.disconnect();
                         throw th;
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     outputStream = null;
                 }
             } catch (Throwable th2) {
@@ -596,8 +596,8 @@ public final class ZeusLogUploader {
                 httpsURLConnection2.disconnect();
                 return false;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
+            e = e4;
             outputStream = null;
             httpsURLConnection = null;
         } catch (Throwable th3) {
@@ -760,8 +760,8 @@ public final class ZeusLogUploader {
                     try {
                         fileOutputStream.close();
                         return 5;
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                         return 5;
                     }
                 }

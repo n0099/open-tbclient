@@ -16,7 +16,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     public static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
@@ -71,14 +71,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         Bitmap a(int i, int i2);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
@@ -113,8 +113,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                     try {
                         j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i, bitmap2, i - 2);
                         z = false;
-                    } catch (Exception e2) {
-                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
+                    } catch (Exception e) {
+                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e);
                         z = true;
                     }
                     if (j < 20) {
@@ -285,17 +285,17 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
             }
             Rect bounds = getBounds();
             int intrinsicWidth = getIntrinsicWidth();
-            float f2 = intrinsicWidth;
-            float width = (bounds.width() * 1.0f) / f2;
+            float f = intrinsicWidth;
+            float width = (bounds.width() * 1.0f) / f;
             float intrinsicHeight = getIntrinsicHeight();
             float height = (bounds.height() * 1.0f) / intrinsicHeight;
             canvas.save();
             canvas.translate(bounds.left, bounds.top);
             canvas.scale(width, height);
             float min = Math.min(bounds.width(), bounds.height());
-            float f3 = min / width;
-            float f4 = min / height;
-            this.mTempRectF.set((f2 - f3) / 2.0f, (intrinsicHeight - f4) / 2.0f, (f2 + f3) / 2.0f, (intrinsicHeight + f4) / 2.0f);
+            float f2 = min / width;
+            float f3 = min / height;
+            this.mTempRectF.set((f - f2) / 2.0f, (intrinsicHeight - f3) / 2.0f, (f + f2) / 2.0f, (intrinsicHeight + f3) / 2.0f);
             this.mPaint.setShader(this.mFrontBitmapShader);
             canvas.drawOval(this.mTempRectF, this.mPaint);
             canvas.restore();

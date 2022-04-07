@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FastClickUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHOW_DIOLOG_GAP_TIME = 1300;

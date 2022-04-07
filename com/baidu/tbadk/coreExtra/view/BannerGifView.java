@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.j;
-import c.a.o0.m.c;
-import c.a.o0.m.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,38 +19,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.f9;
+import com.repackage.im4;
+import com.repackage.jm4;
+/* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GifView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f30374b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f30375c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f30376d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f30377e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f30378f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f30379g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c f30380h;
-    public d i;
-    public final d j;
+    public ImageView b;
+    public View c;
+    public float d;
+    public String e;
+    public String f;
+    public boolean g;
+    public im4 h;
+    public jm4 i;
+    public final jm4 j;
     public final View.OnClickListener k;
 
-    /* loaded from: classes5.dex */
-    public class a implements d {
+    /* loaded from: classes3.dex */
+    public class a implements jm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -76,12 +62,12 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // c.a.o0.m.d
-        public boolean a(View view) {
+        @Override // com.repackage.jm4
+        public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.a.i == null || !this.a.i.a(view)) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.a.i == null || !this.a.i.a(view2)) {
                     this.a.e();
                     return true;
                 }
@@ -91,7 +77,7 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,9 +102,9 @@ public class BannerGifView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.a.f30374b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 == this.a.b) {
                 this.a.setCloseVisibility(false);
             }
         }
@@ -142,8 +128,8 @@ public class BannerGifView extends RelativeLayout {
                 return;
             }
         }
-        this.f30376d = 5.744f;
-        this.f30379g = false;
+        this.d = 5.744f;
+        this.g = false;
         this.j = new a(this);
         this.k = new b(this);
         f();
@@ -157,7 +143,7 @@ public class BannerGifView extends RelativeLayout {
             if (i != 1 && i != 4) {
                 z = false;
             }
-            this.f30375c.setVisibility((this.f30379g && z) ? 8 : 8);
+            this.c.setVisibility((this.g && z) ? 8 : 8);
         }
     }
 
@@ -165,12 +151,12 @@ public class BannerGifView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (TextUtils.isEmpty(this.f30378f)) {
+                if (TextUtils.isEmpty(this.f)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(getContext()), new String[]{this.f30378f});
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(getContext()), new String[]{this.f});
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -178,15 +164,15 @@ public class BannerGifView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0382, this);
-            this.f30374b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09040d);
-            this.f30375c = inflate.findViewById(R.id.obfuscated_res_0x7f090e78);
-            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e72);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0384, this);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090416);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090e76);
+            GifView gifView = (GifView) inflate.findViewById(R.id.obfuscated_res_0x7f090e70);
             this.a = gifView;
             gifView.setShowStaticDrawable(false);
             this.a.setSupportNoImage(false);
             this.a.setAutoPlay(true);
-            this.f30374b.setOnClickListener(this.k);
+            this.b.setOnClickListener(this.k);
             this.a.setOnInterceptClickListener(this.j);
             g(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -195,7 +181,7 @@ public class BannerGifView extends RelativeLayout {
     public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.f30375c, R.color.black_alpha30, i);
+            SkinManager.setBackgroundColor(this.c, R.color.black_alpha30, i);
             d(i);
         }
     }
@@ -209,7 +195,7 @@ public class BannerGifView extends RelativeLayout {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30377e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -222,9 +208,9 @@ public class BannerGifView extends RelativeLayout {
             View.MeasureSpec.getSize(i2);
             getPaddingBottom();
             getPaddingTop();
-            float f2 = this.f30376d;
-            if (f2 > 0.0f) {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
+            float f = this.d;
+            if (f > 0.0f) {
+                i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / f) + 0.5f), 1073741824);
             }
             super.onMeasure(i, i2);
         }
@@ -235,8 +221,8 @@ public class BannerGifView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onWindowVisibilityChanged(i);
-            if (this.f30380h != null) {
-                this.f30380h.a(this, i == 0, this.f30377e);
+            if (this.h != null) {
+                this.h.a(this, i == 0, this.e);
             }
         }
     }
@@ -244,7 +230,7 @@ public class BannerGifView extends RelativeLayout {
     public void setCloseVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f30374b.setVisibility(z ? 0 : 8);
+            this.b.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -262,32 +248,32 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(c cVar) {
+    public void setIWindowChangedListener(im4 im4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f30380h = cVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, im4Var) == null) {
+            this.h = im4Var;
         }
     }
 
     public void setNeedNightMask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f30379g = z;
+            this.g = z;
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void setOnClickEventListener(d dVar) {
+    public void setOnClickEventListener(jm4 jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.i = dVar;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jm4Var) == null) {
+            this.i = jm4Var;
         }
     }
 
-    public void setRatio(float f2) {
+    public void setRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.f30376d = f2;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            this.d = f;
             invalidate();
         }
     }

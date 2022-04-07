@@ -45,18 +45,18 @@ public final class a {
             if (c.a(str2).booleanValue()) {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                str3 = aVar2.f42574b;
+                str3 = aVar2.b;
                 a = aVar2.a();
-                jVar = j.f42537b;
+                jVar = j.b;
                 i = 0;
                 str4 = "/api/netm/v1.0/qhbt";
             } else {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
                 dataInfo.putData("mobile", str2);
-                str3 = aVar2.f42574b;
+                str3 = aVar2.b;
                 a = aVar2.a();
-                jVar = j.f42537b;
+                jVar = j.b;
                 i = 0;
                 str4 = "/api/netm/v1.0/qhbv";
             }

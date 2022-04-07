@@ -13,7 +13,7 @@ import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class EllipseContent implements PathContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static final float ELLIPSE_CONTROL_POINT_PERCENTAGE = 0.55228f;
     public final CircleShape circleShape;
@@ -67,35 +67,35 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
             return this.path;
         }
         PointF value = this.sizeAnimation.getValue();
-        float f2 = value.x / 2.0f;
-        float f3 = value.y / 2.0f;
-        float f4 = f2 * 0.55228f;
-        float f5 = 0.55228f * f3;
+        float f = value.x / 2.0f;
+        float f2 = value.y / 2.0f;
+        float f3 = f * 0.55228f;
+        float f4 = 0.55228f * f2;
         this.path.reset();
         if (this.circleShape.isReversed()) {
-            float f6 = -f3;
-            this.path.moveTo(0.0f, f6);
-            float f7 = 0.0f - f4;
-            float f8 = -f2;
-            float f9 = 0.0f - f5;
-            this.path.cubicTo(f7, f6, f8, f9, f8, 0.0f);
-            float f10 = f5 + 0.0f;
-            this.path.cubicTo(f8, f10, f7, f3, 0.0f, f3);
-            float f11 = f4 + 0.0f;
-            this.path.cubicTo(f11, f3, f2, f10, f2, 0.0f);
-            this.path.cubicTo(f2, f9, f11, f6, 0.0f, f6);
+            float f5 = -f2;
+            this.path.moveTo(0.0f, f5);
+            float f6 = 0.0f - f3;
+            float f7 = -f;
+            float f8 = 0.0f - f4;
+            this.path.cubicTo(f6, f5, f7, f8, f7, 0.0f);
+            float f9 = f4 + 0.0f;
+            this.path.cubicTo(f7, f9, f6, f2, 0.0f, f2);
+            float f10 = f3 + 0.0f;
+            this.path.cubicTo(f10, f2, f, f9, f, 0.0f);
+            this.path.cubicTo(f, f8, f10, f5, 0.0f, f5);
         } else {
-            float f12 = -f3;
-            this.path.moveTo(0.0f, f12);
-            float f13 = f4 + 0.0f;
-            float f14 = 0.0f - f5;
-            this.path.cubicTo(f13, f12, f2, f14, f2, 0.0f);
-            float f15 = f5 + 0.0f;
-            this.path.cubicTo(f2, f15, f13, f3, 0.0f, f3);
-            float f16 = 0.0f - f4;
-            float f17 = -f2;
-            this.path.cubicTo(f16, f3, f17, f15, f17, 0.0f);
-            this.path.cubicTo(f17, f14, f16, f12, 0.0f, f12);
+            float f11 = -f2;
+            this.path.moveTo(0.0f, f11);
+            float f12 = f3 + 0.0f;
+            float f13 = 0.0f - f4;
+            this.path.cubicTo(f12, f11, f, f13, f, 0.0f);
+            float f14 = f4 + 0.0f;
+            this.path.cubicTo(f, f14, f12, f2, 0.0f, f2);
+            float f15 = 0.0f - f3;
+            float f16 = -f;
+            this.path.cubicTo(f15, f2, f16, f14, f16, 0.0f);
+            this.path.cubicTo(f16, f13, f15, f11, 0.0f, f11);
         }
         PointF value2 = this.positionAnimation.getValue();
         this.path.offset(value2.x, value2.y);

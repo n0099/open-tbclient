@@ -3,7 +3,7 @@ package com.kwad.sdk.contentalliance.coupon.model;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.response.kwai.a;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ActivityInfo extends a implements b, Serializable {
     public static final long serialVersionUID = 4269865323325685543L;
     public int actTypeId;

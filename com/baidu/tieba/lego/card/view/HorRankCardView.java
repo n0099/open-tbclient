@@ -9,9 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.p0.a4.x;
-import c.a.p0.b2.i;
-import c.a.p0.b2.o.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,9 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f95;
+import com.repackage.fd7;
+import com.repackage.ic7;
+import com.repackage.uj8;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HorRankCardView extends BaseCardView<HorRankCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,14 +41,12 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     public ImageView s;
     public ImageView t;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HorRankCard a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HorRankCardView f34252b;
+        public final /* synthetic */ HorRankCardView b;
 
         public a(HorRankCardView horRankCardView, HorRankCard horRankCard) {
             Interceptable interceptable = $ic;
@@ -64,18 +63,18 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                     return;
                 }
             }
-            this.f34252b = horRankCardView;
+            this.b = horRankCardView;
             this.a = horRankCard;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.a.getScheme())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.getScheme())) {
                 return;
             }
-            i.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.f34252b.getStatPosition()).a(this.a);
-            x.c(this.f34252b.i, this.a.getScheme());
+            ic7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
+            uj8.c(this.b.i, this.a.getScheme());
         }
     }
 
@@ -99,24 +98,24 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         }
     }
 
-    private void setMoreColor(c cVar) {
+    private void setMoreColor(fd7 fd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, cVar) == null) {
-            if (cVar == null) {
+        if (interceptable == null || interceptable.invokeL(65537, this, fd7Var) == null) {
+            if (fd7Var == null) {
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             } else {
-                y(this.r, cVar.b(), cVar.c(), R.color.CAM_X0302);
+                z(this.r, fd7Var.b(), fd7Var.c(), R.color.CAM_X0302);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: C */
-    public void t(HorRankCard horRankCard, int i) {
+    /* renamed from: D */
+    public void u(HorRankCard horRankCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, horRankCard, i) == null) {
-            c.a.o0.w0.a.a(this.i, getRootView());
+            f95.a(this.i, getRootView());
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201);
             SkinManager.setImageResource(this.t, R.color.CAM_X0204);
@@ -129,8 +128,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void u(HorRankCard horRankCard) {
+    /* renamed from: E */
+    public void v(HorRankCard horRankCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, horRankCard) == null) {
             List<HorRankCard.a> rankInfoList = horRankCard.getRankInfoList();
@@ -148,7 +147,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             }
             if (!TextUtils.isEmpty(horRankCard.getCardTitle())) {
                 this.q.setVisibility(0);
-                y(this.q, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
+                z(this.q, horRankCard.getTitleColor(), horRankCard.getTitleColorNight(), R.color.CAM_X0105);
                 this.q.setText(horRankCard.getCardTitle());
             } else {
                 this.q.setVisibility(8);
@@ -161,7 +160,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
                 this.m.setOnClickListener(null);
             }
-            c rightText = horRankCard.getRightText();
+            fd7 rightText = horRankCard.getRightText();
             if (rightText.f()) {
                 this.s.setVisibility(8);
                 this.r.setVisibility(0);
@@ -179,19 +178,19 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a3, (ViewGroup) null, false);
             this.m = linearLayout;
-            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090daa);
-            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091ac4);
-            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f09120c);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090da5);
-            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f091ab8);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091aa0);
-            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f0907e1);
+            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090db2);
+            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091ab4);
+            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f091201);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090dad);
+            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f091aa8);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091a8f);
+            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f0907ea);
             return this.m;
         }
         return (View) invokeV.objValue;

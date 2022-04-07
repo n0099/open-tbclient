@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
@@ -105,8 +105,8 @@ public class MotionSpec {
                     return createSpecFromAnimators(arrayList);
                 }
                 return null;
-            } catch (Exception e2) {
-                Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e);
                 return null;
             }
         }

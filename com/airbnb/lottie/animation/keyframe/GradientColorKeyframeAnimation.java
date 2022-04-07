@@ -3,7 +3,7 @@ package com.airbnb.lottie.animation.keyframe;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientColorKeyframeAnimation extends KeyframeAnimation<GradientColor> {
     public final GradientColor gradientColor;
 
@@ -15,13 +15,13 @@ public class GradientColorKeyframeAnimation extends KeyframeAnimation<GradientCo
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f2) {
-        return getValue((Keyframe<GradientColor>) keyframe, f2);
+    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
+        return getValue((Keyframe<GradientColor>) keyframe, f);
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public GradientColor getValue(Keyframe<GradientColor> keyframe, float f2) {
-        this.gradientColor.lerp(keyframe.startValue, keyframe.endValue, f2);
+    public GradientColor getValue(Keyframe<GradientColor> keyframe, float f) {
+        this.gradientColor.lerp(keyframe.startValue, keyframe.endValue, f);
         return this.gradientColor;
     }
 }

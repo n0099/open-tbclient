@@ -13,7 +13,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INIT_IDLE_TASK = "initIdleTask";
@@ -115,9 +115,9 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             if (jsonData != null) {
                 try {
                     jSONObject.put(SpeedStatsMainTable.APP_CREATE_STAGE, jsonData);
-                } catch (JSONException e2) {
+                } catch (JSONException e) {
                     if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
             }
@@ -126,9 +126,9 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                 try {
                     jSONObject.put(SpeedStatsMainTable.APP_END_2_ACTIVITY_GAP, jsonData2);
                     return true;
-                } catch (JSONException e3) {
+                } catch (JSONException e2) {
                     if (AppConfig.isDebug()) {
-                        e3.printStackTrace();
+                        e2.printStackTrace();
                         return true;
                     }
                     return true;

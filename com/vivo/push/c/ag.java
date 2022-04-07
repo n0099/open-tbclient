@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public final class ag {
         com.vivo.push.l afVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oVar)) == null) {
-            int b2 = oVar.b();
-            if (b2 == 20) {
+            int b = oVar.b();
+            if (b == 20) {
                 afVar = new af(oVar);
-            } else if (b2 == 100) {
+            } else if (b == 100) {
                 afVar = new b(oVar);
-            } else if (b2 != 101) {
-                switch (b2) {
+            } else if (b != 101) {
+                switch (b) {
                     case 0:
                         afVar = new ah(oVar);
                         break;
@@ -82,7 +82,7 @@ public final class ag {
                         afVar = new f(oVar);
                         break;
                     default:
-                        switch (b2) {
+                        switch (b) {
                             case 2000:
                             case 2001:
                             case 2002:
@@ -121,11 +121,11 @@ public final class ag {
         z afVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oVar)) == null) {
-            int b2 = oVar.b();
-            if (b2 == 20) {
+            int b = oVar.b();
+            if (b == 20) {
                 afVar = new af(oVar);
-            } else if (b2 != 2016) {
-                switch (b2) {
+            } else if (b != 2016) {
+                switch (b) {
                     case 1:
                         afVar = new aa(oVar);
                         break;

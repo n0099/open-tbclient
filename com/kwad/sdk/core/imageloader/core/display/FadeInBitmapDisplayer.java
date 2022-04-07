@@ -6,7 +6,7 @@ import android.view.animation.DecelerateInterpolator;
 import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FadeInBitmapDisplayer implements BitmapDisplayer {
     public final boolean animateFromDisk;
     public final boolean animateFromMemory;
@@ -24,12 +24,12 @@ public class FadeInBitmapDisplayer implements BitmapDisplayer {
         this.animateFromMemory = z3;
     }
 
-    public static void animate(View view, int i) {
-        if (view != null) {
+    public static void animate(View view2, int i) {
+        if (view2 != null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(i);
             alphaAnimation.setInterpolator(new DecelerateInterpolator());
-            view.startAnimation(alphaAnimation);
+            view2.startAnimation(alphaAnimation);
         }
     }
 

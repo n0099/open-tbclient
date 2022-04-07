@@ -52,8 +52,8 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader, str, intent)) == null) {
             try {
                 return (Activity) Class.forName(str, false, classLoader).asSubclass(Activity.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e2) {
-                throw new RuntimeException("Couldn't call constructor", e2);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
             }
         }
         return (Activity) invokeLLL.objValue;
@@ -74,8 +74,8 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, classLoader, str)) == null) {
             try {
                 return (Application) Class.forName(str, false, classLoader).asSubclass(Application.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e2) {
-                throw new RuntimeException("Couldn't call constructor", e2);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
             }
         }
         return (Application) invokeLL.objValue;
@@ -96,8 +96,8 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, classLoader, str)) == null) {
             try {
                 return (ContentProvider) Class.forName(str, false, classLoader).asSubclass(ContentProvider.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e2) {
-                throw new RuntimeException("Couldn't call constructor", e2);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
             }
         }
         return (ContentProvider) invokeLL.objValue;
@@ -118,8 +118,8 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, classLoader, str, intent)) == null) {
             try {
                 return (BroadcastReceiver) Class.forName(str, false, classLoader).asSubclass(BroadcastReceiver.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e2) {
-                throw new RuntimeException("Couldn't call constructor", e2);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
             }
         }
         return (BroadcastReceiver) invokeLLL.objValue;
@@ -140,8 +140,8 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, classLoader, str, intent)) == null) {
             try {
                 return (Service) Class.forName(str, false, classLoader).asSubclass(Service.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e2) {
-                throw new RuntimeException("Couldn't call constructor", e2);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
             }
         }
         return (Service) invokeLLL.objValue;

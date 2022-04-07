@@ -14,7 +14,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
@@ -93,8 +93,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                         if (controllerListener != null) {
                             controllerListener.onFailure(str, th);
                         }
-                    } catch (Exception e2) {
-                        onException("InternalListener exception in onFailure", e2);
+                    } catch (Exception e) {
+                        onException("InternalListener exception in onFailure", e);
                     }
                 }
             }
@@ -113,8 +113,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                         if (controllerListener != null) {
                             controllerListener.onFinalImageSet(str, info, animatable);
                         }
-                    } catch (Exception e2) {
-                        onException("InternalListener exception in onFinalImageSet", e2);
+                    } catch (Exception e) {
+                        onException("InternalListener exception in onFinalImageSet", e);
                     }
                 }
             }
@@ -132,8 +132,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                     if (controllerListener != null) {
                         controllerListener.onIntermediateImageFailed(str, th);
                     }
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onIntermediateImageFailed", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onIntermediateImageFailed", e);
                 }
             }
         }
@@ -150,8 +150,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                     if (controllerListener != null) {
                         controllerListener.onIntermediateImageSet(str, info);
                     }
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onIntermediateImageSet", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onIntermediateImageSet", e);
                 }
             }
         }
@@ -169,8 +169,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                         if (controllerListener != null) {
                             controllerListener.onRelease(str);
                         }
-                    } catch (Exception e2) {
-                        onException("InternalListener exception in onRelease", e2);
+                    } catch (Exception e) {
+                        onException("InternalListener exception in onRelease", e);
                     }
                 }
             }
@@ -189,8 +189,8 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
                         if (controllerListener != null) {
                             controllerListener.onSubmit(str, obj);
                         }
-                    } catch (Exception e2) {
-                        onException("InternalListener exception in onSubmit", e2);
+                    } catch (Exception e) {
+                        onException("InternalListener exception in onSubmit", e);
                     }
                 }
             }

@@ -2,7 +2,7 @@ package com.fun.ad.sdk.internal.api.flavor;
 
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface CallBackAware {
     boolean needRipper();
 
@@ -10,5 +10,5 @@ public interface CallBackAware {
 
     void onRewardedVideo(FunAdInteractionListener funAdInteractionListener, String str, boolean z, String... strArr);
 
-    void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, double d2, RippedAd rippedAd, String... strArr);
+    void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, double d, RippedAd rippedAd, String... strArr);
 }

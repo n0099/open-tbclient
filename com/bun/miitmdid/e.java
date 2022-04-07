@@ -15,19 +15,15 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f37963b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f37964c;
+    public static boolean b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -57,7 +53,7 @@ public class e {
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[c.f37957c.ordinal()] = 3;
+                a[c.c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
@@ -65,11 +61,11 @@ public class e {
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[c.f37962h.ordinal()] = 5;
+                a[c.h.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[c.f37961g.ordinal()] = 6;
+                a[c.g.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
@@ -81,7 +77,7 @@ public class e {
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                a[c.f37960f.ordinal()] = 9;
+                a[c.f.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
@@ -97,11 +93,11 @@ public class e {
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                a[c.f37959e.ordinal()] = 13;
+                a[c.e.ordinal()] = 13;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                a[c.f37958d.ordinal()] = 14;
+                a[c.d.ordinal()] = 14;
             } catch (NoSuchFieldError unused14) {
             }
             try {
@@ -172,8 +168,8 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (e.class) {
                 verifyCert = CertChecker.a().verifyCert(context, str);
-                f37963b = verifyCert;
-                f37964c = true;
+                b = verifyCert;
+                c = true;
             }
             return verifyCert;
         }
@@ -198,7 +194,7 @@ public class e {
         IIdProvider iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iIdentifierListener)) == null) {
-            if (f37964c && f37963b) {
+            if (c && b) {
                 this.a = iIdentifierListener;
                 Context applicationContext = context.getApplicationContext();
                 com.bun.miitmdid.a.a(applicationContext);
@@ -208,7 +204,7 @@ public class e {
                 sb.append(str);
                 e0.c("MainMdidSdk", sb.toString());
                 c a2 = c.a(str);
-                c cVar = c.f37956b;
+                c cVar = c.b;
                 if (a2 == cVar && (a2 = d.a(applicationContext)) == cVar) {
                     e0.d("MainMdidSdk", "OnInit: manufacturer not support");
                     return a(InfoCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, (IdSupplier) null);

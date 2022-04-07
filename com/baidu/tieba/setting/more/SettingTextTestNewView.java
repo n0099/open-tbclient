@@ -2,8 +2,6 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d.f.p.m;
-import c.a.d.f.p.n;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,7 +12,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, n.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, oi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     public void i() {
@@ -52,18 +52,18 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                this.f30430e.setText("new");
-                this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ea : R.style.obfuscated_res_0x7f1003e9);
-                SkinManager.setBackgroundResource(this.f30430e, R.drawable.icon_news_text_prompt);
+                this.e.setText("new");
+                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
+                SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !m.isEmpty(TbConfig.getSubVersion())) {
+            if (TbConfig.getVersionType() == 1 && !ni.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
-            this.f30430e.setText(version);
-            this.f30430e.setBackgroundDrawable(null);
-            this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
+            this.e.setText(version);
+            this.e.setBackgroundDrawable(null);
+            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ee : R.style.obfuscated_res_0x7f1003ed);
         }
     }
 }

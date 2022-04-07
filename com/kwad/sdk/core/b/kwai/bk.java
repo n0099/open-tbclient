@@ -4,7 +4,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class bk implements com.kwad.sdk.core.d<AdStyleInfo.ExtraDisplayInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

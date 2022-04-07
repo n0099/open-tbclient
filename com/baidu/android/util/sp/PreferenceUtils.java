@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public static SharedPreferences mPreference;
@@ -66,10 +66,10 @@ public final class PreferenceUtils {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) ? getPreference().getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
-    public static float getFloat(String str, float f2) {
+    public static float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f2)) == null) ? getPreference().getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f)) == null) ? getPreference().getFloat(str, f) : invokeLF.floatValue;
     }
 
     public static int getInt(String str, int i) {
@@ -127,11 +127,11 @@ public final class PreferenceUtils {
         }
     }
 
-    public static void setFloat(String str, float f2) {
+    public static void setFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65549, null, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(65549, null, str, f) == null) {
             SharedPreferences.Editor edit = getPreference().edit();
-            edit.putFloat(str, f2);
+            edit.putFloat(str, f);
             edit.apply();
         }
     }

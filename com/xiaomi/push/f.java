@@ -5,19 +5,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f44238b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f44239c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f44240d;
+    public static final int b;
+    public static final int c;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,9 +28,9 @@ public final class f {
             }
         }
         a = a(1, 3);
-        f44238b = a(1, 4);
-        f44239c = a(2, 0);
-        f44240d = a(3, 2);
+        b = a(1, 4);
+        c = a(2, 0);
+        d = a(3, 2);
     }
 
     public static int a(int i) {

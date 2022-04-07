@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import java.nio.ShortBuffer;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Sonic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AMDF_FREQUENCY = 4000;
@@ -43,12 +43,12 @@ public final class Sonic {
     public int remainingInputToCopy;
     public final float speed;
 
-    public Sonic(int i, int i2, float f2, float f3, int i3) {
+    public Sonic(int i, int i2, float f, float f2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -75,20 +75,20 @@ public final class Sonic {
         this.oldRatePosition = 0;
         this.newRatePosition = 0;
         this.prevPeriod = 0;
-        this.speed = f2;
-        this.pitch = f3;
+        this.speed = f;
+        this.pitch = f2;
         this.rate = i / i3;
     }
 
-    private void adjustRate(float f2, int i) {
+    private void adjustRate(float f, int i) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) || this.numOutputSamples == i) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) || this.numOutputSamples == i) {
             return;
         }
         int i4 = this.inputSampleRateHz;
-        int i5 = (int) (i4 / f2);
+        int i5 = (int) (i4 / f);
         while (true) {
             if (i5 <= 16384 && i4 <= 16384) {
                 break;
@@ -135,11 +135,11 @@ public final class Sonic {
         }
     }
 
-    private void changeSpeed(float f2) {
+    private void changeSpeed(float f) {
         int i;
         int insertPitchPeriod;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65538, this, f2) == null) || (i = this.numInputSamples) < this.maxRequired) {
+        if (!(interceptable == null || interceptable.invokeF(65538, this, f) == null) || (i = this.numInputSamples) < this.maxRequired) {
             return;
         }
         int i2 = 0;
@@ -148,10 +148,10 @@ public final class Sonic {
                 insertPitchPeriod = copyInputToOutput(i2);
             } else {
                 int findPitchPeriod = findPitchPeriod(this.inputBuffer, i2, true);
-                if (f2 > 1.0d) {
-                    insertPitchPeriod = findPitchPeriod + skipPitchPeriod(this.inputBuffer, i2, f2, findPitchPeriod);
+                if (f > 1.0d) {
+                    insertPitchPeriod = findPitchPeriod + skipPitchPeriod(this.inputBuffer, i2, f, findPitchPeriod);
                 } else {
-                    insertPitchPeriod = insertPitchPeriod(this.inputBuffer, i2, f2, findPitchPeriod);
+                    insertPitchPeriod = insertPitchPeriod(this.inputBuffer, i2, f, findPitchPeriod);
                 }
             }
             i2 += insertPitchPeriod;
@@ -298,15 +298,15 @@ public final class Sonic {
         return invokeLIII.intValue;
     }
 
-    private int insertPitchPeriod(short[] sArr, int i, float f2, int i2) {
+    private int insertPitchPeriod(short[] sArr, int i, float f, int i2) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
-            if (f2 < 0.5f) {
-                i3 = (int) ((i2 * f2) / (1.0f - f2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)})) == null) {
+            if (f < 0.5f) {
+                i3 = (int) ((i2 * f) / (1.0f - f));
             } else {
-                this.remainingInputToCopy = (int) ((i2 * ((2.0f * f2) - 1.0f)) / (1.0f - f2));
+                this.remainingInputToCopy = (int) ((i2 * ((2.0f * f) - 1.0f)) / (1.0f - f));
                 i3 = i2;
             }
             int i4 = i2 + i3;
@@ -389,19 +389,19 @@ public final class Sonic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             int i = this.numOutputSamples;
-            float f2 = this.speed;
-            float f3 = this.pitch;
-            float f4 = f2 / f3;
-            float f5 = this.rate * f3;
-            double d2 = f4;
-            if (d2 <= 1.00001d && d2 >= 0.99999d) {
+            float f = this.speed;
+            float f2 = this.pitch;
+            float f3 = f / f2;
+            float f4 = this.rate * f2;
+            double d = f3;
+            if (d <= 1.00001d && d >= 0.99999d) {
                 copyToOutput(this.inputBuffer, 0, this.numInputSamples);
                 this.numInputSamples = 0;
             } else {
-                changeSpeed(f4);
+                changeSpeed(f3);
             }
-            if (f5 != 1.0f) {
-                adjustRate(f5, i);
+            if (f4 != 1.0f) {
+                adjustRate(f4, i);
             }
         }
     }
@@ -428,15 +428,15 @@ public final class Sonic {
         }
     }
 
-    private int skipPitchPeriod(short[] sArr, int i, float f2, int i2) {
+    private int skipPitchPeriod(short[] sArr, int i, float f, int i2) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
-            if (f2 >= 2.0f) {
-                i3 = (int) (i2 / (f2 - 1.0f));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)})) == null) {
+            if (f >= 2.0f) {
+                i3 = (int) (i2 / (f - 1.0f));
             } else {
-                this.remainingInputToCopy = (int) ((i2 * (2.0f - f2)) / (f2 - 1.0f));
+                this.remainingInputToCopy = (int) ((i2 * (2.0f - f)) / (f - 1.0f));
                 i3 = i2;
             }
             enlargeOutputBufferIfNeeded(i3);
@@ -471,9 +471,9 @@ public final class Sonic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i2 = this.numInputSamples;
-            float f2 = this.speed;
-            float f3 = this.pitch;
-            int i3 = this.numOutputSamples + ((int) ((((i2 / (f2 / f3)) + this.numPitchSamples) / (this.rate * f3)) + 0.5f));
+            float f = this.speed;
+            float f2 = this.pitch;
+            int i3 = this.numOutputSamples + ((int) ((((i2 / (f / f2)) + this.numPitchSamples) / (this.rate * f2)) + 0.5f));
             enlargeInputBufferIfNeeded((this.maxRequired * 2) + i2);
             int i4 = 0;
             while (true) {

@@ -13,7 +13,7 @@ import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.MessageLite;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractParser<MessageType extends MessageLite> implements Parser<MessageType> {
     public static /* synthetic */ Interceptable $ic;
     public static final ExtensionRegistryLite EMPTY_REGISTRY;
@@ -93,8 +93,8 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
                     return null;
                 }
                 return parsePartialFrom((InputStream) new AbstractMessageLite.Builder.LimitedInputStream(inputStream, CodedInputStream.readRawVarint32(read, inputStream)), extensionRegistryLite);
-            } catch (IOException e2) {
-                throw new InvalidProtocolBufferException(e2.getMessage());
+            } catch (IOException e) {
+                throw new InvalidProtocolBufferException(e.getMessage());
             }
         }
         return (MessageType) invokeLL.objValue;
@@ -147,14 +147,14 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
                     try {
                         newCodedInput.checkLastTagWas(0);
                         return messagetype;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(messagetype);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(messagetype);
                     }
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e3);
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
                 }
-            } catch (InvalidProtocolBufferException e4) {
-                throw e4;
+            } catch (InvalidProtocolBufferException e3) {
+                throw e3;
             }
         }
         return (MessageType) invokeLL.objValue;
@@ -237,14 +237,14 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
                     try {
                         newInstance.checkLastTagWas(0);
                         return messagetype;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(messagetype);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(messagetype);
                     }
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e3);
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
                 }
-            } catch (InvalidProtocolBufferException e4) {
-                throw e4;
+            } catch (InvalidProtocolBufferException e3) {
+                throw e3;
             }
         }
         return (MessageType) invokeCommon.objValue;
@@ -301,8 +301,8 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
             try {
                 newInstance.checkLastTagWas(0);
                 return messagetype;
-            } catch (InvalidProtocolBufferException e2) {
-                throw e2.setUnfinishedMessage(messagetype);
+            } catch (InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(messagetype);
             }
         }
         return (MessageType) invokeLL.objValue;

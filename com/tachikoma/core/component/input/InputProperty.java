@@ -25,7 +25,7 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.tachikoma.core.component.text.FontManager;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InputProperty {
     public static /* synthetic */ Interceptable $ic;
     public static final InputFilter[] EMPTY_FILTERS;
@@ -36,7 +36,7 @@ public class InputProperty {
     public final EditText mView;
     public MaxLinesTextWatcher maxLinesTextWatcher;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class MaxLinesTextWatcher implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,9 +158,9 @@ public class InputProperty {
             }
 
             @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z2) {
+            public void onFocusChange(View view2, boolean z2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z2) == null) {
                 }
             }
         };
@@ -178,57 +178,57 @@ public class InputProperty {
 
     private int getGravity(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -1364013995) {
                 if (hashCode == 108511772 && str.equals("right")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("center")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            return c2 != 0 ? c2 != 1 ? this.isSingleLine ? 19 : 3 : this.isSingleLine ? 21 : 5 : this.isSingleLine ? 17 : 1;
+            return c != 0 ? c != 1 ? this.isSingleLine ? 19 : 3 : this.isSingleLine ? 21 : 5 : this.isSingleLine ? 17 : 1;
         }
         return invokeL.intValue;
     }
 
     private int getImeOption(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -906336856) {
                 if (str.equals("search")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 3304) {
                 if (str.equals(ReturnKeyType.GO)) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 3377907) {
                 if (hashCode == 3526536 && str.equals(ReturnKeyType.SEND)) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("next")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return c2 != 3 ? 6 : 5;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return c != 3 ? 6 : 5;
                     }
                     return 4;
                 }
@@ -242,46 +242,46 @@ public class InputProperty {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private int getInputType(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             switch (str.hashCode()) {
                 case -1034364087:
                     if (str.equals("number")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 114715:
                     if (str.equals(InputType.TEL)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 96619420:
                     if (str.equals("email")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1216985755:
                     if (str.equals(InputType.PASSWORD)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return c2 != 3 ? 0 : 128;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return c != 3 ? 0 : 128;
                     }
                     return 3;
                 }
@@ -364,10 +364,10 @@ public class InputProperty {
         }
     }
 
-    public void setFontSize(float f2) {
+    public void setFontSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.mView.setTextSize(1, f2);
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.mView.setTextSize(1, f);
         }
     }
 
@@ -431,10 +431,10 @@ public class InputProperty {
         }
     }
 
-    public void setPlaceholderFontSize(float f2) {
+    public void setPlaceholderFontSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.mView.setTextSize(1, f2);
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.mView.setTextSize(1, f);
         }
     }
 

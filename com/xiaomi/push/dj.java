@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dj {
     public static /* synthetic */ Interceptable $ic;
     public static volatile dj a;
@@ -46,7 +46,7 @@ public class dj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public di m288a() {
+    public di m284a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f219a : (di) invokeV.objValue;

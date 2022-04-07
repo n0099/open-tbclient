@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements GetLocationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_LOCATION_CODE = 1001;
@@ -498,14 +498,14 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
     }
 
     @Override // com.baidu.pass.ecommerce.callback.GetLocationCallback
-    public void onGetLocation(double d2, double d3) {
+    public void onGetLocation(double d, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)}) == null) {
-            Log.d(TAG, "onGetLocation lat=" + d2 + ", lng=" + d3);
-            if (d2 <= 0.0d || d3 <= 0.0d) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)}) == null) {
+            Log.d(TAG, "onGetLocation lat=" + d + ", lng=" + d2);
+            if (d <= 0.0d || d2 <= 0.0d) {
                 return;
             }
-            doResult(1001, new MyLocationData.Builder().latitude(d2).longitude(d3).build());
+            doResult(1001, new MyLocationData.Builder().latitude(d).longitude(d2).build());
         }
     }
 

@@ -18,7 +18,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Mp4ComposerEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PROGRESS_INTERVAL_STEPS = 10;
@@ -29,9 +29,9 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ProgressCallback {
-        void onProgress(float f2);
+        void onProgress(float f);
     }
 
     public Mp4ComposerEngine() {
@@ -162,8 +162,8 @@ public class Mp4ComposerEngine {
                 int i = 25;
                 try {
                     i = trackFormat.getInteger("frame-rate");
-                } catch (Exception e2) {
-                    Log.e(TAG, "get frame rate (FPS) failed.", e2);
+                } catch (Exception e) {
+                    Log.e(TAG, "get frame rate (FPS) failed.", e);
                 }
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());

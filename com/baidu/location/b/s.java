@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class s extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,11 +30,11 @@ public class s extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        boolean g2;
+        boolean g;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g2 = this.a.g();
-            if (g2) {
+            g = this.a.g();
+            if (g) {
                 this.a.h();
             }
         }

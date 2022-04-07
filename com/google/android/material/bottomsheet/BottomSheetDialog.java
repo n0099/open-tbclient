@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public class BottomSheetDialog extends AppCompatDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.container == null) {
-                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021e, null);
+                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021f, null);
                 this.container = frameLayout;
-                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090786));
+                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f09078f));
                 this.behavior = from;
                 from.addBottomSheetCallback(this.bottomSheetCallback);
                 this.behavior.setHideable(this.cancelable);
@@ -87,30 +87,30 @@ public class BottomSheetDialog extends AppCompatDialog {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (i == 0) {
                 TypedValue typedValue = new TypedValue();
-                return context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400e8, typedValue, true) ? typedValue.resourceId : R.style.obfuscated_res_0x7f10022a;
+                return context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400e8, typedValue, true) ? typedValue.resourceId : R.style.obfuscated_res_0x7f10022b;
             }
             return i;
         }
         return invokeLI.intValue;
     }
 
-    private View wrapInBottomSheet(int i, @Nullable View view, @Nullable ViewGroup.LayoutParams layoutParams) {
+    private View wrapInBottomSheet(int i, @Nullable View view2, @Nullable ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i, view, layoutParams)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i, view2, layoutParams)) == null) {
             ensureContainerAndBehavior();
-            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0906f2);
-            if (i != 0 && view == null) {
-                view = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
+            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0906fb);
+            if (i != 0 && view2 == null) {
+                view2 = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
             }
-            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f090786);
+            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09078f);
             frameLayout.removeAllViews();
             if (layoutParams == null) {
-                frameLayout.addView(view);
+                frameLayout.addView(view2);
             } else {
-                frameLayout.addView(view, layoutParams);
+                frameLayout.addView(view2, layoutParams);
             }
-            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09213a).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09211f).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BottomSheetDialog this$0;
@@ -134,9 +134,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         BottomSheetDialog bottomSheetDialog = this.this$0;
                         if (bottomSheetDialog.cancelable && bottomSheetDialog.isShowing() && this.this$0.shouldWindowCloseOnTouchOutside()) {
                             this.this$0.cancel();
@@ -168,10 +168,10 @@ public class BottomSheetDialog extends AppCompatDialog {
                 }
 
                 @Override // androidx.core.view.AccessibilityDelegateCompat
-                public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+                public void onInitializeAccessibilityNodeInfo(View view3, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
-                        super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view3, accessibilityNodeInfoCompat) == null) {
+                        super.onInitializeAccessibilityNodeInfo(view3, accessibilityNodeInfoCompat);
                         if (this.this$0.cancelable) {
                             accessibilityNodeInfoCompat.addAction(1048576);
                             accessibilityNodeInfoCompat.setDismissable(true);
@@ -182,10 +182,10 @@ public class BottomSheetDialog extends AppCompatDialog {
                 }
 
                 @Override // androidx.core.view.AccessibilityDelegateCompat
-                public boolean performAccessibilityAction(View view2, int i2, Bundle bundle) {
+                public boolean performAccessibilityAction(View view3, int i2, Bundle bundle) {
                     InterceptResult invokeLIL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i2, bundle)) == null) {
+                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view3, i2, bundle)) == null) {
                         if (i2 == 1048576) {
                             BottomSheetDialog bottomSheetDialog = this.this$0;
                             if (bottomSheetDialog.cancelable) {
@@ -193,7 +193,7 @@ public class BottomSheetDialog extends AppCompatDialog {
                                 return true;
                             }
                         }
-                        return super.performAccessibilityAction(view2, i2, bundle);
+                        return super.performAccessibilityAction(view3, i2, bundle);
                     }
                     return invokeLIL.booleanValue;
                 }
@@ -222,10 +222,10 @@ public class BottomSheetDialog extends AppCompatDialog {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
+                public boolean onTouch(View view3, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) {
                         return true;
                     }
                     return invokeLL.booleanValue;
@@ -407,16 +407,16 @@ public class BottomSheetDialog extends AppCompatDialog {
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onSlide(@NonNull View view, float f2) {
+            public void onSlide(@NonNull View view2, float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLF(1048576, this, view, f2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLF(1048576, this, view2, f) == null) {
                 }
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(@NonNull View view, int i4) {
+            public void onStateChanged(@NonNull View view2, int i4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i4) == null) && i4 == 5) {
+                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i4) == null) && i4 == 5) {
                     this.this$0.cancel();
                 }
             }
@@ -425,18 +425,18 @@ public class BottomSheetDialog extends AppCompatDialog {
     }
 
     @Override // androidx.appcompat.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            super.setContentView(wrapInBottomSheet(0, view, null));
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            super.setContentView(wrapInBottomSheet(0, view2, null));
         }
     }
 
     @Override // androidx.appcompat.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, view, layoutParams) == null) {
-            super.setContentView(wrapInBottomSheet(0, view, layoutParams));
+        if (interceptable == null || interceptable.invokeLL(1048586, this, view2, layoutParams) == null) {
+            super.setContentView(wrapInBottomSheet(0, view2, layoutParams));
         }
     }
 
@@ -485,16 +485,16 @@ public class BottomSheetDialog extends AppCompatDialog {
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onSlide(@NonNull View view, float f2) {
+            public void onSlide(@NonNull View view2, float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLF(1048576, this, view, f2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLF(1048576, this, view2, f) == null) {
                 }
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(@NonNull View view, int i4) {
+            public void onStateChanged(@NonNull View view2, int i4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i4) == null) && i4 == 5) {
+                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i4) == null) && i4 == 5) {
                     this.this$0.cancel();
                 }
             }

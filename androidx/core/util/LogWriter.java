@@ -67,11 +67,11 @@ public class LogWriter extends Writer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                char c2 = cArr[i + i3];
-                if (c2 == '\n') {
+                char c = cArr[i + i3];
+                if (c == '\n') {
                     flushBuilder();
                 } else {
-                    this.mBuilder.append(c2);
+                    this.mBuilder.append(c);
                 }
             }
         }

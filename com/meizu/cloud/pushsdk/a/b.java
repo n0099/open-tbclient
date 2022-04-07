@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static String A = "wb";
     public static String B = "lt";
@@ -7,27 +7,13 @@ public class b {
     public static String D = "lat";
     public static String E = "wl";
     public static String a = "ui";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f41865b = "ie";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f41866c = "is1";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f41867d = "is2";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f41868e = "phn";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f41869f = "di";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f41870g = "br";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f41871h = "dc";
+    public static String b = "ie";
+    public static String c = "is1";
+    public static String d = "is2";
+    public static String e = "phn";
+    public static String f = "di";
+    public static String g = "br";
+    public static String h = "dc";
     public static String i = "ma";
     public static String j = "ot";
     public static String k = "ov";

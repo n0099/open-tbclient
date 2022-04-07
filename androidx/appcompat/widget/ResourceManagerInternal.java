@@ -87,8 +87,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedStateListDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("AsldcInflateDelegate", "Exception while inflating <animated-selector>", e2);
+                } catch (Exception e) {
+                    Log.e("AsldcInflateDelegate", "Exception while inflating <animated-selector>", e);
                     return null;
                 }
             }
@@ -122,8 +122,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedVectorDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e2);
+                } catch (Exception e) {
+                    Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e);
                     return null;
                 }
             }
@@ -220,8 +220,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return VectorDrawableCompat.createFromXmlInner(context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e2);
+                } catch (Exception e) {
+                    Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e);
                     return null;
                 }
             }
@@ -506,8 +506,8 @@ public final class ResourceManagerInternal {
                     } else {
                         throw new XmlPullParserException("No start tag found");
                     }
-                } catch (Exception e2) {
-                    Log.e(TAG, "Exception while inflating drawable", e2);
+                } catch (Exception e) {
+                    Log.e(TAG, "Exception while inflating drawable", e);
                 }
             }
             if (cachedDrawable == null) {

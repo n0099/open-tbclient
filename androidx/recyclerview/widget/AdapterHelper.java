@@ -183,31 +183,31 @@ public class AdapterHelper implements OpReorderer.Callback {
 
     private void applyRemove(UpdateOp updateOp) {
         boolean z;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, updateOp) == null) {
             int i = updateOp.positionStart;
             int i2 = updateOp.itemCount + i;
-            char c3 = 65535;
+            char c2 = 65535;
             int i3 = i;
             int i4 = 0;
             while (i3 < i2) {
                 if (this.mCallback.findViewHolder(i3) != null || canFindInPreLayout(i3)) {
-                    if (c3 == 0) {
+                    if (c2 == 0) {
                         dispatchAndUpdateViewHolders(obtainUpdateOp(2, i, i4, null));
                         z = true;
                     } else {
                         z = false;
                     }
-                    c2 = 1;
+                    c = 1;
                 } else {
-                    if (c3 == 1) {
+                    if (c2 == 1) {
                         postponeAndUpdateViewHolders(obtainUpdateOp(2, i, i4, null));
                         z = true;
                     } else {
                         z = false;
                     }
-                    c2 = 0;
+                    c = 0;
                 }
                 if (z) {
                     i3 -= i4;
@@ -217,13 +217,13 @@ public class AdapterHelper implements OpReorderer.Callback {
                     i4++;
                 }
                 i3++;
-                c3 = c2;
+                c2 = c;
             }
             if (i4 != updateOp.itemCount) {
                 recycleUpdateOp(updateOp);
                 updateOp = obtainUpdateOp(2, i, i4, null);
             }
-            if (c3 == 0) {
+            if (c2 == 0) {
                 dispatchAndUpdateViewHolders(updateOp);
             } else {
                 postponeAndUpdateViewHolders(updateOp);
@@ -237,23 +237,23 @@ public class AdapterHelper implements OpReorderer.Callback {
             int i = updateOp.positionStart;
             int i2 = updateOp.itemCount + i;
             int i3 = i;
-            char c2 = 65535;
+            char c = 65535;
             int i4 = 0;
             while (i < i2) {
                 if (this.mCallback.findViewHolder(i) != null || canFindInPreLayout(i)) {
-                    if (c2 == 0) {
+                    if (c == 0) {
                         dispatchAndUpdateViewHolders(obtainUpdateOp(4, i3, i4, updateOp.payload));
                         i3 = i;
                         i4 = 0;
                     }
-                    c2 = 1;
+                    c = 1;
                 } else {
-                    if (c2 == 1) {
+                    if (c == 1) {
                         postponeAndUpdateViewHolders(obtainUpdateOp(4, i3, i4, updateOp.payload));
                         i3 = i;
                         i4 = 0;
                     }
-                    c2 = 0;
+                    c = 0;
                 }
                 i4++;
                 i++;
@@ -263,7 +263,7 @@ public class AdapterHelper implements OpReorderer.Callback {
                 recycleUpdateOp(updateOp);
                 updateOp = obtainUpdateOp(4, i3, i4, obj);
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 dispatchAndUpdateViewHolders(updateOp);
             } else {
                 postponeAndUpdateViewHolders(updateOp);

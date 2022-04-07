@@ -96,10 +96,10 @@ public final class BlockingObservableIterable<T> implements Iterable<T> {
                         this.condition.await();
                     }
                     this.lock.unlock();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     DisposableHelper.dispose(this);
                     signalConsumer();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
         }

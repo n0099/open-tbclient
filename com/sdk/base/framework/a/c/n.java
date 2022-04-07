@@ -34,7 +34,7 @@ public final class n extends k<Runnable> implements Runnable {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((Runnable) this.f42506b).run();
+            ((Runnable) this.b).run();
         }
     }
 }

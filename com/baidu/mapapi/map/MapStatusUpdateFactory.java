@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapStatusUpdateFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-            mapStatusUpdate.f26208b = latLng;
+            mapStatusUpdate.b = latLng;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeL.objValue;
@@ -50,7 +50,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(3);
-            mapStatusUpdate.f26209c = latLngBounds;
+            mapStatusUpdate.c = latLngBounds;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeL.objValue;
@@ -64,9 +64,9 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(9);
-            mapStatusUpdate.f26209c = latLngBounds;
-            mapStatusUpdate.f26210d = i;
-            mapStatusUpdate.f26211e = i2;
+            mapStatusUpdate.c = latLngBounds;
+            mapStatusUpdate.d = i;
+            mapStatusUpdate.e = i2;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeLII.objValue;
@@ -80,7 +80,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(10);
-            mapStatusUpdate.f26209c = latLngBounds;
+            mapStatusUpdate.c = latLngBounds;
             mapStatusUpdate.k = i;
             mapStatusUpdate.l = i2;
             mapStatusUpdate.m = i3;
@@ -90,16 +90,16 @@ public final class MapStatusUpdateFactory {
         return (MapStatusUpdate) invokeCommon.objValue;
     }
 
-    public static MapStatusUpdate newLatLngZoom(LatLng latLng, float f2) {
+    public static MapStatusUpdate newLatLngZoom(LatLng latLng, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, latLng, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, latLng, f)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(4);
             if (latLng == null) {
                 return null;
             }
-            mapStatusUpdate.f26208b = latLng;
-            mapStatusUpdate.f26212f = f2;
+            mapStatusUpdate.b = latLng;
+            mapStatusUpdate.f = f;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeLF.objValue;
@@ -113,7 +113,7 @@ public final class MapStatusUpdateFactory {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(11);
-            mapStatusUpdate.f26209c = latLngBounds;
+            mapStatusUpdate.c = latLngBounds;
             mapStatusUpdate.k = i;
             mapStatusUpdate.l = i2;
             mapStatusUpdate.m = i3;
@@ -142,33 +142,33 @@ public final class MapStatusUpdateFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(5);
-            mapStatusUpdate.f26213g = i;
-            mapStatusUpdate.f26214h = i2;
+            mapStatusUpdate.g = i;
+            mapStatusUpdate.h = i2;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeII.objValue;
     }
 
-    public static MapStatusUpdate zoomBy(float f2) {
+    public static MapStatusUpdate zoomBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(6);
-            mapStatusUpdate.i = f2;
+            mapStatusUpdate.i = f;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeF.objValue;
     }
 
-    public static MapStatusUpdate zoomBy(float f2, Point point) {
+    public static MapStatusUpdate zoomBy(float f, Point point) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Float.valueOf(f2), point})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Float.valueOf(f), point})) == null) {
             if (point == null) {
                 return null;
             }
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(7);
-            mapStatusUpdate.i = f2;
+            mapStatusUpdate.i = f;
             mapStatusUpdate.j = point;
             return mapStatusUpdate;
         }
@@ -197,12 +197,12 @@ public final class MapStatusUpdateFactory {
         return (MapStatusUpdate) invokeV.objValue;
     }
 
-    public static MapStatusUpdate zoomTo(float f2) {
+    public static MapStatusUpdate zoomTo(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f)) == null) {
             MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(8);
-            mapStatusUpdate.f26212f = f2;
+            mapStatusUpdate.f = f;
             return mapStatusUpdate;
         }
         return (MapStatusUpdate) invokeF.objValue;

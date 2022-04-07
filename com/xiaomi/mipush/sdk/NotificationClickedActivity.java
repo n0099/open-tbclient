@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NotificationClickedActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public final class NotificationClickedActivity extends Activity {
                 com.xiaomi.channel.commonutils.logger.b.b("clicked activity start service.");
                 startService(intent2);
             }
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
     }
 

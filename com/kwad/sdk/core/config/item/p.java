@@ -12,34 +12,26 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p extends b<a> {
     public String a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements com.kwad.sdk.core.b {
         @NonNull
         public Map<Integer, String> a = new HashMap();
         @NonNull
-
-        /* renamed from: b  reason: collision with root package name */
-        public List<String> f39345b = new ArrayList();
-
-        /* renamed from: c  reason: collision with root package name */
-        public List<String> f39346c = new ArrayList();
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f39347d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public JSONObject f39348e;
+        public List<String> b = new ArrayList();
+        public List<String> c = new ArrayList();
+        public int d;
+        public JSONObject e;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f39348e = jSONObject;
+            this.e = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
@@ -51,21 +43,21 @@ public class p extends b<a> {
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.f39345b.add(optJSONArray.optString(i));
+                    this.b.add(optJSONArray.optString(i));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    this.f39346c.add(optJSONArray2.optString(i2));
+                    this.c.add(optJSONArray2.optString(i2));
                 }
             }
-            this.f39347d = jSONObject.optInt("handleType");
+            this.d = jSONObject.optInt("handleType");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            return this.f39348e;
+            return this.e;
         }
     }
 
@@ -90,8 +82,8 @@ public class p extends b<a> {
             a aVar = new a();
             aVar.parseJson(jSONObject);
             a((p) aVar);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

@@ -16,9 +16,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String a = DownloadReceiver.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f42996b = new Handler(Looper.getMainLooper());
+    public Handler b = new Handler(Looper.getMainLooper());
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {
@@ -49,9 +47,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                         return;
                     }
                     String schemeSpecificPart = data.getSchemeSpecificPart();
-                    com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
-                    if (b2 != null) {
-                        b2.a(context, schemeSpecificPart);
+                    com.ss.android.socialbase.appdownloader.c.d b = d.j().b();
+                    if (b != null) {
+                        b.a(context, schemeSpecificPart);
                     }
                     List<DownloadInfo> successedDownloadInfosWithMimeType = Downloader.getInstance(context).getSuccessedDownloadInfosWithMimeType("application/vnd.android.package-archive");
                     if (successedDownloadInfosWithMimeType != null) {
@@ -61,14 +59,14 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 if (downloadNotificationEventListener != null && com.ss.android.socialbase.downloader.i.f.f(downloadNotificationEventListener.a())) {
                                     downloadNotificationEventListener.a(9, downloadInfo, schemeSpecificPart, "");
                                 }
-                                com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
-                                if (e2 != null) {
-                                    e2.a((BaseException) null, false);
+                                com.ss.android.socialbase.downloader.notification.a e = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
+                                if (e != null) {
+                                    e.a((BaseException) null, false);
                                 }
                                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_queue_enable", 0) == 1) {
                                     h.a().a(downloadInfo, schemeSpecificPart);
                                 }
-                                DownloadReceiver.this.f42996b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
+                                DownloadReceiver.this.b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
@@ -96,7 +94,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     private void a(final Context context, final String str) {
         if (com.ss.android.socialbase.downloader.downloader.c.G()) {
-            this.f42996b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
+            this.b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {

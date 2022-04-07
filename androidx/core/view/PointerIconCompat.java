@@ -58,12 +58,12 @@ public final class PointerIconCompat {
         this.mPointerIcon = obj;
     }
 
-    public static PointerIconCompat create(Bitmap bitmap, float f2, float f3) {
+    public static PointerIconCompat create(Bitmap bitmap, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return new PointerIconCompat(PointerIcon.create(bitmap, f2, f3));
+                return new PointerIconCompat(PointerIcon.create(bitmap, f, f2));
             }
             return new PointerIconCompat(null);
         }

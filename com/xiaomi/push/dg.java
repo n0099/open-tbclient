@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f213a;
             simpleDateFormat = df.f212a;
-            str = this.a.f44152b;
+            str = this.a.b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f216a), this.f217a));
             list2 = df.f213a;
             if (list2.size() > 20000) {
@@ -77,19 +77,19 @@ public class dg implements Runnable {
                 }
                 list4 = df.f213a;
                 simpleDateFormat2 = df.f212a;
-                str4 = this.a.f44152b;
+                str4 = this.a.b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.a.m286a();
+                    this.a.m282a();
                     return;
                 }
-                str3 = this.a.f44152b;
+                str3 = this.a.b;
                 Log.w(str3, "SDCard is unavailable.");
-            } catch (Exception e2) {
-                str2 = this.a.f44152b;
-                Log.e(str2, "", e2);
+            } catch (Exception e) {
+                str2 = this.a.b;
+                Log.e(str2, "", e);
             }
         }
     }

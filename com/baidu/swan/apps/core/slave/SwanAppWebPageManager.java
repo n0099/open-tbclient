@@ -2,13 +2,6 @@ package com.baidu.swan.apps.core.slave;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.a;
-import c.a.n0.a.f.e.b;
-import c.a.n0.a.f.e.j.d;
-import c.a.n0.a.k1.h;
-import c.a.n0.a.k1.k.f;
-import c.a.n0.a.p2.q;
-import c.a.n0.a.x.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.BdSailorWebViewClientExt;
@@ -25,32 +18,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewClient;
 import com.kwad.v8.NodeJS;
+import com.repackage.an1;
+import com.repackage.dd3;
+import com.repackage.jx1;
+import com.repackage.ot2;
+import com.repackage.pm1;
+import com.repackage.q62;
+import com.repackage.qj2;
+import com.repackage.r62;
+import com.repackage.tg1;
+import com.repackage.vr1;
+import com.repackage.wt2;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
-public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<NgWebView> {
+/* loaded from: classes2.dex */
+public class SwanAppWebPageManager extends SwanAppWebViewManager implements pm1<NgWebView> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public d w;
-    public c x;
+    public an1 w;
+    public q62 x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SwanAppSlaveWebviewClientExt extends BdSailorWebViewClientExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppWebPageManager this$0;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ HybridUbcFlow f28856b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ SwanAppSlaveWebviewClientExt f28857c;
+            public final /* synthetic */ HybridUbcFlow b;
+            public final /* synthetic */ SwanAppSlaveWebviewClientExt c;
 
             public a(SwanAppSlaveWebviewClientExt swanAppSlaveWebviewClientExt, long j, HybridUbcFlow hybridUbcFlow) {
                 Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
                         return;
                     }
                 }
-                this.f28857c = swanAppSlaveWebviewClientExt;
+                this.c = swanAppSlaveWebviewClientExt;
                 this.a = j;
-                this.f28856b = hybridUbcFlow;
+                this.b = hybridUbcFlow;
             }
 
             @Override // java.lang.Runnable
@@ -77,19 +77,19 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
                 long j;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f28857c.this$0.w.f4339c <= 0) {
+                    if (this.c.this$0.w.c <= 0) {
                         j = this.a;
                     } else {
-                        j = this.f28857c.this$0.w.f4339c;
+                        j = this.c.this$0.w.c;
                     }
-                    this.f28856b.D("fmp_type", this.f28857c.this$0.w.f4343g);
-                    HybridUbcFlow hybridUbcFlow = this.f28856b;
+                    this.b.D("fmp_type", this.c.this$0.w.g);
+                    HybridUbcFlow hybridUbcFlow = this.b;
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                     ubcFlowEvent.h(j);
                     hybridUbcFlow.F(ubcFlowEvent);
-                    hybridUbcFlow.C(this.f28857c.this$0);
+                    hybridUbcFlow.C(this.c.this$0);
                     if (SwanAppWebPageManager.y) {
-                        Log.d("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + this.f28857c.this$0.w.f4343g + " , fmpTypeName=" + this.f28857c.this$0.w.a());
+                        Log.d("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=" + j + " , fmpType" + this.c.this$0.w.g + " , fmpTypeName=" + this.c.this$0.w.a());
                     }
                 }
             }
@@ -117,38 +117,38 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                c.a.n0.a.u.d.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
+                jx1.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstContentfulPaintExt");
                 super.onFirstContentfulPaintExt(bdSailorWebView, str);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (SwanAppWebPageManager.y) {
                     Log.d("SwanAppSlaveManager", "on fcp: real fcp = " + currentTimeMillis);
                 }
-                this.this$0.w.f4338b = currentTimeMillis;
-                f.j().n().a(this.this$0.w.f4338b);
-                long b2 = this.this$0.w.b();
+                this.this$0.w.b = currentTimeMillis;
+                wt2.j().n().a(this.this$0.w.b);
+                long b = this.this$0.w.b();
                 if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime=" + b2 + " , aligned search=false");
+                    Log.d("SwanAppSlaveManager", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime=" + b + " , aligned search=false");
                 }
-                HybridUbcFlow p = h.p(NodeJS.STARTUP_SCRIPT_NAME);
+                HybridUbcFlow p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME);
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_paint");
-                ubcFlowEvent.h(b2);
+                ubcFlowEvent.h(b);
                 p.F(ubcFlowEvent);
-                c.a.n0.a.k.f.a.d().f();
+                vr1.d().f();
                 this.this$0.x.a();
-                if (this.this$0.w.f4339c == 0) {
-                    this.this$0.w.f4339c = b2;
-                    d dVar = this.this$0.w;
-                    dVar.f4343g = dVar.c(b2);
+                if (this.this$0.w.c == 0) {
+                    this.this$0.w.c = b;
+                    an1 an1Var = this.this$0.w;
+                    an1Var.g = an1Var.c(b);
                     p.D("fmp_type", "1");
                     UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent2.h(this.this$0.w.f4338b);
+                    ubcFlowEvent2.h(this.this$0.w.b);
                     p.F(ubcFlowEvent2);
                 }
-                long G = c.a.n0.a.s0.a.g0().G();
+                long G = qj2.g0().G();
                 if (G < 0) {
                     G = 3000;
                 }
-                q.c(new a(this, b2, p), "fmp record", G, TimeUnit.MILLISECONDS);
+                dd3.c(new a(this, b, p), "fmp record", G, TimeUnit.MILLISECONDS);
             }
         }
 
@@ -156,18 +156,18 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
-                c.a.n0.a.u.d.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
+                jx1.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstImagePaintExt");
                 super.onFirstImagePaintExt(bdSailorWebView, str);
-                this.this$0.w.f4341e = System.currentTimeMillis();
-                f.j().n().g(this.this$0.w.f4341e);
+                this.this$0.w.e = System.currentTimeMillis();
+                wt2.j().n().g(this.this$0.w.e);
                 if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on fip: real fip = " + this.this$0.w.f4341e);
+                    Log.d("SwanAppSlaveManager", "on fip: real fip = " + this.this$0.w.e);
                 }
-                if (this.this$0.w.f4339c == 0) {
-                    HybridUbcFlow p = h.p(NodeJS.STARTUP_SCRIPT_NAME);
+                if (this.this$0.w.c == 0) {
+                    HybridUbcFlow p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME);
                     p.D("fmp_type", "3");
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.f4341e);
+                    ubcFlowEvent.h(this.this$0.w.e);
                     p.F(ubcFlowEvent);
                 }
             }
@@ -197,29 +197,29 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, bdSailorWebView, str) == null) {
-                c.a.n0.a.u.d.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
+                jx1.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstScreenPaintFinishedExt");
                 super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-                this.this$0.w.f4339c = System.currentTimeMillis();
-                this.this$0.w.f4343g = "0";
-                f.j().n().e(this.this$0.w.f4339c);
+                this.this$0.w.c = System.currentTimeMillis();
+                this.this$0.w.g = "0";
+                wt2.j().n().e(this.this$0.w.c);
                 if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on fmp: real fmp = " + this.this$0.w.f4339c);
+                    Log.d("SwanAppSlaveManager", "on fmp: real fmp = " + this.this$0.w.c);
                 }
-                HybridUbcFlow d2 = h.d(NodeJS.STARTUP_SCRIPT_NAME);
-                if (d2 != null) {
-                    d2.D("webviewComponent", "1");
-                    d2.D("fmp_type", "0");
-                    d2.E("value", "arrive_success");
+                HybridUbcFlow d = ot2.d(NodeJS.STARTUP_SCRIPT_NAME);
+                if (d != null) {
+                    d.D("webviewComponent", "1");
+                    d.D("fmp_type", "0");
+                    d.E("value", "arrive_success");
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.f4339c);
+                    ubcFlowEvent.h(this.this$0.w.c);
                     ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE);
-                    d2.F(ubcFlowEvent);
-                    d2.C(this.this$0);
-                    d dVar = this.this$0.w;
-                    c.a.n0.a.u.d.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(this.this$0.w.f4339c), " , fmpType=", dVar.f4343g, " , fmpTypeName=", dVar.a());
-                    h.t();
+                    d.F(ubcFlowEvent);
+                    d.C(this.this$0);
+                    an1 an1Var = this.this$0.w;
+                    jx1.b("SwanAppSlaveManager", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(this.this$0.w.c), " , fmpType=", an1Var.g, " , fmpTypeName=", an1Var.a());
+                    ot2.t();
                 }
-                c.a.n0.a.k.f.a.d().g();
+                vr1.d().g();
                 this.this$0.x.c();
                 this.this$0.x.b();
             }
@@ -229,18 +229,18 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, bdSailorWebView, str) == null) {
-                c.a.n0.a.u.d.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
+                jx1.k("SwanAppSlaveManager", "SwanAppSlaveWebViewClient::onFirstTextPaintExt");
                 super.onFirstTextPaintExt(bdSailorWebView, str);
-                this.this$0.w.f4340d = System.currentTimeMillis();
-                f.j().n().f(this.this$0.w.f4340d);
+                this.this$0.w.d = System.currentTimeMillis();
+                wt2.j().n().f(this.this$0.w.d);
                 if (SwanAppWebPageManager.y) {
-                    Log.d("SwanAppSlaveManager", "on ftp: real ftp = " + this.this$0.w.f4340d);
+                    Log.d("SwanAppSlaveManager", "on ftp: real ftp = " + this.this$0.w.d);
                 }
-                if (this.this$0.w.f4339c == 0) {
-                    HybridUbcFlow p = h.p(NodeJS.STARTUP_SCRIPT_NAME);
+                if (this.this$0.w.c == 0) {
+                    HybridUbcFlow p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME);
                     p.D("fmp_type", "2");
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
-                    ubcFlowEvent.h(this.this$0.w.f4340d);
+                    ubcFlowEvent.h(this.this$0.w.d);
                     p.F(ubcFlowEvent);
                 }
             }
@@ -351,7 +351,7 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
             return invokeCommon.booleanValue;
         }
 
-        public /* synthetic */ SwanAppSlaveWebviewClientExt(SwanAppWebPageManager swanAppWebPageManager, c.a.n0.a.x.t.d dVar) {
+        public /* synthetic */ SwanAppSlaveWebviewClientExt(SwanAppWebPageManager swanAppWebPageManager, r62 r62Var) {
             this(swanAppWebPageManager);
         }
     }
@@ -369,6 +369,6 @@ public class SwanAppWebPageManager extends SwanAppWebViewManager implements b<Ng
                 return;
             }
         }
-        y = a.a;
+        y = tg1.a;
     }
 }

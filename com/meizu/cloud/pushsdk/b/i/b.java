@@ -13,17 +13,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
         double min = Math.min(i / i3, i2 / i4);
-        float f2 = 1.0f;
+        float f = 1.0f;
         while (true) {
-            float f3 = 2.0f * f2;
-            if (f3 > min) {
-                return (int) f2;
+            float f2 = 2.0f * f;
+            if (f2 > min) {
+                return (int) f;
             }
-            f2 = f3;
+            f = f2;
         }
     }
 
@@ -38,13 +38,13 @@ public class b {
         } else if (i2 == 0) {
             return i;
         } else {
-            double d2 = i4 / i3;
+            double d = i4 / i3;
             if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                double d3 = i2;
-                return ((double) i) * d2 < d3 ? (int) (d3 / d2) : i;
+                double d2 = i2;
+                return ((double) i) * d < d2 ? (int) (d2 / d) : i;
             }
-            double d4 = i2;
-            return ((double) i) * d2 > d4 ? (int) (d4 / d2) : i;
+            double d3 = i2;
+            return ((double) i) * d > d3 ? (int) (d3 / d) : i;
         }
     }
 
@@ -53,8 +53,8 @@ public class b {
         byte[] bArr = new byte[0];
         try {
             bArr = g.a(kVar.b().a()).i();
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
         if (i == 0 && i2 == 0) {
@@ -111,7 +111,7 @@ public class b {
         byte[] bArr = new byte[2048];
         InputStream inputStream = null;
         try {
-            InputStream b2 = kVar.b().b();
+            InputStream b = kVar.b().b();
             try {
                 File file = new File(str);
                 if (!file.exists()) {
@@ -120,43 +120,43 @@ public class b {
                 fileOutputStream = new FileOutputStream(new File(file, str2));
                 while (true) {
                     try {
-                        int read = b2.read(bArr);
+                        int read = b.read(bArr);
                         if (read == -1) {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
                     } catch (Throwable th) {
                         th = th;
-                        inputStream = b2;
+                        inputStream = b;
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
                         }
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
                         }
                         throw th;
                     }
                 }
                 fileOutputStream.flush();
-                if (b2 != null) {
+                if (b != null) {
                     try {
-                        b2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                        b.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 try {
                     fileOutputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
             } catch (Throwable th2) {
                 th = th2;

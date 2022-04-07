@@ -12,10 +12,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface DiskStorage {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DiskDumpInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public interface DiskStorage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DiskDumpInfoEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,12 +49,12 @@ public interface DiskStorage {
         public final float size;
         public final String type;
 
-        public DiskDumpInfoEntry(String str, String str2, float f2, String str3) {
+        public DiskDumpInfoEntry(String str, String str2, float f, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Float.valueOf(f2), str3};
+                Object[] objArr = {str, str2, Float.valueOf(f), str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,12 +66,12 @@ public interface DiskStorage {
             }
             this.path = str;
             this.type = str2;
-            this.size = f2;
+            this.size = f;
             this.firstBits = str3;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Entry {
         String getId();
 
@@ -82,7 +82,7 @@ public interface DiskStorage {
         long getTimestamp();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Inserter {
         boolean cleanUp();
 

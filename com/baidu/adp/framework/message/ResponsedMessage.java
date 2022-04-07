@@ -1,8 +1,6 @@
 package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.c.e.c.h;
-import c.a.d.c.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.aa;
+import com.repackage.db;
+/* loaded from: classes.dex */
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public abstract class ResponsedMessage<T> {
     public Message<?> mOrginalMessage;
     public long mProcessTime;
     public long mStartTime;
-    public a performanceData;
+    public db performanceData;
 
     public ResponsedMessage(int i) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public abstract class ResponsedMessage<T> {
         this.mProcessTime = 0L;
         this.mDownSize = 0;
         this.mCostTime = 0L;
-        this.performanceData = new a();
+        this.performanceData = new db();
         this.mCmd = i;
     }
 
@@ -121,7 +121,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == h.f1981c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == aa.c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

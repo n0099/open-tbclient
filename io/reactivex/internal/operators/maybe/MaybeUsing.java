@@ -35,20 +35,18 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public static final long serialVersionUID = -674404550052917487L;
         public transient /* synthetic */ FieldHolder $fh;
         public final MaybeObserver<? super T> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45326d;
+        public Disposable d;
         public final Consumer<? super D> disposer;
         public final boolean eager;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UsingObserver(MaybeObserver<? super T> maybeObserver, D d2, Consumer<? super D> consumer, boolean z) {
-            super(d2);
+        public UsingObserver(MaybeObserver<? super T> maybeObserver, D d, Consumer<? super D> consumer, boolean z) {
+            super(d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, d2, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {maybeObserver, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,8 +66,8 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45326d.dispose();
-                this.f45326d = DisposableHelper.DISPOSED;
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
                 disposeResourceAfter();
             }
         }
@@ -92,14 +90,14 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45326d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f45326d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -125,7 +123,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.f45326d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -149,8 +147,8 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45326d, disposable)) {
-                this.f45326d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -159,7 +157,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                this.f45326d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {

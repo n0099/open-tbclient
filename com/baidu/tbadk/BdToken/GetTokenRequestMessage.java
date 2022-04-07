@@ -1,6 +1,5 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.GetToken.DataReq;
 import tbclient.GetToken.GetTokenReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GetTokenRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class GetTokenRequestMessage extends NetMessage {
             builder.token = this.mToken;
             builder.shoubaicuid = this.mBaiduCuid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
             builder2.data = builder.build(false);

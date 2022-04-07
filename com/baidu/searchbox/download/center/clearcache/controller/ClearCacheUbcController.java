@@ -41,7 +41,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ClearCacheUbcController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOS_BIZ_TYPE = "basis-functions";
@@ -320,7 +320,7 @@ public class ClearCacheUbcController {
                 this.val$type = str;
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:112:0x02a8  */
+            /* JADX WARN: Removed duplicated region for block: B:112:0x02a7  */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -529,8 +529,8 @@ public class ClearCacheUbcController {
                             Log.d(ClearCacheUbcController.TAG, "cuid or appVersion is null! cancel");
                         }
                         Closeables.closeSafely(fileOutputStream2);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         fileOutputStream = fileOutputStream2;
                         try {
                             if (AppConfig.isDebug()) {
@@ -553,8 +553,8 @@ public class ClearCacheUbcController {
                         }
                         throw th;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     fileOutputStream = null;
                 } catch (Throwable th3) {
                     th = th3;
@@ -586,8 +586,8 @@ public class ClearCacheUbcController {
                 }
                 jSONObject2.put(DOCUMENT, j / 1024);
                 jSONObject.putOpt("ext", jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
         }
@@ -604,8 +604,8 @@ public class ClearCacheUbcController {
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("source", str);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
         }
@@ -626,8 +626,8 @@ public class ClearCacheUbcController {
                     Log.d(TAG, jSONObject.toString());
                 }
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -650,9 +650,9 @@ public class ClearCacheUbcController {
                     Log.d(TAG, jSONObject.toString());
                 }
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -681,8 +681,8 @@ public class ClearCacheUbcController {
                 }
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
                 this.mExtObject = null;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -695,8 +695,8 @@ public class ClearCacheUbcController {
             }
             try {
                 this.mExtObject.put(str, j);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -727,8 +727,8 @@ public class ClearCacheUbcController {
                     Log.d(TAG, jSONObject2.toString());
                 }
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -751,8 +751,8 @@ public class ClearCacheUbcController {
                     Log.d(TAG, jSONObject.toString());
                 }
                 ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_CLEAN_CACHE, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

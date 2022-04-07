@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FunAdType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_EXPRESS_INTERSTITIAL = "baiduExpressInterstitial";
@@ -77,15 +77,11 @@ public final class FunAdType {
     public static final String SIG_SPLASH = "sigSplash";
     public static final HashMap<String, FunAdType> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f38518b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final AdType f38519c;
+    public final String b;
+    public final AdType c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AdType {
         public static /* synthetic */ Interceptable $ic;
         public static final AdType BANNER;
@@ -191,8 +187,8 @@ public final class FunAdType {
                 return;
             }
         }
-        this.f38518b = str;
-        this.f38519c = adType;
+        this.b = str;
+        this.c = adType;
     }
 
     public static FunAdType obtainType(Ssp.Pid pid, AdType adType) {
@@ -214,12 +210,12 @@ public final class FunAdType {
     public AdType getAdType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38519c : (AdType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (AdType) invokeV.objValue;
     }
 
     public String getPlatform() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38518b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.pbextra;
 
-import c.a.p0.a4.g0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.dk8;
+/* loaded from: classes3.dex */
 public class PushThreadActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class PushThreadActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, a.a("c/b/commit/pushThread", 309325));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, dk8.a("c/b/commit/pushThread", 309325));
             tbHttpMessageTask.setResponsedClass(PbPushHttpResponseMessage.class);
             tbHttpMessageTask.setIsNeedTbs(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

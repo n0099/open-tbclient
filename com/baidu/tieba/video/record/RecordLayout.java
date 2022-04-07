@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VelocityTracker a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
+    public a f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f36489b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36490c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f36491d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f36492e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public a f36493f;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onTouchToLeft();
 
@@ -66,9 +56,9 @@ public class RecordLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f36490c = ViewConfiguration.getMaximumFlingVelocity();
-            this.f36489b = ViewConfiguration.getMinimumFlingVelocity();
-            this.f36491d = n.f(getContext(), R.dimen.obfuscated_res_0x7f070246);
+            this.c = ViewConfiguration.getMaximumFlingVelocity();
+            this.b = ViewConfiguration.getMinimumFlingVelocity();
+            this.d = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
         }
     }
 
@@ -83,29 +73,29 @@ public class RecordLayout extends RelativeLayout {
             this.a.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action != 0) {
-                if ((action == 1 || action == 3) && this.f36493f != null) {
-                    this.a.computeCurrentVelocity(1000, this.f36490c);
+                if ((action == 1 || action == 3) && this.f != null) {
+                    this.a.computeCurrentVelocity(1000, this.c);
                     float xVelocity = this.a.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.f36492e);
-                    if (Math.abs(xVelocity) <= this.f36489b || Math.abs(rawX) <= this.f36491d) {
-                        if (Math.abs(rawX) > n.k(getContext()) * 0.5d) {
+                    int rawX = (int) (motionEvent.getRawX() - this.e);
+                    if (Math.abs(xVelocity) <= this.b || Math.abs(rawX) <= this.d) {
+                        if (Math.abs(rawX) > oi.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
-                                this.f36493f.onTouchToRight();
+                                this.f.onTouchToRight();
                             } else {
-                                this.f36493f.onTouchToRight();
+                                this.f.onTouchToRight();
                             }
                         }
                     } else if (rawX > 0) {
-                        this.f36493f.onTouchToRight();
+                        this.f.onTouchToRight();
                     } else {
-                        this.f36493f.onTouchToLeft();
+                        this.f.onTouchToLeft();
                     }
                     this.a.clear();
                     this.a.recycle();
                     this.a = null;
                 }
             } else {
-                this.f36492e = motionEvent.getRawX();
+                this.e = motionEvent.getRawX();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -115,7 +105,7 @@ public class RecordLayout extends RelativeLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f36493f = aVar;
+            this.f = aVar;
         }
     }
 

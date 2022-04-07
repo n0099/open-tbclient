@@ -14,14 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public StaticLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextPaint f29305b;
+    public TextPaint b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context, AttributeSet attributeSet) {
@@ -48,10 +46,10 @@ public class CenterTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f29305b = textPaint;
+            this.b = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f29305b.setColor(getCurrentTextColor());
-            this.a = new StaticLayout(getText(), this.f29305b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            this.b.setColor(getCurrentTextColor());
+            this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
         }
     }
 

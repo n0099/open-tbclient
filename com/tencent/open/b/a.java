@@ -13,24 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Rect f43732b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f43733c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2108a f43734d;
+    public Rect b;
+    public boolean c;
+    public InterfaceC0652a d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC2108a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0652a {
         void a();
 
         void a(int i);
@@ -70,18 +64,18 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        this.f43732b = null;
-        this.f43733c = false;
-        this.f43734d = null;
+        this.b = null;
+        this.c = false;
+        this.d = null;
         if (0 == 0) {
-            this.f43732b = new Rect();
+            this.b = new Rect();
         }
     }
 
-    public void a(InterfaceC2108a interfaceC2108a) {
+    public void a(InterfaceC0652a interfaceC0652a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2108a) == null) {
-            this.f43734d = interfaceC2108a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0652a) == null) {
+            this.d = interfaceC0652a;
         }
     }
 
@@ -91,14 +85,14 @@ public class a extends RelativeLayout {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f43732b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f43732b.top) - size;
-            InterfaceC2108a interfaceC2108a = this.f43734d;
-            if (interfaceC2108a != null && size != 0) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
+            InterfaceC0652a interfaceC0652a = this.d;
+            if (interfaceC0652a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC2108a.a((Math.abs(this.f43732b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC0652a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC2108a.a();
+                    interfaceC0652a.a();
                 }
             }
             super.onMeasure(i, i2);

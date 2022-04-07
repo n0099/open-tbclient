@@ -196,8 +196,8 @@ public class h {
                     com.ss.android.downloadlib.a.b.a.a().a(context, true);
                     com.ss.android.downloadlib.a.b.b bVar = new com.ss.android.downloadlib.a.b.b();
                     bVar.a = 1;
-                    bVar.f42708b = 0;
-                    bVar.f42709c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i.optString("v"), i.optString("s")), str);
+                    bVar.b = 0;
+                    bVar.c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i.optString("v"), i.optString("s")), str);
                     com.ss.android.downloadlib.a.b.a.a().a(bVar, (com.ss.android.downloadlib.a.b.d) null);
                     com.ss.android.downloadlib.a.b.a.a().b();
                     h.b(eVar, jSONObject, -1, 2);
@@ -271,7 +271,7 @@ public class h {
             if (com.ss.android.socialbase.appdownloader.f.d.f() && l.d(context, "com.sec.android.app.samsungapps")) {
                 return d(context, str);
             }
-            if (eVar.f42774b.isAd() && eVar.f42776d.enableAM()) {
+            if (eVar.b.isAd() && eVar.d.enableAM()) {
                 JSONArray optJSONArray = com.ss.android.downloadlib.addownload.j.i().optJSONArray("am_plans");
                 if (com.ss.android.socialbase.appdownloader.f.d.b() && com.ss.android.socialbase.appdownloader.f.a.a(optJSONArray, "am_0")) {
                     b(context, eVar, str);
@@ -309,13 +309,13 @@ public class h {
         if (context == null) {
             context = com.ss.android.downloadlib.addownload.j.getContext();
         }
-        Intent f2 = l.f(context, str);
-        if (f2 == null) {
+        Intent f = l.f(context, str);
+        if (f == null) {
             return new com.ss.android.downloadlib.addownload.b.g(4, 22);
         }
-        f2.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
+        f.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
         try {
-            context.startActivity(f2);
+            context.startActivity(f);
             return new com.ss.android.downloadlib.addownload.b.g(3);
         } catch (Exception unused) {
             return new com.ss.android.downloadlib.addownload.b.g(4, 23);
@@ -362,7 +362,7 @@ public class h {
 
     public static void a(Context context, String str, long j, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        com.ss.android.downloadlib.addownload.b.e e2 = com.ss.android.downloadlib.addownload.b.f.a().e(j);
+        com.ss.android.downloadlib.addownload.b.e e = com.ss.android.downloadlib.addownload.b.f.a().e(j);
         try {
             JSONObject i = com.ss.android.downloadlib.addownload.j.i();
             String optString = i.optString("s");
@@ -386,16 +386,16 @@ public class h {
             intent.setData(Uri.parse(sb.toString()));
             intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
             context.startActivity(intent);
-            com.ss.android.downloadlib.b.a.a("am_kllk2", jSONObject, e2, true);
+            com.ss.android.downloadlib.b.a.a("am_kllk2", jSONObject, e, true);
             if (a4) {
-                b(e2, jSONObject, -1, 3);
+                b(e, jSONObject, -1, 3);
             } else {
-                b(e2, jSONObject, 3, 3);
+                b(e, jSONObject, 3, 3);
             }
         } catch (Exception unused) {
             Context context2 = com.ss.android.downloadlib.addownload.j.getContext();
-            com.ss.android.downloadlib.b.a.a(a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e2, true);
-            b(e2, jSONObject, 2, 3);
+            com.ss.android.downloadlib.b.a.a(a(context2, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e, true);
+            b(e, jSONObject, 2, 3);
         }
     }
 
@@ -412,8 +412,8 @@ public class h {
             try {
                 activity.startActivity(intent);
                 return true;
-            } catch (Exception e2) {
-                com.ss.android.downloadlib.e.c.a().a(e2, "start v1");
+            } catch (Exception e) {
+                com.ss.android.downloadlib.e.c.a().a(e, "start v1");
                 return false;
             }
         }
@@ -428,42 +428,42 @@ public class h {
         } catch (JSONException unused) {
             jSONObject = new JSONObject();
         }
-        com.ss.android.downloadlib.addownload.b.e e2 = com.ss.android.downloadlib.addownload.b.f.a().e(j);
+        com.ss.android.downloadlib.addownload.b.e e = com.ss.android.downloadlib.addownload.b.f.a().e(j);
         try {
             JSONObject i2 = com.ss.android.downloadlib.addownload.j.i();
             boolean a = com.ss.android.socialbase.appdownloader.f.a.a(i2, activity, com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("bg"), i2.optString("s")));
-            HashMap<String, String> b2 = l.b(new JSONObject(str2));
-            if (a && !b2.isEmpty() && a(activity, str, b2)) {
-                b(e2, jSONObject, -1, 5);
-                com.ss.android.downloadlib.b.a.a("am_v1", jSONObject, e2, true);
+            HashMap<String, String> b = l.b(new JSONObject(str2));
+            if (a && !b.isEmpty() && a(activity, str, b)) {
+                b(e, jSONObject, -1, 5);
+                com.ss.android.downloadlib.b.a.a("am_v1", jSONObject, e, true);
                 return;
             }
             if (a) {
-                i = b2.isEmpty() ? 1 : 2;
+                i = b.isEmpty() ? 1 : 2;
             } else {
                 i = 3;
             }
-            b(e2, jSONObject, i, 5);
-            com.ss.android.downloadlib.b.a.a(a(activity, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e2, true);
+            b(e, jSONObject, i, 5);
+            com.ss.android.downloadlib.b.a.a(a(activity, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e, true);
         } catch (Exception unused2) {
             Context context = com.ss.android.downloadlib.addownload.j.getContext();
-            com.ss.android.downloadlib.b.a.a(a(context, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e2, true);
-            b(e2, jSONObject, 4, 5);
+            com.ss.android.downloadlib.b.a.a(a(context, Uri.parse(BaseConstants.MARKET_PREFIX + str)), e, true);
+            b(e, jSONObject, 4, 5);
         }
     }
 
     public static com.ss.android.downloadlib.addownload.b.g a(Context context, String str, com.ss.android.downloadad.api.a.a aVar) {
-        Intent f2 = l.f(context, str);
-        if (f2 == null) {
+        Intent f = l.f(context, str);
+        if (f == null) {
             return new com.ss.android.downloadlib.addownload.b.g(4, 22);
         }
         if (Build.VERSION.SDK_INT >= 26 && com.ss.android.downloadlib.addownload.j.i().optInt("open_package_mode") == 1 && com.ss.android.downloadlib.addownload.j.k() != null && com.ss.android.downloadlib.addownload.j.k().a() && aVar.q()) {
             TTDelegateActivity.b(str, aVar);
             return new com.ss.android.downloadlib.addownload.b.g(3);
         }
-        f2.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
+        f.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
         try {
-            context.startActivity(f2);
+            context.startActivity(f);
             return new com.ss.android.downloadlib.addownload.b.g(3);
         } catch (Exception unused) {
             return new com.ss.android.downloadlib.addownload.b.g(4, 23);
@@ -475,7 +475,7 @@ public class h {
     }
 
     public static com.ss.android.downloadlib.addownload.b.g a(@NonNull com.ss.android.downloadad.api.a.b bVar, String str, String str2) {
-        com.ss.android.downloadlib.addownload.b.g b2 = b(str, bVar);
-        return (com.ss.android.downloadlib.b.f.a(bVar) && b2.getType() == 2) ? a(str2, bVar) : b2;
+        com.ss.android.downloadlib.addownload.b.g b = b(str, bVar);
+        return (com.ss.android.downloadlib.b.f.a(bVar) && b.getType() == 2) ? a(str2, bVar) : b;
     }
 }

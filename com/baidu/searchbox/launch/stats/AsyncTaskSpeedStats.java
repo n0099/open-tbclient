@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
                 if (jsonData != null) {
                     try {
                         jSONObject.put(SpeedStatsMainTable.ASYNC_TASK, jsonData);
-                    } catch (JSONException e2) {
+                    } catch (JSONException e) {
                         if (AppConfig.isDebug()) {
-                            e2.printStackTrace();
+                            e.printStackTrace();
                         }
                     }
                 }

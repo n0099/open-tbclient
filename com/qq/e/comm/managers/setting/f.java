@@ -17,25 +17,23 @@ import com.qq.e.comm.util.StringUtil;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
 import java.io.FileWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final T f42446b;
+        public final T b;
 
         public b(String str, T t) {
             Interceptable interceptable = $ic;
@@ -53,7 +51,7 @@ public class f {
                 }
             }
             this.a = str;
-            this.f42446b = t;
+            this.b = t;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
@@ -63,7 +61,7 @@ public class f {
         public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42446b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
         }
 
         public String b() {

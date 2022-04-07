@@ -9,26 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43832b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f43833c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f43834d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f43835e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f43836f;
+    public String b;
+    public long c;
+    public int d;
+    public int e;
+    public String f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i, String str) {
@@ -48,16 +38,16 @@ public class c extends com.vivo.push.o {
                 return;
             }
         }
-        this.f43833c = -1L;
-        this.f43834d = -1;
+        this.c = -1L;
+        this.d = -1;
         this.a = null;
-        this.f43832b = str;
+        this.b = str;
     }
 
     public final void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f43835e = i;
+            this.e = i;
         }
     }
 
@@ -73,13 +63,13 @@ public class c extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             aVar.a("req_id", this.a);
-            aVar.a("package_name", this.f43832b);
+            aVar.a("package_name", this.b);
             aVar.a("sdk_version", 800L);
-            aVar.a("PUSH_APP_STATUS", this.f43834d);
-            if (TextUtils.isEmpty(this.f43836f)) {
+            aVar.a("PUSH_APP_STATUS", this.d);
+            if (TextUtils.isEmpty(this.f)) {
                 return;
             }
-            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f43836f);
+            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f);
         }
     }
 
@@ -88,23 +78,23 @@ public class c extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.a = aVar.a("req_id");
-            this.f43832b = aVar.a("package_name");
-            this.f43833c = aVar.b("sdk_version", 0L);
-            this.f43834d = aVar.b("PUSH_APP_STATUS", 0);
-            this.f43836f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
+            this.b = aVar.a("package_name");
+            this.c = aVar.b("sdk_version", 0L);
+            this.d = aVar.b("PUSH_APP_STATUS", 0);
+            this.f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
         }
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43835e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f43836f = null;
+            this.f = null;
         }
     }
 
@@ -125,8 +115,8 @@ public class c extends com.vivo.push.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f43834d == -1) {
-                String str = this.f43832b;
+            if (this.d == -1) {
+                String str = this.b;
                 if (TextUtils.isEmpty(str)) {
                     com.vivo.push.util.p.a("BaseAppCommand", "pkg name is null");
                     String a = a();
@@ -136,12 +126,12 @@ public class c extends com.vivo.push.o {
                     }
                     str = a;
                 }
-                this.f43834d = com.vivo.push.util.t.b(context, str);
-                if (!TextUtils.isEmpty(this.f43836f)) {
-                    this.f43834d = 2;
+                this.d = com.vivo.push.util.t.b(context, str);
+                if (!TextUtils.isEmpty(this.f)) {
+                    this.d = 2;
                 }
             }
-            return this.f43834d;
+            return this.d;
         }
         return invokeL.intValue;
     }

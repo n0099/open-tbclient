@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.api.b;
 import android.text.TextUtils;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -11,12 +11,12 @@ public class b {
         }
         String a = a();
         String a2 = a(a, 32);
-        String b2 = b();
+        String b = b();
         String str2 = null;
-        if (a2 != null && b2 != null) {
-            str2 = a.a(str, b2, a2);
+        if (a2 != null && b != null) {
+            str2 = a.a(str, b, a2);
         }
-        return 3 + a + b2 + str2;
+        return 3 + a + b + str2;
     }
 
     public static String b() {

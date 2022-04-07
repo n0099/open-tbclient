@@ -49,13 +49,13 @@ import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100325 = 2131755813;
+    public static final int obfuscated_res_0x7f100326 = 2131755814;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
@@ -87,7 +87,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public View toolbarDirectChild;
     public int toolbarId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,43 +262,43 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @NonNull
-    private View findDirectChild(@NonNull View view) {
+    private View findDirectChild(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, view)) == null) {
-            for (ViewParent parent = view.getParent(); parent != this && parent != null; parent = parent.getParent()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, view2)) == null) {
+            for (ViewParent parent = view2.getParent(); parent != this && parent != null; parent = parent.getParent()) {
                 if (parent instanceof View) {
-                    view = (View) parent;
+                    view2 = (View) parent;
                 }
             }
-            return view;
+            return view2;
         }
         return (View) invokeL.objValue;
     }
 
-    public static int getHeightWithMargins(@NonNull View view) {
+    public static int getHeightWithMargins(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                return view.getHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
+                return view2.getHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
             }
-            return view.getHeight();
+            return view2.getHeight();
         }
         return invokeL.intValue;
     }
 
     @NonNull
-    public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view) {
+    public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view)) == null) {
-            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view.getTag(R.id.obfuscated_res_0x7f0923d3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
+            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.obfuscated_res_0x7f0923af);
             if (viewOffsetHelper == null) {
-                ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view);
-                view.setTag(R.id.obfuscated_res_0x7f0923d3, viewOffsetHelper2);
+                ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
+                view2.setTag(R.id.obfuscated_res_0x7f0923af, viewOffsetHelper2);
                 return viewOffsetHelper2;
             }
             return viewOffsetHelper;
@@ -306,16 +306,16 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (ViewOffsetHelper) invokeL.objValue;
     }
 
-    private boolean isToolbarChild(View view) {
+    private boolean isToolbarChild(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view)) == null) {
-            View view2 = this.toolbarDirectChild;
-            if (view2 == null || view2 == this) {
-                if (view == this.toolbar) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view2)) == null) {
+            View view3 = this.toolbarDirectChild;
+            if (view3 == null || view3 == this) {
+                if (view2 == this.toolbar) {
                     return true;
                 }
-            } else if (view == view2) {
+            } else if (view2 == view3) {
                 return true;
             }
             return false;
@@ -331,11 +331,11 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     private void updateDummyView() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            if (!this.collapsingTitleEnabled && (view = this.dummyView) != null) {
-                ViewParent parent = view.getParent();
+            if (!this.collapsingTitleEnabled && (view2 = this.dummyView) != null) {
+                ViewParent parent = view2.getParent();
                 if (parent instanceof ViewGroup) {
                     ((ViewGroup) parent).removeView(this.dummyView);
                 }
@@ -387,19 +387,19 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view2, long j) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
-            if (this.contentScrim == null || this.scrimAlpha <= 0 || !isToolbarChild(view)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view2, Long.valueOf(j)})) == null) {
+            if (this.contentScrim == null || this.scrimAlpha <= 0 || !isToolbarChild(view2)) {
                 z = false;
             } else {
                 this.contentScrim.mutate().setAlpha(this.scrimAlpha);
                 this.contentScrim.draw(canvas);
                 z = true;
             }
-            return super.drawChild(canvas, view, j) || z;
+            return super.drawChild(canvas, view2, j) || z;
         }
         return invokeCommon.booleanValue;
     }
@@ -493,10 +493,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.collapsingTextHelper.getMaxLines() : invokeV.intValue;
     }
 
-    public final int getMaxOffsetForPinChild(@NonNull View view) {
+    public final int getMaxOffsetForPinChild(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view)) == null) ? ((getHeight() - getViewOffsetHelper(view).getLayoutTop()) - view.getHeight()) - ((FrameLayout.LayoutParams) ((LayoutParams) view.getLayoutParams())).bottomMargin : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view2)) == null) ? ((getHeight() - getViewOffsetHelper(view2).getLayoutTop()) - view2.getHeight()) - ((FrameLayout.LayoutParams) ((LayoutParams) view2.getLayoutParams())).bottomMargin : invokeL.intValue;
     }
 
     public int getScrimAlpha() {
@@ -588,7 +588,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
@@ -607,16 +607,16 @@ public class CollapsingToolbarLayout extends FrameLayout {
             for (int i6 = 0; i6 < childCount2; i6++) {
                 getViewOffsetHelper(getChildAt(i6)).onViewLayout();
             }
-            if (this.collapsingTitleEnabled && (view = this.dummyView) != null) {
-                boolean z2 = ViewCompat.isAttachedToWindow(view) && this.dummyView.getVisibility() == 0;
+            if (this.collapsingTitleEnabled && (view2 = this.dummyView) != null) {
+                boolean z2 = ViewCompat.isAttachedToWindow(view2) && this.dummyView.getVisibility() == 0;
                 this.drawCollapsingTitle = z2;
                 if (z2) {
                     boolean z3 = ViewCompat.getLayoutDirection(this) == 1;
-                    View view2 = this.toolbarDirectChild;
-                    if (view2 == null) {
-                        view2 = this.toolbar;
+                    View view3 = this.toolbarDirectChild;
+                    if (view3 == null) {
+                        view3 = this.toolbar;
                     }
-                    int maxOffsetForPinChild = getMaxOffsetForPinChild(view2);
+                    int maxOffsetForPinChild = getMaxOffsetForPinChild(view3);
                     DescendantOffsetUtils.getDescendantRect(this, this.dummyView, this.tmpRect);
                     this.collapsingTextHelper.setCollapsedBounds(this.tmpRect.left + (z3 ? this.toolbar.getTitleMarginEnd() : this.toolbar.getTitleMarginStart()), this.tmpRect.top + maxOffsetForPinChild + this.toolbar.getTitleMarginTop(), this.tmpRect.right - (z3 ? this.toolbar.getTitleMarginStart() : this.toolbar.getTitleMarginEnd()), (this.tmpRect.bottom + maxOffsetForPinChild) - this.toolbar.getTitleMarginBottom());
                     this.collapsingTextHelper.setExpandedBounds(z3 ? this.expandedMarginEnd : this.expandedMarginStart, this.tmpRect.top + this.expandedMarginTop, (i3 - i) - (z3 ? this.expandedMarginStart : this.expandedMarginEnd), (i4 - i2) - this.expandedMarginBottom);
@@ -627,9 +627,9 @@ public class CollapsingToolbarLayout extends FrameLayout {
                 if (this.collapsingTitleEnabled && TextUtils.isEmpty(this.collapsingTextHelper.getText())) {
                     setTitle(this.toolbar.getTitle());
                 }
-                View view3 = this.toolbarDirectChild;
-                if (view3 != null && view3 != this) {
-                    setMinimumHeight(getHeightWithMargins(view3));
+                View view4 = this.toolbarDirectChild;
+                if (view4 != null && view4 != this) {
+                    setMinimumHeight(getHeightWithMargins(view4));
                 } else {
                     setMinimumHeight(getHeightWithMargins(this.toolbar));
                 }
@@ -1001,7 +1001,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CollapsingToolbarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100325), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100326), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1025,7 +1025,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         CollapsingTextHelper collapsingTextHelper = new CollapsingTextHelper(this);
         this.collapsingTextHelper = collapsingTextHelper;
         collapsingTextHelper.setTextSizeInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04017c, R.attr.obfuscated_res_0x7f0401f0, R.attr.obfuscated_res_0x7f0401f1, R.attr.obfuscated_res_0x7f0401f2, R.attr.obfuscated_res_0x7f0401f3, R.attr.obfuscated_res_0x7f0401f4, R.attr.obfuscated_res_0x7f0401f5, R.attr.obfuscated_res_0x7f0401f6, R.attr.obfuscated_res_0x7f040420, R.attr.obfuscated_res_0x7f040521, R.attr.obfuscated_res_0x7f040523, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040641, R.attr.obfuscated_res_0x7f040643, R.attr.obfuscated_res_0x7f040652}, i, obfuscated_res_0x7f100325, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040154, R.attr.obfuscated_res_0x7f040155, R.attr.obfuscated_res_0x7f04017f, R.attr.obfuscated_res_0x7f04025e, R.attr.obfuscated_res_0x7f04025f, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f040261, R.attr.obfuscated_res_0x7f040262, R.attr.obfuscated_res_0x7f040263, R.attr.obfuscated_res_0x7f040264, R.attr.obfuscated_res_0x7f040460, R.attr.obfuscated_res_0x7f04055f, R.attr.obfuscated_res_0x7f040561, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f040690}, i, obfuscated_res_0x7f100326, new int[0]);
         this.collapsingTextHelper.setExpandedTextGravity(obtainStyledAttributes.getInt(3, BadgeDrawable.BOTTOM_START));
         this.collapsingTextHelper.setCollapsedTextGravity(obtainStyledAttributes.getInt(0, 8388627));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -1047,8 +1047,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
         this.collapsingTitleEnabled = obtainStyledAttributes.getBoolean(15, true);
         setTitle(obtainStyledAttributes.getText(14));
-        this.collapsingTextHelper.setExpandedTextAppearance(R.style.obfuscated_res_0x7f1001ef);
-        this.collapsingTextHelper.setCollapsedTextAppearance(R$style.obfuscated_res_0x7f1001d3);
+        this.collapsingTextHelper.setExpandedTextAppearance(R.style.obfuscated_res_0x7f1001f0);
+        this.collapsingTextHelper.setCollapsedTextAppearance(R$style.obfuscated_res_0x7f1001d4);
         if (obtainStyledAttributes.hasValue(9)) {
             this.collapsingTextHelper.setExpandedTextAppearance(obtainStyledAttributes.getResourceId(9, 0));
         }
@@ -1089,10 +1089,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
 
             @Override // androidx.core.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view, @NonNull WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, windowInsetsCompat)) == null) ? this.this$0.onWindowInsetChanged(windowInsetsCompat) : (WindowInsetsCompat) invokeLL.objValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, windowInsetsCompat)) == null) ? this.this$0.onWindowInsetChanged(windowInsetsCompat) : (WindowInsetsCompat) invokeLL.objValue;
             }
         });
     }
@@ -1121,7 +1121,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (FrameLayout.LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSE_MODE_OFF = 0;
@@ -1153,7 +1153,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
             this.collapseMode = 0;
             this.parallaxMult = 0.5f;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040389, R.attr.obfuscated_res_0x7f04038a});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403c5, R.attr.obfuscated_res_0x7f0403c6});
             this.collapseMode = obtainStyledAttributes.getInt(0, 0);
             setParallaxMultiplier(obtainStyledAttributes.getFloat(1, 0.5f));
             obtainStyledAttributes.recycle();
@@ -1178,10 +1178,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
         }
 
-        public void setParallaxMultiplier(float f2) {
+        public void setParallaxMultiplier(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                this.parallaxMult = f2;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.parallaxMult = f;
             }
         }
 

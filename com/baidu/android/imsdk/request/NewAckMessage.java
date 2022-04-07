@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NewAckMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class NewAckMessage extends Message {
     public long mTriggerId;
     public List<Tripule> tripules;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Tripule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,8 +151,8 @@ public class NewAckMessage extends Message {
                         return jSONObject;
                     }
                     return jSONObject;
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "toJsonObject", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "toJsonObject", e);
                     return null;
                 }
             }
@@ -229,8 +229,8 @@ public class NewAckMessage extends Message {
                 jSONObject.put("device_id", Utility.getIMDeviceId(this.mContext));
                 jSONObject.put("msgs", this.mJsonArray);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "buildBody", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "buildBody", e);
             }
         }
     }

@@ -36,7 +36,7 @@ import com.yy.gslbsdk.db.DelayTB;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MethodImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROVIDER_RESULT_STATUS = "status";
@@ -158,8 +158,8 @@ public class MethodImpl {
                                     for (int i2 = 0; i2 < 20; i2++) {
                                         try {
                                             Thread.sleep(50L);
-                                        } catch (InterruptedException e2) {
-                                            CommonMethods.handleNuLException(e2);
+                                        } catch (InterruptedException e) {
+                                            CommonMethods.handleNuLException(e);
                                         }
                                         context = ForHostApp.hostContext;
                                         if (context != null) {
@@ -198,8 +198,8 @@ public class MethodImpl {
                                         for (int i3 = 0; i3 < 20; i3++) {
                                             try {
                                                 Thread.sleep(50L);
-                                            } catch (InterruptedException e3) {
-                                                CommonMethods.handleNuLException(e3);
+                                            } catch (InterruptedException e2) {
+                                                CommonMethods.handleNuLException(e2);
                                             }
                                             peekInstance = ForHostApp.peekInstance();
                                             if (peekInstance != null) {
@@ -225,8 +225,8 @@ public class MethodImpl {
                                         for (int i4 = 0; i4 < 20; i4++) {
                                             try {
                                                 Thread.sleep(50L);
-                                            } catch (InterruptedException e4) {
-                                                CommonMethods.handleNuLException(e4);
+                                            } catch (InterruptedException e3) {
+                                                CommonMethods.handleNuLException(e3);
                                             }
                                             peekInstance2 = ForHostApp.peekInstance();
                                             if (peekInstance2 != null) {
@@ -329,9 +329,9 @@ public class MethodImpl {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x003a A[Catch: all -> 0x00bb, TryCatch #0 {all -> 0x00bb, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a2, B:38:0x00ac, B:42:0x00b6, B:41:0x00b4), top: B:55:0x002d }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0087 A[Catch: all -> 0x00bb, TryCatch #0 {all -> 0x00bb, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a2, B:38:0x00ac, B:42:0x00b6, B:41:0x00b4), top: B:55:0x002d }] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0090 A[Catch: all -> 0x00bb, TryCatch #0 {all -> 0x00bb, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a2, B:38:0x00ac, B:42:0x00b6, B:41:0x00b4), top: B:55:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003a A[Catch: all -> 0x00ba, TryCatch #0 {all -> 0x00ba, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a1, B:38:0x00ab, B:42:0x00b5, B:41:0x00b3), top: B:55:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0087 A[Catch: all -> 0x00ba, TryCatch #0 {all -> 0x00ba, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a1, B:38:0x00ab, B:42:0x00b5, B:41:0x00b3), top: B:55:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0090 A[Catch: all -> 0x00ba, TryCatch #0 {all -> 0x00ba, blocks: (B:17:0x002d, B:19:0x003a, B:20:0x003d, B:22:0x0040, B:24:0x0048, B:26:0x0054, B:28:0x0070, B:27:0x0068, B:29:0x0073, B:30:0x0075, B:32:0x0087, B:34:0x0090, B:36:0x00a1, B:38:0x00ab, B:42:0x00b5, B:41:0x00b3), top: B:55:0x002d }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -726,10 +726,10 @@ public class MethodImpl {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x007a  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007c A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0187, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x00a1, B:33:0x00ab, B:35:0x00b0, B:72:0x015c, B:74:0x0164, B:76:0x0171, B:77:0x0175, B:79:0x0183, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:23:0x0080, B:25:0x008c, B:26:0x0090, B:22:0x007c, B:16:0x0058, B:18:0x005d, B:36:0x00b5, B:38:0x00ce, B:39:0x00d1, B:41:0x00d4, B:43:0x00de, B:45:0x00e6, B:47:0x00ec, B:49:0x00f9, B:48:0x00ef, B:50:0x00fc, B:53:0x0102, B:55:0x010b, B:57:0x0114, B:59:0x0129, B:67:0x014d, B:56:0x0110, B:61:0x0130, B:63:0x0140), top: B:89:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x008c A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0187, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x00a1, B:33:0x00ab, B:35:0x00b0, B:72:0x015c, B:74:0x0164, B:76:0x0171, B:77:0x0175, B:79:0x0183, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:23:0x0080, B:25:0x008c, B:26:0x0090, B:22:0x007c, B:16:0x0058, B:18:0x005d, B:36:0x00b5, B:38:0x00ce, B:39:0x00d1, B:41:0x00d4, B:43:0x00de, B:45:0x00e6, B:47:0x00ec, B:49:0x00f9, B:48:0x00ef, B:50:0x00fc, B:53:0x0102, B:55:0x010b, B:57:0x0114, B:59:0x0129, B:67:0x014d, B:56:0x0110, B:61:0x0130, B:63:0x0140), top: B:89:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0090 A[Catch: all -> 0x0099, TRY_LEAVE, TryCatch #2 {all -> 0x0187, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x00a1, B:33:0x00ab, B:35:0x00b0, B:72:0x015c, B:74:0x0164, B:76:0x0171, B:77:0x0175, B:79:0x0183, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:23:0x0080, B:25:0x008c, B:26:0x0090, B:22:0x007c, B:16:0x0058, B:18:0x005d, B:36:0x00b5, B:38:0x00ce, B:39:0x00d1, B:41:0x00d4, B:43:0x00de, B:45:0x00e6, B:47:0x00ec, B:49:0x00f9, B:48:0x00ef, B:50:0x00fc, B:53:0x0102, B:55:0x010b, B:57:0x0114, B:59:0x0129, B:67:0x014d, B:56:0x0110, B:61:0x0130, B:63:0x0140), top: B:89:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0079  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x007b A[Catch: all -> 0x0098, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x008b A[Catch: all -> 0x0098, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x008f A[Catch: all -> 0x0098, TRY_LEAVE, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -888,7 +888,12 @@ public class MethodImpl {
                                     return invokeL.objValue;
                                 }
                             }, clsArr, objArr2);
-                            countDownLatch.await(Service.TRIGGER_INTERVAL, TimeUnit.MILLISECONDS);
+                            try {
+                                countDownLatch.await(Service.TRIGGER_INTERVAL, TimeUnit.MILLISECONDS);
+                            } catch (Throwable th) {
+                                bundle2.putInt("status", 3);
+                                CommonMethods.handleNuLException(th);
+                            }
                         }
                         bundle2.putParcelable("result", callArgs3);
                         return bundle2;
@@ -909,8 +914,8 @@ public class MethodImpl {
                     bundle2.putInt("status", 2);
                     return bundle2;
                 }
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+            } catch (Throwable th2) {
+                CommonMethods.handleNuLException(th2);
             }
             bundle2.putInt("status", 10);
             return bundle2;

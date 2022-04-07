@@ -36,7 +36,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SevenZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
@@ -264,9 +264,9 @@ public class SevenZipUtils {
             if (sLibraryLoaded) {
                 try {
                     return init(str, str2, i, i2, i3, i4);
-                } catch (UnsatisfiedLinkError e2) {
+                } catch (UnsatisfiedLinkError e) {
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                    loadErrorCode.trace("512:" + e2.toString());
+                    loadErrorCode.trace("512:" + e.toString());
                     return 0;
                 }
             }
@@ -315,8 +315,8 @@ public class SevenZipUtils {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
-            } catch (Exception e2) {
-                Log.i(TAG, "[WARNING]get available blocks failed : " + e2.toString());
+            } catch (Exception e) {
+                Log.i(TAG, "[WARNING]get available blocks failed : " + e.toString());
                 return true;
             }
         }
@@ -350,8 +350,8 @@ public class SevenZipUtils {
                 }
                 this.m7zTotal = this.mJson_meta.getInt("total");
                 return 0;
-            } catch (Exception e2) {
-                Log.e(TAG, "[FAIL]read meta failed : " + e2.toString());
+            } catch (Exception e) {
+                Log.e(TAG, "[FAIL]read meta failed : " + e.toString());
                 return 97;
             }
         }
@@ -399,10 +399,10 @@ public class SevenZipUtils {
                 FileLock tryLock = channel.tryLock();
                 this.mLock = tryLock;
                 return tryLock != null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                loadErrorCode.trace("504:" + e2.toString());
+                loadErrorCode.trace("504:" + e.toString());
                 return false;
             }
         }
@@ -418,9 +418,9 @@ public class SevenZipUtils {
                     this.mLock.release();
                     this.mLock = null;
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                loadErrorCode.trace("505:" + e2.toString());
+                loadErrorCode.trace("505:" + e.toString());
             }
         }
     }
@@ -470,8 +470,8 @@ public class SevenZipUtils {
         }
         try {
             new File(this.mDestPath, this.mTimeStamp).createNewFile();
-        } catch (IOException e2) {
-            Log.e(TAG, "[FAIL]create timestamp failed : " + e2.toString());
+        } catch (IOException e) {
+            Log.e(TAG, "[FAIL]create timestamp failed : " + e.toString());
         }
     }
 
@@ -516,9 +516,9 @@ public class SevenZipUtils {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             i = this.this$0.submit();
-                        } catch (UnsatisfiedLinkError e2) {
+                        } catch (UnsatisfiedLinkError e) {
                             LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                            loadErrorCode.trace("512:" + e2.toString());
+                            loadErrorCode.trace("512:" + e.toString());
                             i = 89;
                         }
                         if (i == 0) {
@@ -556,9 +556,9 @@ public class SevenZipUtils {
                     if (doHook(Build.VERSION.SDK_INT, z) > 0) {
                         this.mHooked = true;
                     }
-                } catch (UnsatisfiedLinkError e2) {
+                } catch (UnsatisfiedLinkError e) {
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                    loadErrorCode.trace("512:" + e2.toString());
+                    loadErrorCode.trace("512:" + e.toString());
                 }
             }
         }
@@ -609,8 +609,8 @@ public class SevenZipUtils {
                     try {
                         try {
                             fileInputStream = new FileInputStream(str);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -647,20 +647,20 @@ public class SevenZipUtils {
                         this.mPrepared = true;
                         try {
                             fileInputStream.close();
-                        } catch (Exception e3) {
-                            Log.e(TAG, "[FAIL]close input stream failed : " + e3.toString());
+                        } catch (Exception e2) {
+                            Log.e(TAG, "[FAIL]close input stream failed : " + e2.toString());
                         }
                         return true;
-                    } catch (Exception e4) {
-                        e = e4;
+                    } catch (Exception e3) {
+                        e = e3;
                         fileInputStream2 = fileInputStream;
                         unLock();
                         LoadErrorCode.getInstance().trace("501:".concat(String.valueOf(e)));
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (Exception e5) {
-                                Log.e(TAG, "[FAIL]close input stream failed : " + e5.toString());
+                            } catch (Exception e4) {
+                                Log.e(TAG, "[FAIL]close input stream failed : " + e4.toString());
                             }
                         }
                         return false;
@@ -670,8 +670,8 @@ public class SevenZipUtils {
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (Exception e6) {
-                                Log.e(TAG, "[FAIL]close input stream failed : " + e6.toString());
+                            } catch (Exception e5) {
+                                Log.e(TAG, "[FAIL]close input stream failed : " + e5.toString());
                             }
                         }
                         throw th;

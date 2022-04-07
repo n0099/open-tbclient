@@ -12,11 +12,11 @@ public final class DoubleSpreadBuilder extends PrimitiveSpreadBuilder<double[]> 
         this.values = new double[i];
     }
 
-    public final void add(double d2) {
+    public final void add(double d) {
         double[] dArr = this.values;
         int position = getPosition();
         setPosition(position + 1);
-        dArr[position] = d2;
+        dArr[position] = d;
     }
 
     public final double[] toArray() {

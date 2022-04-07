@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JsonFieldConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JsonFieldConverter";
@@ -33,8 +33,8 @@ public class JsonFieldConverter {
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, mapObject, jSONObject) == null) {
             try {
                 jSONObject.put(str, mapObject.getIntValue(str));
-            } catch (JSONException e2) {
-                Log.e(TAG, "put int field " + str + " is error " + e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, "put int field " + str + " is error " + e.getMessage());
             }
         }
     }
@@ -55,8 +55,8 @@ public class JsonFieldConverter {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mapObject, jSONObject) == null) {
             try {
                 jSONObject.put(str, mapObject.getStrValue(str));
-            } catch (JSONException e2) {
-                Log.e(TAG, "put String field " + str + " is error " + e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, "put String field " + str + " is error " + e.getMessage());
             }
         }
     }
@@ -66,8 +66,8 @@ public class JsonFieldConverter {
         if (interceptable == null || interceptable.invokeLIL(65537, null, str, i, jSONObject) == null) {
             try {
                 jSONObject.put(str, i);
-            } catch (JSONException e2) {
-                Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e.getMessage());
             }
         }
     }
@@ -77,8 +77,8 @@ public class JsonFieldConverter {
         if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, jSONObject) == null) {
             try {
                 jSONObject.put(str, str2);
-            } catch (JSONException e2) {
-                Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e.getMessage());
             }
         }
     }

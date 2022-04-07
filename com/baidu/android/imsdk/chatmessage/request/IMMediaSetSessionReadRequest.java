@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaSetSessionReadRequest";
@@ -107,8 +107,8 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
                 }
                 jSONObject.put("lastmsg_time", this.mLastTime);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "getRequestParameter Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getRequestParameter Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -149,8 +149,8 @@ public class IMMediaSetSessionReadRequest extends IMMediaBaseHttpRequest {
                         ChatMsgManager.setAllMsgRead(this.mContext, 1, this.mContacter, false);
                     }
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

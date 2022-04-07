@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f37650b;
+    public static volatile LibraryLoader b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,10 +35,10 @@ public class LibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f37650b == null) {
+            if (b == null) {
                 return 0;
             }
-            return f37650b.a;
+            return b.a;
         }
         return invokeV.intValue;
     }

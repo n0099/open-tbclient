@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -29,6 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
+import com.repackage.nb;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -195,11 +195,11 @@ public class SpeedStats {
                                 jSONObject.put("from", this.this$0.mUbcFrom);
                                 try {
                                     jSONObject.put("ext", new JSONObject().toString());
-                                } catch (JSONException e2) {
-                                    e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e3) {
-                                e3.printStackTrace();
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
                             }
                             String jSONObject2 = jSONObject.toString();
                             if (!TextUtils.isEmpty(jSONObject2)) {
@@ -271,7 +271,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0098 -> B:37:0x009b). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0097 -> B:37:0x009a). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -286,11 +286,11 @@ public class SpeedStats {
                                     file.createNewFile();
                                 }
                                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -305,8 +305,8 @@ public class SpeedStats {
                             Log.d(SpeedStats.TAG, "write info to cold_start.txt: " + this.val$map.toString());
                         }
                         bufferedWriter.close();
-                    } catch (IOException e4) {
-                        e = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                         bufferedWriter2 = bufferedWriter;
                         e.printStackTrace();
                         if (bufferedWriter2 != null) {
@@ -318,8 +318,8 @@ public class SpeedStats {
                         if (bufferedWriter2 != null) {
                             try {
                                 bufferedWriter2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
                             }
                         }
                         throw th;
@@ -706,7 +706,7 @@ public class SpeedStats {
             return;
         }
         this.isMainPageStatsEnd = true;
-        a.b().c();
+        nb.b().c();
         if (this.mSpeedStatsManager.getStatsFlag()) {
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
             Log.d(TAG, "*****************统计终点*****************");
@@ -729,7 +729,7 @@ public class SpeedStats {
     public void onSchemeOrPushStatsEnd(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, context, z) == null) {
-            a.b().c();
+            nb.b().c();
             if (z) {
                 this.mStartMainActivityType = 0;
             } else {

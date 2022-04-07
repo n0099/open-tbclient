@@ -25,7 +25,7 @@ import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = "device_score", module = "performance")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -70,8 +70,8 @@ public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             try {
                 return new BigDecimal(str).setScale(4, RoundingMode.DOWN).floatValue();
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
                 return -1.0f;
             }
         }

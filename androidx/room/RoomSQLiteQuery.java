@@ -145,10 +145,10 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                 }
 
                 @Override // androidx.sqlite.db.SupportSQLiteProgram
-                public void bindDouble(int i, double d2) {
+                public void bindDouble(int i, double d) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
-                        this.val$query.bindDouble(i, d2);
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
+                        this.val$query.bindDouble(i, d);
                     }
                 }
 
@@ -224,11 +224,11 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindDouble(int i, double d2) {
+    public void bindDouble(int i, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
             this.mBindingTypes[i] = 3;
-            this.mDoubleBindings[i] = d2;
+            this.mDoubleBindings[i] = d;
         }
     }
 

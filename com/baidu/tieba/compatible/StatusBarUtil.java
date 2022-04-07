@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class StatusBarUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class StatusBarUtil {
     public boolean transparentStatusBar;
     public Window window;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,11 +72,11 @@ public final class StatusBarUtil {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new StatusBarUtil(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView, null).process() : invokeV.booleanValue;
         }
 
-        public Builder setActionbarView(View view) {
+        public Builder setActionbarView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-                this.actionBarView = view;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                this.actionBarView = view2;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -125,12 +125,12 @@ public final class StatusBarUtil {
         }
     }
 
-    public StatusBarUtil(Window window, boolean z, boolean z2, View view) {
+    public StatusBarUtil(Window window, boolean z, boolean z2, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view};
+            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -143,7 +143,7 @@ public final class StatusBarUtil {
         this.lightStatusBar = z;
         this.transparentStatusBar = z2;
         this.window = window;
-        this.actionBarView = view;
+        this.actionBarView = view2;
     }
 
     public static Builder from(Activity activity) {
@@ -160,7 +160,7 @@ public final class StatusBarUtil {
                 return 0;
             }
             Context applicationContext = context.getApplicationContext();
-            int identifier = applicationContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = applicationContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 return applicationContext.getResources().getDimensionPixelSize(identifier);
             }
@@ -272,12 +272,12 @@ public final class StatusBarUtil {
         return invokeV.booleanValue;
     }
 
-    public void processActionBar(View view) {
+    public void processActionBar(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || !this.transparentStatusBar || isLessKitkat()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null || !this.transparentStatusBar || isLessKitkat()) {
             return;
         }
-        view.post(new Runnable(this, view) { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
+        view2.post(new Runnable(this, view2) { // from class: com.baidu.tieba.compatible.StatusBarUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ StatusBarUtil this$0;
@@ -288,7 +288,7 @@ public final class StatusBarUtil {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, view};
+                    Object[] objArr = {this, view2};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -299,15 +299,15 @@ public final class StatusBarUtil {
                     }
                 }
                 this.this$0 = this;
-                this.val$v = view;
+                this.val$v = view2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    View view2 = this.val$v;
-                    view2.setPadding(view2.getPaddingLeft(), this.val$v.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(this.val$v.getContext()), this.val$v.getPaddingRight(), this.val$v.getPaddingBottom());
+                    View view3 = this.val$v;
+                    view3.setPadding(view3.getPaddingLeft(), this.val$v.getPaddingTop() + StatusBarUtil.getStatusBarOffsetPx(this.val$v.getContext()), this.val$v.getPaddingRight(), this.val$v.getPaddingBottom());
                     this.val$v.getLayoutParams().height += StatusBarUtil.getStatusBarOffsetPx(this.val$v.getContext());
                 }
             }
@@ -346,7 +346,7 @@ public final class StatusBarUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, window)) == null) ? new Builder().setWindow(window) : (Builder) invokeL.objValue;
     }
 
-    public /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {
-        this(window, z, z2, view);
+    public /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view2, StatusBarUtil statusBarUtil) {
+        this(window, z, z2, view2);
     }
 }

@@ -10,7 +10,7 @@ import com.kwad.v8.V8;
 import com.kwad.v8.V8Object;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8Inspector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,8 +90,8 @@ public class V8Inspector {
                 if (this.waitingForConnection) {
                     verifyDebuggerConnection(str);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

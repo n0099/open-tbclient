@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_PHASE = 4097;
@@ -78,7 +78,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public float mVolume;
     public int mWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TimerThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,8 +163,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                         voiceSinWaveView.mMainHandler.sendEmptyMessage(4097);
                         try {
                             Thread.sleep(16L);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -181,7 +181,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface VoiceWaveCallBack {
         void fadeOut();
 
@@ -230,10 +230,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public void changePhase() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            float f2 = this.mPrimaryPhase + this.mPrimaryPhaseShift;
-            this.mPrimaryPhase = f2;
+            float f = this.mPrimaryPhase + this.mPrimaryPhaseShift;
+            this.mPrimaryPhase = f;
             this.mSecondaryPhase += this.mSecondaryPhaseShift;
-            if (f2 < -3.4028235E38f) {
+            if (f < -3.4028235E38f) {
                 this.mPrimaryPhase = 0.0f;
                 this.mSecondaryPhase = 3.5f;
             }
@@ -247,9 +247,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || this.mIsNeedGetSize) {
             return;
         }
-        float f2 = (this.mVolume / 100.0f) * 0.8f;
-        this.mNormedAmplitude = f2;
-        this.mNormedAmplitude = Math.max(0.05f, f2);
+        float f = (this.mVolume / 100.0f) * 0.8f;
+        this.mNormedAmplitude = f;
+        this.mNormedAmplitude = Math.max(0.05f, f);
         this.mPrimaryPath.rewind();
         this.mSecondaryPath.rewind();
         this.mFillPath.rewind();
@@ -276,10 +276,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         this.mFillPath.addPath(this.mSecondaryPath);
     }
 
-    private float getY(int i, float f2, float f3, float f4, float f5, float f6, float f7) {
+    private float getY(int i, float f, float f2, float f3, float f4, float f5, float f6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) ? ((1.0f - ((float) Math.pow(((i * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) ? ((1.0f - ((float) Math.pow(((i * 2) / f) - 1.0f, 2.0d))) * f3 * f4 * ((float) Math.sin(((i / f) * 6.283185307179586d * f5) + f6))) + (f2 * 0.5f) : invokeCommon.floatValue;
     }
 
     private void initialize() {
@@ -320,20 +320,20 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 return;
             }
             this.mMaxAmplitude = (i - 4.0f) * 0.5f;
-            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609dc), getResources().getColor(R.color.obfuscated_res_0x7f0609db), Shader.TileMode.MIRROR));
-            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609de), getResources().getColor(R.color.obfuscated_res_0x7f0609dd), Shader.TileMode.MIRROR));
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f0609da);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0609d9);
-            float f2 = this.mHeight / 2;
-            float f3 = this.mMaxAmplitude;
-            this.mFillPaint.setShader(new LinearGradient(0.0f, f2 - f3, 0.0f, f2 + f3, color, color2, Shader.TileMode.MIRROR));
+            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609eb), getResources().getColor(R.color.obfuscated_res_0x7f0609ea), Shader.TileMode.MIRROR));
+            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609ed), getResources().getColor(R.color.obfuscated_res_0x7f0609ec), Shader.TileMode.MIRROR));
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f0609e9);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0609e8);
+            float f = this.mHeight / 2;
+            float f2 = this.mMaxAmplitude;
+            this.mFillPaint.setShader(new LinearGradient(0.0f, f - f2, 0.0f, f + f2, color, color2, Shader.TileMode.MIRROR));
         }
     }
 
     @Override // com.baidu.pass.ecommerce.view.VoiceWaveInterface
-    public void changeVolume(float f2) {
+    public void changeVolume(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048576, this, f2) == null) || !this.mIsPermitReceiveVolume || f2 < 0.0f || f2 > 100.0f) {
+        if (!(interceptable == null || interceptable.invokeF(1048576, this, f) == null) || !this.mIsPermitReceiveVolume || f < 0.0f || f > 100.0f) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -347,7 +347,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             valueAnimator.cancel();
             this.mValueAnimator = null;
         }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.mLastVolume, f2);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.mLastVolume, f);
         this.mValueAnimator = ofFloat;
         ofFloat.setDuration(j2);
         this.mValueAnimator.setInterpolator(this.mLinearInterpolator);
@@ -539,9 +539,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                     valueAnimator.cancel();
                     this.mValueAnimator = null;
                 }
-                float f2 = this.mVolume;
-                if (f2 > 10.0f) {
-                    ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, 10.0f);
+                float f = this.mVolume;
+                if (f > 10.0f) {
+                    ValueAnimator ofFloat = ValueAnimator.ofFloat(f, 10.0f);
                     this.mValueAnimator = ofFloat;
                     ofFloat.setDuration(this.mVoiceWaveDecreaseTime);
                     this.mValueAnimator.setInterpolator(this.mLinearInterpolator);

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.net.URISyntaxException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,9 +159,7 @@ public final class b extends g {
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AlertDialog a;
-
-                            /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f37835b;
+                            public final /* synthetic */ b b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -178,7 +176,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f37835b = this;
+                                this.b = this;
                                 this.a = show;
                             }
 
@@ -188,8 +186,8 @@ public final class b extends g {
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
                                         this.a.dismiss();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
                                 }
                             }
@@ -214,8 +212,8 @@ public final class b extends g {
                                 return true;
                             }
                         }
-                    } catch (Exception e2) {
-                        Log.e(Log.LOG_TAG, e2.toString());
+                    } catch (Exception e) {
+                        Log.e(Log.LOG_TAG, e.toString());
                     }
                 } catch (URISyntaxException unused) {
                 }

@@ -79,10 +79,10 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
                     Throwable error = takeNext.getError();
                     this.error = error;
                     throw ExceptionHelper.wrapOrThrow(error);
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     this.observer.dispose();
-                    this.error = e2;
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    this.error = e;
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             return invokeV.booleanValue;

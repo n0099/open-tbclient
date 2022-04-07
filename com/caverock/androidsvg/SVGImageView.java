@@ -24,19 +24,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b extends AsyncTask<String, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,14 +69,14 @@ public class SVGImageView extends ImageView {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
                     return SVG.f(this.a.getContext().getAssets(), strArr[0]).l();
-                } catch (SVGParseException e2) {
-                    Log.e("SVGImageView", "Error loading file " + strArr + ": " + e2.getMessage());
+                } catch (SVGParseException e) {
+                    Log.e("SVGImageView", "Error loading file " + strArr + ": " + e.getMessage());
                     return null;
                 } catch (FileNotFoundException unused) {
                     Log.e("SVGImageView", "File not found: " + strArr);
                     return null;
-                } catch (IOException e3) {
-                    Log.e("SVGImageView", "Unable to load asset file: " + strArr, e3);
+                } catch (IOException e2) {
+                    Log.e("SVGImageView", "Unable to load asset file: " + strArr, e2);
                     return null;
                 }
             }
@@ -100,7 +100,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c extends AsyncTask<Integer, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,8 +133,8 @@ public class SVGImageView extends ImageView {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
                     return SVG.h(this.a.getContext(), numArr[0].intValue()).l();
-                } catch (SVGParseException e2) {
-                    Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e2.getMessage()));
+                } catch (SVGParseException e) {
+                    Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e.getMessage()));
                     return null;
                 }
             }
@@ -158,7 +158,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d extends AsyncTask<InputStream, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,8 +197,8 @@ public class SVGImageView extends ImageView {
                         } catch (IOException unused) {
                         }
                         return l;
-                    } catch (SVGParseException e2) {
-                        Log.e("SVGImageView", "Parse error loading URI: " + e2.getMessage());
+                    } catch (SVGParseException e) {
+                        Log.e("SVGImageView", "Parse error loading URI: " + e.getMessage());
                         try {
                             inputStreamArr[0].close();
                             return null;
@@ -278,7 +278,7 @@ public class SVGImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04059e}, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405dc}, i, 0);
         try {
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             if (resourceId != -1) {
@@ -321,8 +321,8 @@ public class SVGImageView extends ImageView {
         }
         try {
             a.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
-        } catch (Exception e2) {
-            Log.w("SVGImageView", "Unexpected failure calling setLayerType", e2);
+        } catch (Exception e) {
+            Log.w("SVGImageView", "Unexpected failure calling setLayerType", e);
         }
     }
 

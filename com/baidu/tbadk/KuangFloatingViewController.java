@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.p0.l4.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,7 +31,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.bs8;
+import com.repackage.oi;
+/* loaded from: classes2.dex */
 public class KuangFloatingViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -169,8 +169,8 @@ public class KuangFloatingViewController {
             if (this.wm == null) {
                 this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
-            View view = this.mFloatingView;
-            if (view == null || view.getParent() == null) {
+            View view2 = this.mFloatingView;
+            if (view2 == null || view2.getParent() == null) {
                 return;
             }
             try {
@@ -191,9 +191,9 @@ public class KuangFloatingViewController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.mFloatingView;
-            if (view == null) {
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) null);
+            View view2 = this.mFloatingView;
+            if (view2 == null) {
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029d, (ViewGroup) null);
                 this.mFloatingView = inflate;
                 inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                     public static /* synthetic */ Interceptable $ic;
@@ -219,9 +219,9 @@ public class KuangFloatingViewController {
                     }
 
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                             this.this$0.hideFloatingView();
                             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                             if (currentActivity != null) {
@@ -237,7 +237,7 @@ public class KuangFloatingViewController {
                         }
                     }
                 });
-                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909d8).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909df).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ KuangFloatingViewController this$0;
@@ -261,17 +261,17 @@ public class KuangFloatingViewController {
                     }
 
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                             this.this$0.hideFloatingView();
                         }
                     }
                 });
-            } else if (view.getParent() != null) {
+            } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090ef3)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090eef)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -288,11 +288,11 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = e.a(2002);
+            layoutParams.type = bs8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070283) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028d) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

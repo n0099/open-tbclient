@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_PADDING = 22;
@@ -31,7 +31,7 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public View mSearchView;
     public String mSelection;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void doSelectionCopy(String str);
 
@@ -102,16 +102,16 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
-            if (view.equals(this.mCopyView)) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (view2.equals(this.mCopyView)) {
                 a aVar2 = this.mListener;
                 if (aVar2 != null) {
                     aVar2.doSelectionCopy(this.mSelection);
                 }
-            } else if (!view.equals(this.mSearchView) || (aVar = this.mListener) == null) {
+            } else if (!view2.equals(this.mSearchView) || (aVar = this.mListener) == null) {
             } else {
                 aVar.doSelectionSearch(this.mSelection);
             }
@@ -123,10 +123,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onFinishInflate();
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090440);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090448);
             this.mCopyView = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090441);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090449);
             this.mSearchView = findViewById2;
             findViewById2.setOnClickListener(this);
         }

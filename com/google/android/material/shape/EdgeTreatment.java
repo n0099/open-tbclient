@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EdgeTreatment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,17 +36,17 @@ public class EdgeTreatment {
     }
 
     @Deprecated
-    public void getEdgePath(float f2, float f3, @NonNull ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
-            getEdgePath(f2, f2 / 2.0f, f3, shapePath);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), shapePath}) == null) {
+            getEdgePath(f, f / 2.0f, f2, shapePath);
         }
     }
 
-    public void getEdgePath(float f2, float f3, float f4, @NonNull ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), shapePath}) == null) {
-            shapePath.lineTo(f2, 0.0f);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
+            shapePath.lineTo(f, 0.0f);
         }
     }
 }

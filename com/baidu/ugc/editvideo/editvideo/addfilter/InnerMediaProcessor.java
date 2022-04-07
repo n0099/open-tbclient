@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.m;
-import c.a.v0.r.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.dc9;
+import com.repackage.lc9;
+/* loaded from: classes4.dex */
 public class InnerMediaProcessor extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class InnerMediaProcessor extends Thread {
                 while (!this.mMuxer.isStarted()) {
                     try {
                         this.mMuxer.wait(100L);
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -105,7 +105,7 @@ public class InnerMediaProcessor extends Thread {
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            m.l(str, str2);
+            dc9.l(str, str2);
         }
     }
 
@@ -140,7 +140,7 @@ public class InnerMediaProcessor extends Thread {
             try {
                 extractDecodeEditEncodeMux();
                 if (isUnInterrupted()) {
-                    u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                    lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;
@@ -174,7 +174,7 @@ public class InnerMediaProcessor extends Thread {
                 }
             } catch (Exception unused) {
                 if (this.mListener != null) {
-                    u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                    lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;

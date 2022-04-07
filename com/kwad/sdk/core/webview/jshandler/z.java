@@ -6,25 +6,19 @@ import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class z implements com.kwad.sdk.core.webview.kwai.a {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Handler f40108c;
+    public static Handler c;
     public com.kwad.sdk.core.webview.a a;
+    public com.kwad.sdk.core.download.a.b b;
+    public b d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f40109b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public b f40110d;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         @MainThread
         void a(int i);
@@ -32,10 +26,10 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
 
     public z(com.kwad.sdk.core.webview.a aVar, com.kwad.sdk.core.download.a.b bVar, b bVar2) {
         this.a = aVar;
-        this.f40109b = bVar;
-        this.f40110d = bVar2;
-        if (f40108c == null) {
-            f40108c = new Handler(Looper.getMainLooper());
+        this.b = bVar;
+        this.d = bVar2;
+        if (c == null) {
+            c = new Handler(Looper.getMainLooper());
         }
     }
 
@@ -54,16 +48,16 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
             a aVar = new a();
             aVar.parseJson(new JSONObject(str));
             final int i = aVar.a;
-            f40108c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
+            c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (z.this.f40110d != null) {
-                        z.this.f40110d.a(i);
+                    if (z.this.d != null) {
+                        z.this.d.a(i);
                     }
                 }
             });
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

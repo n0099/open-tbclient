@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.q0.e;
-import c.a.o0.r.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -26,7 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b85;
+import com.repackage.d85;
+import com.repackage.dr4;
+import com.repackage.e85;
+import com.repackage.zm8;
+/* loaded from: classes4.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -40,12 +43,12 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public BuyTBeanModel mModel;
     public PayConfigModel mPayConfigModel;
     public String mReferPage;
-    public c.a.p0.b4.a mTBeanView;
+    public zm8 mTBeanView;
     public float moneyLeft;
     public CustomMessageListener roomClosedListener;
 
-    /* loaded from: classes6.dex */
-    public class a implements c.a.o0.q0.b {
+    /* loaded from: classes4.dex */
+    public class a implements b85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyTBeanActivity a;
@@ -68,16 +71,16 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             this.a = buyTBeanActivity;
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.a.mGiftBbean), c.a.o0.q0.d.a) + "&refer_page=" + this.a.mReferPage + "&click_zone=" + this.a.mClickZone, this.a.getPageContext());
+                e85.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.a.mGiftBbean), d85.a) + "&refer_page=" + this.a.mReferPage + "&click_zone=" + this.a.mClickZone, this.a.getPageContext());
                 this.a.finish();
             }
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -85,7 +88,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             }
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -94,8 +97,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements a.e {
+    /* loaded from: classes4.dex */
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyTBeanActivity a;
@@ -118,17 +121,17 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             this.a = buyTBeanActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements a.e {
+    /* loaded from: classes4.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyTBeanActivity a;
@@ -151,17 +154,17 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             this.a = buyTBeanActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,16 +234,16 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     private void processClose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(this);
-            aVar.setAutoNight(true);
-            aVar.setCancelable(true);
-            aVar.setTitleShowCenter(true);
-            aVar.setMessageShowCenter(true);
-            aVar.setTitle(getString(R.string.obfuscated_res_0x7f0f0350));
-            aVar.setMessage(getString(R.string.obfuscated_res_0x7f0f034f));
-            aVar.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f07a5), new b(this));
-            aVar.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f034e), new c(this));
-            aVar.create(getPageContext()).show();
+            dr4 dr4Var = new dr4(this);
+            dr4Var.setAutoNight(true);
+            dr4Var.setCancelable(true);
+            dr4Var.setTitleShowCenter(true);
+            dr4Var.setMessageShowCenter(true);
+            dr4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0352));
+            dr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0351));
+            dr4Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f07aa), new b(this));
+            dr4Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f0350), new c(this));
+            dr4Var.create(getPageContext()).show();
         }
     }
 
@@ -308,22 +311,22 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        c.a.p0.b4.a aVar;
+        zm8 zm8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.mTBeanView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (zm8Var = this.mTBeanView) == null) {
             return;
         }
-        aVar.B(i);
+        zm8Var.B(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        c.a.p0.b4.a aVar;
+    public void onClick(View view2) {
+        zm8 zm8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            if (view.getId() != R.id.obfuscated_res_0x7f09047b && view.getId() != R.id.obfuscated_res_0x7f091e33) {
-                if ((view.getId() == R.id.obfuscated_res_0x7f090465 || view.getId() == R.id.obfuscated_res_0x7f090478) && (aVar = this.mTBeanView) != null) {
-                    if (aVar.A()) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f090483 && view2.getId() != R.id.obfuscated_res_0x7f091e1f) {
+                if ((view2.getId() == R.id.obfuscated_res_0x7f09046d || view2.getId() == R.id.obfuscated_res_0x7f090480) && (zm8Var = this.mTBeanView) != null) {
+                    if (zm8Var.A()) {
                         this.mTBeanView.y();
                         return;
                     } else {
@@ -357,14 +360,14 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                 this.mGiftBbean = (float) bundle.getLong("gift_tbean");
             }
             getGiftTBean(getIntent());
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f061a));
-            c.a.p0.b4.a aVar = new c.a.p0.b4.a(this);
-            this.mTBeanView = aVar;
-            setContentView(aVar.v());
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0621));
+            zm8 zm8Var = new zm8(this);
+            this.mTBeanView = zm8Var;
+            setContentView(zm8Var.v());
             if (this.isFromDecreaseGiftStepStrategy != 0) {
-                float f2 = this.moneyLeft;
-                if (f2 > 0.0f) {
-                    this.mTBeanView.H(f2);
+                float f = this.moneyLeft;
+                if (f > 0.0f) {
+                    this.mTBeanView.H(f);
                 }
             }
             this.mTBeanView.x();
@@ -389,9 +392,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             clearAnimatable();
             clearAnimation();
             super.onDestroy();
-            c.a.p0.b4.a aVar = this.mTBeanView;
-            if (aVar != null) {
-                aVar.C();
+            zm8 zm8Var = this.mTBeanView;
+            if (zm8Var != null) {
+                zm8Var.C();
             }
         }
     }
@@ -402,9 +405,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             showToast(str);
             closeLoadingDialog();
-            c.a.p0.b4.a aVar = this.mTBeanView;
-            if (aVar != null) {
-                aVar.J();
+            zm8 zm8Var = this.mTBeanView;
+            if (zm8Var != null) {
+                zm8Var.J();
                 this.mTBeanView.I();
             }
         }
@@ -438,9 +441,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            c.a.p0.b4.a aVar = this.mTBeanView;
-            if (aVar != null) {
-                aVar.D(z);
+            zm8 zm8Var = this.mTBeanView;
+            if (zm8Var != null) {
+                zm8Var.D(z);
             }
         }
     }
@@ -467,9 +470,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             closeLoadingDialog();
-            c.a.p0.b4.a aVar = this.mTBeanView;
-            if (aVar != null) {
-                aVar.J();
+            zm8 zm8Var = this.mTBeanView;
+            if (zm8Var != null) {
+                zm8Var.J();
                 this.mTBeanView.w();
                 this.mTBeanView.G(this.mModel.D(), this.mModel.F(), this.mModel.E(), this.mModel.G());
             }
@@ -481,7 +484,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.mModel == null || this.mTBeanView == null) {
             return;
         }
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f061a));
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0621));
         this.mTBeanView.x();
         this.mModel.L();
     }

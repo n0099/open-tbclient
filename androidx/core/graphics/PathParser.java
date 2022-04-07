@@ -52,10 +52,10 @@ public class PathParser {
         }
     }
 
-    public static void addNode(ArrayList<PathDataNode> arrayList, char c2, float[] fArr) {
+    public static void addNode(ArrayList<PathDataNode> arrayList, char c, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{arrayList, Character.valueOf(c2), fArr}) == null) {
-            arrayList.add(new PathDataNode(c2, fArr));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{arrayList, Character.valueOf(c), fArr}) == null) {
+            arrayList.add(new PathDataNode(c, fArr));
         }
     }
 
@@ -133,8 +133,8 @@ public class PathParser {
                 try {
                     PathDataNode.nodesToPath(createNodesFromPathData, path);
                     return path;
-                } catch (RuntimeException e2) {
-                    throw new RuntimeException("Error in parsing " + str, e2);
+                } catch (RuntimeException e) {
+                    throw new RuntimeException("Error in parsing " + str, e);
                 }
             }
             return null;
@@ -237,22 +237,22 @@ public class PathParser {
                     i = extractFloatResult.mEndWithNegOrDot ? i3 : i3 + 1;
                 }
                 return copyOfRange(fArr, 0, i2);
-            } catch (NumberFormatException e2) {
-                throw new RuntimeException("error in parsing \"" + str + "\"", e2);
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("error in parsing \"" + str + "\"", e);
             }
         }
         return (float[]) invokeL.objValue;
     }
 
-    public static boolean interpolatePathDataNodes(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2, PathDataNode[] pathDataNodeArr3, float f2) {
+    public static boolean interpolatePathDataNodes(PathDataNode[] pathDataNodeArr, PathDataNode[] pathDataNodeArr2, PathDataNode[] pathDataNodeArr3, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{pathDataNodeArr, pathDataNodeArr2, pathDataNodeArr3, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{pathDataNodeArr, pathDataNodeArr2, pathDataNodeArr3, Float.valueOf(f)})) == null) {
             if (pathDataNodeArr != null && pathDataNodeArr2 != null && pathDataNodeArr3 != null) {
                 if (pathDataNodeArr.length == pathDataNodeArr2.length && pathDataNodeArr2.length == pathDataNodeArr3.length) {
                     if (canMorph(pathDataNodeArr2, pathDataNodeArr3)) {
                         for (int i = 0; i < pathDataNodeArr.length; i++) {
-                            pathDataNodeArr[i].interpolatePathDataNode(pathDataNodeArr2[i], pathDataNodeArr3[i], f2);
+                            pathDataNodeArr[i].interpolatePathDataNode(pathDataNodeArr2[i], pathDataNodeArr3[i], f);
                         }
                         return true;
                     }
@@ -300,12 +300,12 @@ public class PathParser {
         public float[] mParams;
         public char mType;
 
-        public PathDataNode(char c2, float[] fArr) {
+        public PathDataNode(char c, float[] fArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Character.valueOf(c2), fArr};
+                Object[] objArr = {Character.valueOf(c), fArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -315,14 +315,15 @@ public class PathParser {
                     return;
                 }
             }
-            this.mType = c2;
+            this.mType = c;
             this.mParams = fArr;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        public static void addCommand(Path path, float[] fArr, char c2, char c3, float[] fArr2) {
+        public static void addCommand(Path path, float[] fArr, char c, char c2, float[] fArr2) {
             int i;
             int i2;
+            float f;
             float f2;
             float f3;
             float f4;
@@ -330,17 +331,16 @@ public class PathParser {
             float f6;
             float f7;
             float f8;
-            float f9;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{path, fArr, Character.valueOf(c2), Character.valueOf(c3), fArr2}) == null) {
-                char c4 = c3;
-                float f10 = fArr[0];
-                float f11 = fArr[1];
-                float f12 = fArr[2];
-                float f13 = fArr[3];
-                float f14 = fArr[4];
-                float f15 = fArr[5];
-                switch (c4) {
+            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{path, fArr, Character.valueOf(c), Character.valueOf(c2), fArr2}) == null) {
+                char c3 = c2;
+                float f9 = fArr[0];
+                float f10 = fArr[1];
+                float f11 = fArr[2];
+                float f12 = fArr[3];
+                float f13 = fArr[4];
+                float f14 = fArr[5];
+                switch (c3) {
                     case 'A':
                     case 'a':
                         i = 7;
@@ -373,187 +373,187 @@ public class PathParser {
                     case 'Z':
                     case 'z':
                         path.close();
-                        path.moveTo(f14, f15);
+                        path.moveTo(f13, f14);
+                        f9 = f13;
+                        f11 = f9;
                         f10 = f14;
                         f12 = f10;
-                        f11 = f15;
-                        f13 = f11;
                         i = 2;
                         break;
                 }
+                float f15 = f9;
                 float f16 = f10;
-                float f17 = f11;
+                float f17 = f13;
                 float f18 = f14;
-                float f19 = f15;
                 int i3 = 0;
-                char c5 = c2;
+                char c4 = c;
                 while (i3 < fArr2.length) {
-                    if (c4 != 'A') {
-                        if (c4 == 'C') {
+                    if (c3 != 'A') {
+                        if (c3 == 'C') {
                             i2 = i3;
                             int i4 = i2 + 2;
                             int i5 = i2 + 3;
                             int i6 = i2 + 4;
                             int i7 = i2 + 5;
                             path.cubicTo(fArr2[i2 + 0], fArr2[i2 + 1], fArr2[i4], fArr2[i5], fArr2[i6], fArr2[i7]);
-                            f16 = fArr2[i6];
-                            float f20 = fArr2[i7];
-                            float f21 = fArr2[i4];
-                            float f22 = fArr2[i5];
-                            f17 = f20;
-                            f13 = f22;
+                            f15 = fArr2[i6];
+                            float f19 = fArr2[i7];
+                            float f20 = fArr2[i4];
+                            float f21 = fArr2[i5];
+                            f16 = f19;
                             f12 = f21;
-                        } else if (c4 == 'H') {
+                            f11 = f20;
+                        } else if (c3 == 'H') {
                             i2 = i3;
                             int i8 = i2 + 0;
-                            path.lineTo(fArr2[i8], f17);
-                            f16 = fArr2[i8];
-                        } else if (c4 == 'Q') {
+                            path.lineTo(fArr2[i8], f16);
+                            f15 = fArr2[i8];
+                        } else if (c3 == 'Q') {
                             i2 = i3;
                             int i9 = i2 + 0;
                             int i10 = i2 + 1;
                             int i11 = i2 + 2;
                             int i12 = i2 + 3;
                             path.quadTo(fArr2[i9], fArr2[i10], fArr2[i11], fArr2[i12]);
-                            float f23 = fArr2[i9];
-                            float f24 = fArr2[i10];
-                            f16 = fArr2[i11];
-                            f17 = fArr2[i12];
+                            float f22 = fArr2[i9];
+                            float f23 = fArr2[i10];
+                            f15 = fArr2[i11];
+                            f16 = fArr2[i12];
+                            f11 = f22;
                             f12 = f23;
-                            f13 = f24;
-                        } else if (c4 == 'V') {
+                        } else if (c3 == 'V') {
                             i2 = i3;
                             int i13 = i2 + 0;
-                            path.lineTo(f16, fArr2[i13]);
-                            f17 = fArr2[i13];
-                        } else if (c4 != 'a') {
-                            if (c4 != 'c') {
-                                if (c4 == 'h') {
+                            path.lineTo(f15, fArr2[i13]);
+                            f16 = fArr2[i13];
+                        } else if (c3 != 'a') {
+                            if (c3 != 'c') {
+                                if (c3 == 'h') {
                                     int i14 = i3 + 0;
                                     path.rLineTo(fArr2[i14], 0.0f);
-                                    f16 += fArr2[i14];
-                                } else if (c4 != 'q') {
-                                    if (c4 == 'v') {
+                                    f15 += fArr2[i14];
+                                } else if (c3 != 'q') {
+                                    if (c3 == 'v') {
                                         int i15 = i3 + 0;
                                         path.rLineTo(0.0f, fArr2[i15]);
-                                        f5 = fArr2[i15];
-                                    } else if (c4 == 'L') {
+                                        f4 = fArr2[i15];
+                                    } else if (c3 == 'L') {
                                         int i16 = i3 + 0;
                                         int i17 = i3 + 1;
                                         path.lineTo(fArr2[i16], fArr2[i17]);
-                                        f16 = fArr2[i16];
-                                        f17 = fArr2[i17];
-                                    } else if (c4 == 'M') {
+                                        f15 = fArr2[i16];
+                                        f16 = fArr2[i17];
+                                    } else if (c3 == 'M') {
                                         int i18 = i3 + 0;
-                                        f16 = fArr2[i18];
+                                        f15 = fArr2[i18];
                                         int i19 = i3 + 1;
-                                        f17 = fArr2[i19];
+                                        f16 = fArr2[i19];
                                         if (i3 > 0) {
                                             path.lineTo(fArr2[i18], fArr2[i19]);
                                         } else {
                                             path.moveTo(fArr2[i18], fArr2[i19]);
                                             i2 = i3;
-                                            f19 = f17;
                                             f18 = f16;
+                                            f17 = f15;
                                         }
-                                    } else if (c4 == 'S') {
-                                        if (c5 == 'c' || c5 == 's' || c5 == 'C' || c5 == 'S') {
+                                    } else if (c3 == 'S') {
+                                        if (c4 == 'c' || c4 == 's' || c4 == 'C' || c4 == 'S') {
+                                            f15 = (f15 * 2.0f) - f11;
                                             f16 = (f16 * 2.0f) - f12;
-                                            f17 = (f17 * 2.0f) - f13;
                                         }
-                                        float f25 = f17;
+                                        float f24 = f16;
                                         int i20 = i3 + 0;
                                         int i21 = i3 + 1;
                                         int i22 = i3 + 2;
                                         int i23 = i3 + 3;
-                                        path.cubicTo(f16, f25, fArr2[i20], fArr2[i21], fArr2[i22], fArr2[i23]);
-                                        f2 = fArr2[i20];
-                                        f3 = fArr2[i21];
-                                        f16 = fArr2[i22];
-                                        f17 = fArr2[i23];
+                                        path.cubicTo(f15, f24, fArr2[i20], fArr2[i21], fArr2[i22], fArr2[i23]);
+                                        f = fArr2[i20];
+                                        f2 = fArr2[i21];
+                                        f15 = fArr2[i22];
+                                        f16 = fArr2[i23];
+                                        f11 = f;
                                         f12 = f2;
-                                        f13 = f3;
-                                    } else if (c4 == 'T') {
-                                        if (c5 == 'q' || c5 == 't' || c5 == 'Q' || c5 == 'T') {
+                                    } else if (c3 == 'T') {
+                                        if (c4 == 'q' || c4 == 't' || c4 == 'Q' || c4 == 'T') {
+                                            f15 = (f15 * 2.0f) - f11;
                                             f16 = (f16 * 2.0f) - f12;
-                                            f17 = (f17 * 2.0f) - f13;
                                         }
                                         int i24 = i3 + 0;
                                         int i25 = i3 + 1;
-                                        path.quadTo(f16, f17, fArr2[i24], fArr2[i25]);
-                                        float f26 = fArr2[i24];
-                                        float f27 = fArr2[i25];
+                                        path.quadTo(f15, f16, fArr2[i24], fArr2[i25]);
+                                        float f25 = fArr2[i24];
+                                        float f26 = fArr2[i25];
                                         i2 = i3;
-                                        f13 = f17;
                                         f12 = f16;
+                                        f11 = f15;
+                                        f15 = f25;
                                         f16 = f26;
-                                        f17 = f27;
-                                    } else if (c4 == 'l') {
+                                    } else if (c3 == 'l') {
                                         int i26 = i3 + 0;
                                         int i27 = i3 + 1;
                                         path.rLineTo(fArr2[i26], fArr2[i27]);
-                                        f16 += fArr2[i26];
-                                        f5 = fArr2[i27];
-                                    } else if (c4 == 'm') {
+                                        f15 += fArr2[i26];
+                                        f4 = fArr2[i27];
+                                    } else if (c3 == 'm') {
                                         int i28 = i3 + 0;
-                                        f16 += fArr2[i28];
+                                        f15 += fArr2[i28];
                                         int i29 = i3 + 1;
-                                        f17 += fArr2[i29];
+                                        f16 += fArr2[i29];
                                         if (i3 > 0) {
                                             path.rLineTo(fArr2[i28], fArr2[i29]);
                                         } else {
                                             path.rMoveTo(fArr2[i28], fArr2[i29]);
                                             i2 = i3;
-                                            f19 = f17;
                                             f18 = f16;
+                                            f17 = f15;
                                         }
-                                    } else if (c4 == 's') {
-                                        if (c5 == 'c' || c5 == 's' || c5 == 'C' || c5 == 'S') {
-                                            float f28 = f16 - f12;
-                                            f6 = f17 - f13;
-                                            f7 = f28;
+                                    } else if (c3 == 's') {
+                                        if (c4 == 'c' || c4 == 's' || c4 == 'C' || c4 == 'S') {
+                                            float f27 = f15 - f11;
+                                            f5 = f16 - f12;
+                                            f6 = f27;
                                         } else {
-                                            f7 = 0.0f;
                                             f6 = 0.0f;
+                                            f5 = 0.0f;
                                         }
                                         int i30 = i3 + 0;
                                         int i31 = i3 + 1;
                                         int i32 = i3 + 2;
                                         int i33 = i3 + 3;
-                                        path.rCubicTo(f7, f6, fArr2[i30], fArr2[i31], fArr2[i32], fArr2[i33]);
-                                        f2 = fArr2[i30] + f16;
-                                        f3 = fArr2[i31] + f17;
-                                        f16 += fArr2[i32];
-                                        f4 = fArr2[i33];
-                                    } else if (c4 == 't') {
-                                        if (c5 == 'q' || c5 == 't' || c5 == 'Q' || c5 == 'T') {
+                                        path.rCubicTo(f6, f5, fArr2[i30], fArr2[i31], fArr2[i32], fArr2[i33]);
+                                        f = fArr2[i30] + f15;
+                                        f2 = fArr2[i31] + f16;
+                                        f15 += fArr2[i32];
+                                        f3 = fArr2[i33];
+                                    } else if (c3 == 't') {
+                                        if (c4 == 'q' || c4 == 't' || c4 == 'Q' || c4 == 'T') {
+                                            f7 = f15 - f11;
                                             f8 = f16 - f12;
-                                            f9 = f17 - f13;
                                         } else {
-                                            f9 = 0.0f;
                                             f8 = 0.0f;
+                                            f7 = 0.0f;
                                         }
                                         int i34 = i3 + 0;
                                         int i35 = i3 + 1;
-                                        path.rQuadTo(f8, f9, fArr2[i34], fArr2[i35]);
+                                        path.rQuadTo(f7, f8, fArr2[i34], fArr2[i35]);
+                                        float f28 = f7 + f15;
                                         float f29 = f8 + f16;
-                                        float f30 = f9 + f17;
-                                        f16 += fArr2[i34];
-                                        f17 += fArr2[i35];
-                                        f13 = f30;
+                                        f15 += fArr2[i34];
+                                        f16 += fArr2[i35];
                                         f12 = f29;
+                                        f11 = f28;
                                     }
-                                    f17 += f5;
+                                    f16 += f4;
                                 } else {
                                     int i36 = i3 + 0;
                                     int i37 = i3 + 1;
                                     int i38 = i3 + 2;
                                     int i39 = i3 + 3;
                                     path.rQuadTo(fArr2[i36], fArr2[i37], fArr2[i38], fArr2[i39]);
-                                    f2 = fArr2[i36] + f16;
-                                    f3 = fArr2[i37] + f17;
-                                    f16 += fArr2[i38];
-                                    f4 = fArr2[i39];
+                                    f = fArr2[i36] + f15;
+                                    f2 = fArr2[i37] + f16;
+                                    f15 += fArr2[i38];
+                                    f3 = fArr2[i39];
                                 }
                                 i2 = i3;
                             } else {
@@ -562,155 +562,155 @@ public class PathParser {
                                 int i42 = i3 + 4;
                                 int i43 = i3 + 5;
                                 path.rCubicTo(fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i40], fArr2[i41], fArr2[i42], fArr2[i43]);
-                                f2 = fArr2[i40] + f16;
-                                f3 = fArr2[i41] + f17;
-                                f16 += fArr2[i42];
-                                f4 = fArr2[i43];
+                                f = fArr2[i40] + f15;
+                                f2 = fArr2[i41] + f16;
+                                f15 += fArr2[i42];
+                                f3 = fArr2[i43];
                             }
-                            f17 += f4;
+                            f16 += f3;
+                            f11 = f;
                             f12 = f2;
-                            f13 = f3;
                             i2 = i3;
                         } else {
                             int i44 = i3 + 5;
                             int i45 = i3 + 6;
                             i2 = i3;
-                            drawArc(path, f16, f17, fArr2[i44] + f16, fArr2[i45] + f17, fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i3 + 2], fArr2[i3 + 3] != 0.0f, fArr2[i3 + 4] != 0.0f);
-                            f16 += fArr2[i44];
-                            f17 += fArr2[i45];
+                            drawArc(path, f15, f16, fArr2[i44] + f15, fArr2[i45] + f16, fArr2[i3 + 0], fArr2[i3 + 1], fArr2[i3 + 2], fArr2[i3 + 3] != 0.0f, fArr2[i3 + 4] != 0.0f);
+                            f15 += fArr2[i44];
+                            f16 += fArr2[i45];
                         }
                         i3 = i2 + i;
-                        c5 = c3;
-                        c4 = c5;
+                        c4 = c2;
+                        c3 = c4;
                     } else {
                         i2 = i3;
                         int i46 = i2 + 5;
                         int i47 = i2 + 6;
-                        drawArc(path, f16, f17, fArr2[i46], fArr2[i47], fArr2[i2 + 0], fArr2[i2 + 1], fArr2[i2 + 2], fArr2[i2 + 3] != 0.0f, fArr2[i2 + 4] != 0.0f);
-                        f16 = fArr2[i46];
-                        f17 = fArr2[i47];
+                        drawArc(path, f15, f16, fArr2[i46], fArr2[i47], fArr2[i2 + 0], fArr2[i2 + 1], fArr2[i2 + 2], fArr2[i2 + 3] != 0.0f, fArr2[i2 + 4] != 0.0f);
+                        f15 = fArr2[i46];
+                        f16 = fArr2[i47];
                     }
-                    f13 = f17;
                     f12 = f16;
+                    f11 = f15;
                     i3 = i2 + i;
-                    c5 = c3;
-                    c4 = c5;
+                    c4 = c2;
+                    c3 = c4;
                 }
-                fArr[0] = f16;
-                fArr[1] = f17;
-                fArr[2] = f12;
-                fArr[3] = f13;
-                fArr[4] = f18;
-                fArr[5] = f19;
+                fArr[0] = f15;
+                fArr[1] = f16;
+                fArr[2] = f11;
+                fArr[3] = f12;
+                fArr[4] = f17;
+                fArr[5] = f18;
             }
         }
 
-        public static void arcToBezier(Path path, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9, double d10) {
+        public static void arcToBezier(Path path, double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{path, Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6), Double.valueOf(d7), Double.valueOf(d8), Double.valueOf(d9), Double.valueOf(d10)}) == null) {
-                double d11 = d4;
-                int ceil = (int) Math.ceil(Math.abs((d10 * 4.0d) / 3.141592653589793d));
-                double cos = Math.cos(d8);
-                double sin = Math.sin(d8);
-                double cos2 = Math.cos(d9);
-                double sin2 = Math.sin(d9);
-                double d12 = -d11;
-                double d13 = d12 * cos;
-                double d14 = d5 * sin;
-                double d15 = (d13 * sin2) - (d14 * cos2);
-                double d16 = d12 * sin;
-                double d17 = d5 * cos;
-                double d18 = (sin2 * d16) + (cos2 * d17);
-                double d19 = d10 / ceil;
-                double d20 = d9;
-                double d21 = d18;
-                double d22 = d15;
+            if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{path, Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6), Double.valueOf(d7), Double.valueOf(d8), Double.valueOf(d9)}) == null) {
+                double d10 = d3;
+                int ceil = (int) Math.ceil(Math.abs((d9 * 4.0d) / 3.141592653589793d));
+                double cos = Math.cos(d7);
+                double sin = Math.sin(d7);
+                double cos2 = Math.cos(d8);
+                double sin2 = Math.sin(d8);
+                double d11 = -d10;
+                double d12 = d11 * cos;
+                double d13 = d4 * sin;
+                double d14 = (d12 * sin2) - (d13 * cos2);
+                double d15 = d11 * sin;
+                double d16 = d4 * cos;
+                double d17 = (sin2 * d15) + (cos2 * d16);
+                double d18 = d9 / ceil;
+                double d19 = d8;
+                double d20 = d17;
+                double d21 = d14;
                 int i = 0;
+                double d22 = d5;
                 double d23 = d6;
-                double d24 = d7;
                 while (i < ceil) {
-                    double d25 = d20 + d19;
-                    double sin3 = Math.sin(d25);
-                    double cos3 = Math.cos(d25);
-                    double d26 = (d2 + ((d11 * cos) * cos3)) - (d14 * sin3);
-                    double d27 = d3 + (d11 * sin * cos3) + (d17 * sin3);
-                    double d28 = (d13 * sin3) - (d14 * cos3);
-                    double d29 = (sin3 * d16) + (cos3 * d17);
-                    double d30 = d25 - d20;
-                    double tan = Math.tan(d30 / 2.0d);
-                    double sin4 = (Math.sin(d30) * (Math.sqrt(((tan * 3.0d) * tan) + 4.0d) - 1.0d)) / 3.0d;
-                    double d31 = d23 + (d22 * sin4);
+                    double d24 = d19 + d18;
+                    double sin3 = Math.sin(d24);
+                    double cos3 = Math.cos(d24);
+                    double d25 = (d + ((d10 * cos) * cos3)) - (d13 * sin3);
+                    double d26 = d2 + (d10 * sin * cos3) + (d16 * sin3);
+                    double d27 = (d12 * sin3) - (d13 * cos3);
+                    double d28 = (sin3 * d15) + (cos3 * d16);
+                    double d29 = d24 - d19;
+                    double tan = Math.tan(d29 / 2.0d);
+                    double sin4 = (Math.sin(d29) * (Math.sqrt(((tan * 3.0d) * tan) + 4.0d) - 1.0d)) / 3.0d;
+                    double d30 = d22 + (d21 * sin4);
                     path.rLineTo(0.0f, 0.0f);
-                    path.cubicTo((float) d31, (float) (d24 + (d21 * sin4)), (float) (d26 - (sin4 * d28)), (float) (d27 - (sin4 * d29)), (float) d26, (float) d27);
+                    path.cubicTo((float) d30, (float) (d23 + (d20 * sin4)), (float) (d25 - (sin4 * d27)), (float) (d26 - (sin4 * d28)), (float) d25, (float) d26);
                     i++;
-                    d19 = d19;
+                    d18 = d18;
                     sin = sin;
-                    d23 = d26;
-                    d16 = d16;
+                    d22 = d25;
+                    d15 = d15;
                     cos = cos;
-                    d20 = d25;
-                    d21 = d29;
-                    d22 = d28;
+                    d19 = d24;
+                    d20 = d28;
+                    d21 = d27;
                     ceil = ceil;
-                    d24 = d27;
-                    d11 = d4;
+                    d23 = d26;
+                    d10 = d3;
                 }
             }
         }
 
-        public static void drawArc(Path path, float f2, float f3, float f4, float f5, float f6, float f7, float f8, boolean z, boolean z2) {
+        public static void drawArc(Path path, float f, float f2, float f3, float f4, float f5, float f6, float f7, boolean z, boolean z2) {
+            double d;
             double d2;
-            double d3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{path, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                double radians = Math.toRadians(f8);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{path, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                double radians = Math.toRadians(f7);
                 double cos = Math.cos(radians);
                 double sin = Math.sin(radians);
-                double d4 = f2;
-                double d5 = d4 * cos;
-                double d6 = f3;
-                double d7 = f6;
-                double d8 = (d5 + (d6 * sin)) / d7;
-                double d9 = f7;
-                double d10 = (((-f2) * sin) + (d6 * cos)) / d9;
-                double d11 = f5;
-                double d12 = ((f4 * cos) + (d11 * sin)) / d7;
-                double d13 = (((-f4) * sin) + (d11 * cos)) / d9;
-                double d14 = d8 - d12;
-                double d15 = d10 - d13;
-                double d16 = (d8 + d12) / 2.0d;
-                double d17 = (d10 + d13) / 2.0d;
-                double d18 = (d14 * d14) + (d15 * d15);
-                if (d18 == 0.0d) {
+                double d3 = f;
+                double d4 = d3 * cos;
+                double d5 = f2;
+                double d6 = f5;
+                double d7 = (d4 + (d5 * sin)) / d6;
+                double d8 = f6;
+                double d9 = (((-f) * sin) + (d5 * cos)) / d8;
+                double d10 = f4;
+                double d11 = ((f3 * cos) + (d10 * sin)) / d6;
+                double d12 = (((-f3) * sin) + (d10 * cos)) / d8;
+                double d13 = d7 - d11;
+                double d14 = d9 - d12;
+                double d15 = (d7 + d11) / 2.0d;
+                double d16 = (d9 + d12) / 2.0d;
+                double d17 = (d13 * d13) + (d14 * d14);
+                if (d17 == 0.0d) {
                     Log.w(PathParser.LOGTAG, " Points are coincident");
                     return;
                 }
-                double d19 = (1.0d / d18) - 0.25d;
-                if (d19 < 0.0d) {
-                    Log.w(PathParser.LOGTAG, "Points are too far apart " + d18);
-                    float sqrt = (float) (Math.sqrt(d18) / 1.99999d);
-                    drawArc(path, f2, f3, f4, f5, f6 * sqrt, f7 * sqrt, f8, z, z2);
+                double d18 = (1.0d / d17) - 0.25d;
+                if (d18 < 0.0d) {
+                    Log.w(PathParser.LOGTAG, "Points are too far apart " + d17);
+                    float sqrt = (float) (Math.sqrt(d17) / 1.99999d);
+                    drawArc(path, f, f2, f3, f4, f5 * sqrt, f6 * sqrt, f7, z, z2);
                     return;
                 }
-                double sqrt2 = Math.sqrt(d19);
-                double d20 = d14 * sqrt2;
-                double d21 = sqrt2 * d15;
+                double sqrt2 = Math.sqrt(d18);
+                double d19 = d13 * sqrt2;
+                double d20 = sqrt2 * d14;
                 if (z == z2) {
-                    d2 = d16 - d21;
-                    d3 = d17 + d20;
+                    d = d15 - d20;
+                    d2 = d16 + d19;
                 } else {
-                    d2 = d16 + d21;
-                    d3 = d17 - d20;
+                    d = d15 + d20;
+                    d2 = d16 - d19;
                 }
-                double atan2 = Math.atan2(d10 - d3, d8 - d2);
-                double atan22 = Math.atan2(d13 - d3, d12 - d2) - atan2;
+                double atan2 = Math.atan2(d9 - d2, d7 - d);
+                double atan22 = Math.atan2(d12 - d2, d11 - d) - atan2;
                 int i = (atan22 > 0.0d ? 1 : (atan22 == 0.0d ? 0 : -1));
                 if (z2 != (i >= 0)) {
                     atan22 = i > 0 ? atan22 - 6.283185307179586d : atan22 + 6.283185307179586d;
                 }
-                double d22 = d2 * d7;
-                double d23 = d3 * d9;
-                arcToBezier(path, (d22 * cos) - (d23 * sin), (d22 * sin) + (d23 * cos), d7, d9, d4, d6, radians, atan2, atan22);
+                double d21 = d * d6;
+                double d22 = d2 * d8;
+                arcToBezier(path, (d21 * cos) - (d22 * sin), (d21 * sin) + (d22 * cos), d6, d8, d3, d5, radians, atan2, atan22);
             }
         }
 
@@ -718,17 +718,17 @@ public class PathParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65541, null, pathDataNodeArr, path) == null) {
                 float[] fArr = new float[6];
-                char c2 = 'm';
+                char c = 'm';
                 for (int i = 0; i < pathDataNodeArr.length; i++) {
-                    addCommand(path, fArr, c2, pathDataNodeArr[i].mType, pathDataNodeArr[i].mParams);
-                    c2 = pathDataNodeArr[i].mType;
+                    addCommand(path, fArr, c, pathDataNodeArr[i].mType, pathDataNodeArr[i].mParams);
+                    c = pathDataNodeArr[i].mType;
                 }
             }
         }
 
-        public void interpolatePathDataNode(PathDataNode pathDataNode, PathDataNode pathDataNode2, float f2) {
+        public void interpolatePathDataNode(PathDataNode pathDataNode, PathDataNode pathDataNode2, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{pathDataNode, pathDataNode2, Float.valueOf(f2)}) != null) {
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{pathDataNode, pathDataNode2, Float.valueOf(f)}) != null) {
                 return;
             }
             this.mType = pathDataNode.mType;
@@ -738,7 +738,7 @@ public class PathParser {
                 if (i >= fArr.length) {
                     return;
                 }
-                this.mParams[i] = (fArr[i] * (1.0f - f2)) + (pathDataNode2.mParams[i] * f2);
+                this.mParams[i] = (fArr[i] * (1.0f - f)) + (pathDataNode2.mParams[i] * f);
                 i++;
             }
         }

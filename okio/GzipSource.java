@@ -68,14 +68,14 @@ public final class GzipSource implements Source {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.source.require(10L);
-            byte b2 = this.source.buffer().getByte(3L);
-            boolean z = ((b2 >> 1) & 1) == 1;
+            byte b = this.source.buffer().getByte(3L);
+            boolean z = ((b >> 1) & 1) == 1;
             if (z) {
                 updateCrc(this.source.buffer(), 0L, 10L);
             }
             checkEqual("ID1ID2", w0.y5, this.source.readShort());
             this.source.skip(8L);
-            if (((b2 >> 2) & 1) == 1) {
+            if (((b >> 2) & 1) == 1) {
                 this.source.require(2L);
                 if (z) {
                     updateCrc(this.source.buffer(), 0L, 2L);
@@ -87,7 +87,7 @@ public final class GzipSource implements Source {
                 }
                 this.source.skip(readShortLe);
             }
-            if (((b2 >> 3) & 1) == 1) {
+            if (((b >> 3) & 1) == 1) {
                 long indexOf = this.source.indexOf((byte) 0);
                 if (indexOf != -1) {
                     if (z) {
@@ -98,7 +98,7 @@ public final class GzipSource implements Source {
                     throw new EOFException();
                 }
             }
-            if (((b2 >> 4) & 1) == 1) {
+            if (((b >> 4) & 1) == 1) {
                 long indexOf2 = this.source.indexOf((byte) 0);
                 if (indexOf2 != -1) {
                     if (z) {

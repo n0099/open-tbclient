@@ -9,35 +9,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f32452b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32453c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f32454d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f32455e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f32456f;
+    public ImageView b;
+    public TextView c;
+    public ImageView d;
+    public View e;
+    public View f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoActivityViewHolder(View view) {
-        super(view);
+    public FrsVideoActivityViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,13 +38,13 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        if (view != null) {
-            this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092305);
-            this.f32452b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092304);
-            this.f32453c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092306);
-            this.f32454d = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092303);
-            this.f32455e = view.findViewById(R.id.obfuscated_res_0x7f0920b2);
-            this.f32456f = view.findViewById(R.id.obfuscated_res_0x7f0903c2);
+        if (view2 != null) {
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e6);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922e5);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e7);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922e4);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f092097);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0903cc);
         }
     }
 }

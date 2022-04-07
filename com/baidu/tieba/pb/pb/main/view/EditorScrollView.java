@@ -12,25 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditorScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
+    public boolean b;
+    public int c;
+    public ViewTreeObserver.OnScrollChangedListener d;
+    public a e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f35049b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35050c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f35051d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f35052e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -57,7 +49,7 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f35050c = 50;
+        this.c = 50;
     }
 
     @Override // android.view.View
@@ -86,20 +78,20 @@ public class EditorScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            a aVar3 = this.f35052e;
+            a aVar3 = this.e;
             if (aVar3 != null) {
                 aVar3.c(this, i, i2, i3, i4);
             }
-            if (getHeight() + i2 >= this.a.getHeight() && (aVar2 = this.f35052e) != null) {
+            if (getHeight() + i2 >= this.a.getHeight() && (aVar2 = this.e) != null) {
                 aVar2.a();
             }
-            if ((i2 == 0 || getHeight() + i2 > this.a.getHeight()) && (aVar = this.f35052e) != null) {
+            if ((i2 == 0 || getHeight() + i2 > this.a.getHeight()) && (aVar = this.e) != null) {
                 aVar.b();
             }
-            if (this.f35051d == null || !this.f35049b || Math.abs(i3 - i2) < this.f35050c) {
+            if (this.d == null || !this.b || Math.abs(i3 - i2) < this.c) {
                 return;
             }
-            this.f35051d.onScrollChanged();
+            this.d.onScrollChanged();
         }
     }
 
@@ -120,10 +112,10 @@ public class EditorScrollView extends ScrollView {
                     if (action != 2) {
                     }
                 }
-                this.f35049b = false;
+                this.b = false;
                 return super.onTouchEvent(motionEvent);
             }
-            this.f35049b = true;
+            this.b = true;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -132,14 +124,14 @@ public class EditorScrollView extends ScrollView {
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onScrollChangedListener) == null) {
-            this.f35051d = onScrollChangedListener;
+            this.d = onScrollChangedListener;
         }
     }
 
     public void setOnScrollChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f35052e = aVar;
+            this.e = aVar;
         }
     }
 
@@ -162,7 +154,7 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f35050c = 50;
+        this.c = 50;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,6 +176,6 @@ public class EditorScrollView extends ScrollView {
                 return;
             }
         }
-        this.f35050c = 50;
+        this.c = 50;
     }
 }

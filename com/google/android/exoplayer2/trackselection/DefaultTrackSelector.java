@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultTrackSelector extends MappingTrackSelector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FRACTION_TO_CONSIDER_FULLSCREEN = 0.98f;
@@ -36,7 +36,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     public final TrackSelection.Factory adaptiveTrackSelectionFactory;
     public final AtomicReference<Parameters> paramsReference;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AudioConfigurationTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AudioTrackScore implements Comparable<AudioTrackScore> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Parameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

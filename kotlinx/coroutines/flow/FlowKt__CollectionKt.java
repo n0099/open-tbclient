@@ -18,7 +18,7 @@ public final /* synthetic */ class FlowKt__CollectionKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, final C c2, Continuation<? super C> continuation) {
+    public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, final C c, Continuation<? super C> continuation) {
         FlowKt__CollectionKt$toCollection$1 flowKt__CollectionKt$toCollection$1;
         int i;
         if (continuation instanceof FlowKt__CollectionKt$toCollection$1) {
@@ -43,15 +43,15 @@ public final /* synthetic */ class FlowKt__CollectionKt {
                 FlowCollector<T> flowCollector = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__CollectionKt$toCollection$$inlined$collect$1
                     @Override // kotlinx.coroutines.flow.FlowCollector
                     public Object emit(Object obj2, Continuation continuation2) {
-                        c2.add(obj2);
+                        c.add(obj2);
                         return Unit.INSTANCE;
                     }
                 };
                 flowKt__CollectionKt$toCollection$1.L$0 = flow;
-                flowKt__CollectionKt$toCollection$1.L$1 = c2;
+                flowKt__CollectionKt$toCollection$1.L$1 = c;
                 flowKt__CollectionKt$toCollection$1.L$2 = flow;
                 flowKt__CollectionKt$toCollection$1.label = 1;
-                return flow.collect(flowCollector, flowKt__CollectionKt$toCollection$1) == coroutine_suspended ? coroutine_suspended : c2;
+                return flow.collect(flowCollector, flowKt__CollectionKt$toCollection$1) == coroutine_suspended ? coroutine_suspended : c;
             }
         }
         flowKt__CollectionKt$toCollection$1 = new FlowKt__CollectionKt$toCollection$1(continuation);

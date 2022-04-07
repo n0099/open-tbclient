@@ -91,12 +91,12 @@ public class PagerTitleStrip extends ViewGroup {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 PagerTitleStrip pagerTitleStrip = this.this$0;
                 pagerTitleStrip.updateText(pagerTitleStrip.mPager.getCurrentItem(), this.this$0.mPager.getAdapter());
-                float f2 = this.this$0.mLastKnownPositionOffset;
-                if (f2 < 0.0f) {
-                    f2 = 0.0f;
+                float f = this.this$0.mLastKnownPositionOffset;
+                if (f < 0.0f) {
+                    f = 0.0f;
                 }
                 PagerTitleStrip pagerTitleStrip2 = this.this$0;
-                pagerTitleStrip2.updateTextPositions(pagerTitleStrip2.mPager.getCurrentItem(), f2, true);
+                pagerTitleStrip2.updateTextPositions(pagerTitleStrip2.mPager.getCurrentItem(), f, true);
             }
         }
 
@@ -109,13 +109,13 @@ public class PagerTitleStrip extends ViewGroup {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-                if (f2 > 0.5f) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+                if (f > 0.5f) {
                     i++;
                 }
-                this.this$0.updateTextPositions(i, f2, false);
+                this.this$0.updateTextPositions(i, f, false);
             }
         }
 
@@ -125,12 +125,12 @@ public class PagerTitleStrip extends ViewGroup {
             if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.mScrollState == 0) {
                 PagerTitleStrip pagerTitleStrip = this.this$0;
                 pagerTitleStrip.updateText(pagerTitleStrip.mPager.getCurrentItem(), this.this$0.mPager.getAdapter());
-                float f2 = this.this$0.mLastKnownPositionOffset;
-                if (f2 < 0.0f) {
-                    f2 = 0.0f;
+                float f = this.this$0.mLastKnownPositionOffset;
+                if (f < 0.0f) {
+                    f = 0.0f;
                 }
                 PagerTitleStrip pagerTitleStrip2 = this.this$0;
-                pagerTitleStrip2.updateTextPositions(pagerTitleStrip2.mPager.getCurrentItem(), f2, true);
+                pagerTitleStrip2.updateTextPositions(pagerTitleStrip2.mPager.getCurrentItem(), f, true);
             }
         }
     }
@@ -160,11 +160,11 @@ public class PagerTitleStrip extends ViewGroup {
         }
 
         @Override // android.text.method.ReplacementTransformationMethod, android.text.method.TransformationMethod
-        public CharSequence getTransformation(CharSequence charSequence, View view) {
+        public CharSequence getTransformation(CharSequence charSequence, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, charSequence, view)) == null) {
-                CharSequence transformation = super.getTransformation(charSequence, view);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, charSequence, view2)) == null) {
+                CharSequence transformation = super.getTransformation(charSequence, view2);
                 if (transformation != null) {
                     return transformation.toString().toUpperCase(this.mLocale);
                 }
@@ -279,11 +279,11 @@ public class PagerTitleStrip extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || this.mPager == null) {
             return;
         }
-        float f2 = this.mLastKnownPositionOffset;
-        if (f2 < 0.0f) {
-            f2 = 0.0f;
+        float f = this.mLastKnownPositionOffset;
+        if (f < 0.0f) {
+            f = 0.0f;
         }
-        updateTextPositions(this.mLastKnownCurrentPage, f2, true);
+        updateTextPositions(this.mLastKnownCurrentPage, f, true);
     }
 
     @Override // android.view.View
@@ -328,10 +328,10 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            int i = ((int) (f2 * 255.0f)) & 255;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            int i = ((int) (f * 255.0f)) & 255;
             this.mNonPrimaryAlpha = i;
             int i2 = (i << 24) | (this.mTextColor & 16777215);
             this.mPrevText.setTextColor(i2);
@@ -350,12 +350,12 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void setTextSize(int i, float f2) {
+    public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            this.mPrevText.setTextSize(i, f2);
-            this.mCurrText.setTextSize(i, f2);
-            this.mNextText.setTextSize(i, f2);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.mPrevText.setTextSize(i, f);
+            this.mCurrText.setTextSize(i, f);
+            this.mNextText.setTextSize(i, f);
         }
     }
 
@@ -414,16 +414,16 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void updateTextPositions(int i, float f2, boolean z) {
+    public void updateTextPositions(int i, float f, boolean z) {
         int i2;
         int i3;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             if (i != this.mLastKnownCurrentPage) {
                 updateText(i, this.mPager.getAdapter());
-            } else if (!z && f2 == this.mLastKnownPositionOffset) {
+            } else if (!z && f == this.mLastKnownPositionOffset) {
                 return;
             }
             this.mUpdatingPositions = true;
@@ -439,11 +439,11 @@ public class PagerTitleStrip extends ViewGroup {
             int paddingBottom = getPaddingBottom();
             int i7 = paddingRight + i6;
             int i8 = (width - (paddingLeft + i6)) - i7;
-            float f3 = 0.5f + f2;
-            if (f3 > 1.0f) {
-                f3 -= 1.0f;
+            float f2 = 0.5f + f;
+            if (f2 > 1.0f) {
+                f2 -= 1.0f;
             }
-            int i9 = ((width - i7) - ((int) (i8 * f3))) - i6;
+            int i9 = ((width - i7) - ((int) (i8 * f2))) - i6;
             int i10 = measuredWidth2 + i9;
             int baseline = this.mPrevText.getBaseline();
             int baseline2 = this.mCurrText.getBaseline();
@@ -468,7 +468,7 @@ public class PagerTitleStrip extends ViewGroup {
                 int max3 = Math.max((width - paddingRight) - measuredWidth3, i10 + this.mScaledTextSpacing);
                 TextView textView3 = this.mNextText;
                 textView3.layout(max3, i5, max3 + measuredWidth3, textView3.getMeasuredHeight() + i5);
-                this.mLastKnownPositionOffset = f2;
+                this.mLastKnownPositionOffset = f;
                 this.mUpdatingPositions = false;
             } else {
                 i2 = (height - paddingBottom) - max2;
@@ -484,7 +484,7 @@ public class PagerTitleStrip extends ViewGroup {
             int max32 = Math.max((width - paddingRight) - measuredWidth3, i10 + this.mScaledTextSpacing);
             TextView textView32 = this.mNextText;
             textView32.layout(max32, i5, max32 + measuredWidth3, textView32.getMeasuredHeight() + i5);
-            this.mLastKnownPositionOffset = f2;
+            this.mLastKnownPositionOffset = f;
             this.mUpdatingPositions = false;
         }
     }

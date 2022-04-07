@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ca extends cc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-            String m256a = cg.a(context).m256a(str);
-            if (TextUtils.isEmpty(m256a)) {
+            String m252a = cg.a(context).m252a(str);
+            if (TextUtils.isEmpty(m252a)) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("rowDataId in (select ");
-            sb.append("rowDataId from " + m256a);
+            sb.append("rowDataId from " + m252a);
             sb.append(" order by createTimeStamp asc");
             sb.append(" limit ?)");
             return new ca(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
@@ -67,7 +67,7 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
-            long a = cm.a(m258a());
+            long a = cm.a(m254a());
             long j = by.f148a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");

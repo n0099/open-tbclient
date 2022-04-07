@@ -17,7 +17,7 @@ import com.yy.gslbsdk.control.NetworkStatus;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DeviceMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DeviceMgr";
@@ -64,8 +64,8 @@ public class DeviceMgr {
             }
             try {
                 return connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e2) {
-                LogTools.printError(TAG, String.format(Locale.US, "getActiveNetwork error. msg: %s", e2.getMessage()));
+            } catch (Exception e) {
+                LogTools.printError(TAG, String.format(Locale.US, "getActiveNetwork error. msg: %s", e.getMessage()));
                 return null;
             }
         }
@@ -94,8 +94,8 @@ public class DeviceMgr {
                         return 3;
                     }
                     return 0;
-                } catch (Exception e2) {
-                    LogTools.printError(TAG, "getISP() exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "getISP() exception:" + e.getMessage());
                     return 0;
                 }
             }
@@ -160,8 +160,8 @@ public class DeviceMgr {
                         return 1;
                     }
                     return 0;
-                } catch (Exception e2) {
-                    LogTools.printError(TAG, "getNetworkType() exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "getNetworkType() exception:" + e.getMessage());
                 }
             }
             return 1;

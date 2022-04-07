@@ -13,7 +13,7 @@ import com.xiaomi.push.hw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class x extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,16 +62,16 @@ public final class x extends XMPushService.i {
             try {
                 hw hwVar = new hw();
                 hwVar.c(hp.D.f490a);
-                hwVar.a(this.f963a.m507a());
+                hwVar.a(this.f963a.m503a());
                 hwVar.a(this.f963a.a());
                 hwVar.b(this.f963a.b());
                 hwVar.e(this.f963a.c());
                 hwVar.a(0L);
                 hwVar.d("success clear push message.");
-                y.a(this.f964a, y.b(this.a.b(), this.a.m493a(), hwVar, hf.i));
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
-                this.f964a.a(10, e2);
+                y.a(this.f964a, y.b(this.a.b(), this.a.m489a(), hwVar, hf.i));
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e);
+                this.f964a.a(10, e);
             }
         }
     }

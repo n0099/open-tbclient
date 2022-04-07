@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.m.a;
-import g.r.f;
+import com.repackage.f3a;
+import com.repackage.gz9;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -114,9 +114,9 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj instanceof Enum) {
                     return ((Enum) obj).name();
                 }
-                String b2 = f.c().b().b(obj);
-                if (b2 != null) {
-                    return b2;
+                String b = f3a.c().b().b(obj);
+                if (b != null) {
+                    return b;
                 }
                 return obj.getClass().getName() + ".class";
             }
@@ -159,11 +159,11 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b2 = a.b(th);
-            if ((b2 instanceof OnNextValue) && ((OnNextValue) b2).getValue() == obj) {
+            Throwable b = gz9.b(th);
+            if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
                 return th;
             }
-            a.a(th, new OnNextValue(obj));
+            gz9.a(th, new OnNextValue(obj));
             return th;
         }
         return (Throwable) invokeLL.objValue;
@@ -176,9 +176,9 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b2 = a.b(th);
-            if (b2 instanceof OnNextValue) {
-                return new OnErrorThrowable(th, ((OnNextValue) b2).getValue());
+            Throwable b = gz9.b(th);
+            if (b instanceof OnNextValue) {
+                return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
             }
             return new OnErrorThrowable(th);
         }

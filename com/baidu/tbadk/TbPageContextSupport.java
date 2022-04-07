@@ -1,5 +1,5 @@
 package com.baidu.tbadk;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface TbPageContextSupport {
     TbPageContext getPageContext();
 }

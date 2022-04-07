@@ -23,26 +23,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static volatile h a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26910b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f26911c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final List<g> f26912d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public g f26913e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f26914f;
+    public boolean b;
+    public boolean c;
+    public final List<g> d;
+    public g e;
+    public String f;
 
     static {
         InterceptResult invokeClinit;
@@ -72,10 +62,10 @@ public final class h {
                 return;
             }
         }
-        this.f26910b = false;
-        this.f26911c = true;
-        this.f26912d = new ArrayList();
-        this.f26913e = null;
+        this.b = false;
+        this.c = true;
+        this.d = new ArrayList();
+        this.e = null;
     }
 
     public static h a() {
@@ -108,8 +98,8 @@ public final class h {
                 if (file.exists()) {
                     file.delete();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return z;
         }
@@ -150,10 +140,10 @@ public final class h {
                             if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
                                 boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
                                 if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                    this.f26912d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                                    this.d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
                                 } else if (Build.VERSION.SDK_INT >= 19) {
                                     if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                        this.f26914f = str + File.separator + "BaiduMapSDKNew";
+                                        this.f = str + File.separator + "BaiduMapSDKNew";
                                     }
                                 }
                             }
@@ -165,10 +155,10 @@ public final class h {
                     if (Build.VERSION.SDK_INT >= 19) {
                         File[] externalFilesDirs = context.getExternalFilesDirs(null);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f26912d);
+                        arrayList.addAll(this.d);
                         for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
                             String absolutePath = externalFilesDirs[i3].getAbsolutePath();
-                            Iterator<g> it = this.f26912d.iterator();
+                            Iterator<g> it = this.d.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (absolutePath.startsWith(it.next().a())) {
@@ -185,12 +175,12 @@ public final class h {
                                 arrayList.add(new g(absolutePath, true, "外置存储卡", context));
                             }
                         }
-                        this.f26912d.clear();
-                        this.f26912d.addAll(arrayList);
+                        this.d.clear();
+                        this.d.addAll(arrayList);
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -217,8 +207,8 @@ public final class h {
                             if (nextLine.startsWith("/dev/block/vold/") && (split2 = nextLine.replace('\t', WebvttCueParser.CHAR_SPACE).split(" ")) != null && split2.length > 0) {
                                 arrayList.add(split2[1]);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             scanner2 = scanner;
                             e.printStackTrace();
                             if (scanner2 != null) {
@@ -253,17 +243,17 @@ public final class h {
                     scanner.close();
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.f26912d.add(new g(absolutePath, false, "Auto", context));
+                this.d.add(new g(absolutePath, false, "Auto", context));
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.f26912d.add(new g(str2, false, "Auto", context));
+                            this.d.add(new g(str2, false, "Auto", context));
                         }
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         } catch (Throwable th2) {
             th = th2;
@@ -276,71 +266,71 @@ public final class h {
     */
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f26910b) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.b) {
             return;
         }
-        this.f26910b = true;
+        this.b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
             } else {
                 d(context);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        try {
-        } catch (Exception e3) {
-            e3.printStackTrace();
-        }
-        if (this.f26912d.size() > 0) {
+        if (this.d.size() > 0) {
             r2 = null;
             int i = 0;
-            for (g gVar : this.f26912d) {
+            for (g gVar : this.d) {
                 if (new File(gVar.b()).exists()) {
                     i++;
                     r2 = gVar;
                 }
             }
             if (i == 0) {
-                g b2 = b(context);
-                this.f26913e = b2;
-                if (b2 == null) {
-                    for (g gVar2 : this.f26912d) {
+                g b = b(context);
+                this.e = b;
+                if (b == null) {
+                    for (g gVar2 : this.d) {
                         if (a(context, gVar2)) {
-                            this.f26913e = gVar2;
+                            this.e = gVar2;
                             break;
                         }
                     }
                 }
-                if (this.f26913e == null) {
-                    this.f26913e = this.f26912d.get(0);
+                if (this.e == null) {
+                    this.e = this.d.get(0);
                 }
             } else {
                 if (i != 1) {
-                    this.f26913e = b(context);
+                    this.e = b(context);
                 } else if (a(context, gVar2)) {
-                    this.f26913e = gVar2;
+                    this.e = gVar2;
                     break;
                 }
-                if (this.f26913e == null) {
+                if (this.e == null) {
                 }
             }
-            e3.printStackTrace();
+            e2.printStackTrace();
         }
         try {
-            if (this.f26913e == null || !a(this.f26913e.a())) {
-                this.f26911c = false;
-                this.f26913e = new g(context);
-                this.f26912d.clear();
-                this.f26912d.add(this.f26913e);
+            if (this.e == null || !a(this.e.a())) {
+                this.c = false;
+                this.e = new g(context);
+                this.d.clear();
+                this.d.add(this.e);
                 return;
             }
-            File file = new File(this.f26913e.b());
+            File file = new File(this.e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.f26913e.c());
+            File file2 = new File(this.e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -349,8 +339,8 @@ public final class h {
                 return;
             }
             file3.createNewFile();
-        } catch (Exception e4) {
-            e4.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
     }
 
@@ -372,7 +362,7 @@ public final class h {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26913e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (g) invokeV.objValue;
     }
 
     public g b(Context context) {
@@ -383,7 +373,7 @@ public final class h {
             if (string == null || string.length() <= 0) {
                 return null;
             }
-            for (g gVar : this.f26912d) {
+            for (g gVar : this.d) {
                 if (gVar.a().equals(string)) {
                     return gVar;
                 }

@@ -13,7 +13,7 @@ import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static char[] ye;
@@ -36,10 +36,10 @@ public class l {
         ye = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         try {
             yf = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e2) {
+        } catch (NoSuchAlgorithmException e) {
             PrintStream printStream = System.err;
             printStream.println(l.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
-            e2.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -57,26 +57,26 @@ public class l {
         }
     }
 
-    public static void a(byte b2, StringBuffer stringBuffer) {
+    public static void a(byte b, StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b), stringBuffer}) == null) {
             char[] cArr = ye;
-            char c2 = cArr[(b2 & 240) >> 4];
-            char c3 = cArr[b2 & 15];
+            char c = cArr[(b & 240) >> 4];
+            char c2 = cArr[b & 15];
+            stringBuffer.append(c);
             stringBuffer.append(c2);
-            stringBuffer.append(c3);
         }
     }
 
     public static synchronized String aT(String str) {
         InterceptResult invokeL;
-        String h2;
+        String h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             synchronized (l.class) {
-                h2 = h(str.getBytes(Charset.forName(IMAudioTransRequest.CHARSET)));
+                h = h(str.getBytes(Charset.forName(IMAudioTransRequest.CHARSET)));
             }
-            return h2;
+            return h;
         }
         return (String) invokeL.objValue;
     }
@@ -94,16 +94,16 @@ public class l {
                 }
                 byte[] digest = messageDigest.digest(bArr);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (byte b2 : digest) {
-                    int i2 = b2 & 255;
+                for (byte b : digest) {
+                    int i2 = b & 255;
                     if (i2 < 16) {
                         stringBuffer.append("0");
                     }
                     stringBuffer.append(Integer.toHexString(i2));
                 }
                 return stringBuffer.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }

@@ -200,8 +200,8 @@ public class RequestBodyHelper {
                 GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
                 gZIPOutputStream.write(bArr);
                 gZIPOutputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             return byteArrayOutputStream.toByteArray();
         }

@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.e;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.ComplianceParmasSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fi;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ComplianceParmasHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final List TIEBAHOST_CHANGE_LIST;
@@ -53,7 +53,7 @@ public class ComplianceParmasHelper {
     public static String getBase64Value(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? e.j(str.getBytes()) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? fi.j(str.getBytes()) : str : (String) invokeL.objValue;
     }
 
     public static String getRenameKey(String str) {

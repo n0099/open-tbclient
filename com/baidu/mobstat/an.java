@@ -38,29 +38,21 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile String f27187c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile int f27188d;
+    public static volatile String c;
+    public static volatile int d;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
+    public final Handler b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Handler f27189b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final Paint f27190b;
+        public final Paint b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -75,7 +67,7 @@ public class an {
                     return;
                 }
             }
-            this.f27190b = new Paint(2);
+            this.b = new Paint(2);
             this.a = null;
         }
 
@@ -94,30 +86,22 @@ public class an {
                         }
                     }
                     if (this.a != null) {
-                        new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.f27190b);
+                        new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Callable<List<c>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Activity a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final List<c> f27191b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final DisplayMetrics f27192c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final a f27193d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final int f27194e;
+        public final List<c> b;
+        public final DisplayMetrics c;
+        public final a d;
+        public final int e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -132,10 +116,10 @@ public class an {
                     return;
                 }
             }
-            this.f27194e = 160;
-            this.f27192c = new DisplayMetrics();
-            this.f27191b = new ArrayList();
-            this.f27193d = new a();
+            this.e = 160;
+            this.c = new DisplayMetrics();
+            this.b = new ArrayList();
+            this.d = new a();
         }
 
         private void b() {
@@ -166,22 +150,22 @@ public class an {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f27191b.clear();
+                this.b.clear();
                 HashSet<Activity> hashSet = new HashSet(1);
                 hashSet.add(this.a);
                 for (Activity activity : hashSet) {
                     String canonicalName = activity.getClass().getCanonicalName();
-                    View b2 = bj.b(activity);
-                    activity.getWindowManager().getDefaultDisplay().getMetrics(this.f27192c);
-                    this.f27191b.add(new c(canonicalName, b2));
+                    View b = bj.b(activity);
+                    activity.getWindowManager().getDefaultDisplay().getMetrics(this.c);
+                    this.b.add(new c(canonicalName, b));
                 }
-                int size = this.f27191b.size();
+                int size = this.b.size();
                 for (int i = 0; i < size; i++) {
                     b();
-                    a(this.f27191b.get(i));
+                    a(this.b.get(i));
                     c();
                 }
-                return this.f27191b;
+                return this.b;
             }
             return (List) invokeV.objValue;
         }
@@ -196,37 +180,26 @@ public class an {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, cVar) == null) {
-                View view = cVar.f27195b;
+                View view2 = cVar.b;
                 Boolean bool = null;
                 try {
                     Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
                     declaredMethod.setAccessible(true);
-                    bitmap = (Bitmap) declaredMethod.invoke(view, Bitmap.Config.RGB_565, -1, Boolean.FALSE);
-                } catch (ClassCastException e2) {
-                    bc.c().d("autotrace: createSnapshot didn't return a bitmap", e2);
+                    bitmap = (Bitmap) declaredMethod.invoke(view2, Bitmap.Config.RGB_565, -1, Boolean.FALSE);
+                } catch (ClassCastException e) {
+                    bc.c().d("autotrace: createSnapshot didn't return a bitmap", e);
                     bitmap = null;
                     if (bitmap == null) {
                     }
                     if (bitmap != null) {
                     }
                     if (bool != null) {
-                        view.setDrawingCacheEnabled(false);
+                        view2.setDrawingCacheEnabled(false);
                     }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
-                } catch (IllegalAccessException e3) {
-                    bc.c().d("autotrace: Can't access createSnapshot, using drawCache", e3);
-                    bitmap = null;
-                    if (bitmap == null) {
-                    }
-                    if (bitmap != null) {
-                    }
-                    if (bool != null) {
-                    }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
-                } catch (IllegalArgumentException e4) {
-                    bc.c().b("autotrace: Can't call createSnapshot with arguments", e4);
+                    cVar.d = r3;
+                    cVar.c = this.d;
+                } catch (IllegalAccessException e2) {
+                    bc.c().d("autotrace: Can't access createSnapshot, using drawCache", e2);
                     bitmap = null;
                     if (bitmap == null) {
                     }
@@ -234,10 +207,10 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
-                } catch (NoSuchMethodException e5) {
-                    bc.c().a("autotrace: Can't call createSnapshot, will use drawCache", e5);
+                    cVar.d = r3;
+                    cVar.c = this.d;
+                } catch (IllegalArgumentException e3) {
+                    bc.c().b("autotrace: Can't call createSnapshot with arguments", e3);
                     bitmap = null;
                     if (bitmap == null) {
                     }
@@ -245,10 +218,10 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
-                } catch (InvocationTargetException e6) {
-                    bc.c().d("autotrace: Exception when calling createSnapshot", e6);
+                    cVar.d = r3;
+                    cVar.c = this.d;
+                } catch (NoSuchMethodException e4) {
+                    bc.c().a("autotrace: Can't call createSnapshot, will use drawCache", e4);
                     bitmap = null;
                     if (bitmap == null) {
                     }
@@ -256,10 +229,10 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
-                } catch (Exception e7) {
-                    bc.c().d(" autotrace:createSnapshot encounter exception", e7);
+                    cVar.d = r3;
+                    cVar.c = this.d;
+                } catch (InvocationTargetException e5) {
+                    bc.c().d("autotrace: Exception when calling createSnapshot", e5);
                     bitmap = null;
                     if (bitmap == null) {
                     }
@@ -267,17 +240,28 @@ public class an {
                     }
                     if (bool != null) {
                     }
-                    cVar.f27197d = r3;
-                    cVar.f27196c = this.f27193d;
+                    cVar.d = r3;
+                    cVar.c = this.d;
+                } catch (Exception e6) {
+                    bc.c().d(" autotrace:createSnapshot encounter exception", e6);
+                    bitmap = null;
+                    if (bitmap == null) {
+                    }
+                    if (bitmap != null) {
+                    }
+                    if (bool != null) {
+                    }
+                    cVar.d = r3;
+                    cVar.c = this.d;
                 }
                 if (bitmap == null) {
                     try {
-                        bool = Boolean.valueOf(view.isDrawingCacheEnabled());
-                        view.setDrawingCacheEnabled(true);
-                        view.buildDrawingCache(true);
-                        bitmap = view.getDrawingCache();
-                    } catch (Exception e8) {
-                        bc.c().a("autotrace: Can't take a bitmap snapshot of view " + view + ", skipping for now.", e8);
+                        bool = Boolean.valueOf(view2.isDrawingCacheEnabled());
+                        view2.setDrawingCacheEnabled(true);
+                        view2.buildDrawingCache(true);
+                        bitmap = view2.getDrawingCache();
+                    } catch (Exception e7) {
+                        bc.c().a("autotrace: Can't take a bitmap snapshot of view " + view2 + ", skipping for now.", e7);
                     }
                 }
                 if (bitmap != null) {
@@ -288,39 +272,33 @@ public class an {
                     int width2 = (int) ((bitmap.getWidth() * r3) + 0.5d);
                     int height2 = (int) ((bitmap.getHeight() * r3) + 0.5d);
                     if (width > 0 && height > 0 && width2 > 0 && height2 > 0) {
-                        this.f27193d.a(width2, height2, 160, bitmap);
+                        this.d.a(width2, height2, 160, bitmap);
                     }
                 }
                 if (bool != null && !bool.booleanValue()) {
-                    view.setDrawingCacheEnabled(false);
+                    view2.setDrawingCacheEnabled(false);
                 }
-                cVar.f27197d = r3;
-                cVar.f27196c = this.f27193d;
+                cVar.d = r3;
+                cVar.c = this.d;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
+        public final View b;
+        public a c;
+        public float d;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final View f27195b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public a f27196c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public float f27197d;
-
-        public c(String str, View view) {
+        public c(String str, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, view};
+                Object[] objArr = {str, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -331,9 +309,9 @@ public class an {
                 }
             }
             this.a = str;
-            this.f27195b = view;
-            this.f27196c = null;
-            this.f27197d = 1.0f;
+            this.b = view2;
+            this.c = null;
+            this.d = 1.0f;
         }
     }
 
@@ -365,21 +343,21 @@ public class an {
                 return;
             }
         }
-        this.f27189b = new Handler(Looper.getMainLooper());
+        this.b = new Handler(Looper.getMainLooper());
         this.a = new b();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f27188d = 0;
+            d = 0;
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f27187c = "";
+            c = "";
         }
     }
 
@@ -407,8 +385,8 @@ public class an {
         }
         try {
             if (ak.a()) {
-                int i = f27188d + 1;
-                f27188d = i;
+                int i = d + 1;
+                d = i;
                 if (i >= 3) {
                     ak.a(false);
                 }
@@ -418,8 +396,8 @@ public class an {
                 }
                 JSONArray c2 = c(activity);
                 String a2 = bt.a.a(c2.toString().getBytes());
-                if (f27187c == null || !f27187c.equals(a2)) {
-                    f27187c = a2;
+                if (c == null || !c.equals(a2)) {
+                    c = a2;
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put(StatisticConstants.SCREENSHOT, bj.a(b2));
@@ -449,21 +427,21 @@ public class an {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
             this.a.a(activity);
             FutureTask futureTask = new FutureTask(this.a);
-            this.f27189b.post(futureTask);
+            this.b.post(futureTask);
             List emptyList = Collections.emptyList();
             try {
                 emptyList = (List) futureTask.get(2L, TimeUnit.SECONDS);
-            } catch (InterruptedException e2) {
-                bc.c().b("autotrace: Screenshot interrupted, no screenshot will be sent.", e2);
-            } catch (TimeoutException e3) {
-                bc.c().c("autotrace: Screenshot took more than 2 second to be scheduled and executed. No screenshot will be sent.", e3);
-            } catch (Exception e4) {
-                bc.c().d("autotrace: Exception thrown during screenshot attempt", e4);
+            } catch (InterruptedException e) {
+                bc.c().b("autotrace: Screenshot interrupted, no screenshot will be sent.", e);
+            } catch (TimeoutException e2) {
+                bc.c().c("autotrace: Screenshot took more than 2 second to be scheduled and executed. No screenshot will be sent.", e2);
+            } catch (Exception e3) {
+                bc.c().d("autotrace: Exception thrown during screenshot attempt", e3);
             }
             if (emptyList.size() == 0) {
                 return null;
             }
-            return ((c) emptyList.get(0)).f27196c.a;
+            return ((c) emptyList.get(0)).c.a;
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -473,22 +451,22 @@ public class an {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(Activity activity, View view, JSONArray jSONArray, String str, View view2) throws Exception {
-        Rect e2;
+    private void a(Activity activity, View view2, JSONArray jSONArray, String str, View view3) throws Exception {
+        Rect e;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65539, this, activity, view, jSONArray, str, view2) == null) || view == null || (e2 = bj.e(view)) == null || ai.a(view)) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65539, this, activity, view2, jSONArray, str, view3) == null) || view2 == null || (e = bj.e(view2)) == null || ai.a(view2)) {
             return;
         }
-        String l = bj.l(view);
-        if (TextUtils.isEmpty(l) || bj.c(activity, view)) {
+        String l = bj.l(view2);
+        if (TextUtils.isEmpty(l) || bj.c(activity, view2)) {
             return;
         }
-        String c2 = bj.c(view);
+        String c2 = bj.c(view2);
         if (TextUtils.isEmpty(c2)) {
-            c2 = bj.a(view, str);
+            c2 = bj.a(view2, str);
             if (TextUtils.isEmpty(c2)) {
-                c2 = bj.a(view, view2);
+                c2 = bj.a(view2, view3);
                 if (TextUtils.isEmpty(c2)) {
                     long j = -1;
                     try {
@@ -503,25 +481,25 @@ public class an {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("p", l);
                     jSONObject2.put("i", c2);
-                    String b2 = bj.b(view);
+                    String b2 = bj.b(view2);
                     jSONObject2.put("t", b2);
                     jSONArray2.put(jSONObject2);
                     jSONObject.put("path", jSONArray2);
                     jSONObject.put("type", b2);
-                    jSONObject.put("value", bj.a(view));
+                    jSONObject.put("value", bj.a(view2));
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("x", ah.a(activity, e2.left));
-                    jSONObject3.put("y", ah.a(activity, e2.top));
-                    jSONObject3.put("w", ah.a(activity, e2.width()));
-                    jSONObject3.put("h", ah.a(activity, e2.height()));
+                    jSONObject3.put("x", ah.a(activity, e.left));
+                    jSONObject3.put("y", ah.a(activity, e.top));
+                    jSONObject3.put("w", ah.a(activity, e.width()));
+                    jSONObject3.put("h", ah.a(activity, e.height()));
                     jSONObject.put(ExecutionState.FRAME, jSONObject3);
-                    jSONObject.put(AnimationProperty.OPACITY, bj.i(view));
+                    jSONObject.put(AnimationProperty.OPACITY, bj.i(view2));
                     jSONObject.put("page", activity.getClass().getName());
-                    jSONObject.put("z", bj.j(view));
-                    boolean z = view instanceof WebView;
+                    jSONObject.put("z", bj.j(view2));
+                    boolean z = view2 instanceof WebView;
                     if (z) {
                         Object obj = null;
-                        String a2 = bl.a(activity, (WebView) view, e2);
+                        String a2 = bl.a(activity, (WebView) view2, e);
                         if (TextUtils.isEmpty(a2)) {
                             str2 = "";
                         } else {
@@ -539,17 +517,17 @@ public class an {
                             jSONObject.put("url", str2);
                         }
                     }
-                    jSONObject.put("edit", bj.b(view, str) ? 1 : 0);
+                    jSONObject.put("edit", bj.b(view2, str) ? 1 : 0);
                     jSONArray.put(jSONObject);
                     if (z) {
                         return;
                     }
-                    if (view instanceof ViewGroup) {
-                        ViewGroup viewGroup = (ViewGroup) view;
+                    if (view2 instanceof ViewGroup) {
+                        ViewGroup viewGroup = (ViewGroup) view2;
                         JSONArray jSONArray3 = new JSONArray();
                         jSONObject.put("child", jSONArray3);
                         for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                            a(activity, viewGroup.getChildAt(i), jSONArray3, b2, view2);
+                            a(activity, viewGroup.getChildAt(i), jSONArray3, b2, view3);
                         }
                         return;
                     }

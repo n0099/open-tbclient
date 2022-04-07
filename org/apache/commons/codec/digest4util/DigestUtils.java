@@ -55,8 +55,8 @@ public class DigestUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             try {
                 return MessageDigest.getInstance(str);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new IllegalArgumentException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalArgumentException(e);
             }
         }
         return (MessageDigest) invokeL.objValue;

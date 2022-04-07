@@ -33,7 +33,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SingleRequest<R> implements Request, SizeReadyCallback, ResourceCallback, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_TAG = "Glide";
@@ -73,7 +73,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -358,10 +358,10 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         }
     }
 
-    public static int maybeApplySizeMultiplier(int i, float f2) {
+    public static int maybeApplySizeMultiplier(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? i == Integer.MIN_VALUE ? i : Math.round(f2 * i) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? i == Integer.MIN_VALUE ? i : Math.round(f * i) : invokeCommon.intValue;
     }
 
     private void notifyLoadFailed() {

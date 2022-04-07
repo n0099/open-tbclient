@@ -11,7 +11,7 @@ import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseConsumer<T> implements Consumer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,8 +86,8 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
                 this.mIsFinished = true;
                 try {
                     onCancellationImpl();
-                } catch (Exception e2) {
-                    onUnhandledException(e2);
+                } catch (Exception e) {
+                    onUnhandledException(e);
                 }
             }
         }
@@ -106,8 +106,8 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
                 this.mIsFinished = true;
                 try {
                     onFailureImpl(th);
-                } catch (Exception e2) {
-                    onUnhandledException(e2);
+                } catch (Exception e) {
+                    onUnhandledException(e);
                 }
             }
         }
@@ -126,8 +126,8 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
                 this.mIsFinished = isLast(i);
                 try {
                     onNewResultImpl(t, i);
-                } catch (Exception e2) {
-                    onUnhandledException(e2);
+                } catch (Exception e) {
+                    onUnhandledException(e);
                 }
             }
         }
@@ -136,25 +136,25 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
     public abstract void onNewResultImpl(T t, int i);
 
     @Override // com.facebook.imagepipeline.producers.Consumer
-    public synchronized void onProgressUpdate(float f2) {
+    public synchronized void onProgressUpdate(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
             synchronized (this) {
                 if (this.mIsFinished) {
                     return;
                 }
                 try {
-                    onProgressUpdateImpl(f2);
-                } catch (Exception e2) {
-                    onUnhandledException(e2);
+                    onProgressUpdateImpl(f);
+                } catch (Exception e) {
+                    onUnhandledException(e);
                 }
             }
         }
     }
 
-    public void onProgressUpdateImpl(float f2) {
+    public void onProgressUpdateImpl(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
         }
     }
 

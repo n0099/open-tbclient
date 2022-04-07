@@ -16,7 +16,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class CodaBarReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -67,13 +67,13 @@ public final class CodaBarReader extends OneDReader {
         this.counterLength = 0;
     }
 
-    public static boolean arrayContains(char[] cArr, char c2) {
+    public static boolean arrayContains(char[] cArr, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{cArr, Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{cArr, Character.valueOf(c)})) == null) {
             if (cArr != null) {
-                for (char c3 : cArr) {
-                    if (c3 == c2) {
+                for (char c2 : cArr) {
+                    if (c2 == c) {
                         return true;
                     }
                 }
@@ -238,8 +238,8 @@ public final class CodaBarReader extends OneDReader {
                 int i10 = CHARACTER_ENCODINGS[this.decodeRowResult.charAt(i2)];
                 for (int i11 = 6; i11 >= 0; i11--) {
                     int i12 = (i11 & 1) + ((i10 & 1) << 1);
-                    float f2 = this.counters[i + i11];
-                    if (f2 < fArr2[i12] || f2 > fArr[i12]) {
+                    float f = this.counters[i + i11];
+                    if (f < fArr2[i12] || f > fArr[i12]) {
                         break loop3;
                     }
                     i10 >>= 1;
@@ -303,13 +303,13 @@ public final class CodaBarReader extends OneDReader {
                         for (int i9 = 0; i9 < findStartPattern; i9++) {
                             i8 += this.counters[i9];
                         }
-                        float f2 = i8;
+                        float f = i8;
                         while (findStartPattern < i3) {
                             i8 += this.counters[findStartPattern];
                             findStartPattern++;
                         }
-                        float f3 = i;
-                        return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f2, f3), new ResultPoint(i8, f3)}, BarcodeFormat.CODABAR);
+                        float f2 = i;
+                        return new Result(this.decodeRowResult.toString(), null, new ResultPoint[]{new ResultPoint(f, f2), new ResultPoint(i8, f2)}, BarcodeFormat.CODABAR);
                     }
                     throw NotFoundException.getNotFoundInstance();
                 }

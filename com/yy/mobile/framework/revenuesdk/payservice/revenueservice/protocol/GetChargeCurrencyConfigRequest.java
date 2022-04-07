@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
                 jSONObject.put("seq", this.seq);
                 jSONObject.put("expand", this.expand);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                RLog.error("GetChargeCurrencyConfigRequest", "constructPSCIMessageRequest error.", e2);
+            } catch (JSONException e) {
+                RLog.error("GetChargeCurrencyConfigRequest", "constructPSCIMessageRequest error.", e);
                 return "";
             }
         }

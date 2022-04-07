@@ -12,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
+import com.repackage.b39;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class Linker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public abstract class Linker {
 
     public static native long nativeGetRandomBaseLoadAddress();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class LibInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<LibInfo> CREATOR;
@@ -66,7 +67,7 @@ public abstract class Linker {
         @AccessedByNative
         public long mRelroStart;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public static class a implements Parcelable.Creator<LibInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -183,8 +184,8 @@ public abstract class Linker {
                 ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(this.mRelroFd);
                 fromFd.writeToParcel(parcel, 0);
                 fromFd.close();
-            } catch (IOException e2) {
-                c.a.q0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
+            } catch (IOException e) {
+                b39.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
             }
         }
 

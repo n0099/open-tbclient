@@ -23,7 +23,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] FINDER_PATTERNS;
@@ -329,8 +329,8 @@ public final class RSS14Reader extends AbstractRSSReader {
             float[] oddRoundingErrors = getOddRoundingErrors();
             float[] evenRoundingErrors = getEvenRoundingErrors();
             for (int i4 = 0; i4 < dataCharacterCounters.length; i4++) {
-                float f2 = dataCharacterCounters[i4] / sum;
-                int i5 = (int) (0.5f + f2);
+                float f = dataCharacterCounters[i4] / sum;
+                int i5 = (int) (0.5f + f);
                 if (i5 <= 0) {
                     i5 = 1;
                 } else if (i5 > 8) {
@@ -339,10 +339,10 @@ public final class RSS14Reader extends AbstractRSSReader {
                 int i6 = i4 / 2;
                 if ((i4 & 1) == 0) {
                     oddCounts[i6] = i5;
-                    oddRoundingErrors[i6] = f2 - i5;
+                    oddRoundingErrors[i6] = f - i5;
                 } else {
                     evenCounts[i6] = i5;
-                    evenRoundingErrors[i6] = f2 - i5;
+                    evenRoundingErrors[i6] = f - i5;
                 }
             }
             adjustOddEvenCounts(z, i3);
@@ -386,11 +386,11 @@ public final class RSS14Reader extends AbstractRSSReader {
                 FinderPattern parseFoundFinderPattern = parseFoundFinderPattern(bitArray, i, z, findFinderPattern);
                 ResultPointCallback resultPointCallback = map == null ? null : (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
                 if (resultPointCallback != null) {
-                    float f2 = (findFinderPattern[0] + findFinderPattern[1]) / 2.0f;
+                    float f = (findFinderPattern[0] + findFinderPattern[1]) / 2.0f;
                     if (z) {
-                        f2 = (bitArray.getSize() - 1) - f2;
+                        f = (bitArray.getSize() - 1) - f;
                     }
-                    resultPointCallback.foundPossibleResultPoint(new ResultPoint(f2, i));
+                    resultPointCallback.foundPossibleResultPoint(new ResultPoint(f, i));
                 }
                 DataCharacter decodeDataCharacter = decodeDataCharacter(bitArray, parseFoundFinderPattern, true);
                 DataCharacter decodeDataCharacter2 = decodeDataCharacter(bitArray, parseFoundFinderPattern, false);

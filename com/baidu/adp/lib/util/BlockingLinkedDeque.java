@@ -20,7 +20,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E>, Serializable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -387911632671998426L;
@@ -33,26 +33,20 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
     public final Condition notEmpty;
     public final Condition notFull;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public abstract class b implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e<E> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public E f23836b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public e<E> f23837c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ BlockingLinkedDeque f23838d;
+        public E b;
+        public e<E> c;
+        public final /* synthetic */ BlockingLinkedDeque d;
 
         public b(BlockingLinkedDeque blockingLinkedDeque) {
             Interceptable interceptable = $ic;
@@ -69,13 +63,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                     return;
                 }
             }
-            this.f23838d = blockingLinkedDeque;
+            this.d = blockingLinkedDeque;
             ReentrantLock reentrantLock = blockingLinkedDeque.lock;
             reentrantLock.lock();
             try {
-                e<E> b2 = b();
-                this.a = b2;
-                this.f23836b = b2 == null ? null : b2.a;
+                e<E> b = b();
+                this.a = b;
+                this.b = b == null ? null : b.a;
             } finally {
                 reentrantLock.unlock();
             }
@@ -84,12 +78,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ReentrantLock reentrantLock = this.f23838d.lock;
+                ReentrantLock reentrantLock = this.d.lock;
                 reentrantLock.lock();
                 try {
-                    e<E> d2 = d(this.a);
-                    this.a = d2;
-                    this.f23836b = d2 == null ? null : d2.a;
+                    e<E> d = d(this.a);
+                    this.a = d;
+                    this.b = d == null ? null : d.a;
                 } finally {
                     reentrantLock.unlock();
                 }
@@ -107,17 +101,17 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 return (e) invokeL.objValue;
             }
             while (true) {
-                e<E> c2 = c(eVar);
-                if (c2 == null) {
+                e<E> c = c(eVar);
+                if (c == null) {
                     return null;
                 }
-                if (c2.a != null) {
-                    return c2;
+                if (c.a != null) {
+                    return c;
                 }
-                if (c2 == eVar) {
+                if (c == eVar) {
                     return b();
                 }
-                eVar = c2;
+                eVar = c;
             }
         }
 
@@ -135,10 +129,10 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 e<E> eVar = this.a;
                 if (eVar != null) {
-                    this.f23837c = eVar;
-                    E e2 = this.f23836b;
+                    this.c = eVar;
+                    E e = this.b;
                     a();
-                    return e2;
+                    return e;
                 }
                 throw new NoSuchElementException();
             }
@@ -149,14 +143,14 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                e<E> eVar = this.f23837c;
+                e<E> eVar = this.c;
                 if (eVar != null) {
-                    this.f23837c = null;
-                    ReentrantLock reentrantLock = this.f23838d.lock;
+                    this.c = null;
+                    ReentrantLock reentrantLock = this.d.lock;
                     reentrantLock.lock();
                     try {
                         if (eVar.a != null) {
-                            this.f23838d.unlink(eVar);
+                            this.d.unlink(eVar);
                         }
                         return;
                     } finally {
@@ -168,13 +162,11 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class c extends BlockingLinkedDeque<E>.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockingLinkedDeque f23839e;
+        public final /* synthetic */ BlockingLinkedDeque e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(BlockingLinkedDeque blockingLinkedDeque) {
@@ -194,21 +186,21 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                     return;
                 }
             }
-            this.f23839e = blockingLinkedDeque;
+            this.e = blockingLinkedDeque;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
         public e<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23839e.last : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.last : (e) invokeV.objValue;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
         public e<E> c(e<E> eVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) ? eVar.f23841b : (e) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) ? eVar.b : (e) invokeL.objValue;
         }
 
         public /* synthetic */ c(BlockingLinkedDeque blockingLinkedDeque, a aVar) {
@@ -216,13 +208,11 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class d extends BlockingLinkedDeque<E>.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockingLinkedDeque f23840e;
+        public final /* synthetic */ BlockingLinkedDeque e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(BlockingLinkedDeque blockingLinkedDeque) {
@@ -242,21 +232,21 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                     return;
                 }
             }
-            this.f23840e = blockingLinkedDeque;
+            this.e = blockingLinkedDeque;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
         public e<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23840e.first : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.first : (e) invokeV.objValue;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
         public e<E> c(e<E> eVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) ? eVar.f23842c : (e) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) ? eVar.c : (e) invokeL.objValue;
         }
 
         public /* synthetic */ d(BlockingLinkedDeque blockingLinkedDeque, a aVar) {
@@ -264,24 +254,20 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class e<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public E a;
+        public e<E> b;
+        public e<E> c;
 
-        /* renamed from: b  reason: collision with root package name */
-        public e<E> f23841b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public e<E> f23842c;
-
-        public e(E e2) {
+        public e(E e) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e2};
+                Object[] objArr = {e};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -291,7 +277,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                     return;
                 }
             }
-            this.a = e2;
+            this.a = e;
         }
     }
 
@@ -321,12 +307,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 return false;
             }
             e<E> eVar2 = this.first;
-            eVar.f23842c = eVar2;
+            eVar.c = eVar2;
             this.first = eVar;
             if (this.last == null) {
                 this.last = eVar;
             } else {
-                eVar2.f23841b = eVar;
+                eVar2.b = eVar;
             }
             this.count++;
             this.notEmpty.signal();
@@ -343,12 +329,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 return false;
             }
             e<E> eVar2 = this.last;
-            eVar.f23841b = eVar2;
+            eVar.b = eVar2;
             this.last = eVar;
             if (this.first == null) {
                 this.first = eVar;
             } else {
-                eVar2.f23842c = eVar;
+                eVar2.c = eVar;
             }
             this.count++;
             this.notEmpty.signal();
@@ -385,15 +371,15 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             if (eVar == null) {
                 return null;
             }
-            e<E> eVar2 = eVar.f23842c;
+            e<E> eVar2 = eVar.c;
             E e2 = eVar.a;
             eVar.a = null;
-            eVar.f23842c = eVar;
+            eVar.c = eVar;
             this.first = eVar2;
             if (eVar2 == null) {
                 this.last = null;
             } else {
-                eVar2.f23841b = null;
+                eVar2.b = null;
             }
             this.count--;
             this.notFull.signal();
@@ -410,15 +396,15 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             if (eVar == null) {
                 return null;
             }
-            e<E> eVar2 = eVar.f23841b;
+            e<E> eVar2 = eVar.b;
             E e2 = eVar.a;
             eVar.a = null;
-            eVar.f23841b = eVar;
+            eVar.b = eVar;
             this.last = eVar2;
             if (eVar2 == null) {
                 this.first = null;
             } else {
-                eVar2.f23842c = null;
+                eVar2.c = null;
             }
             this.count--;
             this.notFull.signal();
@@ -434,7 +420,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             reentrantLock.lock();
             try {
                 objectOutputStream.defaultWriteObject();
-                for (e<E> eVar = this.first; eVar != null; eVar = eVar.f23842c) {
+                for (e<E> eVar = this.first; eVar != null; eVar = eVar.c) {
                     objectOutputStream.writeObject(eVar.a);
                 }
                 objectOutputStream.writeObject(null);
@@ -479,9 +465,9 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 e<E> eVar = this.first;
                 while (eVar != null) {
                     eVar.a = null;
-                    e<E> eVar2 = eVar.f23842c;
-                    eVar.f23841b = null;
-                    eVar.f23842c = null;
+                    e<E> eVar2 = eVar.c;
+                    eVar.b = null;
+                    eVar.c = null;
                     eVar = eVar2;
                 }
                 this.last = null;
@@ -505,7 +491,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
-                for (e<E> eVar = this.first; eVar != null; eVar = eVar.f23842c) {
+                for (e<E> eVar = this.first; eVar != null; eVar = eVar.c) {
                     if (obj.equals(eVar.a)) {
                         return true;
                     }
@@ -794,7 +780,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
-                for (e<E> eVar = this.first; eVar != null; eVar = eVar.f23842c) {
+                for (e<E> eVar = this.first; eVar != null; eVar = eVar.c) {
                     if (obj.equals(eVar.a)) {
                         unlink(eVar);
                         return true;
@@ -831,7 +817,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
-                for (e<E> eVar = this.last; eVar != null; eVar = eVar.f23841b) {
+                for (e<E> eVar = this.last; eVar != null; eVar = eVar.b) {
                     if (obj.equals(eVar.a)) {
                         unlink(eVar);
                         return true;
@@ -923,7 +909,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 while (eVar != null) {
                     int i2 = i + 1;
                     objArr[i] = eVar.a;
-                    eVar = eVar.f23842c;
+                    eVar = eVar.c;
                     i = i2;
                 }
                 return objArr;
@@ -956,7 +942,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                     obj = "(this Collection)";
                 }
                 sb.append(obj);
-                eVar = eVar.f23842c;
+                eVar = eVar.c;
                 if (eVar == null) {
                     sb.append(']');
                     return sb.toString();
@@ -972,15 +958,15 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
     public void unlink(e<E> eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, eVar) == null) {
-            e<E> eVar2 = eVar.f23841b;
-            e<E> eVar3 = eVar.f23842c;
+            e<E> eVar2 = eVar.b;
+            e<E> eVar3 = eVar.c;
             if (eVar2 == null) {
                 unlinkFirst();
             } else if (eVar3 == null) {
                 unlinkLast();
             } else {
-                eVar2.f23842c = eVar3;
-                eVar3.f23841b = eVar2;
+                eVar2.c = eVar3;
+                eVar3.b = eVar2;
                 eVar.a = null;
                 this.count--;
                 this.notFull.signal();
@@ -1226,7 +1212,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E
                 e<E> eVar = this.first;
                 while (eVar != null) {
                     tArr[i] = eVar.a;
-                    eVar = eVar.f23842c;
+                    eVar = eVar.c;
                     i++;
                 }
                 if (tArr.length > i) {

@@ -8,14 +8,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.j;
 import com.kwad.sdk.reward.k;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static j.b a(final j.a aVar, final com.kwad.sdk.reward.a aVar2) {
-        final Activity activity = aVar2.f40748h;
+        final Activity activity = aVar2.h;
         final com.kwad.sdk.reward.c.a aVar3 = aVar2.k;
-        final AdTemplate adTemplate = aVar2.f40747g;
+        final AdTemplate adTemplate = aVar2.g;
         final AdInfo j = d.j(adTemplate);
-        final JSONObject jSONObject = aVar2.f40745e;
+        final JSONObject jSONObject = aVar2.e;
         return new j.c() { // from class: com.kwad.sdk.reward.widget.a.1
             @Override // com.kwad.sdk.reward.j.c, com.kwad.sdk.reward.j.b
             public void a() {
@@ -69,13 +69,13 @@ public class a {
     }
 
     public static void a(com.kwad.sdk.reward.a aVar) {
-        Activity activity = aVar.f40748h;
-        AdTemplate adTemplate = aVar.f40747g;
+        Activity activity = aVar.h;
+        AdTemplate adTemplate = aVar.g;
         AdInfo j = d.j(adTemplate);
-        long b2 = com.kwad.sdk.core.response.a.a.b(j) * 1000;
+        long b = com.kwad.sdk.core.response.a.a.b(j) * 1000;
         long n = com.kwad.sdk.core.response.a.a.n(j);
         String str = "观看完整视频即可获取奖励";
-        if (n > 0 && b2 > n) {
+        if (n > 0 && b > n) {
             str = "观看视频" + n + "s即可获取奖励";
         }
         j.a a = j.a(adTemplate, str, aVar.y, aVar.z);

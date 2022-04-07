@@ -86,7 +86,7 @@ public final class TimeUtils {
 
     public static int formatDurationLocked(long j, int i) {
         InterceptResult invokeCommon;
-        char c2;
+        char c;
         int i2;
         int i3;
         int i4;
@@ -109,9 +109,9 @@ public final class TimeUtils {
                 return 1;
             }
             if (i7 > 0) {
-                c2 = '+';
+                c = '+';
             } else {
-                c2 = SignatureImpl.SEP;
+                c = SignatureImpl.SEP;
                 j2 = -j2;
             }
             int i9 = (int) (j2 % 1000);
@@ -149,7 +149,7 @@ public final class TimeUtils {
             } else {
                 i6 = 0;
             }
-            cArr[i6] = c2;
+            cArr[i6] = c;
             int i11 = i6 + 1;
             boolean z = i != 0;
             int printField = printField(cArr, i2, 'd', i11, false, 0);
@@ -163,11 +163,11 @@ public final class TimeUtils {
         return invokeCommon.intValue;
     }
 
-    public static int printField(char[] cArr, int i, char c2, int i2, boolean z, int i3) {
+    public static int printField(char[] cArr, int i, char c, int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{cArr, Integer.valueOf(i), Character.valueOf(c2), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{cArr, Integer.valueOf(i), Character.valueOf(c), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
             if (z || i > 0) {
                 if ((!z || i3 < 3) && i <= 99) {
                     i4 = i2;
@@ -185,7 +185,7 @@ public final class TimeUtils {
                 }
                 cArr[i4] = (char) (i + 48);
                 int i7 = i4 + 1;
-                cArr[i7] = c2;
+                cArr[i7] = c;
                 return i7 + 1;
             }
             return i2;

@@ -9,15 +9,11 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.Observable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class x extends Observable {
     public static volatile x a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f41409b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f41410c;
+    public WeakReference<Activity> b;
+    public WeakReference<Activity> c;
 
     public static x a() {
         if (a == null) {
@@ -67,9 +63,7 @@ public class x extends Observable {
         com.kwad.sdk.core.d.a.a("LifecycleHolder", "init application: " + application);
         if (application != null) {
             application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.kwad.sdk.utils.x.1
-
-                /* renamed from: b  reason: collision with root package name */
-                public int f41411b = 0;
+                public int b = 0;
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
@@ -81,16 +75,16 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
-                    if (x.this.f41409b == null || x.this.f41409b.get() == null || !((Activity) x.this.f41409b.get()).equals(activity)) {
+                    if (x.this.b == null || x.this.b.get() == null || !((Activity) x.this.b.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f41409b = null;
+                    x.this.b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
-                    x.this.f41409b = new WeakReference(activity);
-                    x.this.f41410c = new WeakReference(activity);
+                    x.this.b = new WeakReference(activity);
+                    x.this.c = new WeakReference(activity);
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -99,8 +93,8 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStarted(@NonNull Activity activity) {
-                    int i2 = this.f41411b + 1;
-                    this.f41411b = i2;
+                    int i2 = this.b + 1;
+                    this.b = i2;
                     if (i2 == 1) {
                         x.this.e();
                     }
@@ -108,15 +102,15 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStopped(@NonNull Activity activity) {
-                    int i2 = this.f41411b - 1;
-                    this.f41411b = i2;
+                    int i2 = this.b - 1;
+                    this.b = i2;
                     if (i2 == 0) {
                         x.this.f();
                     }
-                    if (x.this.f41410c == null || x.this.f41410c.get() == null || !((Activity) x.this.f41410c.get()).equals(activity)) {
+                    if (x.this.c == null || x.this.c.get() == null || !((Activity) x.this.c.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f41410c = null;
+                    x.this.c = null;
                 }
             });
         }
@@ -128,7 +122,7 @@ public class x extends Observable {
 
     @Nullable
     public Activity c() {
-        WeakReference<Activity> weakReference = this.f41409b;
+        WeakReference<Activity> weakReference = this.b;
         if (weakReference == null) {
             return null;
         }
@@ -137,7 +131,7 @@ public class x extends Observable {
 
     public int d() {
         Activity activity;
-        WeakReference<Activity> weakReference = this.f41410c;
+        WeakReference<Activity> weakReference = this.c;
         if (weakReference == null || (activity = weakReference.get()) == null) {
             return 0;
         }

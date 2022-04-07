@@ -11,9 +11,7 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f42614b;
+    public /* synthetic */ a b;
 
     public c(a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public final class c implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f42614b = aVar;
+        this.b = aVar;
         this.a = str;
     }
 
@@ -38,7 +36,7 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public final void a(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-            this.f42614b.a(i, i2, str);
+            this.b.a(i, i2, str);
         }
     }
 
@@ -49,17 +47,17 @@ public final class c implements com.sdk.base.framework.b.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
             if (i == 0 && com.sdk.base.framework.a.a.c.a(this.a).booleanValue()) {
-                context = this.f42614b.f42609d;
+                context = this.b.d;
                 String a = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
                 if (a == null) {
-                    this.f42614b.a(1, "SDK解密异常", 302001, a, str2);
+                    this.b.a(1, "SDK解密异常", 302001, a, str2);
                     return;
                 }
                 str3 = a;
             } else {
                 str3 = t;
             }
-            this.f42614b.a(i, str, i2, str3, str2);
+            this.b.a(i, str, i2, str3, str2);
         }
     }
 }

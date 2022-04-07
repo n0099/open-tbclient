@@ -7,7 +7,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsFullScreenVideoActivity extends BaseProxyActivity {
     @Override // com.kwad.sdk.api.proxy.BaseProxyActivity
     @NonNull

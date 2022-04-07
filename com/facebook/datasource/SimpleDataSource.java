@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,10 +40,10 @@ public class SimpleDataSource<T> extends AbstractDataSource<T> {
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean setProgress(float f2) {
+    public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? super.setProgress(f2) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? super.setProgress(f) : invokeF.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */

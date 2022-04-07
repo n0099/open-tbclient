@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultExtractorInput implements ExtractorInput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PEEK_MAX_FREE_SPACE = 524288;
@@ -241,12 +241,12 @@ public final class DefaultExtractorInput implements ExtractorInput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public <E extends Throwable> void setRetryPosition(long j, E e2) throws Throwable {
+    public <E extends Throwable> void setRetryPosition(long j, E e) throws Throwable {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048587, this, j, e2) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048587, this, j, e) == null) {
             Assertions.checkArgument(j >= 0);
             this.position = j;
-            throw e2;
+            throw e;
         }
     }
 

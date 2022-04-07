@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.circularreveal.CircularRevealWidget;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CircularRevealCardView extends MaterialCardView implements CircularRevealWidget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

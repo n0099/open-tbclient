@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcNotifyMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMRtcNotifyMsg";
@@ -141,15 +141,15 @@ public class BIMRtcNotifyMsg {
                         bIMKickResSyncRtcInfo.setBIMKickedUser(bIMUser2);
                     }
                     return bIMKickResSyncRtcInfo;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     LogUtils.e(TAG, "parseJson exception：", e);
                     return null;
                 }
             }
             return null;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 }

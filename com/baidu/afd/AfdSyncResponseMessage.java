@@ -1,19 +1,19 @@
 package com.baidu.afd;
 
-import c.a.e.a;
-import c.a.e.e;
-import c.a.e.f;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mp;
+import com.repackage.pp;
+import com.repackage.qp;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e adModel;
+    public pp adModel;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AfdSyncResponseMessage(int i) {
@@ -43,17 +43,17 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
                 try {
-                    this.adModel = f.b(jSONObject, "1517888290046");
+                    this.adModel = qp.b(jSONObject, "1517888290046");
                     return;
-                } catch (ParseError e2) {
-                    e2.printStackTrace();
-                    e a = a.a("", "1517888290046");
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                    pp a = mp.a("", "1517888290046");
                     this.adModel = a;
-                    a.f2676d = e2;
+                    a.b = e;
                     return;
                 }
             }
-            this.adModel = a.a("", "1517888290046");
+            this.adModel = mp.a("", "1517888290046");
         }
     }
 }

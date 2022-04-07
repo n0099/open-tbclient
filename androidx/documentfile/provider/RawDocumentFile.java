@@ -120,8 +120,8 @@ public class RawDocumentFile extends DocumentFile {
             try {
                 file.createNewFile();
                 return new RawDocumentFile(this, file);
-            } catch (IOException e2) {
-                Log.w("DocumentFile", "Failed to createFile: " + e2);
+            } catch (IOException e) {
+                Log.w("DocumentFile", "Failed to createFile: " + e);
                 return null;
             }
         }

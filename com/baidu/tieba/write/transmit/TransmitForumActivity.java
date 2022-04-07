@@ -8,7 +8,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.d.o.e.n;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -24,20 +23,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c09;
+import com.repackage.e09;
+import com.repackage.ho;
+import com.repackage.oi;
+import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FORUM_NUM = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.d.o.e.a> mAdapters;
+    public List<ho> mAdapters;
     public ImageView mBackImageView;
     public View mBackView;
-    public List<n> mDataList;
+    public List<uo> mDataList;
     public TransmitForumAdapter mForumAdapter;
     public View mLayoutOperate;
     public BdTypeListView mListView;
@@ -45,12 +49,12 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TransmitSelectAdapter mSelectAdapter;
     public View mTopView;
     public TextView mTransmitConfirmButton;
-    public c.a.p0.s4.q.a mTransmitForumCallback;
+    public c09 mTransmitForumCallback;
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +79,13 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
                 return;
             }
-            if (view.getId() != this.a.mTransmitConfirmButton.getId()) {
-                if (view.getId() == this.a.mBackView.getId() || view.getId() == this.a.mTopView.getId()) {
+            if (view2.getId() != this.a.mTransmitConfirmButton.getId()) {
+                if (view2.getId() == this.a.mBackView.getId() || view2.getId() == this.a.mTopView.getId()) {
                     this.a.setResult(0);
                     this.a.startExitAnimation();
                     return;
@@ -96,8 +100,8 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements c.a.p0.s4.q.a {
+    /* loaded from: classes4.dex */
+    public class b implements c09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TransmitForumActivity a;
@@ -120,7 +124,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             this.a = transmitForumActivity;
         }
 
-        @Override // c.a.p0.s4.q.a
+        @Override // com.repackage.c09
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -128,15 +132,15 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             }
         }
 
-        @Override // c.a.p0.s4.q.a
+        @Override // com.repackage.c09
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f1416);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f141e);
             }
         }
 
-        @Override // c.a.p0.s4.q.a
+        @Override // com.repackage.c09
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -144,7 +148,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,8 +225,8 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     try {
                         jSONObject.put(String.valueOf(transmitForumData.forumId), transmitForumData.type);
                         jSONArray.put(jSONObject);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -237,9 +241,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             int count = ListUtils.getCount(getSelectedList());
             if (count > 0) {
-                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1413, Integer.valueOf(count), 3));
+                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f141b, Integer.valueOf(count), 3));
             } else {
-                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f041a));
+                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0421));
             }
         }
     }
@@ -248,7 +252,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public void startExitAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.obfuscated_res_0x7f0100b0);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.obfuscated_res_0x7f0100b5);
             loadAnimation.setAnimationListener(new c(this));
             this.mLayoutOperate.startAnimation(loadAnimation);
         }
@@ -275,9 +279,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            for (n nVar : this.mDataList) {
-                if (nVar instanceof TransmitForumData) {
-                    TransmitForumData transmitForumData = (TransmitForumData) nVar;
+            for (uo uoVar : this.mDataList) {
+                if (uoVar instanceof TransmitForumData) {
+                    TransmitForumData transmitForumData = (TransmitForumData) uoVar;
                     if (transmitForumData.checked) {
                         arrayList.add(transmitForumData);
                     }
@@ -298,17 +302,17 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                 if (j0 == null) {
                     return;
                 }
-                for (n nVar : this.mDataList) {
-                    if ((nVar instanceof TransmitForumData) && TextUtils.equals(j0.mForumName, ((TransmitForumData) nVar).forumName)) {
+                for (uo uoVar : this.mDataList) {
+                    if ((uoVar instanceof TransmitForumData) && TextUtils.equals(j0.mForumName, ((TransmitForumData) uoVar).forumName)) {
                         return;
                     }
                 }
                 if (this.mTransmitForumCallback.c()) {
-                    List<n> list = this.mDataList;
+                    List<uo> list = this.mDataList;
                     list.add(list.size() - 1, new TransmitForumData(j0.mForumId, j0.mForumName, false, 0));
-                    showToast(R.string.obfuscated_res_0x7f0f1416);
+                    showToast(R.string.obfuscated_res_0x7f0f141e);
                 } else {
-                    List<n> list2 = this.mDataList;
+                    List<uo> list2 = this.mDataList;
                     list2.add(list2.size() - 1, new TransmitForumData(j0.mForumId, j0.mForumName, true, 0));
                 }
                 setTransmitConfirmButtonText();
@@ -334,19 +338,19 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d084d);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09214c);
+            setContentView(R.layout.obfuscated_res_0x7f0d0844);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092131);
             this.mBackView = findViewById;
             findViewById.setOnClickListener(this.mOnClickListener);
-            this.mTransmitConfirmButton = (TextView) findViewById(R.id.obfuscated_res_0x7f092146);
-            this.mTransmitTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09214b);
-            this.mTransmitSubTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09214a);
-            this.mBackImageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09214c);
+            this.mTransmitConfirmButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
+            this.mTransmitTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092130);
+            this.mTransmitSubTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
+            this.mBackImageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092131);
             this.mTransmitConfirmButton.setOnClickListener(this.mOnClickListener);
-            this.mListView = (BdTypeListView) findViewById(R.id.obfuscated_res_0x7f09214d);
-            this.mListView.setMaxHeight(c.a.d.f.p.n.i(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9));
+            this.mListView = (BdTypeListView) findViewById(R.id.obfuscated_res_0x7f092132);
+            this.mListView.setMaxHeight(oi.i(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e3));
             this.mListView.setOverScrollMode(2);
-            this.mTransmitTipsView = (TextView) findViewById(R.id.obfuscated_res_0x7f09214a);
+            this.mTransmitTipsView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
             this.mDataList = new ArrayList();
             if (getIntent() != null) {
                 arrayList = getIntent().getParcelableArrayListExtra(TransmitForumActivityConfig.KEY_RECOMMEND_FORUM_LIST);
@@ -354,9 +358,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     TransmitForumData transmitForumData = (TransmitForumData) arrayList.get(0);
                     if (transmitForumData != null) {
                         if (transmitForumData.checked) {
-                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f1414);
+                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141c);
                         } else {
-                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f1415);
+                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141d);
                         }
                     }
                     this.mDataList.addAll(arrayList);
@@ -364,21 +368,21 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             } else {
                 arrayList = null;
             }
-            this.mDataList.add(new c.a.p0.s4.q.c());
+            this.mDataList.add(new e09());
             this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), c.a.p0.s4.q.c.a, getUniqueId(), arrayList);
+            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), e09.a, getUniqueId(), arrayList);
             this.mForumAdapter.c0(this.mTransmitForumCallback);
             this.mAdapters.add(this.mForumAdapter);
             this.mAdapters.add(this.mSelectAdapter);
             this.mListView.a(this.mAdapters);
             this.mListView.setData(this.mDataList);
             setTransmitConfirmButtonText();
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923de);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923b9);
             this.mTopView = findViewById2;
             findViewById2.setOnClickListener(this.mOnClickListener);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0911ef);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0911e4);
             this.mLayoutOperate = findViewById3;
-            findViewById3.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.obfuscated_res_0x7f010089));
+            findViewById3.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.obfuscated_res_0x7f01008a));
             SkinManager.setBackgroundColor(this.mLayoutOperate, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
             SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);

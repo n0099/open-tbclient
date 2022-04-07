@@ -15,6 +15,7 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.platform.base.SearchType;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,19 +29,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28207b = "g";
+    public static final String b = "g";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f28208c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f28209d;
+    public int c;
+    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -72,8 +67,8 @@ public class g extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f28208c = i;
-        this.f28209d = i2;
+        this.c = i;
+        this.d = i2;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -103,8 +98,8 @@ public class g extends com.baidu.platform.base.d {
                     }
                     poiResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
-                } catch (JSONException e2) {
-                    Log.e(f28207b, "Parse poi search failed", e2);
+                } catch (JSONException e) {
+                    Log.e(b, "Parse poi search failed", e);
                     poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             }
@@ -125,9 +120,9 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f28208c);
+                    poiResult.setCurrentPageNum(this.c);
                     if (length != 0) {
-                        int i = this.f28209d;
+                        int i = this.d;
                         poiResult.setTotalPageNum((optInt / i) + (optInt % i > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
@@ -193,12 +188,12 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
                 SearchType a = a();
-                if (SearchType.f28171b == a || SearchType.a == a) {
+                if (SearchType.b == a || SearchType.a == a) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;
-            } catch (JSONException e2) {
-                Log.e(f28207b, "Parse poi search detail info failed", e2);
+            } catch (JSONException e) {
+                Log.e(b, "Parse poi search detail info failed", e);
                 return null;
             }
         }
@@ -209,7 +204,7 @@ public class g extends com.baidu.platform.base.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("children");
+            JSONArray optJSONArray = jSONObject.optJSONArray(CriusAttrConstants.CHILDREN);
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return null;
             }
@@ -243,16 +238,16 @@ public class g extends com.baidu.platform.base.d {
         InterceptResult invokeL;
         SearchResult.ERRORNO errorno;
         JSONObject jSONObject;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             PoiResult poiResult = new PoiResult();
             if (str != null && !str.equals("") && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                    c2 = 0;
-                } catch (JSONException e2) {
-                    Log.e(f28207b, "Parse poi search error", e2);
+                    c = 0;
+                } catch (JSONException e) {
+                    Log.e(b, "Parse poi search error", e);
                 }
                 if (jSONObject.has("SDK_InnerError")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
@@ -265,11 +260,11 @@ public class g extends com.baidu.platform.base.d {
                         int hashCode = optString.hashCode();
                         if (hashCode != -879828873) {
                             if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
-                                c2 = 1;
+                                c = 1;
                             }
-                            c2 = 65535;
+                            c = 65535;
                         }
-                        poiResult.error = c2 != 0 ? c2 != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
+                        poiResult.error = c != 0 ? c != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
                         return poiResult;
                     }
                 }

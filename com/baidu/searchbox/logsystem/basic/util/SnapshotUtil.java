@@ -30,14 +30,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SnapshotUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FILE_PATH_NAME_PARAMETER_DIVIDER = "=";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.util.SnapshotUtil$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType;
         public static /* synthetic */ Interceptable $ic;
@@ -146,8 +146,8 @@ public class SnapshotUtil {
                                     if (fileWriter != null) {
                                         try {
                                             fileWriter.close();
-                                        } catch (IOException e2) {
-                                            e2.printStackTrace();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                     throw th2;
@@ -157,8 +157,8 @@ public class SnapshotUtil {
                             th = th3;
                         }
                     }
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
                 return file2;
             }
@@ -256,9 +256,9 @@ public class SnapshotUtil {
             if (Utility.createNewEmptyFile(file2)) {
                 try {
                     saveFragmentSnapshot = forwardingDeviceEventSceneHandler.saveFragmentSnapshot(context, eventObject, file2);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (LLog.sDebug) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 if (saveFragmentSnapshot && file2.exists()) {
@@ -350,9 +350,9 @@ public class SnapshotUtil {
             if (Utility.createNewEmptyFile(file2)) {
                 try {
                     saveFragmentSnapshot = forwardingProcessEventSceneHandler.saveFragmentSnapshot(context, eventObject, file2);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (LLog.sDebug) {
-                        Log.d("SnapshotUtil", Log.getStackTraceString(e2));
+                        Log.d("SnapshotUtil", Log.getStackTraceString(e));
                     }
                 }
                 if (saveFragmentSnapshot && file2.exists()) {

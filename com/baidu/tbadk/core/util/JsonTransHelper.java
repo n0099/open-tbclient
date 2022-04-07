@@ -28,7 +28,7 @@ import tbclient.McnAdInfo;
 import tbclient.ThreadPicList;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class JsonTransHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -300,8 +300,8 @@ public class JsonTransHelper {
                 jSONObject.put("name", actionControl.name);
                 jSONObject.put(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, actionControl.text_color);
                 jSONObject.put("text_color_pressed", actionControl.text_color_pressed);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -326,8 +326,8 @@ public class JsonTransHelper {
                 jSONObject.put("reasons", jSONArray);
                 jSONObject.put("confirm_title", adCloseInfo.confirm_title);
                 jSONObject.put("action_control", toActionControlJson(adCloseInfo.action_control));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -379,8 +379,8 @@ public class JsonTransHelper {
                 jSONObject.put("goods_info", jSONArray);
                 jSONObject.put("loc_code", app.loc_code);
                 jSONObject.put("deep_url", app.deep_url);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -429,8 +429,8 @@ public class JsonTransHelper {
                 jSONObject.put("brand_icon", goodsInfo.brand_icon);
                 jSONObject.put("brand_icon_wh", goodsInfo.brand_icon_wh);
                 jSONObject.put(GameGuideConfigInfo.KEY_CLOSE_INFO, toAdCloseInfoJson(goodsInfo.close_info));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -454,8 +454,8 @@ public class JsonTransHelper {
                 jSONObject.put("button_title", mcnAdInfo.button_title);
                 jSONObject.put("effect_time", mcnAdInfo.effect_time);
                 jSONObject.put("expire_time", mcnAdInfo.expire_time);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -472,8 +472,8 @@ public class JsonTransHelper {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("pic", threadPicList.pic);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -494,8 +494,8 @@ public class JsonTransHelper {
                 jSONObject.put("video_url", videoDesc.video_url);
                 jSONObject.put("video_width", videoDesc.video_width);
                 jSONObject.put("video_height", videoDesc.video_height);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -535,8 +535,8 @@ public class JsonTransHelper {
                 jSONObject.put("mcn_ad_card", toMcnAdInfoJson(videoInfo.mcn_ad_card));
                 jSONObject.put("wth_mid_loc", videoInfo.wth_mid_loc);
                 jSONObject.put("hth_mid_loc", videoInfo.hth_mid_loc);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

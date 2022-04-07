@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceQueue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,13 +17,13 @@ public class FaceQueue {
     public PoolWorker[] threads;
 
     /* renamed from: com.baidu.pass.main.facesdk.FaceQueue$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class HolderClass {
         public static /* synthetic */ Interceptable $ic;
         public static final FaceQueue instance;
@@ -60,7 +60,7 @@ public class FaceQueue {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class PoolWorker extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +107,8 @@ public class FaceQueue {
                 }
                 try {
                     runnable.run();
-                } catch (RuntimeException e2) {
-                    e2.printStackTrace();
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
                 }
             }
         }

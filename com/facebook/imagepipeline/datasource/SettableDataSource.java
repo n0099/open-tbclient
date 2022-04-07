@@ -11,7 +11,7 @@ import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public final class SettableDataSource<T> extends AbstractDataSource<CloseableRef
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean setProgress(float f2) {
+    public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) ? super.setProgress(f2) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) ? super.setProgress(f) : invokeF.booleanValue;
     }
 
     public void closeResult(@Nullable CloseableReference<T> closeableReference) {

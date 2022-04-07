@@ -1,8 +1,5 @@
 package com.baidu.tieba.funad;
 
-import c.a.p0.g1.b;
-import c.a.p0.h1.c;
-import c.a.p0.h1.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,13 +17,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-/* loaded from: classes5.dex */
+import com.repackage.cs6;
+import com.repackage.ds6;
+import com.repackage.ls6;
+import com.repackage.ms6;
+/* loaded from: classes3.dex */
 public class FunAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<b.f> {
+    /* loaded from: classes3.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<cs6.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,10 +46,10 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<b.f> run(CustomMessage<b.f> customMessage) {
+        public CustomResponsedMessage<cs6.f> run(CustomMessage<cs6.f> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921525, new c()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921525, new ls6()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -66,7 +67,7 @@ public class FunAdStatic {
             }
         }
         GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-        c.a.p0.g1.c.a.set(new d());
+        ds6.a.set(new ms6());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ay implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -39,7 +39,7 @@ public class ay implements ar {
     /* renamed from: a  reason: collision with other field name */
     public final Object f124a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,15 +47,9 @@ public class ay implements ar {
 
         /* renamed from: a  reason: collision with other field name */
         public String f125a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f44104b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f44105c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f44106d;
+        public String b;
+        public String c;
+        public String d;
 
         public a(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -74,9 +68,9 @@ public class ay implements ar {
             }
             this.a = ayVar;
             this.f125a = null;
-            this.f44104b = null;
-            this.f44105c = null;
-            this.f44106d = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
         }
 
         public /* synthetic */ a(ay ayVar, az azVar) {
@@ -84,7 +78,7 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +122,7 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +194,7 @@ public class ay implements ar {
         if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f120a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f124a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("oppo's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("oppo's " + str + " wait...");
                     this.f124a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -285,7 +279,7 @@ public class ay implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo191b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -293,7 +287,7 @@ public class ay implements ar {
             if (this.f123a == null) {
                 return null;
             }
-            return this.f123a.f44104b;
+            return this.f123a.b;
         }
         return (String) invokeV.objValue;
     }
@@ -307,7 +301,7 @@ public class ay implements ar {
             if (this.f123a == null) {
                 return null;
             }
-            return this.f123a.f44105c;
+            return this.f123a.c;
         }
         return (String) invokeV.objValue;
     }
@@ -321,7 +315,7 @@ public class ay implements ar {
             if (this.f123a == null) {
                 return null;
             }
-            return this.f123a.f44106d;
+            return this.f123a.d;
         }
         return (String) invokeV.objValue;
     }

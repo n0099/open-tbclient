@@ -21,19 +21,11 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class JumpUnknownSourceActivity extends Activity {
     public k a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Intent f43120b;
+    public Intent b;
     @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public Intent f43121c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f43122d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public JSONObject f43123e;
+    public Intent c;
+    public int d;
+    public JSONObject e;
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -53,17 +45,17 @@ public class JumpUnknownSourceActivity extends Activity {
     public void onResume() {
         super.onResume();
         Intent intent = getIntent();
-        this.f43120b = intent;
+        this.b = intent;
         if (intent != null) {
-            this.f43121c = (Intent) intent.getParcelableExtra("intent");
-            this.f43122d = intent.getIntExtra("id", -1);
+            this.c = (Intent) intent.getParcelableExtra("intent");
+            this.d = intent.getIntExtra("id", -1);
             try {
-                this.f43123e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                this.e = new JSONObject(intent.getStringExtra(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        if (this.f43123e == null) {
+        if (this.e == null) {
             c.a((Activity) this);
             return;
         }
@@ -84,7 +76,7 @@ public class JumpUnknownSourceActivity extends Activity {
     }
 
     private void b() {
-        if (this.a != null || this.f43120b == null) {
+        if (this.a != null || this.b == null) {
             return;
         }
         try {
@@ -96,7 +88,7 @@ public class JumpUnknownSourceActivity extends Activity {
             int a3 = i.a(this, "tt_appdownloader_tip");
             int a4 = i.a(this, "tt_appdownloader_label_ok");
             int a5 = i.a(this, "tt_appdownloader_label_cancel");
-            String optString = this.f43123e.optString("jump_unknown_source_tips");
+            String optString = this.e.optString("jump_unknown_source_tips");
             if (TextUtils.isEmpty(optString)) {
                 optString = getString(i.a(this, "tt_appdownloader_jump_unknown_source_tips"));
             }
@@ -104,39 +96,39 @@ public class JumpUnknownSourceActivity extends Activity {
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-                    if (b.a(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f43121c, JumpUnknownSourceActivity.this.f43122d, JumpUnknownSourceActivity.this.f43123e)) {
-                        b.c(JumpUnknownSourceActivity.this.f43122d, JumpUnknownSourceActivity.this.f43123e);
+                    if (b.a(jumpUnknownSourceActivity, jumpUnknownSourceActivity.c, JumpUnknownSourceActivity.this.d, JumpUnknownSourceActivity.this.e)) {
+                        b.c(JumpUnknownSourceActivity.this.d, JumpUnknownSourceActivity.this.e);
                     } else {
                         JumpUnknownSourceActivity jumpUnknownSourceActivity2 = JumpUnknownSourceActivity.this;
-                        b.a((Context) jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f43121c, true);
+                        b.a((Context) jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.c, true);
                     }
-                    b.a(JumpUnknownSourceActivity.this.f43122d, JumpUnknownSourceActivity.this.f43123e);
+                    b.a(JumpUnknownSourceActivity.this.d, JumpUnknownSourceActivity.this.e);
                     JumpUnknownSourceActivity.this.finish();
                 }
             }).b(a5, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    if (JumpUnknownSourceActivity.this.f43121c != null) {
+                    if (JumpUnknownSourceActivity.this.c != null) {
                         JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-                        b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f43121c, true);
+                        b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.c, true);
                     }
-                    b.b(JumpUnknownSourceActivity.this.f43122d, JumpUnknownSourceActivity.this.f43123e);
+                    b.b(JumpUnknownSourceActivity.this.d, JumpUnknownSourceActivity.this.e);
                     JumpUnknownSourceActivity.this.finish();
                 }
             }).a(new DialogInterface.OnCancelListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    if (JumpUnknownSourceActivity.this.f43121c != null) {
+                    if (JumpUnknownSourceActivity.this.c != null) {
                         JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-                        b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.f43121c, true);
+                        b.a((Context) jumpUnknownSourceActivity, jumpUnknownSourceActivity.c, true);
                     }
-                    b.b(JumpUnknownSourceActivity.this.f43122d, JumpUnknownSourceActivity.this.f43123e);
+                    b.b(JumpUnknownSourceActivity.this.d, JumpUnknownSourceActivity.this.e);
                     JumpUnknownSourceActivity.this.finish();
                 }
             }).a(false);
             this.a = a2.a();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

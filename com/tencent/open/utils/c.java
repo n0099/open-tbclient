@@ -22,29 +22,17 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43785c;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public d f43786b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f43787d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Handler f43788e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f43789f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Runnable f43790g;
+    public d b;
+    public long d;
+    public Handler e;
+    public WeakReference<Activity> f;
+    public Runnable g;
 
     public c(Activity activity) {
         Interceptable interceptable = $ic;
@@ -61,7 +49,7 @@ public class c {
                 return;
             }
         }
-        this.f43790g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
+        this.g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -91,9 +79,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     SLog.v("AsynLoadImg", "saveFileRunnable:");
                     String str = "share_qq_" + l.f(this.a.a) + ".jpg";
-                    String str2 = c.f43785c + str;
+                    String str2 = c.c + str;
                     File file = new File(str2);
-                    Message obtainMessage = this.a.f43788e.obtainMessage();
+                    Message obtainMessage = this.a.e.obtainMessage();
                     if (!file.exists()) {
                         Bitmap a = c.a(this.a.a);
                         if (a != null) {
@@ -108,18 +96,18 @@ public class c {
                         } else {
                             obtainMessage.arg1 = 1;
                         }
-                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.a.f43787d));
+                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.a.d));
                     } else {
                         obtainMessage.arg1 = 0;
                         obtainMessage.obj = str2;
-                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.f43787d));
+                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.d));
                     }
-                    this.a.f43788e.sendMessage(obtainMessage);
+                    this.a.e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f43789f = new WeakReference<>(activity);
-        this.f43788e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
+        this.f = new WeakReference<>(activity);
+        this.e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -151,9 +139,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     SLog.v("AsynLoadImg", "handleMessage:" + message.arg1);
                     if (message.arg1 == 0) {
-                        this.a.f43786b.a(message.arg1, (String) message.obj);
+                        this.a.b.a(message.arg1, (String) message.obj);
                     } else {
-                        this.a.f43786b.a(message.arg1, (String) null);
+                        this.a.b.a(message.arg1, (String) null);
                     }
                 }
             }
@@ -169,24 +157,24 @@ public class c {
                     dVar.a(2, (String) null);
                     return;
                 }
-                if (this.f43789f.get() != null) {
-                    Activity activity = this.f43789f.get();
-                    File h2 = l.h(activity, "Images");
+                if (this.f.get() != null) {
+                    Activity activity = this.f.get();
+                    File h = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                    if (h2 == null) {
+                    if (h == null) {
                         SLog.e("AsynLoadImg", "externalImageFile is null");
                         dVar.a(2, (String) null);
                         return;
                     }
                     StringBuilder sb = new StringBuilder();
-                    sb.append(i.c(activity) ? h2.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
+                    sb.append(i.c(activity) ? h.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
                     sb.append("/tmp/");
-                    f43785c = sb.toString();
+                    c = sb.toString();
                 }
-                this.f43787d = System.currentTimeMillis();
+                this.d = System.currentTimeMillis();
                 this.a = str;
-                this.f43786b = dVar;
-                new Thread(this.f43790g).start();
+                this.b = dVar;
+                new Thread(this.g).start();
                 return;
             }
             dVar.a(1, (String) null);
@@ -198,7 +186,7 @@ public class c {
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f43785c;
+            String str2 = c;
             BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 try {
@@ -211,8 +199,8 @@ public class c {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bufferedOutputStream);
@@ -220,20 +208,20 @@ public class c {
                 try {
                     bufferedOutputStream.close();
                     return true;
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     return true;
                 }
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 bufferedOutputStream2 = bufferedOutputStream;
                 e.printStackTrace();
                 SLog.e("AsynLoadImg", "saveFile bmp fail---", e);
                 if (bufferedOutputStream2 != null) {
                     try {
                         bufferedOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 return false;
@@ -243,8 +231,8 @@ public class c {
                 if (bufferedOutputStream2 != null) {
                     try {
                         bufferedOutputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
@@ -267,12 +255,12 @@ public class c {
                 inputStream.close();
                 SLog.v("AsynLoadImg", "image download finished." + str);
                 return decodeStream;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 SLog.v("AsynLoadImg", "getbitmap bmp fail---");
                 return null;
-            } catch (OutOfMemoryError e3) {
-                e3.printStackTrace();
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
                 SLog.v("AsynLoadImg", "getbitmap bmp fail---");
                 return null;
             }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CommandService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class CommandService extends Service {
             }
             String action = intent.getAction();
             try {
-            } catch (RuntimeException e2) {
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+            } catch (RuntimeException e) {
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
             }
             if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action)) {
                 new b.a(this).a("0").b(intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null).a(System.currentTimeMillis()).b(601011L).a();

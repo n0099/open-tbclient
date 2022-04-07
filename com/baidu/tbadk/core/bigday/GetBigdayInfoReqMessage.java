@@ -1,7 +1,5 @@
 package com.baidu.tbadk.core.bigday;
 
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,9 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
+import com.repackage.rc5;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetBigdayInfoReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class GetBigdayInfoReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    b0.a(builder, true);
+                    rc5.a(builder, true);
                 }
-                builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getContext()));
-                builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getContext()));
                 GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

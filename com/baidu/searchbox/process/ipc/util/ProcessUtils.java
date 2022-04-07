@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ProcessUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AI_APPS_PROCESS_SUFFIX = ":swan";
@@ -123,8 +123,8 @@ public final class ProcessUtils {
             try {
                 try {
                     fileInputStream = new FileInputStream(new File(CMD_LINE_NAME));
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 try {
                     byte[] bArr = new byte[500];
@@ -141,8 +141,8 @@ public final class ProcessUtils {
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     throw th;

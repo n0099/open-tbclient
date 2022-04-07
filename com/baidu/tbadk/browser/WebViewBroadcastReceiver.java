@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebViewBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CLOSE_WEBVIEW = "action_close_webview";
@@ -60,8 +60,8 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
             }
             try {
                 ref.finish();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -76,8 +76,8 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
         intentFilter.addAction(ACTION_CLOSE_WEBVIEW);
         try {
             activity.registerReceiver(this, intentFilter, BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         this.mReceiverTag = true;
     }
@@ -89,8 +89,8 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
             if (ref != null && this.mReceiverTag) {
                 try {
                     ref.unregisterReceiver(this);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             this.mReceiverTag = false;

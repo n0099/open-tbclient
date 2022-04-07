@@ -48,7 +48,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
@@ -87,7 +87,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     public final Region transparentRegion;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface CompatibilityShadowMode {
     }
 
@@ -130,8 +130,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             if (this.drawableState.scale != 1.0f) {
                 this.matrix.reset();
                 Matrix matrix = this.matrix;
-                float f2 = this.drawableState.scale;
-                matrix.setScale(f2, f2, rectF.width() / 2.0f, rectF.height() / 2.0f);
+                float f = this.drawableState.scale;
+                matrix.setScale(f, f, rectF.width() / 2.0f, rectF.height() / 2.0f);
                 path.transform(this.matrix);
             }
             path.computeBounds(this.pathBounds, true);
@@ -340,11 +340,11 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             if (width >= 0 && height >= 0) {
                 Bitmap createBitmap = Bitmap.createBitmap(((int) this.pathBounds.width()) + (this.drawableState.shadowCompatRadius * 2) + width, ((int) this.pathBounds.height()) + (this.drawableState.shadowCompatRadius * 2) + height, Bitmap.Config.ARGB_8888);
                 Canvas canvas2 = new Canvas(createBitmap);
-                float f2 = (getBounds().left - this.drawableState.shadowCompatRadius) - width;
-                float f3 = (getBounds().top - this.drawableState.shadowCompatRadius) - height;
-                canvas2.translate(-f2, -f3);
+                float f = (getBounds().left - this.drawableState.shadowCompatRadius) - width;
+                float f2 = (getBounds().top - this.drawableState.shadowCompatRadius) - height;
+                canvas2.translate(-f, -f2);
                 drawCompatShadow(canvas2);
-                canvas.drawBitmap(createBitmap, f2, f3, (Paint) null);
+                canvas.drawBitmap(createBitmap, f, f2, (Paint) null);
                 createBitmap.recycle();
                 canvas.restore();
                 return;
@@ -866,10 +866,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setCornerSize(float f2) {
+    public void setCornerSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048625, this, f2) == null) {
-            setShapeAppearanceModel(this.drawableState.shapeAppearanceModel.withCornerSize(f2));
+        if (interceptable == null || interceptable.invokeF(1048625, this, f) == null) {
+            setShapeAppearanceModel(this.drawableState.shapeAppearanceModel.withCornerSize(f));
         }
     }
 
@@ -881,12 +881,12 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048628, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048628, this, f) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.elevation != f2) {
-                materialShapeDrawableState.elevation = f2;
+            if (materialShapeDrawableState.elevation != f) {
+                materialShapeDrawableState.elevation = f;
                 updateZ();
             }
         }
@@ -903,12 +903,12 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setInterpolation(float f2) {
+    public void setInterpolation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048630, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048630, this, f) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.interpolation != f2) {
-                materialShapeDrawableState.interpolation = f2;
+            if (materialShapeDrawableState.interpolation != f) {
+                materialShapeDrawableState.interpolation = f;
                 this.pathDirty = true;
                 invalidateSelf();
             }
@@ -935,23 +935,23 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setParentAbsoluteElevation(float f2) {
+    public void setParentAbsoluteElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048633, this, f) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.parentAbsoluteElevation != f2) {
-                materialShapeDrawableState.parentAbsoluteElevation = f2;
+            if (materialShapeDrawableState.parentAbsoluteElevation != f) {
+                materialShapeDrawableState.parentAbsoluteElevation = f;
                 updateZ();
             }
         }
     }
 
-    public void setScale(float f2) {
+    public void setScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048634, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048634, this, f) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.scale != f2) {
-                materialShapeDrawableState.scale = f2;
+            if (materialShapeDrawableState.scale != f) {
+                materialShapeDrawableState.scale = f;
                 invalidateSelf();
             }
         }
@@ -1049,10 +1049,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setStroke(float f2, @ColorInt int i) {
+    public void setStroke(float f, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
-            setStrokeWidth(f2);
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            setStrokeWidth(f);
             setStrokeColor(ColorStateList.valueOf(i));
         }
     }
@@ -1077,10 +1077,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setStrokeWidth(float f2) {
+    public void setStrokeWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048650, this, f2) == null) {
-            this.drawableState.strokeWidth = f2;
+        if (interceptable == null || interceptable.invokeF(1048650, this, f) == null) {
+            this.drawableState.strokeWidth = f;
             invalidateSelf();
         }
     }
@@ -1116,12 +1116,12 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setTranslationZ(float f2) {
+    public void setTranslationZ(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048654, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048654, this, f) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.translationZ != f2) {
-                materialShapeDrawableState.translationZ = f2;
+            if (materialShapeDrawableState.translationZ != f) {
+                materialShapeDrawableState.translationZ = f;
                 updateZ();
             }
         }
@@ -1138,10 +1138,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setZ(float f2) {
+    public void setZ(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048656, this, f2) == null) {
-            setTranslationZ(f2 - getElevation());
+        if (interceptable == null || interceptable.invokeF(1048656, this, f) == null) {
+            setTranslationZ(f - getElevation());
         }
     }
 
@@ -1164,15 +1164,15 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @NonNull
-    public static MaterialShapeDrawable createWithElevationOverlay(Context context, float f2) {
+    public static MaterialShapeDrawable createWithElevationOverlay(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f2)) == null) {
-            int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016b, MaterialShapeDrawable.class.getSimpleName());
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
+            int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016e, MaterialShapeDrawable.class.getSimpleName());
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.initializeElevationOverlay(context);
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
-            materialShapeDrawable.setElevation(f2);
+            materialShapeDrawable.setElevation(f);
             return materialShapeDrawable;
         }
         return (MaterialShapeDrawable) invokeLF.objValue;
@@ -1217,10 +1217,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setStroke(float f2, @Nullable ColorStateList colorStateList) {
+    public void setStroke(float f, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Float.valueOf(f2), colorStateList}) == null) {
-            setStrokeWidth(f2);
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Float.valueOf(f), colorStateList}) == null) {
+            setStrokeWidth(f);
             setStrokeColor(colorStateList);
         }
     }
@@ -1354,7 +1354,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         };
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,21 +17,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f26070b;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f26071g;
+    public static int b;
+    public static int g;
     public static int p;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f26072h;
+    public String h;
     public int i;
     public String j;
     public Map<String, Object> k;
@@ -53,9 +47,9 @@ public abstract class e {
                 return;
             }
         }
-        f26071g = a.f26047g;
+        g = a.g;
         a = "10.0.0.172";
-        f26070b = 80;
+        b = 80;
         p = 0;
     }
 
@@ -72,7 +66,7 @@ public abstract class e {
                 return;
             }
         }
-        this.f26072h = null;
+        this.h = null;
         this.i = 1;
         this.j = null;
         this.k = null;
@@ -82,7 +76,7 @@ public abstract class e {
         this.o = null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00af, code lost:
         if ("10.0.0.200".equals(r5.trim()) != false) goto L24;
      */
     /*
@@ -102,16 +96,16 @@ public abstract class e {
                         str2 = defaultHost;
                     }
                     a = str2;
-                    return a.f26044d;
+                    return a.d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     String defaultHost2 = Proxy.getDefaultHost();
                     if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                         str = defaultHost2;
                     }
                     a = str;
-                    return a.f26044d;
+                    return a.d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.f26045e;
+                    return a.e;
                 }
             }
             String defaultHost3 = Proxy.getDefaultHost();
@@ -119,9 +113,9 @@ public abstract class e {
                 if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
                 a = str2;
-                return a.f26044d;
+                return a.d;
             }
-            return a.f26045e;
+            return a.e;
         }
         return invokeLL.intValue;
     }
@@ -130,7 +124,7 @@ public abstract class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            f26071g = c();
+            g = c();
         }
     }
 
@@ -142,19 +136,19 @@ public abstract class e {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return a.f26047g;
+                    return a.g;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     if (activeNetworkInfo.getType() == 1) {
                         String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f26046f : a.f26048h;
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f : a.h;
                     }
                     return a(serviceContext, activeNetworkInfo);
                 }
-                return a.f26047g;
+                return a.g;
             } catch (Exception unused) {
-                return a.f26047g;
+                return a.g;
             }
         }
         return invokeV.intValue;

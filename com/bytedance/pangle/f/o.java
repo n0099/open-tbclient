@@ -20,30 +20,20 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Signature[] f38126b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f38127c;
+    public final Signature[] b;
+    public final int c;
     @Nullable
-
-    /* renamed from: d  reason: collision with root package name */
-    public final ArraySet<PublicKey> f38128d;
+    public final ArraySet<PublicKey> d;
     @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Signature[] f38129e;
+    public final Signature[] e;
     @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int[] f38130f;
+    public final int[] f;
 
     static {
         InterceptResult invokeClinit;
@@ -76,11 +66,11 @@ public final class o {
                 return;
             }
         }
-        this.f38126b = signatureArr;
-        this.f38127c = i;
-        this.f38128d = arraySet;
-        this.f38129e = signatureArr2;
-        this.f38130f = iArr;
+        this.b = signatureArr;
+        this.c = i;
+        this.d = arraySet;
+        this.e = signatureArr2;
+        this.f = iArr;
     }
 
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
@@ -93,12 +83,12 @@ public final class o {
                 if (a2 != null && a2.isAccessible()) {
                     try {
                         arraySet.add((PublicKey) a2.invoke(signature, new Object[0]));
-                    } catch (IllegalAccessException e2) {
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e2) {
                         e2.printStackTrace();
-                    } catch (InvocationTargetException e3) {
+                    } catch (Exception e3) {
                         e3.printStackTrace();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
                     }
                 }
             }
@@ -134,16 +124,16 @@ public final class o {
             }
             if (obj instanceof o) {
                 o oVar = (o) obj;
-                if (this.f38127c == oVar.f38127c && a(this.f38126b, oVar.f38126b)) {
-                    ArraySet<PublicKey> arraySet = this.f38128d;
+                if (this.c == oVar.c && a(this.b, oVar.b)) {
+                    ArraySet<PublicKey> arraySet = this.d;
                     if (arraySet != null) {
-                        if (!arraySet.equals(oVar.f38128d)) {
+                        if (!arraySet.equals(oVar.d)) {
                             return false;
                         }
-                    } else if (oVar.f38128d != null) {
+                    } else if (oVar.d != null) {
                         return false;
                     }
-                    return Arrays.equals(this.f38129e, oVar.f38129e) && Arrays.equals(this.f38130f, oVar.f38130f);
+                    return Arrays.equals(this.e, oVar.e) && Arrays.equals(this.f, oVar.f);
                 }
                 return false;
             }
@@ -156,9 +146,9 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.f38126b) * 31) + this.f38127c) * 31;
-            ArraySet<PublicKey> arraySet = this.f38128d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f38129e)) * 31) + Arrays.hashCode(this.f38130f);
+            int hashCode = ((Arrays.hashCode(this.b) * 31) + this.c) * 31;
+            ArraySet<PublicKey> arraySet = this.d;
+            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.e)) * 31) + Arrays.hashCode(this.f);
         }
         return invokeV.intValue;
     }

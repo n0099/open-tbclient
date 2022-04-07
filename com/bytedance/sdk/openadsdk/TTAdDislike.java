@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTAdDislike {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DislikeInteractionCallback {
         void onCancel();
 

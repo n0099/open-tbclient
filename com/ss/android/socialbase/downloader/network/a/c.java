@@ -8,83 +8,69 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements g {
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final ArrayList<String> f43496e;
+    public static final ArrayList<String> e;
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final long f43497b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f43498c;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f43501g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f43502h;
+    public final long b;
+    public List<com.ss.android.socialbase.downloader.model.c> c;
+    public int g;
+    public long h;
     public boolean i;
     public boolean j;
     public g k;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f43500f = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Object f43499d = new Object();
+    public Map<String, String> f = null;
+    public final Object d = new Object();
 
     static {
         ArrayList<String> arrayList = new ArrayList<>(6);
-        f43496e = arrayList;
+        e = arrayList;
         arrayList.add("Content-Length");
-        f43496e.add("Content-Range");
-        f43496e.add("Transfer-Encoding");
-        f43496e.add(Util.ACCEPT_RANGES);
-        f43496e.add(Util.ETAG);
-        f43496e.add("Content-Disposition");
+        e.add("Content-Range");
+        e.add("Transfer-Encoding");
+        e.add(Util.ACCEPT_RANGES);
+        e.add(Util.ETAG);
+        e.add("Content-Disposition");
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) {
         this.a = str;
-        this.f43498c = list;
-        this.f43497b = j;
+        this.c = list;
+        this.b = j;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void a() throws Exception {
-        if (this.f43500f != null) {
+        if (this.f != null) {
             return;
         }
         try {
             this.j = true;
-            this.k = com.ss.android.socialbase.downloader.downloader.c.a(this.a, this.f43498c);
-            synchronized (this.f43499d) {
+            this.k = com.ss.android.socialbase.downloader.downloader.c.a(this.a, this.c);
+            synchronized (this.d) {
                 if (this.k != null) {
                     HashMap hashMap = new HashMap();
-                    this.f43500f = hashMap;
+                    this.f = hashMap;
                     a(this.k, hashMap);
-                    this.f43501g = this.k.b();
-                    this.f43502h = System.currentTimeMillis();
-                    this.i = a(this.f43501g);
+                    this.g = this.k.b();
+                    this.h = System.currentTimeMillis();
+                    this.i = a(this.g);
                 }
                 this.j = false;
-                this.f43499d.notifyAll();
+                this.d.notifyAll();
             }
         } catch (Throwable th) {
-            synchronized (this.f43499d) {
+            synchronized (this.d) {
                 if (this.k != null) {
                     HashMap hashMap2 = new HashMap();
-                    this.f43500f = hashMap2;
+                    this.f = hashMap2;
                     a(this.k, hashMap2);
-                    this.f43501g = this.k.b();
-                    this.f43502h = System.currentTimeMillis();
-                    this.i = a(this.f43501g);
+                    this.g = this.k.b();
+                    this.h = System.currentTimeMillis();
+                    this.i = a(this.g);
                 }
                 this.j = false;
-                this.f43499d.notifyAll();
+                this.d.notifyAll();
                 throw th;
             }
         }
@@ -96,7 +82,7 @@ public class c implements g {
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public int b() throws IOException {
-        return this.f43501g;
+        return this.g;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
@@ -108,9 +94,9 @@ public class c implements g {
     }
 
     public void d() throws InterruptedException {
-        synchronized (this.f43499d) {
-            if (this.j && this.f43500f == null) {
-                this.f43499d.wait();
+        synchronized (this.d) {
+            if (this.j && this.f == null) {
+                this.d.wait();
             }
         }
     }
@@ -120,7 +106,7 @@ public class c implements g {
     }
 
     public boolean f() {
-        return System.currentTimeMillis() - this.f43502h < b.f43492b;
+        return System.currentTimeMillis() - this.h < b.b;
     }
 
     public boolean g() {
@@ -128,18 +114,18 @@ public class c implements g {
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> h() {
-        return this.f43498c;
+        return this.c;
     }
 
     public Map<String, String> i() {
-        return this.f43500f;
+        return this.f;
     }
 
     private void a(g gVar, Map<String, String> map) {
         if (gVar == null || map == null) {
             return;
         }
-        Iterator<String> it = f43496e.iterator();
+        Iterator<String> it = e.iterator();
         while (it.hasNext()) {
             String next = it.next();
             map.put(next, gVar.a(next));
@@ -148,7 +134,7 @@ public class c implements g {
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public String a(String str) {
-        Map<String, String> map = this.f43500f;
+        Map<String, String> map = this.f;
         if (map != null) {
             return map.get(str);
         }

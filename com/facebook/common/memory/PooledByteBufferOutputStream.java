@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Throwables;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class PooledByteBufferOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public abstract class PooledByteBufferOutputStream extends OutputStream {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 super.close();
-            } catch (IOException e2) {
-                Throwables.propagate(e2);
+            } catch (IOException e) {
+                Throwables.propagate(e);
             }
         }
     }

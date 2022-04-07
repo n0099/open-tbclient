@@ -12,23 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FaceStatusNewEnum f28074b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f28075c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f28076d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f28077e;
+    public FaceStatusNewEnum b;
+    public long c;
+    public boolean d;
+    public float e;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +50,8 @@ public class a {
                 return;
             }
         }
-        this.f28075c = 0L;
-        this.f28076d = false;
+        this.c = 0L;
+        this.d = false;
     }
 
     private void a(FaceStatusNewEnum faceStatusNewEnum, FaceConfig faceConfig) {
@@ -67,17 +59,17 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65538, this, faceStatusNewEnum, faceConfig) == null) || faceConfig == null) {
             return;
         }
-        FaceStatusNewEnum faceStatusNewEnum2 = this.f28074b;
+        FaceStatusNewEnum faceStatusNewEnum2 = this.b;
         if (faceStatusNewEnum2 == null || faceStatusNewEnum2 != faceStatusNewEnum) {
-            this.f28074b = faceStatusNewEnum;
-            this.f28075c = System.currentTimeMillis();
-            this.f28076d = false;
+            this.b = faceStatusNewEnum;
+            this.c = System.currentTimeMillis();
+            this.d = false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f28074b != faceStatusNewEnum || currentTimeMillis - this.f28075c <= faceConfig.getTimeDetectModule()) {
+        if (this.b != faceStatusNewEnum || currentTimeMillis - this.c <= faceConfig.getTimeDetectModule()) {
             return;
         }
-        this.f28076d = true;
+        this.d = true;
     }
 
     private FaceStatusNewEnum b(FaceExtInfo[] faceExtInfoArr, Rect rect, boolean z, FaceConfig faceConfig) {
@@ -87,36 +79,36 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{faceExtInfoArr, rect, Boolean.valueOf(z), faceConfig})) == null) {
             FaceStatusNewEnum faceStatusNewEnum2 = FaceStatusNewEnum.OK;
             FaceExtInfo faceExtInfo = faceExtInfoArr[0];
-            this.f28077e = 0.0f;
+            this.e = 0.0f;
             if (!z) {
                 if (faceExtInfo.getOcclusion().leftEye > faceConfig.getOcclusionLeftEyeValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionLeftEye;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().leftEye;
+                this.e += 1.0f - faceExtInfo.getOcclusion().leftEye;
                 if (faceExtInfo.getOcclusion().rightEye > faceConfig.getOcclusionRightEyeValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionRightEye;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().rightEye;
+                this.e += 1.0f - faceExtInfo.getOcclusion().rightEye;
                 if (faceExtInfo.getOcclusion().nose > faceConfig.getOcclusionNoseValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionNose;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().nose;
+                this.e += 1.0f - faceExtInfo.getOcclusion().nose;
                 if (faceExtInfo.getOcclusion().mouth > faceConfig.getOcclusionMouthValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionMouth;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().mouth;
+                this.e += 1.0f - faceExtInfo.getOcclusion().mouth;
                 if (faceExtInfo.getOcclusion().leftCheek > faceConfig.getOcclusionLeftContourValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionLeftContour;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().leftCheek;
+                this.e += 1.0f - faceExtInfo.getOcclusion().leftCheek;
                 if (faceExtInfo.getOcclusion().rightCheek > faceConfig.getOcclusionRightContourValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionRightContour;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().rightCheek;
+                this.e += 1.0f - faceExtInfo.getOcclusion().rightCheek;
                 if (faceExtInfo.getOcclusion().chin > faceConfig.getOcclusionChinValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeOcclusionChinContour;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getOcclusion().chin;
+                this.e += 1.0f - faceExtInfo.getOcclusion().chin;
             }
             if (faceExtInfoArr[0].getFaceWidth() < rect.width() * faceConfig.getFaceFarRatio()) {
                 faceStatusNewEnum = FaceStatusNewEnum.DetectRemindCodeTooFar;
@@ -127,25 +119,25 @@ public class a {
                 if (faceExtInfo.getPitch() > faceConfig.getHeadPitchValue() - 2) {
                     return FaceStatusNewEnum.DetectRemindCodePitchOutofUpRange;
                 }
-                this.f28077e += (45.0f - Math.abs(faceExtInfo.getPitch())) / 45.0f;
+                this.e += (45.0f - Math.abs(faceExtInfo.getPitch())) / 45.0f;
                 if (faceExtInfo.getYaw() > faceConfig.getHeadYawValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeYawOutofLeftRange;
                 }
                 if (faceExtInfo.getYaw() < (-faceConfig.getHeadYawValue())) {
                     return FaceStatusNewEnum.DetectRemindCodeYawOutofRightRange;
                 }
-                this.f28077e += (45.0f - Math.abs(faceExtInfo.getYaw())) / 45.0f;
+                this.e += (45.0f - Math.abs(faceExtInfo.getYaw())) / 45.0f;
                 if (faceExtInfo.getRoll() > faceConfig.getHeadRollValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeYawOutofRightRange;
                 }
                 if (faceExtInfo.getRoll() < (-faceConfig.getHeadRollValue())) {
                     return FaceStatusNewEnum.DetectRemindCodeYawOutofLeftRange;
                 }
-                this.f28077e += (45.0f - Math.abs(faceExtInfo.getRoll())) / 45.0f;
+                this.e += (45.0f - Math.abs(faceExtInfo.getRoll())) / 45.0f;
                 if (faceExtInfo.getBluriness() > faceConfig.getBlurnessValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeImageBlured;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getBluriness();
+                this.e += 1.0f - faceExtInfo.getBluriness();
                 if (faceExtInfo.getIllum() < faceConfig.getBrightnessValue()) {
                     return FaceStatusNewEnum.DetectRemindCodePoorIllumination;
                 }
@@ -155,11 +147,11 @@ public class a {
                 if (faceExtInfo.getLeftEyeClose() > faceConfig.getEyeClosedValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeLeftEyeClosed;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getLeftEyeClose();
+                this.e += 1.0f - faceExtInfo.getLeftEyeClose();
                 if (faceExtInfo.getRightEyeClose() > faceConfig.getEyeClosedValue()) {
                     return FaceStatusNewEnum.DetectRemindCodeRightEyeClosed;
                 }
-                this.f28077e += 1.0f - faceExtInfo.getRightEyeClose();
+                this.e += 1.0f - faceExtInfo.getRightEyeClose();
                 return faceStatusNewEnum2;
             } else {
                 faceStatusNewEnum = FaceStatusNewEnum.DetectRemindCodeTooClose;
@@ -200,60 +192,60 @@ public class a {
             if (faceExtInfo == null || faceConfig == null) {
                 return FaceStatusNewEnum.DetectRemindCodeNoFaceDetected;
             }
-            this.f28077e = 0.0f;
+            this.e = 0.0f;
             if (faceExtInfo.getOcclusion().leftEye > faceConfig.getOcclusionLeftEyeValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionLeftEye;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().leftEye;
+            this.e += 1.0f - faceExtInfo.getOcclusion().leftEye;
             if (faceExtInfo.getOcclusion().rightEye > faceConfig.getOcclusionRightEyeValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionRightEye;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().rightEye;
+            this.e += 1.0f - faceExtInfo.getOcclusion().rightEye;
             if (faceExtInfo.getOcclusion().nose > faceConfig.getOcclusionNoseValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionNose;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().nose;
+            this.e += 1.0f - faceExtInfo.getOcclusion().nose;
             if (faceExtInfo.getOcclusion().mouth > faceConfig.getOcclusionMouthValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionMouth;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().mouth;
+            this.e += 1.0f - faceExtInfo.getOcclusion().mouth;
             if (faceExtInfo.getOcclusion().leftCheek > faceConfig.getOcclusionLeftContourValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionLeftContour;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().leftCheek;
+            this.e += 1.0f - faceExtInfo.getOcclusion().leftCheek;
             if (faceExtInfo.getOcclusion().rightCheek > faceConfig.getOcclusionRightContourValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionRightContour;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().rightCheek;
+            this.e += 1.0f - faceExtInfo.getOcclusion().rightCheek;
             if (faceExtInfo.getOcclusion().chin > faceConfig.getOcclusionChinValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeOcclusionChinContour;
             }
-            this.f28077e += 1.0f - faceExtInfo.getOcclusion().chin;
+            this.e += 1.0f - faceExtInfo.getOcclusion().chin;
             if (faceExtInfo.getPitch() < (-faceConfig.getHeadPitchValue()) - 2) {
                 return FaceStatusNewEnum.DetectRemindCodePitchOutofDownRange;
             }
             if (faceExtInfo.getPitch() > faceConfig.getHeadPitchValue() - 2) {
                 return FaceStatusNewEnum.DetectRemindCodePitchOutofUpRange;
             }
-            this.f28077e += (45.0f - Math.abs(faceExtInfo.getPitch())) / 45.0f;
+            this.e += (45.0f - Math.abs(faceExtInfo.getPitch())) / 45.0f;
             if (faceExtInfo.getYaw() < (-faceConfig.getHeadYawValue())) {
                 return FaceStatusNewEnum.DetectRemindCodeYawOutofRightRange;
             }
             if (faceExtInfo.getYaw() > faceConfig.getHeadYawValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeYawOutofLeftRange;
             }
-            this.f28077e += (45.0f - Math.abs(faceExtInfo.getYaw())) / 45.0f;
+            this.e += (45.0f - Math.abs(faceExtInfo.getYaw())) / 45.0f;
             if (faceExtInfo.getRoll() > faceConfig.getHeadRollValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeYawOutofRightRange;
             }
             if (faceExtInfo.getRoll() < (-faceConfig.getHeadRollValue())) {
                 return FaceStatusNewEnum.DetectRemindCodeYawOutofLeftRange;
             }
-            this.f28077e += (45.0f - Math.abs(faceExtInfo.getRoll())) / 45.0f;
+            this.e += (45.0f - Math.abs(faceExtInfo.getRoll())) / 45.0f;
             if (faceExtInfo.getBluriness() > faceConfig.getBlurnessValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeImageBlured;
             }
-            this.f28077e += 1.0f - faceExtInfo.getBluriness();
+            this.e += 1.0f - faceExtInfo.getBluriness();
             if (faceExtInfo.getIllum() < faceConfig.getBrightnessValue()) {
                 return FaceStatusNewEnum.DetectRemindCodePoorIllumination;
             }
@@ -263,11 +255,11 @@ public class a {
             if (faceExtInfo.getLeftEyeClose() > faceConfig.getEyeClosedValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeLeftEyeClosed;
             }
-            this.f28077e += 1.0f - faceExtInfo.getLeftEyeClose();
+            this.e += 1.0f - faceExtInfo.getLeftEyeClose();
             if (faceExtInfo.getRightEyeClose() > faceConfig.getEyeClosedValue()) {
                 return FaceStatusNewEnum.DetectRemindCodeRightEyeClosed;
             }
-            this.f28077e += 1.0f - faceExtInfo.getRightEyeClose();
+            this.e += 1.0f - faceExtInfo.getRightEyeClose();
             return FaceStatusNewEnum.OK;
         }
         return (FaceStatusNewEnum) invokeLL.objValue;
@@ -295,22 +287,22 @@ public class a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28076d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28077e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.floatValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f28075c = 0L;
-            this.f28076d = false;
-            this.f28074b = null;
-            this.f28077e = 0.0f;
+            this.c = 0L;
+            this.d = false;
+            this.b = null;
+            this.e = 0.0f;
         }
     }
 }

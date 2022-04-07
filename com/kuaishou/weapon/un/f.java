@@ -11,13 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Location f38816b;
+    public static Location b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -38,22 +36,22 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a || f38816b != null || context == null) {
-                return f38816b;
+            if (a || b != null || context == null) {
+                return b;
             }
             if (v.a(context).a(64)) {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f38816b = a(context, locationManager);
+                        b = a(context, locationManager);
                     }
-                    if (f38816b == null && locationManager.isProviderEnabled("network")) {
-                        f38816b = b(context, locationManager);
+                    if (b == null && locationManager.isProviderEnabled("network")) {
+                        b = b(context, locationManager);
                     }
-                    if (f38816b == null && locationManager.isProviderEnabled("passive")) {
-                        f38816b = c(context, locationManager);
+                    if (b == null && locationManager.isProviderEnabled("passive")) {
+                        b = c(context, locationManager);
                     }
-                    return f38816b;
+                    return b;
                 } catch (Exception unused) {
                     a = true;
                     return null;

@@ -23,7 +23,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DurationStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DURATION_SLOT_DIFF_MIN = 500;
@@ -103,8 +103,8 @@ public class DurationStatPlugin extends AbsPlugin {
                     UBC_MANAGER.flowEnd(this.mFlow);
                     this.mFlow = null;
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             this.durationSlotIndex = 1;
         }
@@ -146,7 +146,7 @@ public class DurationStatPlugin extends AbsPlugin {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
             super.onVideoEventNotify(videoEvent);
@@ -154,58 +154,58 @@ public class DurationStatPlugin extends AbsPlugin {
             switch (action.hashCode()) {
                 case -2127352417:
                     if (action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1771982113:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1385549725:
                     if (action.equals(StatisticsEvent.ACTION_BACK_OR_FOREGROUND)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -168110661:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_COMPLETE)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 482780463:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_RESUME)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2091819188:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_PAUSE)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2145795460:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
                     return;

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM = "MD5";
@@ -216,9 +216,9 @@ public class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                sb.append(HEX[(b2 & 240) >> 4]);
-                sb.append(HEX[b2 & 15]);
+            for (byte b : bArr) {
+                sb.append(HEX[(b & 240) >> 4]);
+                sb.append(HEX[b & 15]);
             }
             return sb.toString();
         }

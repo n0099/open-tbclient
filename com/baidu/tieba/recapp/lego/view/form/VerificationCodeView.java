@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VerificationCodeView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class VerificationCodeView extends FormItemBaseView {
     public Button u;
     public c v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,16 +50,16 @@ public class VerificationCodeView extends FormItemBaseView {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.v == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.v == null) {
                 return;
             }
             this.a.v.a();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class VerificationCodeView extends FormItemBaseView {
         }
 
         @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
+        public void onFocusChange(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 if (!z && !this.a.a()) {
                     VerificationCodeView verificationCodeView = this.a;
                     verificationCodeView.c(verificationCodeView.t, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -98,7 +98,7 @@ public class VerificationCodeView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
     }
@@ -152,22 +152,22 @@ public class VerificationCodeView extends FormItemBaseView {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             if (super.g(bVar)) {
                 FormCard.h hVar = (FormCard.h) bVar;
-                if (!TextUtils.isEmpty(hVar.f35714d)) {
-                    this.u.setText(hVar.f35714d);
+                if (!TextUtils.isEmpty(hVar.d)) {
+                    this.u.setText(hVar.d);
                     this.u.setTextSize(0, this.j);
-                    this.u.getLayoutParams().height = this.f35743f;
+                    this.u.getLayoutParams().height = this.f;
                     Button button = this.u;
-                    int i = this.f35740c;
+                    int i = this.c;
                     button.setPadding(i, 0, i, 0);
                 }
-                if (TextUtils.isEmpty(hVar.f35706b)) {
+                if (TextUtils.isEmpty(hVar.b)) {
                     return true;
                 }
-                this.t.setHint(hVar.f35706b);
+                this.t.setHint(hVar.b);
                 this.t.setTextSize(0, this.j);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.t.getLayoutParams();
-                marginLayoutParams.height = this.f35743f;
-                int i2 = this.f35740c;
+                marginLayoutParams.height = this.f;
+                int i2 = this.c;
                 marginLayoutParams.rightMargin = i2;
                 this.t.setPadding(i2, 0, 0, 0);
                 return true;
@@ -201,7 +201,7 @@ public class VerificationCodeView extends FormItemBaseView {
             this.u.setTextColor(this.m);
             this.u.setTextSize(0, this.j);
             this.u.setBackgroundColor(this.n);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.f35743f);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.f);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             addView(this.u, layoutParams);
@@ -214,14 +214,14 @@ public class VerificationCodeView extends FormItemBaseView {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             EditText editText = new EditText(this.a);
             this.t = editText;
-            editText.setTextColor(this.f35745h);
+            editText.setTextColor(this.h);
             this.t.setHintTextColor(this.i);
             this.t.setTextSize(0, this.j);
             this.t.setGravity(19);
             int paddingBottom = this.t.getPaddingBottom();
-            this.t.setPadding(this.f35740c, this.t.getPaddingTop(), this.t.getPaddingRight(), paddingBottom);
+            this.t.setPadding(this.c, this.t.getPaddingTop(), this.t.getPaddingRight(), paddingBottom);
             this.t.setOnFocusChangeListener(new b(this));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f35743f);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f);
             layoutParams.addRule(0, this.u.getId());
             layoutParams.addRule(15);
             c(this.t, FormItemBaseView.DrawableType.ORDINARY_FRAME);

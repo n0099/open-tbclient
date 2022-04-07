@@ -2,8 +2,6 @@ package com.baidu.adp.framework.cmdRouter;
 
 import android.app.Application;
 import android.content.pm.PackageManager;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,18 +15,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CmdRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ROUTE_ROOT_PAKCAGE = "com.baidu.tieba.route";
-    public static final String SDK_NAME = "CmdRouter";
     public static final String TAG = "CmdRouter";
     public static MultiValueMap<String, String> cmdMaps;
     public static MultiValueMap<String, ArrayList<String>> configMaps;
     public static Application mContext;
     public static CmdRouter sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler mHandler;
 
     static {
         InterceptResult invokeClinit;
@@ -57,10 +53,8 @@ public class CmdRouter {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.mHandler = new Handler(Looper.getMainLooper());
     }
 
     public static CmdRouter getsInstance() {
@@ -85,9 +79,9 @@ public class CmdRouter {
             mContext = application;
             try {
                 loadInfo();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                Log.e("CmdRouter", "初始化失败!", e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, "初始化失败!", e);
             }
         }
     }
@@ -103,8 +97,8 @@ public class CmdRouter {
                 Field declaredField = cls.getDeclaredField("cmdClassesArray");
                 declaredField.setAccessible(true);
                 tiebaCmdClassesArray.cmdClassesArray = (String[]) declaredField.get(newInstance);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (tiebaCmdClassesArray.loadCmdClasses().size() == 0) {
                 loadCmdClasses = ClassUtils.getFileNameByPackageName(mContext, ROUTE_ROOT_PAKCAGE);

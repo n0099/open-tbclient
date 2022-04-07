@@ -12,7 +12,7 @@ import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class o extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,8 @@ public class o extends XMPushService.i {
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f948a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f44588b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f44589c;
+    public String b;
+    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -51,8 +47,8 @@ public class o extends XMPushService.i {
         this.a = xMPushService;
         this.f947a = str;
         this.f948a = bArr;
-        this.f44588b = str2;
-        this.f44589c = str3;
+        this.b = str2;
+        this.c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -70,9 +66,9 @@ public class o extends XMPushService.i {
             l a = m.a((Context) this.a);
             if (a == null) {
                 try {
-                    a = m.a(this.a, this.f947a, this.f44588b, this.f44589c);
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
+                    a = m.a(this.a, this.f947a, this.b, this.c);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
                 }
             }
             if (a == null) {
@@ -80,20 +76,20 @@ public class o extends XMPushService.i {
                 p.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<av.b> m643a = av.a().m643a("5");
-            if (m643a.isEmpty()) {
+            Collection<av.b> m639a = av.a().m639a("5");
+            if (m639a.isEmpty()) {
                 next = a.a(this.a);
                 y.a(this.a, next);
                 av.a().a(next);
             } else {
-                next = m643a.iterator().next();
+                next = m639a.iterator().next();
             }
-            if (!this.a.m609c()) {
+            if (!this.a.m605c()) {
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f890a == av.c.f44557c) {
+                if (next.f890a == av.c.c) {
                     y.a(this.a, this.f947a, this.f948a);
                 } else if (next.f890a == av.c.a) {
                     XMPushService xMPushService = this.a;
@@ -101,9 +97,9 @@ public class o extends XMPushService.i {
                     xMPushService2.getClass();
                     xMPushService.a(new XMPushService.a(xMPushService2, next));
                 }
-            } catch (fw e3) {
-                com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e3);
-                this.a.a(10, e3);
+            } catch (fw e2) {
+                com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e2);
+                this.a.a(10, e2);
             }
         }
     }

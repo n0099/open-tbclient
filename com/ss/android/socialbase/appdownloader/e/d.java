@@ -14,15 +14,9 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class d {
     public static final String a = "d";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static List<n> f43063b = new ArrayList();
-
-    /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f43064c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f43065d;
+    public static List<n> b = new ArrayList();
+    public static com.ss.android.socialbase.appdownloader.view.a c;
+    public static AlertDialog d;
 
     public static void b(@NonNull Activity activity, @NonNull n nVar) {
         if (activity != null) {
@@ -30,13 +24,13 @@ public class d {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
                     com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(a);
-                    f43064c = aVar;
+                    c = aVar;
                     if (aVar == null) {
-                        f43064c = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(f43064c, a).commitAllowingStateLoss();
+                        c = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(c, a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    f43064c.a();
+                    c.a();
                     return;
                 }
             } catch (Throwable th) {
@@ -65,11 +59,11 @@ public class d {
     public static synchronized void a(boolean z) {
         synchronized (d.class) {
             try {
-                if (f43065d != null) {
-                    f43065d.cancel();
-                    f43065d = null;
+                if (d != null) {
+                    d.cancel();
+                    d = null;
                 }
-                for (n nVar : f43063b) {
+                for (n nVar : b) {
                     if (nVar != null) {
                         if (z) {
                             nVar.a();
@@ -100,14 +94,14 @@ public class d {
                     int a3 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_message");
                     int a4 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_yes");
                     int a5 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_no");
-                    f43063b.add(nVar);
-                    if (f43065d == null || !f43065d.isShowing()) {
-                        f43065d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
+                    b.add(nVar);
+                    if (d == null || !d.isShowing()) {
+                        d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 d.b(activity, nVar);
                                 dialogInterface.cancel();
-                                AlertDialog unused = d.f43065d = null;
+                                AlertDialog unused = d.d = null;
                             }
                         }).setNegativeButton(a5, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.2
                             @Override // android.content.DialogInterface.OnClickListener

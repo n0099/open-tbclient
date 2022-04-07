@@ -3,7 +3,6 @@ package com.baidu.tieba.addresslist.im.searchfriend;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import c.a.p0.z.e.b.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -31,10 +30,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dg;
+import com.repackage.jy4;
+import com.repackage.lk5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_PARAMS_SEARCH_KEY = "search_key";
@@ -43,12 +45,12 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public View mParentView;
     public final HttpMessageListener mRequestSearchFriendListener;
     public NavigationBar navigationBar;
-    public c.a.p0.z.e.b.a searchBar;
-    public a.c searchBarCallback;
+    public lk5 searchBar;
+    public lk5.c searchBarCallback;
     public View searchView;
 
-    /* loaded from: classes5.dex */
-    public class a implements a.c {
+    /* loaded from: classes3.dex */
+    public class a implements lk5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +73,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // c.a.p0.z.e.b.a.c
+        @Override // com.repackage.lk5.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -82,7 +84,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +124,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
-                            if ((next instanceof c.a.o0.s.f.a) && userInfo.getUserId() == ((c.a.o0.s.f.a) next).e()) {
+                            if ((next instanceof jy4) && userInfo.getUserId() == ((jy4) next).e()) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                                 return;
                             }
@@ -136,7 +138,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,17 +182,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                             SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                             if (userInfo2 == null) {
                                 SearchFriendActivity searchFriendActivity = this.a;
-                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                                 return;
                             }
                             this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                             return;
                         }
                         SearchFriendActivity searchFriendActivity2 = this.a;
-                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                         SearchFriendActivity searchFriendActivity3 = this.a;
-                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
                     } else {
                         this.a.showToast(httpResponsedMessage.getErrorString());
                     }
@@ -199,7 +201,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,15 +226,15 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.searchBar.g();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,9 +259,9 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -305,10 +307,10 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public c.a.d.f.k.b<TbImageView> getUserIconPool() {
+    public dg<TbImageView> getUserIconPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UserIconBox.c(getPageContext().getPageActivity(), 8) : (c.a.d.f.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UserIconBox.c(getPageContext().getPageActivity(), 8) : (dg) invokeV.objValue;
     }
 
     public int getUserIconViewId() {
@@ -337,16 +339,16 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0050);
-            this.mParentView = findViewById(R.id.obfuscated_res_0x7f091559);
+            setContentView(R.layout.obfuscated_res_0x7f0d0052);
+            this.mParentView = findViewById(R.id.obfuscated_res_0x7f091554);
             d dVar = new d(this);
             this.mParentView.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091558);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091553);
             this.navigationBar = navigationBar;
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0610);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0617);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.searchView = findViewById(R.id.obfuscated_res_0x7f09155b);
-            this.searchBar = new c.a.p0.z.e.b.a(getPageContext(), this.searchView);
+            this.searchView = findViewById(R.id.obfuscated_res_0x7f091556);
+            this.searchBar = new lk5(getPageContext(), this.searchView);
             this.searchView.setOnClickListener(dVar);
             this.searchBar.l(this.searchBarCallback);
             TiebaStatic.log("add_new");

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TempletMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TempletMsg> CREATOR;
@@ -43,7 +43,7 @@ public class TempletMsg extends NormalMsg {
     public String mTitle;
     public Video mVideo;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;
@@ -197,7 +197,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Image implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Image> CREATOR;
@@ -339,7 +339,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Link implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Link> CREATOR;
@@ -472,7 +472,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Video implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Video> CREATOR;
@@ -835,20 +835,20 @@ public class TempletMsg extends NormalMsg {
                 }
                 if (jSONObject.has("footer") && (length = (jSONArray = jSONObject.getJSONArray("footer")).length()) > 0) {
                     String string = jSONArray.getJSONObject(0).getString("type");
-                    char c2 = 65535;
+                    char c = 65535;
                     int hashCode = string.hashCode();
                     if (hashCode != 3321850) {
                         if (hashCode != 100313435) {
                             if (hashCode == 112202875 && string.equals("video")) {
-                                c2 = 2;
+                                c = 2;
                             }
                         } else if (string.equals("image")) {
-                            c2 = 1;
+                            c = 1;
                         }
                     } else if (string.equals("link")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    if (c2 == 0) {
+                    if (c == 0) {
                         this.mMode = 1;
                         this.mLinks.clear();
                         if (length > 3) {
@@ -862,7 +862,7 @@ public class TempletMsg extends NormalMsg {
                             this.mLinks.add(link);
                         }
                         return true;
-                    } else if (c2 != 1) {
+                    } else if (c != 1) {
                         this.mMode = 3;
                         Video video = new Video();
                         this.mVideo = video;
@@ -882,8 +882,8 @@ public class TempletMsg extends NormalMsg {
                     }
                 }
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e("TempletMsg", "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("TempletMsg", "parseJsonString JSONException", e);
                 return false;
             }
         }

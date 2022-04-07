@@ -1,6 +1,5 @@
 package com.baidu.tieba.enterForum.model;
 
-import c.a.p0.w0.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -9,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l46;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d adData;
+    public l46 adData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EnterForumAdResponsedMessage() {
@@ -39,9 +39,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            d dVar = new d();
-            this.adData = dVar;
-            dVar.b(jSONObject);
+            l46 l46Var = new l46();
+            this.adData = l46Var;
+            l46Var.b(jSONObject);
             if (this.adData.a()) {
                 return;
             }
@@ -49,9 +49,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public d getAdData() {
+    public l46 getAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adData : (l46) invokeV.objValue;
     }
 }

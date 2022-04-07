@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultRenderersFactory implements RenderersFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_ALLOWED_VIDEO_JOINING_TIME_MS = 5000;
@@ -44,7 +44,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
     public final int extensionRendererMode;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface ExtensionRendererMode {
     }
 
@@ -115,8 +115,8 @@ public class DefaultRenderersFactory implements RenderersFactory {
                     arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
                     Log.i(TAG, "Loaded FfmpegAudioRenderer.");
                 }
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         } catch (ClassNotFoundException unused4) {
         }
@@ -128,11 +128,11 @@ public class DefaultRenderersFactory implements RenderersFactory {
                 arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
                 Log.i(TAG, "Loaded FfmpegAudioRenderer.");
             } catch (ClassNotFoundException unused5) {
-            } catch (Exception e3) {
-                throw new RuntimeException(e3);
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
             }
-        } catch (Exception e4) {
-            throw new RuntimeException(e4);
+        } catch (Exception e3) {
+            throw new RuntimeException(e3);
         }
     }
 
@@ -173,8 +173,8 @@ public class DefaultRenderersFactory implements RenderersFactory {
             arrayList.add(size, (Renderer) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, VideoRendererEventListener.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j), handler, videoRendererEventListener, 50));
             Log.i(TAG, "Loaded LibvpxVideoRenderer.");
         } catch (ClassNotFoundException unused) {
-        } catch (Exception e2) {
-            throw new RuntimeException(e2);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

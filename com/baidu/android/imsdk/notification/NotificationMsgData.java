@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NotificationMsgData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NotificationMsgData";
@@ -66,8 +66,8 @@ public class NotificationMsgData {
                             }
                         }
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "parseJsonString JSONException", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "parseJsonString JSONException", e);
                 }
             }
             return this.mUids;
@@ -147,8 +147,8 @@ public class NotificationMsgData {
                     }
                 }
             }
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "updateUserInfo JSONException", e2);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "updateUserInfo JSONException", e);
         }
     }
 }

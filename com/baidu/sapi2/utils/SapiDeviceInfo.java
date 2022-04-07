@@ -28,7 +28,7 @@ import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY;
@@ -37,7 +37,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final int VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
         public static Map<String, String> cookiesMap;
@@ -339,8 +339,8 @@ public class SapiDeviceInfo implements NoProguard {
             for (String str : list) {
                 try {
                     jSONObject.put(str, DeviceInfoCookieManager.cookiesMap.get(str));
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
@@ -348,8 +348,8 @@ public class SapiDeviceInfo implements NoProguard {
                     ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
                     SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
                     jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, currentAccount == null ? null : currentAccount.uid, 120));
-                } catch (JSONException e3) {
-                    Log.e(e3);
+                } catch (JSONException e2) {
+                    Log.e(e2);
                 }
             }
             if (jSONObject.length() == 0) {

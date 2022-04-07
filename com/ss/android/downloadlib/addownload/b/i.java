@@ -33,12 +33,12 @@ public class i {
             if (entry.getValue() != null) {
                 try {
                     long longValue = Long.valueOf(entry.getKey()).longValue();
-                    com.ss.android.downloadad.api.a.b b2 = com.ss.android.downloadad.api.a.b.b(new JSONObject(String.valueOf(entry.getValue())));
-                    if (longValue > 0 && b2 != null) {
-                        concurrentHashMap.put(Long.valueOf(longValue), b2);
+                    com.ss.android.downloadad.api.a.b b = com.ss.android.downloadad.api.a.b.b(new JSONObject(String.valueOf(entry.getValue())));
+                    if (longValue > 0 && b != null) {
+                        concurrentHashMap.put(Long.valueOf(longValue), b);
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

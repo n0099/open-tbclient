@@ -37,11 +37,11 @@ public final class MarginPageTransformer implements ViewPager2.PageTransformer {
         this.mMarginPx = i;
     }
 
-    private ViewPager2 requireViewPager(@NonNull View view) {
+    private ViewPager2 requireViewPager(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view)) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view2)) == null) {
+            ViewParent parent = view2.getParent();
             ViewParent parent2 = parent.getParent();
             if ((parent instanceof RecyclerView) && (parent2 instanceof ViewPager2)) {
                 return (ViewPager2) parent2;
@@ -52,19 +52,19 @@ public final class MarginPageTransformer implements ViewPager2.PageTransformer {
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.PageTransformer
-    public void transformPage(@NonNull View view, float f2) {
+    public void transformPage(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, view, f2) == null) {
-            ViewPager2 requireViewPager = requireViewPager(view);
-            float f3 = this.mMarginPx * f2;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
+            ViewPager2 requireViewPager = requireViewPager(view2);
+            float f2 = this.mMarginPx * f;
             if (requireViewPager.getOrientation() == 0) {
                 if (requireViewPager.isRtl()) {
-                    f3 = -f3;
+                    f2 = -f2;
                 }
-                view.setTranslationX(f3);
+                view2.setTranslationX(f2);
                 return;
             }
-            view.setTranslationY(f3);
+            view2.setTranslationY(f2);
         }
     }
 }

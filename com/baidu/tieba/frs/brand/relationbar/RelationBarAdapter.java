@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f32424b;
+    public List<OriForumInfo> b;
 
     public RelationBarAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +43,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, relationBarHolder, i) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f32424b, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, relationBarHolder, i) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.b();
@@ -66,7 +64,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f32424b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -74,6 +72,6 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f32424b = list;
+        this.b = list;
     }
 }

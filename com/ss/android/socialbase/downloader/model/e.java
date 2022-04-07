@@ -9,33 +9,29 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements Closeable {
     public BufferedOutputStream a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FileDescriptor f43488b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f43489c;
+    public FileDescriptor b;
+    public RandomAccessFile c;
 
     public e(File file, int i) throws BaseException {
         try {
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-            this.f43489c = randomAccessFile;
-            this.f43488b = randomAccessFile.getFD();
+            this.c = randomAccessFile;
+            this.b = randomAccessFile.getFD();
             if (i > 0) {
                 if (i < 8192) {
                     i = 8192;
                 } else if (i > 131072) {
                     i = 131072;
                 }
-                this.a = new BufferedOutputStream(new FileOutputStream(this.f43489c.getFD()), i);
+                this.a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()), i);
                 return;
             }
-            this.a = new BufferedOutputStream(new FileOutputStream(this.f43489c.getFD()));
-        } catch (IOException e2) {
-            throw new BaseException(1039, e2);
+            this.a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()));
+        } catch (IOException e) {
+            throw new BaseException(1039, e);
         }
     }
 
@@ -51,7 +47,7 @@ public class e implements Closeable {
     }
 
     public void c() throws IOException {
-        FileDescriptor fileDescriptor = this.f43488b;
+        FileDescriptor fileDescriptor = this.b;
         if (fileDescriptor != null) {
             fileDescriptor.sync();
         }
@@ -59,7 +55,7 @@ public class e implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        f.a(this.f43489c, this.a);
+        f.a(this.c, this.a);
     }
 
     public void a() throws IOException {
@@ -67,17 +63,17 @@ public class e implements Closeable {
         if (bufferedOutputStream != null) {
             bufferedOutputStream.flush();
         }
-        FileDescriptor fileDescriptor = this.f43488b;
+        FileDescriptor fileDescriptor = this.b;
         if (fileDescriptor != null) {
             fileDescriptor.sync();
         }
     }
 
     public void b(long j) throws IOException {
-        this.f43489c.setLength(j);
+        this.c.setLength(j);
     }
 
     public void a(long j) throws IOException {
-        this.f43489c.seek(j);
+        this.c.seek(j);
     }
 }

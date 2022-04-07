@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StandardGifDecoder implements GifDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_INTEGER = 4;
@@ -283,7 +283,7 @@ public class StandardGifDecoder implements GifDecoder {
             byte[] bArr = this.mainPixels;
             int[] iArr2 = this.act;
             int i6 = 0;
-            byte b2 = -1;
+            byte b = -1;
             while (i6 < i) {
                 int i7 = (i6 + i2) * i5;
                 int i8 = i7 + i4;
@@ -295,15 +295,15 @@ public class StandardGifDecoder implements GifDecoder {
                 int i11 = gifFrame2.iw * i6;
                 int i12 = i8;
                 while (i12 < i9) {
-                    byte b3 = bArr[i11];
+                    byte b2 = bArr[i11];
                     int i13 = i;
-                    int i14 = b3 & 255;
-                    if (i14 != b2) {
+                    int i14 = b2 & 255;
+                    if (i14 != b) {
                         int i15 = iArr2[i14];
                         if (i15 != 0) {
                             iArr[i12] = i15;
                         } else {
-                            b2 = b3;
+                            b = b2;
                         }
                     }
                     i11++;
@@ -313,7 +313,7 @@ public class StandardGifDecoder implements GifDecoder {
                 i6++;
                 gifFrame2 = gifFrame;
             }
-            this.isFirstFrameTransparent = Boolean.valueOf(this.isFirstFrameTransparent == null && z && b2 != -1);
+            this.isFirstFrameTransparent = Boolean.valueOf(this.isFirstFrameTransparent == null && z && b != -1);
         }
     }
 
@@ -453,8 +453,8 @@ public class StandardGifDecoder implements GifDecoder {
                             s = sArr[s];
                         }
                         i27 = bArr3[s] & 255;
-                        byte b2 = (byte) i27;
-                        bArr2[i18] = b2;
+                        byte b = (byte) i27;
+                        bArr2[i18] = b;
                         while (true) {
                             i18++;
                             i9++;
@@ -467,7 +467,7 @@ public class StandardGifDecoder implements GifDecoder {
                         byte[] bArr6 = bArr4;
                         if (i23 < 4096) {
                             sArr[i23] = (short) i25;
-                            bArr3[i23] = b2;
+                            bArr3[i23] = b;
                             i23++;
                             if ((i23 & i13) == 0 && i23 < 4096) {
                                 i24++;
@@ -827,8 +827,8 @@ public class StandardGifDecoder implements GifDecoder {
                     }
                     byteArrayOutputStream.flush();
                     read(byteArrayOutputStream.toByteArray());
-                } catch (IOException e2) {
-                    Log.w(TAG, "Error reading data from stream", e2);
+                } catch (IOException e) {
+                    Log.w(TAG, "Error reading data from stream", e);
                 }
             } else {
                 this.status = 2;
@@ -836,8 +836,8 @@ public class StandardGifDecoder implements GifDecoder {
             if (inputStream != null) {
                 try {
                     inputStream.close();
-                } catch (IOException e3) {
-                    Log.w(TAG, "Error closing stream", e3);
+                } catch (IOException e2) {
+                    Log.w(TAG, "Error closing stream", e2);
                 }
             }
             return this.status;

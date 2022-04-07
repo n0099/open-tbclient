@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ChatSession> CREATOR;
@@ -181,8 +181,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
                 }
                 jSONObject.put(str, str2);
                 this.mExt = jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e("ChatSession", "addExt", e2);
+            } catch (Exception e) {
+                LogUtils.e("ChatSession", "addExt", e);
             }
         }
     }

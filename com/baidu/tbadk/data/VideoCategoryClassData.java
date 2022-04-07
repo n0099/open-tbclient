@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoCategoryClassData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +96,8 @@ public class VideoCategoryClassData implements Serializable {
                     }
                     jSONObject.put("tag", jSONArray);
                 }
-            } catch (JSONException e2) {
-                BdLog.e(e2);
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
             return jSONObject.toString();
         }

@@ -185,7 +185,7 @@ public final class Relay {
         */
         public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
-            char c2;
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
                 return invokeLJ.longValue;
@@ -201,7 +201,7 @@ public final class Relay {
                                     this.timeout.waitUntilNotified(this.this$0);
                                 } else {
                                     this.this$0.upstreamReader = Thread.currentThread();
-                                    c2 = 1;
+                                    c = 1;
                                     break;
                                 }
                             } else {
@@ -215,7 +215,7 @@ public final class Relay {
                                 this.sourcePos += min;
                                 return min;
                             }
-                            c2 = 2;
+                            c = 2;
                         }
                     }
                 }

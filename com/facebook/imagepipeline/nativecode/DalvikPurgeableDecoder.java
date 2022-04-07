@@ -27,7 +27,7 @@ import com.facebook.imageutils.BitmapUtil;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EOI;
@@ -165,9 +165,9 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
                 bitmap.recycle();
                 throw new TooManyBitmapsException(String.format(Locale.US, "Attempted to pin a bitmap of size %d bytes. The current pool count is %d, the current pool size is %d bytes. The current pool max count is %d, the current pool max size is %d bytes.", Integer.valueOf(sizeInBytes), Integer.valueOf(this.mUnpooledBitmapsCounter.getCount()), Long.valueOf(this.mUnpooledBitmapsCounter.getSize()), Integer.valueOf(this.mUnpooledBitmapsCounter.getMaxCount()), Integer.valueOf(this.mUnpooledBitmapsCounter.getMaxSize())));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 bitmap.recycle();
-                throw Throwables.propagate(e2);
+                throw Throwables.propagate(e);
             }
         }
         return (CloseableReference) invokeL.objValue;

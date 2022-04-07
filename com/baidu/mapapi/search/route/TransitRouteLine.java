@@ -19,39 +19,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TransitRouteLine> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public TaxiInfo b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f26497b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<TransitStep> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public VehicleInfo f26498d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public RouteNode f26499e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public RouteNode f26500f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TransitRouteStepType f26501g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f26502h;
+        public VehicleInfo d;
+        public RouteNode e;
+        public RouteNode f;
+        public TransitRouteStepType g;
+        public String h;
         public String i;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static final class TransitRouteStepType {
             public static final /* synthetic */ TransitRouteStepType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -160,12 +148,12 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
                     return;
                 }
             }
-            this.f26498d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
-            this.f26499e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f26500f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
+            this.e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
             int readInt = parcel.readInt();
-            this.f26501g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
-            this.f26502h = parcel.readString();
+            this.g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
+            this.h = parcel.readString();
             this.i = parcel.readString();
         }
 
@@ -182,31 +170,31 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public RouteNode getEntrance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26499e : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (RouteNode) invokeV.objValue;
         }
 
         public RouteNode getExit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26500f : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (RouteNode) invokeV.objValue;
         }
 
         public String getInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26502h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (String) invokeV.objValue;
         }
 
         public TransitRouteStepType getStepType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26501g : (TransitRouteStepType) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (TransitRouteStepType) invokeV.objValue;
         }
 
         public VehicleInfo getVehicleInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26498d : (VehicleInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (VehicleInfo) invokeV.objValue;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -225,21 +213,21 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public void setEntrace(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, routeNode) == null) {
-                this.f26499e = routeNode;
+                this.e = routeNode;
             }
         }
 
         public void setExit(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, routeNode) == null) {
-                this.f26500f = routeNode;
+                this.f = routeNode;
             }
         }
 
         public void setInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.f26502h = str;
+                this.h = str;
             }
         }
 
@@ -253,14 +241,14 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public void setStepType(TransitRouteStepType transitRouteStepType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, transitRouteStepType) == null) {
-                this.f26501g = transitRouteStepType;
+                this.g = transitRouteStepType;
             }
         }
 
         public void setVehicleInfo(VehicleInfo vehicleInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, vehicleInfo) == null) {
-                this.f26498d = vehicleInfo;
+                this.d = vehicleInfo;
             }
         }
 
@@ -269,12 +257,12 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeParcelable(this.f26498d, 1);
-                parcel.writeParcelable(this.f26499e, 1);
-                parcel.writeParcelable(this.f26500f, 1);
-                TransitRouteStepType transitRouteStepType = this.f26501g;
+                parcel.writeParcelable(this.d, 1);
+                parcel.writeParcelable(this.e, 1);
+                parcel.writeParcelable(this.f, 1);
+                TransitRouteStepType transitRouteStepType = this.g;
                 parcel.writeInt(transitRouteStepType == null ? -1 : transitRouteStepType.ordinal());
-                parcel.writeString(this.f26502h);
+                parcel.writeString(this.h);
                 parcel.writeString(this.i);
             }
         }
@@ -328,7 +316,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
                 return;
             }
         }
-        this.f26497b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -345,13 +333,13 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     public TaxiInfo getTaxitInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26497b : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TaxiInfo) invokeV.objValue;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taxiInfo) == null) {
-            this.f26497b = taxiInfo;
+            this.b = taxiInfo;
         }
     }
 
@@ -361,7 +349,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             super.setType(RouteLine.TYPE.TRANSITSTEP);
             super.writeToParcel(parcel, i);
-            parcel.writeParcelable(this.f26497b, 1);
+            parcel.writeParcelable(this.b, 1);
         }
     }
 }

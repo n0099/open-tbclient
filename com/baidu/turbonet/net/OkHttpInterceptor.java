@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class OkHttpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public static Field a;
@@ -32,8 +32,8 @@ public class OkHttpInterceptor implements Interceptor {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
             a = declaredField;
             declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e2);
+        } catch (NoSuchFieldException e) {
+            Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e);
             a = null;
         }
     }

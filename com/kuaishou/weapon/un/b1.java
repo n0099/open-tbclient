@@ -20,7 +20,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 String str = Build.VERSION.RELEASE;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -89,9 +89,9 @@ public class b1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            DisplayMetrics c2 = c(context);
-            if (c2 != null) {
-                return Integer.toString(c2.densityDpi);
+            DisplayMetrics c = c(context);
+            if (c != null) {
+                return Integer.toString(c.densityDpi);
             }
             return null;
         }
@@ -120,11 +120,11 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
-                String b2 = x0.b("persist.service.bdroid.bdaddr");
-                return TextUtils.isEmpty(b2) ? y0.f39033c : b2;
+                String b = x0.b("persist.service.bdroid.bdaddr");
+                return TextUtils.isEmpty(b) ? y0.c : b;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -184,9 +184,9 @@ public class b1 {
                         }
                         if (process != null) {
                             process.destroy();
-                            return y0.f39034d;
+                            return y0.d;
                         }
-                        return y0.f39034d;
+                        return y0.d;
                     } finally {
                         if (inputStream != null) {
                             try {
@@ -234,10 +234,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             try {
                 String str = Build.BOARD;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -267,10 +267,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             try {
                 String str = Build.BOOTLOADER;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -282,10 +282,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
                 String str = Build.BRAND;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -361,10 +361,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             try {
                 String str = Build.ID;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -376,10 +376,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             try {
                 String str = Build.VERSION.CODENAME;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -396,7 +396,7 @@ public class b1 {
         int intValue;
         int i2;
         float a;
-        float b2;
+        float b;
         int round;
         int round2;
         Interceptable interceptable = $ic;
@@ -413,10 +413,10 @@ public class b1 {
                 } else if (Build.VERSION.SDK_INT >= 17 || Build.VERSION.SDK_INT < 14) {
                     i = 0;
                     a = a(c(context));
-                    b2 = b(c(context));
-                    if (a != 0.0f && b2 != 0.0f) {
+                    b = b(c(context));
+                    if (a != 0.0f && b != 0.0f) {
                         round = Math.round((i3 / a) * 2.54f) * 10;
-                        round2 = Math.round((i / b2) * 2.54f) * 10;
+                        round2 = Math.round((i / b) * 2.54f) * 10;
                         if (round <= round2) {
                             return round2 + "mm * " + round + "mm";
                         }
@@ -433,10 +433,10 @@ public class b1 {
                 i3 = i2;
                 i = i4;
                 a = a(c(context));
-                b2 = b(c(context));
+                b = b(c(context));
                 if (a != 0.0f) {
                     round = Math.round((i3 / a) * 2.54f) * 10;
-                    round2 = Math.round((i / b2) * 2.54f) * 10;
+                    round2 = Math.round((i / b) * 2.54f) * 10;
                     if (round <= round2) {
                     }
                 }
@@ -454,11 +454,11 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             try {
-                String b2 = x0.b("ro.build.description");
-                return TextUtils.isEmpty(b2) ? y0.f39033c : b2;
+                String b = x0.b("ro.build.description");
+                return TextUtils.isEmpty(b) ? y0.c : b;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -478,7 +478,7 @@ public class b1 {
                 return System.getProperty("http.agent");
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeL.objValue;
@@ -490,10 +490,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             try {
                 String str = Build.DEVICE;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -505,10 +505,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
             try {
                 String str = Build.DISPLAY;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -520,10 +520,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             try {
                 String str = Build.FINGERPRINT;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -535,10 +535,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             try {
                 String str = Build.HARDWARE;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -549,11 +549,11 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             try {
-                String b2 = x0.b("dalvik.vm.heapgrowthlimit");
-                return TextUtils.isEmpty(b2) ? y0.f39033c : b2;
+                String b = x0.b("dalvik.vm.heapgrowthlimit");
+                return TextUtils.isEmpty(b) ? y0.c : b;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -565,10 +565,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
             try {
                 String str = Build.HOST;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -580,10 +580,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             try {
                 String str = Build.VERSION.INCREMENTAL;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -594,11 +594,11 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             try {
-                String b2 = x0.b("rild.libpath");
-                return TextUtils.isEmpty(b2) ? y0.f39033c : b2;
+                String b = x0.b("rild.libpath");
+                return TextUtils.isEmpty(b) ? y0.c : b;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -610,10 +610,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
                 String str = Build.MANUFACTURER;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -625,10 +625,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
             try {
                 String str = Build.MODEL;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -639,11 +639,11 @@ public class b1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
             try {
-                String b2 = x0.b("ro.product.name");
-                return TextUtils.isEmpty(b2) ? y0.f39033c : b2;
+                String b = x0.b("ro.product.name");
+                return TextUtils.isEmpty(b) ? y0.c : b;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -655,10 +655,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             try {
                 String str = Build.PRODUCT;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -670,10 +670,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             try {
                 String str = Build.RADIO;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -685,9 +685,9 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             try {
                 String property = System.getProperty("http.agent");
-                return TextUtils.isEmpty(property) ? y0.f39033c : property;
+                return TextUtils.isEmpty(property) ? y0.c : property;
             } catch (Throwable unused) {
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -699,10 +699,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
                 String str = Build.TAGS;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -714,10 +714,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
             try {
                 String str = Build.TYPE;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;
@@ -729,10 +729,10 @@ public class b1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
             try {
                 String str = Build.USER;
-                return TextUtils.isEmpty(str) ? y0.f39033c : str;
+                return TextUtils.isEmpty(str) ? y0.c : str;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f39034d;
+                return y0.d;
             }
         }
         return (String) invokeV.objValue;

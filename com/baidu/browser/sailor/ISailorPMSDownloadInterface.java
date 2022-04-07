@@ -2,6 +2,6 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.IPMSDownloadInterface;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface ISailorPMSDownloadInterface extends INoProGuard, IPMSDownloadInterface {
 }

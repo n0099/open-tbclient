@@ -1,6 +1,5 @@
 package com.badlogic.gdx.graphics.glutils;
 
-import c.b.b.f;
 import com.badlogic.gdx.Application;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -11,19 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b1;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GLVersion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Type f23781b;
+    public final Type b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,19 +100,19 @@ public class GLVersion {
             }
         }
         if (applicationType == Application.ApplicationType.Android) {
-            this.f23781b = Type.GLES;
+            this.b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.iOS) {
-            this.f23781b = Type.GLES;
+            this.b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.Desktop) {
-            this.f23781b = Type.OpenGL;
+            this.b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.Applet) {
-            this.f23781b = Type.OpenGL;
+            this.b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.WebGL) {
-            this.f23781b = Type.WebGL;
+            this.b = Type.WebGL;
         } else {
-            this.f23781b = Type.NONE;
+            this.b = Type.NONE;
         }
-        Type type = this.f23781b;
+        Type type = this.b;
         if (type == Type.GLES) {
             a("OpenGL ES (\\d(\\.\\d){0,2})", str);
         } else if (type == Type.WebGL) {
@@ -142,7 +140,7 @@ public class GLVersion {
                 c(split[2], 0);
                 return;
             }
-            Application application = f.a;
+            Application application = b1.a;
             application.log("GLVersion", "Invalid version string: " + str2);
             this.a = 2;
         }
@@ -161,7 +159,7 @@ public class GLVersion {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException unused) {
-                Application application = f.a;
+                Application application = b1.a;
                 application.error("LibGDX GL", "Error parsing number: " + str + ", assuming: " + i);
                 return i;
             }
@@ -172,6 +170,6 @@ public class GLVersion {
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23781b : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Type) invokeV.objValue;
     }
 }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] C40_BASIC_SET_CHARS;
@@ -33,7 +33,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -351,8 +351,8 @@ public final class DecodedBitStreamParser {
                 try {
                     sb.append(new String(bArr, StringUtils.ISO88591));
                     return;
-                } catch (UnsupportedEncodingException e2) {
-                    throw new IllegalStateException("Platform does not support required encoding: " + e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new IllegalStateException("Platform does not support required encoding: " + e);
                 }
             }
             throw FormatException.getFormatInstance();
@@ -375,12 +375,12 @@ public final class DecodedBitStreamParser {
                             if (i == 2) {
                                 char[] cArr = C40_SHIFT2_SET_CHARS;
                                 if (i3 < cArr.length) {
-                                    char c2 = cArr[i3];
+                                    char c = cArr[i3];
                                     if (z) {
-                                        sb.append((char) (c2 + 128));
+                                        sb.append((char) (c + 128));
                                         z = false;
                                     } else {
-                                        sb.append(c2);
+                                        sb.append(c);
                                     }
                                 } else if (i3 == 27) {
                                     sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
@@ -415,12 +415,12 @@ public final class DecodedBitStreamParser {
                     } else {
                         char[] cArr2 = C40_BASIC_SET_CHARS;
                         if (i3 < cArr2.length) {
-                            char c3 = cArr2[i3];
+                            char c2 = cArr2[i3];
                             if (z) {
-                                sb.append((char) (c3 + 128));
+                                sb.append((char) (c2 + 128));
                                 z = false;
                             } else {
-                                sb.append(c3);
+                                sb.append(c2);
                             }
                         } else {
                             throw FormatException.getFormatInstance();
@@ -476,12 +476,12 @@ public final class DecodedBitStreamParser {
                             if (i == 2) {
                                 char[] cArr = TEXT_SHIFT2_SET_CHARS;
                                 if (i3 < cArr.length) {
-                                    char c2 = cArr[i3];
+                                    char c = cArr[i3];
                                     if (z) {
-                                        sb.append((char) (c2 + 128));
+                                        sb.append((char) (c + 128));
                                         z = false;
                                     } else {
-                                        sb.append(c2);
+                                        sb.append(c);
                                     }
                                 } else if (i3 == 27) {
                                     sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
@@ -494,13 +494,13 @@ public final class DecodedBitStreamParser {
                             } else if (i == 3) {
                                 char[] cArr2 = TEXT_SHIFT3_SET_CHARS;
                                 if (i3 < cArr2.length) {
-                                    char c3 = cArr2[i3];
+                                    char c2 = cArr2[i3];
                                     if (z) {
-                                        sb.append((char) (c3 + 128));
+                                        sb.append((char) (c2 + 128));
                                         z = false;
                                         i = 0;
                                     } else {
-                                        sb.append(c3);
+                                        sb.append(c2);
                                         i = 0;
                                     }
                                 } else {
@@ -522,12 +522,12 @@ public final class DecodedBitStreamParser {
                     } else {
                         char[] cArr3 = TEXT_BASIC_SET_CHARS;
                         if (i3 < cArr3.length) {
-                            char c4 = cArr3[i3];
+                            char c3 = cArr3[i3];
                             if (z) {
-                                sb.append((char) (c4 + 128));
+                                sb.append((char) (c3 + 128));
                                 z = false;
                             } else {
-                                sb.append(c4);
+                                sb.append(c3);
                             }
                         } else {
                             throw FormatException.getFormatInstance();

@@ -66,7 +66,7 @@ import com.googlecode.mp4parser.boxes.ultraviolet.SampleEncryptionBox;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class Atom {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFINES_LARGE_SIZE = 1;
@@ -170,7 +170,7 @@ public abstract class Atom {
     public transient /* synthetic */ FieldHolder $fh;
     public final int type;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ContainerAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public abstract class Atom {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class LeafAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

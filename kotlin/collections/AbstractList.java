@@ -55,14 +55,14 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
             }
         }
 
-        public final boolean orderedEquals$kotlin_stdlib(Collection<?> c2, Collection<?> other) {
-            Intrinsics.checkNotNullParameter(c2, "c");
+        public final boolean orderedEquals$kotlin_stdlib(Collection<?> c, Collection<?> other) {
+            Intrinsics.checkNotNullParameter(c, "c");
             Intrinsics.checkNotNullParameter(other, "other");
-            if (c2.size() != other.size()) {
+            if (c.size() != other.size()) {
                 return false;
             }
             Iterator<?> it = other.iterator();
-            Iterator<?> it2 = c2.iterator();
+            Iterator<?> it2 = c.iterator();
             while (it2.hasNext()) {
                 if (!Intrinsics.areEqual(it2.next(), it.next())) {
                     return false;
@@ -71,9 +71,9 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
             return true;
         }
 
-        public final int orderedHashCode$kotlin_stdlib(Collection<?> c2) {
-            Intrinsics.checkNotNullParameter(c2, "c");
-            Iterator<?> it = c2.iterator();
+        public final int orderedHashCode$kotlin_stdlib(Collection<?> c) {
+            Intrinsics.checkNotNullParameter(c, "c");
+            Iterator<?> it = c.iterator();
             int i = 1;
             while (it.hasNext()) {
                 Object next = it.next();
@@ -136,7 +136,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         }
 
         @Override // java.util.ListIterator
-        public void add(E e2) {
+        public void add(E e) {
             throw new UnsupportedOperationException("Operation is not supported for read-only collection");
         }
 
@@ -166,7 +166,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
         }
 
         @Override // java.util.ListIterator
-        public void set(E e2) {
+        public void set(E e) {
             throw new UnsupportedOperationException("Operation is not supported for read-only collection");
         }
     }
@@ -201,7 +201,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     }
 
     @Override // java.util.List
-    public void add(int i, E e2) {
+    public void add(int i, E e) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
@@ -235,8 +235,8 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     @Override // java.util.List
     public int indexOf(Object obj) {
         int i = 0;
-        for (E e2 : this) {
-            if (Intrinsics.areEqual(e2, obj)) {
+        for (E e : this) {
+            if (Intrinsics.areEqual(e, obj)) {
                 return i;
             }
             i++;
@@ -271,7 +271,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
     }
 
     @Override // java.util.List
-    public E set(int i, E e2) {
+    public E set(int i, E e) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 

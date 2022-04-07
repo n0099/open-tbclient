@@ -16,14 +16,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoadingLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f29313b;
+    public TextView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingLayout(Context context) {
@@ -48,10 +46,10 @@ public class LoadingLayout extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d4, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07cb, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09023d);
-            this.f29313b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09023e);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090245);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090246);
             addView(inflate);
         }
     }
@@ -61,8 +59,8 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 setVisibility(0);
-                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012c);
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08114e);
+                Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010132);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081155);
                 this.a.startAnimation(loadAnimation);
                 return;
             }

@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.s0.a;
-import c.a.n0.i.a.i.c;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -17,7 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.fs3;
+import com.repackage.hr3;
+import com.repackage.js3;
+import com.repackage.qj2;
+/* loaded from: classes2.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
@@ -74,7 +76,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a = a.n().a();
+            String a = qj2.n().a();
             if (!TextUtils.isEmpty(a)) {
                 if (a.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -104,7 +106,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            c.a.n0.i.a.a.n().q(stringExtra, this.mOpportunity);
+            hr3.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -112,9 +114,9 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
-                c.b("notifyList", this.mOpportunity);
+                js3.b("notifyList", this.mOpportunity);
             }
-            SchemeRouter.invoke(a.c(), getInstallPageUrlScheme());
+            SchemeRouter.invoke(qj2.c(), getInstallPageUrlScheme());
         }
     }
 
@@ -127,33 +129,33 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         this.mOpportunity = intent.getStringExtra(OPPORTUNITY);
         String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
         String action = intent.getAction();
-        char c2 = 65535;
+        char c = 65535;
         int hashCode = action.hashCode();
         if (hashCode != -1289150944) {
             if (hashCode != -344997951) {
                 if (hashCode == 1169620469 && action.equals(NOTIFICATION_INSTALL_ACTION_ONE)) {
-                    c2 = 0;
+                    c = 0;
                 }
             } else if (action.equals(NOTIFICATION_INSTALL_ACTION_MULTIPLE)) {
-                c2 = 1;
+                c = 1;
             }
         } else if (action.equals(NOTIFICATION_INSTALL_ACTION_ALARM)) {
-            c2 = 2;
+            c = 2;
         }
-        if (c2 == 0) {
+        if (c == 0) {
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                c.c("notifyClick", this.mOpportunity, stringExtra);
+                js3.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
-        } else if (c2 == 1) {
+        } else if (c == 1) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
-                c.b("notifyClick", this.mOpportunity);
+                js3.b("notifyClick", this.mOpportunity);
             }
             startInstallPage(intent);
-        } else if (c2 != 2) {
+        } else if (c != 2) {
         } else {
-            c.a.n0.i.a.h.a.f().l();
-            c.a.n0.i.a.h.a.f().n("todayfirst");
+            fs3.f().l();
+            fs3.f().n("todayfirst");
         }
     }
 

@@ -9,22 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ag extends d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f26685h = "ag";
+    public static final String h = "ag";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Bundle f26686e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f26687f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f26688g;
+    public Bundle e;
+    public String f;
+    public int g;
 
     static {
         InterceptResult invokeClinit;
@@ -58,26 +50,26 @@ public class ag extends d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26687f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.f26686e = bundle;
+            this.e = bundle;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f26687f = str;
+            this.f = str;
         }
     }
 
     public Bundle b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26686e : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Bundle) invokeV.objValue;
     }
 }

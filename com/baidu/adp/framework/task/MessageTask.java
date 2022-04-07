@@ -1,7 +1,6 @@
 package com.baidu.adp.framework.task;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.c.j.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ib;
 import java.security.InvalidParameterException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public abstract class MessageTask {
     public BdAsyncTaskParallel mParallel;
     public int mPriority;
     public int mRetry;
-    public e mTimeOut;
+    public ib mTimeOut;
 
     public MessageTask(int i) {
         Interceptable interceptable = $ic;
@@ -81,10 +81,10 @@ public abstract class MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRetry : invokeV.intValue;
     }
 
-    public e getTimeOut() {
+    public ib getTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTimeOut : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTimeOut : (ib) invokeV.objValue;
     }
 
     public void setNeedEncrypt(boolean z) {
@@ -115,10 +115,10 @@ public abstract class MessageTask {
         }
     }
 
-    public void setTimeOut(e eVar) {
+    public void setTimeOut(ib ibVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.mTimeOut = eVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ibVar) == null) {
+            this.mTimeOut = ibVar;
         }
     }
 }

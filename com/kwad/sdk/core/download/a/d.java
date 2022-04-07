@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.x;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static boolean a;
 
@@ -51,8 +51,8 @@ public class d {
             }
             context.startActivity(parseUri);
             return 1;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return -1;
         }
     }
@@ -62,7 +62,7 @@ public class d {
             return;
         }
         b(true);
-        final int d2 = x.a().d();
+        final int d = x.a().d();
         int af = com.kwad.sdk.core.config.b.af();
         final boolean z = af > 0 && com.kwad.sdk.core.config.b.ag();
         int abs = Math.abs(af);
@@ -75,9 +75,9 @@ public class d {
                         com.kwad.sdk.core.report.a.c(AdTemplate.this, i);
                         return;
                     }
-                    int d3 = x.a().d();
+                    int d2 = x.a().d();
                     Context context2 = context;
-                    if (context2 == null || !z || d3 == 0 || d3 != d2) {
+                    if (context2 == null || !z || d2 == 0 || d2 != d) {
                         return;
                     }
                     d.b(context2, str, str2, AdTemplate.this);

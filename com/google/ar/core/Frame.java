@@ -9,17 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final LightEstimate f38687b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f38688c;
+    public final LightEstimate b;
+    public long c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +49,10 @@ public class Frame {
                 return;
             }
         }
-        this.f38688c = 0L;
+        this.c = 0L;
         this.a = session;
-        this.f38688c = nativeCreateFrame(session.a);
-        this.f38687b = new LightEstimate(session);
+        this.c = nativeCreateFrame(session.a);
+        this.b = new LightEstimate(session);
     }
 
     private native long nativeAcquireCameraImage(long j, long j2);
@@ -86,7 +82,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f38688c;
+            long j = this.c;
             if (j != 0) {
                 nativeDestroyFrame(j);
             }
@@ -98,7 +94,7 @@ public class Frame {
 
     public native long[] nativeAcquireUpdatedTrackables(long j, long j2, int i);
 
-    public native long[] nativeHitTest(long j, long j2, float f2, float f3);
+    public native long[] nativeHitTest(long j, long j2, float f, float f2);
 
     public native long[] nativeHitTestRay(long j, long j2, float[] fArr, int i, float[] fArr2, int i2);
 
@@ -115,7 +111,7 @@ public class Frame {
                 return;
             }
         }
-        this.f38688c = 0L;
-        this.f38688c = 0L;
+        this.c = 0L;
+        this.c = 0L;
     }
 }

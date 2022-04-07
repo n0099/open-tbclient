@@ -7,14 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public c f24177b;
+    public c b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public class d {
                 return;
             }
         }
-        this.f24177b = cVar;
+        this.b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -39,12 +37,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
-            e b2 = b.a(context).b(str);
-            if (b2 == null || TextUtils.isEmpty(b2.f24170b)) {
-                return new d(c.f24175b);
+            e b = b.a(context).b(str);
+            if (b == null || TextUtils.isEmpty(b.b)) {
+                return new d(c.b);
             }
             d dVar = new d(c.a);
-            dVar.a = b2;
+            dVar.a = b;
             return dVar;
         }
         return (d) invokeLL.objValue;
@@ -53,6 +51,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24177b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (c) invokeV.objValue;
     }
 }

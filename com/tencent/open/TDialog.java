@@ -45,28 +45,16 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TDialog extends b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final FrameLayout.LayoutParams f43696c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static Toast f43697d;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static WeakReference<ProgressDialog> f43698f;
+    public static final FrameLayout.LayoutParams c;
+    public static Toast d;
+    public static WeakReference<ProgressDialog> f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Context> f43699e;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f43700g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public OnTimeListener f43701h;
+    public WeakReference<Context> e;
+    public String g;
+    public OnTimeListener h;
     public IUiListener i;
     public FrameLayout j;
     public com.tencent.open.b.b k;
@@ -74,7 +62,7 @@ public class TDialog extends b {
     public boolean m;
     public QQToken n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FbWebViewClient extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,9 +109,9 @@ public class TDialog extends b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
                 super.onReceivedError(webView, i, str, str2);
-                this.a.f43701h.onError(new UiError(i, str, str2));
-                if (this.a.f43699e != null && this.a.f43699e.get() != null) {
-                    Toast.makeText((Context) this.a.f43699e.get(), "网络连接异常或系统错误", 0).show();
+                this.a.h.onError(new UiError(i, str, str2));
+                if (this.a.e != null && this.a.e.get() != null) {
+                    Toast.makeText((Context) this.a.e.get(), "网络连接异常或系统错误", 0).show();
                 }
                 this.a.dismiss();
             }
@@ -136,14 +124,14 @@ public class TDialog extends b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 SLog.v("openSDK_LOG.TDialog", "Redirect URL: " + str);
-                if (str.startsWith(h.a().a((Context) this.a.f43699e.get(), "auth://tauth.qq.com/"))) {
-                    this.a.f43701h.onComplete(l.c(str));
+                if (str.startsWith(h.a().a((Context) this.a.e.get(), "auth://tauth.qq.com/"))) {
+                    this.a.h.onComplete(l.c(str));
                     if (this.a.isShowing()) {
                         this.a.dismiss();
                     }
                     return true;
                 } else if (str.startsWith(com.tencent.connect.common.Constants.CANCEL_URI)) {
-                    this.a.f43701h.onCancel();
+                    this.a.h.onCancel();
                     if (this.a.isShowing()) {
                         this.a.dismiss();
                     }
@@ -164,11 +152,11 @@ public class TDialog extends b {
                         }
                         Intent intent = new Intent("android.intent.action.VIEW", parse);
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                        if (this.a.f43699e != null && this.a.f43699e.get() != null) {
-                            ((Context) this.a.f43699e.get()).startActivity(intent);
+                        if (this.a.e != null && this.a.e.get() != null) {
+                            ((Context) this.a.e.get()).startActivity(intent);
                         }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     return true;
                 }
@@ -177,7 +165,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class JsListener extends a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,23 +260,15 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class OnTimeListener extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f43702b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public WeakReference<Context> f43703c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f43704d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public IUiListener f43705e;
+        public String b;
+        public WeakReference<Context> c;
+        public String d;
+        public IUiListener e;
 
         public OnTimeListener(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
@@ -305,22 +285,22 @@ public class TDialog extends b {
                     return;
                 }
             }
-            this.f43703c = new WeakReference<>(context);
-            this.f43704d = str;
+            this.c = new WeakReference<>(context);
+            this.d = str;
             this.a = str2;
-            this.f43702b = str3;
-            this.f43705e = iUiListener;
+            this.b = str3;
+            this.e = iUiListener;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
         public void onCancel() {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.f43705e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.e) == null) {
                 return;
             }
             iUiListener.onCancel();
-            this.f43705e = null;
+            this.e = null;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -329,11 +309,11 @@ public class TDialog extends b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 JSONObject jSONObject = (JSONObject) obj;
                 g a = g.a();
-                a.a(this.f43704d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.a, false);
-                IUiListener iUiListener = this.f43705e;
+                a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.a, false);
+                IUiListener iUiListener = this.e;
                 if (iUiListener != null) {
                     iUiListener.onComplete(jSONObject);
-                    this.f43705e = null;
+                    this.e = null;
                 }
             }
         }
@@ -349,11 +329,11 @@ public class TDialog extends b {
                     str = this.a;
                 }
                 g a = g.a();
-                a.a(this.f43704d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
-                IUiListener iUiListener = this.f43705e;
+                a.a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
+                IUiListener iUiListener = this.e;
                 if (iUiListener != null) {
                     iUiListener.onError(uiError);
-                    this.f43705e = null;
+                    this.e = null;
                 }
             }
         }
@@ -364,22 +344,20 @@ public class TDialog extends b {
             if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
                 try {
                     onComplete(l.d(str));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     onError(new UiError(-4, com.tencent.connect.common.Constants.MSG_JSON_ERROR, str));
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class THandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TDialog a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public OnTimeListener f43706b;
+        public OnTimeListener b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public THandler(TDialog tDialog, OnTimeListener onTimeListener, Looper looper) {
@@ -400,7 +378,7 @@ public class TDialog extends b {
                 }
             }
             this.a = tDialog;
-            this.f43706b = onTimeListener;
+            this.b = onTimeListener;
         }
 
         @Override // android.os.Handler
@@ -410,17 +388,17 @@ public class TDialog extends b {
                 SLog.d("openSDK_LOG.TDialog", "--handleMessage--msg.WHAT = " + message.what);
                 int i = message.what;
                 if (i == 1) {
-                    this.f43706b.a((String) message.obj);
+                    this.b.a((String) message.obj);
                 } else if (i == 2) {
-                    this.f43706b.onCancel();
+                    this.b.onCancel();
                 } else if (i != 3) {
-                    if (i != 5 || this.a.f43699e == null || this.a.f43699e.get() == null) {
+                    if (i != 5 || this.a.e == null || this.a.e.get() == null) {
                         return;
                     }
-                    TDialog.d((Context) this.a.f43699e.get(), (String) message.obj);
-                } else if (this.a.f43699e == null || this.a.f43699e.get() == null) {
+                    TDialog.d((Context) this.a.e.get(), (String) message.obj);
+                } else if (this.a.e == null || this.a.e.get() == null) {
                 } else {
-                    TDialog.c((Context) this.a.f43699e.get(), (String) message.obj);
+                    TDialog.c((Context) this.a.e.get(), (String) message.obj);
                 }
             }
         }
@@ -439,8 +417,8 @@ public class TDialog extends b {
                 return;
             }
         }
-        f43696c = new FrameLayout.LayoutParams(-1, -1);
-        f43697d = null;
+        c = new FrameLayout.LayoutParams(-1, -1);
+        d = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -464,10 +442,10 @@ public class TDialog extends b {
         }
         this.m = false;
         this.n = null;
-        this.f43699e = new WeakReference<>(context);
-        this.f43700g = str2;
-        this.f43701h = new OnTimeListener(context, str, str2, qQToken.getAppId(), iUiListener);
-        this.l = new THandler(this, this.f43701h, context.getMainLooper());
+        this.e = new WeakReference<>(context);
+        this.g = str2;
+        this.h = new OnTimeListener(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.l = new THandler(this, this.h, context.getMainLooper());
         this.i = iUiListener;
         this.n = qQToken;
     }
@@ -476,7 +454,7 @@ public class TDialog extends b {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            OnTimeListener onTimeListener = this.f43701h;
+            OnTimeListener onTimeListener = this.h;
             if (onTimeListener != null) {
                 onTimeListener.onCancel();
             }
@@ -538,26 +516,26 @@ public class TDialog extends b {
                 int i = d2.getInt("type");
                 String string = d2.getString("msg");
                 if (i == 0) {
-                    if (f43697d == null) {
-                        f43697d = Toast.makeText(context, string, 0);
+                    if (d == null) {
+                        d = Toast.makeText(context, string, 0);
                     } else {
-                        f43697d.setView(f43697d.getView());
-                        f43697d.setText(string);
-                        f43697d.setDuration(0);
+                        d.setView(d.getView());
+                        d.setText(string);
+                        d.setDuration(0);
                     }
-                    f43697d.show();
+                    d.show();
                 } else if (i == 1) {
-                    if (f43697d == null) {
-                        f43697d = Toast.makeText(context, string, 1);
+                    if (d == null) {
+                        d = Toast.makeText(context, string, 1);
                     } else {
-                        f43697d.setView(f43697d.getView());
-                        f43697d.setText(string);
-                        f43697d.setDuration(1);
+                        d.setView(d.getView());
+                        d.setText(string);
+                        d.setDuration(1);
                     }
-                    f43697d.show();
+                    d.show();
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -572,39 +550,39 @@ public class TDialog extends b {
             int i = d2.getInt("action");
             String string = d2.getString("msg");
             if (i == 1) {
-                if (f43698f != null && f43698f.get() != null) {
-                    f43698f.get().setMessage(string);
-                    if (!f43698f.get().isShowing()) {
-                        f43698f.get().show();
+                if (f != null && f.get() != null) {
+                    f.get().setMessage(string);
+                    if (!f.get().isShowing()) {
+                        f.get().show();
                     }
                 }
                 ProgressDialog progressDialog = new ProgressDialog(context);
                 progressDialog.setMessage(string);
-                f43698f = new WeakReference<>(progressDialog);
+                f = new WeakReference<>(progressDialog);
                 progressDialog.show();
             } else if (i == 0) {
-                if (f43698f == null) {
+                if (f == null) {
                     return;
                 }
-                if (f43698f.get() != null && f43698f.get().isShowing()) {
-                    f43698f.get().dismiss();
-                    f43698f = null;
+                if (f.get() != null && f.get().isShowing()) {
+                    f.get().dismiss();
+                    f = null;
                 }
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            new TextView(this.f43699e.get()).setText("test");
+            new TextView(this.e.get()).setText("test");
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.f43699e.get());
+            com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.e.get());
             this.k = bVar;
             bVar.setLayoutParams(layoutParams);
-            FrameLayout frameLayout = new FrameLayout(this.f43699e.get());
+            FrameLayout frameLayout = new FrameLayout(this.e.get());
             this.j = frameLayout;
             layoutParams.gravity = 17;
             frameLayout.setLayoutParams(layoutParams);
@@ -620,7 +598,7 @@ public class TDialog extends b {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
             this.k.setWebViewClient(new FbWebViewClient());
-            this.k.setWebChromeClient(this.f43731b);
+            this.k.setWebChromeClient(this.b);
             this.k.clearFormData();
             WebSettings settings = this.k.getSettings();
             if (settings == null) {
@@ -634,15 +612,15 @@ public class TDialog extends b {
             settings.setSupportZoom(true);
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setJavaScriptEnabled(true);
-            WeakReference<Context> weakReference = this.f43699e;
+            WeakReference<Context> weakReference = this.e;
             if (weakReference != null && weakReference.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.f43699e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+                settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new JsListener(), "sdk_js_if");
-            this.k.loadUrl(this.f43700g);
-            this.k.setLayoutParams(f43696c);
+            this.k.loadUrl(this.g);
+            this.k.setLayoutParams(c);
             this.k.setVisibility(4);
             this.k.getSettings().setSavePassword(false);
         }

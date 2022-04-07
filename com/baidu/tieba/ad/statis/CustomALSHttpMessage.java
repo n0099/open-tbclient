@@ -3,7 +3,6 @@ package com.baidu.tieba.ad.statis;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -20,14 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mi;
+/* loaded from: classes3.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
-    public static final TbHttpMessageTask task;
+    public static final TbHttpMessageTask TASK;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mUIHandler;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.a, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.a, CustomALSHttpMessage.TASK);
             }
         }
     }
@@ -74,10 +74,10 @@ public class CustomALSHttpMessage extends HttpMessage {
             }
         }
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CUSTOM_ALS, TbConfig.REPORT_PLOG);
-        task = tbHttpMessageTask;
+        TASK = tbHttpMessageTask;
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        task.setIsNeedAddCommenParam(true);
-        task.setResponsedClass(CustomALSResponseHttpMessage.class);
+        TASK.setIsNeedAddCommenParam(true);
+        TASK.setResponsedClass(CustomALSResponseHttpMessage.class);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         addParam(AdUploadHttpRequest.KEY_PRODUCT_ID, "2");
         addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
         addParam(AdUploadHttpRequest.KEY_OS_TYPE, "ANDROID");
-        addParam("net_type", String.valueOf(l.I()));
+        addParam("net_type", String.valueOf(mi.I()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -118,7 +118,7 @@ public class CustomALSHttpMessage extends HttpMessage {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(this, task);
+            MessageManager.getInstance().sendMessage(this, TASK);
         }
     }
 

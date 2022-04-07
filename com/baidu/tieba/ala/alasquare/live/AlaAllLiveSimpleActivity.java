@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,16 +48,16 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07b0);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f3);
+            setContentView(R.layout.obfuscated_res_0x7f0d07a7);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ee);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0265);
+            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0266);
             if (bundle == null) {
                 AlaSquareLiveFragment alaSquareLiveFragment = new AlaSquareLiveFragment(true);
                 this.mFragment = alaSquareLiveFragment;
                 alaSquareLiveFragment.setPrimary(true);
-                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906c9, this.mFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906d2, this.mFragment).commitAllowingStateLoss();
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

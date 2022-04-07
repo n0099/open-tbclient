@@ -27,27 +27,17 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class o extends com.baidu.location.e.e {
     public static /* synthetic */ Interceptable $ic;
     public static o q;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f25972b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f25973c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f25974d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f25975e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Handler f25976f;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public Handler f;
 
     static {
         InterceptResult invokeClinit;
@@ -78,12 +68,12 @@ public class o extends com.baidu.location.e.e {
             }
         }
         this.a = null;
-        this.f25972b = null;
-        this.f25973c = null;
-        this.f25974d = null;
-        this.f25975e = 1;
-        this.f25976f = null;
-        this.f25976f = new Handler();
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = 1;
+        this.f = null;
+        this.f = new Handler();
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -205,7 +195,7 @@ public class o extends com.baidu.location.e.e {
     private Handler d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f25976f : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f : (Handler) invokeV.objValue;
     }
 
     private void e() {
@@ -237,13 +227,13 @@ public class o extends com.baidu.location.e.e {
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(200L);
                 randomAccessFile2.writeBoolean(true);
-                if (this.f25975e == 1) {
+                if (this.e == 1) {
                     randomAccessFile2.writeBoolean(true);
                 } else {
                     randomAccessFile2.writeBoolean(false);
                 }
-                if (this.f25974d != null) {
-                    byte[] bytes2 = this.f25974d.getBytes();
+                if (this.d != null) {
+                    byte[] bytes2 = this.d.getBytes();
                     randomAccessFile2.writeInt(bytes2.length);
                     randomAccessFile2.write(bytes2);
                 } else if (Math.abs(com.baidu.location.f.getFrameVersion() - 7.93f) < 1.0E-8f) {
@@ -269,13 +259,13 @@ public class o extends com.baidu.location.e.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (this.f25973c == null) {
+            if (this.c == null) {
                 return true;
             }
-            if (new File(com.baidu.location.e.k.j() + File.separator + this.f25973c).exists()) {
+            if (new File(com.baidu.location.e.k.j() + File.separator + this.c).exists()) {
                 return true;
             }
-            return a("http://" + this.a + "/" + this.f25973c, this.f25973c);
+            return a("http://" + this.a + "/" + this.c, this.c);
         }
         return invokeV.booleanValue;
     }
@@ -283,16 +273,16 @@ public class o extends com.baidu.location.e.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f25972b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.b == null) {
             return;
         }
-        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f25972b);
+        File file = new File(com.baidu.location.e.k.j() + File.separator + this.b);
         if (file.exists()) {
             return;
         }
-        if (a("http://" + this.a + "/" + this.f25972b, this.f25972b)) {
+        if (a("http://" + this.a + "/" + this.b, this.b)) {
             String a = com.baidu.location.e.k.a(file, "SHA-256");
-            String str = this.f25974d;
+            String str = this.d;
             if (str == null || a == null || !com.baidu.location.e.k.b(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                 return;
             }
@@ -321,12 +311,12 @@ public class o extends com.baidu.location.e.e {
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
             stringBuffer.append("&suit=");
             stringBuffer.append(2);
-            if (com.baidu.location.e.b.a().f26054c == null) {
+            if (com.baidu.location.e.b.a().c == null) {
                 stringBuffer.append("&im=");
                 str = com.baidu.location.e.b.a().a;
             } else {
                 stringBuffer.append("&cu=");
-                str = com.baidu.location.e.b.a().f26054c;
+                str = com.baidu.location.e.b.a().c;
             }
             stringBuffer.append(str);
             stringBuffer.append("&mb=");
@@ -356,8 +346,8 @@ public class o extends com.baidu.location.e.e {
                 stringBuffer.append(str3);
             }
             stringBuffer.append("&pack=");
-            stringBuffer.append(com.baidu.location.e.b.f26049e);
-            this.f26072h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.e.b.e);
+            this.h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
         }
     }
 
@@ -370,18 +360,18 @@ public class o extends com.baidu.location.e.e {
                 if ("up".equals(jSONObject.getString(UriUtil.LOCAL_RESOURCE_SCHEME))) {
                     this.a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.f25972b = jSONObject.getString("u1");
+                        this.b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
-                        this.f25973c = jSONObject.getString("u2");
+                        this.c = jSONObject.getString("u2");
                     }
                     if (jSONObject.has("u1_rsa")) {
-                        this.f25974d = jSONObject.getString("u1_rsa");
+                        this.d = jSONObject.getString("u1_rsa");
                     }
                     d().post(new r(this));
                 }
                 if (jSONObject.has("ison")) {
-                    this.f25975e = jSONObject.getInt("ison");
+                    this.e = jSONObject.getInt("ison");
                 }
                 e();
             } catch (Exception unused) {

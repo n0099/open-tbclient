@@ -11,17 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SyncCoordinateConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public CoordType f26531b;
+    public CoordType b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class CoordType {
         public static /* synthetic */ Interceptable $ic;
         public static final CoordType BD09LL;
@@ -131,10 +129,10 @@ public class SyncCoordinateConverter {
             if (this.a == null) {
                 return null;
             }
-            if (this.f26531b == null) {
-                this.f26531b = CoordType.BD09LL;
+            if (this.b == null) {
+                this.b = CoordType.BD09LL;
             }
-            int i = a.a[this.f26531b.ordinal()];
+            int i = a.a[this.b.ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     return null;
@@ -160,7 +158,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f26531b = coordType;
+            this.b = coordType;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;

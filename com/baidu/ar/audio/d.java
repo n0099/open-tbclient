@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "d";
@@ -43,23 +43,23 @@ public class d {
         }
     }
 
-    public static int a(byte b2, byte b3) {
+    public static int a(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            int i = (b2 & 255) + ((b3 & 255) << 8);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
+            int i = (b & 255) + ((b2 & 255) << 8);
             return i >= 32768 ? i - 65535 : i;
         }
         return invokeCommon.intValue;
     }
 
-    public static void a(byte[] bArr, double d2) {
+    public static void a(byte[] bArr, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Double.valueOf(d)}) == null) {
             for (int i = 0; i < bArr.length; i += 2) {
                 int i2 = i + 1;
                 int a = a(bArr[i], bArr[i2]);
-                int i3 = (int) (a * d2);
+                int i3 = (int) (a * d);
                 if (i3 < 32767 && i3 > -32768) {
                     a = (short) i3;
                 } else if (i3 > 32767) {
@@ -77,11 +77,11 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            double d2 = 0.0d;
+            double d = 0.0d;
             for (int i = 0; i < bArr.length; i += 2) {
-                d2 += Math.abs(a(bArr[i], bArr[i + 1]));
+                d += Math.abs(a(bArr[i], bArr[i + 1]));
             }
-            return Math.log10(((d2 / bArr.length) / 2.0d) + 1.0d) * 10.0d;
+            return Math.log10(((d / bArr.length) / 2.0d) + 1.0d) * 10.0d;
         }
         return invokeL.doubleValue;
     }
@@ -90,12 +90,12 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            double d2 = 0.0d;
+            double d = 0.0d;
             for (int i = 0; i < bArr.length; i += 2) {
                 int a = a(bArr[i], bArr[i + 1]);
-                d2 += a * a;
+                d += a * a;
             }
-            return Math.min(5000.0d, Math.sqrt((d2 / bArr.length) / 2.0d)) / 50.0d;
+            return Math.min(5000.0d, Math.sqrt((d / bArr.length) / 2.0d)) / 50.0d;
         }
         return invokeL.doubleValue;
     }

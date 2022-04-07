@@ -59,7 +59,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChatMessageDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
@@ -69,7 +69,7 @@ public class ChatMessageDBManager extends DBBase {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ChatMessageDbOberser> mObservers;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -142,9 +142,9 @@ public class ChatMessageDBManager extends DBBase {
                     contentValues.put("contacter", Long.valueOf(textMsg.getContacter()));
                     return openDatabase.insert(TableDefine.DB_TABLE_RELIABLE_MESSAGE, null, contentValues);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str2 = TAG;
-                LogUtils.d(str2, "addReliableMsg:" + e2);
+                LogUtils.d(str2, "addReliableMsg:" + e);
                 return -1L;
             }
         }
@@ -222,8 +222,8 @@ public class ChatMessageDBManager extends DBBase {
                                                 optJSONObject = jSONArray.optJSONObject(0);
                                                 jSONObject = new JSONObject();
                                                 j = j2;
-                                            } catch (Exception e2) {
-                                                e = e2;
+                                            } catch (Exception e) {
+                                                e = e;
                                                 j = j2;
                                             }
                                             try {
@@ -233,8 +233,8 @@ public class ChatMessageDBManager extends DBBase {
                                                 str2 = jSONObject.toString();
                                                 i3 = 1;
                                                 i13 = 8;
-                                            } catch (Exception e3) {
-                                                e = e3;
+                                            } catch (Exception e2) {
+                                                e = e2;
                                                 string = string;
                                                 i5 = 8;
                                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -269,8 +269,8 @@ public class ChatMessageDBManager extends DBBase {
                                                 JSONObject jSONObject7 = new JSONObject();
                                                 jSONObject7.put("articles", jSONArray2);
                                                 str2 = jSONObject7.toString();
-                                            } catch (Exception e4) {
-                                                e = e4;
+                                            } catch (Exception e3) {
+                                                e = e3;
                                                 string = str2;
                                                 i5 = 9;
                                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -291,8 +291,8 @@ public class ChatMessageDBManager extends DBBase {
                                     try {
                                         string = jSONObject3.optString("content");
                                         i5 = optInt;
-                                    } catch (Exception e5) {
-                                        e = e5;
+                                    } catch (Exception e4) {
+                                        e = e4;
                                         i5 = optInt;
                                         string = string;
                                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -308,8 +308,8 @@ public class ChatMessageDBManager extends DBBase {
                                 str = string6;
                                 i2 = i12;
                                 i5 = 0;
-                            } catch (Exception e6) {
-                                e = e6;
+                            } catch (Exception e5) {
+                                e = e5;
                                 i = i4;
                                 j = j2;
                                 str = string6;
@@ -317,24 +317,24 @@ public class ChatMessageDBManager extends DBBase {
                                 string = string;
                                 i5 = 0;
                             }
-                        } catch (Exception e7) {
-                            e = e7;
+                        } catch (Exception e6) {
+                            e = e6;
                             i = i4;
                             j = j2;
                             str = string6;
                             i2 = i12;
                             i5 = i13;
                         }
-                    } catch (Exception e8) {
-                        e = e8;
+                    } catch (Exception e7) {
+                        e = e7;
                         i = i4;
                         j = j2;
                         str = string6;
                         i2 = i12;
                         i5 = i13;
                     }
-                } catch (Exception e9) {
-                    e = e9;
+                } catch (Exception e8) {
+                    e = e8;
                     i = i4;
                     j = j2;
                     str = string6;
@@ -504,8 +504,8 @@ public class ChatMessageDBManager extends DBBase {
                                 try {
                                     j7 = Long.valueOf(senderUid).longValue();
                                     break;
-                                } catch (NumberFormatException e2) {
-                                    LogUtils.e(TAG, "", e2);
+                                } catch (NumberFormatException e) {
+                                    LogUtils.e(TAG, "", e);
                                 }
                             }
                         }
@@ -648,8 +648,8 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 if (jArr != null) {
                     try {
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                     if (jArr.length > 0) {
                         try {
@@ -660,8 +660,8 @@ public class ChatMessageDBManager extends DBBase {
                                 try {
                                     strArr[0] = String.valueOf(j);
                                     i = (int) (i + openDatabase.delete("message", "msgid = ? AND status=?", strArr));
-                                } catch (Exception e3) {
-                                    e = e3;
+                                } catch (Exception e2) {
+                                    e = e2;
                                     i2 = i;
                                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                     LogUtils.e(TAG, "delMsg:", e);
@@ -674,8 +674,8 @@ public class ChatMessageDBManager extends DBBase {
                                 openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
                                 LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + j3);
                             }
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             i2 = 0;
                         }
                         return i;
@@ -725,9 +725,9 @@ public class ChatMessageDBManager extends DBBase {
                     if (i2 < 0) {
                         try {
                             openDatabase.endTransaction();
-                        } catch (Exception e2) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                            LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e2);
+                        } catch (Exception e) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e);
                         }
                         return -1;
                     }
@@ -740,19 +740,19 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                        LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e3);
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e2);
                     }
                     return i;
-                } catch (Exception e4) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                    LogUtils.e(TAG, "delMsg:", e4);
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "delMsg:", e3);
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e5) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
-                        LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e5);
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e4);
                     }
                     return -1;
                 }
@@ -813,19 +813,19 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e2);
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e);
                     }
                     return i5;
-                } catch (Exception e3) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                    LogUtils.e(TAG, "delMsgsOfPaByPaId:", e3);
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "delMsgsOfPaByPaId:", e2);
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e4) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e4);
+                    } catch (Exception e3) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e3);
                     }
                     return -1;
                 }
@@ -884,9 +884,9 @@ public class ChatMessageDBManager extends DBBase {
                         contentValues.put("msg_key", chatMsg.getMsgKey());
                         return openDatabase.insert(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, contentValues);
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "dupMsgAddHandler:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "dupMsgAddHandler:", e);
                     return -1L;
                 }
             }
@@ -995,8 +995,8 @@ public class ChatMessageDBManager extends DBBase {
                             }
                             return constructChatRecord;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogUtils.e(TAG, "getChatRecord:", e);
                         if (cursor != null) {
                             cursor.close();
@@ -1008,8 +1008,8 @@ public class ChatMessageDBManager extends DBBase {
                     cursor.close();
                 }
                 return null;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th) {
                 th = th;
@@ -1074,9 +1074,9 @@ public class ChatMessageDBManager extends DBBase {
                         cursor.close();
                     }
                     return arrayList;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getContacterByChatTypes:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getContacterByChatTypes:", e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1141,14 +1141,14 @@ public class ChatMessageDBManager extends DBBase {
                             if (cursor.moveToNext()) {
                                 chatMsg = construChatMsg(cursor);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getDraftMsg:", e);
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
@@ -1212,9 +1212,9 @@ public class ChatMessageDBManager extends DBBase {
                         cursor.close();
                     }
                     return arrayList;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1375,9 +1375,9 @@ public class ChatMessageDBManager extends DBBase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "isReliableMsgExist e :" + e2);
+                    LogUtils.e(str, "isReliableMsgExist e :" + e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1494,9 +1494,9 @@ public class ChatMessageDBManager extends DBBase {
                     str = str + " AND msgid<=" + j;
                 }
                 return sQLiteDatabase.update("message", contentValues, str, new String[]{String.valueOf(0), "0"});
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "setMsgReadByContacterIds:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "setMsgReadByContacterIds:", e);
                 return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
             }
         }
@@ -1532,9 +1532,9 @@ public class ChatMessageDBManager extends DBBase {
                         contentValues.put("is_read", Boolean.valueOf(chatMsg.isMsgRead()));
                         return openDatabase.insert(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, contentValues);
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "studioMsgAddHandler :", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "studioMsgAddHandler :", e);
                     return -1L;
                 }
             }
@@ -1631,9 +1631,9 @@ public class ChatMessageDBManager extends DBBase {
                             JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
                             jSONObject.put(Constants.EXTRA_TRIGGER_REASON, j);
                             chatMsg.setMsgContent(jSONObject.toString());
-                        } catch (Exception e2) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            e.printStackTrace();
                         }
                         if (!isNeedInsertToDB(chatMsg)) {
                             arrayList2.add(chatMsg);
@@ -1828,9 +1828,9 @@ public class ChatMessageDBManager extends DBBase {
                         notifyDbChange(2, chatRecordInternal);
                     }
                     return delete;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "delChatRecord:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "delChatRecord:", e);
                     return -1L;
                 }
             }
@@ -1865,8 +1865,8 @@ public class ChatMessageDBManager extends DBBase {
                     while (query.moveToNext()) {
                         try {
                             arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = query;
                             try {
                                 LogUtils.e(TAG, "delChatRecordForChatType:", e);
@@ -1904,8 +1904,8 @@ public class ChatMessageDBManager extends DBBase {
                     query.close();
                 }
                 return j;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th3) {
                 th = th3;
@@ -1943,8 +1943,8 @@ public class ChatMessageDBManager extends DBBase {
                             while (query.moveToNext()) {
                                 try {
                                     arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
-                                } catch (Exception e2) {
-                                    e = e2;
+                                } catch (Exception e) {
+                                    e = e;
                                     cursor = query;
                                     try {
                                         try {
@@ -1989,8 +1989,8 @@ public class ChatMessageDBManager extends DBBase {
                             query.close();
                         }
                         return j;
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         cursor = null;
                     } catch (Throwable th4) {
                         th = th4;
@@ -2041,9 +2041,9 @@ public class ChatMessageDBManager extends DBBase {
                             delMsgsOfCertainContacter = -1;
                         }
                         return delMsgsOfCertainContacter;
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                        LogUtils.e(TAG, "delMsg:", e2);
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "delMsg:", e);
                         return -1;
                     }
                 }
@@ -2199,8 +2199,8 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 try {
                     return openDatabase.delete(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 259200)});
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "deleteExpiredDupMsgs :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteExpiredDupMsgs :", e);
                     return -1L;
                 }
             }
@@ -2220,8 +2220,8 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 try {
                     return openDatabase.delete(TableDefine.DB_TABLE_RELIABLE_MESSAGE, "create_time < ?", new String[]{String.valueOf((System.currentTimeMillis() / 1000) - CAST_RELIABLE_MSG_EXPIRED_TIME)});
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
                     return -1L;
                 }
             }
@@ -2258,8 +2258,8 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 try {
                     return openDatabase.delete(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 172800000)});
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "deleteStudioUsePaMsgs :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteStudioUsePaMsgs :", e);
                     return -1L;
                 }
             }
@@ -2333,9 +2333,9 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
             }
         }
     }
@@ -2457,9 +2457,9 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
             }
         }
     }
@@ -2517,9 +2517,9 @@ public class ChatMessageDBManager extends DBBase {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
             }
         }
     }
@@ -2548,8 +2548,8 @@ public class ChatMessageDBManager extends DBBase {
                 try {
                     try {
                         query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"classtype", "classtitle", "classshow", "classavatar"}, "classtype > 1 ", null, "classtype", null, null, null);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -2581,8 +2581,8 @@ public class ChatMessageDBManager extends DBBase {
                         query.close();
                     }
                     return arrayList;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = query;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "getChatRecords:", e);
@@ -2646,14 +2646,14 @@ public class ChatMessageDBManager extends DBBase {
                             if (cursor.moveToNext()) {
                                 chatMsg = construChatMsg(cursor);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "fetchMsg:", e);
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
@@ -2698,8 +2698,8 @@ public class ChatMessageDBManager extends DBBase {
                                 }
                                 return constructChatRecord;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             LogUtils.e(TAG, "getChatRecord:", e);
                             if (cursor != null) {
                                 cursor.close();
@@ -2719,8 +2719,8 @@ public class ChatMessageDBManager extends DBBase {
                     cursor.close();
                 }
                 return null;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -2761,8 +2761,8 @@ public class ChatMessageDBManager extends DBBase {
                                 }
                                 return constructChatRecord;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             LogUtils.e(TAG, "getChatRecord:", e);
                             if (cursor != null) {
                                 cursor.close();
@@ -2774,8 +2774,8 @@ public class ChatMessageDBManager extends DBBase {
                         cursor.close();
                     }
                     return null;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
@@ -2829,8 +2829,8 @@ public class ChatMessageDBManager extends DBBase {
                             str = addPaidCondition + " AND classtype in (" + str2 + ") ";
                         }
                         query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, new String[]{String.valueOf(1)}, null, null, "last_msg_time desc ", j4 > 0 ? String.valueOf(j4) : null);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -2856,8 +2856,8 @@ public class ChatMessageDBManager extends DBBase {
                         query.close();
                     }
                     return arrayList;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = query;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "getChatRecords:", e);
@@ -2918,8 +2918,8 @@ public class ChatMessageDBManager extends DBBase {
                             if (constructChatRecord != null) {
                                 arrayList.add(constructChatRecord);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = query;
                             LogUtils.e(TAG, "getGroupSession:", e);
                             if (cursor != null) {
@@ -2939,8 +2939,8 @@ public class ChatMessageDBManager extends DBBase {
                         query.close();
                     }
                     return arrayList;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -2991,14 +2991,14 @@ public class ChatMessageDBManager extends DBBase {
                             if (cursor.moveToNext()) {
                                 chatMsg = construChatMsg(cursor);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getLatestMsg:", e);
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
@@ -3037,9 +3037,9 @@ public class ChatMessageDBManager extends DBBase {
                         cursor.close();
                     }
                     return j;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getMaxMsgid:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getMaxMsgid:", e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -3103,8 +3103,8 @@ public class ChatMessageDBManager extends DBBase {
                     }
                     return j2;
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "getMaxReliableMsgId:", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getMaxReliableMsgId:", e);
             }
         }
     }
@@ -3168,16 +3168,16 @@ public class ChatMessageDBManager extends DBBase {
                                 throw th;
                             }
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getMsgByMsgId:", e);
                     }
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = 0;
             } catch (Throwable th3) {
                 th = th3;
@@ -3233,9 +3233,9 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         str = "chat_type in " + (str2 + " ) ");
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, " getNewMsgCount:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, " getNewMsgCount:", e);
                 }
             }
             cursor = openDatabase.rawQuery(TextUtils.isEmpty(str) ? "select sum(new_msg_sum) from chatrecord" : "select sum(new_msg_sum) from chatrecord where " + str, null);
@@ -3283,9 +3283,9 @@ public class ChatMessageDBManager extends DBBase {
                 if (cursor != null && cursor.moveToNext()) {
                     i2 = cursor.getInt(0);
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, " getNewMsgCount:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, " getNewMsgCount:", e);
             }
         }
     }
@@ -3307,9 +3307,9 @@ public class ChatMessageDBManager extends DBBase {
                     String str = TAG;
                     LogUtils.d(str, "getNewMsgNum: " + newMsgNum);
                     return newMsgNum;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getNewMsgNum:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getNewMsgNum:", e);
                     return 0;
                 }
             }
@@ -3374,8 +3374,8 @@ public class ChatMessageDBManager extends DBBase {
                             if (generateStudioUsePaMsg != null) {
                                 arrayList.add(generateStudioUsePaMsg);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = query;
                             LogUtils.e(TAG, "getStudioUsePaUnReadMsg :", e);
                             if (cursor != null) {
@@ -3395,8 +3395,8 @@ public class ChatMessageDBManager extends DBBase {
                         query.close();
                     }
                     return arrayList;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -3427,9 +3427,9 @@ public class ChatMessageDBManager extends DBBase {
                         cursor.close();
                     }
                     return count;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, " getUnReadMsgCount:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, " getUnReadMsgCount:", e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -3478,9 +3478,9 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 String str2 = TAG;
                 LogUtils.d(str2, "chat record not found! category: " + chatObject.toString());
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "isRecordExist:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "isRecordExist:", e);
             }
         }
     }
@@ -3699,27 +3699,27 @@ public class ChatMessageDBManager extends DBBase {
                         openDatabase.setTransactionSuccessful();
                         try {
                             openDatabase.endTransaction();
-                        } catch (Exception e2) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                            LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e2);
+                        } catch (Exception e) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e);
                         }
                         return unreadContacterByChatTypes;
                     }
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                        LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e3);
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e2);
                     }
                     return unreadContacterByChatTypes;
-                } catch (Exception e4) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                    LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e4);
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypes:", e3);
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e5) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
-                        LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e5);
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypes finally:", e4);
                     }
                     return null;
                 }
@@ -3759,27 +3759,27 @@ public class ChatMessageDBManager extends DBBase {
                         openDatabase.setTransactionSuccessful();
                         try {
                             openDatabase.endTransaction();
-                        } catch (Exception e2) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                            LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e2);
+                        } catch (Exception e) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e);
                         }
                         return paidListByPainfos;
                     }
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                        LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e3);
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e2);
                     }
                     return null;
-                } catch (Exception e4) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                    LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType:", e4);
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                    LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType:", e3);
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e5) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
-                        LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e5);
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        LogUtils.e(TAG, "setPaMsgReadByChatTypeAndSubType finally:", e4);
                     }
                     return null;
                 }
@@ -3829,9 +3829,9 @@ public class ChatMessageDBManager extends DBBase {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("content", chatMsg.getMsgContent());
                     return openDatabase.update("message", contentValues, "msgid = ?", new String[]{String.valueOf(chatMsg.getMsgId())});
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "updateChatMsgContent:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "updateChatMsgContent:", e);
                     return -1;
                 }
             }
@@ -3866,9 +3866,9 @@ public class ChatMessageDBManager extends DBBase {
                         notifyDbChange(1, getChatRecordInternal(openDatabase, new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter())));
                     }
                     return update;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "updateChatSessionName:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "updateChatSessionName:", e);
                     return -1;
                 }
             }
@@ -3982,8 +3982,8 @@ public class ChatMessageDBManager extends DBBase {
                         notifyDbChange(1, chatSession);
                     }
                     return update;
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "updateChatRecord:", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "updateChatRecord:", e);
                     return -1L;
                 }
             }
@@ -4040,8 +4040,8 @@ public class ChatMessageDBManager extends DBBase {
                             query.close();
                         }
                         return arrayList;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         cursor = query;
                         LogUtils.e(TAG, "getChatRecords:", e);
                         if (cursor != null) {
@@ -4059,8 +4059,8 @@ public class ChatMessageDBManager extends DBBase {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         }
     }
@@ -4149,8 +4149,8 @@ public class ChatMessageDBManager extends DBBase {
                                 throw th;
                             }
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "fetchMsg:", e);
                         if (r8 != 0) {
@@ -4161,8 +4161,8 @@ public class ChatMessageDBManager extends DBBase {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 r8 = 0;
             } catch (Throwable th3) {
                 th = th3;
@@ -4191,16 +4191,16 @@ public class ChatMessageDBManager extends DBBase {
                 int i2 = 0;
                 try {
                     i = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
                 try {
                     long j2 = j + 1;
                     openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
                     String str = TAG;
                     LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     i2 = i;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "deleteChatMsg:", e);
@@ -4269,9 +4269,9 @@ public class ChatMessageDBManager extends DBBase {
                         contentValues.put(TableDefine.MessageColumns.COLUME_TEMPLATE, Integer.valueOf(chatMsg.getTemplateType()));
                         return openDatabase.insert("message", null, contentValues);
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "addMsg:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "addMsg:", e);
                     return -1L;
                 }
             }
@@ -4319,9 +4319,9 @@ public class ChatMessageDBManager extends DBBase {
                 }
                 String str2 = TAG;
                 LogUtils.d(str2, "getNewMsgNum record not found! " + chatObject.toString());
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "getNewMsgNum:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "getNewMsgNum:", e);
             }
         }
     }
@@ -4386,8 +4386,8 @@ public class ChatMessageDBManager extends DBBase {
                                 }
                                 return constructChatRecord;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             LogUtils.e(TAG, "getChatRecord:", e);
                             if (cursor != null) {
                                 cursor.close();
@@ -4407,8 +4407,8 @@ public class ChatMessageDBManager extends DBBase {
                     cursor.close();
                 }
                 return null;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -4490,9 +4490,9 @@ public class ChatMessageDBManager extends DBBase {
             if (j != -1) {
                 try {
                     str = "paid=" + j;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, " getNewMsgCount:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, " getNewMsgCount:", e);
                 }
             }
             String str2 = "select sum(new_msg_sum) from chatrecord";
@@ -4740,8 +4740,8 @@ public class ChatMessageDBManager extends DBBase {
                             String str72 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j62);
                             synchronized (DBBase.mSyncLock) {
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "fetchMsg:", e);
                             if (cursor == null) {
@@ -4791,8 +4791,8 @@ public class ChatMessageDBManager extends DBBase {
             if (j6222 > 0) {
             }
             String str7222 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6222);
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             cursor = null;
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             LogUtils.e(TAG, "fetchMsg:", e);

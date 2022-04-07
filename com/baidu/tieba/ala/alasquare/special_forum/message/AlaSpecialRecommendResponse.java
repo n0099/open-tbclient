@@ -1,7 +1,5 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
-import c.a.p0.c0.f.g.c.b;
-import c.a.p0.c0.f.g.c.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -9,17 +7,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rq5;
+import com.repackage.sq5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public c mSpecialActivityListData;
+    public sq5 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new c();
+        this.mSpecialActivityListData = new sq5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -68,17 +68,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                c cVar = this.mSpecialActivityListData;
-                if (cVar != null && cVar.a == null) {
-                    cVar.a = new ArrayList();
+                sq5 sq5Var = this.mSpecialActivityListData;
+                if (sq5Var != null && sq5Var.a == null) {
+                    sq5Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            b bVar = new b();
-                            bVar.e(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(bVar);
+                            rq5 rq5Var = new rq5();
+                            rq5Var.e(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(rq5Var);
                         }
                     }
                 }

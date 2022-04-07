@@ -6,32 +6,18 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static volatile boolean a = false;
+    public static final String b = "b";
+    public static long g = -1;
+    public static volatile b h;
+    public final k c = k.a();
+    public final AtomicInteger d = new AtomicInteger();
+    public final a e = new a(com.ss.android.socialbase.downloader.h.e.a());
+    public long f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f43508b = "b";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static long f43509g = -1;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static volatile b f43510h;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final k f43511c = k.a();
-
-    /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f43512d = new AtomicInteger();
-
-    /* renamed from: e  reason: collision with root package name */
-    public final a f43513e = new a(com.ss.android.socialbase.downloader.h.e.a());
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f43514f;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -56,14 +42,14 @@ public class b {
     }
 
     public static b a() {
-        if (f43510h == null) {
+        if (h == null) {
             synchronized (b.class) {
-                if (f43510h == null) {
-                    f43510h = new b();
+                if (h == null) {
+                    h = new b();
                 }
             }
         }
-        return f43510h;
+        return h;
     }
 
     public static long d() {
@@ -76,11 +62,11 @@ public class b {
 
     public void b() {
         try {
-            String str = f43508b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f43512d);
-            if (this.f43512d.getAndIncrement() == 0) {
-                this.f43513e.a();
-                this.f43514f = SystemClock.uptimeMillis();
+            String str = b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.d);
+            if (this.d.getAndIncrement() == 0) {
+                this.e.a();
+                this.f = SystemClock.uptimeMillis();
             }
         } catch (Throwable unused) {
         }
@@ -88,10 +74,10 @@ public class b {
 
     public void c() {
         try {
-            String str = f43508b;
-            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f43512d);
-            if (this.f43512d.decrementAndGet() == 0) {
-                this.f43513e.b();
+            String str = b;
+            com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.d);
+            if (this.d.decrementAndGet() == 0) {
+                this.e.b();
                 g();
             }
         } catch (Throwable unused) {
@@ -107,22 +93,22 @@ public class b {
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
             }
-            long j = mobileRxBytes - f43509g;
-            if (f43509g >= 0) {
+            long j = mobileRxBytes - g;
+            if (g >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.f43511c.a(j, uptimeMillis - this.f43514f);
-                    this.f43514f = uptimeMillis;
+                    this.c.a(j, uptimeMillis - this.f);
+                    this.f = uptimeMillis;
                 }
             }
-            f43509g = mobileRxBytes;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            g = mobileRxBytes;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void g() {
         f();
-        f43509g = -1L;
+        g = -1L;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IAdditionalRecord {
     public static final IAdditionalRecord EMPTY = new IAdditionalRecord() { // from class: com.baidu.searchbox.network.outback.statistics.IAdditionalRecord.1
         public static /* synthetic */ Interceptable $ic;

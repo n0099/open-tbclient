@@ -1,16 +1,16 @@
 package com.airbnb.lottie.value;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ScaleXY {
     public float scaleX;
     public float scaleY;
 
-    public ScaleXY(float f2, float f3) {
-        this.scaleX = f2;
-        this.scaleY = f3;
+    public ScaleXY(float f, float f2) {
+        this.scaleX = f;
+        this.scaleY = f2;
     }
 
-    public boolean equals(float f2, float f3) {
-        return this.scaleX == f2 && this.scaleY == f3;
+    public boolean equals(float f, float f2) {
+        return this.scaleX == f && this.scaleY == f2;
     }
 
     public float getScaleX() {
@@ -21,9 +21,9 @@ public class ScaleXY {
         return this.scaleY;
     }
 
-    public void set(float f2, float f3) {
-        this.scaleX = f2;
-        this.scaleY = f3;
+    public void set(float f, float f2) {
+        this.scaleX = f;
+        this.scaleY = f2;
     }
 
     public String toString() {

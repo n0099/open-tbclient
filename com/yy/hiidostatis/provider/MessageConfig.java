@@ -15,7 +15,7 @@ import com.yy.hiidostatis.defs.listener.ActListener;
 import com.yy.hiidostatis.defs.listener.HiidoSdkAdditionDelegate;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MessageConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_INTERVAL = 5;
@@ -269,10 +269,10 @@ public class MessageConfig {
         }
     }
 
-    public void setAccelerometerThreshold(float f2) {
+    public void setAccelerometerThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
-            this.accelerometerThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048606, this, f) == null) {
+            this.accelerometerThreshold = f;
         }
     }
 
@@ -346,10 +346,10 @@ public class MessageConfig {
         }
     }
 
-    public void setGyroscopeThreshold(float f2) {
+    public void setGyroscopeThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048617, this, f2) == null) {
-            this.gyroscopeThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048617, this, f) == null) {
+            this.gyroscopeThreshold = f;
         }
     }
 
@@ -374,10 +374,10 @@ public class MessageConfig {
         }
     }
 
-    public void setLightThreshold(float f2) {
+    public void setLightThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048621, this, f2) == null) {
-            this.lightThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048621, this, f) == null) {
+            this.lightThreshold = f;
         }
     }
 

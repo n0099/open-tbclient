@@ -13,12 +13,12 @@ import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PutFormRequestBuilder extends HttpRequestParasBuilder<PutFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

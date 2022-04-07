@@ -25,7 +25,7 @@ import java.io.Reader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class DbUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "30212102dicudiab";
@@ -156,11 +156,11 @@ public final class DbUtil {
                         return "";
                     }
                     return externalDeviceId + "|" + stringBuffer;
-                } catch (Throwable th) {
-                    CommonMethods.handleNuLException(th);
+                } catch (Exception unused) {
                     return "";
                 }
-            } catch (Exception unused) {
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return "";
             }
         }
@@ -187,8 +187,8 @@ public final class DbUtil {
                     bufferedReader.close();
                     Object[] split = new String(GdUtil.AESUtil.decrypt("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
                     return (split != null && split.length == 2 && str.equals(split[0])) ? split[1] : "";
-                } catch (Exception e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (Exception e) {
+                    CommonMethods.handleNuLException(e);
                     return "";
                 }
             }
@@ -232,9 +232,9 @@ public final class DbUtil {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x003e A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0099, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003e A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0098, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0069 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x006a A[Catch: all -> 0x0099, TryCatch #2 {all -> 0x0099, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006a A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0098, blocks: (B:5:0x0006, B:16:0x002a, B:18:0x003e, B:21:0x006a, B:24:0x0076, B:15:0x0027), top: B:35:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -349,8 +349,8 @@ public final class DbUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase();
                 }
@@ -374,8 +374,8 @@ public final class DbUtil {
                 messageDigest.reset();
                 messageDigest.update(bArr);
                 return toHexString(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                CommonMethods.handleNuLException(e);
                 return null;
             }
         }

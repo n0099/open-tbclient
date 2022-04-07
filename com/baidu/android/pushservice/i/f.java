@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,8 +15,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase();
                 }

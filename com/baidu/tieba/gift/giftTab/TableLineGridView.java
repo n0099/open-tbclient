@@ -12,17 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TableLineGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f33126b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f33127c;
+    public int b;
+    public int c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TableLineGridView(Context context) {
@@ -53,18 +49,18 @@ public class TableLineGridView extends BdGridView {
         }
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(this.f33127c);
-        int width = childAt.getWidth() * this.f33126b;
+        paint.setColor(this.c);
+        int width = childAt.getWidth() * this.b;
         int height = childAt.getHeight() * this.a;
         int width2 = childAt.getWidth();
         int height2 = childAt.getHeight();
         for (int i = 1; i < this.a; i++) {
-            float f2 = height2 * i;
-            canvas.drawLine(0.0f, f2, width, f2, paint);
+            float f = height2 * i;
+            canvas.drawLine(0.0f, f, width, f, paint);
         }
-        for (int i2 = 1; i2 < this.f33126b; i2++) {
-            float f3 = width2 * i2;
-            canvas.drawLine(f3, 0.0f, f3, height, paint);
+        for (int i2 = 1; i2 < this.b; i2++) {
+            float f2 = width2 * i2;
+            canvas.drawLine(f2, 0.0f, f2, height, paint);
         }
         super.dispatchDraw(canvas);
     }
@@ -72,13 +68,13 @@ public class TableLineGridView extends BdGridView {
     public int getBackgroundLineResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33127c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public int getColumnCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33126b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getRowCount() {
@@ -90,14 +86,14 @@ public class TableLineGridView extends BdGridView {
     public void setBackgroundLineResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f33127c = i;
+            this.c = i;
         }
     }
 
     public void setColumnCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f33126b = i;
+            this.b = i;
         }
     }
 

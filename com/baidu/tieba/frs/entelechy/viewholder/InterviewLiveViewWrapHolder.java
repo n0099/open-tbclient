@@ -1,20 +1,20 @@
 package com.baidu.tieba.frs.entelechy.viewholder;
 
 import android.view.View;
-import c.a.p0.c3.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.entelechy.adapter.FrsCardVideoViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements e {
+import com.repackage.p68;
+/* loaded from: classes3.dex */
+public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsCardVideoViewHolder a;
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.intValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public void startPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         frsCardVideoViewHolder.startPlay();
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public void stopPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;

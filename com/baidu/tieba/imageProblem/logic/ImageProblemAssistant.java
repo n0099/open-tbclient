@@ -6,9 +6,6 @@ import android.net.Proxy;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.j.b.f;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,38 +24,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.of;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageProblemAssistant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
+    public TbCdnIpListData b;
+    public StringBuilder c;
+    public ArrayList<TestTask> d;
+    public boolean e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TbCdnIpListData f34117b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f34118c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TestTask> f34119d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f34120e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class TestTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f34121b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f34122c;
+        public int b;
+        public String c;
 
         public TestTask(ImageProblemAssistant imageProblemAssistant) {
             Interceptable interceptable = $ic;
@@ -92,15 +80,15 @@ public class ImageProblemAssistant {
                 return;
             }
         }
-        this.f34119d = new ArrayList<>();
-        this.f34120e = false;
+        this.d = new ArrayList<>();
+        this.e = false;
         this.a = context;
         String[] strArr = {context.getString(R.string.obfuscated_res_0x7f0f08c1), context.getString(R.string.obfuscated_res_0x7f0f08c2), context.getString(R.string.obfuscated_res_0x7f0f08c3), context.getString(R.string.obfuscated_res_0x7f0f08c4), context.getString(R.string.obfuscated_res_0x7f0f08c5), context.getString(R.string.obfuscated_res_0x7f0f08c6)};
         for (int i3 = 0; i3 < 6; i3++) {
             String str = strArr[i3];
             TestTask testTask = new TestTask(this);
             testTask.a = str;
-            this.f34119d.add(testTask);
+            this.d.add(testTask);
         }
     }
 
@@ -121,17 +109,17 @@ public class ImageProblemAssistant {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                f fVar = new f();
-                ImgHttpClient imgHttpClient = new ImgHttpClient(fVar);
-                fVar.b().t(str);
+                of ofVar = new of();
+                ImgHttpClient imgHttpClient = new ImgHttpClient(ofVar);
+                ofVar.b().t(str);
                 if (str2 != null && str2.length() > 0) {
                     imgHttpClient.getNetDataWithIp(str2, "tbcdn.hiphotos.baidu.com", 1);
                 } else {
                     imgHttpClient.getNetDataWithIp(null, null, 1);
                 }
-                return fVar.c().b();
-            } catch (Exception e2) {
-                BdLog.e(e2);
+                return ofVar.c().b();
+            } catch (Exception e) {
+                BdLog.e(e);
                 return false;
             }
         }
@@ -140,116 +128,116 @@ public class ImageProblemAssistant {
 
     public void checkDNSIP() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
         try {
-            testTask = this.f34119d.get(1);
+            testTask = this.d.get(1);
             try {
                 DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApplicationContext().getSystemService("wifi")).getDhcpInfo();
                 String[] strArr = {"8.8.8.8", "4.4.4.4", "8.8.4.4"};
-                if (this.f34118c != null) {
-                    this.f34118c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
+                if (this.c != null) {
+                    this.c.append("_2:" + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2));
                 }
                 while (i < 3) {
                     String str = strArr[i];
                     i = (b(dhcpInfo.dns1).equals(str) || b(dhcpInfo.dns2).equals(str)) ? 0 : i + 1;
-                    testTask.f34121b = 1;
-                    testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08b9) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.a.getString(R.string.obfuscated_res_0x7f0f08ba);
+                    testTask.b = 1;
+                    testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08b9) + b(dhcpInfo.dns1) + "," + b(dhcpInfo.dns2) + this.a.getString(R.string.obfuscated_res_0x7f0f08ba);
                     return;
                 }
-            } catch (Exception e3) {
-                e2 = e3;
+            } catch (Exception e2) {
+                e = e2;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
-        } catch (Exception e4) {
+        } catch (Exception e3) {
             testTask = null;
-            e2 = e4;
+            e = e3;
         }
     }
 
     public void checkLoadImg() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                testTask = this.f34119d.get(5);
-            } catch (Exception e3) {
+                testTask = this.d.get(5);
+            } catch (Exception e2) {
                 testTask = null;
-                e2 = e3;
+                e = e2;
             }
             try {
                 String postNetData = new NetWork(TbCdnTachometerModel.IPLIST_ADDRESS).postNetData();
                 if (!TextUtils.isEmpty(postNetData)) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     TbCdnIpListData tbCdnIpListData = new TbCdnIpListData();
-                    this.f34117b = tbCdnIpListData;
+                    this.b = tbCdnIpListData;
                     tbCdnIpListData.parseJson(jSONObject);
-                    boolean a = a(this.f34117b.f34089c, null);
+                    boolean a = a(this.b.c, null);
                     boolean a2 = a("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                    boolean a3 = a(TbConfig.URL_IMAGE_PREFIX + this.f34117b.f34089c, null);
+                    boolean a3 = a(TbConfig.URL_IMAGE_PREFIX + this.b.c, null);
                     if (!a2 && !a3) {
-                        testTask.f34121b = 2;
-                        testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
-                        if (this.f34118c != null) {
-                            this.f34118c.append("_6:failed1");
+                        testTask.b = 2;
+                        testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
+                        if (this.c != null) {
+                            this.c.append("_6:failed1");
                             return;
                         }
                         return;
                     } else if (a && a2 && a3) {
-                        testTask.f34121b = 0;
-                        this.f34120e = true;
+                        testTask.b = 0;
+                        this.e = true;
                         return;
                     } else if (a3) {
-                        testTask.f34121b = 1;
-                        testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08c0);
-                        if (this.f34118c != null) {
-                            this.f34118c.append("_6:warning");
+                        testTask.b = 1;
+                        testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08c0);
+                        if (this.c != null) {
+                            this.c.append("_6:warning");
                         }
-                        this.f34120e = true;
+                        this.e = true;
                         return;
                     } else {
-                        testTask.f34121b = 2;
-                        testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
-                        if (this.f34118c != null) {
-                            this.f34118c.append("_6:failed2");
+                        testTask.b = 2;
+                        testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
+                        if (this.c != null) {
+                            this.c.append("_6:failed2");
                             return;
                         }
                         return;
                     }
                 }
-                testTask.f34121b = 2;
-                testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
-                if (this.f34118c != null) {
-                    this.f34118c.append("_6:failed:iplist");
+                testTask.b = 2;
+                testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bf);
+                if (this.c != null) {
+                    this.c.append("_6:failed:iplist");
                 }
-            } catch (Exception e4) {
-                e2 = e4;
+            } catch (Exception e3) {
+                e = e3;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
         }
     }
 
     public void checkProxyIP() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                testTask = this.f34119d.get(2);
-            } catch (Exception e3) {
+                testTask = this.d.get(2);
+            } catch (Exception e2) {
                 testTask = null;
-                e2 = e3;
+                e = e2;
             }
             try {
                 String property = System.getProperty("http.proxyHost");
@@ -264,48 +252,48 @@ public class ImageProblemAssistant {
                 } catch (Exception unused) {
                 }
                 if (property != null && property2 != null && property.length() > 0) {
-                    testTask.f34121b = 1;
-                    if (l.H()) {
-                        testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bb);
+                    testTask.b = 1;
+                    if (mi.H()) {
+                        testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bb);
                     } else {
-                        testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bc);
+                        testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bc);
                     }
-                    if (this.f34118c != null) {
-                        this.f34118c.append("_3:" + property + ":" + property2);
+                    if (this.c != null) {
+                        this.c.append("_3:" + property + ":" + property2);
                         return;
                     }
                     return;
                 }
-                testTask.f34121b = 0;
-            } catch (Exception e4) {
-                e2 = e4;
+                testTask.b = 0;
+            } catch (Exception e3) {
+                e = e3;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
         }
     }
 
     public void checkSetting() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                testTask = this.f34119d.get(4);
-            } catch (Exception e3) {
+                testTask = this.d.get(4);
+            } catch (Exception e2) {
                 testTask = null;
-                e2 = e3;
+                e = e2;
             }
             try {
-                testTask.f34121b = 0;
-            } catch (Exception e4) {
-                e2 = e4;
+                testTask.b = 0;
+            } catch (Exception e3) {
+                e = e3;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
         }
     }
@@ -313,14 +301,14 @@ public class ImageProblemAssistant {
     public void fix() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ImageLogger.assistant(this.f34118c.toString());
-            if (this.f34120e) {
+            ImageLogger.assistant(this.c.toString());
+            if (this.e) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
                     netWork.addPostData("ab_img_m", "1");
                     netWork.postNetData();
-                } catch (Exception e2) {
-                    BdLog.e(e2);
+                } catch (Exception e) {
+                    BdLog.e(e);
                 }
             }
         }
@@ -340,71 +328,71 @@ public class ImageProblemAssistant {
 
     public void networkCheck() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
             return;
         }
-        this.f34118c = new StringBuilder();
-        Iterator<TestTask> it = this.f34119d.iterator();
+        this.c = new StringBuilder();
+        Iterator<TestTask> it = this.d.iterator();
         while (it.hasNext()) {
-            it.next().f34122c = "";
+            it.next().c = "";
         }
         try {
-            testTask = this.f34119d.get(0);
+            testTask = this.d.get(0);
             try {
-                if (n.C()) {
-                    testTask.f34121b = 0;
+                if (oi.C()) {
+                    testTask.b = 0;
                 } else {
-                    testTask.f34121b = 2;
-                    testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08b8);
-                    if (this.f34118c != null) {
-                        this.f34118c.append("1:failed");
+                    testTask.b = 2;
+                    testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08b8);
+                    if (this.c != null) {
+                        this.c.append("1:failed");
                     }
                 }
-            } catch (Exception e3) {
-                e2 = e3;
+            } catch (Exception e2) {
+                e = e2;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
-        } catch (Exception e4) {
+        } catch (Exception e3) {
             testTask = null;
-            e2 = e4;
+            e = e3;
         }
     }
 
     public void networkTest() {
         TestTask testTask;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) {
             return;
         }
         try {
-            testTask = this.f34119d.get(3);
+            testTask = this.d.get(3);
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (a(TbDomainConfig.DOMAIN_HTTPS_BAIDU, null)) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 } else {
-                    testTask.f34121b = 2;
-                    testTask.f34122c = this.a.getString(R.string.obfuscated_res_0x7f0f08bd);
-                    if (this.f34118c != null) {
-                        this.f34118c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    testTask.b = 2;
+                    testTask.c = this.a.getString(R.string.obfuscated_res_0x7f0f08bd);
+                    if (this.c != null) {
+                        this.c.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
                     }
                 }
-            } catch (Exception e3) {
-                e2 = e3;
+            } catch (Exception e2) {
+                e = e2;
                 if (testTask != null) {
-                    testTask.f34121b = 0;
+                    testTask.b = 0;
                 }
-                BdLog.e(e2);
+                BdLog.e(e);
             }
-        } catch (Exception e4) {
+        } catch (Exception e3) {
             testTask = null;
-            e2 = e4;
+            e = e3;
         }
     }
 }

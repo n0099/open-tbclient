@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 @Descriptor(tags = {3})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ESDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;

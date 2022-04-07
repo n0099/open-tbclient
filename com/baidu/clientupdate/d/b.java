@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public final class b {
                 }
                 LogUtil.logD("Helpers", "Common ExternalStorage path =======" + file);
             } else {
-                Object[] g2 = j.g(context.getApplicationContext());
-                if (g2 != null) {
-                    int length = g2.length;
+                Object[] g = j.g(context.getApplicationContext());
+                if (g != null) {
+                    int length = g.length;
                     LogUtil.logD("Helpers", "TotalvolumeCount=" + length);
                     int i = 0;
                     while (true) {
@@ -62,7 +62,7 @@ public final class b {
                             file = null;
                             break;
                         }
-                        String a2 = j.a(g2[i]);
+                        String a2 = j.a(g[i]);
                         LogUtil.logD("Helpers", "invoke path[" + i + "]===========" + a2);
                         if (!j.c(context.getApplicationContext(), a2).equals("mounted") || a(new File(a2)) <= j) {
                             i++;
@@ -102,15 +102,15 @@ public final class b {
                         return null;
                     }
                     long a3 = a(file);
-                    long b2 = b(file);
-                    double d2 = a3 / b2;
+                    long b = b(file);
+                    double d = a3 / b;
                     LogUtil.logD("Helpers", "download dir is: " + file.getAbsolutePath());
                     LogUtil.logD("Helpers", "available space is: " + a3);
-                    LogUtil.logD("Helpers", "totalBytes space is: " + b2);
-                    LogUtil.logD("Helpers", "available/totalBytes percent is: " + d2);
+                    LogUtil.logD("Helpers", "totalBytes space is: " + b);
+                    LogUtil.logD("Helpers", "available/totalBytes percent is: " + d);
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("availablepercent<0.1 is: ");
-                    int i2 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
+                    int i2 = (d > 0.1d ? 1 : (d == 0.1d ? 0 : -1));
                     sb2.append(i2 < 0);
                     LogUtil.logD("Helpers", sb2.toString());
                     StringBuilder sb3 = new StringBuilder();

@@ -661,8 +661,8 @@ public final class Hpack {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteString)) == null) {
             int size = byteString.size();
             for (int i = 0; i < size; i++) {
-                byte b2 = byteString.getByte(i);
-                if (b2 >= 65 && b2 <= 90) {
+                byte b = byteString.getByte(i);
+                if (b >= 65 && b <= 90) {
                     throw new IOException("PROTOCOL_ERROR response malformed: mixed case name: " + byteString.utf8());
                 }
             }

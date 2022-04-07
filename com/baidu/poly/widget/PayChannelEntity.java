@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PayChannelEntity implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_FOLD_FALSE = 0;
@@ -212,6 +213,8 @@ public class PayChannelEntity implements Serializable {
         String str;
         JSONArray optJSONArray;
         String str2;
+        JSONObject jSONObject2;
+        PayChannelEntity payChannelEntity;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +264,7 @@ public class PayChannelEntity implements Serializable {
                     String optString2 = optJSONObject2.optString("title");
                     String optString3 = optJSONObject2.optString("pay_text");
                     String optString4 = optJSONObject2.optString("commission");
-                    String optString5 = optJSONObject2.optString("display");
+                    String optString5 = optJSONObject2.optString(CriusAttrConstants.DISPLAY);
                     JSONArray jSONArray = optJSONArray2;
                     String optString6 = optJSONObject2.optString(str3);
                     String str4 = str3;
@@ -290,25 +293,25 @@ public class PayChannelEntity implements Serializable {
                 int i4 = 0;
                 while (i4 < optJSONArray.length()) {
                     try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i4);
-                        PayChannelEntity payChannelEntity = new PayChannelEntity();
+                        jSONObject2 = optJSONArray.getJSONObject(i4);
+                        payChannelEntity = new PayChannelEntity();
                         payChannelEntity.display_name = jSONObject2.optString("display_name");
                         payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
                         payChannelEntity.pay_text = jSONObject2.optString("pay_text");
                         payChannelEntity.icon = jSONObject2.optString("icon");
                         str2 = str;
-                        try {
-                            payChannelEntity.is_selected = jSONObject2.optInt(str2);
-                            arrayList2.add(payChannelEntity);
-                        } catch (JSONException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            i4++;
-                            str = str2;
-                        }
-                    } catch (JSONException e3) {
-                        e = e3;
+                    } catch (JSONException e) {
+                        e = e;
                         str2 = str;
+                    }
+                    try {
+                        payChannelEntity.is_selected = jSONObject2.optInt(str2);
+                        arrayList2.add(payChannelEntity);
+                    } catch (JSONException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        i4++;
+                        str = str2;
                     }
                     i4++;
                     str = str2;

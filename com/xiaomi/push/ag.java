@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,11 +42,11 @@ public class ag {
         try {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m685a(file);
+                y.m681a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
-                    boolean b2 = b(context, str, j);
+                    boolean b = b(context, str, j);
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
@@ -54,9 +54,9 @@ public class ag {
                         }
                     }
                     y.a(randomAccessFile);
-                    return b2;
-                } catch (IOException e2) {
-                    e = e2;
+                    return b;
+                } catch (IOException e) {
+                    e = e;
                     e.printStackTrace();
                     if (fileLock != null && fileLock.isValid()) {
                         try {
@@ -78,8 +78,8 @@ public class ag {
                 y.a((Closeable) r2);
                 throw th;
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             randomAccessFile = null;
         } catch (Throwable th2) {
             th = th2;
@@ -156,14 +156,14 @@ public class ag {
                     y.a(closeable);
                     throw th;
                 }
-            } else if (!y.m685a(file)) {
+            } else if (!y.m681a(file)) {
                 return true;
             }
             arrayList.add(str2);
             try {
                 bufferedWriter2 = new BufferedWriter(new FileWriter(file));
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 bufferedWriter = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -176,8 +176,8 @@ public class ag {
                     bufferedWriter2.flush();
                 }
                 y.a(bufferedWriter2);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedWriter = bufferedWriter2;
                 try {
                     com.xiaomi.channel.commonutils.logger.b.d(e.toString());

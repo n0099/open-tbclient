@@ -45,6 +45,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.repackage.jx1;
+import com.repackage.lo2;
+import com.repackage.mo2;
+import com.repackage.no2;
+import com.repackage.oo2;
+import com.repackage.po2;
+import com.repackage.qo2;
+import com.repackage.ro2;
+import com.repackage.so2;
+import com.repackage.tg1;
+import com.repackage.to2;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +65,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Executor;
 @SuppressLint({"SwanDebugLog"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HugePhotoDraweeView extends SimpleDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public static final List<Integer> A0;
@@ -78,10 +89,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public boolean K;
     public int L;
     public GestureDetector M;
-    public c.a.n0.a.z0.e.d.d N;
+    public ro2 N;
     public final Object O;
-    public c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.c> P;
-    public c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.d> Q;
+    public po2<? extends qo2> P;
+    public po2<? extends ro2> Q;
     public PointF R;
     public float S;
     public final float T;
@@ -89,28 +100,14 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public float V;
     public PointF W;
     public Bitmap a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f28944b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f28945c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Uri f28946d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f28947e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Map<Integer, List<i>> f28948f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f28949g;
+    public boolean b;
+    public boolean c;
+    public Uri d;
+    public int e;
+    public Map<Integer, List<i>> f;
+    public boolean g;
     public boolean g0;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f28950h;
+    public int h;
     public c h0;
     public float i;
     public boolean i0;
@@ -148,7 +145,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public int y0;
     public PointF z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,14 +187,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HugePhotoDraweeView f28951b;
+        public final /* synthetic */ HugePhotoDraweeView b;
 
         public b(HugePhotoDraweeView hugePhotoDraweeView, Context context) {
             Interceptable interceptable = $ic;
@@ -214,7 +209,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     return;
                 }
             }
-            this.f28951b = hugePhotoDraweeView;
+            this.b = hugePhotoDraweeView;
             this.a = context;
         }
 
@@ -223,23 +218,23 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (this.f28951b.r && this.f28951b.i0 && this.f28951b.y != null) {
-                    this.f28951b.setGestureDetector(this.a);
-                    if (this.f28951b.s) {
-                        this.f28951b.R = new PointF(motionEvent.getX(), motionEvent.getY());
-                        this.f28951b.z = new PointF(this.f28951b.y.x, this.f28951b.y.y);
-                        HugePhotoDraweeView hugePhotoDraweeView = this.f28951b;
+                if (this.b.r && this.b.i0 && this.b.y != null) {
+                    this.b.setGestureDetector(this.a);
+                    if (this.b.s) {
+                        this.b.R = new PointF(motionEvent.getX(), motionEvent.getY());
+                        this.b.z = new PointF(this.b.y.x, this.b.y.y);
+                        HugePhotoDraweeView hugePhotoDraweeView = this.b;
                         hugePhotoDraweeView.x = hugePhotoDraweeView.w;
-                        this.f28951b.K = true;
-                        this.f28951b.I = true;
-                        HugePhotoDraweeView hugePhotoDraweeView2 = this.f28951b;
+                        this.b.K = true;
+                        this.b.I = true;
+                        HugePhotoDraweeView hugePhotoDraweeView2 = this.b;
                         hugePhotoDraweeView2.U = hugePhotoDraweeView2.J0(hugePhotoDraweeView2.R);
-                        this.f28951b.V = -1.0f;
-                        this.f28951b.W = new PointF(this.f28951b.U.x, this.f28951b.U.y);
-                        this.f28951b.g0 = false;
+                        this.b.V = -1.0f;
+                        this.b.W = new PointF(this.b.U.x, this.b.U.y);
+                        this.b.g0 = false;
                         return false;
                     }
-                    HugePhotoDraweeView hugePhotoDraweeView3 = this.f28951b;
+                    HugePhotoDraweeView hugePhotoDraweeView3 = this.b;
                     hugePhotoDraweeView3.T(hugePhotoDraweeView3.J0(new PointF(motionEvent.getX(), motionEvent.getY())), new PointF(motionEvent.getX(), motionEvent.getY()));
                     return true;
                 }
@@ -249,19 +244,19 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f28951b.q && this.f28951b.i0 && this.f28951b.y != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f2) > 500.0f || Math.abs(f3) > 500.0f) && !this.f28951b.I))) {
-                    PointF pointF = new PointF(this.f28951b.y.x + (f2 * 0.25f), this.f28951b.y.y + (f3 * 0.25f));
-                    d dVar = new d(this.f28951b, new PointF(((this.f28951b.getWidth() / 2) - pointF.x) / this.f28951b.w, ((this.f28951b.getHeight() / 2) - pointF.y) / this.f28951b.w), (a) null);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                if (this.b.q && this.b.i0 && this.b.y != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f) > 500.0f || Math.abs(f2) > 500.0f) && !this.b.I))) {
+                    PointF pointF = new PointF(this.b.y.x + (f * 0.25f), this.b.y.y + (f2 * 0.25f));
+                    d dVar = new d(this.b, new PointF(((this.b.getWidth() / 2) - pointF.x) / this.b.w, ((this.b.getHeight() / 2) - pointF.y) / this.b.w), (a) null);
                     dVar.d(1);
                     dVar.f(false);
                     dVar.b();
                     return true;
                 }
-                return super.onFling(motionEvent, motionEvent2, f2, f3);
+                return super.onFling(motionEvent, motionEvent2, f, f2);
             }
             return invokeCommon.booleanValue;
         }
@@ -271,43 +266,29 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                this.f28951b.performClick();
+                this.b.performClick();
                 return true;
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final PointF f28959b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final PointF f28960c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f28961d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f28962e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f28963f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public boolean f28964g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public f f28965h;
+        public final PointF b;
+        public final PointF c;
+        public long d;
+        public int e;
+        public boolean f;
+        public boolean g;
+        public f h;
         public final /* synthetic */ HugePhotoDraweeView i;
 
-        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF, PointF pointF2, a aVar) {
-            this(hugePhotoDraweeView, f2, pointF, pointF2);
+        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f, PointF pointF, PointF pointF2, a aVar) {
+            this(hugePhotoDraweeView, f, pointF, pointF2);
         }
 
         public void b() {
@@ -317,44 +298,44 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (this.i.h0 != null && this.i.h0.l != null) {
                     try {
                         this.i.h0.l.b();
-                    } catch (Exception e2) {
-                        Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e2);
+                    } catch (Exception e) {
+                        Log.w("HugePhotoDraweeView", "Error thrown by animation listener", e);
                     }
                 }
                 int paddingLeft = this.i.getPaddingLeft() + (((this.i.getWidth() - this.i.getPaddingRight()) - this.i.getPaddingLeft()) / 2);
                 int paddingTop = this.i.getPaddingTop() + (((this.i.getHeight() - this.i.getPaddingBottom()) - this.i.getPaddingTop()) / 2);
                 float j0 = this.i.j0(this.a);
-                if (this.f28964g) {
+                if (this.g) {
                     HugePhotoDraweeView hugePhotoDraweeView = this.i;
-                    PointF pointF2 = this.f28959b;
-                    float f2 = pointF2.x;
-                    float f3 = pointF2.y;
+                    PointF pointF2 = this.b;
+                    float f = pointF2.x;
+                    float f2 = pointF2.y;
                     pointF = new PointF();
-                    hugePhotoDraweeView.i0(f2, f3, j0, pointF);
+                    hugePhotoDraweeView.i0(f, f2, j0, pointF);
                 } else {
-                    pointF = this.f28959b;
+                    pointF = this.b;
                 }
                 this.i.h0 = new c(null);
                 this.i.h0.a = this.i.w;
-                this.i.h0.f28952b = j0;
+                this.i.h0.b = j0;
                 this.i.h0.k = System.currentTimeMillis();
-                this.i.h0.f28955e = pointF;
-                this.i.h0.f28953c = this.i.getCenter();
-                this.i.h0.f28954d = pointF;
-                this.i.h0.f28956f = this.i.B0(pointF);
-                this.i.h0.f28957g = new PointF(paddingLeft, paddingTop);
-                this.i.h0.f28958h = this.f28961d;
-                this.i.h0.i = this.f28963f;
-                this.i.h0.j = this.f28962e;
+                this.i.h0.e = pointF;
+                this.i.h0.c = this.i.getCenter();
+                this.i.h0.d = pointF;
+                this.i.h0.f = this.i.B0(pointF);
+                this.i.h0.g = new PointF(paddingLeft, paddingTop);
+                this.i.h0.h = this.d;
+                this.i.h0.i = this.f;
+                this.i.h0.j = this.e;
                 this.i.h0.k = System.currentTimeMillis();
-                this.i.h0.l = this.f28965h;
-                PointF pointF3 = this.f28960c;
+                this.i.h0.l = this.h;
+                PointF pointF3 = this.c;
                 if (pointF3 != null) {
-                    float f4 = pointF3.x - (this.i.h0.f28953c.x * j0);
-                    float f5 = this.f28960c.y - (this.i.h0.f28953c.y * j0);
-                    h hVar = new h(j0, new PointF(f4, f5), null);
+                    float f3 = pointF3.x - (this.i.h0.c.x * j0);
+                    float f4 = this.c.y - (this.i.h0.c.y * j0);
+                    h hVar = new h(j0, new PointF(f3, f4), null);
                     this.i.b0(true, hVar);
-                    this.i.h0.f28957g = new PointF(this.f28960c.x + (hVar.f28972b.x - f4), this.f28960c.y + (hVar.f28972b.y - f5));
+                    this.i.h0.g = new PointF(this.c.x + (hVar.b.x - f3), this.c.y + (hVar.b.y - f4));
                 }
                 this.i.invalidate();
             }
@@ -364,7 +345,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f28961d = j;
+                this.d = j;
                 return this;
             }
             return (d) invokeJ.objValue;
@@ -378,12 +359,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (!HugePhotoDraweeView.C0.contains(Integer.valueOf(i))) {
                     String str = "Unknown easing type: " + i;
                     if (!HugePhotoDraweeView.z0) {
-                        c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                        jx1.k("HugePhotoDraweeView", str);
                         return this;
                     }
                     throw new IllegalArgumentException(str);
                 }
-                this.f28962e = i;
+                this.e = i;
                 return this;
             }
             return (d) invokeI.objValue;
@@ -393,7 +374,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f28963f = z;
+                this.f = z;
                 return this;
             }
             return (d) invokeZ.objValue;
@@ -403,14 +384,14 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f28964g = z;
+                this.g = z;
                 return this;
             }
             return (d) invokeZ.objValue;
         }
 
-        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF, a aVar) {
-            this(hugePhotoDraweeView, f2, pointF);
+        public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, float f, PointF pointF, a aVar) {
+            this(hugePhotoDraweeView, f, pointF);
         }
 
         public /* synthetic */ d(HugePhotoDraweeView hugePhotoDraweeView, PointF pointF, a aVar) {
@@ -433,21 +414,21 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.i = hugePhotoDraweeView;
-            this.f28961d = 500L;
-            this.f28962e = 2;
-            this.f28963f = true;
-            this.f28964g = true;
+            this.d = 500L;
+            this.e = 2;
+            this.f = true;
+            this.g = true;
             this.a = hugePhotoDraweeView.w;
-            this.f28959b = pointF;
-            this.f28960c = null;
+            this.b = pointF;
+            this.c = null;
         }
 
-        public d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF) {
+        public d(HugePhotoDraweeView hugePhotoDraweeView, float f, PointF pointF) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, Float.valueOf(f2), pointF};
+                Object[] objArr = {hugePhotoDraweeView, Float.valueOf(f), pointF};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -458,21 +439,21 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.i = hugePhotoDraweeView;
-            this.f28961d = 500L;
-            this.f28962e = 2;
-            this.f28963f = true;
-            this.f28964g = true;
-            this.a = f2;
-            this.f28959b = pointF;
-            this.f28960c = null;
+            this.d = 500L;
+            this.e = 2;
+            this.f = true;
+            this.g = true;
+            this.a = f;
+            this.b = pointF;
+            this.c = null;
         }
 
-        public d(HugePhotoDraweeView hugePhotoDraweeView, float f2, PointF pointF, PointF pointF2) {
+        public d(HugePhotoDraweeView hugePhotoDraweeView, float f, PointF pointF, PointF pointF2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, Float.valueOf(f2), pointF, pointF2};
+                Object[] objArr = {hugePhotoDraweeView, Float.valueOf(f), pointF, pointF2};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -483,46 +464,34 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.i = hugePhotoDraweeView;
-            this.f28961d = 500L;
-            this.f28962e = 2;
-            this.f28963f = true;
-            this.f28964g = true;
-            this.a = f2;
-            this.f28959b = pointF;
-            this.f28960c = pointF2;
+            this.d = 500L;
+            this.e = 2;
+            this.f = true;
+            this.g = true;
+            this.a = f;
+            this.b = pointF;
+            this.c = pointF2;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class e extends AsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
+        public final WeakReference<Context> b;
+        public final WeakReference<po2<? extends qo2>> c;
+        public final Uri d;
+        public final boolean e;
+        public Bitmap f;
+        public Exception g;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final WeakReference<Context> f28966b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final WeakReference<c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.c>> f28967c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final Uri f28968d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final boolean f28969e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Bitmap f28970f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public Exception f28971g;
-
-        public e(HugePhotoDraweeView hugePhotoDraweeView, Context context, c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.c> bVar, Uri uri, boolean z) {
+        public e(HugePhotoDraweeView hugePhotoDraweeView, Context context, po2<? extends qo2> po2Var, Uri uri, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, context, bVar, uri, Boolean.valueOf(z)};
+                Object[] objArr = {hugePhotoDraweeView, context, po2Var, uri, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -533,10 +502,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
-            this.f28966b = new WeakReference<>(context);
-            this.f28967c = new WeakReference<>(bVar);
-            this.f28968d = uri;
-            this.f28969e = z;
+            this.b = new WeakReference<>(context);
+            this.c = new WeakReference<>(po2Var);
+            this.d = uri;
+            this.e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -547,22 +516,22 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    String uri = this.f28968d.toString();
-                    Context context = this.f28966b.get();
-                    c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.c> bVar = this.f28967c.get();
+                    String uri = this.d.toString();
+                    Context context = this.b.get();
+                    po2<? extends qo2> po2Var = this.c.get();
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    if (context == null || bVar == null || hugePhotoDraweeView == null) {
+                    if (context == null || po2Var == null || hugePhotoDraweeView == null) {
                         return null;
                     }
-                    this.f28970f = bVar.make().decode(context, this.f28968d);
+                    this.f = po2Var.make().decode(context, this.d);
                     return Integer.valueOf(hugePhotoDraweeView.c0(uri));
-                } catch (Exception e2) {
-                    Log.e("HugePhotoDraweeView", "Failed to load bitmap", e2);
-                    this.f28971g = e2;
+                } catch (Exception e) {
+                    Log.e("HugePhotoDraweeView", "Failed to load bitmap", e);
+                    this.g = e;
                     return null;
-                } catch (OutOfMemoryError e3) {
-                    Log.e("HugePhotoDraweeView", "Failed to load bitmap - OutOfMemoryError", e3);
-                    this.f28971g = new RuntimeException(e3);
+                } catch (OutOfMemoryError e2) {
+                    Log.e("HugePhotoDraweeView", "Failed to load bitmap - OutOfMemoryError", e2);
+                    this.g = new RuntimeException(e2);
                     return null;
                 }
             }
@@ -578,25 +547,25 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) || (hugePhotoDraweeView = this.a.get()) == null) {
                 return;
             }
-            Bitmap bitmap = this.f28970f;
+            Bitmap bitmap = this.f;
             if (bitmap != null && num != null) {
-                if (this.f28969e) {
+                if (this.e) {
                     hugePhotoDraweeView.n0(bitmap);
                 } else {
                     hugePhotoDraweeView.m0(bitmap, num.intValue(), false);
                 }
-            } else if (this.f28971g == null || hugePhotoDraweeView.k0 == null) {
+            } else if (this.g == null || hugePhotoDraweeView.k0 == null) {
             } else {
-                if (this.f28969e) {
-                    hugePhotoDraweeView.k0.onPreviewLoadError(this.f28971g);
+                if (this.e) {
+                    hugePhotoDraweeView.k0.onPreviewLoadError(this.g);
                 } else {
-                    hugePhotoDraweeView.k0.onImageLoadError(this.f28971g);
+                    hugePhotoDraweeView.k0.onImageLoadError(this.g);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface f {
         void a();
 
@@ -605,7 +574,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         void onComplete();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface g {
         void onImageLoadError(Exception exc);
 
@@ -618,25 +587,23 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
+        public PointF b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public PointF f28972b;
-
-        public /* synthetic */ h(float f2, PointF pointF, a aVar) {
-            this(f2, pointF);
+        public /* synthetic */ h(float f, PointF pointF, a aVar) {
+            this(f, pointF);
         }
 
-        public h(float f2, PointF pointF) {
+        public h(float f, PointF pointF) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2), pointF};
+                Object[] objArr = {Float.valueOf(f), pointF};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -646,34 +613,22 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     return;
                 }
             }
-            this.a = f2;
-            this.f28972b = pointF;
+            this.a = f;
+            this.b = pointF;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Rect a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f28973b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Bitmap f28974c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public boolean f28975d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f28976e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Rect f28977f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public Rect f28978g;
+        public int b;
+        public Bitmap c;
+        public boolean d;
+        public boolean e;
+        public Rect f;
+        public Rect g;
 
         public i() {
             Interceptable interceptable = $ic;
@@ -694,27 +649,21 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class j extends AsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
+        public final WeakReference<ro2> b;
+        public final WeakReference<i> c;
+        public Exception d;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final WeakReference<c.a.n0.a.z0.e.d.d> f28979b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final WeakReference<i> f28980c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Exception f28981d;
-
-        public j(HugePhotoDraweeView hugePhotoDraweeView, c.a.n0.a.z0.e.d.d dVar, i iVar) {
+        public j(HugePhotoDraweeView hugePhotoDraweeView, ro2 ro2Var, i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, dVar, iVar};
+                Object[] objArr = {hugePhotoDraweeView, ro2Var, iVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -725,9 +674,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
-            this.f28979b = new WeakReference<>(dVar);
-            this.f28980c = new WeakReference<>(iVar);
-            iVar.f28975d = true;
+            this.b = new WeakReference<>(ro2Var);
+            this.c = new WeakReference<>(iVar);
+            iVar.d = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -740,30 +689,30 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    c.a.n0.a.z0.e.d.d dVar = this.f28979b.get();
-                    i iVar = this.f28980c.get();
-                    if (dVar == null || iVar == null || hugePhotoDraweeView == null || !dVar.isReady() || !iVar.f28976e) {
+                    ro2 ro2Var = this.b.get();
+                    i iVar = this.c.get();
+                    if (ro2Var == null || iVar == null || hugePhotoDraweeView == null || !ro2Var.isReady() || !iVar.e) {
                         if (iVar != null) {
-                            iVar.f28975d = false;
+                            iVar.d = false;
                             return null;
                         }
                         return null;
                     }
                     synchronized (hugePhotoDraweeView.O) {
-                        hugePhotoDraweeView.Z(iVar.a, iVar.f28978g);
+                        hugePhotoDraweeView.Z(iVar.a, iVar.g);
                         if (hugePhotoDraweeView.G != null) {
-                            iVar.f28978g.offset(hugePhotoDraweeView.G.left, hugePhotoDraweeView.G.top);
+                            iVar.g.offset(hugePhotoDraweeView.G.left, hugePhotoDraweeView.G.top);
                         }
-                        decodeRegion = dVar.decodeRegion(iVar.f28978g, iVar.f28973b);
+                        decodeRegion = ro2Var.decodeRegion(iVar.g, iVar.b);
                     }
                     return decodeRegion;
-                } catch (Exception e2) {
-                    Log.e("HugePhotoDraweeView", "Failed to decode tile", e2);
-                    this.f28981d = e2;
+                } catch (Exception e) {
+                    Log.e("HugePhotoDraweeView", "Failed to decode tile", e);
+                    this.d = e;
                     return null;
-                } catch (OutOfMemoryError e3) {
-                    Log.e("HugePhotoDraweeView", "Failed to decode tile - OutOfMemoryError", e3);
-                    this.f28981d = new RuntimeException(e3);
+                } catch (OutOfMemoryError e2) {
+                    Log.e("HugePhotoDraweeView", "Failed to decode tile - OutOfMemoryError", e2);
+                    this.d = new RuntimeException(e2);
                     return null;
                 }
             }
@@ -777,49 +726,39 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                i iVar = this.f28980c.get();
+                i iVar = this.c.get();
                 if (hugePhotoDraweeView == null || iVar == null) {
                     return;
                 }
                 if (bitmap != null) {
-                    iVar.f28974c = bitmap;
-                    iVar.f28975d = false;
+                    iVar.c = bitmap;
+                    iVar.d = false;
                     hugePhotoDraweeView.p0();
-                } else if (this.f28981d == null || hugePhotoDraweeView.k0 == null) {
+                } else if (this.d == null || hugePhotoDraweeView.k0 == null) {
                 } else {
-                    hugePhotoDraweeView.k0.onTileLoadError(this.f28981d);
+                    hugePhotoDraweeView.k0.onTileLoadError(this.d);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class k extends AsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<HugePhotoDraweeView> a;
+        public final WeakReference<Context> b;
+        public final WeakReference<po2<? extends ro2>> c;
+        public mo2 d;
+        public ro2 e;
+        public Exception f;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final WeakReference<Context> f28982b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final WeakReference<c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.d>> f28983c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public c.a.n0.a.z0.e.b f28984d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public c.a.n0.a.z0.e.d.d f28985e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Exception f28986f;
-
-        public k(HugePhotoDraweeView hugePhotoDraweeView, Context context, c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.d> bVar, c.a.n0.a.z0.e.b bVar2) {
+        public k(HugePhotoDraweeView hugePhotoDraweeView, Context context, po2<? extends ro2> po2Var, mo2 mo2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hugePhotoDraweeView, context, bVar, bVar2};
+                Object[] objArr = {hugePhotoDraweeView, context, po2Var, mo2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -830,9 +769,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
             }
             this.a = new WeakReference<>(hugePhotoDraweeView);
-            this.f28982b = new WeakReference<>(context);
-            this.f28983c = new WeakReference<>(bVar);
-            this.f28984d = bVar2;
+            this.b = new WeakReference<>(context);
+            this.c = new WeakReference<>(po2Var);
+            this.d = mo2Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -844,20 +783,20 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    if (this.f28984d.i() != null) {
-                        this.f28984d.i().toString();
+                    if (this.d.i() != null) {
+                        this.d.i().toString();
                     }
-                    Context context = this.f28982b.get();
-                    c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.d> bVar = this.f28983c.get();
+                    Context context = this.b.get();
+                    po2<? extends ro2> po2Var = this.c.get();
                     HugePhotoDraweeView hugePhotoDraweeView = this.a.get();
-                    if (context == null || bVar == null || hugePhotoDraweeView == null) {
+                    if (context == null || po2Var == null || hugePhotoDraweeView == null) {
                         return null;
                     }
-                    this.f28985e = bVar.make();
-                    if (this.f28984d.c() != null) {
-                        init = this.f28985e.a(context, this.f28984d.c());
+                    this.e = po2Var.make();
+                    if (this.d.c() != null) {
+                        init = this.e.a(context, this.d.c());
                     } else {
-                        init = this.f28985e.init(context, this.f28984d.i());
+                        init = this.e.init(context, this.d.i());
                     }
                     int i = init.x;
                     int i2 = init.y;
@@ -867,9 +806,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                         i2 = hugePhotoDraweeView.G.height();
                     }
                     return new int[]{i, i2, c0};
-                } catch (Exception e2) {
-                    Log.e("HugePhotoDraweeView", "Failed to initialise bitmap decoder", e2);
-                    this.f28986f = e2;
+                } catch (Exception e) {
+                    Log.e("HugePhotoDraweeView", "Failed to initialise bitmap decoder", e);
+                    this.f = e;
                     return null;
                 }
             }
@@ -885,12 +824,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || (hugePhotoDraweeView = this.a.get()) == null) {
                 return;
             }
-            c.a.n0.a.z0.e.d.d dVar = this.f28985e;
-            if (dVar != null && iArr != null && iArr.length == 3) {
-                hugePhotoDraweeView.q0(dVar, iArr[0], iArr[1], iArr[2]);
-            } else if (this.f28986f == null || hugePhotoDraweeView.k0 == null) {
+            ro2 ro2Var = this.e;
+            if (ro2Var != null && iArr != null && iArr.length == 3) {
+                hugePhotoDraweeView.q0(ro2Var, iArr[0], iArr[1], iArr[2]);
+            } else if (this.f == null || hugePhotoDraweeView.k0 == null) {
             } else {
-                hugePhotoDraweeView.k0.onImageLoadError(this.f28986f);
+                hugePhotoDraweeView.k0.onImageLoadError(this.f);
             }
         }
     }
@@ -908,7 +847,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 return;
             }
         }
-        z0 = c.a.n0.a.a.a;
+        z0 = tg1.a;
         A0 = Arrays.asList(0, 90, 180, 270, -1);
         B0 = Arrays.asList(1, 2, 3);
         C0 = Arrays.asList(2, 1);
@@ -922,7 +861,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         super(context, attributeSet);
         int resourceId;
         String string;
-        c.a.n0.a.z0.e.b a2;
+        mo2 a2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -939,7 +878,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 return;
             }
         }
-        this.f28950h = 0;
+        this.h = 0;
         this.i = k0();
         this.j = 5.0f;
         this.k = -1;
@@ -955,8 +894,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         this.u = 1;
         this.v = 500;
         this.O = new Object();
-        this.P = new c.a.n0.a.z0.e.d.a(c.a.n0.a.z0.e.d.e.class);
-        this.Q = new c.a.n0.a.z0.e.d.a(c.a.n0.a.z0.e.d.f.class);
+        this.P = new oo2(so2.class);
+        this.Q = new oo2(to2.class);
         this.t0 = new float[8];
         this.u0 = new float[8];
         this.w0 = false;
@@ -969,13 +908,13 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         setGestureDetector(context);
         this.m0 = new Handler(new a(this));
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f040468, R.attr.obfuscated_res_0x7f0404dc, R.attr.obfuscated_res_0x7f04057d, R.attr.obfuscated_res_0x7f04063d, R.attr.obfuscated_res_0x7f0406da});
-            if (obtainStyledAttributes.hasValue(0) && (string = obtainStyledAttributes.getString(0)) != null && string.length() > 0 && (a2 = c.a.n0.a.z0.e.b.a(string)) != null) {
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0404a7, R.attr.obfuscated_res_0x7f04051a, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f04067b, R.attr.obfuscated_res_0x7f040718});
+            if (obtainStyledAttributes.hasValue(0) && (string = obtainStyledAttributes.getString(0)) != null && string.length() > 0 && (a2 = mo2.a(string)) != null) {
                 a2.n();
                 setImage(a2);
             }
             if (obtainStyledAttributes.hasValue(3) && (resourceId = obtainStyledAttributes.getResourceId(3, 0)) > 0) {
-                c.a.n0.a.z0.e.b k2 = c.a.n0.a.z0.e.b.k(resourceId);
+                mo2 k2 = mo2.k(resourceId);
                 k2.n();
                 setImage(k2);
             }
@@ -1000,7 +939,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
-            int i2 = this.f28950h;
+            int i2 = this.h;
             return i2 == -1 ? this.F : i2;
         }
         return invokeV.intValue;
@@ -1088,9 +1027,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 this.q0 = new h(0.0f, new PointF(0.0f, 0.0f), null);
             }
             this.q0.a = f4;
-            this.q0.f28972b.set(paddingLeft - (f2 * f4), paddingTop - (f3 * f4));
+            this.q0.b.set(paddingLeft - (f2 * f4), paddingTop - (f3 * f4));
             b0(true, this.q0);
-            return this.q0.f28972b;
+            return this.q0.b;
         }
         return (PointF) invokeCommon.objValue;
     }
@@ -1229,7 +1168,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 this.n0.setFilterBitmap(true);
                 this.n0.setDither(true);
             }
-            if (this.o0 == null && this.f28949g) {
+            if (this.o0 == null && this.g) {
                 Paint paint2 = new Paint();
                 this.o0 = paint2;
                 paint2.setTextSize(18.0f);
@@ -1292,8 +1231,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.n0 == null) {
             return;
         }
-        if (this.y0 != c.a.n0.a.z0.e.c.d(getContext())) {
-            this.y0 = c.a.n0.a.z0.e.c.d(getContext());
+        if (this.y0 != no2.d(getContext())) {
+            this.y0 = no2.d(getContext());
             this.x0 = new PorterDuffColorFilter(this.y0, PorterDuff.Mode.SRC_ATOP);
         }
         this.n0.setColorFilter(this.x0);
@@ -1308,7 +1247,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (i2 != 2) {
                     String str = "Unexpected easing type: " + i2;
                     if (!z0) {
-                        c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                        jx1.k("HugePhotoDraweeView", str);
                         return 0.0f;
                     }
                     throw new IllegalStateException(str);
@@ -1398,10 +1337,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 this.q0 = new h(0.0f, new PointF(0.0f, 0.0f), null);
             }
             this.q0.a = this.w;
-            this.q0.f28972b.set(this.y);
+            this.q0.b.set(this.y);
             b0(z, this.q0);
             this.w = this.q0.a;
-            this.y.set(this.q0.f28972b);
+            this.y.set(this.q0.b);
             if (z2) {
                 this.y.set(G0(y0() / 2, x0() / 2, this.w));
             }
@@ -1417,7 +1356,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (this.l == 2 && h0()) {
                 z = false;
             }
-            PointF pointF = hVar.f28972b;
+            PointF pointF = hVar.b;
             float j0 = j0(hVar.a);
             float y0 = y0() * j0;
             float x0 = x0() * j0;
@@ -1478,10 +1417,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                                     i2 = i3;
                                 }
                             }
-                            c.a.n0.a.z0.e.a.a(cursor);
+                            lo2.a(cursor);
                         }
                     } finally {
-                        c.a.n0.a.z0.e.a.a(cursor);
+                        lo2.a(cursor);
                     }
                 } catch (Exception unused) {
                     Log.w("HugePhotoDraweeView", "Could not get orientation of image from media store");
@@ -1553,17 +1492,17 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 this.q0 = hVar;
                 b0(true, hVar);
                 int O = O(this.q0.a);
-                this.f28947e = O;
+                this.e = O;
                 if (O > 1) {
-                    this.f28947e = O / 2;
+                    this.e = O / 2;
                 }
-                if (this.f28947e == 1 && this.G == null && y0() < point.x && x0() < point.y && this.f28946d != null) {
+                if (this.e == 1 && this.G == null && y0() < point.x && x0() < point.y && this.d != null) {
                     this.N.recycle();
                     this.N = null;
-                    Y(new e(this, getContext(), this.P, this.f28946d, false));
+                    Y(new e(this, getContext(), this.P, this.d, false));
                 } else {
                     f0(point);
-                    for (i iVar : this.f28948f.get(Integer.valueOf(this.f28947e))) {
+                    for (i iVar : this.f.get(Integer.valueOf(this.e))) {
                         Y(new j(this, this.N, iVar));
                     }
                     s0(true);
@@ -1577,8 +1516,8 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         if (interceptable != null && interceptable.invokeL(1048605, this, point) != null) {
             return;
         }
-        this.f28948f = new LinkedHashMap();
-        int i2 = this.f28947e;
+        this.f = new LinkedHashMap();
+        int i2 = this.e;
         int i3 = 1;
         int i4 = 1;
         int i5 = 1;
@@ -1588,14 +1527,14 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             int i6 = y0 / i2;
             int i7 = x0 / i2;
             while (true) {
-                if (i6 + i4 + i3 > point.x || (i6 > getWidth() * 1.25d && i2 < this.f28947e)) {
+                if (i6 + i4 + i3 > point.x || (i6 > getWidth() * 1.25d && i2 < this.e)) {
                     i4++;
                     y0 = y0() / i4;
                     i6 = y0 / i2;
                 }
             }
             while (true) {
-                if (i7 + i5 + i3 > point.y || (i7 > getHeight() * 1.25d && i2 < this.f28947e)) {
+                if (i7 + i5 + i3 > point.y || (i7 > getHeight() * 1.25d && i2 < this.e)) {
                     i5++;
                     x0 = x0() / i5;
                     i7 = x0 / i2;
@@ -1607,17 +1546,17 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 int i9 = 0;
                 while (i9 < i5) {
                     i iVar = new i(null);
-                    iVar.f28973b = i2;
-                    iVar.f28976e = i2 == this.f28947e;
+                    iVar.b = i2;
+                    iVar.e = i2 == this.e;
                     iVar.a = new Rect(i8 * y0, i9 * x0, i8 == i4 + (-1) ? y0() : (i8 + 1) * y0, i9 == i5 + (-1) ? x0() : (i9 + 1) * x0);
-                    iVar.f28977f = new Rect(0, 0, 0, 0);
-                    iVar.f28978g = new Rect(iVar.a);
+                    iVar.f = new Rect(0, 0, 0, 0);
+                    iVar.g = new Rect(iVar.a);
                     arrayList.add(iVar);
                     i9++;
                 }
                 i8++;
             }
-            this.f28948f.put(Integer.valueOf(i2), arrayList);
+            this.f.put(Integer.valueOf(i2), arrayList);
             i3 = 1;
             if (i2 == 1) {
                 return;
@@ -1631,13 +1570,13 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             boolean z = true;
-            if (this.a == null || this.f28944b) {
-                Map<Integer, List<i>> map = this.f28948f;
+            if (this.a == null || this.b) {
+                Map<Integer, List<i>> map = this.f;
                 if (map != null) {
                     for (Map.Entry<Integer, List<i>> entry : map.entrySet()) {
-                        if (entry.getKey().intValue() == this.f28947e) {
+                        if (entry.getKey().intValue() == this.e) {
                             for (i iVar : entry.getValue()) {
-                                if (iVar.f28975d || iVar.f28974c == null) {
+                                if (iVar.d || iVar.c == null) {
                                     z = false;
                                 }
                             }
@@ -1679,7 +1618,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public final int getOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f28950h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.h : invokeV.intValue;
     }
 
     public final int getSHeight() {
@@ -1777,11 +1716,11 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 if (this.D > 0 && this.E > 0 && (this.D != bitmap.getWidth() || this.E != bitmap.getHeight())) {
                     t0(false);
                 }
-                if (this.a != null && !this.f28945c) {
+                if (this.a != null && !this.c) {
                     this.a.recycle();
                 }
-                this.f28944b = false;
-                this.f28945c = z;
+                this.b = false;
+                this.c = z;
                 this.a = bitmap;
                 this.D = bitmap.getWidth();
                 this.E = bitmap.getHeight();
@@ -1806,7 +1745,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     } else {
                         this.a = bitmap;
                     }
-                    this.f28944b = true;
+                    this.b = true;
                     if (Q()) {
                         invalidate();
                         requestLayout();
@@ -1831,9 +1770,9 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, canvas) == null) {
             if (this.w0) {
-                if (this.y0 != c.a.n0.a.z0.e.c.d(getContext())) {
-                    c.a.n0.a.z0.e.c.b(getContext(), getDrawable());
-                    this.y0 = c.a.n0.a.z0.e.c.d(getContext());
+                if (this.y0 != no2.d(getContext())) {
+                    no2.b(getContext(), getDrawable());
+                    this.y0 = no2.d(getContext());
                 }
                 super.onDraw(canvas);
                 return;
@@ -1843,21 +1782,21 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (this.D == 0 || this.E == 0 || getWidth() == 0 || getHeight() == 0) {
                 return;
             }
-            if (this.f28948f == null && this.N != null) {
+            if (this.f == null && this.N != null) {
                 e0(d0(canvas));
             }
             if (Q()) {
                 r0();
                 if (this.h0 != null) {
                     long currentTimeMillis = System.currentTimeMillis() - this.h0.k;
-                    boolean z = currentTimeMillis > this.h0.f28958h;
-                    long min = Math.min(currentTimeMillis, this.h0.f28958h);
-                    this.w = V(this.h0.j, min, this.h0.a, this.h0.f28952b - this.h0.a, this.h0.f28958h);
-                    float V = V(this.h0.j, min, this.h0.f28956f.x, this.h0.f28957g.x - this.h0.f28956f.x, this.h0.f28958h);
-                    float V2 = V(this.h0.j, min, this.h0.f28956f.y, this.h0.f28957g.y - this.h0.f28956f.y, this.h0.f28958h);
-                    this.y.x -= D0(this.h0.f28954d.x) - V;
-                    this.y.y -= E0(this.h0.f28954d.y) - V2;
-                    a0(z || this.h0.a == this.h0.f28952b);
+                    boolean z = currentTimeMillis > this.h0.h;
+                    long min = Math.min(currentTimeMillis, this.h0.h);
+                    this.w = V(this.h0.j, min, this.h0.a, this.h0.b - this.h0.a, this.h0.h);
+                    float V = V(this.h0.j, min, this.h0.f.x, this.h0.g.x - this.h0.f.x, this.h0.h);
+                    float V2 = V(this.h0.j, min, this.h0.f.y, this.h0.g.y - this.h0.f.y, this.h0.h);
+                    this.y.x -= D0(this.h0.d.x) - V;
+                    this.y.y -= E0(this.h0.d.y) - V2;
+                    a0(z || this.h0.a == this.h0.b);
                     s0(z);
                     if (z) {
                         if (this.h0.l != null) {
@@ -1871,66 +1810,66 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     }
                     invalidate();
                 }
-                if (this.f28948f != null && g0()) {
-                    int min2 = Math.min(this.f28947e, O(this.w));
+                if (this.f != null && g0()) {
+                    int min2 = Math.min(this.e, O(this.w));
                     boolean z2 = false;
-                    for (Map.Entry<Integer, List<i>> entry : this.f28948f.entrySet()) {
+                    for (Map.Entry<Integer, List<i>> entry : this.f.entrySet()) {
                         if (entry.getKey().intValue() == min2) {
                             for (i iVar : entry.getValue()) {
-                                if (iVar.f28976e && (iVar.f28975d || iVar.f28974c == null)) {
+                                if (iVar.e && (iVar.d || iVar.c == null)) {
                                     z2 = true;
                                 }
                             }
                         }
                     }
-                    for (Map.Entry<Integer, List<i>> entry2 : this.f28948f.entrySet()) {
+                    for (Map.Entry<Integer, List<i>> entry2 : this.f.entrySet()) {
                         if (entry2.getKey().intValue() == min2 || z2) {
                             for (i iVar2 : entry2.getValue()) {
-                                C0(iVar2.a, iVar2.f28977f);
-                                if (iVar2.f28975d || iVar2.f28974c == null) {
-                                    if (iVar2.f28975d && this.f28949g) {
-                                        canvas.drawText("LOADING", iVar2.f28977f.left + 5, iVar2.f28977f.top + 35, this.o0);
+                                C0(iVar2.a, iVar2.f);
+                                if (iVar2.d || iVar2.c == null) {
+                                    if (iVar2.d && this.g) {
+                                        canvas.drawText("LOADING", iVar2.f.left + 5, iVar2.f.top + 35, this.o0);
                                     }
                                 } else {
                                     if (this.p0 != null) {
-                                        canvas.drawRect(iVar2.f28977f, this.p0);
+                                        canvas.drawRect(iVar2.f, this.p0);
                                     }
                                     if (this.r0 == null) {
                                         this.r0 = new Matrix();
                                     }
                                     this.r0.reset();
-                                    z0(this.t0, 0.0f, 0.0f, iVar2.f28974c.getWidth(), 0.0f, iVar2.f28974c.getWidth(), iVar2.f28974c.getHeight(), 0.0f, iVar2.f28974c.getHeight());
+                                    z0(this.t0, 0.0f, 0.0f, iVar2.c.getWidth(), 0.0f, iVar2.c.getWidth(), iVar2.c.getHeight(), 0.0f, iVar2.c.getHeight());
                                     if (getRequiredRotation() == 0) {
-                                        z0(this.u0, iVar2.f28977f.left, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.bottom);
+                                        z0(this.u0, iVar2.f.left, iVar2.f.top, iVar2.f.right, iVar2.f.top, iVar2.f.right, iVar2.f.bottom, iVar2.f.left, iVar2.f.bottom);
                                     } else if (getRequiredRotation() == 90) {
-                                        z0(this.u0, iVar2.f28977f.right, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.top);
+                                        z0(this.u0, iVar2.f.right, iVar2.f.top, iVar2.f.right, iVar2.f.bottom, iVar2.f.left, iVar2.f.bottom, iVar2.f.left, iVar2.f.top);
                                     } else if (getRequiredRotation() == 180) {
-                                        z0(this.u0, iVar2.f28977f.right, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.top);
+                                        z0(this.u0, iVar2.f.right, iVar2.f.bottom, iVar2.f.left, iVar2.f.bottom, iVar2.f.left, iVar2.f.top, iVar2.f.right, iVar2.f.top);
                                     } else if (getRequiredRotation() == 270) {
-                                        z0(this.u0, iVar2.f28977f.left, iVar2.f28977f.bottom, iVar2.f28977f.left, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.top, iVar2.f28977f.right, iVar2.f28977f.bottom);
+                                        z0(this.u0, iVar2.f.left, iVar2.f.bottom, iVar2.f.left, iVar2.f.top, iVar2.f.right, iVar2.f.top, iVar2.f.right, iVar2.f.bottom);
                                     }
                                     this.r0.setPolyToPoly(this.t0, 0, this.u0, 0, 4);
-                                    canvas.drawBitmap(iVar2.f28974c, this.r0, this.n0);
-                                    if (this.f28949g) {
-                                        canvas.drawRect(iVar2.f28977f, this.o0);
+                                    canvas.drawBitmap(iVar2.c, this.r0, this.n0);
+                                    if (this.g) {
+                                        canvas.drawRect(iVar2.f, this.o0);
                                     }
                                 }
-                                if (iVar2.f28976e && this.f28949g) {
-                                    canvas.drawText("ISS " + iVar2.f28973b + " RECT " + iVar2.a.top + "," + iVar2.a.left + "," + iVar2.a.bottom + "," + iVar2.a.right, iVar2.f28977f.left + 5, iVar2.f28977f.top + 15, this.o0);
+                                if (iVar2.e && this.g) {
+                                    canvas.drawText("ISS " + iVar2.b + " RECT " + iVar2.a.top + "," + iVar2.a.left + "," + iVar2.a.bottom + "," + iVar2.a.right, iVar2.f.left + 5, iVar2.f.top + 15, this.o0);
                                 }
                             }
                         }
                     }
-                    if (this.f28949g) {
+                    if (this.g) {
                         canvas.drawText("Scale: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.w)), 5.0f, 15.0f, this.o0);
                         canvas.drawText("Translate: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.y.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(this.y.y)), 5.0f, 35.0f, this.o0);
                         PointF center = getCenter();
                         canvas.drawText("Source center: " + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.x)) + ":" + String.format(Locale.ENGLISH, "%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.o0);
                         c cVar = this.h0;
                         if (cVar != null) {
-                            PointF B02 = B0(cVar.f28953c);
-                            PointF B03 = B0(this.h0.f28955e);
-                            PointF B04 = B0(this.h0.f28954d);
+                            PointF B02 = B0(cVar.c);
+                            PointF B03 = B0(this.h0.e);
+                            PointF B04 = B0(this.h0.d);
                             canvas.drawCircle(B02.x, B02.y, 10.0f, this.o0);
                             canvas.drawCircle(B03.x, B03.y, 20.0f, this.o0);
                             canvas.drawCircle(B04.x, B04.y, 25.0f, this.o0);
@@ -1943,7 +1882,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 }
                 if (this.a != null) {
                     float f3 = this.w;
-                    if (this.f28944b) {
+                    if (this.b) {
                         f3 *= this.D / bitmap.getWidth();
                         f2 = this.w * (this.E / this.a.getHeight());
                     } else {
@@ -2267,34 +2206,34 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 Q();
                 P();
                 if (g0() && this.a != null) {
-                    if (!this.f28945c) {
+                    if (!this.c) {
                         this.a.recycle();
                     }
                     this.a = null;
-                    this.f28944b = false;
-                    this.f28945c = false;
+                    this.b = false;
+                    this.c = false;
                 }
                 invalidate();
             }
         }
     }
 
-    public final synchronized void q0(c.a.n0.a.z0.e.d.d dVar, int i2, int i3, int i4) {
+    public final synchronized void q0(ro2 ro2Var, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048629, this, dVar, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048629, this, ro2Var, i2, i3, i4) == null) {
             synchronized (this) {
                 if (this.D > 0 && this.E > 0 && (this.D != i2 || this.E != i3)) {
                     t0(false);
                     if (this.a != null) {
-                        if (!this.f28945c) {
+                        if (!this.c) {
                             this.a.recycle();
                         }
                         this.a = null;
-                        this.f28944b = false;
-                        this.f28945c = false;
+                        this.b = false;
+                        this.c = false;
                     }
                 }
-                this.N = dVar;
+                this.N = ro2Var;
                 this.D = i2;
                 this.E = i3;
                 this.F = i4;
@@ -2329,33 +2268,33 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
 
     public final void s0(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048631, this, z) == null) || this.N == null || this.f28948f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048631, this, z) == null) || this.N == null || this.f == null) {
             return;
         }
-        int min = Math.min(this.f28947e, O(this.w));
-        for (Map.Entry<Integer, List<i>> entry : this.f28948f.entrySet()) {
+        int min = Math.min(this.e, O(this.w));
+        for (Map.Entry<Integer, List<i>> entry : this.f.entrySet()) {
             for (i iVar : entry.getValue()) {
-                if (iVar.f28973b < min || (iVar.f28973b > min && iVar.f28973b != this.f28947e)) {
-                    iVar.f28976e = false;
-                    if (iVar.f28974c != null) {
-                        iVar.f28974c.recycle();
-                        iVar.f28974c = null;
+                if (iVar.b < min || (iVar.b > min && iVar.b != this.e)) {
+                    iVar.e = false;
+                    if (iVar.c != null) {
+                        iVar.c.recycle();
+                        iVar.c = null;
                     }
                 }
-                if (iVar.f28973b != min) {
-                    if (iVar.f28973b == this.f28947e) {
-                        iVar.f28976e = true;
+                if (iVar.b != min) {
+                    if (iVar.b == this.e) {
+                        iVar.e = true;
                     }
                 } else if (F0(iVar)) {
-                    iVar.f28976e = true;
-                    if (!iVar.f28975d && iVar.f28974c == null && z) {
+                    iVar.e = true;
+                    if (!iVar.d && iVar.c == null && z) {
                         Y(new j(this, this.N, iVar));
                     }
-                } else if (iVar.f28973b != this.f28947e) {
-                    iVar.f28976e = false;
-                    if (iVar.f28974c != null) {
-                        iVar.f28974c.recycle();
-                        iVar.f28974c = null;
+                } else if (iVar.b != this.e) {
+                    iVar.e = false;
+                    if (iVar.c != null) {
+                        iVar.c.recycle();
+                        iVar.c = null;
                     }
                 }
             }
@@ -2363,39 +2302,39 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setBitmapDecoderClass(Class<? extends c.a.n0.a.z0.e.d.c> cls) {
+    public final void setBitmapDecoderClass(Class<? extends qo2> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, cls) == null) {
             if (cls == null) {
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "bitmapDecoderClass is null");
+                    jx1.k("HugePhotoDraweeView", "bitmapDecoderClass is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder class cannot be set to null");
             }
-            this.P = new c.a.n0.a.z0.e.d.a(cls);
+            this.P = new oo2(cls);
         }
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setBitmapDecoderFactory(c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.c> bVar) {
+    public final void setBitmapDecoderFactory(po2<? extends qo2> po2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, bVar) == null) {
-            if (bVar == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, po2Var) == null) {
+            if (po2Var == null) {
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "bitmapDecoderFactory is null");
+                    jx1.k("HugePhotoDraweeView", "bitmapDecoderFactory is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder factory cannot be set to null");
             }
-            this.P = bVar;
+            this.P = po2Var;
         }
     }
 
     public final void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
-            this.f28949g = z;
+            this.g = z;
         }
     }
 
@@ -2428,7 +2367,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!B0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid zoom style: " + i2;
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                    jx1.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -2437,10 +2376,10 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    public final void setImage(c.a.n0.a.z0.e.b bVar) {
+    public final void setImage(mo2 mo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, bVar) == null) {
-            setImage(bVar, null, null);
+        if (interceptable == null || interceptable.invokeL(1048639, this, mo2Var) == null) {
+            setImage(mo2Var, null, null);
         }
     }
 
@@ -2448,7 +2387,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048643, this, drawable) == null) {
-            c.a.n0.a.z0.e.c.b(getContext(), drawable);
+            no2.b(getContext(), drawable);
             super.setImageDrawable(drawable);
         }
     }
@@ -2505,7 +2444,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!E0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid scale type: " + i2;
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                    jx1.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -2552,12 +2491,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!A0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid orientation: " + i2;
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                    jx1.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
             }
-            this.f28950h = i2;
+            this.h = i2;
             t0(false);
             invalidate();
             requestLayout();
@@ -2588,7 +2527,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (!D0.contains(Integer.valueOf(i2))) {
                 String str = "Invalid pan limit: " + i2;
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", str);
+                    jx1.k("HugePhotoDraweeView", str);
                     return;
                 }
                 throw new IllegalArgumentException(str);
@@ -2616,32 +2555,32 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setRegionDecoderClass(Class<? extends c.a.n0.a.z0.e.d.d> cls) {
+    public final void setRegionDecoderClass(Class<? extends ro2> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048660, this, cls) == null) {
             if (cls == null) {
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "regionDecoderClass is null");
+                    jx1.k("HugePhotoDraweeView", "regionDecoderClass is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder class cannot be set to null");
             }
-            this.Q = new c.a.n0.a.z0.e.d.a(cls);
+            this.Q = new oo2(cls);
         }
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setRegionDecoderFactory(c.a.n0.a.z0.e.d.b<? extends c.a.n0.a.z0.e.d.d> bVar) {
+    public final void setRegionDecoderFactory(po2<? extends ro2> po2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, bVar) == null) {
-            if (bVar == null) {
+        if (interceptable == null || interceptable.invokeL(1048661, this, po2Var) == null) {
+            if (po2Var == null) {
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "setRegionDecoderFactory is null");
+                    jx1.k("HugePhotoDraweeView", "setRegionDecoderFactory is null");
                     return;
                 }
                 throw new IllegalArgumentException("Decoder factory cannot be set to null");
             }
-            this.Q = bVar;
+            this.Q = po2Var;
         }
     }
 
@@ -2692,7 +2631,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             this.J = false;
             this.K = false;
             this.L = 0;
-            this.f28947e = 0;
+            this.e = 0;
             this.R = null;
             this.S = 0.0f;
             this.U = null;
@@ -2704,7 +2643,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             this.r0 = null;
             this.s0 = null;
             if (z) {
-                this.f28946d = null;
+                this.d = null;
                 if (this.N != null) {
                     synchronized (this.O) {
                         this.N.recycle();
@@ -2712,7 +2651,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     }
                 }
                 Bitmap bitmap = this.a;
-                if (bitmap != null && !this.f28945c) {
+                if (bitmap != null && !this.c) {
                     bitmap.recycle();
                 }
                 this.D = 0;
@@ -2723,21 +2662,21 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                 this.i0 = false;
                 this.j0 = false;
                 this.a = null;
-                this.f28944b = false;
-                this.f28945c = false;
+                this.b = false;
+                this.c = false;
             }
-            Map<Integer, List<i>> map = this.f28948f;
+            Map<Integer, List<i>> map = this.f;
             if (map != null) {
                 for (Map.Entry<Integer, List<i>> entry : map.entrySet()) {
                     for (i iVar : entry.getValue()) {
-                        iVar.f28976e = false;
-                        if (iVar.f28974c != null) {
-                            iVar.f28974c.recycle();
-                            iVar.f28974c = null;
+                        iVar.e = false;
+                        if (iVar.c != null) {
+                            iVar.c.recycle();
+                            iVar.c = null;
                         }
                     }
                 }
-                this.f28948f = null;
+                this.f = null;
             }
             setGestureDetector(getContext());
         }
@@ -2770,7 +2709,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         if (!(interceptable == null || interceptable.invokeL(1048668, this, imageViewState) == null) || imageViewState == null || imageViewState.getCenter() == null || !A0.contains(Integer.valueOf(imageViewState.getOrientation()))) {
             return;
         }
-        this.f28950h = imageViewState.getOrientation();
+        this.h = imageViewState.getOrientation();
         this.A = Float.valueOf(imageViewState.getScale());
         this.B = imageViewState.getCenter();
         invalidate();
@@ -2816,17 +2755,17 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
         }
     }
 
-    public final void setImage(c.a.n0.a.z0.e.b bVar, ImageViewState imageViewState) {
+    public final void setImage(mo2 mo2Var, ImageViewState imageViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048642, this, bVar, imageViewState) == null) {
-            setImage(bVar, null, imageViewState);
+        if (interceptable == null || interceptable.invokeLL(1048640, this, mo2Var, imageViewState) == null) {
+            setImage(mo2Var, null, imageViewState);
         }
     }
 
-    public final void setImage(c.a.n0.a.z0.e.b bVar, c.a.n0.a.z0.e.b bVar2) {
+    public final void setImage(mo2 mo2Var, mo2 mo2Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, bVar, bVar2) == null) {
-            setImage(bVar, bVar2, null);
+        if (interceptable == null || interceptable.invokeLL(1048641, this, mo2Var, mo2Var2) == null) {
+            setImage(mo2Var, mo2Var2, null);
         }
     }
 
@@ -2839,12 +2778,12 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    public final void setImage(c.a.n0.a.z0.e.b bVar, c.a.n0.a.z0.e.b bVar2, ImageViewState imageViewState) {
+    public final void setImage(mo2 mo2Var, mo2 mo2Var2, ImageViewState imageViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048641, this, bVar, bVar2, imageViewState) == null) {
-            if (bVar == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048642, this, mo2Var, mo2Var2, imageViewState) == null) {
+            if (mo2Var == null) {
                 if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "imageSource is null");
+                    jx1.k("HugePhotoDraweeView", "imageSource is null");
                     return;
                 }
                 throw new NullPointerException("imageSource must not be null");
@@ -2853,80 +2792,66 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
             if (imageViewState != null) {
                 w0(imageViewState);
             }
-            if (bVar2 != null) {
-                if (bVar.c() != null) {
+            if (mo2Var2 != null) {
+                if (mo2Var.c() != null) {
                     if (!z0) {
-                        c.a.n0.a.u.d.k("HugePhotoDraweeView", "imageSource get bitmap is not null");
+                        jx1.k("HugePhotoDraweeView", "imageSource get bitmap is not null");
                         return;
                     }
                     throw new IllegalArgumentException("Preview image cannot be used when a bitmap is provided for the main image");
-                } else if (bVar.g() > 0 && bVar.e() > 0) {
-                    this.D = bVar.g();
-                    this.E = bVar.e();
-                    this.H = bVar2.f();
-                    if (bVar2.c() != null) {
-                        this.f28945c = bVar2.j();
-                        n0(bVar2.c());
+                } else if (mo2Var.g() > 0 && mo2Var.e() > 0) {
+                    this.D = mo2Var.g();
+                    this.E = mo2Var.e();
+                    this.H = mo2Var2.f();
+                    if (mo2Var2.c() != null) {
+                        this.c = mo2Var2.j();
+                        n0(mo2Var2.c());
                     } else {
-                        Uri i2 = bVar2.i();
-                        if (i2 == null && bVar2.d() != null) {
-                            i2 = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar2.d());
+                        Uri i2 = mo2Var2.i();
+                        if (i2 == null && mo2Var2.d() != null) {
+                            i2 = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + mo2Var2.d());
                         }
                         Y(new e(this, getContext(), this.P, i2, true));
                     }
                 } else if (!z0) {
-                    c.a.n0.a.u.d.k("HugePhotoDraweeView", "imageSource width or height invalid");
+                    jx1.k("HugePhotoDraweeView", "imageSource width or height invalid");
                     return;
                 } else {
                     throw new IllegalArgumentException("Preview image cannot be used unless dimensions are provided for the main image");
                 }
             }
-            if (bVar.c() != null && bVar.f() != null) {
-                m0(Bitmap.createBitmap(bVar.c(), bVar.f().left, bVar.f().top, bVar.f().width(), bVar.f().height()), 0, false);
-            } else if (bVar.c() != null && !bVar.h()) {
-                m0(bVar.c(), 0, bVar.j());
+            if (mo2Var.c() != null && mo2Var.f() != null) {
+                m0(Bitmap.createBitmap(mo2Var.c(), mo2Var.f().left, mo2Var.f().top, mo2Var.f().width(), mo2Var.f().height()), 0, false);
+            } else if (mo2Var.c() != null && !mo2Var.h()) {
+                m0(mo2Var.c(), 0, mo2Var.j());
             } else {
-                this.G = bVar.f();
-                Uri i3 = bVar.i();
-                this.f28946d = i3;
-                if (i3 == null && bVar.d() != null) {
-                    this.f28946d = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + bVar.d());
+                this.G = mo2Var.f();
+                Uri i3 = mo2Var.i();
+                this.d = i3;
+                if (i3 == null && mo2Var.d() != null) {
+                    this.d = Uri.parse("android.resource://" + getContext().getPackageName() + "/" + mo2Var.d());
                 }
-                if (!bVar.h() && this.G == null) {
-                    Y(new e(this, getContext(), this.P, this.f28946d, false));
+                if (!mo2Var.h() && this.G == null) {
+                    Y(new e(this, getContext(), this.P, this.d, false));
                 } else {
-                    Y(new k(this, getContext(), this.Q, bVar));
+                    Y(new k(this, getContext(), this.Q, mo2Var));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public float f28952b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public PointF f28953c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public PointF f28954d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public PointF f28955e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public PointF f28956f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public PointF f28957g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public long f28958h;
+        public float b;
+        public PointF c;
+        public PointF d;
+        public PointF e;
+        public PointF f;
+        public PointF g;
+        public long h;
         public boolean i;
         public int j;
         public long k;
@@ -2945,7 +2870,7 @@ public class HugePhotoDraweeView extends SimpleDraweeView {
                     return;
                 }
             }
-            this.f28958h = 500L;
+            this.h = 500L;
             this.i = true;
             this.j = 2;
             this.k = System.currentTimeMillis();

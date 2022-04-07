@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class n0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,14 +43,14 @@ public class n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (new d(this.a.a).a(d.c0, 1) != 1 || (a = new d1(q0.f38952e, q0.f38953f).a(this.a.a)) == null) {
+                    if (new d(this.a.a).a(d.c0, 1) != 1 || (a = new d1(q0.e, q0.f).a(this.a.a)) == null) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    List<p> b2 = x.a(this.a.a).b();
-                    jSONObject.put("11030", b2.size());
-                    jSONObject.put("11031", b2.size() > 0 ? b2.get(0).f38937d : "");
-                    jSONObject.put("11032", b2.size() > 1 ? b2.get(1).f38937d : "");
+                    List<p> b = x.a(this.a.a).b();
+                    jSONObject.put("11030", b.size());
+                    jSONObject.put("11031", b.size() > 0 ? b.get(0).d : "");
+                    jSONObject.put("11032", b.size() > 1 ? b.get(1).d : "");
                     a.put("module_section", jSONObject);
                     g1.a(a.toString(), this.a.a);
                 } catch (Throwable th) {

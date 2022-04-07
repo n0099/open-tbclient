@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class IActivityProxy implements IComponentProxy {
     public Activity mActivity;
 
@@ -245,13 +245,13 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void setContentView(View view) {
-        this.mActivity.setContentView(view);
+    public void setContentView(View view2) {
+        this.mActivity.setContentView(view2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        this.mActivity.setContentView(view, layoutParams);
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        this.mActivity.setContentView(view2, layoutParams);
     }
 }

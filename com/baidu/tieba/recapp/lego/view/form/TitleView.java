@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TitleView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,13 +67,13 @@ public class TitleView extends FormItemBaseView {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
             if (super.g(bVar)) {
                 this.t.setTextSize(0, this.l);
-                this.t.setText(bVar.f35706b);
+                this.t.setText(bVar.b);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.w.getLayoutParams();
-                int i = this.f35740c;
+                int i = this.c;
                 marginLayoutParams.leftMargin = i;
                 marginLayoutParams.rightMargin = i;
                 ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.x.getLayoutParams();
-                int i2 = this.f35740c;
+                int i2 = this.c;
                 marginLayoutParams2.leftMargin = i2;
                 marginLayoutParams2.rightMargin = i2;
                 return true;
@@ -113,13 +113,13 @@ public class TitleView extends FormItemBaseView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(15);
             if (z) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080582);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080580);
                 layoutParams.addRule(0, this.t.getId());
             } else {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080583);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080581);
                 layoutParams.addRule(1, this.t.getId());
             }
-            int i2 = this.f35740c;
+            int i2 = this.c;
             layoutParams.leftMargin = i2;
             layoutParams.rightMargin = i2;
             addView(imageView, layoutParams);
@@ -129,7 +129,7 @@ public class TitleView extends FormItemBaseView {
     public final void j(ImageView imageView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, imageView, z) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070198));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.b.getDimension(R.dimen.obfuscated_res_0x7f070198));
             layoutParams.addRule(15);
             if (z) {
                 layoutParams.addRule(0, this.w.getId());

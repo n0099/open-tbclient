@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.d.f.n.c;
-import c.a.d.f.o.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ai;
+import com.repackage.wg;
+/* loaded from: classes3.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(YunPushOppoproxyEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(BarDetailForDirSwitch.class);
             SwitchManager.getInstance().registerSwitch(CustomPlayerSwitch.class);
-            SwitchManager.getInstance().registerSwitch(DnsProxySwitch.class);
             SwitchManager.getInstance().registerSwitch(PbNormalLikeButtonSwitch.class);
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(VCacheSwitch.class);
@@ -107,7 +106,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PluginClassChangeSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseNewMethodCheckLogoSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(a.class);
+            SwitchManager.getInstance().registerSwitch(ai.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -135,7 +134,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(c.class);
+            SwitchManager.getInstance().registerSwitch(wg.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -151,6 +150,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(ResetSplashAdConfigSwitch.class);
             SwitchManager.getInstance().registerSwitch(SocketAddCommonParamSwitch.class);
             SwitchManager.getInstance().registerSwitch(AsyncParseMessageSwitch.class);
+            SwitchManager.getInstance().registerSwitch(DelayInitNightPluginSwitch.class);
+            SwitchManager.getInstance().registerSwitch(PreInitAdCardViewSwitch.class);
         }
     }
 }

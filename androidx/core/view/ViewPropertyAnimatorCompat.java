@@ -50,25 +50,25 @@ public final class ViewPropertyAnimatorCompat {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationCancel(View view) {
+        public void onAnimationCancel(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Object tag = view.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
                 ViewPropertyAnimatorListener viewPropertyAnimatorListener = tag instanceof ViewPropertyAnimatorListener ? (ViewPropertyAnimatorListener) tag : null;
                 if (viewPropertyAnimatorListener != null) {
-                    viewPropertyAnimatorListener.onAnimationCancel(view);
+                    viewPropertyAnimatorListener.onAnimationCancel(view2);
                 }
             }
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
         @SuppressLint({"WrongConstant"})
-        public void onAnimationEnd(View view) {
+        public void onAnimationEnd(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                 int i = this.mVpa.mOldLayerType;
                 if (i > -1) {
-                    view.setLayerType(i, null);
+                    view2.setLayerType(i, null);
                     this.mVpa.mOldLayerType = -1;
                 }
                 if (Build.VERSION.SDK_INT >= 16 || !this.mAnimEndCalled) {
@@ -78,10 +78,10 @@ public final class ViewPropertyAnimatorCompat {
                         viewPropertyAnimatorCompat.mEndAction = null;
                         runnable.run();
                     }
-                    Object tag = view.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
+                    Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
                     ViewPropertyAnimatorListener viewPropertyAnimatorListener = tag instanceof ViewPropertyAnimatorListener ? (ViewPropertyAnimatorListener) tag : null;
                     if (viewPropertyAnimatorListener != null) {
-                        viewPropertyAnimatorListener.onAnimationEnd(view);
+                        viewPropertyAnimatorListener.onAnimationEnd(view2);
                     }
                     this.mAnimEndCalled = true;
                 }
@@ -89,12 +89,12 @@ public final class ViewPropertyAnimatorCompat {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view) {
+        public void onAnimationStart(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 this.mAnimEndCalled = false;
                 if (this.mVpa.mOldLayerType > -1) {
-                    view.setLayerType(2, null);
+                    view2.setLayerType(2, null);
                 }
                 ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVpa;
                 Runnable runnable = viewPropertyAnimatorCompat.mStartAction;
@@ -102,21 +102,21 @@ public final class ViewPropertyAnimatorCompat {
                     viewPropertyAnimatorCompat.mStartAction = null;
                     runnable.run();
                 }
-                Object tag = view.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
+                Object tag = view2.getTag(ViewPropertyAnimatorCompat.LISTENER_TAG_ID);
                 ViewPropertyAnimatorListener viewPropertyAnimatorListener = tag instanceof ViewPropertyAnimatorListener ? (ViewPropertyAnimatorListener) tag : null;
                 if (viewPropertyAnimatorListener != null) {
-                    viewPropertyAnimatorListener.onAnimationStart(view);
+                    viewPropertyAnimatorListener.onAnimationStart(view2);
                 }
             }
         }
     }
 
-    public ViewPropertyAnimatorCompat(View view) {
+    public ViewPropertyAnimatorCompat(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,14 +129,14 @@ public final class ViewPropertyAnimatorCompat {
         this.mStartAction = null;
         this.mEndAction = null;
         this.mOldLayerType = -1;
-        this.mView = new WeakReference<>(view);
+        this.mView = new WeakReference<>(view2);
     }
 
-    private void setListenerInternal(View view, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
+    private void setListenerInternal(View view2, ViewPropertyAnimatorListener viewPropertyAnimatorListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, view, viewPropertyAnimatorListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, this, view2, viewPropertyAnimatorListener) == null) {
             if (viewPropertyAnimatorListener != null) {
-                view.animate().setListener(new AnimatorListenerAdapter(this, viewPropertyAnimatorListener, view) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.1
+                view2.animate().setListener(new AnimatorListenerAdapter(this, viewPropertyAnimatorListener, view2) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ViewPropertyAnimatorCompat this$0;
@@ -148,7 +148,7 @@ public final class ViewPropertyAnimatorCompat {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, viewPropertyAnimatorListener, view};
+                            Object[] objArr = {this, viewPropertyAnimatorListener, view2};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -160,7 +160,7 @@ public final class ViewPropertyAnimatorCompat {
                         }
                         this.this$0 = this;
                         this.val$listener = viewPropertyAnimatorListener;
-                        this.val$view = view;
+                        this.val$view = view2;
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -188,31 +188,31 @@ public final class ViewPropertyAnimatorCompat {
                     }
                 });
             } else {
-                view.animate().setListener(null);
+                view2.animate().setListener(null);
             }
         }
     }
 
-    public ViewPropertyAnimatorCompat alpha(float f2) {
+    public ViewPropertyAnimatorCompat alpha(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().alpha(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().alpha(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat alphaBy(float f2) {
+    public ViewPropertyAnimatorCompat alphaBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().alphaBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().alphaBy(f);
             }
             return this;
         }
@@ -220,21 +220,21 @@ public final class ViewPropertyAnimatorCompat {
     }
 
     public void cancel() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view = this.mView.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.mView.get()) == null) {
             return;
         }
-        view.animate().cancel();
+        view2.animate().cancel();
     }
 
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                return view.animate().getDuration();
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                return view2.animate().getDuration();
             }
             return 0L;
         }
@@ -245,11 +245,11 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            View view = this.mView.get();
-            if (view == null || Build.VERSION.SDK_INT < 18) {
+            View view2 = this.mView.get();
+            if (view2 == null || Build.VERSION.SDK_INT < 18) {
                 return null;
             }
-            return (Interpolator) view.animate().getInterpolator();
+            return (Interpolator) view2.animate().getInterpolator();
         }
         return (Interpolator) invokeV.objValue;
     }
@@ -258,139 +258,139 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                return view.animate().getStartDelay();
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                return view2.animate().getStartDelay();
             }
             return 0L;
         }
         return invokeV.longValue;
     }
 
-    public ViewPropertyAnimatorCompat rotation(float f2) {
+    public ViewPropertyAnimatorCompat rotation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotation(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotation(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat rotationBy(float f2) {
+    public ViewPropertyAnimatorCompat rotationBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotationBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotationBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat rotationX(float f2) {
+    public ViewPropertyAnimatorCompat rotationX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotationX(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotationX(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat rotationXBy(float f2) {
+    public ViewPropertyAnimatorCompat rotationXBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotationXBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotationXBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat rotationY(float f2) {
+    public ViewPropertyAnimatorCompat rotationY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotationY(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotationY(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat rotationYBy(float f2) {
+    public ViewPropertyAnimatorCompat rotationYBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().rotationYBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().rotationYBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat scaleX(float f2) {
+    public ViewPropertyAnimatorCompat scaleX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().scaleX(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().scaleX(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat scaleXBy(float f2) {
+    public ViewPropertyAnimatorCompat scaleXBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().scaleXBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().scaleXBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat scaleY(float f2) {
+    public ViewPropertyAnimatorCompat scaleY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().scaleY(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().scaleY(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat scaleYBy(float f2) {
+    public ViewPropertyAnimatorCompat scaleYBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().scaleYBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().scaleYBy(f);
             }
             return this;
         }
@@ -401,9 +401,9 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().setDuration(j);
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().setDuration(j);
             }
             return this;
         }
@@ -414,9 +414,9 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, interpolator)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().setInterpolator(interpolator);
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().setInterpolator(interpolator);
             }
             return this;
         }
@@ -427,13 +427,13 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, viewPropertyAnimatorListener)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
                 if (Build.VERSION.SDK_INT >= 16) {
-                    setListenerInternal(view, viewPropertyAnimatorListener);
+                    setListenerInternal(view2, viewPropertyAnimatorListener);
                 } else {
-                    view.setTag(LISTENER_TAG_ID, viewPropertyAnimatorListener);
-                    setListenerInternal(view, new ViewPropertyAnimatorListenerApi14(this));
+                    view2.setTag(LISTENER_TAG_ID, viewPropertyAnimatorListener);
+                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
                 }
             }
             return this;
@@ -445,9 +445,9 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().setStartDelay(j);
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().setStartDelay(j);
             }
             return this;
         }
@@ -458,9 +458,9 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, viewPropertyAnimatorUpdateListener)) == null) {
-            View view = this.mView.get();
-            if (view != null && Build.VERSION.SDK_INT >= 19) {
-                view.animate().setUpdateListener(viewPropertyAnimatorUpdateListener != null ? new ValueAnimator.AnimatorUpdateListener(this, viewPropertyAnimatorUpdateListener, view) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.2
+            View view2 = this.mView.get();
+            if (view2 != null && Build.VERSION.SDK_INT >= 19) {
+                view2.animate().setUpdateListener(viewPropertyAnimatorUpdateListener != null ? new ValueAnimator.AnimatorUpdateListener(this, viewPropertyAnimatorUpdateListener, view2) { // from class: androidx.core.view.ViewPropertyAnimatorCompat.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ViewPropertyAnimatorCompat this$0;
@@ -472,7 +472,7 @@ public final class ViewPropertyAnimatorCompat {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, viewPropertyAnimatorUpdateListener, view};
+                            Object[] objArr = {this, viewPropertyAnimatorUpdateListener, view2};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -484,7 +484,7 @@ public final class ViewPropertyAnimatorCompat {
                         }
                         this.this$0 = this;
                         this.val$listener = viewPropertyAnimatorUpdateListener;
-                        this.val$view = view;
+                        this.val$view = view2;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -502,86 +502,86 @@ public final class ViewPropertyAnimatorCompat {
     }
 
     public void start() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (view = this.mView.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (view2 = this.mView.get()) == null) {
             return;
         }
-        view.animate().start();
+        view2.animate().start();
     }
 
-    public ViewPropertyAnimatorCompat translationX(float f2) {
+    public ViewPropertyAnimatorCompat translationX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048598, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().translationX(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048598, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().translationX(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat translationXBy(float f2) {
+    public ViewPropertyAnimatorCompat translationXBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().translationXBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048599, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().translationXBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat translationY(float f2) {
+    public ViewPropertyAnimatorCompat translationY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().translationY(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().translationY(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat translationYBy(float f2) {
+    public ViewPropertyAnimatorCompat translationYBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().translationYBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().translationYBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat translationZ(float f2) {
+    public ViewPropertyAnimatorCompat translationZ(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048602, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null && Build.VERSION.SDK_INT >= 21) {
-                view.animate().translationZ(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048602, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+                view2.animate().translationZ(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat translationZBy(float f2) {
+    public ViewPropertyAnimatorCompat translationZBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null && Build.VERSION.SDK_INT >= 21) {
-                view.animate().translationZBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+                view2.animate().translationZBy(f);
             }
             return this;
         }
@@ -592,12 +592,12 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, runnable)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
                 if (Build.VERSION.SDK_INT >= 16) {
-                    view.animate().withEndAction(runnable);
+                    view2.animate().withEndAction(runnable);
                 } else {
-                    setListenerInternal(view, new ViewPropertyAnimatorListenerApi14(this));
+                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
                     this.mEndAction = runnable;
                 }
             }
@@ -611,13 +611,13 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
                 if (Build.VERSION.SDK_INT >= 16) {
-                    view.animate().withLayer();
+                    view2.animate().withLayer();
                 } else {
-                    this.mOldLayerType = view.getLayerType();
-                    setListenerInternal(view, new ViewPropertyAnimatorListenerApi14(this));
+                    this.mOldLayerType = view2.getLayerType();
+                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
                 }
             }
             return this;
@@ -629,12 +629,12 @@ public final class ViewPropertyAnimatorCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, runnable)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
                 if (Build.VERSION.SDK_INT >= 16) {
-                    view.animate().withStartAction(runnable);
+                    view2.animate().withStartAction(runnable);
                 } else {
-                    setListenerInternal(view, new ViewPropertyAnimatorListenerApi14(this));
+                    setListenerInternal(view2, new ViewPropertyAnimatorListenerApi14(this));
                     this.mStartAction = runnable;
                 }
             }
@@ -643,78 +643,78 @@ public final class ViewPropertyAnimatorCompat {
         return (ViewPropertyAnimatorCompat) invokeL.objValue;
     }
 
-    public ViewPropertyAnimatorCompat x(float f2) {
+    public ViewPropertyAnimatorCompat x(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().x(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().x(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat xBy(float f2) {
+    public ViewPropertyAnimatorCompat xBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().xBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().xBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat y(float f2) {
+    public ViewPropertyAnimatorCompat y(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048609, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().y(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048609, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().y(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat yBy(float f2) {
+    public ViewPropertyAnimatorCompat yBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048610, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null) {
-                view.animate().yBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048610, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null) {
+                view2.animate().yBy(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat z(float f2) {
+    public ViewPropertyAnimatorCompat z(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null && Build.VERSION.SDK_INT >= 21) {
-                view.animate().z(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+                view2.animate().z(f);
             }
             return this;
         }
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat zBy(float f2) {
+    public ViewPropertyAnimatorCompat zBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048612, this, f2)) == null) {
-            View view = this.mView.get();
-            if (view != null && Build.VERSION.SDK_INT >= 21) {
-                view.animate().zBy(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048612, this, f)) == null) {
+            View view2 = this.mView.get();
+            if (view2 != null && Build.VERSION.SDK_INT >= 21) {
+                view2.animate().zBy(f);
             }
             return this;
         }

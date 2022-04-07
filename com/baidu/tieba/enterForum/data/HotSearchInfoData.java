@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumRecommend.HotSearch;
 import tbclient.ForumRecommend.SearchValue;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f31833b;
+    public long b;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -42,7 +40,7 @@ public class HotSearchInfoData extends OrmObject {
     public long getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31833b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
     }
 
     public String y() {
@@ -61,6 +59,6 @@ public class HotSearchInfoData extends OrmObject {
         searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
         String str = searchValue2.name;
-        this.f31833b = searchValue2.type.longValue();
+        this.b = searchValue2.type.longValue();
     }
 }

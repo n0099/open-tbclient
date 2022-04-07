@@ -11,7 +11,7 @@ import com.kwad.v8.V8;
 import com.kwad.v8.V8Value;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MemoryManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,13 +22,13 @@ public class MemoryManager {
     public V8 v8;
 
     /* renamed from: com.kwad.v8.utils.MemoryManager$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class MemoryManagerReferenceHandler implements ReferenceHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

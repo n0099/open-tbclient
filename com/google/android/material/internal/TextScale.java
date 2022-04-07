@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextScale extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPNAME_SCALE = "android:textscale:scale";
@@ -41,9 +41,9 @@ public class TextScale extends Transition {
     private void captureValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, transitionValues) == null) {
-            View view = transitionValues.view;
-            if (view instanceof TextView) {
-                transitionValues.values.put(PROPNAME_SCALE, Float.valueOf(((TextView) view).getScaleX()));
+            View view2 = transitionValues.f980view;
+            if (view2 instanceof TextView) {
+                transitionValues.values.put(PROPNAME_SCALE, Float.valueOf(((TextView) view2).getScaleX()));
             }
         }
     }
@@ -69,12 +69,12 @@ public class TextScale extends Transition {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
-            if (transitionValues == null || transitionValues2 == null || !(transitionValues.view instanceof TextView)) {
+            if (transitionValues == null || transitionValues2 == null || !(transitionValues.f980view instanceof TextView)) {
                 return null;
             }
-            View view = transitionValues2.view;
-            if (view instanceof TextView) {
-                TextView textView = (TextView) view;
+            View view2 = transitionValues2.f980view;
+            if (view2 instanceof TextView) {
+                TextView textView = (TextView) view2;
                 Map<String, Object> map = transitionValues.values;
                 Map<String, Object> map2 = transitionValues2.values;
                 float floatValue = map.get(PROPNAME_SCALE) != null ? ((Float) map.get(PROPNAME_SCALE)).floatValue() : 1.0f;

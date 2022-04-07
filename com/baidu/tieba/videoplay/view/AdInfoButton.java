@@ -7,9 +7,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.n;
-import c.a.o0.r.v.b;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,26 +20,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+import com.repackage.vr4;
+import com.repackage.wr4;
+/* loaded from: classes4.dex */
 public class AdInfoButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f36773b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public EMTextView f36774c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AdType f36775d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AdChannel f36776e;
+    public ImageView b;
+    public EMTextView c;
+    public AdType d;
+    public AdChannel e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AdChannel {
         public static final /* synthetic */ AdChannel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +96,7 @@ public class AdInfoButton extends RelativeLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AdType {
         public static final /* synthetic */ AdType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -163,7 +155,7 @@ public class AdInfoButton extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,8 +184,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof b) {
-                    ((b) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof vr4) {
+                    ((vr4) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -225,25 +217,25 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new RelativeLayout(context);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, n.f(context, R.dimen.tbds86));
-            layoutParams.bottomMargin = n.f(context, R.dimen.M_H_X006);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, oi.f(context, R.dimen.tbds86));
+            layoutParams.bottomMargin = oi.f(context, R.dimen.M_H_X006);
             this.a.setLayoutParams(layoutParams);
             this.a.setGravity(17);
             RelativeLayout relativeLayout = new RelativeLayout(context);
             relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
             ImageView imageView = new ImageView(context);
-            this.f36773b = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0900a5);
-            int f2 = n.f(context, R.dimen.tbds42);
-            this.f36773b.setLayoutParams(new RelativeLayout.LayoutParams(f2, f2));
-            relativeLayout.addView(this.f36773b);
-            this.f36774c = new EMTextView(context);
+            this.b = imageView;
+            imageView.setId(R.id.obfuscated_res_0x7f0900a9);
+            int f = oi.f(context, R.dimen.tbds42);
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(f, f));
+            relativeLayout.addView(this.b);
+            this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a5);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a9);
             layoutParams2.addRule(15);
-            layoutParams2.leftMargin = n.f(context, R.dimen.M_W_X002);
-            this.f36774c.setLayoutParams(layoutParams2);
-            relativeLayout.addView(this.f36774c);
+            layoutParams2.leftMargin = oi.f(context, R.dimen.M_W_X002);
+            this.c.setLayoutParams(layoutParams2);
+            relativeLayout.addView(this.c);
             this.a.addView(relativeLayout);
             addView(this.a);
             c();
@@ -253,26 +245,26 @@ public class AdInfoButton extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f36776e == AdChannel.CSJ) {
-                c d2 = c.d(this.a);
+            if (this.e == AdChannel.CSJ) {
+                wr4 d = wr4.d(this.a);
+                d.n(R.string.J_X05);
+                d.m(0);
+                d.f(R.color.CAM_X0614);
+            } else {
+                wr4 d2 = wr4.d(this.a);
                 d2.n(R.string.J_X05);
                 d2.m(0);
-                d2.f(R.color.CAM_X0614);
-            } else {
-                c d3 = c.d(this.a);
-                d3.n(R.string.J_X05);
-                d3.m(0);
-                d3.f(R.color.CAM_X0302);
+                d2.f(R.color.CAM_X0302);
             }
-            AdType adType = this.f36775d;
+            AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.f36773b, R.drawable.obfuscated_res_0x7f0806ec, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806eb, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.f36773b, R.drawable.obfuscated_res_0x7f08079a, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08079e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            c d4 = c.d(this.f36774c);
-            d4.z(R.dimen.T_X08);
-            d4.v(R.color.CAM_X0101);
+            wr4 d3 = wr4.d(this.c);
+            d3.z(R.dimen.T_X08);
+            d3.v(R.color.CAM_X0101);
         }
     }
 
@@ -290,21 +282,21 @@ public class AdInfoButton extends RelativeLayout {
     public void setChannel(AdChannel adChannel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adChannel) == null) {
-            this.f36776e = adChannel;
+            this.e = adChannel;
         }
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f36774c.setText(charSequence);
+            this.c.setText(charSequence);
         }
     }
 
     public void setType(AdType adType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adType) == null) {
-            this.f36775d = adType;
+            this.d = adType;
         }
     }
 

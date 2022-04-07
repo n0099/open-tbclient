@@ -11,7 +11,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;
@@ -104,7 +104,7 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     void negativeFeedback();
 
     @Deprecated
-    void onVideoADExposured(View view);
+    void onVideoADExposured(View view2);
 
     void pauseAppDownload();
 

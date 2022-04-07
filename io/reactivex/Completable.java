@@ -84,7 +84,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Completable implements CompletableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -806,12 +806,12 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final <E extends CompletableObserver> E subscribeWith(E e2) {
+    public final <E extends CompletableObserver> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, e2)) == null) {
-            subscribe(e2);
-            return e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
         return (E) invokeL.objValue;
     }
@@ -1100,8 +1100,8 @@ public abstract class Completable implements CompletableSource {
             ObjectHelper.requireNonNull(completableObserver, "s is null");
             try {
                 subscribeActual(RxJavaPlugins.onSubscribe(this, completableObserver));
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

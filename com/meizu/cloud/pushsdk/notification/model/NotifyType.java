@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NotifyType implements Parcelable {
     public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,8 +46,8 @@ public class NotifyType implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                c.h.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b("notify_type", "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -72,13 +73,13 @@ public class NotifyType implements Parcelable {
                     }
                     notifyType.setSound(z);
                 }
-            } catch (JSONException e2) {
-                str = "parse json obj error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = "parse json obj error " + e.getMessage();
             }
             return notifyType;
         }
         str = "no such tag notify_type";
-        c.h.a.a.a.b("notify_type", str);
+        rm9.b("notify_type", str);
         return notifyType;
     }
 

@@ -40,18 +40,18 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public static void bfsAddViewChildren(List<View> list, View view) {
+    public static void bfsAddViewChildren(List<View> list, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, view) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, view2) == null) {
             int size = list.size();
-            if (containedBeforeIndex(list, view, size)) {
+            if (containedBeforeIndex(list, view2, size)) {
                 return;
             }
-            list.add(view);
+            list.add(view2);
             for (int i = size; i < list.size(); i++) {
-                View view2 = list.get(i);
-                if (view2 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
+                View view3 = list.get(i);
+                if (view3 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view3;
                     int childCount = viewGroup.getChildCount();
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = viewGroup.getChildAt(i2);
@@ -64,12 +64,12 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public static boolean containedBeforeIndex(List<View> list, View view, int i) {
+    public static boolean containedBeforeIndex(List<View> list, View view2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, list, view, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, list, view2, i)) == null) {
             for (int i2 = 0; i2 < i; i2++) {
-                if (list.get(i2) == view) {
+                if (list.get(i2) == view2) {
                     return true;
                 }
             }
@@ -98,7 +98,7 @@ public abstract class FragmentTransitionImpl {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) ? list == null || list.isEmpty() : invokeL.booleanValue;
     }
 
-    public abstract void addTarget(Object obj, View view);
+    public abstract void addTarget(Object obj, View view2);
 
     public abstract void addTargets(Object obj, ArrayList<View> arrayList);
 
@@ -106,11 +106,11 @@ public abstract class FragmentTransitionImpl {
 
     public abstract boolean canHandle(Object obj);
 
-    public void captureTransitioningViews(ArrayList<View> arrayList, View view) {
+    public void captureTransitioningViews(ArrayList<View> arrayList, View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, arrayList, view) == null) && view.getVisibility() == 0) {
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, arrayList, view2) == null) && view2.getVisibility() == 0) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 if (ViewGroupCompat.isTransitionGroup(viewGroup)) {
                     arrayList.add(viewGroup);
                     return;
@@ -121,21 +121,21 @@ public abstract class FragmentTransitionImpl {
                 }
                 return;
             }
-            arrayList.add(view);
+            arrayList.add(view2);
         }
     }
 
     public abstract Object cloneTransition(Object obj);
 
-    public void findNamedViews(Map<String, View> map, @NonNull View view) {
+    public void findNamedViews(Map<String, View> map, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, map, view) == null) && view.getVisibility() == 0) {
-            String transitionName = ViewCompat.getTransitionName(view);
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, map, view2) == null) && view2.getVisibility() == 0) {
+            String transitionName = ViewCompat.getTransitionName(view2);
             if (transitionName != null) {
-                map.put(transitionName, view);
+                map.put(transitionName, view2);
             }
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     findNamedViews(map, viewGroup.getChildAt(i));
@@ -144,12 +144,12 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public void getBoundsOnScreen(View view, Rect rect) {
+    public void getBoundsOnScreen(View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view, rect) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, rect) == null) {
             int[] iArr = new int[2];
-            view.getLocationOnScreen(iArr);
-            rect.set(iArr[0], iArr[1], iArr[0] + view.getWidth(), iArr[1] + view.getHeight());
+            view2.getLocationOnScreen(iArr);
+            rect.set(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
         }
     }
 
@@ -164,20 +164,20 @@ public abstract class FragmentTransitionImpl {
             ArrayList<String> arrayList2 = new ArrayList<>();
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                View view = arrayList.get(i);
-                arrayList2.add(ViewCompat.getTransitionName(view));
-                ViewCompat.setTransitionName(view, null);
+                View view2 = arrayList.get(i);
+                arrayList2.add(ViewCompat.getTransitionName(view2));
+                ViewCompat.setTransitionName(view2, null);
             }
             return arrayList2;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    public abstract void removeTarget(Object obj, View view);
+    public abstract void removeTarget(Object obj, View view2);
 
     public abstract void replaceTargets(Object obj, ArrayList<View> arrayList, ArrayList<View> arrayList2);
 
-    public abstract void scheduleHideFragmentView(Object obj, View view, ArrayList<View> arrayList);
+    public abstract void scheduleHideFragmentView(Object obj, View view2, ArrayList<View> arrayList);
 
     public void scheduleNameReset(ViewGroup viewGroup, ArrayList<View> arrayList, Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -215,8 +215,8 @@ public abstract class FragmentTransitionImpl {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int size = this.val$sharedElementsIn.size();
                         for (int i = 0; i < size; i++) {
-                            View view = (View) this.val$sharedElementsIn.get(i);
-                            ViewCompat.setTransitionName(view, (String) this.val$nameOverrides.get(ViewCompat.getTransitionName(view)));
+                            View view2 = (View) this.val$sharedElementsIn.get(i);
+                            ViewCompat.setTransitionName(view2, (String) this.val$nameOverrides.get(ViewCompat.getTransitionName(view2)));
                         }
                     }
                 }
@@ -228,7 +228,7 @@ public abstract class FragmentTransitionImpl {
 
     public abstract void setEpicenter(Object obj, Rect rect);
 
-    public abstract void setEpicenter(Object obj, View view);
+    public abstract void setEpicenter(Object obj, View view2);
 
     public void setListenerForTransitionEnd(@NonNull Fragment fragment, @NonNull Object obj, @NonNull CancellationSignal cancellationSignal, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -237,10 +237,10 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public void setNameOverridesOrdered(View view, ArrayList<View> arrayList, Map<String, String> map) {
+    public void setNameOverridesOrdered(View view2, ArrayList<View> arrayList, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, view, arrayList, map) == null) {
-            OneShotPreDrawListener.add(view, new Runnable(this, arrayList, map) { // from class: androidx.fragment.app.FragmentTransitionImpl.2
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, view2, arrayList, map) == null) {
+            OneShotPreDrawListener.add(view2, new Runnable(this, arrayList, map) { // from class: androidx.fragment.app.FragmentTransitionImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FragmentTransitionImpl this$0;
@@ -273,10 +273,10 @@ public abstract class FragmentTransitionImpl {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int size = this.val$sharedElementsIn.size();
                         for (int i = 0; i < size; i++) {
-                            View view2 = (View) this.val$sharedElementsIn.get(i);
-                            String transitionName = ViewCompat.getTransitionName(view2);
+                            View view3 = (View) this.val$sharedElementsIn.get(i);
+                            String transitionName = ViewCompat.getTransitionName(view3);
                             if (transitionName != null) {
-                                ViewCompat.setTransitionName(view2, FragmentTransitionImpl.findKeyForValue(this.val$nameOverrides, transitionName));
+                                ViewCompat.setTransitionName(view3, FragmentTransitionImpl.findKeyForValue(this.val$nameOverrides, transitionName));
                             }
                         }
                     }
@@ -285,17 +285,17 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public void setNameOverridesReordered(View view, ArrayList<View> arrayList, ArrayList<View> arrayList2, ArrayList<String> arrayList3, Map<String, String> map) {
+    public void setNameOverridesReordered(View view2, ArrayList<View> arrayList, ArrayList<View> arrayList2, ArrayList<String> arrayList3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048596, this, view, arrayList, arrayList2, arrayList3, map) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048596, this, view2, arrayList, arrayList2, arrayList3, map) == null) {
             int size = arrayList2.size();
             ArrayList arrayList4 = new ArrayList();
             for (int i = 0; i < size; i++) {
-                View view2 = arrayList.get(i);
-                String transitionName = ViewCompat.getTransitionName(view2);
+                View view3 = arrayList.get(i);
+                String transitionName = ViewCompat.getTransitionName(view3);
                 arrayList4.add(transitionName);
                 if (transitionName != null) {
-                    ViewCompat.setTransitionName(view2, null);
+                    ViewCompat.setTransitionName(view3, null);
                     String str = map.get(transitionName);
                     int i2 = 0;
                     while (true) {
@@ -310,7 +310,7 @@ public abstract class FragmentTransitionImpl {
                     }
                 }
             }
-            OneShotPreDrawListener.add(view, new Runnable(this, size, arrayList2, arrayList3, arrayList, arrayList4) { // from class: androidx.fragment.app.FragmentTransitionImpl.1
+            OneShotPreDrawListener.add(view2, new Runnable(this, size, arrayList2, arrayList3, arrayList, arrayList4) { // from class: androidx.fragment.app.FragmentTransitionImpl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FragmentTransitionImpl this$0;
@@ -357,7 +357,7 @@ public abstract class FragmentTransitionImpl {
         }
     }
 
-    public abstract void setSharedElementTargets(Object obj, View view, ArrayList<View> arrayList);
+    public abstract void setSharedElementTargets(Object obj, View view2, ArrayList<View> arrayList);
 
     public abstract void swapSharedElementTargets(Object obj, ArrayList<View> arrayList, ArrayList<View> arrayList2);
 

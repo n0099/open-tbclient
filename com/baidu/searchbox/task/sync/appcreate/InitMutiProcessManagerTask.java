@@ -1,6 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.o0.j0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -9,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.o55;
+/* loaded from: classes2.dex */
 public class InitMutiProcessManagerTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class InitMutiProcessManagerTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h.f().g(TbadkCoreApplication.getInst());
+            o55.f().g(TbadkCoreApplication.getInst());
         }
     }
 

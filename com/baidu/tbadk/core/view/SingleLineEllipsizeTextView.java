@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -13,13 +12,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public class SingleLineEllipsizeTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f30116b;
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleLineEllipsizeTextView(Context context) {
@@ -39,7 +37,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f30116b = StringHelper.STRING_MORE;
+        this.b = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -49,11 +47,11 @@ public class SingleLineEllipsizeTextView extends EMTextView {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
             CharSequence text = getText();
-            if (m.isEmpty(text.toString())) {
+            if (ni.isEmpty(text.toString())) {
                 return;
             }
             TextPaint paint = getPaint();
-            float measureText = paint.measureText(this.f30116b);
+            float measureText = paint.measureText(this.b);
             float measureText2 = paint.measureText(text.toString());
             float paddingRight = getPaddingRight() + getPaddingLeft();
             Drawable[] compoundDrawables = getCompoundDrawables();
@@ -73,12 +71,12 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                     measureText2 = paint.measureText(text, 0, length - 1);
                 }
                 if (length > 0) {
-                    if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.f30116b) > measuredWidth) {
+                    if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.b) > measuredWidth) {
                         length--;
                     }
                 }
                 if (length > 0) {
-                    text = ((Object) text.subSequence(0, length - 1)) + this.f30116b;
+                    text = ((Object) text.subSequence(0, length - 1)) + this.b;
                 }
                 float measureText3 = paint.measureText(text.toString());
                 setText(text);
@@ -90,7 +88,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
     public void setEllipsisSuffix(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f30116b = str;
+            this.b = str;
         }
     }
 
@@ -113,7 +111,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f30116b = StringHelper.STRING_MORE;
+        this.b = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -136,7 +134,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f30116b = StringHelper.STRING_MORE;
+        this.b = StringHelper.STRING_MORE;
         setSingleLine();
     }
 }

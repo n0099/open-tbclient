@@ -26,29 +26,23 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f42350g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f42351h;
+    public boolean g;
+    public boolean h;
     public VideoOption2 i;
     public AdListenerAdapter j;
     public ExpressInterstitialAdListener k;
     public ServerSideVerificationOptions l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExpressInterstitialAdListener a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public ADRewardListener f42352b;
+        public ADRewardListener b;
 
         public AdListenerAdapter(ExpressInterstitialAdListener expressInterstitialAdListener) {
             Interceptable interceptable = $ic;
@@ -88,7 +82,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                     this.a.onExpose();
                     return;
                 case 104:
-                    if (this.f42352b != null) {
+                    if (this.b != null) {
                         Object obj = aDEvent.getParas()[0];
                         HashMap hashMap = null;
                         if (obj instanceof String) {
@@ -98,7 +92,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
                         } else if (obj instanceof Map) {
                             hashMap = (Map) obj;
                         }
-                        ADRewardListener aDRewardListener = this.f42352b;
+                        ADRewardListener aDRewardListener = this.b;
                         if (aDRewardListener == null || hashMap == null) {
                             return;
                         }
@@ -143,7 +137,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         public void setRewardListener(ADRewardListener aDRewardListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDRewardListener) == null) {
-                this.f42352b = aDRewardListener;
+                this.b = aDRewardListener;
             }
         }
     }
@@ -267,13 +261,13 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             ((UIADI2) this.a).setVideoOption(this.i);
             ((UIADI2) this.a).setServerSideVerificationOptions(this.l);
-            if (this.f42350g) {
+            if (this.g) {
                 ((UIADI2) this.a).loadHalfScreenAD();
-                this.f42350g = false;
+                this.g = false;
             }
-            if (this.f42351h) {
+            if (this.h) {
                 ((UIADI2) this.a).loadFullScreenAD();
-                this.f42351h = false;
+                this.h = false;
             }
         }
     }
@@ -350,7 +344,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
             if (!b()) {
-                this.f42351h = true;
+                this.h = true;
                 return;
             }
             T t = this.a;
@@ -366,7 +360,7 @@ public class ExpressInterstitialAD extends LiteAbstractAD<UIADI2> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && a()) {
             if (!b()) {
-                this.f42350g = true;
+                this.g = true;
                 return;
             }
             T t = this.a;

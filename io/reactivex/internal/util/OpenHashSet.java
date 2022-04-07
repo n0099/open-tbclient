@@ -205,12 +205,12 @@ public final class OpenHashSet<T> {
         }
     }
 
-    public OpenHashSet(int i, float f2) {
+    public OpenHashSet(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -220,10 +220,10 @@ public final class OpenHashSet<T> {
                 return;
             }
         }
-        this.loadFactor = f2;
+        this.loadFactor = f;
         int roundToPowerOfTwo = Pow2.roundToPowerOfTwo(i);
         this.mask = roundToPowerOfTwo - 1;
-        this.maxSize = (int) (f2 * roundToPowerOfTwo);
+        this.maxSize = (int) (f * roundToPowerOfTwo);
         this.keys = (T[]) new Object[roundToPowerOfTwo];
     }
 }

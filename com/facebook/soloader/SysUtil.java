@@ -19,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -27,7 +27,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,10 +52,10 @@ public final class SysUtil {
             if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
                 try {
                     Os.posix_fallocate(fileDescriptor, 0L, j);
-                } catch (ErrnoException e2) {
-                    int i = e2.errno;
+                } catch (ErrnoException e) {
+                    int i = e.errno;
                     if (i != OsConstants.EOPNOTSUPP && i != OsConstants.ENOSYS && i != OsConstants.EINVAL) {
-                        throw new IOException(e2.toString(), e2);
+                        throw new IOException(e.toString(), e);
                     }
                 }
             }

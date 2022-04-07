@@ -8,32 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f37875b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f37876c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f37877d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f37878e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f37879f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f37880g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public JSONObject f37881h;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public JSONObject h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,30 +35,30 @@ public final class b {
             }
         }
         this.a = -1L;
-        this.f37875b = -1L;
-        this.f37876c = -1L;
-        this.f37877d = -1L;
-        this.f37878e = -1L;
-        this.f37879f = -1L;
-        this.f37880g = -1L;
+        this.b = -1L;
+        this.c = -1L;
+        this.d = -1L;
+        this.e = -1L;
+        this.f = -1L;
+        this.g = -1L;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.a = -1L;
-            this.f37875b = -1L;
-            this.f37876c = -1L;
+            this.b = -1L;
+            this.c = -1L;
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f37877d = -1L;
-            this.f37878e = -1L;
-            this.f37879f = -1L;
-            this.f37880g = -1L;
+            this.d = -1L;
+            this.e = -1L;
+            this.f = -1L;
+            this.g = -1L;
         }
     }
 
@@ -80,22 +66,22 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f37877d == -1) {
+            if (this.d == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f37877d != -1) {
-                    jSONObject.put("sf1", this.f37877d);
+                if (this.d != -1) {
+                    jSONObject.put("sf1", this.d);
                 }
-                if (this.f37878e != -1) {
-                    jSONObject.put("sf2", this.f37878e);
+                if (this.e != -1) {
+                    jSONObject.put("sf2", this.e);
                 }
-                if (this.f37879f != -1) {
-                    jSONObject.put("sf3", this.f37879f);
+                if (this.f != -1) {
+                    jSONObject.put("sf3", this.f);
                 }
-                if (this.f37880g != -1) {
-                    jSONObject.put("sf4", this.f37880g);
+                if (this.g != -1) {
+                    jSONObject.put("sf4", this.g);
                 }
                 d();
                 return jSONObject;
@@ -112,7 +98,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == -1 && this.f37875b == -1 && this.f37876c == -1) {
+            if (this.a == -1 && this.b == -1 && this.c == -1) {
                 return null;
             }
             try {
@@ -120,11 +106,11 @@ public final class b {
                 if (this.a != -1) {
                     jSONObject.put("click", this.a);
                 }
-                if (this.f37875b != -1) {
-                    jSONObject.put("evajs", this.f37875b);
+                if (this.b != -1) {
+                    jSONObject.put("evajs", this.b);
                 }
-                if (this.f37876c != -1) {
-                    jSONObject.put("loadurl", this.f37876c);
+                if (this.c != -1) {
+                    jSONObject.put("loadurl", this.c);
                 }
                 c();
                 return jSONObject;

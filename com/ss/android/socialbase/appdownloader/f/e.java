@@ -146,8 +146,8 @@ public class e {
         PackageManager packageManager = context.getPackageManager();
         for (String str : asList) {
             try {
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
             }
             if (packageManager.getPackageInfo(str, 0) != null) {
                 return true;

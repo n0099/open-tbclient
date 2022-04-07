@@ -29,7 +29,7 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSocketFactory;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_LEN = 1024;
@@ -212,10 +212,10 @@ public class HttpUtil {
                         return inputStream2;
                     }
                     throw new NetworkErrorException(String.valueOf(responseCode2));
-                } catch (NetworkErrorException e2) {
+                } catch (NetworkErrorException e) {
+                    throw e;
+                } catch (IOException e2) {
                     throw e2;
-                } catch (IOException e3) {
-                    throw e3;
                 } catch (Throwable th) {
                     th = th;
                     CommonMethods.handleNuLException(th);
@@ -230,10 +230,10 @@ public class HttpUtil {
                 }
                 throw th2;
             }
-        } catch (NetworkErrorException e4) {
+        } catch (NetworkErrorException e3) {
+            throw e3;
+        } catch (IOException e4) {
             throw e4;
-        } catch (IOException e5) {
-            throw e5;
         } catch (Throwable th3) {
             th = th3;
         }
@@ -249,8 +249,8 @@ public class HttpUtil {
         if (this.mUseGZip) {
             try {
                 inputStream = new GZIPInputStream(inputStream);
-            } catch (IOException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (IOException e) {
+                CommonMethods.handleNuLException(e);
             }
         }
         if (inputStream == null) {
@@ -273,8 +273,8 @@ public class HttpUtil {
                     try {
                         bufferedOutputStream.close();
                         return true;
-                    } catch (IOException e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (IOException e2) {
+                        CommonMethods.handleNuLException(e2);
                         return true;
                     }
                 }
@@ -289,8 +289,8 @@ public class HttpUtil {
                 if (bufferedOutputStream2 != null) {
                     try {
                         bufferedOutputStream2.close();
-                    } catch (IOException e4) {
-                        CommonMethods.handleNuLException(e4);
+                    } catch (IOException e3) {
+                        CommonMethods.handleNuLException(e3);
                     }
                 }
             }
@@ -515,8 +515,8 @@ public class HttpUtil {
                         this.mUseGZip = false;
                     }
                     return inputStream;
-                } catch (IOException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (IOException e) {
+                    CommonMethods.handleNuLException(e);
                 }
             }
             return null;

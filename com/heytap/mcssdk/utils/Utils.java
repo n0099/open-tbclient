@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SDK_INT_26 = 26;
@@ -37,8 +37,8 @@ public class Utils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return "app";
             }
         }
@@ -51,8 +51,8 @@ public class Utils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-            } catch (Exception e2) {
-                LogUtil.e(e2);
+            } catch (Exception e) {
+                LogUtil.e(e);
                 return "0";
             }
         }
@@ -79,8 +79,8 @@ public class Utils {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, str2);
-            } catch (IllegalArgumentException e2) {
-                throw e2;
+            } catch (IllegalArgumentException e) {
+                throw e;
             } catch (Exception unused) {
                 return str2;
             }
@@ -107,8 +107,8 @@ public class Utils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0).versionCode;
-            } catch (Exception e2) {
-                LogUtil.d("getVersionCode--Exception:" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.d("getVersionCode--Exception:" + e.getMessage());
                 return 0;
             }
         }
@@ -134,8 +134,8 @@ public class Utils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (Exception e2) {
-                LogUtil.d("getVersionName--Exception:" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.d("getVersionName--Exception:" + e.getMessage());
                 return null;
             }
         }
@@ -149,8 +149,8 @@ public class Utils {
             try {
                 context.getPackageManager().getPackageInfo(str, 1);
                 return true;
-            } catch (PackageManager.NameNotFoundException e2) {
-                LogUtil.e("isExistPackage NameNotFoundException:" + e2.getMessage());
+            } catch (PackageManager.NameNotFoundException e) {
+                LogUtil.e("isExistPackage NameNotFoundException:" + e.getMessage());
                 return false;
             }
         }
@@ -164,8 +164,8 @@ public class Utils {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(str, 128);
-            } catch (PackageManager.NameNotFoundException e2) {
-                LogUtil.e("isSupportPush NameNotFoundException:" + e2.getMessage());
+            } catch (PackageManager.NameNotFoundException e) {
+                LogUtil.e("isSupportPush NameNotFoundException:" + e.getMessage());
                 applicationInfo = null;
             }
             return applicationInfo != null && applicationInfo.metaData.getBoolean(str2, false);
@@ -180,8 +180,8 @@ public class Utils {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Integer.parseInt(str);
-                } catch (NumberFormatException e2) {
-                    LogUtil.e("parseInt--NumberFormatException" + e2.getMessage());
+                } catch (NumberFormatException e) {
+                    LogUtil.e("parseInt--NumberFormatException" + e.getMessage());
                 }
             }
             return -1;

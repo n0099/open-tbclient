@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RealTimeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class RealTimeRequest extends NetMessage {
             builder.ori_ugc_type = this.ori_ugc_type;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
             builder2.data = builder.build(false);

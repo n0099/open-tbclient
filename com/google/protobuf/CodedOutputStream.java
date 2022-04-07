@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class CodedOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -24,7 +24,7 @@ public final class CodedOutputStream {
     public final OutputStream output;
     public int position;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class OutOfSpaceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6947486886997889499L;
@@ -97,16 +97,16 @@ public final class CodedOutputStream {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteString)) == null) ? computeRawVarint32Size(byteString.size()) + byteString.size() : invokeL.intValue;
     }
 
-    public static int computeDoubleSize(int i, double d2) {
+    public static int computeDoubleSize(int i, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Double.valueOf(d2)})) == null) ? computeTagSize(i) + computeDoubleSizeNoTag(d2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Double.valueOf(d)})) == null) ? computeTagSize(i) + computeDoubleSizeNoTag(d) : invokeCommon.intValue;
     }
 
-    public static int computeDoubleSizeNoTag(double d2) {
+    public static int computeDoubleSizeNoTag(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Double.valueOf(d)})) == null) {
             return 8;
         }
         return invokeCommon.intValue;
@@ -154,16 +154,16 @@ public final class CodedOutputStream {
         return invokeJ.intValue;
     }
 
-    public static int computeFloatSize(int i, float f2) {
+    public static int computeFloatSize(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? computeTagSize(i) + computeFloatSizeNoTag(f2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? computeTagSize(i) + computeFloatSizeNoTag(f) : invokeCommon.intValue;
     }
 
-    public static int computeFloatSizeNoTag(float f2) {
+    public static int computeFloatSizeNoTag(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) {
             return 4;
         }
         return invokeF.intValue;
@@ -391,8 +391,8 @@ public final class CodedOutputStream {
             try {
                 byte[] bytes = str.getBytes("UTF-8");
                 return computeRawVarint32Size(bytes.length) + bytes.length;
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException("UTF-8 not supported.", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UTF-8 not supported.", e);
             }
         }
         return invokeL.intValue;
@@ -531,18 +531,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeDouble(int i, double d2) throws IOException {
+    public void writeDouble(int i, double d) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
             writeTag(i, 1);
-            writeDoubleNoTag(d2);
+            writeDoubleNoTag(d);
         }
     }
 
-    public void writeDoubleNoTag(double d2) throws IOException {
+    public void writeDoubleNoTag(double d) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
-            writeRawLittleEndian64(Double.doubleToRawLongBits(d2));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+            writeRawLittleEndian64(Double.doubleToRawLongBits(d));
         }
     }
 
@@ -591,18 +591,18 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeFloat(int i, float f2) throws IOException {
+    public void writeFloat(int i, float f) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             writeTag(i, 5);
-            writeFloatNoTag(f2);
+            writeFloatNoTag(f);
         }
     }
 
-    public void writeFloatNoTag(float f2) throws IOException {
+    public void writeFloatNoTag(float f) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            writeRawLittleEndian32(Float.floatToRawIntBits(f2));
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            writeRawLittleEndian32(Float.floatToRawIntBits(f));
         }
     }
 
@@ -682,16 +682,16 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeRawByte(byte b2) throws IOException {
+    public void writeRawByte(byte b) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048602, this, b2) == null) {
+        if (interceptable == null || interceptable.invokeB(1048602, this, b) == null) {
             if (this.position == this.limit) {
                 refreshBuffer();
             }
             byte[] bArr = this.buffer;
             int i = this.position;
             this.position = i + 1;
-            bArr[i] = b2;
+            bArr[i] = b;
         }
     }
 

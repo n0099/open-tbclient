@@ -2,7 +2,6 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.p0.p3.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -11,11 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ce8;
+/* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c mView;
+    public ce8 mView;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class BrowseSettingActivity extends BaseActivity {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            if (view == this.mView.l()) {
-                this.mView.w();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            if (view2 == this.mView.l()) {
+                this.mView.x();
                 TiebaStatic.log("c10649");
             }
-            if (view == this.mView.o()) {
-                this.mView.y();
-                TiebaStatic.log("c10653");
-            } else if (view == this.mView.n()) {
-                this.mView.x();
-            } else if (view == this.mView.p()) {
+            if (view2 == this.mView.o()) {
                 this.mView.z();
-            } else if (view == this.mView.m()) {
+                TiebaStatic.log("c10653");
+            } else if (view2 == this.mView.n()) {
+                this.mView.y();
+            } else if (view2 == this.mView.p()) {
+                this.mView.A();
+            } else if (view2 == this.mView.m()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
             }
         }
@@ -68,7 +68,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new c(this);
+            this.mView = new ce8(this);
         }
     }
 }

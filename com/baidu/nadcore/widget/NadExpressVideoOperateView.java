@@ -16,12 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.h0.f;
-import c.a.a0.s.d;
-import c.a.a0.s.q;
-import c.a.a0.s.s;
-import c.a.a0.v.p;
-import c.a.a0.v.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
@@ -30,8 +24,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c11;
+import com.repackage.fq0;
+import com.repackage.gq0;
+import com.repackage.io0;
+import com.repackage.jo0;
+import com.repackage.jq0;
+import com.repackage.lo0;
+import com.repackage.px0;
+import com.repackage.ty0;
+import com.repackage.un0;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +45,13 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public TextView n;
     @Nullable
     public ImageView o;
-    public p p;
+    public fq0 p;
     @Nullable
     public ViewGroup q;
-    public final t r;
+    public final jq0 r;
 
-    /* loaded from: classes4.dex */
-    public class a extends t {
+    /* loaded from: classes2.dex */
+    public class a extends jq0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadExpressVideoOperateView a;
@@ -70,47 +74,47 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             this.a = nadExpressVideoOperateView;
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onEnd(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.f27780b != null && (this.a.getTag() instanceof AdBaseModel)) {
-                this.a.f27780b.f((AdBaseModel) this.a.getTag());
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
+                this.a.b.f((AdBaseModel) this.a.getTag());
             }
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) && this.a.f27780b != null && (this.a.getTag() instanceof AdBaseModel)) {
-                this.a.f27780b.e((AdBaseModel) this.a.getTag(), str);
+            if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
+                this.a.b.e((AdBaseModel) this.a.getTag(), str);
             }
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onPause() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.f27780b != null && (this.a.getTag() instanceof AdBaseModel)) {
-                this.a.f27780b.c((AdBaseModel) this.a.getTag());
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
+                this.a.b.c((AdBaseModel) this.a.getTag());
             }
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.f27780b != null && (this.a.getTag() instanceof AdBaseModel)) {
-                this.a.f27780b.d((AdBaseModel) this.a.getTag());
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
+                this.a.b.d((AdBaseModel) this.a.getTag());
             }
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onResume() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.f27780b != null && (this.a.getTag() instanceof AdBaseModel)) {
-                this.a.f27780b.a((AdBaseModel) this.a.getTag());
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
+                this.a.b.a((AdBaseModel) this.a.getTag());
             }
         }
 
-        @Override // c.a.a0.v.i
+        @Override // com.repackage.jq0, com.repackage.cq0
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -124,15 +128,15 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
                 if (this.a.m != null) {
                     this.a.m.setVisibility(8);
                 }
-                if (this.a.f27780b == null || !(this.a.getTag() instanceof AdBaseModel)) {
+                if (this.a.b == null || !(this.a.getTag() instanceof AdBaseModel)) {
                     return;
                 }
-                this.a.f27780b.b((AdBaseModel) this.a.getTag());
+                this.a.b.b((AdBaseModel) this.a.getTag());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,10 +161,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         }
 
         @Override // android.view.ViewOutlineProvider
-        public void getOutline(View view, Outline outline) {
+        public void getOutline(View view2, Outline outline) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view, outline) == null) {
-                outline.setRoundRect(new Rect(0, 0, this.a.q.getWidth(), this.a.q.getHeight()), f.c.a(this.a.getContext(), 8.0f));
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
+                outline.setRoundRect(new Rect(0, 0, this.a.q.getWidth(), this.a.q.getHeight()), c11.c.a(this.a.getContext(), 8.0f));
             }
         }
     }
@@ -186,16 +190,16 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         }
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Resources resources = getContext().getResources();
-            int e2 = f.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
+            int e = c11.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
             ViewGroup viewGroup = this.q;
             if (viewGroup != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) viewGroup.getLayoutParams();
-                layoutParams.width = e2;
-                layoutParams.height = Math.round((e2 / resources.getInteger(R.integer.obfuscated_res_0x7f0a001f)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a001e));
+                layoutParams.width = e;
+                layoutParams.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a001f)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a001e));
                 this.q.setLayoutParams(layoutParams);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.q.setOutlineProvider(new b(this));
@@ -205,17 +209,17 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             AdImageView adImageView = this.m;
             if (adImageView != null) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) adImageView.getLayoutParams();
-                layoutParams2.width = e2;
-                layoutParams2.height = Math.round((e2 / resources.getInteger(R.integer.obfuscated_res_0x7f0a001f)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a001e));
+                layoutParams2.width = e;
+                layoutParams2.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a001f)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a001e));
                 this.m.setLayoutParams(layoutParams2);
             }
         }
     }
 
-    public final void F() {
+    public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!(getTag() instanceof q)) {
+            if (!(getTag() instanceof jo0)) {
                 AdImageView adImageView = this.m;
                 if (adImageView != null) {
                     adImageView.setVisibility(0);
@@ -235,21 +239,21 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
                 }
                 return;
             }
-            q qVar = (q) getTag();
+            jo0 jo0Var = (jo0) getTag();
             if (this.q == null) {
                 return;
             }
             if (this.p == null) {
-                c.a.a0.v.q qVar2 = new c.a.a0.v.q();
-                qVar2.a = 1;
-                this.p = p.a.b(getContext(), 0, qVar2);
-                c.a.a0.v.s0.a aVar = new c.a.a0.v.s0.a();
-                aVar.i(1);
-                this.p.d(aVar);
+                gq0 gq0Var = new gq0();
+                gq0Var.a = 1;
+                this.p = fq0.a.b(getContext(), 0, gq0Var);
+                px0 px0Var = new px0();
+                px0Var.j(1);
+                this.p.d(px0Var);
                 this.p.attachToContainer(this.q);
-                c.a.a0.s.p pVar = qVar.j;
-                if (pVar != null) {
-                    this.p.c(pVar);
+                io0 io0Var = jo0Var.j;
+                if (io0Var != null) {
+                    this.p.c(io0Var);
                 }
                 this.p.a(this.r);
             }
@@ -296,10 +300,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, s sVar) {
+    public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, layoutInflater, sVar) == null) {
-            layoutInflater.inflate((sVar == null || sVar.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05b2 : sVar.a(AdBaseModel.STYLE.VIDEO), this);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, layoutInflater, lo0Var) == null) {
+            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05ae : lo0Var.a(AdBaseModel.STYLE.VIDEO), this);
         }
     }
 
@@ -307,27 +311,27 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c0);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914bf);
-            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c7);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bc);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914bb);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ba);
+            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c2);
         }
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void m(AdBaseModel adBaseModel) {
-        d dVar;
+        un0 un0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) {
-            if ((adBaseModel instanceof q) && adBaseModel.j != null) {
-                q qVar = (q) adBaseModel;
+            if ((adBaseModel instanceof jo0) && adBaseModel.j != null) {
+                jo0 jo0Var = (jo0) adBaseModel;
                 TextView textView = this.n;
                 if (textView != null) {
-                    int i = qVar.j.f1556b;
+                    int i = jo0Var.j.b;
                     if (i != 0) {
                         this.n.setText(String.format(Locale.ENGLISH, "%02d:%02d", Integer.valueOf((i / 60) % 60), Integer.valueOf(i % 60)));
-                        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070521);
-                        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070520);
+                        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052d);
+                        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052c);
                         this.n.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
                         this.n.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                         this.n.setCompoundDrawablePadding(dimensionPixelSize2);
@@ -339,21 +343,21 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
                 }
                 if (this.q != null) {
                     if (this.p == null) {
-                        c.a.a0.v.q qVar2 = new c.a.a0.v.q();
-                        qVar2.a = 1;
-                        this.p = p.a.b(getContext(), 0, qVar2);
-                        c.a.a0.v.s0.a aVar = new c.a.a0.v.s0.a();
-                        aVar.i(1);
-                        this.p.d(aVar);
+                        gq0 gq0Var = new gq0();
+                        gq0Var.a = 1;
+                        this.p = fq0.a.b(getContext(), 0, gq0Var);
+                        px0 px0Var = new px0();
+                        px0Var.j(1);
+                        this.p.d(px0Var);
                         this.p.attachToContainer(this.q);
                     }
                     this.p.c(adBaseModel.j);
                     this.p.a(this.r);
                 }
-                if (this.m == null || qVar.f27543f.k.size() <= 0 || (dVar = (d) c.a.a0.x.a.d(qVar.f27543f.k, 0)) == null) {
+                if (this.m == null || jo0Var.f.k.size() <= 0 || (un0Var = (un0) ty0.d(jo0Var.f.k, 0)) == null) {
                     return;
                 }
-                this.m.g(dVar.a);
+                this.m.g(un0Var.a);
                 return;
             }
             setVisibility(8);
@@ -368,13 +372,13 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             TextView textView = this.n;
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
-                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dad));
+                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080daf));
             }
             ImageView imageView = this.o;
             if (imageView != null) {
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dac));
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dae));
             }
-            E();
+            F();
         }
     }
 
@@ -383,7 +387,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onAttachedToWindow();
-            F();
+            G();
         }
     }
 
@@ -392,9 +396,9 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDetachedFromWindow();
-            p pVar = this.p;
-            if (pVar != null) {
-                pVar.release();
+            fq0 fq0Var = this.p;
+            if (fq0Var != null) {
+                fq0Var.release();
                 this.p = null;
             }
         }
@@ -434,7 +438,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (s) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -443,19 +447,19 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressVideoOperateView(Context context, AttributeSet attributeSet, int i, s sVar) {
-        super(context, attributeSet, i, sVar);
+    public NadExpressVideoOperateView(Context context, AttributeSet attributeSet, int i, lo0 lo0Var) {
+        super(context, attributeSet, i, lo0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), sVar};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), lo0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (s) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

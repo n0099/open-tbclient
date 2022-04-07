@@ -8,28 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.d;
-import g.e;
-import g.j;
-import g.t.d;
+import com.repackage.az9;
+import com.repackage.hz9;
+import com.repackage.n3a;
+import com.repackage.s3a;
+import com.repackage.uy9;
+import com.repackage.vy9;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BufferUntilSubscriber<T> extends d<T, T> {
+public final class BufferUntilSubscriber<T> extends n3a<T, T> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final e f45374d;
+    public static final vy9 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final State<T> f45375b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f45376c;
+    public final State<T> b;
+    public boolean c;
 
     /* loaded from: classes8.dex */
-    public static final class State<T> extends AtomicReference<e<? super T>> {
+    public static final class State<T> extends AtomicReference<vy9<? super T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8026705089538090368L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,15 +50,15 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             this.buffer = new ConcurrentLinkedQueue<>();
         }
 
-        public boolean casObserverRef(e<? super T> eVar, e<? super T> eVar2) {
+        public boolean casObserverRef(vy9<? super T> vy9Var, vy9<? super T> vy9Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, eVar2)) == null) ? compareAndSet(eVar, eVar2) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vy9Var, vy9Var2)) == null) ? compareAndSet(vy9Var, vy9Var2) : invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements e {
+    public static class a implements vy9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,21 +76,21 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -103,13 +99,13 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class b<T> implements d.a<T> {
+    public static final class b<T> implements uy9.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final State<T> a;
 
         /* loaded from: classes8.dex */
-        public class a implements g.n.a {
+        public class a implements hz9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -132,11 +128,11 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 this.a = bVar;
             }
 
-            @Override // g.n.a
+            @Override // com.repackage.hz9
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.set(BufferUntilSubscriber.f45374d);
+                    this.a.a.set(BufferUntilSubscriber.d);
                 }
             }
         }
@@ -159,19 +155,19 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             this.a = state;
         }
 
-        @Override // g.d.a, g.n.b
+        @Override // com.repackage.uy9.a, com.repackage.iz9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((j) ((j) obj));
+            call((az9) ((az9) obj));
         }
 
-        public void call(j<? super T> jVar) {
+        public void call(az9<? super T> az9Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, az9Var) != null) {
                 return;
             }
-            if (this.a.casObserverRef(null, jVar)) {
-                jVar.b(g.u.e.a(new a(this)));
+            if (this.a.casObserverRef(null, az9Var)) {
+                az9Var.b(s3a.a(new a(this)));
                 synchronized (this.a.guard) {
                     z = true;
                     if (this.a.emitting) {
@@ -197,7 +193,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                     }
                 }
             } else {
-                jVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                az9Var.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -215,7 +211,7 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
                 return;
             }
         }
-        f45374d = new a();
+        d = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -230,13 +226,13 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d.a) newInitContext.callArgs[0]);
+                super((uy9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f45375b = state;
+        this.b = state;
     }
 
     public static <T> BufferUntilSubscriber<T> F() {
@@ -250,55 +246,55 @@ public final class BufferUntilSubscriber<T> extends d<T, T> {
         if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
             return;
         }
-        synchronized (this.f45375b.guard) {
-            this.f45375b.buffer.add(obj);
-            if (this.f45375b.get() != null && !this.f45375b.emitting) {
-                this.f45376c = true;
-                this.f45375b.emitting = true;
+        synchronized (this.b.guard) {
+            this.b.buffer.add(obj);
+            if (this.b.get() != null && !this.b.emitting) {
+                this.c = true;
+                this.b.emitting = true;
             }
         }
-        if (!this.f45376c) {
+        if (!this.c) {
             return;
         }
         while (true) {
-            Object poll = this.f45375b.buffer.poll();
+            Object poll = this.b.buffer.poll();
             if (poll == null) {
                 return;
             }
-            NotificationLite.a(this.f45375b.get(), poll);
+            NotificationLite.a(this.b.get(), poll);
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f45376c) {
-                this.f45375b.get().onCompleted();
+            if (this.c) {
+                this.b.get().onCompleted();
             } else {
                 G(NotificationLite.b());
             }
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.f45376c) {
-                this.f45375b.get().onError(th);
+            if (this.c) {
+                this.b.get().onError(th);
             } else {
                 G(NotificationLite.c(th));
             }
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            if (this.f45376c) {
-                this.f45375b.get().onNext(t);
+            if (this.c) {
+                this.b.get().onNext(t);
             } else {
                 G(NotificationLite.h(t));
             }

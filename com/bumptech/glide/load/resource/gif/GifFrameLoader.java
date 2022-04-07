@@ -32,7 +32,7 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GifFrameLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GifFrameLoader {
     public Transformation<Bitmap> transformation;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DelayTarget extends SimpleTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,12 +104,12 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class FrameLoaderCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CLEAR = 2;
@@ -156,7 +156,7 @@ public class GifFrameLoader {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }

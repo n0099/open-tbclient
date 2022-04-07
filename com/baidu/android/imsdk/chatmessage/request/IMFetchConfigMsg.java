@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMFetchConfigMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 50;
@@ -34,7 +34,7 @@ public class IMFetchConfigMsg extends Message {
     public long mCursor;
     public long mLimit;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class FetchConfigTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,9 +90,9 @@ public class IMFetchConfigMsg extends Message {
                             ChatMsgManagerImpl.getInstance(this.mContext).configMsgsFilter(parserMessage);
                             ChatMsgManagerImpl.getInstance(this.mContext).deliverConfigMessage(parserMessage);
                         }
-                    } catch (Exception e2) {
-                        LogUtils.e(IMFetchConfigMsg.TAG, "Exception ", e2);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    } catch (Exception e) {
+                        LogUtils.e(IMFetchConfigMsg.TAG, "Exception ", e);
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     }
                 }
             }
@@ -175,9 +175,9 @@ public class IMFetchConfigMsg extends Message {
                 }
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, this.mLimit);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

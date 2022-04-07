@@ -21,10 +21,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.k80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LcmPb$LcmRequest extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_FIELD_NUMBER = 5;
@@ -49,7 +50,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public long timestamp_;
     public Object token_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<LcmPb$LcmRequest> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,32 +79,18 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmRequest, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f25624b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Object f25625c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public LcmPb$Common f25626d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f25627e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f25628f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f25629g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f25630h;
+        public long b;
+        public Object c;
+        public LcmPb$Common d;
+        public long e;
+        public int f;
+        public int g;
+        public int h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -118,8 +105,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                     return;
                 }
             }
-            this.f25625c = "";
-            this.f25626d = LcmPb$Common.getDefaultInstance();
+            this.c = "";
+            this.d = LcmPb$Common.getDefaultInstance();
             maybeForceBuilderInitialization();
         }
 
@@ -134,7 +121,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 this.a |= 32;
-                this.f25629g = i;
+                this.g = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -145,7 +132,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
                 this.a |= 8;
-                this.f25627e = j;
+                this.e = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -157,7 +144,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                 if (str != null) {
                     this.a |= 2;
-                    this.f25625c = str;
+                    this.c = str;
                     return this;
                 }
                 throw null;
@@ -213,34 +200,34 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (c.a.t.a.e.a) null);
+                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (k80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                lcmPb$LcmRequest.logId_ = this.f25624b;
+                lcmPb$LcmRequest.logId_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                lcmPb$LcmRequest.token_ = this.f25625c;
+                lcmPb$LcmRequest.token_ = this.c;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                lcmPb$LcmRequest.common_ = this.f25626d;
+                lcmPb$LcmRequest.common_ = this.d;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                lcmPb$LcmRequest.timestamp_ = this.f25627e;
+                lcmPb$LcmRequest.timestamp_ = this.e;
                 if ((i & 16) == 16) {
                     i2 |= 16;
                 }
-                lcmPb$LcmRequest.action_ = this.f25628f;
+                lcmPb$LcmRequest.action_ = this.f;
                 if ((i & 32) == 32) {
                     i2 |= 32;
                 }
-                lcmPb$LcmRequest.startType_ = this.f25629g;
+                lcmPb$LcmRequest.startType_ = this.g;
                 if ((i & 64) == 64) {
                     i2 |= 64;
                 }
-                lcmPb$LcmRequest.connType_ = this.f25630h;
+                lcmPb$LcmRequest.connType_ = this.h;
                 lcmPb$LcmRequest.bitField0_ = i2;
                 return lcmPb$LcmRequest;
             }
@@ -252,24 +239,24 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 super.clear();
-                this.f25624b = 0L;
+                this.b = 0L;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f25625c = "";
+                this.c = "";
                 this.a = i & (-3);
-                this.f25626d = LcmPb$Common.getDefaultInstance();
+                this.d = LcmPb$Common.getDefaultInstance();
                 int i2 = this.a & (-5);
                 this.a = i2;
-                this.f25627e = 0L;
+                this.e = 0L;
                 int i3 = i2 & (-9);
                 this.a = i3;
-                this.f25628f = 0;
+                this.f = 0;
                 int i4 = i3 & (-17);
                 this.a = i4;
-                this.f25629g = 0;
+                this.g = 0;
                 int i5 = i4 & (-33);
                 this.a = i5;
-                this.f25630h = 0;
+                this.h = 0;
                 this.a = i5 & (-65);
                 return this;
             }
@@ -309,12 +296,12 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, lcmPb$Common)) == null) {
-                if ((this.a & 4) == 4 && this.f25626d != LcmPb$Common.getDefaultInstance()) {
-                    LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder(this.f25626d);
+                if ((this.a & 4) == 4 && this.d != LcmPb$Common.getDefaultInstance()) {
+                    LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder(this.d);
                     newBuilder.s(lcmPb$Common);
-                    this.f25626d = newBuilder.buildPartial();
+                    this.d = newBuilder.buildPartial();
                 } else {
-                    this.f25626d = lcmPb$Common;
+                    this.d = lcmPb$Common;
                 }
                 this.a |= 4;
                 return this;
@@ -334,7 +321,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                 }
                 if (lcmPb$LcmRequest.hasToken()) {
                     this.a |= 2;
-                    this.f25625c = lcmPb$LcmRequest.token_;
+                    this.c = lcmPb$LcmRequest.token_;
                 }
                 if (lcmPb$LcmRequest.hasCommon()) {
                     t(lcmPb$LcmRequest.getCommon());
@@ -372,10 +359,10 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                             u(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        LcmPb$LcmRequest lcmPb$LcmRequest2 = (LcmPb$LcmRequest) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        LcmPb$LcmRequest lcmPb$LcmRequest2 = (LcmPb$LcmRequest) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             lcmPb$LcmRequest = lcmPb$LcmRequest2;
@@ -400,7 +387,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
                 this.a |= 16;
-                this.f25628f = i;
+                this.f = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -411,7 +398,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, lcmPb$Common)) == null) {
                 if (lcmPb$Common != null) {
-                    this.f25626d = lcmPb$Common;
+                    this.d = lcmPb$Common;
                     this.a |= 4;
                     return this;
                 }
@@ -425,7 +412,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
                 this.a |= 64;
-                this.f25630h = i;
+                this.h = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -436,7 +423,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j)) == null) {
                 this.a |= 1;
-                this.f25624b = j;
+                this.b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -482,7 +469,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         lcmPb$LcmRequest.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, k80 k80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -730,7 +717,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
+    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, k80 k80Var) {
         this(builder);
     }
 
@@ -915,10 +902,10 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                         }
                     }
                     z = true;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2.setUnfinishedMessage(this);
-                } catch (IOException e3) {
-                    throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

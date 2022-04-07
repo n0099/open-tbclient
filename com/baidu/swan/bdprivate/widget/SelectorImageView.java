@@ -16,15 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f29394c = 255;
+    public static int c = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,22 +42,22 @@ public class SelectorImageView extends BdBaseImageView {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
                     Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (view instanceof ImageView) {
-                        ((ImageView) view).setImageAlpha(76);
+                    if (view2 instanceof ImageView) {
+                        ((ImageView) view2).setImageAlpha(76);
                         return false;
                     }
                     return false;
                 } else if (action == 1 || action == 3) {
                     Log.d("ACTION_UP", "ACTION_UP");
-                    if (view instanceof ImageView) {
-                        ((ImageView) view).setImageAlpha(255);
+                    if (view2 instanceof ImageView) {
+                        ((ImageView) view2).setImageAlpha(255);
                         return false;
                     }
                     return false;
@@ -124,7 +122,7 @@ public class SelectorImageView extends BdBaseImageView {
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
                     Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(f29394c);
+                    setImageAlpha(c);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -141,7 +139,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f29394c);
+                setImageAlpha(c);
             }
         }
     }

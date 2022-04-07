@@ -254,15 +254,15 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    private void setPosition(float f2) {
+    private void setPosition(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65539, this, f2) == null) {
-            if (f2 == 1.0f) {
+        if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
+            if (f == 1.0f) {
                 this.mSlider.setVerticalMirror(true);
-            } else if (f2 == 0.0f) {
+            } else if (f == 0.0f) {
                 this.mSlider.setVerticalMirror(false);
             }
-            this.mSlider.setProgress(f2);
+            this.mSlider.setProgress(f);
         }
     }
 
@@ -308,9 +308,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerClosed(View view) {
+    public void onDrawerClosed(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             setPosition(0.0f);
             if (this.mDrawerIndicatorEnabled) {
                 setActionBarDescription(this.mOpenDrawerContentDescRes);
@@ -319,9 +319,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerOpened(View view) {
+    public void onDrawerOpened(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             setPosition(1.0f);
             if (this.mDrawerIndicatorEnabled) {
                 setActionBarDescription(this.mCloseDrawerContentDescRes);
@@ -330,11 +330,11 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerSlide(View view, float f2) {
+    public void onDrawerSlide(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, f) == null) {
             if (this.mDrawerSlideAnimationEnabled) {
-                setPosition(Math.min(1.0f, Math.max(0.0f, f2)));
+                setPosition(Math.min(1.0f, Math.max(0.0f, f)));
             } else {
                 setPosition(0.0f);
             }
@@ -526,9 +526,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         ActionBarDrawerToggle actionBarDrawerToggle = this.this$0;
                         if (actionBarDrawerToggle.mDrawerIndicatorEnabled) {
                             actionBarDrawerToggle.toggle();
@@ -536,7 +536,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                         }
                         View.OnClickListener onClickListener = actionBarDrawerToggle.mToolbarNavigationClickListener;
                         if (onClickListener != null) {
-                            onClickListener.onClick(view);
+                            onClickListener.onClick(view2);
                         }
                     }
                 }

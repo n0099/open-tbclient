@@ -34,8 +34,8 @@ public class h {
             jSONObject.put("version_code_diff", i3);
             jSONObject.put("installed_version_code", i2);
             jSONObject.put("hijack_type", 1);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         com.ss.android.downloadlib.d.a.a().b("api_hijack", jSONObject, bVar);
     }

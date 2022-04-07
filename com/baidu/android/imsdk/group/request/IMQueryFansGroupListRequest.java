@@ -32,14 +32,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupListRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class FansGetGroupListTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,10 +112,10 @@ public class IMQueryFansGroupListRequest extends FansGroupBaseHttpRequest {
                             GroupInfoSyncManagerImpl.syncFansGroupListDone(this.this$0.mContext);
                         }
                     }
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

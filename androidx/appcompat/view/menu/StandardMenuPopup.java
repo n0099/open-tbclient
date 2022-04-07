@@ -70,12 +70,12 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         ITEM_LAYOUT = R$layout.abc_popup_menu_item_layout;
     }
 
-    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view, int i, int i2, boolean z) {
+    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {context, menuBuilder, view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -112,8 +112,8 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             public void onGlobalLayout() {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.isShowing() && !this.this$0.mPopup.isModal()) {
-                    View view2 = this.this$0.mShownAnchorView;
-                    if (view2 != null && view2.isShown()) {
+                    View view3 = this.this$0.mShownAnchorView;
+                    if (view3 != null && view3.isShown()) {
                         this.this$0.mPopup.show();
                     } else {
                         this.this$0.dismiss();
@@ -145,25 +145,25 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
-            public void onViewAttachedToWindow(View view2) {
+            public void onViewAttachedToWindow(View view3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                 }
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
-            public void onViewDetachedFromWindow(View view2) {
+            public void onViewDetachedFromWindow(View view3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view3) == null) {
                     ViewTreeObserver viewTreeObserver = this.this$0.mTreeObserver;
                     if (viewTreeObserver != null) {
                         if (!viewTreeObserver.isAlive()) {
-                            this.this$0.mTreeObserver = view2.getViewTreeObserver();
+                            this.this$0.mTreeObserver = view3.getViewTreeObserver();
                         }
                         StandardMenuPopup standardMenuPopup = this.this$0;
                         standardMenuPopup.mTreeObserver.removeGlobalOnLayoutListener(standardMenuPopup.mGlobalLayoutListener);
                     }
-                    view2.removeOnAttachStateChangeListener(this);
+                    view3.removeOnAttachStateChangeListener(this);
                 }
             }
         };
@@ -176,35 +176,35 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         this.mPopupStyleRes = i2;
         Resources resources = context.getResources();
         this.mPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R$dimen.abc_config_prefDialogWidth));
-        this.mAnchorView = view;
+        this.mAnchorView = view2;
         this.mPopup = new MenuPopupWindow(this.mContext, null, this.mPopupStyleAttr, this.mPopupStyleRes);
         menuBuilder.addMenuPresenter(this, context);
     }
 
     private boolean tryShow() {
         InterceptResult invokeV;
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (isShowing()) {
                 return true;
             }
-            if (this.mWasDismissed || (view = this.mAnchorView) == null) {
+            if (this.mWasDismissed || (view2 = this.mAnchorView) == null) {
                 return false;
             }
-            this.mShownAnchorView = view;
+            this.mShownAnchorView = view2;
             this.mPopup.setOnDismissListener(this);
             this.mPopup.setOnItemClickListener(this);
             this.mPopup.setModal(true);
-            View view2 = this.mShownAnchorView;
+            View view3 = this.mShownAnchorView;
             boolean z = this.mTreeObserver == null;
-            ViewTreeObserver viewTreeObserver = view2.getViewTreeObserver();
+            ViewTreeObserver viewTreeObserver = view3.getViewTreeObserver();
             this.mTreeObserver = viewTreeObserver;
             if (z) {
                 viewTreeObserver.addOnGlobalLayoutListener(this.mGlobalLayoutListener);
             }
-            view2.addOnAttachStateChangeListener(this.mAttachStateChangeListener);
-            this.mPopup.setAnchorView(view2);
+            view3.addOnAttachStateChangeListener(this.mAttachStateChangeListener);
+            this.mPopup.setAnchorView(view3);
             this.mPopup.setDropDownGravity(this.mDropDownGravity);
             if (!this.mHasContentWidth) {
                 this.mContentWidth = MenuPopup.measureIndividualMenuWidth(this.mAdapter, null, this.mContext, this.mPopupMaxWidth);
@@ -306,10 +306,10 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view2, i, keyEvent)) == null) {
             if (keyEvent.getAction() == 1 && i == 82) {
                 dismiss();
                 return true;
@@ -368,10 +368,10 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setAnchorView(View view) {
+    public void setAnchorView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
-            this.mAnchorView = view;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            this.mAnchorView = view2;
         }
     }
 

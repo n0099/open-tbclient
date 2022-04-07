@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSyncPushMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSyncPushMsg";
@@ -114,9 +114,9 @@ public class IMSyncPushMsg extends Message {
                 jSONObject.put("push_appid", this.mPushAppId);
                 jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

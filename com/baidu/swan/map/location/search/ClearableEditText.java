@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,12 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+/* loaded from: classes2.dex */
 public class ClearableEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f29641b;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
     public Drawable a;
 
@@ -39,7 +37,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        f29641b = n0.g(10.0f);
+        b = ae3.g(10.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,7 +99,7 @@ public class ClearableEditText extends AppCompatEditText {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f29641b && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f29641b) {
+            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + b && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - b) {
                 setText("");
             }
             return super.onTouchEvent(motionEvent);

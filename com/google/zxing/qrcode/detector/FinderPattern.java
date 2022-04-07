@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.ResultPoint;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class FinderPattern extends ResultPoint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,13 +15,13 @@ public final class FinderPattern extends ResultPoint {
     public final float estimatedModuleSize;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FinderPattern(float f2, float f3, float f4) {
-        this(f2, f3, f4, 1);
+    public FinderPattern(float f, float f2, float f3) {
+        this(f, f2, f3, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,28 +35,28 @@ public final class FinderPattern extends ResultPoint {
         }
     }
 
-    public boolean aboutEquals(float f2, float f3, float f4) {
+    public boolean aboutEquals(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (Math.abs(f3 - getY()) > f2 || Math.abs(f4 - getX()) > f2) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (Math.abs(f2 - getY()) > f || Math.abs(f3 - getX()) > f) {
                 return false;
             }
-            float abs = Math.abs(f2 - this.estimatedModuleSize);
+            float abs = Math.abs(f - this.estimatedModuleSize);
             return abs <= 1.0f || abs <= this.estimatedModuleSize;
         }
         return invokeCommon.booleanValue;
     }
 
-    public FinderPattern combineEstimate(float f2, float f3, float f4) {
+    public FinderPattern combineEstimate(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int i = this.count;
             int i2 = i + 1;
-            float x = (i * getX()) + f3;
-            float f5 = i2;
-            return new FinderPattern(x / f5, ((this.count * getY()) + f2) / f5, ((this.count * this.estimatedModuleSize) + f4) / f5, i2);
+            float x = (i * getX()) + f2;
+            float f4 = i2;
+            return new FinderPattern(x / f4, ((this.count * getY()) + f) / f4, ((this.count * this.estimatedModuleSize) + f3) / f4, i2);
         }
         return (FinderPattern) invokeCommon.objValue;
     }
@@ -74,13 +74,13 @@ public final class FinderPattern extends ResultPoint {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FinderPattern(float f2, float f3, float f4, int i) {
-        super(f2, f3);
+    public FinderPattern(float f, float f2, float f3, int i) {
+        super(f, f2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -92,7 +92,7 @@ public final class FinderPattern extends ResultPoint {
                 return;
             }
         }
-        this.estimatedModuleSize = f4;
+        this.estimatedModuleSize = f3;
         this.count = i;
     }
 }

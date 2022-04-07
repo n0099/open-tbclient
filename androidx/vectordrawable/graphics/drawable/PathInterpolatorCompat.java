@@ -50,12 +50,12 @@ public class PathInterpolatorCompat implements Interpolator {
         }
     }
 
-    private void initCubic(float f2, float f3, float f4, float f5) {
+    private void initCubic(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
-            path.cubicTo(f2, f3, f4, f5, 1.0f, 1.0f);
+            path.cubicTo(f, f2, f3, f4, 1.0f, 1.0f);
             initPath(path);
         }
     }
@@ -79,19 +79,19 @@ public class PathInterpolatorCompat implements Interpolator {
                 if (Math.abs(this.mX[0]) <= 1.0E-5d && Math.abs(this.mY[0]) <= 1.0E-5d) {
                     int i3 = min - 1;
                     if (Math.abs(this.mX[i3] - 1.0f) <= 1.0E-5d && Math.abs(this.mY[i3] - 1.0f) <= 1.0E-5d) {
-                        float f2 = 0.0f;
+                        float f = 0.0f;
                         int i4 = 0;
                         while (i < min) {
                             float[] fArr2 = this.mX;
                             int i5 = i4 + 1;
-                            float f3 = fArr2[i4];
-                            if (f3 >= f2) {
-                                fArr2[i] = f3;
+                            float f2 = fArr2[i4];
+                            if (f2 >= f) {
+                                fArr2[i] = f2;
                                 i++;
-                                f2 = f3;
+                                f = f2;
                                 i4 = i5;
                             } else {
-                                throw new IllegalArgumentException("The Path cannot loop back on itself, x :" + f3);
+                                throw new IllegalArgumentException("The Path cannot loop back on itself, x :" + f2);
                             }
                         }
                         if (pathMeasure.nextContour()) {
@@ -116,12 +116,12 @@ public class PathInterpolatorCompat implements Interpolator {
         }
     }
 
-    private void initQuad(float f2, float f3) {
+    private void initQuad(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
-            path.quadTo(f2, f3, 1.0f, 1.0f);
+            path.quadTo(f, f2, 1.0f, 1.0f);
             initPath(path);
         }
     }
@@ -161,34 +161,34 @@ public class PathInterpolatorCompat implements Interpolator {
     }
 
     @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f2) {
+    public float getInterpolation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            if (f2 <= 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            if (f <= 0.0f) {
                 return 0.0f;
             }
-            if (f2 >= 1.0f) {
+            if (f >= 1.0f) {
                 return 1.0f;
             }
             int i = 0;
             int length = this.mX.length - 1;
             while (length - i > 1) {
                 int i2 = (i + length) / 2;
-                if (f2 < this.mX[i2]) {
+                if (f < this.mX[i2]) {
                     length = i2;
                 } else {
                     i = i2;
                 }
             }
             float[] fArr = this.mX;
-            float f3 = fArr[length] - fArr[i];
-            if (f3 == 0.0f) {
+            float f2 = fArr[length] - fArr[i];
+            if (f2 == 0.0f) {
                 return this.mY[i];
             }
             float[] fArr2 = this.mY;
-            float f4 = fArr2[i];
-            return f4 + (((f2 - fArr[i]) / f3) * (fArr2[length] - f4));
+            float f3 = fArr2[i];
+            return f3 + (((f - fArr[i]) / f2) * (fArr2[length] - f3));
         }
         return invokeF.floatValue;
     }

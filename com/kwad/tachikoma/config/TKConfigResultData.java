@@ -12,29 +12,21 @@ import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TKConfigResultData extends BaseResultData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a data;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f41546b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f41547c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f41548d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f41549e;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -77,13 +69,13 @@ public class TKConfigResultData extends BaseResultData {
             }
             try {
                 String optString = jSONObject.optString("data");
-                String b2 = d.b(optString);
-                if (!TextUtils.isEmpty(b2)) {
-                    optString = b2;
+                String b = d.b(optString);
+                if (!TextUtils.isEmpty(b)) {
+                    optString = b;
                 }
                 this.data.parseJson(new JSONObject(optString));
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         }
     }

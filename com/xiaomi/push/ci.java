@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ci implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class ci implements Runnable {
                     if (sQLiteDatabase != null) {
                         try {
                             sQLiteDatabase.endTransaction();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
                             this.f168a.a(this.a);
                         }
@@ -61,13 +61,13 @@ public class ci implements Runnable {
                     if (this.f168a.f159a != null) {
                         this.f168a.f159a.close();
                     }
-                } catch (Exception e3) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e3);
+                } catch (Exception e2) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e2);
                     if (sQLiteDatabase != null) {
                         try {
                             sQLiteDatabase.endTransaction();
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
                             this.f168a.a(this.a);
                         }
@@ -81,8 +81,8 @@ public class ci implements Runnable {
                 if (sQLiteDatabase != null) {
                     try {
                         sQLiteDatabase.endTransaction();
-                    } catch (Exception e5) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e5);
+                    } catch (Exception e4) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e4);
                         this.f168a.a(this.a);
                         throw th;
                     }

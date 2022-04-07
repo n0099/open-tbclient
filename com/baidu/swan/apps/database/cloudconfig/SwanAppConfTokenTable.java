@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SwanAppConfTokenTable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,8 +83,8 @@ public final class SwanAppConfTokenTable {
         if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
             try {
                 sQLiteDatabase.execSQL(b());
-            } catch (Exception e2) {
-                e2.getStackTrace();
+            } catch (Exception e) {
+                e.getStackTrace();
             }
         }
     }

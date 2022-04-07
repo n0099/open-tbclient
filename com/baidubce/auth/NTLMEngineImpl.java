@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class NTLMEngineImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;
@@ -47,7 +47,7 @@ public final class NTLMEngineImpl {
     public static final Charset UNICODE_LITTLE_UNMARKED;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class HMACMD5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,8 +94,8 @@ public final class NTLMEngineImpl {
                 }
                 this.md5.reset();
                 this.md5.update(this.ipad);
-            } catch (Exception e2) {
-                throw new NTLMEngineException("Error getting md5 message digest implementation: " + e2.getMessage(), e2);
+            } catch (Exception e) {
+                throw new NTLMEngineException("Error getting md5 message digest implementation: " + e.getMessage(), e);
             }
         }
 
@@ -125,7 +125,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class MD4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMEngineException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,7 +388,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Type2Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -428,8 +428,8 @@ public final class NTLMEngineImpl {
                     if (readSecurityBuffer.length != 0) {
                         try {
                             this.target = new String(readSecurityBuffer, "UnicodeLittleUnmarked");
-                        } catch (UnsupportedEncodingException e2) {
-                            throw new NTLMEngineException(e2.getMessage(), e2);
+                        } catch (UnsupportedEncodingException e) {
+                            throw new NTLMEngineException(e.getMessage(), e);
                         }
                     }
                 }
@@ -472,7 +472,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Type3Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -683,8 +683,8 @@ public final class NTLMEngineImpl {
                 Cipher cipher = Cipher.getInstance(RC4.LOGTAG);
                 cipher.init(1, new SecretKeySpec(bArr2, RC4.LOGTAG));
                 return cipher.doFinal(bArr);
-            } catch (Exception e2) {
-                throw new NTLMEngineException(e2.getMessage(), e2);
+            } catch (Exception e) {
+                throw new NTLMEngineException(e.getMessage(), e);
             }
         }
         return (byte[]) invokeLL.objValue;
@@ -791,8 +791,8 @@ public final class NTLMEngineImpl {
                 System.arraycopy(doFinal, 0, bArr2, 0, 8);
                 System.arraycopy(doFinal2, 0, bArr2, 8, 8);
                 return bArr2;
-            } catch (Exception e2) {
-                throw new NTLMEngineException(e2.getMessage(), e2);
+            } catch (Exception e) {
+                throw new NTLMEngineException(e.getMessage(), e);
             }
         }
         return (byte[]) invokeL.objValue;
@@ -820,8 +820,8 @@ public final class NTLMEngineImpl {
                 System.arraycopy(doFinal2, 0, bArr4, 8, 8);
                 System.arraycopy(doFinal3, 0, bArr4, 16, 8);
                 return bArr4;
-            } catch (Exception e2) {
-                throw new NTLMEngineException(e2.getMessage(), e2);
+            } catch (Exception e) {
+                throw new NTLMEngineException(e.getMessage(), e);
             }
         }
         return (byte[]) invokeLL.objValue;
@@ -906,11 +906,11 @@ public final class NTLMEngineImpl {
                 byte[] bArr4 = new byte[8];
                 System.arraycopy(digest, 0, bArr4, 0, 8);
                 return lmResponse(bArr, bArr4);
-            } catch (Exception e2) {
-                if (e2 instanceof NTLMEngineException) {
-                    throw ((NTLMEngineException) e2);
+            } catch (Exception e) {
+                if (e instanceof NTLMEngineException) {
+                    throw ((NTLMEngineException) e);
                 }
-                throw new NTLMEngineException(e2.getMessage(), e2);
+                throw new NTLMEngineException(e.getMessage(), e);
             }
         }
         return (byte[]) invokeLLL.objValue;
@@ -953,8 +953,8 @@ public final class NTLMEngineImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65577, null, bArr) == null) {
             for (int i = 0; i < bArr.length; i++) {
-                byte b2 = bArr[i];
-                if ((((b2 >>> 1) ^ ((((((b2 >>> 7) ^ (b2 >>> 6)) ^ (b2 >>> 5)) ^ (b2 >>> 4)) ^ (b2 >>> 3)) ^ (b2 >>> 2))) & 1) == 0) {
+                byte b = bArr[i];
+                if ((((b >>> 1) ^ ((((((b >>> 7) ^ (b >>> 6)) ^ (b >>> 5)) ^ (b >>> 4)) ^ (b >>> 3)) ^ (b >>> 2))) & 1) == 0) {
                     bArr[i] = (byte) (bArr[i] | 1);
                 } else {
                     bArr[i] = (byte) (bArr[i] & (-2));
@@ -1048,7 +1048,7 @@ public final class NTLMEngineImpl {
         return (String) invokeLLLLL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1072,12 +1072,12 @@ public final class NTLMEngineImpl {
             this.currentOutputPosition = 0;
         }
 
-        public void addByte(byte b2) {
+        public void addByte(byte b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeB(1048576, this, b2) == null) {
+            if (interceptable == null || interceptable.invokeB(1048576, this, b) == null) {
                 byte[] bArr = this.messageContents;
                 int i = this.currentOutputPosition;
-                bArr[i] = b2;
+                bArr[i] = b;
                 this.currentOutputPosition = i + 1;
             }
         }
@@ -1087,10 +1087,10 @@ public final class NTLMEngineImpl {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) || bArr == null) {
                 return;
             }
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 byte[] bArr2 = this.messageContents;
                 int i = this.currentOutputPosition;
-                bArr2[i] = b2;
+                bArr2[i] = b;
                 this.currentOutputPosition = i + 1;
             }
         }
@@ -1231,7 +1231,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Type1Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1310,7 +1310,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CipherGen {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1510,8 +1510,8 @@ public final class NTLMEngineImpl {
                         this.lanManagerSessionKey = bArr3;
                         System.arraycopy(doFinal, 0, bArr3, 0, doFinal.length);
                         System.arraycopy(doFinal2, 0, this.lanManagerSessionKey, doFinal.length, doFinal2.length);
-                    } catch (Exception e2) {
-                        throw new NTLMEngineException(e2.getMessage(), e2);
+                    } catch (Exception e) {
+                        throw new NTLMEngineException(e.getMessage(), e);
                     }
                 }
                 return this.lanManagerSessionKey;

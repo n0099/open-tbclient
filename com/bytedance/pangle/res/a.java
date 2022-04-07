@@ -28,14 +28,12 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f38159b;
+    public LinkedHashMap<String, Integer> b;
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +72,7 @@ public final class a {
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f38159b = linkedHashMap;
+        this.b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -101,8 +99,8 @@ public final class a {
                     }
                     try {
                         intValue = ((Integer) accessibleMethod.invoke(assetManager, str)).intValue();
-                    } catch (Exception e2) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str2, e2);
+                    } catch (Exception e) {
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str2, e);
                     }
                     if (intValue != 0) {
                         ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() success, cookie = " + intValue + ", path = " + str);
@@ -192,8 +190,8 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f38159b) {
-                this.f38159b.put(str, 0);
+            synchronized (this.b) {
+                this.b.put(str, 0);
             }
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
             return a2;
@@ -210,7 +208,7 @@ public final class a {
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.f38159b.containsKey(str2) && !str2.equals(str)) {
+                if (!a.containsKey(str2) && !this.b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -222,8 +220,8 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f38159b) {
-                    for (Map.Entry<String, Integer> entry : this.f38159b.entrySet()) {
+                synchronized (this.b) {
+                    for (Map.Entry<String, Integer> entry : this.b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);
@@ -249,20 +247,20 @@ public final class a {
                         if (!TextUtils.isEmpty(str4)) {
                             b(assetManager2, str4, false);
                         }
-                    } catch (Exception e2) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager appendAsset webview failed.", e2);
+                    } catch (Exception e) {
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager appendAsset webview failed.", e);
                     }
                 }
                 assetManager = assetManager2;
-            } catch (Exception e3) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager failed.", e3);
+            } catch (Exception e2) {
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager failed.", e2);
                 b(assetManager, str, false);
             }
             try {
                 MethodUtils.invokeMethod(assetManager, "ensureStringBlocks", new Object[0]);
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks");
-            } catch (Exception e4) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks failed.", e4);
+            } catch (Exception e3) {
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor ensureStringBlocks failed.", e3);
             }
             return assetManager;
         }

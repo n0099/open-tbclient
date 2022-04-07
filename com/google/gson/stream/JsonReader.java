@@ -19,7 +19,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -233,23 +233,23 @@ public class JsonReader implements Closeable {
         return invokeI.booleanValue;
     }
 
-    private boolean isLiteral(char c2) throws IOException {
+    private boolean isLiteral(char c) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 == '\t' || c2 == '\n' || c2 == '\f' || c2 == '\r' || c2 == ' ') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c)})) == null) {
+            if (c == '\t' || c == '\n' || c == '\f' || c == '\r' || c == ' ') {
                 return false;
             }
-            if (c2 != '#') {
-                if (c2 == ',') {
+            if (c != '#') {
+                if (c == ',') {
                     return false;
                 }
-                if (c2 != '/' && c2 != '=') {
-                    if (c2 == '{' || c2 == '}' || c2 == ':') {
+                if (c != '/' && c != '=') {
+                    if (c == '{' || c == '}' || c == ':') {
                         return false;
                     }
-                    if (c2 != ';') {
-                        switch (c2) {
+                    if (c != ';') {
+                        switch (c) {
                             case '[':
                             case ']':
                                 return false;
@@ -289,25 +289,25 @@ public class JsonReader implements Closeable {
                 i2 = this.limit;
             }
             int i3 = i + 1;
-            char c2 = cArr[i];
-            if (c2 == '\n') {
+            char c = cArr[i];
+            if (c == '\n') {
                 this.lineNumber++;
                 this.lineStart = i3;
-            } else if (c2 != ' ' && c2 != '\r' && c2 != '\t') {
-                if (c2 == '/') {
+            } else if (c != ' ' && c != '\r' && c != '\t') {
+                if (c == '/') {
                     this.pos = i3;
                     if (i3 == i2) {
                         this.pos = i3 - 1;
                         boolean fillBuffer = fillBuffer(2);
                         this.pos++;
                         if (!fillBuffer) {
-                            return c2;
+                            return c;
                         }
                     }
                     checkLenient();
                     int i4 = this.pos;
-                    char c3 = cArr[i4];
-                    if (c3 == '*') {
+                    char c2 = cArr[i4];
+                    if (c2 == '*') {
                         this.pos = i4 + 1;
                         if (skipTo("*/")) {
                             i = this.pos + 2;
@@ -315,15 +315,15 @@ public class JsonReader implements Closeable {
                         } else {
                             throw syntaxError("Unterminated comment");
                         }
-                    } else if (c3 != '/') {
-                        return c2;
+                    } else if (c2 != '/') {
+                        return c;
                     } else {
                         this.pos = i4 + 1;
                         skipToEndOfLine();
                         i = this.pos;
                         i2 = this.limit;
                     }
-                } else if (c2 == '#') {
+                } else if (c == '#') {
                     this.pos = i3;
                     checkLenient();
                     skipToEndOfLine();
@@ -331,7 +331,7 @@ public class JsonReader implements Closeable {
                     i2 = this.limit;
                 } else {
                     this.pos = i3;
-                    return c2;
+                    return c;
                 }
             }
             i = i3;
@@ -351,10 +351,10 @@ public class JsonReader implements Closeable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String nextQuotedValue(char c2) throws IOException {
+    private String nextQuotedValue(char c) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Character.valueOf(c)})) == null) {
             char[] cArr = this.buffer;
             StringBuilder sb = null;
             do {
@@ -365,8 +365,8 @@ public class JsonReader implements Closeable {
                     int i4 = i;
                     while (i < i3) {
                         int i5 = i + 1;
-                        char c3 = cArr[i];
-                        if (c3 == c2) {
+                        char c2 = cArr[i];
+                        if (c2 == c) {
                             this.pos = i5;
                             int i6 = (i5 - i4) - 1;
                             if (sb == null) {
@@ -374,7 +374,7 @@ public class JsonReader implements Closeable {
                             }
                             sb.append(cArr, i4, i6);
                             return sb.toString();
-                        } else if (c3 == '\\') {
+                        } else if (c2 == '\\') {
                             this.pos = i5;
                             int i7 = (i5 - i4) - 1;
                             if (sb == null) {
@@ -385,7 +385,7 @@ public class JsonReader implements Closeable {
                             i = this.pos;
                             i2 = this.limit;
                         } else {
-                            if (c3 == '\n') {
+                            if (c2 == '\n') {
                                 this.lineNumber++;
                                 this.lineStart = i5;
                             }
@@ -420,14 +420,14 @@ public class JsonReader implements Closeable {
                 while (true) {
                     int i3 = this.pos;
                     if (i3 + i2 < this.limit) {
-                        char c2 = this.buffer[i3 + i2];
-                        if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
-                            if (c2 != '#') {
-                                if (c2 != ',') {
-                                    if (c2 != '/' && c2 != '=') {
-                                        if (c2 != '{' && c2 != '}' && c2 != ':') {
-                                            if (c2 != ';') {
-                                                switch (c2) {
+                        char c = this.buffer[i3 + i2];
+                        if (c != '\t' && c != '\n' && c != '\f' && c != '\r' && c != ' ') {
+                            if (c != '#') {
+                                if (c != ',') {
+                                    if (c != '/' && c != '=') {
+                                        if (c != '{' && c != '}' && c != ':') {
+                                            if (c != ';') {
+                                                switch (c) {
                                                     case '[':
                                                     case ']':
                                                         break;
@@ -478,16 +478,16 @@ public class JsonReader implements Closeable {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            char c2 = this.buffer[this.pos];
-            if (c2 == 't' || c2 == 'T') {
+            char c = this.buffer[this.pos];
+            if (c == 't' || c == 'T') {
                 i = 5;
                 str = "true";
                 str2 = "TRUE";
-            } else if (c2 == 'f' || c2 == 'F') {
+            } else if (c == 'f' || c == 'F') {
                 i = 6;
                 str = "false";
                 str2 = "FALSE";
-            } else if (c2 != 'n' && c2 != 'N') {
+            } else if (c != 'n' && c != 'N') {
                 return 0;
             } else {
                 i = 7;
@@ -499,8 +499,8 @@ public class JsonReader implements Closeable {
                 if (this.pos + i2 >= this.limit && !fillBuffer(i2 + 1)) {
                     return 0;
                 }
-                char c3 = this.buffer[this.pos + i2];
-                if (c3 != str.charAt(i2) && c3 != str2.charAt(i2)) {
+                char c2 = this.buffer[this.pos + i2];
+                if (c2 != str.charAt(i2) && c2 != str2.charAt(i2)) {
                     return 0;
                 }
             }
@@ -585,7 +585,7 @@ public class JsonReader implements Closeable {
         int i2 = this.limit;
         int i3 = 0;
         int i4 = 0;
-        char c2 = 0;
+        char c = 0;
         boolean z = true;
         long j = 0;
         boolean z2 = false;
@@ -600,60 +600,60 @@ public class JsonReader implements Closeable {
                 i = this.pos;
                 i2 = this.limit;
             }
-            char c3 = cArr[i + i4];
-            if (c3 != '+') {
-                if (c3 == 'E' || c3 == 'e') {
+            char c2 = cArr[i + i4];
+            if (c2 != '+') {
+                if (c2 == 'E' || c2 == 'e') {
                     i3 = 0;
-                    if (c2 != 2 && c2 != 4) {
+                    if (c != 2 && c != 4) {
                         return 0;
                     }
-                    c2 = 5;
-                } else if (c3 == '-') {
+                    c = 5;
+                } else if (c2 == '-') {
                     i3 = 0;
-                    if (c2 == 0) {
-                        c2 = 1;
+                    if (c == 0) {
+                        c = 1;
                         z2 = true;
-                    } else if (c2 != 5) {
+                    } else if (c != 5) {
                         return 0;
                     }
-                } else if (c3 == '.') {
+                } else if (c2 == '.') {
                     i3 = 0;
-                    if (c2 != 2) {
+                    if (c != 2) {
                         return 0;
                     }
-                    c2 = 3;
-                } else if (c3 < '0' || c3 > '9') {
+                    c = 3;
+                } else if (c2 < '0' || c2 > '9') {
                     break;
-                } else if (c2 == 1 || c2 == 0) {
-                    j = -(c3 - '0');
+                } else if (c == 1 || c == 0) {
+                    j = -(c2 - '0');
                     i3 = 0;
-                    c2 = 2;
+                    c = 2;
                 } else {
-                    if (c2 == 2) {
+                    if (c == 2) {
                         if (j == 0) {
                             return 0;
                         }
-                        long j2 = (10 * j) - (c3 - '0');
+                        long j2 = (10 * j) - (c2 - '0');
                         int i5 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
                         z &= i5 > 0 || (i5 == 0 && j2 < j);
                         j = j2;
-                    } else if (c2 == 3) {
+                    } else if (c == 3) {
                         i3 = 0;
-                        c2 = 4;
-                    } else if (c2 == 5 || c2 == 6) {
+                        c = 4;
+                    } else if (c == 5 || c == 6) {
                         i3 = 0;
-                        c2 = 7;
+                        c = 7;
                     }
                     i3 = 0;
                 }
                 i4++;
             } else {
                 i3 = 0;
-                if (c2 != 5) {
+                if (c != 5) {
                     return 0;
                 }
             }
-            c2 = 6;
+            c = 6;
             i4++;
         }
     }
@@ -694,43 +694,43 @@ public class JsonReader implements Closeable {
             int i3 = this.pos;
             int i4 = i3 + 1;
             this.pos = i4;
-            char c2 = cArr[i3];
-            if (c2 == '\n') {
+            char c = cArr[i3];
+            if (c == '\n') {
                 this.lineNumber++;
                 this.lineStart = i4;
-            } else if (c2 != '\"' && c2 != '\'' && c2 != '/' && c2 != '\\') {
-                if (c2 != 'b') {
-                    if (c2 != 'f') {
-                        if (c2 != 'n') {
-                            if (c2 != 'r') {
-                                if (c2 != 't') {
-                                    if (c2 == 'u') {
+            } else if (c != '\"' && c != '\'' && c != '/' && c != '\\') {
+                if (c != 'b') {
+                    if (c != 'f') {
+                        if (c != 'n') {
+                            if (c != 'r') {
+                                if (c != 't') {
+                                    if (c == 'u') {
                                         if (i4 + 4 > this.limit && !fillBuffer(4)) {
                                             throw syntaxError("Unterminated escape sequence");
                                         }
-                                        char c3 = 0;
+                                        char c2 = 0;
                                         int i5 = this.pos;
                                         int i6 = i5 + 4;
                                         while (i5 < i6) {
-                                            char c4 = this.buffer[i5];
-                                            char c5 = (char) (c3 << 4);
-                                            if (c4 < '0' || c4 > '9') {
-                                                if (c4 >= 'a' && c4 <= 'f') {
-                                                    i = c4 - 'a';
-                                                } else if (c4 < 'A' || c4 > 'F') {
+                                            char c3 = this.buffer[i5];
+                                            char c4 = (char) (c2 << 4);
+                                            if (c3 < '0' || c3 > '9') {
+                                                if (c3 >= 'a' && c3 <= 'f') {
+                                                    i = c3 - 'a';
+                                                } else if (c3 < 'A' || c3 > 'F') {
                                                     throw new NumberFormatException("\\u" + new String(this.buffer, this.pos, 4));
                                                 } else {
-                                                    i = c4 - 'A';
+                                                    i = c3 - 'A';
                                                 }
                                                 i2 = i + 10;
                                             } else {
-                                                i2 = c4 - '0';
+                                                i2 = c3 - '0';
                                             }
-                                            c3 = (char) (c5 + i2);
+                                            c2 = (char) (c4 + i2);
                                             i5++;
                                         }
                                         this.pos += 4;
-                                        return c3;
+                                        return c2;
                                     }
                                     throw syntaxError("Invalid escape sequence");
                                 }
@@ -744,31 +744,31 @@ public class JsonReader implements Closeable {
                 }
                 return '\b';
             }
-            return c2;
+            return c;
         }
         return invokeV.charValue;
     }
 
-    private void skipQuotedValue(char c2) throws IOException {
+    private void skipQuotedValue(char c) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Character.valueOf(c)}) == null) {
             char[] cArr = this.buffer;
             do {
                 int i = this.pos;
                 int i2 = this.limit;
                 while (i < i2) {
                     int i3 = i + 1;
-                    char c3 = cArr[i];
-                    if (c3 == c2) {
+                    char c2 = cArr[i];
+                    if (c2 == c) {
                         this.pos = i3;
                         return;
-                    } else if (c3 == '\\') {
+                    } else if (c2 == '\\') {
                         this.pos = i3;
                         readEscapeCharacter();
                         i = this.pos;
                         i2 = this.limit;
                     } else {
-                        if (c3 == '\n') {
+                        if (c2 == '\n') {
                             this.lineNumber++;
                             this.lineStart = i3;
                         }
@@ -809,7 +809,7 @@ public class JsonReader implements Closeable {
     }
 
     private void skipToEndOfLine() throws IOException {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             do {
@@ -820,13 +820,13 @@ public class JsonReader implements Closeable {
                 int i = this.pos;
                 int i2 = i + 1;
                 this.pos = i2;
-                c2 = cArr[i];
-                if (c2 == '\n') {
+                c = cArr[i];
+                if (c == '\n') {
                     this.lineNumber++;
                     this.lineStart = i2;
                     return;
                 }
-            } while (c2 != '\r');
+            } while (c != '\r');
         }
     }
 
@@ -844,14 +844,14 @@ public class JsonReader implements Closeable {
                 while (true) {
                     int i2 = this.pos;
                     if (i2 + i < this.limit) {
-                        char c2 = this.buffer[i2 + i];
-                        if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
-                            if (c2 != '#') {
-                                if (c2 != ',') {
-                                    if (c2 != '/' && c2 != '=') {
-                                        if (c2 != '{' && c2 != '}' && c2 != ':') {
-                                            if (c2 != ';') {
-                                                switch (c2) {
+                        char c = this.buffer[i2 + i];
+                        if (c != '\t' && c != '\n' && c != '\f' && c != '\r' && c != ' ') {
+                            if (c != '#') {
+                                if (c != ',') {
+                                    if (c != '/' && c != '=') {
+                                        if (c != '{' && c != '}' && c != ':') {
+                                            if (c != ';') {
+                                                switch (c) {
                                                     case '[':
                                                     case ']':
                                                         break;

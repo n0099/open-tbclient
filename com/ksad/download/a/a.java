@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,11 +34,11 @@ public class a implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             try {
                 return chain.proceed(chain.request());
-            } catch (Exception e2) {
-                if (e2 instanceof IOException) {
-                    throw e2;
+            } catch (Exception e) {
+                if (e instanceof IOException) {
+                    throw e;
                 }
-                throw new IOException(e2);
+                throw new IOException(e);
             }
         }
         return (Response) invokeL.objValue;

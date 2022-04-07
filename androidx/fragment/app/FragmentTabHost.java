@@ -67,10 +67,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                View view = new View(this.mContext);
-                view.setMinimumWidth(0);
-                view.setMinimumHeight(0);
-                return view;
+                View view2 = new View(this.mContext);
+                view2.setMinimumWidth(0);
+                view2.setMinimumHeight(0);
+                return view2;
             }
             return (View) invokeL.objValue;
         }

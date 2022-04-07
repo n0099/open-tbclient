@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FetchUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -87,9 +87,9 @@ public class FetchUploadManager {
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, this, z, fetchTaskObj) == null) && fetchTaskObj != null && TextUtils.equals("0", fetchTaskObj.getStatus()) && TextUtils.equals("4", fetchTaskObj.getValue())) {
             try {
                 jSONObject = new JSONObject(fetchTaskObj.getFileMeta());
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 jSONObject = null;
             }

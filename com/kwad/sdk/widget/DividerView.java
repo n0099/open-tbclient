@@ -8,21 +8,13 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DividerView extends View {
     public static int a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f41417b = 1;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f41418c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f41419d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f41420e;
+    public static int b = 1;
+    public Paint c;
+    public int d;
+    public int e;
 
     public DividerView(Context context) {
         this(context, null);
@@ -30,21 +22,21 @@ public class DividerView extends View {
 
     public DividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04030b, R.attr.obfuscated_res_0x7f04030c, R.attr.obfuscated_res_0x7f04030d, R.attr.obfuscated_res_0x7f04030e, R.attr.obfuscated_res_0x7f04031b}, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f04034a, R.attr.obfuscated_res_0x7f040350, R.attr.obfuscated_res_0x7f040351, R.attr.obfuscated_res_0x7f040367}, 0, 0);
         try {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(2, 5);
             int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(3, 3);
-            this.f41420e = obtainStyledAttributes.getColor(0, -16777216);
-            this.f41419d = obtainStyledAttributes.getInt(4, a);
+            this.e = obtainStyledAttributes.getColor(0, -16777216);
+            this.d = obtainStyledAttributes.getInt(4, a);
             obtainStyledAttributes.recycle();
             Paint paint = new Paint();
-            this.f41418c = paint;
+            this.c = paint;
             paint.setAntiAlias(true);
-            this.f41418c.setColor(this.f41420e);
-            this.f41418c.setStyle(Paint.Style.STROKE);
-            this.f41418c.setStrokeWidth(dimensionPixelSize3);
-            this.f41418c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
+            this.c.setColor(this.e);
+            this.c.setStyle(Paint.Style.STROKE);
+            this.c.setStrokeWidth(dimensionPixelSize3);
+            this.c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
         } catch (Throwable th) {
             obtainStyledAttributes.recycle();
             throw th;
@@ -54,32 +46,32 @@ public class DividerView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         float width;
-        float f2;
+        float f;
         float height;
         Paint paint;
         Canvas canvas2;
-        float f3;
-        if (this.f41419d == a) {
+        float f2;
+        if (this.d == a) {
             height = getHeight() * 0.5f;
-            f3 = 0.0f;
+            f2 = 0.0f;
             width = getWidth();
-            paint = this.f41418c;
+            paint = this.c;
             canvas2 = canvas;
-            f2 = height;
+            f = height;
         } else {
             width = getWidth() * 0.5f;
-            f2 = 0.0f;
+            f = 0.0f;
             height = getHeight();
-            paint = this.f41418c;
+            paint = this.c;
             canvas2 = canvas;
-            f3 = width;
+            f2 = width;
         }
-        canvas2.drawLine(f3, f2, width, height, paint);
+        canvas2.drawLine(f2, f, width, height, paint);
     }
 
     public void setDividerColor(int i) {
-        this.f41420e = i;
-        this.f41418c.setColor(i);
+        this.e = i;
+        this.c.setColor(i);
         postInvalidate();
     }
 }

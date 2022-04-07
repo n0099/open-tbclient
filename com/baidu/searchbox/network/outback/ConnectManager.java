@@ -28,7 +28,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -48,7 +48,7 @@ public class ConnectManager {
     public boolean mVpnOn;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class NetworkStateEnum {
         public static final /* synthetic */ NetworkStateEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -382,8 +382,8 @@ public class ConnectManager {
                         arrayList.add(networkInterface.getName());
                     }
                 }
-            } catch (NullPointerException | SocketException e2) {
-                e2.printStackTrace();
+            } catch (NullPointerException | SocketException e) {
+                e.printStackTrace();
             }
             return arrayList.contains("tun0") || arrayList.contains("ppp0") || (Build.VERSION.SDK_INT >= 21 ? checkVPN(context) : false);
         }

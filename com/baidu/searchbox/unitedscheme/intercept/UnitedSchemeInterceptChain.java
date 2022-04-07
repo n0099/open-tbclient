@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class UnitedSchemeInterceptChain {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InterceptChain";
@@ -63,9 +63,9 @@ public final class UnitedSchemeInterceptChain {
                     }
                 }
                 return false;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (SchemeConfig.DEBUG) {
-                    Log.e(TAG, "error:" + e2.getMessage());
+                    Log.e(TAG, "error:" + e.getMessage());
                     return false;
                 }
                 return false;

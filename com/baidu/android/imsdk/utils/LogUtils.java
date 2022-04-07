@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LEVEL_D = 3;

@@ -15,7 +15,7 @@ import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKWebCardBridgeImpl implements IWebCardBridgeInner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

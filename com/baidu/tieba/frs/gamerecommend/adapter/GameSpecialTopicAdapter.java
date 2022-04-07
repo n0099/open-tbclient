@@ -5,11 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.k.b;
-import c.a.d.f.k.c;
-import c.a.d.f.p.n;
-import c.a.p0.f1.k;
-import c.a.p0.o0.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,42 +20,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder> {
+import com.repackage.dg;
+import com.repackage.eg;
+import com.repackage.id6;
+import com.repackage.oi;
+import com.repackage.t26;
+/* loaded from: classes3.dex */
+public class GameSpecialTopicAdapter extends id6<t26, CardFrsGameSpecialTopicHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
-    public b<CardFrsGameSpecialTopicItemView> u;
+    public dg<CardFrsGameSpecialTopicItemView> u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class CardFrsGameSpecialTopicHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f32590b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f32591c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public CardFrsGameSpecialTopicLayout f32592d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f32593e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public View f32594f;
+        public TextView b;
+        public FlexibleHorizontalScrollView c;
+        public CardFrsGameSpecialTopicLayout d;
+        public View e;
+        public View f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardFrsGameSpecialTopicHolder(GameSpecialTopicAdapter gameSpecialTopicAdapter, View view) {
-            super(view);
+        public CardFrsGameSpecialTopicHolder(GameSpecialTopicAdapter gameSpecialTopicAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameSpecialTopicAdapter, view};
+                Object[] objArr = {gameSpecialTopicAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,20 +61,20 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
                     return;
                 }
             }
-            this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f09052a);
-            this.f32590b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090c6c);
-            this.f32591c = (FlexibleHorizontalScrollView) view.findViewById(R.id.obfuscated_res_0x7f090c6b);
-            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view.findViewById(R.id.obfuscated_res_0x7f090c6a);
-            this.f32592d = cardFrsGameSpecialTopicLayout;
-            cardFrsGameSpecialTopicLayout.setItemSpace(n.f(view.getContext(), R.dimen.tbds20));
-            this.f32592d.setItemWidth(((n.f(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.f32593e = view.findViewById(R.id.obfuscated_res_0x7f0907f5);
-            this.f32594f = view.findViewById(R.id.obfuscated_res_0x7f0907f6);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090532);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c79);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c78);
+            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c77);
+            this.d = cardFrsGameSpecialTopicLayout;
+            cardFrsGameSpecialTopicLayout.setItemSpace(oi.f(view2.getContext(), R.dimen.tbds20));
+            this.d.setItemWidth(((oi.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907fe);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907ff);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements c<CardFrsGameSpecialTopicItemView> {
+    /* loaded from: classes3.dex */
+    public class a implements eg<CardFrsGameSpecialTopicItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameSpecialTopicAdapter a;
@@ -109,7 +99,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         public /* bridge */ /* synthetic */ CardFrsGameSpecialTopicItemView a(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView2 = cardFrsGameSpecialTopicItemView;
             e(cardFrsGameSpecialTopicItemView2);
@@ -118,7 +108,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         public /* bridge */ /* synthetic */ CardFrsGameSpecialTopicItemView c(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView2 = cardFrsGameSpecialTopicItemView;
             h(cardFrsGameSpecialTopicItemView2);
@@ -132,7 +122,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         /* renamed from: f */
         public void b(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             Interceptable interceptable = $ic;
@@ -141,7 +131,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         /* renamed from: g */
         public CardFrsGameSpecialTopicItemView d() {
             InterceptResult invokeV;
@@ -180,41 +170,41 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
                 return;
             }
         }
-        this.u = new b<>(new a(this), 10, 0);
+        this.u = new dg<>(new a(this), 10, 0);
         this.t = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: n0 */
     public CardFrsGameSpecialTopicHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder = new CardFrsGameSpecialTopicHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0191, viewGroup, false));
-            cardFrsGameSpecialTopicHolder.f32592d.setViewPool(this.u);
+            CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder = new CardFrsGameSpecialTopicHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0195, viewGroup, false));
+            cardFrsGameSpecialTopicHolder.d.setViewPool(this.u);
             return cardFrsGameSpecialTopicHolder;
         }
         return (CardFrsGameSpecialTopicHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.f1.k, c.a.d.o.e.a
+    @Override // com.repackage.id6, com.repackage.ho
     /* renamed from: o0 */
-    public View S(int i, View view, ViewGroup viewGroup, h hVar, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, t26 t26Var, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, hVar, cardFrsGameSpecialTopicHolder})) == null) {
-            if (hVar != null && hVar.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t26Var, cardFrsGameSpecialTopicHolder})) == null) {
+            if (t26Var != null && t26Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameSpecialTopicHolder.f32590b.setText(hVar.a().title);
-                cardFrsGameSpecialTopicHolder.f32590b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
-                cardFrsGameSpecialTopicHolder.f32592d.setPageContext(this.k);
-                cardFrsGameSpecialTopicHolder.f32592d.setData(hVar.a().sub_nodes);
-                cardFrsGameSpecialTopicHolder.f32591c.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.f32592d.getChildItemWidth());
+                cardFrsGameSpecialTopicHolder.b.setText(t26Var.a().title);
+                cardFrsGameSpecialTopicHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
+                cardFrsGameSpecialTopicHolder.d.setPageContext(this.k);
+                cardFrsGameSpecialTopicHolder.d.setData(t26Var.a().sub_nodes);
+                cardFrsGameSpecialTopicHolder.c.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.d.getChildItemWidth());
                 cardFrsGameSpecialTopicHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
-                SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.f32593e, R.color.CAM_X0205);
-                SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.f32594f, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.e, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.f, R.color.CAM_X0205);
             }
             return cardFrsGameSpecialTopicHolder.b();
         }

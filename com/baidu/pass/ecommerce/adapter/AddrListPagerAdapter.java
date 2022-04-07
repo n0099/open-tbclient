@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AddrListPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PAGER_NUMBER = 4;
@@ -84,9 +84,9 @@ public class AddrListPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
+    public boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 }

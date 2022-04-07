@@ -18,12 +18,12 @@ public final class PathSegment {
     public final PointF mStart;
     public final float mStartFraction;
 
-    public PathSegment(@NonNull PointF pointF, float f2, @NonNull PointF pointF2, float f3) {
+    public PathSegment(@NonNull PointF pointF, float f, @NonNull PointF pointF2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pointF, Float.valueOf(f2), pointF2, Float.valueOf(f3)};
+            Object[] objArr = {pointF, Float.valueOf(f), pointF2, Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,9 +34,9 @@ public final class PathSegment {
             }
         }
         this.mStart = (PointF) Preconditions.checkNotNull(pointF, "start == null");
-        this.mStartFraction = f2;
+        this.mStartFraction = f;
         this.mEnd = (PointF) Preconditions.checkNotNull(pointF2, "end == null");
-        this.mEndFraction = f3;
+        this.mEndFraction = f2;
     }
 
     public boolean equals(Object obj) {
@@ -86,10 +86,10 @@ public final class PathSegment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int hashCode = this.mStart.hashCode() * 31;
-            float f2 = this.mStartFraction;
-            int floatToIntBits = (((hashCode + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0)) * 31) + this.mEnd.hashCode()) * 31;
-            float f3 = this.mEndFraction;
-            return floatToIntBits + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0);
+            float f = this.mStartFraction;
+            int floatToIntBits = (((hashCode + (f != 0.0f ? Float.floatToIntBits(f) : 0)) * 31) + this.mEnd.hashCode()) * 31;
+            float f2 = this.mEndFraction;
+            return floatToIntBits + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0);
         }
         return invokeV.intValue;
     }

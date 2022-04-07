@@ -26,9 +26,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
+import com.repackage.pm9;
+import com.repackage.qm9;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PLA_ListView extends PLA_AbsListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_SCROLL_FACTOR = 0.33f;
@@ -51,20 +53,14 @@ public class PLA_ListView extends PLA_AbsListView {
     public Drawable mOverScrollHeader;
     public final Rect mTempRect;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Object f38770b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f38771c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PLA_ListView f38772d;
+        public Object b;
+        public boolean c;
+        public final /* synthetic */ PLA_ListView d;
 
         public a(PLA_ListView pLA_ListView) {
             Interceptable interceptable = $ic;
@@ -81,7 +77,7 @@ public class PLA_ListView extends PLA_AbsListView {
                     return;
                 }
             }
-            this.f38772d = pLA_ListView;
+            this.d = pLA_ListView;
         }
     }
 
@@ -106,27 +102,27 @@ public class PLA_ListView extends PLA_AbsListView {
         }
     }
 
-    private View addViewAbove(View view, int i) {
+    private View addViewAbove(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, view2, i)) == null) {
             int i2 = i - 1;
-            c.g.a.a.a.c("addViewAbove:" + i);
+            pm9.c("addViewAbove:" + i);
             View obtainView = obtainView(i2, this.mIsScrap);
-            setupChild(obtainView, i2, view.getTop() - this.mDividerHeight, false, this.mListPadding.left, false, this.mIsScrap[0]);
+            setupChild(obtainView, i2, view2.getTop() - this.mDividerHeight, false, this.mListPadding.left, false, this.mIsScrap[0]);
             return obtainView;
         }
         return (View) invokeLI.objValue;
     }
 
-    private View addViewBelow(View view, int i) {
+    private View addViewBelow(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, i)) == null) {
             int i2 = i + 1;
-            c.g.a.a.a.c("addViewBelow:" + i);
+            pm9.c("addViewBelow:" + i);
             View obtainView = obtainView(i2, this.mIsScrap);
-            setupChild(obtainView, i2, view.getBottom() + this.mDividerHeight, true, this.mListPadding.left, false, this.mIsScrap[0]);
+            setupChild(obtainView, i2, view2.getBottom() + this.mDividerHeight, true, this.mListPadding.left, false, this.mIsScrap[0]);
             return obtainView;
         }
         return (View) invokeLI.objValue;
@@ -170,7 +166,7 @@ public class PLA_ListView extends PLA_AbsListView {
         for (int i = 0; i < size; i++) {
             PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) arrayList.get(i).a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.f38742c = false;
+                layoutParams.c = false;
             }
         }
     }
@@ -248,7 +244,7 @@ public class PLA_ListView extends PLA_AbsListView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, this, i, i2)) == null) {
-            c.g.a.a.a.c("fill down: " + i);
+            pm9.c("fill down: " + i);
             int bottom = (getBottom() - getTop()) - this.mListPadding.bottom;
             while (i2 < bottom && i < this.mItemCount) {
                 makeAndAddView(i, getItemTop(i), true, false);
@@ -281,7 +277,7 @@ public class PLA_ListView extends PLA_AbsListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65548, this, i, i2)) == null) {
             if (this.mDataChanged) {
-                c.g.a.a.a.c("fill specific: " + i + ":" + i2);
+                pm9.c("fill specific: " + i + ":" + i2);
             }
             View makeAndAddView = makeAndAddView(i, i2, true, false);
             this.mFirstPosition = i;
@@ -325,7 +321,7 @@ public class PLA_ListView extends PLA_AbsListView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65550, this, i, i2)) == null) {
-            c.g.a.a.a.c("fill up: " + i);
+            pm9.c("fill up: " + i);
             int i3 = this.mListPadding.top;
             while (i2 > i3 && i >= 0) {
                 makeAndAddView(i, getItemBottom(i), false, false);
@@ -338,13 +334,13 @@ public class PLA_ListView extends PLA_AbsListView {
         return (View) invokeII.objValue;
     }
 
-    private boolean isHeaderView(View view) {
+    private boolean isHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view2)) == null) {
             Iterator<a> it = this.mHeaderViewInfos.iterator();
             while (it.hasNext()) {
-                if (it.next().a == view) {
+                if (it.next().a == view2) {
                     return true;
                 }
             }
@@ -355,19 +351,19 @@ public class PLA_ListView extends PLA_AbsListView {
 
     private View makeAndAddView(int i, int i2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        View f2;
+        View f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (!this.mDataChanged && (f2 = this.mRecycler.f(i)) != null) {
-                setupChild(f2, i, i2, z, getItemLeft(i), z2, true);
-                return f2;
+            if (!this.mDataChanged && (f = this.mRecycler.f(i)) != null) {
+                setupChild(f, i, i2, z, getItemLeft(i), z2, true);
+                return f;
             }
             onItemAddedToList(i, z);
             int itemLeft = getItemLeft(i);
-            c.g.a.a.a.c("makeAndAddView:" + i);
+            pm9.c("makeAndAddView:" + i);
             View obtainView = obtainView(i, this.mIsScrap);
             if (obtainView == null) {
-                c.g.a.a.a.b("child is null:" + i);
+                pm9.b("child is null:" + i);
             } else {
                 setupChild(obtainView, i, i2, z, itemLeft, z2, this.mIsScrap[0]);
             }
@@ -376,17 +372,17 @@ public class PLA_ListView extends PLA_AbsListView {
         return (View) invokeCommon.objValue;
     }
 
-    private void measureScrapChild(View view, int i, int i2) {
+    private void measureScrapChild(View view2, int i, int i2) {
         int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65553, this, view, i, i2) == null) {
-            PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeLII(65553, this, view2, i, i2) == null) {
+            PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) view2.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
-                view.setLayoutParams(layoutParams);
+                view2.setLayoutParams(layoutParams);
             }
             layoutParams.a = this.mAdapter.getItemViewType(i);
-            layoutParams.f38743d = true;
+            layoutParams.d = true;
             Rect rect = this.mListPadding;
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, rect.left + rect.right, ((ViewGroup.LayoutParams) layoutParams).width);
             int i3 = ((ViewGroup.LayoutParams) layoutParams).height;
@@ -395,16 +391,16 @@ public class PLA_ListView extends PLA_AbsListView {
             } else {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }
-            view.measure(childMeasureSpec, makeMeasureSpec);
+            view2.measure(childMeasureSpec, makeMeasureSpec);
         }
     }
 
-    private void removeFixedViewInfo(View view, ArrayList<a> arrayList) {
+    private void removeFixedViewInfo(View view2, ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, this, view, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLL(65554, this, view2, arrayList) == null) {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                if (arrayList.get(i).a == view) {
+                if (arrayList.get(i).a == view2) {
                     arrayList.remove(i);
                     return;
                 }
@@ -468,36 +464,36 @@ public class PLA_ListView extends PLA_AbsListView {
         }
     }
 
-    private void setupChild(View view, int i, int i2, boolean z, int i3, boolean z2, boolean z3) {
+    private void setupChild(View view2, int i, int i2, boolean z, int i3, boolean z2, boolean z3) {
         int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             boolean z4 = z2 && shouldShowSelector();
-            boolean z5 = z4 != view.isSelected();
+            boolean z5 = z4 != view2.isSelected();
             int i4 = this.mTouchMode;
             boolean z6 = i4 > 0 && i4 < 3 && this.mMotionPosition == i;
-            boolean z7 = z6 != view.isPressed();
-            boolean z8 = !z3 || z5 || view.isLayoutRequested();
-            PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) view.getLayoutParams();
+            boolean z7 = z6 != view2.isPressed();
+            boolean z8 = !z3 || z5 || view2.isLayoutRequested();
+            PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) view2.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
             }
             layoutParams.a = this.mAdapter.getItemViewType(i);
-            layoutParams.f38741b = i;
-            if ((z3 && !layoutParams.f38743d) || (layoutParams.f38742c && layoutParams.a == -2)) {
-                attachViewToParent(view, z ? -1 : 0, layoutParams);
+            layoutParams.b = i;
+            if ((z3 && !layoutParams.d) || (layoutParams.c && layoutParams.a == -2)) {
+                attachViewToParent(view2, z ? -1 : 0, layoutParams);
             } else {
-                layoutParams.f38743d = false;
+                layoutParams.d = false;
                 if (layoutParams.a == -2) {
-                    layoutParams.f38742c = true;
+                    layoutParams.c = true;
                 }
-                addViewInLayout(view, z ? -1 : 0, layoutParams, true);
+                addViewInLayout(view2, z ? -1 : 0, layoutParams, true);
             }
             if (z5) {
-                view.setSelected(z4);
+                view2.setSelected(z4);
             }
             if (z7) {
-                view.setPressed(z6);
+                view2.setPressed(z6);
             }
             if (z8) {
                 int i5 = this.mWidthMeasureSpec;
@@ -509,22 +505,22 @@ public class PLA_ListView extends PLA_AbsListView {
                 } else {
                     makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                 }
-                onMeasureChild(view, i, childMeasureSpec, makeMeasureSpec);
+                onMeasureChild(view2, i, childMeasureSpec, makeMeasureSpec);
             } else {
-                cleanupLayoutState(view);
+                cleanupLayoutState(view2);
             }
-            int measuredWidth = view.getMeasuredWidth();
-            int measuredHeight = view.getMeasuredHeight();
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
             int i7 = z ? i2 : i2 - measuredHeight;
             if (z8) {
-                onLayoutChild(view, i, i3, i7, i3 + measuredWidth, i7 + measuredHeight);
+                onLayoutChild(view2, i, i3, i7, i3 + measuredWidth, i7 + measuredHeight);
             } else {
-                onOffsetChild(view, i, i3 - view.getLeft(), i7 - view.getTop());
+                onOffsetChild(view2, i, i3 - view2.getLeft(), i7 - view2.getTop());
             }
-            if (!this.mCachingStarted || view.isDrawingCacheEnabled()) {
+            if (!this.mCachingStarted || view2.isDrawingCacheEnabled()) {
                 return;
             }
-            view.setDrawingCacheEnabled(true);
+            view2.setDrawingCacheEnabled(true);
         }
     }
 
@@ -547,28 +543,28 @@ public class PLA_ListView extends PLA_AbsListView {
         return invokeV.booleanValue;
     }
 
-    public void addFooterView(View view, Object obj, boolean z) {
+    public void addFooterView(View view2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) {
-            addFooterView(view, obj, z, -1);
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, obj, z) == null) {
+            addFooterView(view2, obj, z, -1);
         }
     }
 
-    public void addHeaderView(View view, Object obj, boolean z, int i) {
+    public void addHeaderView(View view2, Object obj, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, obj, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             a aVar = new a(this);
-            aVar.a = view;
-            aVar.f38770b = obj;
-            aVar.f38771c = z;
+            aVar.a = view2;
+            aVar.b = obj;
+            aVar.c = z;
             if (i >= 0 && i <= this.mHeaderViewInfos.size()) {
                 this.mHeaderViewInfos.add(i, aVar);
             } else {
                 this.mHeaderViewInfos.add(aVar);
             }
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter instanceof c.g.a.a.b.a) {
-                setAdapter(((c.g.a.a.b.a) listAdapter).getWrappedAdapter());
+            if (listAdapter instanceof qm9) {
+                setAdapter(((qm9) listAdapter).getWrappedAdapter());
             } else if (listAdapter != null) {
                 setAdapter(listAdapter);
             }
@@ -1100,21 +1096,21 @@ public class PLA_ListView extends PLA_AbsListView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mOverScrollHeader : (Drawable) invokeV.objValue;
     }
 
-    public boolean isFixedView(View view) {
+    public boolean isFixedView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, view2)) == null) {
             ArrayList<a> arrayList = this.mHeaderViewInfos;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                if (arrayList.get(i).a == view) {
+                if (arrayList.get(i).a == view2) {
                     return true;
                 }
             }
             ArrayList<a> arrayList2 = this.mFooterViewInfos;
             int size2 = arrayList2.size();
             for (int i2 = 0; i2 < size2; i2++) {
-                if (arrayList2.get(i2).a == view) {
+                if (arrayList2.get(i2).a == view2) {
                     return true;
                 }
             }
@@ -1314,14 +1310,14 @@ public class PLA_ListView extends PLA_AbsListView {
             boolean recycleOnMeasure = recycleOnMeasure();
             boolean[] zArr = this.mIsScrap;
             while (i2 <= i3) {
-                c.g.a.a.a.c("measureHeightOfChildren:" + i2);
+                pm9.c("measureHeightOfChildren:" + i2);
                 View obtainView = obtainView(i2, zArr);
                 measureScrapChild(obtainView, i2, i);
                 if (i2 > 0) {
                     i6 += i8;
                 }
                 if (recycleOnMeasure && hVar.n(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).a)) {
-                    c.g.a.a.a.c("measureHeightOfChildren");
+                    pm9.c("measureHeightOfChildren");
                     hVar.c(obtainView);
                 }
                 i6 += obtainView.getMeasuredHeight();
@@ -1408,10 +1404,10 @@ public class PLA_ListView extends PLA_AbsListView {
         }
     }
 
-    public void onLayoutChild(View view, int i, int i2, int i3, int i4, int i5) {
+    public void onLayoutChild(View view2, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            view.layout(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            view2.layout(i2, i3, i4, i5);
         }
     }
 
@@ -1457,18 +1453,18 @@ public class PLA_ListView extends PLA_AbsListView {
         }
     }
 
-    public void onMeasureChild(View view, int i, int i2, int i3) {
+    public void onMeasureChild(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048624, this, view, i, i2, i3) == null) {
-            view.measure(i2, i3);
+        if (interceptable == null || interceptable.invokeLIII(1048624, this, view2, i, i2, i3) == null) {
+            view2.measure(i2, i3);
         }
     }
 
-    public void onOffsetChild(View view, int i, int i2, int i3) {
+    public void onOffsetChild(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048625, this, view, i, i2, i3) == null) {
-            view.offsetLeftAndRight(i2);
-            view.offsetTopAndBottom(i3);
+        if (interceptable == null || interceptable.invokeLIII(1048625, this, view2, i, i2, i3) == null) {
+            view2.offsetLeftAndRight(i2);
+            view2.offsetTopAndBottom(i3);
         }
     }
 
@@ -1486,10 +1482,10 @@ public class PLA_ListView extends PLA_AbsListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AdapterView
-    public boolean performItemClick(View view, int i, long j) {
+    public boolean performItemClick(View view2, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{view, Integer.valueOf(i), Long.valueOf(j)})) == null) ? super.performItemClick(view, i, j) | false : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)})) == null) ? super.performItemClick(view2, i, j) | false : invokeCommon.booleanValue;
     }
 
     @ViewDebug.ExportedProperty(category = "list")
@@ -1502,36 +1498,36 @@ public class PLA_ListView extends PLA_AbsListView {
         return invokeV.booleanValue;
     }
 
-    public boolean removeFooterView(View view) {
+    public boolean removeFooterView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, view2)) == null) {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.g.a.a.b.a) listAdapter).d(view)) {
+                if (listAdapter != null && ((qm9) listAdapter).d(view2)) {
                     this.mDataSetObserver.onChanged();
                     z = true;
                 }
-                removeFixedViewInfo(view, this.mFooterViewInfos);
+                removeFixedViewInfo(view2, this.mFooterViewInfos);
             }
             return z;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean removeHeaderView(View view) {
+    public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, view2)) == null) {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.g.a.a.b.a) listAdapter).e(view)) {
+                if (listAdapter != null && ((qm9) listAdapter).e(view2)) {
                     this.mDataSetObserver.onChanged();
                     z = true;
                 }
-                removeFixedViewInfo(view, this.mHeaderViewInfos);
+                removeFixedViewInfo(view2, this.mHeaderViewInfos);
             }
             return z;
         }
@@ -1539,16 +1535,16 @@ public class PLA_ListView extends PLA_AbsListView {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
+    public boolean requestChildRectangleOnScreen(View view2, Rect rect, boolean z) {
         InterceptResult invokeLLZ;
         int i;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048631, this, view, rect, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048631, this, view2, rect, z)) == null) {
             int i4 = rect.top;
-            rect.offset(view.getLeft(), view.getTop());
-            rect.offset(-view.getScrollX(), -view.getScrollY());
+            rect.offset(view2.getLeft(), view2.getTop());
+            rect.offset(-view2.getScrollX(), -view2.getScrollY());
             int height = getHeight();
             int scrollY = getScrollY();
             int i5 = scrollY + height;
@@ -1580,8 +1576,8 @@ public class PLA_ListView extends PLA_AbsListView {
             boolean z2 = i != 0;
             if (z2) {
                 scrollListItemsBy(-i);
-                positionSelector(view);
-                this.mSelectedTop = view.getTop();
+                positionSelector(view2);
+                this.mSelectedTop = view2.getTop();
                 invalidate();
             }
             return z2;
@@ -1746,13 +1742,13 @@ public class PLA_ListView extends PLA_AbsListView {
         }
     }
 
-    public void addFooterView(View view, Object obj, boolean z, int i) {
+    public void addFooterView(View view2, Object obj, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, obj, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             a aVar = new a(this);
-            aVar.a = view;
-            aVar.f38770b = obj;
-            aVar.f38771c = z;
+            aVar.a = view2;
+            aVar.b = obj;
+            aVar.c = z;
             if (i >= 0 && i <= this.mFooterViewInfos.size()) {
                 this.mFooterViewInfos.add(i, aVar);
             } else {
@@ -1788,7 +1784,7 @@ public class PLA_ListView extends PLA_AbsListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new c.g.a.a.b.a(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new qm9(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedRowId = Long.MIN_VALUE;
@@ -1833,7 +1829,7 @@ public class PLA_ListView extends PLA_AbsListView {
         this.mItemsCanFocus = false;
         this.mTempRect = new Rect();
         this.mContentPaint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401b4, R.attr.obfuscated_res_0x7f040257, R.attr.obfuscated_res_0x7f04026f, R.attr.obfuscated_res_0x7f040458, R.attr.obfuscated_res_0x7f040459, R.attr.obfuscated_res_0x7f040491}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401f0, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402b8, R.attr.obfuscated_res_0x7f040497, R.attr.obfuscated_res_0x7f040498, R.attr.obfuscated_res_0x7f0404cf}, i, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(4);
         if (drawable != null) {
             setOverscrollHeader(drawable);
@@ -1857,24 +1853,24 @@ public class PLA_ListView extends PLA_AbsListView {
         obtainStyledAttributes.recycle();
     }
 
-    public void addFooterView(View view) {
+    public void addFooterView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            addFooterView(view, null, true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            addFooterView(view2, null, true);
         }
     }
 
-    public void addHeaderView(View view, Object obj, boolean z) {
+    public void addHeaderView(View view2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048580, this, view, obj, z) == null) {
-            addHeaderView(view, obj, z, -1);
+        if (interceptable == null || interceptable.invokeLLZ(1048580, this, view2, obj, z) == null) {
+            addHeaderView(view2, obj, z, -1);
         }
     }
 
-    public void addHeaderView(View view) {
+    public void addHeaderView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            addHeaderView(view, null, true);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            addHeaderView(view2, null, true);
         }
     }
 }

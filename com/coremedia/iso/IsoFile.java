@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -75,8 +75,8 @@ public class IsoFile extends BasicContainer implements Closeable {
             }
             try {
                 return new String(bArr2, "ISO-8859-1");
-            } catch (UnsupportedEncodingException e2) {
-                throw new Error("Required character encoding is missing", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new Error("Required character encoding is missing", e);
             }
         }
         return (String) invokeL.objValue;

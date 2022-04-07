@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk;
 
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTInitializer {
     TTAdManager getAdManager();
 

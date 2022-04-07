@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8 extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public static boolean initialized;
@@ -55,13 +55,13 @@ public class V8 extends V8Object {
     public Map<Long, V8Value> v8WeakReferences;
 
     /* renamed from: com.kwad.v8.V8$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class MethodDescriptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class V8 extends V8Object {
 
     private native void _acquireLock(long j);
 
-    private native void _add(long j, long j2, String str, double d2);
+    private native void _add(long j, long j2, String str, double d);
 
     private native void _add(long j, long j2, String str, int i);
 
@@ -179,7 +179,7 @@ public class V8 extends V8Object {
 
     private native void _addArrayBooleanItem(long j, long j2, boolean z);
 
-    private native void _addArrayDoubleItem(long j, long j2, double d2);
+    private native void _addArrayDoubleItem(long j, long j2, double d);
 
     private native void _addArrayIntItem(long j, long j2, int i);
 
@@ -615,10 +615,10 @@ public class V8 extends V8Object {
                 try {
                     LibraryLoader.loadLibrary(str);
                     nativeLibraryLoaded = true;
-                } catch (Error e2) {
-                    nativeLoadError = e2;
-                } catch (Exception e3) {
-                    nativeLoadException = e3;
+                } catch (Error e) {
+                    nativeLoadError = e;
+                } catch (Exception e2) {
+                    nativeLoadException = e2;
                 }
             }
         }
@@ -742,10 +742,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void add(long j, long j2, String str, double d2) {
+    public void add(long j, long j2, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Double.valueOf(d2)}) == null) {
-            _add(j, j2, str, d2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Double.valueOf(d)}) == null) {
+            _add(j, j2, str, d);
         }
     }
 
@@ -777,10 +777,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void addArrayDoubleItem(long j, long j2, double d2) {
+    public void addArrayDoubleItem(long j, long j2, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2)}) == null) {
-            _addArrayDoubleItem(j, j2, d2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d)}) == null) {
+            _addArrayDoubleItem(j, j2, d);
         }
     }
 
@@ -983,12 +983,12 @@ public class V8 extends V8Object {
                 try {
                     sV8Receiver = v8Object;
                     return checkResult(methodDescriptor.method.invoke(methodDescriptor.object, args));
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    throw e;
+                } catch (IllegalArgumentException e2) {
                     throw e2;
-                } catch (IllegalArgumentException e3) {
-                    throw e3;
-                } catch (InvocationTargetException e4) {
-                    throw e4.getTargetException();
+                } catch (InvocationTargetException e3) {
+                    throw e3.getTargetException();
                 }
             } finally {
                 sV8Receiver = null;
@@ -1014,11 +1014,11 @@ public class V8 extends V8Object {
                 try {
                     sV8Receiver = v8Object;
                     methodDescriptor.method.invoke(methodDescriptor.object, args);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (V8Plugins.getJSBindingErrorHandler() == null) {
-                        throw e2;
+                        throw e;
                     }
-                    V8Plugins.getJSBindingErrorHandler().onExceptionCaptured(e2);
+                    V8Plugins.getJSBindingErrorHandler().onExceptionCaptured(e);
                 }
             } finally {
                 sV8Receiver = null;

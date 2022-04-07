@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.yoga.YogaNodeJNIBase;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NumberUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,16 +26,16 @@ public class NumberUtil {
         }
     }
 
-    public static byte[] getBytes(char c2) {
+    public static byte[] getBytes(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2)})) == null) ? new byte[]{(byte) c2, (byte) (c2 >> '\b')} : (byte[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c)})) == null) ? new byte[]{(byte) c, (byte) (c >> '\b')} : (byte[]) invokeCommon.objValue;
     }
 
-    public static byte[] getBytes(float f2) {
+    public static byte[] getBytes(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) ? getBytes(Float.floatToIntBits(f2)) : (byte[]) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? getBytes(Float.floatToIntBits(f)) : (byte[]) invokeF.objValue;
     }
 
     public static byte[] getBytes(int i) {
@@ -156,9 +156,9 @@ public class NumberUtil {
         return (String) invokeLII.objValue;
     }
 
-    public static byte[] getBytes(double d2) {
+    public static byte[] getBytes(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2)})) == null) ? getBytes(Double.doubleToLongBits(d2)) : (byte[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d)})) == null) ? getBytes(Double.doubleToLongBits(d)) : (byte[]) invokeCommon.objValue;
     }
 }

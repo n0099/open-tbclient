@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.p0.c3.w.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,17 +16,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.o78;
+/* loaded from: classes3.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar navigationBar;
     public FrameLayout rootView;
     public String thumbUrl;
-    public e videoContainer;
+    public o78 videoContainer;
     public String videoUrl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -84,7 +84,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                 this.videoUrl = getIntent().getStringExtra("video_url");
                 this.thumbUrl = getIntent().getStringExtra("thumb_url");
             }
-            this.videoContainer.w0(this.thumbUrl, this.videoUrl);
+            this.videoContainer.x0(this.thumbUrl, this.videoUrl);
         }
     }
 
@@ -99,9 +99,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.rootView.addView(frameLayout2, layoutParams);
-            e eVar = new e(this, frameLayout2);
-            this.videoContainer = eVar;
-            eVar.setStageType("2006");
+            o78 o78Var = new o78(this, frameLayout2);
+            this.videoContainer = o78Var;
+            o78Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.navigationBar = navigationBar;
             navigationBar.hideBottomLine();
@@ -109,7 +109,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.gravity = 48;
             this.rootView.addView(this.navigationBar, layoutParams2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f09246f), R.drawable.obfuscated_res_0x7f080624, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f09244a), R.drawable.obfuscated_res_0x7f080623, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

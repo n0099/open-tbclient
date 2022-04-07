@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,8 +10,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         fVar.a = jSONObject.optInt("currentTime");
-        fVar.f39991b = jSONObject.optBoolean("failed");
-        fVar.f39992c = jSONObject.optBoolean("finished");
+        fVar.b = jSONObject.optBoolean("failed");
+        fVar.c = jSONObject.optBoolean("finished");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "currentTime", fVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "failed", fVar.f39991b);
-        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f39992c);
+        com.kwad.sdk.utils.t.a(jSONObject, "failed", fVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.c);
         return jSONObject;
     }
 }

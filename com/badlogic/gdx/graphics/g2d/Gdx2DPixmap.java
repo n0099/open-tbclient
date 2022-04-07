@@ -1,7 +1,6 @@
 package com.badlogic.gdx.graphics.g2d;
 
 import androidx.core.view.InputDeviceCompat;
-import c.b.b.q.h;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,29 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
+import com.repackage.f7;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
-public class Gdx2DPixmap implements h {
+/* loaded from: classes.dex */
+public class Gdx2DPixmap implements f7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f23743b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f23744c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f23745d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ByteBuffer f23746e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long[] f23747f;
+    public int b;
+    public int c;
+    public int d;
+    public ByteBuffer e;
+    public long[] f;
 
     public Gdx2DPixmap(byte[] bArr, int i, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
@@ -51,16 +41,16 @@ public class Gdx2DPixmap implements h {
             }
         }
         long[] jArr = new long[4];
-        this.f23747f = jArr;
+        this.f = jArr;
         ByteBuffer load = load(jArr, bArr, i, i2);
-        this.f23746e = load;
+        this.e = load;
         if (load != null) {
-            long[] jArr2 = this.f23747f;
+            long[] jArr2 = this.f;
             this.a = jArr2[0];
-            this.f23743b = (int) jArr2[1];
-            this.f23744c = (int) jArr2[2];
+            this.b = (int) jArr2[1];
+            this.c = (int) jArr2[2];
             int i6 = (int) jArr2[3];
-            this.f23745d = i6;
+            this.d = i6;
             if (i3 == 0 || i3 == i6) {
                 return;
             }
@@ -176,7 +166,7 @@ public class Gdx2DPixmap implements h {
         }
     }
 
-    @Override // c.b.b.q.h
+    @Override // com.repackage.f7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -187,16 +177,16 @@ public class Gdx2DPixmap implements h {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Gdx2DPixmap gdx2DPixmap = new Gdx2DPixmap(this.f23743b, this.f23744c, i);
+            Gdx2DPixmap gdx2DPixmap = new Gdx2DPixmap(this.b, this.c, i);
             gdx2DPixmap.q(0);
-            gdx2DPixmap.g(this, 0, 0, 0, 0, this.f23743b, this.f23744c);
+            gdx2DPixmap.g(this, 0, 0, 0, 0, this.b, this.c);
             dispose();
             this.a = gdx2DPixmap.a;
-            this.f23745d = gdx2DPixmap.f23745d;
-            this.f23744c = gdx2DPixmap.f23744c;
-            this.f23747f = gdx2DPixmap.f23747f;
-            this.f23746e = gdx2DPixmap.f23746e;
-            this.f23743b = gdx2DPixmap.f23743b;
+            this.d = gdx2DPixmap.d;
+            this.c = gdx2DPixmap.c;
+            this.f = gdx2DPixmap.f;
+            this.e = gdx2DPixmap.e;
+            this.b = gdx2DPixmap.b;
         }
     }
 
@@ -217,7 +207,7 @@ public class Gdx2DPixmap implements h {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23745d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public int k() {
@@ -229,31 +219,31 @@ public class Gdx2DPixmap implements h {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? r(this.f23745d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? r(this.d) : invokeV.intValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? s(this.f23745d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? s(this.d) : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23744c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public ByteBuffer o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f23746e : (ByteBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (ByteBuffer) invokeV.objValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f23743b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public void q(int i) {
@@ -279,15 +269,15 @@ public class Gdx2DPixmap implements h {
             }
         }
         long[] jArr = new long[4];
-        this.f23747f = jArr;
+        this.f = jArr;
         ByteBuffer newPixmap = newPixmap(jArr, i, i2, i3);
-        this.f23746e = newPixmap;
+        this.e = newPixmap;
         if (newPixmap != null) {
-            long[] jArr2 = this.f23747f;
+            long[] jArr2 = this.f;
             this.a = jArr2[0];
-            this.f23743b = (int) jArr2[1];
-            this.f23744c = (int) jArr2[2];
-            this.f23745d = (int) jArr2[3];
+            this.b = (int) jArr2[1];
+            this.c = (int) jArr2[2];
+            this.d = (int) jArr2[3];
             return;
         }
         throw new GdxRuntimeException("Unable to allocate memory for pixmap: " + i + "x" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + j(i3));

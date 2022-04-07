@@ -3,8 +3,6 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.o0.r.v.c;
-import c.a.p0.w2.i.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,29 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.wr4;
+import com.repackage.xr7;
+/* loaded from: classes3.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34867b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f34868c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f34869d;
+    public View b;
+    public ViewGroup c;
+    public TextView d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbChildTitleViewHolder(View view) {
-        super(view);
+    public PbChildTitleViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,18 +41,18 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view;
-        this.f34867b = view.findViewById(R.id.obfuscated_res_0x7f091696);
-        this.f34868c = (ViewGroup) view.findViewById(R.id.obfuscated_res_0x7f091ad3);
-        TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921e7);
-        this.f34869d = textView;
-        c.d(textView).A(R.string.F_X02);
+        this.a = view2;
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091690);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091ac3);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cb);
+        this.d = textView;
+        wr4.d(textView).A(R.string.F_X02);
     }
 
-    public void c(e eVar) {
+    public void c(xr7 xr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f34869d.setText(eVar.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, xr7Var) == null) {
+            this.d.setText(xr7Var.b());
         }
     }
 
@@ -71,18 +65,18 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f34867b, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f34868c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f34869d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         }
     }
 
     public void f(int i) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (view = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (view2 = this.a) == null) {
             return;
         }
-        view.setVisibility(i);
+        view2.setVisibility(i);
     }
 }

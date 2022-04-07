@@ -25,7 +25,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_HEAD_LENGTH = 5;
@@ -61,7 +61,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,12 +156,12 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    public SensorController(Context context, float f2, float f3, float f4, boolean z) {
+    public SensorController(Context context, float f, float f2, float f3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
+            Object[] objArr = {context, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -174,9 +174,9 @@ public class SensorController implements SensorEventListener, SensorListener {
         this.gyroscopeCache = new LinkedList<>();
         this.accelerometerCache = new LinkedList<>();
         this.lightCache = new LinkedList<>();
-        this.gyroscopeThreshold = f2;
-        this.accelerometerThreshold = f3;
-        this.lightThreshold = f4;
+        this.gyroscopeThreshold = f;
+        this.accelerometerThreshold = f2;
+        this.lightThreshold = f3;
         this.enable = z;
         this.context = context;
         if (z) {
@@ -209,20 +209,20 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    private boolean compareFloats(float[] fArr, float[] fArr2, float f2) {
+    private boolean compareFloats(float[] fArr, float[] fArr2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{fArr, fArr2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{fArr, fArr2, Float.valueOf(f)})) == null) {
             if (fArr.length != fArr2.length) {
                 return true;
             }
             for (int i = 0; i < fArr.length; i++) {
-                if (f2 > 0.0f) {
-                    if (Math.abs(fArr[i] - fArr2[i]) > f2) {
+                if (f > 0.0f) {
+                    if (Math.abs(fArr[i] - fArr2[i]) > f) {
                         return true;
                     }
                 } else if (fArr[i] != 0.0f) {
-                    if ((Math.abs(fArr2[i] - fArr[i]) * 100.0f) / Math.abs(fArr[i]) > (-f2)) {
+                    if ((Math.abs(fArr2[i] - fArr[i]) * 100.0f) / Math.abs(fArr[i]) > (-f)) {
                         return true;
                     }
                 } else if (fArr2[i] != 0.0f) {
@@ -301,8 +301,8 @@ public class SensorController implements SensorEventListener, SensorListener {
             if (i > 0) {
                 sb.append("|");
                 for (SensorRecord sensorRecord : list) {
-                    for (float f2 : sensorRecord.value) {
-                        sb.append(f2);
+                    for (float f : sensorRecord.value) {
+                        sb.append(f);
                         sb.append(',');
                     }
                     sb.append(sensorRecord.time);

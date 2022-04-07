@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,18 +53,18 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // com.google.android.material.internal.ViewGroupOverlayImpl
-    public void add(@NonNull View view) {
+    public void add(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.viewGroupOverlay.add(view);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.viewGroupOverlay.add(view2);
         }
     }
 
     @Override // com.google.android.material.internal.ViewGroupOverlayImpl
-    public void remove(@NonNull View view) {
+    public void remove(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.viewGroupOverlay.remove(view);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.viewGroupOverlay.remove(view2);
         }
     }
 }

@@ -2,12 +2,6 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.d.f.p.l;
-import c.a.o0.j0.f;
-import c.a.o0.r.j0.b;
-import c.a.o0.r.m.c;
-import c.a.o0.r.m.e;
-import c.a.o0.s.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ag;
+import com.repackage.fn4;
+import com.repackage.fw4;
+import com.repackage.hn4;
+import com.repackage.ks4;
+import com.repackage.m55;
+import com.repackage.mi;
+import com.repackage.wt4;
+/* loaded from: classes3.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_ID = "android_id";
@@ -86,29 +88,29 @@ public class HttpRequest {
     }
 
     public void addBdussData(INetWorkCore iNetWorkCore) {
-        String b2;
+        String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iNetWorkCore) == null) {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                b2 = currentAccountInfo.getBDUSS();
+                b = currentAccountInfo.getBDUSS();
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b2 = f.b();
+                b = m55.b();
             }
-            if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b2)) {
-                currentAccountInfo = c.e();
+            if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
+                currentAccountInfo = fn4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
-                b2 = currentAccountInfo.getBDUSS();
+                b = currentAccountInfo.getBDUSS();
             }
-            if (TextUtils.isEmpty(b2) || !this.mIsUseCurrentBDUSS) {
+            if (TextUtils.isEmpty(b) || !this.mIsUseCurrentBDUSS) {
                 return;
             }
-            iNetWorkCore.addPostData(BDUSS, b2);
-            String a = e.a(currentAccountInfo);
+            iNetWorkCore.addPostData(BDUSS, b);
+            String a = hn4.a(currentAccountInfo);
             if (StringUtils.isNull(a)) {
                 return;
             }
@@ -144,9 +146,9 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = l.I();
+            int I = mi.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
-            String a = a.b().a();
+            String a = fw4.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
                 a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ";";
             }
@@ -163,11 +165,11 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            c.a.d.f.j.c.a.s(z);
-            c.a.d.f.j.c.a.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            ag.s(z);
+            ag.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, f.f());
+                    iNetWorkCore.addPostData(TBS, m55.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -184,7 +186,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData("model", Build.MODEL);
             iNetWorkCore.addPostData("brand", Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (b.k().l("android_safe_sdk_open", 0) == 1) {
+            if (wt4.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
@@ -203,8 +205,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", c.a.o0.r.a0.a.f10495f + "");
-            iNetWorkCore.addPostData("start_scheme", c.a.o0.r.a0.a.e());
+            iNetWorkCore.addPostData("start_type", ks4.f + "");
+            iNetWorkCore.addPostData("start_scheme", ks4.e());
         }
     }
 

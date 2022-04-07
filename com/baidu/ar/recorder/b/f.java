@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "f";
@@ -80,8 +80,8 @@ public class f extends b {
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.uX = this.uQ.createInputSurface();
                 this.uT = true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             cVar = this.uS;
             if (cVar == null) {

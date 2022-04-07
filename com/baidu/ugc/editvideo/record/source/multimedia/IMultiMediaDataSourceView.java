@@ -4,7 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLSurfaceView;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IVLogLifeProtocol, OnMultiMediaCaptureCallback, OnPreRunnableTask {
     void addCoverStickerData(MultiMediaData multiMediaData);
 
@@ -34,13 +34,13 @@ public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailab
 
     void setStickerEditButton(String str, String str2);
 
-    void setStickerMaxScale(float f2);
+    void setStickerMaxScale(float f);
 
-    void setStickerMinScale(float f2);
+    void setStickerMinScale(float f);
 
     void setStickerRotationButton(String str, String str2);
 
     void setUpEditLayer(String str);
 
-    void setVideoRatio(float f2);
+    void setVideoRatio(float f);
 }

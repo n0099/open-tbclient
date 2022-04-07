@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class TimeSelector {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSelector sExclusiveGlobalTimeSelector;
@@ -18,7 +18,7 @@ public abstract class TimeSelector {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector$5  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$ClockType;
         public static /* synthetic */ Interceptable $ic;

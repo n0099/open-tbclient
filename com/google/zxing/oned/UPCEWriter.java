@@ -11,7 +11,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class UPCEWriter extends UPCEANWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_WIDTH = 51;

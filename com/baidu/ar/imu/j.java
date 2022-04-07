@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class j extends Observable implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -97,7 +97,7 @@ public abstract class j extends Observable implements SensorEventListener {
 
     public static boolean a(float[] fArr, float[] fArr2) {
         InterceptResult invokeLL;
-        float f2;
+        float f;
         float atan;
         float atan2;
         Interceptable interceptable = $ic;
@@ -111,23 +111,23 @@ public abstract class j extends Observable implements SensorEventListener {
             int compare = Float.compare(fArr3[0], 0.0f);
             int compare2 = Float.compare(fArr3[1], 0.0f);
             if (compare != 0) {
-                double d2 = fArr3[1] / fArr3[0];
+                double d = fArr3[1] / fArr3[0];
                 if (compare > 0 && compare2 >= 0) {
-                    atan = (float) ((Math.atan(d2) * 180.0d) / 3.141592653589793d);
+                    atan = (float) ((Math.atan(d) * 180.0d) / 3.141592653589793d);
                 } else if (compare <= 0 || compare2 >= 0) {
-                    atan = ((float) ((Math.atan(d2) * 180.0d) / 3.141592653589793d)) + 180.0f;
+                    atan = ((float) ((Math.atan(d) * 180.0d) / 3.141592653589793d)) + 180.0f;
                 } else {
-                    atan2 = ((float) ((Math.atan(d2) * 180.0d) / 3.141592653589793d)) + 360.0f;
-                    f2 = atan2;
+                    atan2 = ((float) ((Math.atan(d) * 180.0d) / 3.141592653589793d)) + 360.0f;
+                    f = atan2;
                 }
                 atan2 = atan;
-                f2 = atan2;
+                f = atan2;
             } else {
-                f2 = (Float.compare(fArr3[1], 1.0f) != 0 && Float.compare(fArr3[1], -1.0f) == 0) ? 180.0f : 0.0f;
+                f = (Float.compare(fArr3[1], 1.0f) != 0 && Float.compare(fArr3[1], -1.0f) == 0) ? 180.0f : 0.0f;
             }
-            com.baidu.ar.h.b.c(TAG, "orientation: outputV[0] = " + fArr3[0] + ", outputV[1] = " + fArr3[1] + ", angleZ = " + f2);
+            com.baidu.ar.h.b.c(TAG, "orientation: outputV[0] = " + fArr3[0] + ", outputV[1] = " + fArr3[1] + ", angleZ = " + f);
             Matrix.setIdentityM(fArr, 0);
-            Matrix.rotateM(fArr, 0, f2, 0.0f, 0.0f, 1.0f);
+            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
             return true;
         }
         return invokeLL.booleanValue;

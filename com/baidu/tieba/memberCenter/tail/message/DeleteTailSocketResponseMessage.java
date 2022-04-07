@@ -1,6 +1,5 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.p0.j2.h.a.c;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gk7;
 import com.squareup.wire.Wire;
 import tbclient.DeleteTail.DeleteTailResIdl;
 import tbclient.Error;
-/* loaded from: classes5.dex */
-public class DeleteTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<c> {
+/* loaded from: classes3.dex */
+public class DeleteTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<gk7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c resultData;
+    public gk7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeleteTailSocketResponseMessage() {
@@ -37,7 +37,7 @@ public class DeleteTailSocketResponseMessage extends SocketResponsedMessage impl
         }
     }
 
-    public static c getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static gk7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -53,11 +53,11 @@ public class DeleteTailSocketResponseMessage extends SocketResponsedMessage impl
             if (deleteTailResIdl.data == null) {
                 return null;
             }
-            c cVar = new c();
-            cVar.b(deleteTailResIdl.data);
-            return cVar;
+            gk7 gk7Var = new gk7();
+            gk7Var.b(deleteTailResIdl.data);
+            return gk7Var;
         }
-        return (c) invokeLIL.objValue;
+        return (gk7) invokeLIL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,9 +72,9 @@ public class DeleteTailSocketResponseMessage extends SocketResponsedMessage impl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public c getResultData() {
+    public gk7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (gk7) invokeV.objValue;
     }
 }

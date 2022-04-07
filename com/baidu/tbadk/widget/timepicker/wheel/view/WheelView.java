@@ -14,8 +14,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.e1.q.b.c.b;
-import c.a.o0.e1.q.b.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -26,12 +24,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fg5;
+import com.repackage.gg5;
+import com.repackage.hg5;
+import com.repackage.ig5;
+import com.repackage.jg5;
+import com.repackage.kg5;
+import com.repackage.lg5;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WheelView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,32 +60,18 @@ public class WheelView extends View {
     public int R;
     public float S;
     public DividerType a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f31022b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f31023c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public GestureDetector f31024d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b f31025e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f31026f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f31027g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ScheduledExecutorService f31028h;
+    public Context b;
+    public Handler c;
+    public GestureDetector d;
+    public ig5 e;
+    public boolean f;
+    public boolean g;
+    public ScheduledExecutorService h;
     public ScheduledFuture<?> i;
     public Paint j;
     public Paint k;
     public Paint l;
-    public c.a.o0.e1.q.b.a.a m;
+    public fg5 m;
     public String n;
     public int o;
     public int p;
@@ -96,7 +87,7 @@ public class WheelView extends View {
     public float z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class ACTION {
         public static final /* synthetic */ ACTION[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -158,7 +149,7 @@ public class WheelView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class DividerType {
         public static final /* synthetic */ DividerType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,7 +208,7 @@ public class WheelView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +236,7 @@ public class WheelView extends View {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f31025e.onItemSelected(this.a.getCurrentItem());
+                this.a.e.onItemSelected(this.a.getCurrentItem());
             }
         }
     }
@@ -288,8 +279,8 @@ public class WheelView extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof c.a.o0.e1.q.b.b.a) {
-                return ((c.a.o0.e1.q.b.b.a) obj).a();
+            if (obj instanceof gg5) {
+                return ((gg5) obj).a();
             }
             return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
         }
@@ -330,10 +321,10 @@ public class WheelView extends View {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f31022b = context;
-            this.f31023c = new c.a.o0.e1.q.b.d.b(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new c.a.o0.e1.q.b.c.a(this));
-            this.f31024d = gestureDetector;
+            this.b = context;
+            this.c = new kg5(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new hg5(this));
+            this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
             this.C = 0.0f;
@@ -366,10 +357,10 @@ public class WheelView extends View {
         }
     }
 
-    public final c.a.o0.e1.q.b.a.a getAdapter() {
+    public final fg5 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (c.a.o0.e1.q.b.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (fg5) invokeV.objValue;
     }
 
     public final int getCurrentItem() {
@@ -377,11 +368,11 @@ public class WheelView extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.o0.e1.q.b.a.a aVar = this.m;
-            if (aVar == null) {
+            fg5 fg5Var = this.m;
+            if (fg5Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= aVar.a())) {
+            if (this.y && ((i = this.E) < 0 || i >= fg5Var.a())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.a()), this.m.a() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.a() - 1));
@@ -393,7 +384,7 @@ public class WheelView extends View {
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31023c : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (Handler) invokeV.objValue;
     }
 
     public int getInitPosition() {
@@ -412,9 +403,9 @@ public class WheelView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            c.a.o0.e1.q.b.a.a aVar = this.m;
-            if (aVar != null) {
-                return aVar.a();
+            fg5 fg5Var = this.m;
+            if (fg5Var != null) {
+                return fg5Var.a();
             }
             return 0;
         }
@@ -430,7 +421,7 @@ public class WheelView extends View {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f31027g = z;
+            this.g = z;
         }
     }
 
@@ -443,10 +434,10 @@ public class WheelView extends View {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            float f2 = this.x;
-            if (f2 < 1.0f) {
+            float f = this.x;
+            if (f < 1.0f) {
                 this.x = 1.0f;
-            } else if (f2 > 4.0f) {
+            } else if (f > 4.0f) {
                 this.x = 4.0f;
             }
         }
@@ -457,8 +448,8 @@ public class WheelView extends View {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             Rect rect = new Rect();
             for (int i = 0; i < this.m.a(); i++) {
-                String c2 = c(this.m.getItem(i));
-                this.k.getTextBounds(c2, 0, c2.length(), rect);
+                String c = c(this.m.getItem(i));
+                this.k.getTextBounds(c, 0, c.length(), rect);
                 int width = rect.width();
                 if (width > this.p) {
                     this.p = width;
@@ -483,7 +474,7 @@ public class WheelView extends View {
                 this.Q = (this.J - rect.width()) - ((int) this.S);
             } else if (i != 17) {
             } else {
-                if (!this.f31026f && (str2 = this.n) != null && !str2.equals("") && this.f31027g) {
+                if (!this.f && (str2 = this.n) != null && !str2.equals("") && this.g) {
                     this.Q = (int) ((this.J - rect.width()) * 0.25d);
                 } else {
                     this.Q = (int) ((this.J - rect.width()) * 0.5d);
@@ -505,7 +496,7 @@ public class WheelView extends View {
                 this.R = (this.J - rect.width()) - ((int) this.S);
             } else if (i != 17) {
             } else {
-                if (!this.f31026f && (str2 = this.n) != null && !str2.equals("") && this.f31027g) {
+                if (!this.f && (str2 = this.n) != null && !str2.equals("") && this.g) {
                     this.R = (int) ((this.J - rect.width()) * 0.25d);
                 } else {
                     this.R = (int) ((this.J - rect.width()) * 0.5d);
@@ -516,7 +507,7 @@ public class WheelView extends View {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.f31025e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.e == null) {
             return;
         }
         postDelayed(new a(this), 200L);
@@ -569,7 +560,7 @@ public class WheelView extends View {
                 this.F -= this.m.a();
             }
         }
-        float f2 = this.C % this.s;
+        float f = this.C % this.s;
         int i3 = 0;
         while (true) {
             int i4 = this.H;
@@ -594,78 +585,78 @@ public class WheelView extends View {
             } else {
                 i = (this.J - this.p) / 4;
             }
-            float f3 = i - 12;
-            float f4 = f3 <= 0.0f ? 10.0f : f3;
-            float f5 = this.J - f4;
-            float f6 = this.z;
-            float f7 = f4;
-            canvas.drawLine(f7, f6, f5, f6, this.l);
-            float f8 = this.A;
-            canvas.drawLine(f7, f8, f5, f8, this.l);
+            float f2 = i - 12;
+            float f3 = f2 <= 0.0f ? 10.0f : f2;
+            float f4 = this.J - f3;
+            float f5 = this.z;
+            float f6 = f3;
+            canvas.drawLine(f6, f5, f4, f5, this.l);
+            float f7 = this.A;
+            canvas.drawLine(f6, f7, f4, f7, this.l);
         } else {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.L_X01);
-            float f9 = this.z;
-            float f10 = dimenPixelSize;
-            canvas.drawRect(0.0f, f9, this.J, f9 + f10, this.l);
-            float f11 = this.A;
-            canvas.drawRect(0.0f, f11 - f10, this.J, f11, this.l);
+            float f8 = this.z;
+            float f9 = dimenPixelSize;
+            canvas.drawRect(0.0f, f8, this.J, f8 + f9, this.l);
+            float f10 = this.A;
+            canvas.drawRect(0.0f, f10 - f9, this.J, f10, this.l);
         }
-        if (!TextUtils.isEmpty(this.n) && this.f31027g) {
+        if (!TextUtils.isEmpty(this.n) && this.g) {
             canvas.drawText(this.n, (this.J - e(this.k, this.n)) - this.S, this.B, this.k);
         }
         for (int i6 = 0; i6 < this.H; i6++) {
             canvas.save();
-            double d2 = ((this.s * i6) - f2) / this.K;
-            float f12 = (float) (90.0d - ((d2 / 3.141592653589793d) * 180.0d));
-            if (f12 < 90.0f && f12 > -90.0f) {
-                float pow = (float) Math.pow(Math.abs(f12) / 90.0f, 2.2d);
-                String c2 = (!this.f31027g && !TextUtils.isEmpty(this.n) && !TextUtils.isEmpty(c(objArr[i6]))) ? c(objArr[i6]) + this.n : c(objArr[i6]);
-                o(c2);
-                l(c2);
-                m(c2);
-                float cos = (float) ((this.K - (Math.cos(d2) * this.K)) - ((Math.sin(d2) * this.q) / 2.0d));
+            double d = ((this.s * i6) - f) / this.K;
+            float f11 = (float) (90.0d - ((d / 3.141592653589793d) * 180.0d));
+            if (f11 < 90.0f && f11 > -90.0f) {
+                float pow = (float) Math.pow(Math.abs(f11) / 90.0f, 2.2d);
+                String c = (!this.g && !TextUtils.isEmpty(this.n) && !TextUtils.isEmpty(c(objArr[i6]))) ? c(objArr[i6]) + this.n : c(objArr[i6]);
+                o(c);
+                l(c);
+                m(c);
+                float cos = (float) ((this.K - (Math.cos(d) * this.K)) - ((Math.sin(d) * this.q) / 2.0d));
                 canvas.translate(0.0f, cos);
-                float f13 = this.z;
-                if (cos <= f13 && this.q + cos >= f13) {
+                float f12 = this.z;
+                if (cos <= f12 && this.q + cos >= f12) {
                     canvas.save();
                     canvas.clipRect(0.0f, 0.0f, this.J, this.z - cos);
-                    canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
-                    canvas.drawText(c2, this.R, this.q, this.j);
+                    canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
+                    canvas.drawText(c, this.R, this.q, this.j);
                     canvas.restore();
                     canvas.save();
                     canvas.clipRect(0.0f, this.z - cos, this.J, (int) this.s);
-                    canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
-                    canvas.drawText(c2, this.Q, this.q - this.S, this.k);
+                    canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
+                    canvas.drawText(c, this.Q, this.q - this.S, this.k);
                     canvas.restore();
                 } else {
-                    float f14 = this.A;
-                    if (cos <= f14 && this.q + cos >= f14) {
+                    float f13 = this.A;
+                    if (cos <= f13 && this.q + cos >= f13) {
                         canvas.save();
                         canvas.clipRect(0.0f, 0.0f, this.J, this.A - cos);
-                        canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
-                        canvas.drawText(c2, this.Q, this.q - this.S, this.k);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
+                        canvas.drawText(c, this.Q, this.q - this.S, this.k);
                         canvas.restore();
                         canvas.save();
                         canvas.clipRect(0.0f, this.A - cos, this.J, (int) this.s);
-                        canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
-                        canvas.drawText(c2, this.R, this.q, this.j);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
+                        canvas.drawText(c, this.R, this.q, this.j);
                         canvas.restore();
                     } else {
                         if (cos >= this.z) {
                             int i7 = this.q;
                             if (i7 + cos <= this.A) {
-                                canvas.drawText(c2, this.Q, i7 - this.S, this.k);
+                                canvas.drawText(c, this.Q, i7 - this.S, this.k);
                                 this.E = this.F - ((this.H / 2) - i6);
                             }
                         }
                         canvas.save();
                         canvas.clipRect(0, 0, this.J, (int) this.s);
-                        canvas.scale(1.0f, ((float) Math.sin(d2)) * 1.0f);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
                         Paint paint = this.j;
                         int i8 = this.r;
-                        paint.setTextSkewX((i8 == 0 ? 0 : i8 > 0 ? 1 : -1) * (f12 <= 0.0f ? 1 : -1) * 0.5f * pow);
+                        paint.setTextSkewX((i8 == 0 ? 0 : i8 > 0 ? 1 : -1) * (f11 <= 0.0f ? 1 : -1) * 0.5f * pow);
                         this.j.setAlpha((int) ((1.0f - pow) * 255.0f));
-                        canvas.drawText(c2, this.R + (this.r * pow), this.q, this.j);
+                        canvas.drawText(c, this.R + (this.r * pow), this.q, this.j);
                         canvas.restore();
                         canvas.restore();
                         this.k.setTextSize(this.o);
@@ -694,8 +685,8 @@ public class WheelView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
-            boolean onTouchEvent = this.f31024d.onTouchEvent(motionEvent);
-            float f2 = (-this.D) * this.s;
+            boolean onTouchEvent = this.d.onTouchEvent(motionEvent);
+            float f = (-this.D) * this.s;
             float a2 = ((this.m.a() - 1) - this.D) * this.s;
             int action = motionEvent.getAction();
             boolean z = false;
@@ -706,17 +697,17 @@ public class WheelView extends View {
             } else if (action == 2) {
                 float rawY = this.M - motionEvent.getRawY();
                 this.M = motionEvent.getRawY();
-                float f3 = this.C + rawY;
-                this.C = f3;
-                if (!this.y && ((f3 - (this.s * 0.25f) < f2 && rawY < 0.0f) || (this.C + (this.s * 0.25f) > a2 && rawY > 0.0f))) {
+                float f2 = this.C + rawY;
+                this.C = f2;
+                if (!this.y && ((f2 - (this.s * 0.25f) < f && rawY < 0.0f) || (this.C + (this.s * 0.25f) > a2 && rawY > 0.0f))) {
                     this.C -= rawY;
                     z = true;
                 }
             } else if (!onTouchEvent) {
                 float y = motionEvent.getY();
                 int i = this.K;
-                float f4 = this.s;
-                this.L = (int) (((((int) (((Math.acos((i - y) / i) * this.K) + (f4 / 2.0f)) / f4)) - (this.H / 2)) * f4) - (((this.C % f4) + f4) % f4));
+                float f3 = this.s;
+                this.L = (int) (((((int) (((Math.acos((i - y) / i) * this.K) + (f3 / 2.0f)) / f3)) - (this.H / 2)) * f3) - (((this.C % f3) + f3) % f3));
                 if (System.currentTimeMillis() - this.N > 120) {
                     r(ACTION.DAGGLE);
                 } else {
@@ -742,11 +733,11 @@ public class WheelView extends View {
         this.K = (int) (i / 3.141592653589793d);
         this.J = View.MeasureSpec.getSize(this.O);
         int i2 = this.I;
-        float f2 = this.s;
-        this.z = (i2 - f2) / 2.0f;
-        float f3 = (i2 + f2) / 2.0f;
-        this.A = f3;
-        this.B = (f3 - ((f2 - this.q) / 2.0f)) - this.S;
+        float f = this.s;
+        this.z = (i2 - f) / 2.0f;
+        float f2 = (i2 + f) / 2.0f;
+        this.A = f2;
+        this.B = (f2 - ((f - this.q) / 2.0f)) - this.S;
         if (this.D == -1) {
             if (this.y) {
                 this.D = (this.m.a() + 1) / 2;
@@ -757,11 +748,11 @@ public class WheelView extends View {
         this.F = this.D;
     }
 
-    public final void q(float f2) {
+    public final void q(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             b();
-            this.i = this.f31028h.scheduleWithFixedDelay(new c.a.o0.e1.q.b.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new jg5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -770,24 +761,24 @@ public class WheelView extends View {
         if (interceptable == null || interceptable.invokeL(1048602, this, action) == null) {
             b();
             if (action == ACTION.FLING || action == ACTION.DAGGLE) {
-                float f2 = this.C;
-                float f3 = this.s;
-                int i = (int) (((f2 % f3) + f3) % f3);
+                float f = this.C;
+                float f2 = this.s;
+                int i = (int) (((f % f2) + f2) % f2);
                 this.L = i;
-                if (i > f3 / 2.0f) {
-                    this.L = (int) (f3 - i);
+                if (i > f2 / 2.0f) {
+                    this.L = (int) (f2 - i);
                 } else {
                     this.L = -i;
                 }
             }
-            this.i = this.f31028h.scheduleWithFixedDelay(new c(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new lg5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(c.a.o0.e1.q.b.a.a aVar) {
+    public final void setAdapter(fg5 fg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, aVar) == null) {
-            this.m = aVar;
+        if (interceptable == null || interceptable.invokeL(1048603, this, fg5Var) == null) {
+            this.m = fg5Var;
             p();
             invalidate();
         }
@@ -842,7 +833,7 @@ public class WheelView extends View {
     public void setIsOptions(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            this.f31026f = z;
+            this.f = z;
         }
     }
 
@@ -860,19 +851,19 @@ public class WheelView extends View {
         }
     }
 
-    public void setLineSpacingMultiplier(float f2) {
+    public void setLineSpacingMultiplier(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048613, this, f2) == null) || f2 == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(1048613, this, f) == null) || f == 0.0f) {
             return;
         }
-        this.x = f2;
+        this.x = f;
         j();
     }
 
-    public final void setOnItemSelectedListener(b bVar) {
+    public final void setOnItemSelectedListener(ig5 ig5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, bVar) == null) {
-            this.f31025e = bVar;
+        if (interceptable == null || interceptable.invokeL(1048614, this, ig5Var) == null) {
+            this.e = ig5Var;
         }
     }
 
@@ -892,12 +883,12 @@ public class WheelView extends View {
         }
     }
 
-    public final void setTextSize(float f2) {
+    public final void setTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048617, this, f2) == null) || f2 <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(1048617, this, f) == null) || f <= 0.0f) {
             return;
         }
-        int i = (int) (this.f31022b.getResources().getDisplayMetrics().density * f2);
+        int i = (int) (this.b.getResources().getDisplayMetrics().density * f);
         this.o = i;
         this.j.setTextSize(i);
         this.k.setTextSize(this.o);
@@ -913,10 +904,10 @@ public class WheelView extends View {
         }
     }
 
-    public void setTotalScrollY(float f2) {
+    public void setTotalScrollY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
-            this.C = f2;
+        if (interceptable == null || interceptable.invokeF(1048619, this, f) == null) {
+            this.C = f;
         }
     }
 
@@ -948,9 +939,9 @@ public class WheelView extends View {
                 return;
             }
         }
-        this.f31026f = false;
-        this.f31027g = true;
-        this.f31028h = Executors.newSingleThreadScheduledExecutor();
+        this.f = false;
+        this.g = true;
+        this.h = Executors.newSingleThreadScheduledExecutor();
         this.t = Typeface.MONOSPACE;
         this.x = 1.6f;
         this.H = 7;
@@ -960,24 +951,24 @@ public class WheelView extends View {
         this.P = 17;
         this.Q = 0;
         this.R = 0;
-        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070594);
-        float f2 = getResources().getDisplayMetrics().density;
-        if (f2 < 1.0f) {
+        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705a0);
+        float f = getResources().getDisplayMetrics().density;
+        if (f < 1.0f) {
             this.S = 2.4f;
         } else {
-            int i3 = (1.0f > f2 ? 1 : (1.0f == f2 ? 0 : -1));
-            if (i3 <= 0 && f2 < 2.0f) {
+            int i3 = (1.0f > f ? 1 : (1.0f == f ? 0 : -1));
+            if (i3 <= 0 && f < 2.0f) {
                 this.S = 3.6f;
-            } else if (i3 <= 0 && f2 < 2.0f) {
+            } else if (i3 <= 0 && f < 2.0f) {
                 this.S = 4.5f;
-            } else if (2.0f <= f2 && f2 < 3.0f) {
+            } else if (2.0f <= f && f < 3.0f) {
                 this.S = 6.0f;
-            } else if (f2 >= 3.0f) {
-                this.S = f2 * 2.5f;
+            } else if (f >= 3.0f) {
+                this.S = f * 2.5f;
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04068a, R.attr.obfuscated_res_0x7f04068b, R.attr.obfuscated_res_0x7f04068c, R.attr.obfuscated_res_0x7f04068d, R.attr.obfuscated_res_0x7f04068e, R.attr.obfuscated_res_0x7f04068f}, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406c8, R.attr.obfuscated_res_0x7f0406c9, R.attr.obfuscated_res_0x7f0406ca, R.attr.obfuscated_res_0x7f0406cb, R.attr.obfuscated_res_0x7f0406cc, R.attr.obfuscated_res_0x7f0406cd}, 0, 0);
             this.P = obtainStyledAttributes.getInt(1, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);

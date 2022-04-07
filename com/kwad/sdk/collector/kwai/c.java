@@ -20,14 +20,12 @@ import java.io.Reader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static com.kwad.sdk.collector.kwai.d a;
+    public static Context b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static Context f39223b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a extends com.kwad.sdk.collector.kwai.a {
         public a() {
             b();
@@ -35,7 +33,7 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f39222b = arrayList;
+            this.b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
@@ -67,7 +65,7 @@ public class c {
                     return i > 3;
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return "1".equals(au.a("ro.kernel.qemu"));
@@ -76,16 +74,16 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b extends com.kwad.sdk.collector.kwai.a {
     }
 
     /* renamed from: com.kwad.sdk.collector.kwai.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1950c extends com.kwad.sdk.collector.kwai.a {
+    /* loaded from: classes5.dex */
+    public static class C0290c extends com.kwad.sdk.collector.kwai.a {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class d extends com.kwad.sdk.collector.kwai.a {
         public d() {
             b();
@@ -93,32 +91,32 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f39222b = arrayList;
+            this.b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return new File("/system/app/Superuser.apk").exists();
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
                     for (int i = 0; i < 5; i++) {
-                        if (new File(strArr[i] + j0.f38847b).exists()) {
+                        if (new File(strArr[i] + j0.b).exists()) {
                             return true;
                         }
                     }
                     return false;
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
-                    return c.a(new String[]{"/system/xbin/which", j0.f38847b}) != null;
+                    return c.a(new String[]{"/system/xbin/which", j0.b}) != null;
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     Charset forName = Charset.forName("UTF-8");
@@ -134,7 +132,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class e extends com.kwad.sdk.collector.kwai.a {
         public e() {
             b();
@@ -142,23 +140,23 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f39222b = arrayList;
+            this.b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return ag.a(context, "de.robv.android.xposed.installer") || ag.a(context, "com.saurik.substrate");
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     StackTraceElement[] stackTrace;
                     try {
                         throw new Exception(SchemeCollecter.CLASSIFY_EMPTY);
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         boolean z = false;
                         int i = 0;
-                        for (StackTraceElement stackTraceElement : e2.getStackTrace()) {
+                        for (StackTraceElement stackTraceElement : e.getStackTrace()) {
                             String className = stackTraceElement.getClassName();
                             String methodName = stackTraceElement.getMethodName();
                             if (className.equals("com.android.internal.os.ZygoteInit") && (i = i + 1) == 2) {
@@ -179,7 +177,7 @@ public class c {
                     }
                 }
             });
-            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
+            this.b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     boolean z = false;
@@ -220,12 +218,12 @@ public class c {
                 if (a != null) {
                     return a;
                 }
-                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(f39223b);
-                boolean a2 = new d().a(f39223b);
-                boolean a3 = new e().a(f39223b);
-                boolean a4 = new b().a(f39223b);
-                boolean a5 = new a().a(f39223b);
-                boolean a6 = new C1950c().a(f39223b);
+                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(b);
+                boolean a2 = new d().a(b);
+                boolean a3 = new e().a(b);
+                boolean a4 = new b().a(b);
+                boolean a5 = new a().a(b);
+                boolean a6 = new C0290c().a(b);
                 dVar.a(a2);
                 dVar.b(a3);
                 dVar.c(a4);
@@ -273,7 +271,7 @@ public class c {
             if (context == null) {
                 return;
             }
-            f39223b = context.getApplicationContext();
+            b = context.getApplicationContext();
         }
     }
 }

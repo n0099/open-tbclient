@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Slot implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Slot> CREATOR;
@@ -26,7 +26,7 @@ public class Slot implements Parcelable {
     public JSONObject mOption;
     public long mStart;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<Slot> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,11 +130,11 @@ public class Slot implements Parcelable {
         if (TextUtils.isEmpty(this.mCategory)) {
             return null;
         }
-        float f2 = this.mDuration;
-        if (f2 <= 0.0f) {
+        float f = this.mDuration;
+        if (f <= 0.0f) {
             return null;
         }
-        String format = String.format("%.3f", Float.valueOf(f2));
+        String format = String.format("%.3f", Float.valueOf(f));
         try {
             JSONObject jSONObject2 = new JSONObject();
             try {
@@ -144,14 +144,14 @@ public class Slot implements Parcelable {
                     jSONObject2.put("info", this.mOption);
                 }
                 return jSONObject2;
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 jSONObject = jSONObject2;
                 e.printStackTrace();
                 return jSONObject;
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 

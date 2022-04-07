@@ -50,7 +50,7 @@ public class RoundRectDrawableWithShadow extends Drawable {
 
     /* loaded from: classes.dex */
     public interface RoundRectHelper {
-        void drawRoundRect(Canvas canvas, RectF rectF, float f2, Paint paint);
+        void drawRoundRect(Canvas canvas, RectF rectF, float f, Paint paint);
     }
 
     static {
@@ -69,12 +69,12 @@ public class RoundRectDrawableWithShadow extends Drawable {
         COS_45 = Math.cos(Math.toRadians(45.0d));
     }
 
-    public RoundRectDrawableWithShadow(Resources resources, ColorStateList colorStateList, float f2, float f3, float f4) {
+    public RoundRectDrawableWithShadow(Resources resources, ColorStateList colorStateList, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {resources, colorStateList, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {resources, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,20 +95,20 @@ public class RoundRectDrawableWithShadow extends Drawable {
         Paint paint = new Paint(5);
         this.mCornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.mCornerRadius = (int) (f2 + 0.5f);
+        this.mCornerRadius = (int) (f + 0.5f);
         this.mCardBounds = new RectF();
         Paint paint2 = new Paint(this.mCornerShadowPaint);
         this.mEdgeShadowPaint = paint2;
         paint2.setAntiAlias(false);
-        setShadowSize(f3, f4);
+        setShadowSize(f2, f3);
     }
 
     private void buildComponents(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, rect) == null) {
-            float f2 = this.mRawMaxShadowSize;
-            float f3 = 1.5f * f2;
-            this.mCardBounds.set(rect.left + f2, rect.top + f3, rect.right - f2, rect.bottom - f3);
+            float f = this.mRawMaxShadowSize;
+            float f2 = 1.5f * f;
+            this.mCardBounds.set(rect.left + f, rect.top + f2, rect.right - f, rect.bottom - f2);
             buildShadowCorners();
         }
     }
@@ -116,11 +116,11 @@ public class RoundRectDrawableWithShadow extends Drawable {
     private void buildShadowCorners() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            float f2 = this.mCornerRadius;
-            RectF rectF = new RectF(-f2, -f2, f2, f2);
+            float f = this.mCornerRadius;
+            RectF rectF = new RectF(-f, -f, f, f);
             RectF rectF2 = new RectF(rectF);
-            float f3 = this.mShadowSize;
-            rectF2.inset(-f3, -f3);
+            float f2 = this.mShadowSize;
+            rectF2.inset(-f2, -f2);
             Path path = this.mCornerShadowPath;
             if (path == null) {
                 this.mCornerShadowPath = new Path();
@@ -133,75 +133,75 @@ public class RoundRectDrawableWithShadow extends Drawable {
             this.mCornerShadowPath.arcTo(rectF2, 180.0f, 90.0f, false);
             this.mCornerShadowPath.arcTo(rectF, 270.0f, -90.0f, false);
             this.mCornerShadowPath.close();
-            float f4 = this.mCornerRadius;
-            float f5 = f4 / (this.mShadowSize + f4);
+            float f3 = this.mCornerRadius;
+            float f4 = f3 / (this.mShadowSize + f3);
             Paint paint = this.mCornerShadowPaint;
-            float f6 = this.mCornerRadius + this.mShadowSize;
+            float f5 = this.mCornerRadius + this.mShadowSize;
             int i = this.mShadowStartColor;
-            paint.setShader(new RadialGradient(0.0f, 0.0f, f6, new int[]{i, i, this.mShadowEndColor}, new float[]{0.0f, f5, 1.0f}, Shader.TileMode.CLAMP));
+            paint.setShader(new RadialGradient(0.0f, 0.0f, f5, new int[]{i, i, this.mShadowEndColor}, new float[]{0.0f, f4, 1.0f}, Shader.TileMode.CLAMP));
             Paint paint2 = this.mEdgeShadowPaint;
-            float f7 = this.mCornerRadius;
-            float f8 = this.mShadowSize;
+            float f6 = this.mCornerRadius;
+            float f7 = this.mShadowSize;
             int i2 = this.mShadowStartColor;
-            paint2.setShader(new LinearGradient(0.0f, (-f7) + f8, 0.0f, (-f7) - f8, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
+            paint2.setShader(new LinearGradient(0.0f, (-f6) + f7, 0.0f, (-f6) - f7, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
             this.mEdgeShadowPaint.setAntiAlias(false);
         }
     }
 
-    public static float calculateHorizontalPadding(float f2, float f3, boolean z) {
+    public static float calculateHorizontalPadding(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) (f2 + ((1.0d - COS_45) * f3)) : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? z ? (float) (f + ((1.0d - COS_45) * f2)) : f : invokeCommon.floatValue;
     }
 
-    public static float calculateVerticalPadding(float f2, float f3, boolean z) {
+    public static float calculateVerticalPadding(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) ((f2 * 1.5f) + ((1.0d - COS_45) * f3)) : f2 * 1.5f : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? z ? (float) ((f * 1.5f) + ((1.0d - COS_45) * f2)) : f * 1.5f : invokeCommon.floatValue;
     }
 
     private void drawShadow(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, canvas) == null) {
-            float f2 = this.mCornerRadius;
-            float f3 = (-f2) - this.mShadowSize;
-            float f4 = f2 + this.mInsetShadow + (this.mRawShadowSize / 2.0f);
-            float f5 = f4 * 2.0f;
-            boolean z = this.mCardBounds.width() - f5 > 0.0f;
-            boolean z2 = this.mCardBounds.height() - f5 > 0.0f;
+            float f = this.mCornerRadius;
+            float f2 = (-f) - this.mShadowSize;
+            float f3 = f + this.mInsetShadow + (this.mRawShadowSize / 2.0f);
+            float f4 = f3 * 2.0f;
+            boolean z = this.mCardBounds.width() - f4 > 0.0f;
+            boolean z2 = this.mCardBounds.height() - f4 > 0.0f;
             int save = canvas.save();
             RectF rectF = this.mCardBounds;
-            canvas.translate(rectF.left + f4, rectF.top + f4);
+            canvas.translate(rectF.left + f3, rectF.top + f3);
             canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
             if (z) {
-                canvas.drawRect(0.0f, f3, this.mCardBounds.width() - f5, -this.mCornerRadius, this.mEdgeShadowPaint);
+                canvas.drawRect(0.0f, f2, this.mCardBounds.width() - f4, -this.mCornerRadius, this.mEdgeShadowPaint);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
             RectF rectF2 = this.mCardBounds;
-            canvas.translate(rectF2.right - f4, rectF2.bottom - f4);
+            canvas.translate(rectF2.right - f3, rectF2.bottom - f3);
             canvas.rotate(180.0f);
             canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
             if (z) {
-                canvas.drawRect(0.0f, f3, this.mCardBounds.width() - f5, (-this.mCornerRadius) + this.mShadowSize, this.mEdgeShadowPaint);
+                canvas.drawRect(0.0f, f2, this.mCardBounds.width() - f4, (-this.mCornerRadius) + this.mShadowSize, this.mEdgeShadowPaint);
             }
             canvas.restoreToCount(save2);
             int save3 = canvas.save();
             RectF rectF3 = this.mCardBounds;
-            canvas.translate(rectF3.left + f4, rectF3.bottom - f4);
+            canvas.translate(rectF3.left + f3, rectF3.bottom - f3);
             canvas.rotate(270.0f);
             canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
             if (z2) {
-                canvas.drawRect(0.0f, f3, this.mCardBounds.height() - f5, -this.mCornerRadius, this.mEdgeShadowPaint);
+                canvas.drawRect(0.0f, f2, this.mCardBounds.height() - f4, -this.mCornerRadius, this.mEdgeShadowPaint);
             }
             canvas.restoreToCount(save3);
             int save4 = canvas.save();
             RectF rectF4 = this.mCardBounds;
-            canvas.translate(rectF4.right - f4, rectF4.top + f4);
+            canvas.translate(rectF4.right - f3, rectF4.top + f3);
             canvas.rotate(90.0f);
             canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
             if (z2) {
-                canvas.drawRect(0.0f, f3, this.mCardBounds.height() - f5, -this.mCornerRadius, this.mEdgeShadowPaint);
+                canvas.drawRect(0.0f, f2, this.mCardBounds.height() - f4, -this.mCornerRadius, this.mEdgeShadowPaint);
             }
             canvas.restoreToCount(save4);
         }
@@ -218,14 +218,14 @@ public class RoundRectDrawableWithShadow extends Drawable {
         }
     }
 
-    private void setShadowSize(float f2, float f3) {
+    private void setShadowSize(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            if (f2 < 0.0f) {
-                throw new IllegalArgumentException("Invalid shadow size " + f2 + ". Must be >= 0");
-            } else if (f3 >= 0.0f) {
-                float even = toEven(f2);
-                float even2 = toEven(f3);
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (f < 0.0f) {
+                throw new IllegalArgumentException("Invalid shadow size " + f + ". Must be >= 0");
+            } else if (f2 >= 0.0f) {
+                float even = toEven(f);
+                float even2 = toEven(f2);
                 if (even > even2) {
                     if (!this.mPrintedShadowClipWarning) {
                         this.mPrintedShadowClipWarning = true;
@@ -241,16 +241,16 @@ public class RoundRectDrawableWithShadow extends Drawable {
                 this.mDirty = true;
                 invalidateSelf();
             } else {
-                throw new IllegalArgumentException("Invalid max shadow size " + f3 + ". Must be >= 0");
+                throw new IllegalArgumentException("Invalid max shadow size " + f2 + ". Must be >= 0");
             }
         }
     }
 
-    private int toEven(float f2) {
+    private int toEven(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) {
-            int i = (int) (f2 + 0.5f);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f)) == null) {
+            int i = (int) (f + 0.5f);
             return i % 2 == 1 ? i - 1 : i;
         }
         return invokeF.intValue;
@@ -300,8 +300,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            float f2 = this.mRawMaxShadowSize;
-            return (Math.max(f2, this.mCornerRadius + this.mInsetShadow + ((f2 * 1.5f) / 2.0f)) * 2.0f) + (((this.mRawMaxShadowSize * 1.5f) + this.mInsetShadow) * 2.0f);
+            float f = this.mRawMaxShadowSize;
+            return (Math.max(f, this.mCornerRadius + this.mInsetShadow + ((f * 1.5f) / 2.0f)) * 2.0f) + (((this.mRawMaxShadowSize * 1.5f) + this.mInsetShadow) * 2.0f);
         }
         return invokeV.floatValue;
     }
@@ -310,8 +310,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f2 = this.mRawMaxShadowSize;
-            return (Math.max(f2, this.mCornerRadius + this.mInsetShadow + (f2 / 2.0f)) * 2.0f) + ((this.mRawMaxShadowSize + this.mInsetShadow) * 2.0f);
+            float f = this.mRawMaxShadowSize;
+            return (Math.max(f, this.mCornerRadius + this.mInsetShadow + (f / 2.0f)) * 2.0f) + ((this.mRawMaxShadowSize + this.mInsetShadow) * 2.0f);
         }
         return invokeV.floatValue;
     }
@@ -417,34 +417,34 @@ public class RoundRectDrawableWithShadow extends Drawable {
         }
     }
 
-    public void setCornerRadius(float f2) {
+    public void setCornerRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            if (f2 >= 0.0f) {
-                float f3 = (int) (f2 + 0.5f);
-                if (this.mCornerRadius == f3) {
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            if (f >= 0.0f) {
+                float f2 = (int) (f + 0.5f);
+                if (this.mCornerRadius == f2) {
                     return;
                 }
-                this.mCornerRadius = f3;
+                this.mCornerRadius = f2;
                 this.mDirty = true;
                 invalidateSelf();
                 return;
             }
-            throw new IllegalArgumentException("Invalid radius " + f2 + ". Must be >= 0");
+            throw new IllegalArgumentException("Invalid radius " + f + ". Must be >= 0");
         }
     }
 
-    public void setMaxShadowSize(float f2) {
+    public void setMaxShadowSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            setShadowSize(this.mRawShadowSize, f2);
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            setShadowSize(this.mRawShadowSize, f);
         }
     }
 
-    public void setShadowSize(float f2) {
+    public void setShadowSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            setShadowSize(f2, this.mRawMaxShadowSize);
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            setShadowSize(f, this.mRawMaxShadowSize);
         }
     }
 }

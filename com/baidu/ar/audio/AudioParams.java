@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AudioParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_AMPLIFY_VOLUME = 1.0f;
@@ -122,10 +122,10 @@ public class AudioParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ((((((((((this.mAudioSource + 31) * 31) + this.mSampleRate) * 31) + this.mChannelConfig) * 31) + this.mAudioFormat) * 31) + this.mFrameSize) * 31) + ((int) this.mAmplifyVolume) : invokeV.intValue;
     }
 
-    public void setAmplifyVolume(float f2) {
+    public void setAmplifyVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.mAmplifyVolume = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.mAmplifyVolume = f;
         }
     }
 

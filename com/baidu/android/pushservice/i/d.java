@@ -10,14 +10,12 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public DataInputStream f24736b;
+    public DataInputStream b;
 
     public d(InputStream inputStream) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f24736b = new DataInputStream(inputStream);
+        this.b = new DataInputStream(inputStream);
         this.a = new byte[8];
     }
 
@@ -44,7 +42,7 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             int i2 = 0;
             while (i2 < i) {
-                int read = this.f24736b.read(this.a, i2, i - i2);
+                int read = this.b.read(this.a, i2, i - i2);
                 if (read == -1) {
                     return read;
                 }
@@ -58,14 +56,14 @@ public class d {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24736b.close();
+            this.b.close();
         }
     }
 
     public final void a(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            this.f24736b.readFully(bArr, 0, bArr.length);
+            this.b.readFully(bArr, 0, bArr.length);
         }
     }
 

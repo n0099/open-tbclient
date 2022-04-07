@@ -45,10 +45,10 @@ public final class FakeDrag {
         this.mRecyclerView = recyclerView;
     }
 
-    private void addFakeMotionEvent(long j, int i, float f2, float f3) {
+    private void addFakeMotionEvent(long j, int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j, i, f2, f3, 0);
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j, i, f, f2, 0);
             this.mVelocityTracker.addMovement(obtain);
             obtain.recycle();
         }
@@ -110,23 +110,23 @@ public final class FakeDrag {
     }
 
     @UiThread
-    public boolean fakeDragBy(float f2) {
+    public boolean fakeDragBy(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
             if (this.mScrollEventAdapter.isFakeDragging()) {
-                float f3 = this.mRequestedDragDistance - f2;
-                this.mRequestedDragDistance = f3;
-                int round = Math.round(f3 - this.mActualDraggedDistance);
+                float f2 = this.mRequestedDragDistance - f;
+                this.mRequestedDragDistance = f2;
+                int round = Math.round(f2 - this.mActualDraggedDistance);
                 this.mActualDraggedDistance += round;
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean z = this.mViewPager.getOrientation() == 0;
                 int i = z ? round : 0;
                 int i2 = z ? 0 : round;
-                float f4 = z ? this.mRequestedDragDistance : 0.0f;
-                float f5 = z ? 0.0f : this.mRequestedDragDistance;
+                float f3 = z ? this.mRequestedDragDistance : 0.0f;
+                float f4 = z ? 0.0f : this.mRequestedDragDistance;
                 this.mRecyclerView.scrollBy(i, i2);
-                addFakeMotionEvent(uptimeMillis, 2, f4, f5);
+                addFakeMotionEvent(uptimeMillis, 2, f3, f4);
                 return true;
             }
             return false;

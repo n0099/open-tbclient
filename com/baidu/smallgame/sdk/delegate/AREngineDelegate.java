@@ -1,16 +1,18 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
-import c.a.j0.a.d.c;
-import c.a.w.c.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.repackage.bd0;
+import com.repackage.dd0;
+import com.repackage.de1;
+import com.repackage.fe1;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 
@@ -32,7 +34,7 @@ public interface AREngineDelegate {
 
     int getRenderMode();
 
-    c getStuckScreenHandler();
+    fe1 getStuckScreenHandler();
 
     void initDisplayMetrics();
 
@@ -62,13 +64,13 @@ public interface AREngineDelegate {
 
     void runOnGLThread(Runnable runnable);
 
-    void setAudioEngineProxy(a aVar);
+    void setAudioEngineProxy(bd0 bd0Var);
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(c.a.w.c.c cVar);
+    void setGameRecordCallback(dd0 dd0Var);
 
-    void setOnStuckScreenListener(c.a.j0.a.d.a aVar);
+    void setOnStuckScreenListener(de1 de1Var);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 
@@ -98,5 +100,5 @@ public interface AREngineDelegate {
 
     void surfaceDestroyed();
 
-    void updateSurfaceViewSize(float f2, float f3);
+    void updateSurfaceViewSize(float f, float f2);
 }

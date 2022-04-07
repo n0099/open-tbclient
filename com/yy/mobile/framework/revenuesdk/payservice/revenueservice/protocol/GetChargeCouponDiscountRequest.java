@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetChargeCouponDiscountRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,8 +75,8 @@ public class GetChargeCouponDiscountRequest implements IRequestProtocol {
                 jSONObject.put("payChannel", this.payChannel);
                 jSONObject.put("chargeConfigIds", jSONArray);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                RLog.error("GetChargeCouponDiscountRequest", "GetChargeCouponDiscountRequest error.", e2);
+            } catch (JSONException e) {
+                RLog.error("GetChargeCouponDiscountRequest", "GetChargeCouponDiscountRequest error.", e);
                 return "";
             }
         }

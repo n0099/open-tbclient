@@ -13,23 +13,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ap3;
+/* loaded from: classes2.dex */
 public class RewardWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public Handler b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f29486b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ RewardWebView f29487b;
+        public final /* synthetic */ RewardWebView b;
 
         public a(RewardWebView rewardWebView, String str) {
             Interceptable interceptable = $ic;
@@ -46,7 +43,7 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.f29487b = rewardWebView;
+            this.b = rewardWebView;
             this.a = str;
         }
 
@@ -59,26 +56,16 @@ public class RewardWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f29488b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f29489c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f29490d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f29491e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RewardWebView f29492f;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ RewardWebView f;
 
         public b(RewardWebView rewardWebView, String str, String str2, String str3, String str4, String str5) {
             Interceptable interceptable = $ic;
@@ -95,34 +82,30 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.f29492f = rewardWebView;
+            this.f = rewardWebView;
             this.a = str;
-            this.f29488b = str2;
-            this.f29489c = str3;
-            this.f29490d = str4;
-            this.f29491e = str5;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.loadDataWithBaseURL(this.a, this.f29488b, this.f29489c, this.f29490d, this.f29491e);
+                RewardWebView.super.loadDataWithBaseURL(this.a, this.b, this.c, this.d, this.e);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ValueCallback f29493b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ RewardWebView f29494c;
+        public final /* synthetic */ ValueCallback b;
+        public final /* synthetic */ RewardWebView c;
 
         public c(RewardWebView rewardWebView, String str, ValueCallback valueCallback) {
             Interceptable interceptable = $ic;
@@ -139,16 +122,16 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.f29494c = rewardWebView;
+            this.c = rewardWebView;
             this.a = str;
-            this.f29493b = valueCallback;
+            this.b = valueCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.evaluateJavascript(this.a, this.f29493b);
+                RewardWebView.super.evaluateJavascript(this.a, this.b);
             }
         }
     }
@@ -173,7 +156,7 @@ public class RewardWebView extends WebView {
             }
         }
         this.a = false;
-        this.f29486b = new Handler(Looper.getMainLooper());
+        this.b = new Handler(Looper.getMainLooper());
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -207,7 +190,7 @@ public class RewardWebView extends WebView {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                this.f29486b.post(runnable);
+                this.b.post(runnable);
             }
         }
     }
@@ -234,7 +217,7 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(c.a.n0.h.a.f.a.b().o(settings.getUserAgentString()));
+            settings.setUserAgentString(ap3.b().o(settings.getUserAgentString()));
         }
     }
 

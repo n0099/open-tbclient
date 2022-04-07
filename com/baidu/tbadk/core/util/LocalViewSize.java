@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,15 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LocalViewSize {
     public static /* synthetic */ Interceptable $ic;
     public static LocalViewSize sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ImageSize implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k = n.k(this.mContext);
+            int k = oi.k(this.mContext);
             if (k >= 1080) {
                 return 1080;
             }
@@ -135,8 +135,8 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ImageSize imageSize = new ImageSize();
-            imageSize.height = n.i(this.mContext);
-            imageSize.width = n.k(this.mContext);
+            imageSize.height = oi.i(this.mContext);
+            imageSize.width = oi.k(this.mContext);
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -173,7 +173,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int k = n.k(this.mContext);
+            int k = oi.k(this.mContext);
             int i = 240;
             if (k < 240) {
                 i = k / 3;

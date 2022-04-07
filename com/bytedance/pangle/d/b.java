@@ -6,21 +6,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.util.MethodUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 0;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static int f38040b = 1;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static int f38041c = 3;
+        public static int b = 1;
+        public static int c = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,8 +41,8 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 return (String) MethodUtils.invokeStaticMethod(Class.forName("dalvik.system.VMRuntime"), "getCurrentInstructionSet", new Object[0]);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

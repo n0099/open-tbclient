@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DBOperation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBOperation";
@@ -38,13 +38,13 @@ public class DBOperation {
     public Object mSyncObject;
 
     /* renamed from: com.baidu.android.imsdk.db.DBOperation$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class DeleteTask implements Callable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,8 +97,8 @@ public class DBOperation {
                                 LogUtils.d(DBOperation.TAG, this.mTable + " delete : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + Arrays.asList(this.mWhereArgs));
                             }
                             i = openDb.delete(this.mTable, this.mWhereClause, this.mWhereArgs);
-                        } catch (SQLException e2) {
-                            LogUtils.e(DBOperation.TAG, "delete", e2);
+                        } catch (SQLException e) {
+                            LogUtils.e(DBOperation.TAG, "delete", e);
                             this.this$0.closeDbInternal();
                             i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
@@ -116,7 +116,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ExecSQLTask implements Callable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,8 +164,8 @@ public class DBOperation {
                             LogUtils.d(DBOperation.TAG, " execSQL: " + this.mSql);
                             openDb.execSQL(this.mSql);
                             i = 0;
-                        } catch (SQLException e2) {
-                            LogUtils.e(DBOperation.TAG, "execSQL", e2);
+                        } catch (SQLException e) {
+                            LogUtils.e(DBOperation.TAG, "execSQL", e);
                             this.this$0.closeDbInternal();
                             i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
@@ -183,7 +183,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ExecTransaction implements Callable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,8 +232,8 @@ public class DBOperation {
                             this.mTransaction.execTransaction(openDb);
                             openDb.setTransactionSuccessful();
                             i = 0;
-                        } catch (SQLException e2) {
-                            LogUtils.e(DBOperation.TAG, "transaction", e2);
+                        } catch (SQLException e) {
+                            LogUtils.e(DBOperation.TAG, "transaction", e);
                             openDb.endTransaction();
                             this.this$0.closeDbInternal();
                             i = DBResponseCode.ERROR_SQLEXCEPTION;
@@ -253,7 +253,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class InsertBatchTask implements Callable<List<Long>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,9 +305,9 @@ public class DBOperation {
                                 arrayList.add(Long.valueOf(openDb.replace(this.mTable, null, contentValues)));
                             }
                             openDb.setTransactionSuccessful();
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             arrayList.add(-7004L);
-                            LogUtils.e(DBOperation.TAG, "insert bacth", e2);
+                            LogUtils.e(DBOperation.TAG, "insert bacth", e);
                         }
                     } finally {
                         openDb.endTransaction();
@@ -324,7 +324,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class InsertTask implements Callable<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -373,8 +373,8 @@ public class DBOperation {
                         try {
                             LogUtils.d(DBOperation.TAG, this.mTable + " insert: " + this.mCv);
                             l = Long.valueOf(openDb.insert(this.mTable, null, this.mCv));
-                        } catch (Exception e2) {
-                            LogUtils.e(DBOperation.TAG, "insert ", e2);
+                        } catch (Exception e) {
+                            LogUtils.e(DBOperation.TAG, "insert ", e);
                             this.this$0.closeDbInternal();
                             l = -7004L;
                         }
@@ -390,7 +390,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class QueryTask<T> implements Callable<ArrayList<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,7 +444,7 @@ public class DBOperation {
         @Override // java.util.concurrent.Callable
         public ArrayList<T> call() throws Exception {
             InterceptResult invokeV;
-            SQLException e2;
+            SQLException e;
             Cursor cursor;
             ArrayList<T> arrayList;
             Interceptable interceptable = $ic;
@@ -481,10 +481,10 @@ public class DBOperation {
                                             cursor.close();
                                             cursor2 = arrayList2;
                                         }
-                                    } catch (SQLException e3) {
-                                        e2 = e3;
+                                    } catch (SQLException e2) {
+                                        e = e2;
                                         cursor2 = arrayList2;
-                                        LogUtils.e(DBOperation.TAG, "query", e2);
+                                        LogUtils.e(DBOperation.TAG, "query", e);
                                         this.this$0.closeDbInternal();
                                         Cursor cursor3 = cursor;
                                         arrayList = (ArrayList<T>) cursor2;
@@ -493,12 +493,12 @@ public class DBOperation {
                                         LogUtils.leave(this.mOperationId);
                                         return arrayList;
                                     }
-                                } catch (SQLException e4) {
-                                    e2 = e4;
+                                } catch (SQLException e3) {
+                                    e = e3;
                                 }
                             }
-                        } catch (SQLException e5) {
-                            e2 = e5;
+                        } catch (SQLException e4) {
+                            e = e4;
                             cursor = null;
                         }
                         this.this$0.closeDbInternal();
@@ -520,7 +520,7 @@ public class DBOperation {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class UpdateTask implements Callable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -573,8 +573,8 @@ public class DBOperation {
                         try {
                             LogUtils.d(DBOperation.TAG, this.mTable + " update : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + this.mWhereArgs + " ,mCv : " + this.mCv);
                             i = openDb.update(this.mTable, this.mCv, this.mWhereClause, this.mWhereArgs);
-                        } catch (SQLException e2) {
-                            LogUtils.e(DBOperation.TAG, "UpdateTask", e2);
+                        } catch (SQLException e) {
+                            LogUtils.e(DBOperation.TAG, "UpdateTask", e);
                             this.this$0.closeDbInternal();
                             i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
@@ -675,9 +675,9 @@ public class DBOperation {
             LogUtils.d(TAG, str + " delete: whereClause: " + str2 + " ,whereArgs :" + strArr);
             try {
                 num = (Integer) TaskManager.getInstance(this.mContext).submitForLocalCallable(new DeleteTask(this, valueOf, str, str2, strArr, null)).get(10L, TimeUnit.SECONDS);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Integer valueOf2 = Integer.valueOf((int) DBResponseCode.ERROR_TIMEOUT);
-                LogUtils.e(TAG, "Exception ", e2);
+                LogUtils.e(TAG, "Exception ", e);
                 num = valueOf2;
             }
             LogUtils.leave(valueOf);
@@ -700,9 +700,9 @@ public class DBOperation {
             LogUtils.d(TAG, " execSQL: " + str);
             try {
                 num = (Integer) TaskManager.getInstance(this.mContext).submitForLocalCallable(new ExecSQLTask(this, valueOf, str, null)).get(10L, TimeUnit.SECONDS);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Integer valueOf2 = Integer.valueOf((int) DBResponseCode.ERROR_TIMEOUT);
-                LogUtils.e(TAG, "Exception ", e2);
+                LogUtils.e(TAG, "Exception ", e);
                 num = valueOf2;
             }
             LogUtils.leave(valueOf);
@@ -724,9 +724,9 @@ public class DBOperation {
             }
             try {
                 num = (Integer) TaskManager.getInstance(this.mContext).submitForLocalCallable(new ExecTransaction(this, valueOf, iTransaction, null)).get(10L, TimeUnit.SECONDS);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Integer valueOf2 = Integer.valueOf((int) DBResponseCode.ERROR_INTERRUPTED);
-                LogUtils.e(TAG, "Exception ", e2);
+                LogUtils.e(TAG, "Exception ", e);
                 num = valueOf2;
             }
             LogUtils.leave(valueOf);
@@ -752,8 +752,8 @@ public class DBOperation {
                 LogUtils.d(TAG, str + " insert : " + contentValues.toString());
                 try {
                     l = (Long) TaskManager.getInstance(this.mContext).submitForLocalCallable(new InsertTask(this, valueOf, str, contentValues, null)).get(10L, TimeUnit.SECONDS);
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "Exception ", e);
                     l = -7005L;
                 }
                 LogUtils.leave(valueOf);
@@ -779,8 +779,8 @@ public class DBOperation {
             LogUtils.d(TAG, str + " query: selection : " + str2 + ", limit " + str6);
             try {
                 arrayList = (ArrayList) TaskManager.getInstance(this.mContext).submitForLocalCallable(new QueryTask(this, valueOf, iResultParse, str, strArr, str2, strArr2, str3, str4, str5, str6, null)).get(10L, TimeUnit.SECONDS);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
                 arrayList = null;
             }
             LogUtils.leave(valueOf);
@@ -810,9 +810,9 @@ public class DBOperation {
                 LogUtils.d(TAG, str + " update: whereClause: " + str2 + " ,whereArgs :" + strArr + " cv : " + contentValues);
                 try {
                     num = (Integer) TaskManager.getInstance(this.mContext).submitForLocalCallable(new UpdateTask(this, valueOf, str, contentValues, str2, strArr, null)).get(10L, TimeUnit.SECONDS);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     Integer valueOf2 = Integer.valueOf((int) DBResponseCode.ERROR_TIMEOUT);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     num = valueOf2;
                 }
                 LogUtils.leave(valueOf);
@@ -837,9 +837,9 @@ public class DBOperation {
                 LogUtils.d(TAG, str + " insertbacth: " + str + " " + valueOf);
                 try {
                     arrayList = (List) TaskManager.getInstance(this.mContext).submitForLocalCallable(new InsertBatchTask(this, valueOf, str, list, null)).get(10L, TimeUnit.SECONDS);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     arrayList.add(-7005L);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                 }
                 LogUtils.leave(valueOf);
                 return arrayList;

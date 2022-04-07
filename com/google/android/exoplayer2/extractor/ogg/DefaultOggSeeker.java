@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultOggSeeker implements OggSeeker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_OFFSET = 30000;
@@ -37,13 +37,13 @@ public final class DefaultOggSeeker implements OggSeeker {
     public long totalGranules;
 
     /* renamed from: com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class OggSeekMap implements SeekMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

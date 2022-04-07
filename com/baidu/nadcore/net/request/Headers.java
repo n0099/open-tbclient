@@ -8,17 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ty0;
+import com.repackage.yf0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class IllegalUnicodeException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +46,7 @@ public final class Headers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,11 +75,14 @@ public final class Headers {
                 try {
                     Headers.a(str);
                     Headers.b(str2, str);
-                } catch (IllegalUnicodeException e2) {
-                    e2.printStackTrace();
+                    b(str, str2);
+                    return this;
+                } catch (Exception e) {
+                    if (yf0.a) {
+                        throw new IllegalStateException(e);
+                    }
+                    return this;
                 }
-                b(str, str2);
-                return this;
             }
             return (a) invokeLL.objValue;
         }
@@ -86,8 +91,8 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                c.a.a0.x.a.b(this.a, str);
-                c.a.a0.x.a.b(this.a, str2.trim());
+                ty0.b(this.a, str);
+                ty0.b(this.a, str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -104,10 +109,10 @@ public final class Headers {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 int i = 0;
-                while (i < c.a.a0.x.a.k(this.a)) {
-                    if (str.equalsIgnoreCase((String) c.a.a0.x.a.d(this.a, i))) {
-                        c.a.a0.x.a.i(this.a, i);
-                        c.a.a0.x.a.i(this.a, i);
+                while (i < ty0.k(this.a)) {
+                    if (str.equalsIgnoreCase((String) ty0.d(this.a, i))) {
+                        ty0.i(this.a, i);
+                        ty0.i(this.a, i);
                         i -= 2;
                     }
                     i += 2;
@@ -150,7 +155,7 @@ public final class Headers {
             }
         }
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[c.a.a0.x.a.k(list)]);
+        this.a = (String[]) list.toArray(new String[ty0.k(list)]);
     }
 
     public static void a(String str) throws IllegalUnicodeException {
@@ -252,8 +257,8 @@ public final class Headers {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            int g2 = g();
-            for (int i = 0; i < g2; i++) {
+            int g = g();
+            for (int i = 0; i < g; i++) {
                 sb.append(f(i));
                 sb.append(": ");
                 sb.append(h(i));

@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.o0.r.l0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,17 +15,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.nu4;
+/* loaded from: classes4.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TBSpecificationBtn f37357b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TBSpecificationBtn f37358c;
+    public TBSpecificationBtn b;
+    public TBSpecificationBtn c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomPrivacyDialogView(Context context) {
@@ -60,18 +56,18 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0213, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0918f2);
-            this.f37357b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090742);
-            this.f37358c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090743);
-            this.f37357b.setTextSize(R.dimen.tbds34);
-            c cVar = new c();
-            cVar.r(R.color.CAM_X0105);
-            this.f37357b.setConfig(cVar);
-            this.f37358c.setTextSize(R.dimen.tbds34);
-            c cVar2 = new c();
-            cVar2.p(R.color.CAM_X0302);
-            this.f37358c.setConfig(cVar2);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0214, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0918e5);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09074b);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09074c);
+            this.b.setTextSize(R.dimen.tbds34);
+            nu4 nu4Var = new nu4();
+            nu4Var.r(R.color.CAM_X0105);
+            this.b.setConfig(nu4Var);
+            this.c.setTextSize(R.dimen.tbds34);
+            nu4 nu4Var2 = new nu4();
+            nu4Var2.p(R.color.CAM_X0302);
+            this.c.setConfig(nu4Var2);
         }
     }
 
@@ -96,7 +92,7 @@ public class CustomPrivacyDialogView extends LinearLayout {
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (tBSpecificationBtn = this.f37357b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (tBSpecificationBtn = this.b) == null) {
             return;
         }
         tBSpecificationBtn.setOnClickListener(onClickListener);
@@ -105,7 +101,7 @@ public class CustomPrivacyDialogView extends LinearLayout {
     public void setPrivacyDialogCancelButtonText(String str) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (tBSpecificationBtn = this.f37357b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (tBSpecificationBtn = this.b) == null) {
             return;
         }
         tBSpecificationBtn.setText(str);
@@ -114,7 +110,7 @@ public class CustomPrivacyDialogView extends LinearLayout {
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) || (tBSpecificationBtn = this.f37358c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) || (tBSpecificationBtn = this.c) == null) {
             return;
         }
         tBSpecificationBtn.setOnClickListener(onClickListener);
@@ -123,7 +119,7 @@ public class CustomPrivacyDialogView extends LinearLayout {
     public void setPrivacyDialogConfirmButtonText(String str) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tBSpecificationBtn = this.f37358c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tBSpecificationBtn = this.c) == null) {
             return;
         }
         tBSpecificationBtn.setText(str);

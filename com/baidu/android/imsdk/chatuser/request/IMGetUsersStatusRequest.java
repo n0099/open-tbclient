@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetUsersStatusRequest extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class IMGetUsersStatusRequest extends Message {
                 jSONObject2.put("rpc_retry_time", this.mReSendCount);
                 jSONObject.put("rpc", jSONObject2.toString());
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(IMGetUsersStatusRequest.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(IMGetUsersStatusRequest.class.getSimpleName(), "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -119,8 +119,8 @@ public class IMGetUsersStatusRequest extends Message {
                                     int i4 = jSONObject2.getInt("status");
                                     arrayList2.add(new UserStatus(j, i4 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 arrayList = arrayList2;
                                 LogUtils.e("IMGetUsersStatusRequest", "handleMessageResult :", e);
                                 super.handleMessageResult(context, jSONObject, i, str);
@@ -131,8 +131,8 @@ public class IMGetUsersStatusRequest extends Message {
                         }
                         arrayList = arrayList2;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             }
             super.handleMessageResult(context, jSONObject, i, str);

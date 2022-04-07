@@ -13,15 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile a f44632b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Uri f44633c;
+    public static volatile a b;
+    public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -38,7 +34,7 @@ public class a {
                 return;
             }
         }
-        f44633c = Uri.parse("content://cn.nubia.identity/identity");
+        c = Uri.parse("content://cn.nubia.identity/identity");
     }
 
     public a(Context context) {
@@ -63,14 +59,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f44632b == null) {
+            if (b == null) {
                 synchronized (a.class) {
-                    if (f44632b == null) {
-                        f44632b = new a(context);
+                    if (b == null) {
+                        b = new a(context);
                     }
                 }
             }
-            return f44632b;
+            return b;
         }
         return (a) invokeL.objValue;
     }
@@ -82,7 +78,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f44633c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(c);
                     call = acquireUnstableContentProviderClient.call(str2, null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -92,7 +88,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.a.getContentResolver().call(f44633c, str2, (String) null, (Bundle) null);
+                    call = this.a.getContentResolver().call(c, str2, (String) null, (Bundle) null);
                 }
                 return (call == null || call.getInt("code", -1) != 0) ? "" : call.getString("id");
             } catch (Throwable th) {
@@ -110,7 +106,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(f44633c);
+                    ContentProviderClient acquireUnstableContentProviderClient = this.a.getContentResolver().acquireUnstableContentProviderClient(c);
                     call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -120,7 +116,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = this.a.getContentResolver().call(f44633c, "isSupport", (String) null, (Bundle) null);
+                    call = this.a.getContentResolver().call(c, "isSupport", (String) null, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     return call.getBoolean("issupport", true);

@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Info implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,7 @@ public class Info implements Serializable {
     public int dl_vsc;
     public String dpl;
     public String events;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f44021h;
+    public int h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -170,8 +168,8 @@ public class Info implements Serializable {
                             sparseArray.put(optJSONObject.optInt("type", 0), optJSONObject.optString("urls"));
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return sparseArray;
@@ -182,7 +180,7 @@ public class Info implements Serializable {
     public int getH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44021h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.h : invokeV.intValue;
     }
 
     public String getIcon() {
@@ -488,7 +486,7 @@ public class Info implements Serializable {
     public void setH(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
-            this.f44021h = i;
+            this.h = i;
         }
     }
 
@@ -612,13 +610,13 @@ public class Info implements Serializable {
         }
     }
 
-    public void setSper(double d2) {
+    public void setSper(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Double.valueOf(d2)}) == null) {
-            if (d2 <= 0.0d) {
-                d2 = 0.5d;
+        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Double.valueOf(d)}) == null) {
+            if (d <= 0.0d) {
+                d = 0.5d;
             }
-            this.sper = d2;
+            this.sper = d;
         }
     }
 

@@ -22,10 +22,10 @@ public final class PictureKt {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{picture, Integer.valueOf(i), Integer.valueOf(i2), function1})) == null) {
-            Canvas c2 = picture.beginRecording(i, i2);
+            Canvas c = picture.beginRecording(i, i2);
             try {
-                Intrinsics.checkExpressionValueIsNotNull(c2, "c");
-                function1.invoke(c2);
+                Intrinsics.checkExpressionValueIsNotNull(c, "c");
+                function1.invoke(c);
                 return picture;
             } finally {
                 InlineMarker.finallyStart(1);

@@ -8,23 +8,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GameRankHorizontalLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32567b;
+    public TextView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameRankListViewHolder(View view) {
-        super(view);
+    public GameRankListViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +33,7 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (GameRankHorizontalLayout) view.findViewById(R.id.obfuscated_res_0x7f090c43);
-        this.f32567b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09066d);
+        this.a = (GameRankHorizontalLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c50);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090677);
     }
 }

@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class TTImage {
     public abstract double getDuration();
 

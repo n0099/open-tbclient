@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,20 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class VideoContainerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f35179b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35180c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f35181d;
+    public int b;
+    public int c;
+    public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoContainerLayout(Context context) {
@@ -45,13 +39,13 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f35181d = n.k(context) / 10;
+        this.d = oi.k(context) / 10;
     }
 
     public int getMaxHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35179b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getMinHeight() {
@@ -63,7 +57,7 @@ public class VideoContainerLayout extends FrameLayout {
     public int getOriginHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35180c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup
@@ -71,7 +65,7 @@ public class VideoContainerLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.f35181d && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+            if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.d && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                 ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -82,7 +76,7 @@ public class VideoContainerLayout extends FrameLayout {
     public void setMaxHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f35179b = i;
+            this.b = i;
         }
     }
 
@@ -96,7 +90,7 @@ public class VideoContainerLayout extends FrameLayout {
     public void setOriginHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f35180c = i;
+            this.c = i;
         }
     }
 
@@ -119,7 +113,7 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f35181d = n.k(context) / 10;
+        this.d = oi.k(context) / 10;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -141,6 +135,6 @@ public class VideoContainerLayout extends FrameLayout {
                 return;
             }
         }
-        this.f35181d = n.k(context) / 10;
+        this.d = oi.k(context) / 10;
     }
 }

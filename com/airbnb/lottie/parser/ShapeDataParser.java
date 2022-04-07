@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeDataParser implements ValueParser<ShapeData> {
     public static final ShapeDataParser INSTANCE = new ShapeDataParser();
     public static final JsonReader.Options NAMES = JsonReader.Options.of("c", "v", "i", "o");
@@ -17,7 +17,7 @@ public class ShapeDataParser implements ValueParser<ShapeData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
-    public ShapeData parse(JsonReader jsonReader, float f2) throws IOException {
+    public ShapeData parse(JsonReader jsonReader, float f) throws IOException {
         if (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
             jsonReader.beginArray();
         }
@@ -31,14 +31,14 @@ public class ShapeDataParser implements ValueParser<ShapeData> {
             if (selectName == 0) {
                 z = jsonReader.nextBoolean();
             } else if (selectName == 1) {
-                list = JsonUtils.jsonToPoints(jsonReader, f2);
+                list = JsonUtils.jsonToPoints(jsonReader, f);
             } else if (selectName == 2) {
-                list2 = JsonUtils.jsonToPoints(jsonReader, f2);
+                list2 = JsonUtils.jsonToPoints(jsonReader, f);
             } else if (selectName != 3) {
                 jsonReader.skipName();
                 jsonReader.skipValue();
             } else {
-                list3 = JsonUtils.jsonToPoints(jsonReader, f2);
+                list3 = JsonUtils.jsonToPoints(jsonReader, f);
             }
         }
         jsonReader.endObject();

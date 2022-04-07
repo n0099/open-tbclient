@@ -9,33 +9,33 @@ import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class ViewAware implements ImageAware {
     public static final String WARN_CANT_SET_BITMAP = "Can't set a bitmap into view. You should call ImageLoader on UI thread for it.";
     public static final String WARN_CANT_SET_DRAWABLE = "Can't set a drawable into view. You should call ImageLoader on UI thread for it.";
     public boolean checkActualViewSize;
     public Reference<View> viewRef;
 
-    public ViewAware(View view) {
-        this(view, true);
+    public ViewAware(View view2) {
+        this(view2, true);
     }
 
-    public ViewAware(View view, boolean z) {
-        if (view == null) {
+    public ViewAware(View view2, boolean z) {
+        if (view2 == null) {
             throw new IllegalArgumentException("view must not be null");
         }
-        this.viewRef = new WeakReference(view);
+        this.viewRef = new WeakReference(view2);
         this.checkActualViewSize = z;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getHeight() {
-        View view = this.viewRef.get();
+        View view2 = this.viewRef.get();
         int i = 0;
-        if (view != null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (view2 != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (this.checkActualViewSize && layoutParams != null && layoutParams.height != -2) {
-                i = view.getHeight();
+                i = view2.getHeight();
             }
             return (i > 0 || layoutParams == null) ? i : layoutParams.height;
         }
@@ -44,8 +44,8 @@ public abstract class ViewAware implements ImageAware {
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getId() {
-        View view = this.viewRef.get();
-        return view == null ? super.hashCode() : view.hashCode();
+        View view2 = this.viewRef.get();
+        return view2 == null ? super.hashCode() : view2.hashCode();
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
@@ -55,12 +55,12 @@ public abstract class ViewAware implements ImageAware {
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getWidth() {
-        View view = this.viewRef.get();
+        View view2 = this.viewRef.get();
         int i = 0;
-        if (view != null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (view2 != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (this.checkActualViewSize && layoutParams != null && layoutParams.width != -2) {
-                i = view.getWidth();
+                i = view2.getWidth();
             }
             return (i > 0 || layoutParams == null) ? i : layoutParams.width;
         }
@@ -80,9 +80,9 @@ public abstract class ViewAware implements ImageAware {
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public boolean setImageBitmap(Bitmap bitmap) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            View view = this.viewRef.get();
-            if (view != null) {
-                setImageBitmapInto(bitmap, view);
+            View view2 = this.viewRef.get();
+            if (view2 != null) {
+                setImageBitmapInto(bitmap, view2);
                 return true;
             }
         } else {
@@ -91,14 +91,14 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    public abstract void setImageBitmapInto(Bitmap bitmap, View view);
+    public abstract void setImageBitmapInto(Bitmap bitmap, View view2);
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public boolean setImageDrawable(Drawable drawable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            View view = this.viewRef.get();
-            if (view != null) {
-                setImageDrawableInto(drawable, view);
+            View view2 = this.viewRef.get();
+            if (view2 != null) {
+                setImageDrawableInto(drawable, view2);
                 return true;
             }
         } else {
@@ -107,5 +107,5 @@ public abstract class ViewAware implements ImageAware {
         return false;
     }
 
-    public abstract void setImageDrawableInto(Drawable drawable, View view);
+    public abstract void setImageDrawableInto(Drawable drawable, View view2);
 }

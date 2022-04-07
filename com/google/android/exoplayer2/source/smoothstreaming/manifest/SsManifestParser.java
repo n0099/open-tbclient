@@ -37,13 +37,13 @@ import java.util.UUID;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ElementParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,8 +202,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 if (attributeValue != null) {
                     try {
                         return Integer.parseInt(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new ParserException(e);
                     }
                 }
                 return i;
@@ -219,8 +219,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 if (attributeValue != null) {
                     try {
                         return Long.parseLong(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new ParserException(e);
                     }
                 }
                 return j;
@@ -236,8 +236,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 if (attributeValue != null) {
                     try {
                         return Integer.parseInt(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new ParserException(e);
                     }
                 }
                 throw new MissingFieldException(str);
@@ -253,8 +253,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 if (attributeValue != null) {
                     try {
                         return Long.parseLong(attributeValue);
-                    } catch (NumberFormatException e2) {
-                        throw new ParserException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new ParserException(e);
                     }
                 }
                 throw new MissingFieldException(str);
@@ -295,7 +295,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class MissingFieldException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ProtectionParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_SYSTEM_ID = "SystemID";
@@ -403,7 +403,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class QualityLevelParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_BITRATE = "Bitrate";
@@ -535,7 +535,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SmoothStreamingMediaParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DURATION = "Duration";
@@ -638,7 +638,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class StreamIndexParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";
@@ -837,8 +837,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
         try {
             this.xmlParserFactory = XmlPullParserFactory.newInstance();
-        } catch (XmlPullParserException e2) {
-            throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e2);
+        } catch (XmlPullParserException e) {
+            throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e);
         }
     }
 
@@ -853,8 +853,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 XmlPullParser newPullParser = this.xmlParserFactory.newPullParser();
                 newPullParser.setInput(inputStream, null);
                 return (SsManifest) new SmoothStreamingMediaParser(null, uri.toString()).parse(newPullParser);
-            } catch (XmlPullParserException e2) {
-                throw new ParserException(e2);
+            } catch (XmlPullParserException e) {
+                throw new ParserException(e);
             }
         }
         return (SsManifest) invokeLL.objValue;

@@ -19,13 +19,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f24833d;
+    public DefaultParams d;
     public String mCasePath;
     public l qh;
     public FilterStateListener qi;
@@ -34,7 +32,7 @@ public class a {
     public HashMap<FilterNode, Boolean> ql;
 
     /* renamed from: com.baidu.ar.filter.a$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] qm;
@@ -92,7 +90,7 @@ public class a {
         this.qj = new HashMap<>();
         this.qk = new HashMap<>();
         this.ql = new HashMap<>();
-        this.f24833d = defaultParams;
+        this.d = defaultParams;
         HashMap<FilterNode, Boolean> hashMap = this.qj;
         if (hashMap != null) {
             hashMap.put(FilterNode.lutFilter, Boolean.FALSE);
@@ -103,9 +101,9 @@ public class a {
         HashMap<FilterNode, Boolean> hashMap2 = this.qk;
         if (hashMap2 != null) {
             hashMap2.put(FilterNode.lutFilter, Boolean.TRUE);
-            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.f24833d.isUseBeautyFilter()));
-            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.f24833d.isUseFaceFilter()));
-            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.f24833d.isUseMakeupFilter()));
+            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.d.isUseBeautyFilter()));
+            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.d.isUseFaceFilter()));
+            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.d.isUseMakeupFilter()));
         }
     }
 
@@ -321,7 +319,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             synchronized (this) {
-                this.f24833d = null;
+                this.d = null;
                 this.qh = null;
                 this.qi = null;
                 if (this.qj != null) {

@@ -16,7 +16,7 @@ import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TextAppearanceFontCallback;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextDrawableHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class TextDrawableHelper {
     public float textWidth;
     public boolean textWidthDirty;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface TextDrawableDelegate {
         @NonNull
         int[] getState();

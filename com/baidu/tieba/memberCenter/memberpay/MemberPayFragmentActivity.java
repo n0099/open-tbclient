@@ -10,10 +10,6 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.n;
-import c.a.o0.r.t.a;
-import c.a.o0.s.c.t;
-import c.a.p0.j2.f.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -28,7 +24,6 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -46,9 +41,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b85;
+import com.repackage.dr4;
+import com.repackage.e85;
+import com.repackage.oi;
+import com.repackage.wt4;
+import com.repackage.y75;
+import com.repackage.zj7;
+import com.repackage.zw4;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MemberPayFragmentActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +84,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public int mWantedMemberType;
     public RelativeLayout mainContainer;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +130,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                         this.a.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.a.mCurrentShowType)));
                         this.a.setResult(-1);
-                        c.a.o0.r.j0.b.k().u("show_member_deid_line", true);
+                        wt4.k().u("show_member_deid_line", true);
                         if (!this.a.mIsClose) {
                             this.a.requestMemberPayInfo();
                         } else {
@@ -139,7 +142,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,23 +179,23 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                     ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         if (responseMemberPayMessage.getMemberPayResult() != null) {
-                            c.a.p0.j2.f.f memberPayResult = responseMemberPayMessage.getMemberPayResult();
+                            zj7 memberPayResult = responseMemberPayMessage.getMemberPayResult();
                             this.a.initFragment(memberPayResult);
                             if (this.a.mFragmentAdapter != null) {
                                 int count = this.a.mFragmentAdapter.getCount();
                                 for (int i = 0; i < count; i++) {
-                                    this.a.mFragmentAdapter.getItem(i).D0(memberPayResult);
+                                    this.a.mFragmentAdapter.getItem(i).C0(memberPayResult);
                                 }
                                 return;
                             }
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                         return;
                     }
                     String errorString = responseMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
                     }
                     this.a.showToast(errorString);
                 }
@@ -200,7 +203,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,14 +238,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 int count = this.a.mFragmentAdapter.getCount();
                 for (int i = 0; i < count; i++) {
-                    this.a.mFragmentAdapter.getItem(i).C0(bool);
+                    this.a.mFragmentAdapter.getItem(i).B0(bool);
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f13df);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f13e7);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,15 +270,15 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.userConfirmDialog();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,16 +303,16 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.userConfirmDialog();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements c.a.o0.q0.b {
+    /* loaded from: classes3.dex */
+    public class f implements b85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -332,17 +335,17 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.o0.q0.e c2 = c.a.o0.q0.e.c();
-                c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.a.mReferPage + "&click_zone=" + this.a.mClickZone, this.a.getPageContext());
+                e85 c = e85.c();
+                c.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.a.mReferPage + "&click_zone=" + this.a.mClickZone, this.a.getPageContext());
                 this.a.finish();
             }
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -350,7 +353,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             }
         }
 
-        @Override // c.a.o0.q0.b
+        @Override // com.repackage.b85
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -359,8 +362,8 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class g implements a.e {
+    /* loaded from: classes3.dex */
+    public class g implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -383,18 +386,18 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class h implements a.e {
+    /* loaded from: classes3.dex */
+    public class h implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -417,12 +420,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 0));
-                aVar.dismiss();
+                dr4Var.dismiss();
                 if (this.a.mTopTranslateView != null) {
                     this.a.mTopTranslateView.setBackgroundColor(this.a.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
                 }
@@ -508,14 +511,14 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f29925c = fragment;
+        bVar.c = fragment;
         bVar.a = i;
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
         fragmentTabIndicator.setText(str);
-        fragmentTabIndicator.f30573h = R.color.fragment_tab_host_indicator_text_color;
+        fragmentTabIndicator.h = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f29924b = fragmentTabIndicator;
+        bVar.b = fragmentTabIndicator;
         this.mTabHost.c(bVar);
     }
 
@@ -524,9 +527,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, this, i)) == null) {
             if (i != 2) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f1366);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f136e);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f1369);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f1371);
         }
         return (String) invokeI.objValue;
     }
@@ -538,7 +541,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 this.mWantedMemberType = getIntent().getExtras().getInt("member_type");
                 this.mStType = getIntent().getExtras().getString("st_type");
                 this.mFrom = getIntent().getExtras().getInt("from", 0);
-                this.mIsClose = getIntent().getExtras().getBoolean(IntentConfig.CLOSE);
+                this.mIsClose = getIntent().getExtras().getBoolean("close");
                 this.fromScene = getIntent().getExtras().getInt(MemberPayActivityConfig.FROM_SCENE, 0);
                 this.mSceneId = getIntent().getExtras().getString("scene_id");
             }
@@ -572,13 +575,13 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void initFragment(c.a.p0.j2.f.f fVar) {
+    public void initFragment(zj7 zj7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, this, fVar) == null) || this.mHasInit) {
+        if (!(interceptable == null || interceptable.invokeL(65554, this, zj7Var) == null) || this.mHasInit) {
             return;
         }
         this.mHasInit = true;
-        boolean z = fVar.a.f15755c.a == 2 || this.mWantedMemberType == 2;
+        boolean z = zj7Var.a.c.a == 2 || this.mWantedMemberType == 2;
         ArrayList arrayList = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putString("member_refer_page", this.mReferPage);
@@ -586,9 +589,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         bundle.putBoolean("member_is_pay_dialog", this.mIsPayDialog.booleanValue());
         bundle.putInt("member_from_type", this.mFrom);
         if (!z) {
-            f.b bVar = fVar.f15736b;
+            zj7.b bVar = zj7Var.b;
             if (bVar.a != null) {
-                if (bVar.f15741b == null) {
+                if (bVar.b == null) {
                     MemberPayFragment memberPayFragment = new MemberPayFragment();
                     bundle.putInt("member_type", 1);
                     this.mCurrentShowType = 1;
@@ -664,28 +667,28 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0543);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920cf);
+            setContentView(R.layout.obfuscated_res_0x7f0d053e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920b4);
             this.mTopTranslateView = findViewById;
             findViewById.setOnClickListener(new d(this));
-            this.mainContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09136f);
-            this.mNavigationBar = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091519);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903fb);
+            this.mainContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091364);
+            this.mNavigationBar = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091514);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090404);
             this.mBtnClose = imageView;
             imageView.setOnClickListener(new e(this));
-            this.mTvIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f092168);
-            this.mTvTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092176);
-            this.mIndicatorLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ef2);
-            this.mIndicator = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0913e3);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e43);
+            this.mTvIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f09214d);
+            this.mTvTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09215b);
+            this.mIndicatorLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090eee);
+            this.mIndicator = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0913dc);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e2f);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setOnPageChangeListener(this);
             this.mTabHost.setTabWidgetViewHeight(0);
             this.mTabHost.u();
-            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234));
+            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e));
             this.mTabHost.getFragmentTabWidget().setDviderRectWidth(-2);
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(n.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
         }
     }
 
@@ -730,20 +733,20 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public void userConfirmDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
-            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getPageContext().getPageActivity());
-            aVar.setAutoNight(true);
-            aVar.setCancelable(true);
-            aVar.setTitleShowCenter(true);
-            aVar.setMessageShowCenter(true);
-            aVar.setTitle(getString(R.string.obfuscated_res_0x7f0f1362));
-            aVar.setMessage(getString(R.string.obfuscated_res_0x7f0f1360));
-            aVar.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f07a5), new g(this));
-            aVar.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1361), new h(this));
-            aVar.create(getPageContext()).show();
+            dr4 dr4Var = new dr4(getPageContext().getPageActivity());
+            dr4Var.setAutoNight(true);
+            dr4Var.setCancelable(true);
+            dr4Var.setTitleShowCenter(true);
+            dr4Var.setMessageShowCenter(true);
+            dr4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f136a));
+            dr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f1368));
+            dr4Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f07aa), new g(this));
+            dr4Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1369), new h(this));
+            dr4Var.create(getPageContext()).show();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -757,17 +760,17 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public c.a.o0.p0.d getPageStayDurationItem() {
+    public y75 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.o0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
+            y75 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (c.a.o0.p0.d) invokeV.objValue;
+        return (y75) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -809,7 +812,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 return;
             }
             handleIntent();
-            t consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+            zw4 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
             if (consumePathData != null) {
                 this.mIsPayDialog = Boolean.valueOf(consumePathData.b(1, this.mSceneId));
             }

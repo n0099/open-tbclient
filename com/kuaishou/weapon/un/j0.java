@@ -13,15 +13,11 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class j0 {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f38847b = "su";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f38848c;
+    public static final String b = "su";
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -38,7 +34,7 @@ public class j0 {
                 return;
             }
         }
-        f38848c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
+        c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
     }
 
     public j0(Context context) {
@@ -93,8 +89,8 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                for (String str : a(f38848c)) {
-                    if (new File(str, f38847b).exists()) {
+                for (String str : a(c)) {
+                    if (new File(str, b).exists()) {
                         return 1;
                     }
                 }

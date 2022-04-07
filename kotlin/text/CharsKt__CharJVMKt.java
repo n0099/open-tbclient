@@ -23,92 +23,92 @@ public class CharsKt__CharJVMKt {
         return i;
     }
 
-    public static final int digitOf(char c2, int i) {
-        return Character.digit((int) c2, i);
+    public static final int digitOf(char c, int i) {
+        return Character.digit((int) c, i);
     }
 
-    public static final CharCategory getCategory(char c2) {
-        return CharCategory.Companion.valueOf(Character.getType(c2));
+    public static final CharCategory getCategory(char c) {
+        return CharCategory.Companion.valueOf(Character.getType(c));
     }
 
-    public static final CharDirectionality getDirectionality(char c2) {
-        return CharDirectionality.Companion.valueOf(Character.getDirectionality(c2));
-    }
-
-    @InlineOnly
-    public static final boolean isDefined(char c2) {
-        return Character.isDefined(c2);
+    public static final CharDirectionality getDirectionality(char c) {
+        return CharDirectionality.Companion.valueOf(Character.getDirectionality(c));
     }
 
     @InlineOnly
-    public static final boolean isDigit(char c2) {
-        return Character.isDigit(c2);
+    public static final boolean isDefined(char c) {
+        return Character.isDefined(c);
     }
 
     @InlineOnly
-    public static final boolean isHighSurrogate(char c2) {
-        return Character.isHighSurrogate(c2);
+    public static final boolean isDigit(char c) {
+        return Character.isDigit(c);
     }
 
     @InlineOnly
-    public static final boolean isISOControl(char c2) {
-        return Character.isISOControl(c2);
+    public static final boolean isHighSurrogate(char c) {
+        return Character.isHighSurrogate(c);
     }
 
     @InlineOnly
-    public static final boolean isIdentifierIgnorable(char c2) {
-        return Character.isIdentifierIgnorable(c2);
+    public static final boolean isISOControl(char c) {
+        return Character.isISOControl(c);
     }
 
     @InlineOnly
-    public static final boolean isJavaIdentifierPart(char c2) {
-        return Character.isJavaIdentifierPart(c2);
+    public static final boolean isIdentifierIgnorable(char c) {
+        return Character.isIdentifierIgnorable(c);
     }
 
     @InlineOnly
-    public static final boolean isJavaIdentifierStart(char c2) {
-        return Character.isJavaIdentifierStart(c2);
+    public static final boolean isJavaIdentifierPart(char c) {
+        return Character.isJavaIdentifierPart(c);
     }
 
     @InlineOnly
-    public static final boolean isLetter(char c2) {
-        return Character.isLetter(c2);
+    public static final boolean isJavaIdentifierStart(char c) {
+        return Character.isJavaIdentifierStart(c);
     }
 
     @InlineOnly
-    public static final boolean isLetterOrDigit(char c2) {
-        return Character.isLetterOrDigit(c2);
+    public static final boolean isLetter(char c) {
+        return Character.isLetter(c);
     }
 
     @InlineOnly
-    public static final boolean isLowSurrogate(char c2) {
-        return Character.isLowSurrogate(c2);
+    public static final boolean isLetterOrDigit(char c) {
+        return Character.isLetterOrDigit(c);
     }
 
     @InlineOnly
-    public static final boolean isLowerCase(char c2) {
-        return Character.isLowerCase(c2);
+    public static final boolean isLowSurrogate(char c) {
+        return Character.isLowSurrogate(c);
     }
 
     @InlineOnly
-    public static final boolean isTitleCase(char c2) {
-        return Character.isTitleCase(c2);
+    public static final boolean isLowerCase(char c) {
+        return Character.isLowerCase(c);
     }
 
     @InlineOnly
-    public static final boolean isUpperCase(char c2) {
-        return Character.isUpperCase(c2);
+    public static final boolean isTitleCase(char c) {
+        return Character.isTitleCase(c);
     }
 
-    public static final boolean isWhitespace(char c2) {
-        return Character.isWhitespace(c2) || Character.isSpaceChar(c2);
+    @InlineOnly
+    public static final boolean isUpperCase(char c) {
+        return Character.isUpperCase(c);
+    }
+
+    public static final boolean isWhitespace(char c) {
+        return Character.isWhitespace(c) || Character.isSpaceChar(c);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final String lowercase(char c2) {
-        String valueOf = String.valueOf(c2);
+    public static final String lowercase(char c) {
+        String valueOf = String.valueOf(c);
         if (valueOf != null) {
             String lowerCase = valueOf.toLowerCase(Locale.ROOT);
             Intrinsics.checkNotNullExpressionValue(lowerCase, "(this as java.lang.Strin….toLowerCase(Locale.ROOT)");
@@ -120,24 +120,24 @@ public class CharsKt__CharJVMKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final char lowercaseChar(char c2) {
-        return Character.toLowerCase(c2);
+    public static final char lowercaseChar(char c) {
+        return Character.toLowerCase(c);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final String titlecase(char c2, Locale locale) {
+    public static final String titlecase(char c, Locale locale) {
         Intrinsics.checkNotNullParameter(locale, "locale");
-        String uppercase = uppercase(c2, locale);
+        String uppercase = uppercase(c, locale);
         if (uppercase.length() <= 1) {
-            String valueOf = String.valueOf(c2);
+            String valueOf = String.valueOf(c);
             if (valueOf != null) {
                 String upperCase = valueOf.toUpperCase(Locale.ROOT);
                 Intrinsics.checkNotNullExpressionValue(upperCase, "(this as java.lang.Strin….toUpperCase(Locale.ROOT)");
-                return Intrinsics.areEqual(uppercase, upperCase) ^ true ? uppercase : String.valueOf(Character.toTitleCase(c2));
+                return Intrinsics.areEqual(uppercase, upperCase) ^ true ? uppercase : String.valueOf(Character.toTitleCase(c));
             }
             throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-        } else if (c2 == 329) {
+        } else if (c == 329) {
             return uppercase;
         } else {
             char charAt = uppercase.charAt(0);
@@ -158,36 +158,36 @@ public class CharsKt__CharJVMKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final char titlecaseChar(char c2) {
-        return Character.toTitleCase(c2);
+    public static final char titlecaseChar(char c) {
+        return Character.toTitleCase(c);
     }
 
     @Deprecated(message = "Use lowercaseChar() instead.", replaceWith = @ReplaceWith(expression = "lowercaseChar()", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     @InlineOnly
-    public static final char toLowerCase(char c2) {
-        return Character.toLowerCase(c2);
+    public static final char toLowerCase(char c) {
+        return Character.toLowerCase(c);
     }
 
     @Deprecated(message = "Use titlecaseChar() instead.", replaceWith = @ReplaceWith(expression = "titlecaseChar()", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     @InlineOnly
-    public static final char toTitleCase(char c2) {
-        return Character.toTitleCase(c2);
+    public static final char toTitleCase(char c) {
+        return Character.toTitleCase(c);
     }
 
     @Deprecated(message = "Use uppercaseChar() instead.", replaceWith = @ReplaceWith(expression = "uppercaseChar()", imports = {}))
     @DeprecatedSinceKotlin(warningSince = "1.5")
     @InlineOnly
-    public static final char toUpperCase(char c2) {
-        return Character.toUpperCase(c2);
+    public static final char toUpperCase(char c) {
+        return Character.toUpperCase(c);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final String uppercase(char c2) {
-        String valueOf = String.valueOf(c2);
+    public static final String uppercase(char c) {
+        String valueOf = String.valueOf(c);
         if (valueOf != null) {
             String upperCase = valueOf.toUpperCase(Locale.ROOT);
             Intrinsics.checkNotNullExpressionValue(upperCase, "(this as java.lang.Strin….toUpperCase(Locale.ROOT)");
@@ -199,15 +199,15 @@ public class CharsKt__CharJVMKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final char uppercaseChar(char c2) {
-        return Character.toUpperCase(c2);
+    public static final char uppercaseChar(char c) {
+        return Character.toUpperCase(c);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final String lowercase(char c2, Locale locale) {
+    public static final String lowercase(char c, Locale locale) {
         Intrinsics.checkNotNullParameter(locale, "locale");
-        String valueOf = String.valueOf(c2);
+        String valueOf = String.valueOf(c);
         if (valueOf != null) {
             String lowerCase = valueOf.toLowerCase(locale);
             Intrinsics.checkNotNullExpressionValue(lowerCase, "(this as java.lang.String).toLowerCase(locale)");
@@ -218,9 +218,9 @@ public class CharsKt__CharJVMKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
-    public static final String uppercase(char c2, Locale locale) {
+    public static final String uppercase(char c, Locale locale) {
         Intrinsics.checkNotNullParameter(locale, "locale");
-        String valueOf = String.valueOf(c2);
+        String valueOf = String.valueOf(c);
         if (valueOf != null) {
             String upperCase = valueOf.toUpperCase(locale);
             Intrinsics.checkNotNullExpressionValue(upperCase, "(this as java.lang.String).toUpperCase(locale)");

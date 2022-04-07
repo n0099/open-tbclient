@@ -59,10 +59,10 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.map.hashCode() : invokeV.intValue;
     }
 
-    public <E> void put(Extension<T, E> extension, E e2) {
+    public <E> void put(Extension<T, E> extension, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, extension, e2) == null) {
-            this.map.put(extension, e2);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, extension, e) == null) {
+            this.map.put(extension, e);
         }
     }
 

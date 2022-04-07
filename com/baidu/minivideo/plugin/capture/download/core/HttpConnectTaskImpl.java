@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpConnectTaskImpl implements HttpConnectTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void executeConnection() throws DownloadException {
-        IOException e2;
-        ProtocolException e3;
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(65538, this) != null) {
             return;
@@ -96,12 +96,12 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
-                    } catch (ProtocolException e4) {
-                        e3 = e4;
-                        throw new DownloadException(108, "Protocol error", e3);
-                    } catch (IOException e5) {
-                        e2 = e5;
-                        throw new DownloadException(108, "IO error", e2);
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -111,18 +111,18 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
                     }
                     throw th;
                 }
-            } catch (ProtocolException e6) {
-                e3 = e6;
-            } catch (IOException e7) {
-                e2 = e7;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
             } catch (Throwable th2) {
                 th = th2;
                 if (r2 != 0) {
                 }
                 throw th;
             }
-        } catch (MalformedURLException e8) {
-            throw new DownloadException(108, "Bad url.", e8);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -235,8 +235,8 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
             this.mOnConnectListener.onConnecting();
             try {
                 executeConnection();
-            } catch (DownloadException e2) {
-                handleDownloadException(e2);
+            } catch (DownloadException e) {
+                handleDownloadException(e);
             }
         }
     }

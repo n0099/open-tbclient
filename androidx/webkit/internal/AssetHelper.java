@@ -113,8 +113,8 @@ public class AssetHelper {
             }
             try {
                 return new GZIPInputStream(inputStream);
-            } catch (IOException e2) {
-                Log.e(TAG, "Error decompressing " + str + " - " + e2.getMessage());
+            } catch (IOException e) {
+                Log.e(TAG, "Error decompressing " + str + " - " + e.getMessage());
                 return null;
             }
         }
@@ -132,8 +132,8 @@ public class AssetHelper {
                     canonicalPath = canonicalPath + "/";
                 }
                 return canonicalPath2.startsWith(canonicalPath);
-            } catch (IOException e2) {
-                Log.e(TAG, "Error getting the canonical path of file", e2);
+            } catch (IOException e) {
+                Log.e(TAG, "Error getting the canonical path of file", e);
                 return false;
             }
         }
@@ -147,8 +147,8 @@ public class AssetHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, file)) == null) {
             try {
                 return handleSvgzStream(file.getPath(), new FileInputStream(file));
-            } catch (IOException e2) {
-                Log.e(TAG, "Error opening the requested file " + file, e2);
+            } catch (IOException e) {
+                Log.e(TAG, "Error opening the requested file " + file, e);
                 return null;
             }
         }
@@ -197,8 +197,8 @@ public class AssetHelper {
                 }
                 Log.e(TAG, String.format("Expected %s resource to be of TYPE_STRING but was %d", removeLeadingSlash, Integer.valueOf(valueType)));
                 return null;
-            } catch (Resources.NotFoundException e2) {
-                Log.e(TAG, "Resource not found from the path: " + removeLeadingSlash, e2);
+            } catch (Resources.NotFoundException e) {
+                Log.e(TAG, "Resource not found from the path: " + removeLeadingSlash, e);
                 return null;
             }
         }

@@ -53,7 +53,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
@@ -420,10 +420,10 @@ public final class ShareUtils {
                                 ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_CHECK_BDUSS_APP, jSONArray2);
                                 this.val$callback.onReceiveShareModels(arrayList3);
                                 ShareLoginStat.GetShareListStat.upload();
-                            } catch (Exception e2) {
+                            } catch (Exception e) {
                                 this.val$callback.onReceiveShareModels(this.val$shareModelList);
                                 ShareLoginStat.GetShareListStat.upload();
-                                e2.printStackTrace();
+                                e.printStackTrace();
                             }
                         } else {
                             this.val$callback.onReceiveShareModels(this.val$shareModelList);
@@ -705,8 +705,8 @@ public final class ShareUtils {
                     JSONArray jSONArray = null;
                     try {
                         jSONArray = new JSONArray(decryptAccountInfo);
-                    } catch (Exception e2) {
-                        Log.e(TAG, e2.getMessage());
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getMessage());
                     }
                     return checkShareAppInstalled(ShareStorage.StorageModel.fromJSONArray(jSONArray), list);
                 }
@@ -873,7 +873,7 @@ public final class ShareUtils {
                 } else {
                     str2 = "";
                 }
-                char c2 = 2;
+                char c = 2;
                 if (i2 == -1 && intent != null) {
                     SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
                     if (sapiAccount != null) {
@@ -904,13 +904,13 @@ public final class ShareUtils {
                         ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "1");
                         str9 = str11;
                         str8 = "";
-                        c2 = 0;
+                        c = 0;
                     } else {
                         Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
                         shareLoginCallBack.onFailed(-207, "互通登录失败,请稍后再试");
                         ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
                         str8 = ShareResult.ERROR_MSG_ACCOUNT_NULL;
-                        c2 = 1;
+                        c = 1;
                         str10 = "-3007";
                         str9 = "";
                     }
@@ -936,12 +936,12 @@ public final class ShareUtils {
                 ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", str5);
                 ShareLoginStat.MakeShareLoginStat.upload();
                 if (SHARE_ACCOUNT_CLOUND_VERSION.equals(str2)) {
-                    if (c2 == 0) {
+                    if (c == 0) {
                         SapiStatUtil.statInvokeCloudShareAccount(4);
                     } else {
                         SapiStatUtil.statInvokeCloudShareAccount(5);
                     }
-                } else if (c2 == 0) {
+                } else if (c == 0) {
                     SapiStatUtil.statShareV2Success(ShareCallPacking.statModel, str6, list, str);
                 } else {
                     SapiStatUtil.statShareV2Fail(ShareCallPacking.statModel, str7, str5, str6, list, str);
@@ -959,8 +959,8 @@ public final class ShareUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
                 list = context.getPackageManager().queryIntentActivities(new Intent(ACTION_SHARE_ACTIVITY), 32);
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 list = null;
             }
             return queryShareIntent(context, list, ACTION_SHARE_ACTIVITY);

@@ -12,7 +12,7 @@ import com.yy.hiidostatis.message.sender.OKSender;
 import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MessageSenderProvider implements Provider<MessageSender> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

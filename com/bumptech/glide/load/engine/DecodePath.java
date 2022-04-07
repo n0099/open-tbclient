@@ -17,7 +17,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DecodePath<DataType, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodePath";
@@ -28,7 +28,7 @@ public class DecodePath<DataType, ResourceType, Transcode> {
     public final Pools.Pool<List<Throwable>> listPool;
     public final ResourceTranscoder<ResourceType, Transcode> transcoder;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DecodeCallback<ResourceType> {
         @NonNull
         Resource<ResourceType> onResourceDecoded(@NonNull Resource<ResourceType> resource);
@@ -84,11 +84,11 @@ public class DecodePath<DataType, ResourceType, Transcode> {
                     if (resourceDecoder.handles(dataRewinder.rewindAndGet(), options)) {
                         resource = resourceDecoder.decode(dataRewinder.rewindAndGet(), i, i2, options);
                     }
-                } catch (IOException | OutOfMemoryError | RuntimeException e2) {
+                } catch (IOException | OutOfMemoryError | RuntimeException e) {
                     if (Log.isLoggable(TAG, 2)) {
-                        Log.v(TAG, "Failed to decode data for " + resourceDecoder, e2);
+                        Log.v(TAG, "Failed to decode data for " + resourceDecoder, e);
                     }
-                    list.add(e2);
+                    list.add(e);
                 }
                 if (resource != null) {
                     break;

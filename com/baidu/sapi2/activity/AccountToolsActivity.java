@@ -21,16 +21,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AccountToolsActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
     public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";
     public transient /* synthetic */ FieldHolder $fh;
     public AccountToolsResult a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f28400b;
+    public AccountToolsCallback b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -54,7 +52,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f28400b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -106,7 +104,7 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f28400b;
+            AccountToolsCallback accountToolsCallback = this.b;
             if (accountToolsCallback != null) {
                 accountToolsCallback.onFinish(this.a);
             }

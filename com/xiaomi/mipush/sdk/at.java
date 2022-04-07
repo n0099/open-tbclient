@@ -8,28 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class at {
     public static /* synthetic */ Interceptable $ic;
     public static final at a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ at[] f58a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final at f44067b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final at f44068c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final at f44069d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final at f44070e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final at f44071f;
+    public static final at b;
+    public static final at c;
+    public static final at d;
+    public static final at e;
+    public static final at f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,13 +36,13 @@ public final class at {
             }
         }
         a = new at("DISABLE_PUSH", 0);
-        f44067b = new at("ENABLE_PUSH", 1);
-        f44068c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f44069d = new at("UPLOAD_FCM_TOKEN", 3);
-        f44070e = new at("UPLOAD_COS_TOKEN", 4);
+        b = new at("ENABLE_PUSH", 1);
+        c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        d = new at("UPLOAD_FCM_TOKEN", 3);
+        e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f44071f = atVar;
-        f58a = new at[]{a, f44067b, f44068c, f44069d, f44070e, atVar};
+        f = atVar;
+        f58a = new at[]{a, b, c, d, e, atVar};
     }
 
     public at(String str, int i) {

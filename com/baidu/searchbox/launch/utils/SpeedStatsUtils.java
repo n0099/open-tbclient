@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SpeedStatsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_NIGHT_MODE = "isNightMode";
@@ -99,9 +99,9 @@ public class SpeedStatsUtils {
                     jSONObject.put(SpeedStatsMainTable.PART, jSONArray);
                 }
                 return jSONObject;
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return null;
                 }
                 return null;

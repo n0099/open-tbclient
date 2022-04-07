@@ -45,7 +45,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ForHostApp implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_NAME_LOCAL = "local";
@@ -1850,8 +1850,8 @@ public class ForHostApp implements SharedPreferences.OnSharedPreferenceChangeLis
                         String str = null;
                         try {
                             str = hostContext.getFilesDir().getCanonicalPath();
-                        } catch (IOException e2) {
-                            CommonMethods.handleNuLException(e2);
+                        } catch (IOException e) {
+                            CommonMethods.handleNuLException(e);
                         }
                         if (str != null) {
                             apkInfo.dataDir = str + "/." + apkInfo.key;

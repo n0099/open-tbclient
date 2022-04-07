@@ -9,23 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBCdnMobileListData mobileCdnData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class TBCdnMobileListData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f34102b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f34103c;
+        public String b;
+        public ArrayList<String> c;
 
         public TBCdnMobileListData() {
             Interceptable interceptable = $ic;
@@ -41,8 +37,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 }
             }
             this.a = null;
-            this.f34102b = null;
-            this.f34103c = new ArrayList<>();
+            this.b = null;
+            this.c = new ArrayList<>();
         }
     }
 
@@ -84,17 +80,17 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < optJSONArray.length() && this.mobileCdnData.f34103c.size() <= 5; i2++) {
+                    for (int i2 = 0; i2 < optJSONArray.length() && this.mobileCdnData.c.size() <= 5; i2++) {
                         String string = optJSONArray.getString(i2);
                         if (string != null) {
-                            this.mobileCdnData.f34103c.add(string);
+                            this.mobileCdnData.c.add(string);
                         }
                     }
                 }
                 this.mobileCdnData.a = optJSONObject.optString("testimg_url");
-                this.mobileCdnData.f34102b = optJSONObject.optString("testimg_md5");
-            } catch (Exception e2) {
-                BdLog.e(e2);
+                this.mobileCdnData.b = optJSONObject.optString("testimg_md5");
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }

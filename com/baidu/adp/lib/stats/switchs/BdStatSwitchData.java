@@ -6,6 +6,7 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdStatSwitchData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -100,7 +101,7 @@ public class BdStatSwitchData implements Serializable {
         }
         bdStatisticsUploadConfigItem.isUpload = optJSONObject2.optInt("is_upload", 0) != 0;
         bdStatisticsUploadConfigItem.isWifi = optJSONObject2.optInt("is_only_wifi", 0) != 0;
-        JSONArray optJSONArray = optJSONObject.optJSONArray("children");
+        JSONArray optJSONArray = optJSONObject.optJSONArray(CriusAttrConstants.CHILDREN);
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
@@ -252,8 +253,8 @@ public class BdStatSwitchData implements Serializable {
                 this.uploadConfig.item.put("alert", bdStatisticsUploadConfigItem5);
                 parserCommonData(optJSONObject.optJSONArray("alert"), null, bdStatisticsUploadConfigItem5);
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

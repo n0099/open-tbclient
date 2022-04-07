@@ -1,7 +1,7 @@
 package com.facebook.common.memory;
 
 import com.facebook.common.references.ResourceReleaser;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Pool<V> extends ResourceReleaser<V>, MemoryTrimmable {
     V get(int i);
 

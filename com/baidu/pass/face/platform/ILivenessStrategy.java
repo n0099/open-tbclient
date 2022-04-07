@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import com.baidu.pass.face.platform.listener.ISecurityCallback;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ILivenessStrategy {
     void livenessStrategy(Bitmap bitmap);
 

@@ -15,7 +15,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompletableTimeout extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class CompletableTimeout extends Completable {
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class DisposeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class CompletableTimeout extends Completable {
         public final CompositeDisposable set;
         public final /* synthetic */ CompletableTimeout this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public final class DisposeObserver implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public final class CompletableTimeout extends Completable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class TimeOutObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

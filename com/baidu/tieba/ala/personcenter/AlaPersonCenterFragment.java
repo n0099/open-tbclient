@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.c0.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
@@ -17,23 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.yt5;
+/* loaded from: classes3.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f31459b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f31460c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f31461d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f31462e;
+    public String b;
+    public String c;
+    public String d;
+    public yt5 e;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -49,30 +41,30 @@ public class AlaPersonCenterFragment extends BaseFragment {
         }
     }
 
-    public void C0(String str) {
+    public void B0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public void D0(String str) {
+    public void C0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f31459b = str;
+            this.b = str;
+        }
+    }
+
+    public void D0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
         }
     }
 
     public void E0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f31460c = str;
-        }
-    }
-
-    public void F0(String str) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f31461d = str;
+            this.d = str;
         }
     }
 
@@ -81,9 +73,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            a aVar = this.f31462e;
-            if (aVar != null) {
-                aVar.m(i);
+            yt5 yt5Var = this.e;
+            if (yt5Var != null) {
+                yt5Var.m(i);
             }
         }
     }
@@ -93,9 +85,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            a aVar = this.f31462e;
-            if (aVar != null) {
-                aVar.m(i);
+            yt5 yt5Var = this.e;
+            if (yt5Var != null) {
+                yt5Var.m(i);
             }
         }
     }
@@ -116,15 +108,15 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            a aVar = new a(pageContext, true);
-            this.f31462e = aVar;
-            aVar.s(this.f31460c);
-            this.f31462e.r(this.f31459b);
-            this.f31462e.t(this.f31461d);
+            yt5 yt5Var = new yt5(pageContext, true);
+            this.e = yt5Var;
+            yt5Var.s(this.c);
+            this.e.r(this.b);
+            this.e.t(this.d);
             if (getArguments() != null) {
-                this.f31462e.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+                this.e.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
             }
-            return this.f31462e.i();
+            return this.e.i();
         }
         return (View) invokeLLL.objValue;
     }
@@ -133,7 +125,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f31462e.o();
+            this.e.o();
             super.onDestroy();
         }
     }
@@ -152,7 +144,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                this.f31462e.l();
+                this.e.l();
             }
         }
     }

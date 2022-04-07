@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
 @RequiresApi(api = 21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +31,12 @@ public final class d {
                     if (a != null && a.isAccessible()) {
                         try {
                             signatureArr[i] = (Signature) a.newInstance(certificateArr[i]);
-                        } catch (IllegalAccessException e2) {
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InstantiationException e2) {
                             e2.printStackTrace();
-                        } catch (InstantiationException e3) {
+                        } catch (InvocationTargetException e3) {
                             e3.printStackTrace();
-                        } catch (InvocationTargetException e4) {
-                            e4.printStackTrace();
                         }
                     }
                 } else {
@@ -55,16 +55,16 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
                 try {
-                    c.C1920c a = c.a(str);
+                    c.C0260c a = c.a(str);
                     Signature[] a2 = a(new Certificate[][]{a.a});
                     Signature[] signatureArr = null;
-                    if (a.f38112b != null) {
-                        int size = a.f38112b.a.size();
+                    if (a.b != null) {
+                        int size = a.b.a.size();
                         signatureArr = new Signature[size];
-                        iArr = new int[a.f38112b.f38111b.size()];
+                        iArr = new int[a.b.b.size()];
                         for (int i = 0; i < size; i++) {
-                            signatureArr[i] = new Signature(a.f38112b.a.get(i).getEncoded());
-                            iArr[i] = a.f38112b.f38111b.get(i).intValue();
+                            signatureArr[i] = new Signature(a.b.a.get(i).getEncoded());
+                            iArr[i] = a.b.b.get(i).intValue();
                         }
                     } else {
                         iArr = null;
@@ -72,13 +72,13 @@ public final class d {
                     return new o(a2, 3, signatureArr, iArr);
                 } catch (n unused) {
                     return a.a(str);
-                } catch (Exception e2) {
-                    throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v2", e2);
+                } catch (Exception e) {
+                    throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v2", e);
                 }
             } catch (n unused2) {
                 return new o(a(b.a(str).a));
-            } catch (Exception e3) {
-                throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v3", e3);
+            } catch (Exception e2) {
+                throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v3", e2);
             }
         }
         return (o) invokeL.objValue;

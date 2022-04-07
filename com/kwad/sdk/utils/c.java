@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     @Nullable
     @WorkerThread
@@ -47,8 +47,8 @@ public class c {
                 }
                 messageDigest.update(bArr, 0, read);
             }
-        } catch (Exception e2) {
-            Log.e("FileMD5Utils", "getting file md5 digest error.", e2);
+        } catch (Exception e) {
+            Log.e("FileMD5Utils", "getting file md5 digest error.", e);
             return null;
         } finally {
             a(fileInputStream);
@@ -64,8 +64,8 @@ public class c {
                 return aa.a(a, 0, a.length);
             }
             return null;
-        } catch (IOException | NoSuchAlgorithmException e2) {
-            Log.e("FileMD5Utils", "cannot calculate md5 of file", e2);
+        } catch (IOException | NoSuchAlgorithmException e) {
+            Log.e("FileMD5Utils", "cannot calculate md5 of file", e);
             return null;
         }
     }

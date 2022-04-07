@@ -8,29 +8,29 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public class ComparisonsKt___ComparisonsJvmKt extends ComparisonsKt__ComparisonsKt {
     @SinceKotlin(version = "1.1")
-    public static final <T extends Comparable<? super T>> T maxOf(T a, T b2) {
+    public static final <T extends Comparable<? super T>> T maxOf(T a, T b) {
         Intrinsics.checkNotNullParameter(a, "a");
-        Intrinsics.checkNotNullParameter(b2, "b");
-        return a.compareTo(b2) >= 0 ? a : b2;
+        Intrinsics.checkNotNullParameter(b, "b");
+        return a.compareTo(b) >= 0 ? a : b;
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <T extends Comparable<? super T>> T minOf(T a, T b2) {
+    public static final <T extends Comparable<? super T>> T minOf(T a, T b) {
         Intrinsics.checkNotNullParameter(a, "a");
-        Intrinsics.checkNotNullParameter(b2, "b");
-        return a.compareTo(b2) <= 0 ? a : b2;
+        Intrinsics.checkNotNullParameter(b, "b");
+        return a.compareTo(b) <= 0 ? a : b;
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte maxOf(byte b2, byte b3) {
-        return (byte) Math.max((int) b2, (int) b3);
+    public static final byte maxOf(byte b, byte b2) {
+        return (byte) Math.max((int) b, (int) b2);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte minOf(byte b2, byte b3) {
-        return (byte) Math.min((int) b2, (int) b3);
+    public static final byte minOf(byte b, byte b2) {
+        return (byte) Math.min((int) b, (int) b2);
     }
 
     @SinceKotlin(version = "1.1")
@@ -71,54 +71,54 @@ public class ComparisonsKt___ComparisonsJvmKt extends ComparisonsKt__Comparisons
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final float maxOf(float f2, float f3) {
-        return Math.max(f2, f3);
+    public static final float maxOf(float f, float f2) {
+        return Math.max(f, f2);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final float minOf(float f2, float f3) {
-        return Math.min(f2, f3);
+    public static final float minOf(float f, float f2) {
+        return Math.min(f, f2);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final double maxOf(double d2, double d3) {
-        return Math.max(d2, d3);
+    public static final double maxOf(double d, double d2) {
+        return Math.max(d, d2);
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final double minOf(double d2, double d3) {
-        return Math.min(d2, d3);
+    public static final double minOf(double d, double d2) {
+        return Math.min(d, d2);
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <T extends Comparable<? super T>> T maxOf(T a, T b2, T c2) {
+    public static final <T extends Comparable<? super T>> T maxOf(T a, T b, T c) {
         Intrinsics.checkNotNullParameter(a, "a");
-        Intrinsics.checkNotNullParameter(b2, "b");
-        Intrinsics.checkNotNullParameter(c2, "c");
-        return (T) maxOf(a, maxOf(b2, c2));
+        Intrinsics.checkNotNullParameter(b, "b");
+        Intrinsics.checkNotNullParameter(c, "c");
+        return (T) maxOf(a, maxOf(b, c));
     }
 
     @SinceKotlin(version = "1.1")
-    public static final <T extends Comparable<? super T>> T minOf(T a, T b2, T c2) {
+    public static final <T extends Comparable<? super T>> T minOf(T a, T b, T c) {
         Intrinsics.checkNotNullParameter(a, "a");
-        Intrinsics.checkNotNullParameter(b2, "b");
-        Intrinsics.checkNotNullParameter(c2, "c");
-        return (T) minOf(a, minOf(b2, c2));
+        Intrinsics.checkNotNullParameter(b, "b");
+        Intrinsics.checkNotNullParameter(c, "c");
+        return (T) minOf(a, minOf(b, c));
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte maxOf(byte b2, byte b3, byte b4) {
-        return (byte) Math.max((int) b2, Math.max((int) b3, (int) b4));
+    public static final byte maxOf(byte b, byte b2, byte b3) {
+        return (byte) Math.max((int) b, Math.max((int) b2, (int) b3));
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte minOf(byte b2, byte b3, byte b4) {
-        return (byte) Math.min((int) b2, Math.min((int) b3, (int) b4));
+    public static final byte minOf(byte b, byte b2, byte b3) {
+        return (byte) Math.min((int) b, Math.min((int) b2, (int) b3));
     }
 
     @SinceKotlin(version = "1.1")
@@ -159,26 +159,26 @@ public class ComparisonsKt___ComparisonsJvmKt extends ComparisonsKt__Comparisons
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final float maxOf(float f2, float f3, float f4) {
-        return Math.max(f2, Math.max(f3, f4));
+    public static final float maxOf(float f, float f2, float f3) {
+        return Math.max(f, Math.max(f2, f3));
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final float minOf(float f2, float f3, float f4) {
-        return Math.min(f2, Math.min(f3, f4));
+    public static final float minOf(float f, float f2, float f3) {
+        return Math.min(f, Math.min(f2, f3));
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final double maxOf(double d2, double d3, double d4) {
-        return Math.max(d2, Math.max(d3, d4));
+    public static final double maxOf(double d, double d2, double d3) {
+        return Math.max(d, Math.max(d2, d3));
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final double minOf(double d2, double d3, double d4) {
-        return Math.min(d2, Math.min(d3, d4));
+    public static final double minOf(double d, double d2, double d3) {
+        return Math.min(d, Math.min(d2, d3));
     }
 
     @SinceKotlin(version = "1.4")
@@ -202,21 +202,21 @@ public class ComparisonsKt___ComparisonsJvmKt extends ComparisonsKt__Comparisons
     }
 
     @SinceKotlin(version = "1.4")
-    public static final byte maxOf(byte b2, byte... other) {
+    public static final byte maxOf(byte b, byte... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (byte b3 : other) {
-            b2 = (byte) Math.max((int) b2, (int) b3);
+        for (byte b2 : other) {
+            b = (byte) Math.max((int) b, (int) b2);
         }
-        return b2;
+        return b;
     }
 
     @SinceKotlin(version = "1.4")
-    public static final byte minOf(byte b2, byte... other) {
+    public static final byte minOf(byte b, byte... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (byte b3 : other) {
-            b2 = (byte) Math.min((int) b2, (int) b3);
+        for (byte b2 : other) {
+            b = (byte) Math.min((int) b, (int) b2);
         }
-        return b2;
+        return b;
     }
 
     @SinceKotlin(version = "1.4")
@@ -274,38 +274,38 @@ public class ComparisonsKt___ComparisonsJvmKt extends ComparisonsKt__Comparisons
     }
 
     @SinceKotlin(version = "1.4")
-    public static final float maxOf(float f2, float... other) {
+    public static final float maxOf(float f, float... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (float f3 : other) {
-            f2 = Math.max(f2, f3);
+        for (float f2 : other) {
+            f = Math.max(f, f2);
         }
-        return f2;
+        return f;
     }
 
     @SinceKotlin(version = "1.4")
-    public static final float minOf(float f2, float... other) {
+    public static final float minOf(float f, float... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (float f3 : other) {
-            f2 = Math.min(f2, f3);
+        for (float f2 : other) {
+            f = Math.min(f, f2);
         }
-        return f2;
+        return f;
     }
 
     @SinceKotlin(version = "1.4")
-    public static final double maxOf(double d2, double... other) {
+    public static final double maxOf(double d, double... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (double d3 : other) {
-            d2 = Math.max(d2, d3);
+        for (double d2 : other) {
+            d = Math.max(d, d2);
         }
-        return d2;
+        return d;
     }
 
     @SinceKotlin(version = "1.4")
-    public static final double minOf(double d2, double... other) {
+    public static final double minOf(double d, double... other) {
         Intrinsics.checkNotNullParameter(other, "other");
-        for (double d3 : other) {
-            d2 = Math.min(d2, d3);
+        for (double d2 : other) {
+            d = Math.min(d, d2);
         }
-        return d2;
+        return d;
     }
 }

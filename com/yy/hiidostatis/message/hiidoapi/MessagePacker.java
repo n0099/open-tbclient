@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MessagePacker implements Packer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MAGIC = "HiidoData";
@@ -265,8 +265,8 @@ public class MessagePacker implements Packer {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             this.this$0.monitor.commit();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         try {
                             ArrayList arrayList = new ArrayList(this.this$0.cache.size() + 10);

@@ -222,10 +222,10 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         MenuBuilder.ItemInvoker itemInvoker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (itemInvoker = this.mItemInvoker) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (itemInvoker = this.mItemInvoker) == null) {
             return;
         }
         itemInvoker.invokeItem(this.mItemData);
@@ -377,9 +377,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setShortcut(boolean z, char c2) {
+    public void setShortcut(boolean z, char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c)}) == null) {
         }
     }
 

@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class e extends f implements View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     public float[] hq;
 
     /* renamed from: com.baidu.ar.arrender.e$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] hs;
@@ -126,13 +126,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f24815f);
+        cVar.b(this.f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f24815f);
+        aVar.b(this.f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f24815f);
+        dVar.b(this.f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
@@ -179,30 +179,30 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hx.setWatermark(str, duMixOutput.getWatermark().getBitmap(), duMixOutput.getWatermark().getRenderRect());
     }
 
-    private float[] a(Watermark watermark, float f2, float f3, float f4, float f5) {
+    private float[] a(Watermark watermark, float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{watermark, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{watermark, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             float[] fArr = new float[4];
             Point startPoint = watermark.getStartPoint();
             float width = watermark.getBitmap().getWidth() * watermark.getScale();
             float height = watermark.getBitmap().getHeight() * watermark.getScale();
             int i = AnonymousClass2.hs[watermark.getCoordinateType().ordinal()];
             if (i == 1) {
-                fArr[0] = (startPoint.x + f4) / f2;
-                fArr[1] = (startPoint.y + f5) / f3;
+                fArr[0] = (startPoint.x + f3) / f;
+                fArr[1] = (startPoint.y + f4) / f2;
             } else if (i == 2) {
-                fArr[0] = (startPoint.x + f4) / f2;
-                fArr[1] = (((f3 - f5) - startPoint.y) - height) / f3;
+                fArr[0] = (startPoint.x + f3) / f;
+                fArr[1] = (((f2 - f4) - startPoint.y) - height) / f2;
             } else if (i == 3) {
-                fArr[0] = (((f2 - f4) - startPoint.x) - width) / f2;
-                fArr[1] = (startPoint.y + f5) / f3;
+                fArr[0] = (((f - f3) - startPoint.x) - width) / f;
+                fArr[1] = (startPoint.y + f4) / f2;
             } else if (i == 4) {
-                fArr[0] = (((f2 - f4) - startPoint.x) - width) / f2;
-                fArr[1] = (((f3 - f5) - startPoint.y) - height) / f3;
+                fArr[0] = (((f - f3) - startPoint.x) - width) / f;
+                fArr[1] = (((f2 - f4) - startPoint.y) - height) / f2;
             }
-            fArr[2] = width / f2;
-            fArr[3] = height / f3;
+            fArr[2] = width / f;
+            fArr[3] = height / f2;
             return fArr;
         }
         return (float[]) invokeCommon.objValue;
@@ -231,11 +231,11 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                     inputWidth = inputHeight;
                 }
                 new Size(outputWidth, outputHeight);
-                Size b2 = b.b(inputWidth, inputHeight, outputWidth, outputHeight);
-                if (b2.getWidth() != inputWidth) {
-                    i2 = (outputWidth - b2.getWidth()) / 2;
-                } else if (b2.getHeight() != inputHeight) {
-                    i = (outputHeight - b2.getHeight()) / 2;
+                Size b = b.b(inputWidth, inputHeight, outputWidth, outputHeight);
+                if (b.getWidth() != inputWidth) {
+                    i2 = (outputWidth - b.getWidth()) / 2;
+                } else if (b.getHeight() != inputHeight) {
+                    i = (outputHeight - b.getHeight()) / 2;
                     watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i2, i));
                 }
             }
@@ -519,17 +519,17 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         }
     }
 
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view2, motionEvent)) == null) {
             com.baidu.ar.arplay.core.engine.a aVar = this.hd;
             if (aVar == null) {
                 return false;
             }
             if (!this.he) {
-                if (view != null) {
-                    aVar.d(view.getWidth(), view.getHeight());
+                if (view2 != null) {
+                    aVar.d(view2.getWidth(), view2.getHeight());
                 } else {
                     DuMixOutput duMixOutput = this.W;
                     if (duMixOutput != null) {

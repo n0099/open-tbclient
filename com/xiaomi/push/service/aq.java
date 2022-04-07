@@ -14,7 +14,7 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public static volatile aq a;
@@ -26,7 +26,7 @@ public class aq {
     /* renamed from: a  reason: collision with other field name */
     public HashSet<a> f880a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,14 +155,14 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             try {
-                String b2 = b(i);
-                if (this.f879a.contains(b2)) {
-                    return this.f879a.getInt(b2, 0);
+                String b = b(i);
+                if (this.f879a.contains(b)) {
+                    return this.f879a.getInt(b, 0);
                 }
                 String a2 = a(i);
                 return this.f879a.contains(a2) ? this.f879a.getInt(a2, 0) : i2;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc int error " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a(i + " oc int error " + e);
                 return i2;
             }
         }
@@ -174,14 +174,14 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             try {
-                String b2 = b(i);
-                if (this.f879a.contains(b2)) {
-                    return this.f879a.getString(b2, null);
+                String b = b(i);
+                if (this.f879a.contains(b)) {
+                    return this.f879a.getString(b, null);
                 }
                 String a2 = a(i);
                 return this.f879a.contains(a2) ? this.f879a.getString(a2, null) : str;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc string error " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a(i + " oc string error " + e);
                 return str;
             }
         }
@@ -228,14 +228,14 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             try {
-                String b2 = b(i);
-                if (this.f879a.contains(b2)) {
-                    return this.f879a.getBoolean(b2, false);
+                String b = b(i);
+                if (this.f879a.contains(b)) {
+                    return this.f879a.getBoolean(b, false);
                 }
                 String a2 = a(i);
                 return this.f879a.contains(a2) ? this.f879a.getBoolean(a2, false) : z;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc boolean error " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a(i + " oc boolean error " + e);
                 return z;
             }
         }
@@ -270,11 +270,11 @@ public class aq {
         for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null) {
-                String b2 = b(((Integer) obj).intValue());
+                String b = b(((Integer) obj).intValue());
                 if (pair.second == null) {
-                    edit.remove(b2);
+                    edit.remove(b);
                 } else {
-                    a(edit, pair, b2);
+                    a(edit, pair, b);
                 }
             }
         }

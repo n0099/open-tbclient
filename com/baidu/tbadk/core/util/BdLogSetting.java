@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class BdLogSetting implements b {
+import com.repackage.vg;
+/* loaded from: classes3.dex */
+public class BdLogSetting implements vg {
     public static /* synthetic */ Interceptable $ic;
     public static BdLogSetting mInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class BdLogSetting implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkSettings.getInst().loadLong("log_stat_error_time", 0L) : invokeV.longValue;
     }
 
-    @Override // c.a.d.f.n.b
+    @Override // com.repackage.vg
     public long getLogUploadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class BdLogSetting implements b {
         }
     }
 
-    @Override // c.a.d.f.n.b
+    @Override // com.repackage.vg
     public void setLogUploadTime(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {

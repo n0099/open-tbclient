@@ -1,8 +1,5 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import c.a.d.o.e.n;
-import c.a.p0.q1.g.a.c;
-import c.a.p0.q1.g.a.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ax6;
+import com.repackage.jw6;
+import com.repackage.uo;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes5.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements a {
+/* loaded from: classes3.dex */
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements ax6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<n> mHotTopicDataList;
+    public List<uo> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabSocketResponse() {
@@ -38,14 +38,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // c.a.p0.q1.g.a.f.a
-    public List<n> getDataList() {
+    @Override // com.repackage.ax6
+    public List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.q1.g.a.f.a
+    @Override // com.repackage.ax6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = c.c(hotThreadListResIdl);
+                this.mHotTopicDataList = jw6.c(hotThreadListResIdl);
             }
         }
     }

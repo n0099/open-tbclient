@@ -32,14 +32,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ts5;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public c.a.p0.c0.j.a.a mGameEntryAdapter;
+    public ts5 mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -50,7 +51,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public IAlaSquareTabController mSquareTabController;
     public TextView mTextSearchHint;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,15 +76,15 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.a.getPageContext().getPageActivity())));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,10 +109,10 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             AlaSquareTabInfo alaSquareTabInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.a.mGameEntryAdapter.a(), i)) == null || this.a.mSquareTabController == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.a.mGameEntryAdapter.a(), i)) == null || this.a.mSquareTabController == null) {
                 return;
             }
             int tabIndex = this.a.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
@@ -151,28 +152,28 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e9, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00eb, null);
             this.mRootView = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923cf);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f5));
-            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c23);
+            this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f6));
+            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c12);
             this.mSearchRoot = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c4b);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c3a);
             this.mTextSearchHint = textView;
             textView.setClickable(false);
-            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c35);
+            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c24);
             this.mSearchRoot.setOnClickListener(new a(this));
             if (this.mHasSearchTab == 1) {
                 this.mSearchRoot.setVisibility(0);
             } else {
                 this.mSearchRoot.setVisibility(8);
             }
-            this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null);
-            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c0d);
-            this.mGameEntryAdapter = new c.a.p0.c0.j.a.a(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0901e7);
+            this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null);
+            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091bfc);
+            this.mGameEntryAdapter = new ts5(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0901ef);
             this.mGridView = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
             this.mGridView.setAdapter((ListAdapter) this.mGameEntryAdapter);

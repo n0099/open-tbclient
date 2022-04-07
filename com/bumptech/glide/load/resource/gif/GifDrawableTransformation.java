@@ -15,7 +15,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GifDrawableTransformation implements Transformation<GifDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

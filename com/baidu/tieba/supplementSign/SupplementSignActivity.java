@@ -3,7 +3,6 @@ package com.baidu.tieba.supplementSign;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.JsPromptResult;
-import c.a.p0.a4.o0.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -17,8 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kl8;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,11 +27,11 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int continuousSignAllDays;
     public int forumId;
     public CustomMessageListener mBuyMemberListener;
-    public b mSupplementSignInterface;
+    public kl8 mSupplementSignInterface;
     public int signBonusPoint;
     public int supplementSignDays;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.supplementSignDays = 0;
         this.signBonusPoint = 0;
         this.mBuyMemberListener = new a(this, 2001194);
-        this.mSupplementSignInterface = new b(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.mSupplementSignInterface = new kl8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -110,7 +110,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // c.a.p0.a4.o0.b
+            @Override // com.repackage.kl8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

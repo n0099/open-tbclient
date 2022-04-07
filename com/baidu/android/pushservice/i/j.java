@@ -8,7 +8,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class j {
                         putString.commit();
                         edit.putLong("token_save_time", System.currentTimeMillis()).commit();
                     }
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
             }
         }
@@ -74,8 +74,8 @@ public class j {
                 if (edit != null) {
                     edit.putBoolean(str, z).commit();
                 }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }

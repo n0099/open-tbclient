@@ -4,31 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class y0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "RISK_AUTH_FAILED";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f39032b = "RISK_SERVICE_OBJECT_NULL";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f39033c = "RISK_GET_FIELD_EMPTY";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f39034d = "RISK_EXCEPTION_HAPPEN";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f39035e = "RISK_SWITCH_CLOSED";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f39036f = "RISK_NOT_ALLOWED";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f39037g = -2;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f39038h = -1;
+    public static final String b = "RISK_SERVICE_OBJECT_NULL";
+    public static final String c = "RISK_GET_FIELD_EMPTY";
+    public static final String d = "RISK_EXCEPTION_HAPPEN";
+    public static final String e = "RISK_SWITCH_CLOSED";
+    public static final String f = "RISK_NOT_ALLOWED";
+    public static final int g = -2;
+    public static final int h = -1;
     public static final int i = 0;
     public static final int j = 1;
     public static final int k = -3;

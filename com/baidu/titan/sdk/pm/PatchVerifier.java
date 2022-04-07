@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.verifier.SignatureVerifier;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchVerifier {
     public static final boolean DEBUG = false;
     public static final String TAG = "PatchVerifier";
@@ -35,13 +35,13 @@ public class PatchVerifier {
         if (jSONObject2 != null) {
             try {
                 jSONObject2.put("patchInfo", jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             try {
                 jSONObject.put("pathHash", EncodeUtils.bytesToHex(EncodeUtils.sha256(this.mPatchFile)));
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         int verifySignature = this.mSigVerifier.verifySignature();
@@ -56,8 +56,8 @@ public class PatchVerifier {
             try {
                 jSONObject.put("metaInfo", createFromPatch.toJson());
                 jSONObject.put("curApkId", this.mCurId);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
+            } catch (JSONException e3) {
+                e3.printStackTrace();
             }
         }
         return !verifyApkId(createFromPatch) ? -4 : 0;

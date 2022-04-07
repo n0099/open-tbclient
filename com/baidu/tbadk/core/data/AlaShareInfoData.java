@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.AlaShareInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaShareInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public class AlaShareInfoData extends OrmObject {
             this.share_user_count = jSONObject.optInt("share_user_count");
             this.share_count = jSONObject.optInt("share_count");
             this.record_tid = jSONObject.optLong("record_tid");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -57,8 +57,8 @@ public class AlaShareInfoData extends OrmObject {
             this.share_user_count = alaShareInfo.share_user_count.intValue();
             this.share_count = alaShareInfo.share_count.intValue();
             this.record_tid = alaShareInfo.record_tid.longValue();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

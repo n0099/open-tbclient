@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class CodedInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -672,8 +672,8 @@ public final class CodedInputStream {
             try {
                 codedInputStream.pushLimit(i2);
                 return codedInputStream;
-            } catch (InvalidProtocolBufferException e2) {
-                throw new IllegalArgumentException(e2);
+            } catch (InvalidProtocolBufferException e) {
+                throw new IllegalArgumentException(e);
             }
         }
         return (CodedInputStream) invokeLII.objValue;

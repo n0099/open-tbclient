@@ -14,29 +14,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public abstract class c<Params, Progress, Result> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f42495b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Executor f42496c;
+    public static final g b;
+    public static Executor c;
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean a;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final h<Params, Result> f42497d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final FutureTask<Result> f42498e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f42499f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f42500g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f42501h;
+    public final h<Params, Result> d;
+    public final FutureTask<Result> e;
+    public final AtomicBoolean f;
+    public final AtomicBoolean g;
+    public volatile boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +37,8 @@ public abstract class c<Params, Progress, Result> {
                 return;
             }
         }
-        f42495b = new g((byte) 0);
-        f42496c = new i();
+        b = new g((byte) 0);
+        c = new i();
     }
 
     public c() {
@@ -68,12 +54,12 @@ public abstract class c<Params, Progress, Result> {
                 return;
             }
         }
-        this.f42499f = new AtomicBoolean();
-        this.f42500g = new AtomicBoolean();
-        this.f42501h = false;
-        this.a = Boolean.valueOf(com.sdk.base.framework.c.f.f42568c);
-        this.f42497d = new d(this);
-        this.f42498e = new e(this, this.f42497d);
+        this.f = new AtomicBoolean();
+        this.g = new AtomicBoolean();
+        this.h = false;
+        this.a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
+        this.d = new d(this);
+        this.e = new e(this, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,14 +67,14 @@ public abstract class c<Params, Progress, Result> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, result)) == null) {
-            f42495b.obtainMessage(1, new f(this, result)).sendToTarget();
+            b.obtainMessage(1, new f(this, result)).sendToTarget();
             return result;
         }
         return (Result) invokeL.objValue;
     }
 
     public static /* synthetic */ void b(c cVar, Object obj) {
-        if (cVar.f42500g.get()) {
+        if (cVar.g.get()) {
             return;
         }
         cVar.a((c) obj);
@@ -111,8 +97,8 @@ public abstract class c<Params, Progress, Result> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f42499f.set(true);
-            return this.f42498e.cancel(true);
+            this.f.set(true);
+            return this.e.cancel(true);
         }
         return invokeZ.booleanValue;
     }
@@ -122,20 +108,20 @@ public abstract class c<Params, Progress, Result> {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42499f.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f.get() : invokeV.booleanValue;
     }
 
     public final c<Params, Progress, Result> c(Params... paramsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, paramsArr)) == null) {
-            Executor executor = f42496c;
-            if (this.f42501h) {
+            Executor executor = c;
+            if (this.h) {
                 throw new IllegalStateException("Cannot execute task: the task is already executed.");
             }
-            this.f42501h = true;
-            this.f42497d.a = paramsArr;
-            executor.execute(new n(0, this.f42498e));
+            this.h = true;
+            this.d.a = paramsArr;
+            executor.execute(new n(0, this.e));
             return this;
         }
         return (c) invokeL.objValue;
@@ -143,9 +129,9 @@ public abstract class c<Params, Progress, Result> {
 
     public final void d(Progress... progressArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, progressArr) == null) || this.f42499f.get()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, progressArr) == null) || this.f.get()) {
             return;
         }
-        f42495b.obtainMessage(2, new f(this, progressArr)).sendToTarget();
+        b.obtainMessage(2, new f(this, progressArr)).sendToTarget();
     }
 }

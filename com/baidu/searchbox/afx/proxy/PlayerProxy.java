@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class PlayerProxy implements IPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public abstract class PlayerProxy implements IPlayer {
     public String mSourcePath;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -300,17 +300,17 @@ public abstract class PlayerProxy implements IPlayer {
             }
             try {
                 setSourceAfd(context.getAssets().openFd(str));
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
                 String str2 = ErrorInfo.PARAMETER_ERROR_ASSETS_ERRORMSG + str;
                 OnReportListener onReportListener2 = this.mOnReportListener;
                 if (onReportListener2 != null) {
-                    onReportListener2.onError(new ErrorInfo(1, str2, e2, "-1", null, getSourcePath(), valueOf2));
+                    onReportListener2.onError(new ErrorInfo(1, str2, e, "-1", null, getSourcePath(), valueOf2));
                 }
                 OnVideoErrorListener onVideoErrorListener2 = this.mOnVideoErrorListener;
                 if (onVideoErrorListener2 != null) {
-                    onVideoErrorListener2.onError(new ErrorInfo(1, str2, e2, "-1", null, getSourcePath(), valueOf2));
+                    onVideoErrorListener2.onError(new ErrorInfo(1, str2, e, "-1", null, getSourcePath(), valueOf2));
                 }
             }
         }
@@ -328,36 +328,38 @@ public abstract class PlayerProxy implements IPlayer {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x0085: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:29:0x0085 */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setSourceFile(File file) {
         FileInputStream fileInputStream;
-        IOException e2;
+        IOException e;
+        FileInputStream fileInputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, file) == null) {
             if (file != null) {
                 this.mSourcePath = file.getPath();
-                FileInputStream fileInputStream2 = null;
+                FileInputStream fileInputStream3 = null;
                 try {
                     try {
-                        fileInputStream = new FileInputStream(file);
                         try {
+                            fileInputStream = new FileInputStream(file);
                             try {
                                 setSourceFD(fileInputStream.getFD());
                                 fileInputStream.close();
-                            } catch (IOException e3) {
-                                e2 = e3;
-                                e2.printStackTrace();
+                            } catch (IOException e2) {
+                                e = e2;
+                                e.printStackTrace();
                                 String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
                                 String str = ErrorInfo.PARAMETER_ERROR_SRCFILE_ERRORMSG + file;
                                 if (this.mOnReportListener != null) {
-                                    this.mOnReportListener.onError(new ErrorInfo(1, str, e2, "-1", null, getSourcePath(), valueOf));
+                                    this.mOnReportListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
                                 }
                                 if (this.mOnVideoErrorListener != null) {
-                                    this.mOnVideoErrorListener.onError(new ErrorInfo(1, str, e2, "-1", null, getSourcePath(), valueOf));
+                                    this.mOnVideoErrorListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
                                 }
                                 if (fileInputStream != null) {
                                     fileInputStream.close();
@@ -367,30 +369,30 @@ public abstract class PlayerProxy implements IPlayer {
                             }
                         } catch (Throwable th) {
                             th = th;
-                            fileInputStream2 = fileInputStream;
-                            if (fileInputStream2 != null) {
+                            fileInputStream3 = fileInputStream2;
+                            if (fileInputStream3 != null) {
                                 try {
-                                    fileInputStream2.close();
-                                } catch (IOException e4) {
-                                    e4.printStackTrace();
+                                    fileInputStream3.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
                                 }
                             }
                             throw th;
                         }
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                        return;
+                    } catch (IOException e4) {
+                        fileInputStream = null;
+                        e = e4;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileInputStream3 != null) {
+                        }
+                        throw th;
                     }
-                } catch (IOException e6) {
-                    fileInputStream = null;
-                    e2 = e6;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (fileInputStream2 != null) {
-                    }
-                    throw th;
+                    return;
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                    return;
                 }
-                return;
             }
             String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
             OnReportListener onReportListener = this.mOnReportListener;

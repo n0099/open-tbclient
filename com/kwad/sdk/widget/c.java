@@ -1,7 +1,7 @@
 package com.kwad.sdk.widget;
 
 import androidx.annotation.ColorInt;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class c {
     @ColorInt
     public int a;

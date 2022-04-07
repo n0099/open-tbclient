@@ -1,7 +1,6 @@
 package com.baidu.tbadk.collectTab;
 
 import android.os.Bundle;
-import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,16 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.mi;
+/* loaded from: classes2.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public final CustomMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final CustomMessageListener f29802b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +53,12 @@ public abstract class CollectFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 CollectFragment collectFragment = this.a;
-                collectFragment.E0(collectFragment.getType());
+                collectFragment.D0(collectFragment.getType());
                 CollectFragment collectFragment2 = this.a;
                 if (collectFragment2.a) {
                     return;
                 }
-                collectFragment2.F0(false, collectFragment2.getType());
+                collectFragment2.E0(false, collectFragment2.getType());
             }
         }
     }
@@ -79,22 +77,22 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.a = false;
-        this.f29802b = new a(this, 2000994);
+        this.b = new a(this, 2000994);
     }
 
-    public abstract boolean C0();
+    public abstract boolean B0();
 
-    public boolean D0() {
+    public boolean C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public void E0(int i) {
+    public void D0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !C0() && l.z();
+            boolean z = !B0() && mi.z();
             this.a = z;
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i);
@@ -102,7 +100,7 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void F0(boolean z, int i) {
+    public void E0(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();
@@ -119,7 +117,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStart();
-            registerListener(this.f29802b);
+            registerListener(this.b);
         }
     }
 
@@ -128,7 +126,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f29802b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 }

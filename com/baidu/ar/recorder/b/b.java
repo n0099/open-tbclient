@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -70,8 +70,8 @@ public abstract class b {
             com.baidu.ar.h.b.c(str3, "drainEncoder endOfStream = " + z);
             try {
                 byteBufferArr = this.uQ.getOutputBuffers();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 byteBufferArr = null;
             }
             if (byteBufferArr == null) {
@@ -80,8 +80,8 @@ public abstract class b {
             while (true) {
                 try {
                     i = this.uQ.dequeueOutputBuffer(this.uR, 10000L);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     i = 0;
                 }
                 String str4 = TAG;
@@ -222,8 +222,8 @@ public abstract class b {
         }
         try {
             i5 = this.uQ.dequeueInputBuffer(10000L);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         if (i5 >= 0) {
             if (z) {
@@ -269,8 +269,8 @@ public abstract class b {
             if (mediaCodec != null) {
                 try {
                     mediaCodec.stop();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -285,9 +285,9 @@ public abstract class b {
             if (mediaCodec != null) {
                 try {
                     mediaCodec.start();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     z = false;
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             z = true;

@@ -42,7 +42,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DashMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_FIXED_MS = 30000;
@@ -76,7 +76,7 @@ public final class DashMediaSource implements MediaSource {
     public final Runnable simulateManifestRefreshRunnable;
     public MediaSource.Listener sourceListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DashTimeline extends Timeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Iso8601Parser implements ParsingLoadable.Parser<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,15 +232,15 @@ public final class DashMediaSource implements MediaSource {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
                     simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
                     return Long.valueOf(simpleDateFormat.parse(readLine).getTime());
-                } catch (ParseException e2) {
-                    throw new ParserException(e2);
+                } catch (ParseException e) {
+                    throw new ParserException(e);
                 }
             }
             return (Long) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class ManifestCallback implements Loader.Callback<ParsingLoadable<DashManifest>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,7 +291,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PeriodSeekInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +363,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class UtcTimestampCallback implements Loader.Callback<ParsingLoadable<Long>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -414,7 +414,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class XsDateTimeParser implements ParsingLoadable.Parser<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -611,8 +611,8 @@ public final class DashMediaSource implements MediaSource {
         if (interceptable == null || interceptable.invokeL(65550, this, utcTimingElement) == null) {
             try {
                 onUtcTimestampResolved(Util.parseXsDateTime(utcTimingElement.value) - this.manifestLoadEndTimestamp);
-            } catch (ParserException e2) {
-                onUtcTimestampResolutionError(e2);
+            } catch (ParserException e) {
+                onUtcTimestampResolutionError(e);
             }
         }
     }

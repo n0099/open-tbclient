@@ -12,11 +12,11 @@ public final class CharSpreadBuilder extends PrimitiveSpreadBuilder<char[]> {
         this.values = new char[i];
     }
 
-    public final void add(char c2) {
+    public final void add(char c) {
         char[] cArr = this.values;
         int position = getPosition();
         setPosition(position + 1);
-        cArr[position] = c2;
+        cArr[position] = c;
     }
 
     public final char[] toArray() {

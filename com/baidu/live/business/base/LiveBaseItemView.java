@@ -13,17 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class LiveBaseItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f25735b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f25736c;
+    public float b;
+    public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveBaseItemView(Context context) {
@@ -44,8 +40,8 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.a = false;
-        this.f25735b = 1.0f;
-        this.f25736c = false;
+        this.b = 1.0f;
+        this.c = false;
     }
 
     public void a() {
@@ -80,16 +76,16 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             if (this.a) {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.f25735b), 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.b), 1073741824);
             }
             super.onMeasure(i, i2);
         }
     }
 
-    public void setAspectRatio(float f2) {
+    public void setAspectRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f25735b = f2;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.b = f;
         }
     }
 
@@ -98,7 +94,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f25736c = z;
+            this.c = z;
         }
     }
 
@@ -135,8 +131,8 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.a = false;
-        this.f25735b = 1.0f;
-        this.f25736c = false;
+        this.b = 1.0f;
+        this.c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,7 +155,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
             }
         }
         this.a = false;
-        this.f25735b = 1.0f;
-        this.f25736c = false;
+        this.b = 1.0f;
+        this.c = false;
     }
 }

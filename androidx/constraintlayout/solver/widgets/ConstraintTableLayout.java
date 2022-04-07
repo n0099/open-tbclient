@@ -158,9 +158,9 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mHorizontalSlices.clear();
-            float f2 = 100.0f / this.mNumRows;
+            float f = 100.0f / this.mNumRows;
             ConstraintWidget constraintWidget = this;
-            float f3 = f2;
+            float f2 = f;
             for (int i = 0; i < this.mNumRows; i++) {
                 HorizontalSlice horizontalSlice = new HorizontalSlice(this);
                 horizontalSlice.top = constraintWidget;
@@ -168,8 +168,8 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                     Guideline guideline = new Guideline();
                     guideline.setOrientation(0);
                     guideline.setParent(this);
-                    guideline.setGuidePercent((int) f3);
-                    f3 += f2;
+                    guideline.setGuidePercent((int) f2);
+                    f2 += f;
                     horizontalSlice.bottom = guideline;
                     this.mHorizontalGuidelines.add(guideline);
                 } else {
@@ -186,9 +186,9 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mVerticalSlices.clear();
-            float f2 = 100.0f / this.mNumCols;
+            float f = 100.0f / this.mNumCols;
             ConstraintWidget constraintWidget = this;
-            float f3 = f2;
+            float f2 = f;
             for (int i = 0; i < this.mNumCols; i++) {
                 VerticalSlice verticalSlice = new VerticalSlice(this);
                 verticalSlice.left = constraintWidget;
@@ -196,8 +196,8 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                     Guideline guideline = new Guideline();
                     guideline.setOrientation(1);
                     guideline.setParent(this);
-                    guideline.setGuidePercent((int) f3);
-                    f3 += f2;
+                    guideline.setGuidePercent((int) f2);
+                    f2 += f;
                     verticalSlice.right = guideline;
                     this.mVerticalGuidelines.add(guideline);
                 } else {

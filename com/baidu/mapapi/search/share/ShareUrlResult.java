@@ -11,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ShareUrlResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShareUrlResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f26514b;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +65,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
             }
         }
         this.a = parcel.readString();
-        this.f26514b = parcel.readInt();
+        this.b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -89,7 +87,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public void setType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f26514b = i;
+            this.b = i;
         }
     }
 
@@ -105,7 +103,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeInt(this.f26514b);
+            parcel.writeInt(this.b);
         }
     }
 }

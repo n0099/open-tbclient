@@ -1,7 +1,6 @@
 package com.baidu.tieba.imageProblem.httpNet;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CdnCacheItem implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TB_CDNCACHEITEM_ERROR = -1;
@@ -37,7 +37,7 @@ public class CdnCacheItem implements Serializable {
     public long mobileLastTachometerTime;
 
     /* renamed from: com.baidu.tieba.imageProblem.httpNet.CdnCacheItem$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class CdnCacheItem implements Serializable {
     public boolean hasImageProblem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? l.H() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? mi.H() ? this.cdnDomainRank > 0 || this.isUsedIp : this.cdnDomainRank > 0 || this.mobileIsUsedIp : invokeV.booleanValue;
     }
 
     public boolean mobileIsUsedIp() {
@@ -196,11 +196,11 @@ public class CdnCacheItem implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mobileIsUsedIp : invokeV.booleanValue;
     }
 
-    public int setCdnDomainRank(int i, float f2) {
+    public int setCdnDomainRank(int i, float f) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             synchronized (mDomainLock) {
                 int i3 = this.cdnDomainRank + i;
                 this.cdnDomainRank = i3;
@@ -208,7 +208,7 @@ public class CdnCacheItem implements Serializable {
                     this.cdnDomainRank = 0;
                 }
                 i2 = this.cdnDomainRank;
-                if (this.cdnDomainRank > f2) {
+                if (this.cdnDomainRank > f) {
                     this.cdnDomainRank = 0;
                     this.isUsedIp = true;
                 }
@@ -218,10 +218,10 @@ public class CdnCacheItem implements Serializable {
         return invokeCommon.intValue;
     }
 
-    public int setIPRank(int i, float f2, String str) {
+    public int setIPRank(int i, float f, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str})) == null) {
             if (str == null) {
                 return -1;
             }
@@ -246,7 +246,7 @@ public class CdnCacheItem implements Serializable {
                 }
                 int i3 = tBIPListItem.ipRank + i;
                 tBIPListItem.ipRank = i3;
-                if (i3 >= f2) {
+                if (i3 >= f) {
                     this.ipHashMap.remove(tBIPListItem.cdnIp);
                     this.ipList.remove(i2);
                     long currentTimeMillis = System.currentTimeMillis();
@@ -320,10 +320,10 @@ public class CdnCacheItem implements Serializable {
         }
     }
 
-    public int setMoblieIPRank(int i, float f2, String str) {
+    public int setMoblieIPRank(int i, float f, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str})) == null) {
             synchronized (mLock) {
                 if (str == null) {
                     int i2 = this.mobileCdnDomainRank + i;
@@ -332,7 +332,7 @@ public class CdnCacheItem implements Serializable {
                         this.mobileCdnDomainRank = 0;
                     }
                     int i3 = this.mobileCdnDomainRank;
-                    if (this.mobileCdnDomainRank > f2) {
+                    if (this.mobileCdnDomainRank > f) {
                         this.mobileCdnDomainRank = 0;
                         this.mobileIsUsedIp = true;
                     }
@@ -358,7 +358,7 @@ public class CdnCacheItem implements Serializable {
                 }
                 int i5 = tBIPListItem.ipRank + i;
                 tBIPListItem.ipRank = i5;
-                if (i5 >= f2) {
+                if (i5 >= f) {
                     this.mobileIpList.remove(i4);
                     this.mobileIsUsedIp = true;
                 }
@@ -374,7 +374,7 @@ public class CdnCacheItem implements Serializable {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class TBIPListItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -99289965442562023L;

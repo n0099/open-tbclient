@@ -20,13 +20,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f26137b;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +41,7 @@ public class BitmapDescriptorFactory {
             }
         }
         a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f26137b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -76,8 +74,8 @@ public class BitmapDescriptorFactory {
                 }
                 a2.recycle();
                 return fromBitmap;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -126,8 +124,8 @@ public class BitmapDescriptorFactory {
                 if (bitmap != null) {
                 }
                 return fromBitmap;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -165,15 +163,15 @@ public class BitmapDescriptorFactory {
                     decodeStream.recycle();
                     return fromBitmap;
                 }
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                str2 = f26137b;
+            } catch (FileNotFoundException e) {
+                e = e;
+                str2 = b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
-            } catch (IOException e3) {
-                e = e3;
-                str2 = f26137b;
+            } catch (IOException e2) {
+                e = e2;
+                str2 = b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -206,15 +204,15 @@ public class BitmapDescriptorFactory {
                     decodeStream.recycle();
                     return fromBitmap;
                 }
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                str2 = f26137b;
+            } catch (FileNotFoundException e) {
+                e = e;
+                str2 = b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
-            } catch (IOException e3) {
-                e = e3;
-                str2 = f26137b;
+            } catch (IOException e2) {
+                e = e2;
+                str2 = b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -294,40 +292,40 @@ public class BitmapDescriptorFactory {
         return (BitmapDescriptor) invokeII.objValue;
     }
 
-    public static BitmapDescriptor fromView(View view) {
+    public static BitmapDescriptor fromView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
+            if (view2 == null) {
                 return null;
             }
-            view.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-            view.buildDrawingCache();
-            Bitmap drawingCache = view.getDrawingCache();
+            view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            view2.layout(0, 0, view2.getMeasuredWidth(), view2.getMeasuredHeight());
+            view2.buildDrawingCache();
+            Bitmap drawingCache = view2.getDrawingCache();
             BitmapDescriptor fromBitmap = fromBitmap(drawingCache);
             if (drawingCache != null) {
                 drawingCache.recycle();
             }
-            view.destroyDrawingCache();
+            view2.destroyDrawingCache();
             return fromBitmap;
         }
         return (BitmapDescriptor) invokeL.objValue;
     }
 
-    public static BitmapDescriptor fromViewWithDpi(View view, int i) {
+    public static BitmapDescriptor fromViewWithDpi(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, view, i)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, view2, i)) == null) {
+            if (view2 == null) {
                 return null;
             }
-            view.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-            view.buildDrawingCache();
-            Bitmap drawingCache = view.getDrawingCache();
+            view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            view2.layout(0, 0, view2.getMeasuredWidth(), view2.getMeasuredHeight());
+            view2.buildDrawingCache();
+            Bitmap drawingCache = view2.getDrawingCache();
             if (drawingCache == null) {
-                Log.e(f26137b, "Get bitmap failed");
+                Log.e(b, "Get bitmap failed");
                 return null;
             }
             if (i <= 0) {
@@ -338,7 +336,7 @@ public class BitmapDescriptorFactory {
             if (drawingCache != null) {
                 drawingCache.recycle();
             }
-            view.destroyDrawingCache();
+            view2.destroyDrawingCache();
             return fromBitmap;
         }
         return (BitmapDescriptor) invokeLI.objValue;

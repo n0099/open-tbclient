@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.o0.r.r.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go4;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class AlaBroadcastGiftToastData extends p implements Parcelable {
+/* loaded from: classes3.dex */
+public class AlaBroadcastGiftToastData extends go4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class AlaBroadcastGiftToastData extends p implements Parcelable {
     public String sender_portrait;
     public String thumbnail_url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class AlaBroadcastGiftToastData extends p implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {

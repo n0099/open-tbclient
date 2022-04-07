@@ -13,7 +13,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Div implements Externalizable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,8 +59,8 @@ public final class Div implements Externalizable {
             try {
                 jSONObject.put("start", this.start);
                 jSONObject.put(IntentConfig.STOP, this.stop);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

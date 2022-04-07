@@ -17,17 +17,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdStarRatingBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppCompatRatingBar a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f35766b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35767c;
+    public TextView b;
+    public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdStarRatingBar(@NonNull Context context) {
@@ -53,39 +49,39 @@ public class AdStarRatingBar extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0073, this);
-            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900df);
-            this.f35766b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e0);
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f0809eb).getIntrinsicHeight();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0075, this);
+            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900e4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e5);
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f0809f2).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;
             this.a.setLayoutParams(layoutParams);
-            SkinManager.setViewTextColor(this.f35766b, this.f35767c);
+            SkinManager.setViewTextColor(this.b, this.c);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f35766b, this.f35767c);
+            SkinManager.setViewTextColor(this.b, this.c);
         }
     }
 
-    public void setRating(float f2) {
+    public void setRating(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 < 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) || f < 0.0f) {
             return;
         }
-        this.f35766b.setText(String.valueOf(f2));
-        this.a.setRating(f2);
+        this.b.setText(String.valueOf(f));
+        this.a.setRating(f);
     }
 
     public void setTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f35767c = i;
-            SkinManager.setViewTextColor(this.f35766b, i);
+            this.c = i;
+            SkinManager.setViewTextColor(this.b, i);
             postInvalidate();
         }
     }
@@ -93,7 +89,7 @@ public class AdStarRatingBar extends FrameLayout {
     public void setTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f35766b.setText(i);
+            this.b.setText(i);
         }
     }
 
@@ -137,7 +133,7 @@ public class AdStarRatingBar extends FrameLayout {
                 return;
             }
         }
-        this.f35767c = R.color.CAM_X0109;
+        this.c = R.color.CAM_X0109;
         a();
     }
 }

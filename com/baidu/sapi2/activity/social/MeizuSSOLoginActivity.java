@@ -15,12 +15,12 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends ImplictCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthError) == null) {
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f28475g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).g);
             }
         }
 
@@ -62,7 +62,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 MeizuSSOLoginActivity meizuSSOLoginActivity = this.a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f28475g);
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).g);
             }
         }
     }
@@ -95,15 +95,15 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f104f);
+            setTitleText(R.string.obfuscated_res_0x7f0f1057);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);
             }
             try {
                 new MzAuthenticator(this.configuration.mzAppID, this.configuration.meizuRedirectUri).requestImplictAuth(this, "uc_basic_info", new a(this));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 finish();
             }
         }

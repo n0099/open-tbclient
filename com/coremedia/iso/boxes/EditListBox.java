@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EditListBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "elst";
@@ -140,7 +140,7 @@ public class EditListBox extends AbstractFullBox {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,12 +149,12 @@ public class EditListBox extends AbstractFullBox {
         public long mediaTime;
         public long segmentDuration;
 
-        public Entry(EditListBox editListBox, long j, long j2, double d2) {
+        public Entry(EditListBox editListBox, long j, long j2, double d) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editListBox, Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2)};
+                Object[] objArr = {editListBox, Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -166,7 +166,7 @@ public class EditListBox extends AbstractFullBox {
             }
             this.segmentDuration = j;
             this.mediaTime = j2;
-            this.mediaRate = d2;
+            this.mediaRate = d;
             this.editListBox = editListBox;
         }
 
@@ -229,10 +229,10 @@ public class EditListBox extends AbstractFullBox {
             return invokeV.intValue;
         }
 
-        public void setMediaRate(double d2) {
+        public void setMediaRate(double d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
-                this.mediaRate = d2;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+                this.mediaRate = d;
             }
         }
 

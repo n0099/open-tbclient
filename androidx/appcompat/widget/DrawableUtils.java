@@ -25,8 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.lang.reflect.Field;
 @SuppressLint({"RestrictedAPI"})
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -160,40 +158,40 @@ public class DrawableUtils {
                         Rect rect2 = new Rect();
                         for (Field field : sInsetsClazz.getFields()) {
                             String name = field.getName();
-                            char c2 = 65535;
+                            char c = 65535;
                             switch (name.hashCode()) {
                                 case -1383228885:
-                                    if (name.equals(TipsConfigItem.TipConfigData.BOTTOM)) {
-                                        c2 = 3;
+                                    if (name.equals("bottom")) {
+                                        c = 3;
                                         break;
                                     }
                                     break;
                                 case 115029:
-                                    if (name.equals(AnimationProperty.TOP)) {
-                                        c2 = 1;
+                                    if (name.equals("top")) {
+                                        c = 1;
                                         break;
                                     }
                                     break;
                                 case 3317767:
                                     if (name.equals("left")) {
-                                        c2 = 0;
+                                        c = 0;
                                         break;
                                     }
                                     break;
                                 case 108511772:
                                     if (name.equals("right")) {
-                                        c2 = 2;
+                                        c = 2;
                                         break;
                                     }
                                     break;
                             }
-                            if (c2 == 0) {
+                            if (c == 0) {
                                 rect2.left = field.getInt(invoke);
-                            } else if (c2 == 1) {
+                            } else if (c == 1) {
                                 rect2.top = field.getInt(invoke);
-                            } else if (c2 == 2) {
+                            } else if (c == 2) {
                                 rect2.right = field.getInt(invoke);
-                            } else if (c2 == 3) {
+                            } else if (c == 3) {
                                 rect2.bottom = field.getInt(invoke);
                             }
                         }

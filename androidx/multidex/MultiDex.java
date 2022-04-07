@@ -209,8 +209,8 @@ public final class MultiDex {
                 Object[] makeDexElements = new V14().makeDexElements(list);
                 try {
                     MultiDex.expandFieldArray(obj, "dexElements", makeDexElements);
-                } catch (NoSuchFieldException e2) {
-                    Log.w("MultiDex", "Failed find field 'dexElements' attempting 'pathElements'", e2);
+                } catch (NoSuchFieldException e) {
+                    Log.w("MultiDex", "Failed find field 'dexElements' attempting 'pathElements'", e);
                     MultiDex.expandFieldArray(obj, "pathElements", makeDexElements);
                 }
             }
@@ -428,27 +428,27 @@ public final class MultiDex {
                     clearOldDexDir(context);
                     File dexDir = getDexDir(context, file2, str);
                     MultiDexExtractor multiDexExtractor = new MultiDexExtractor(file, dexDir);
-                    IOException e2 = null;
+                    IOException e = null;
                     try {
                         installSecondaryDexes(classLoader, dexDir, multiDexExtractor.load(context, str2, false));
-                    } catch (IOException e3) {
+                    } catch (IOException e2) {
                         if (z) {
-                            Log.w("MultiDex", "Failed to install extracted secondary dex files, retrying with forced extraction", e3);
+                            Log.w("MultiDex", "Failed to install extracted secondary dex files, retrying with forced extraction", e2);
                             installSecondaryDexes(classLoader, dexDir, multiDexExtractor.load(context, str2, true));
                         } else {
-                            throw e3;
+                            throw e2;
                         }
                     }
                     try {
                         multiDexExtractor.close();
-                    } catch (IOException e4) {
-                        e2 = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                     }
-                    if (e2 != null) {
-                        throw e2;
+                    if (e != null) {
+                        throw e;
                     }
-                } catch (RuntimeException e5) {
-                    Log.w("MultiDex", "Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e5);
+                } catch (RuntimeException e4) {
+                    Log.w("MultiDex", "Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e4);
                 }
             }
         }
@@ -510,8 +510,8 @@ public final class MultiDex {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
                 return context.getApplicationInfo();
-            } catch (RuntimeException e2) {
-                Log.w("MultiDex", "Failure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e2);
+            } catch (RuntimeException e) {
+                Log.w("MultiDex", "Failure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e);
                 return null;
             }
         }
@@ -551,9 +551,9 @@ public final class MultiDex {
                     }
                     doInstallation(context, new File(applicationInfo.sourceDir), new File(applicationInfo.dataDir), "secondary-dexes", "", true);
                     Log.i("MultiDex", "install done");
-                } catch (Exception e2) {
-                    Log.e("MultiDex", "MultiDex installation failure", e2);
-                    throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
+                } catch (Exception e) {
+                    Log.e("MultiDex", "MultiDex installation failure", e);
+                    throw new RuntimeException("MultiDex installation failed (" + e.getMessage() + ").");
                 }
             } else {
                 throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -584,9 +584,9 @@ public final class MultiDex {
                     doInstallation(context2, new File(applicationInfo.sourceDir), file, str + "secondary-dexes", str, false);
                     doInstallation(context2, new File(applicationInfo2.sourceDir), file, "secondary-dexes", "", false);
                     Log.i("MultiDex", "Installation done");
-                } catch (Exception e2) {
-                    Log.e("MultiDex", "MultiDex installation failure", e2);
-                    throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
+                } catch (Exception e) {
+                    Log.e("MultiDex", "MultiDex installation failure", e);
+                    throw new RuntimeException("MultiDex installation failed (" + e.getMessage() + ").");
                 }
             } else {
                 throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");

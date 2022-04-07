@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HiidoConstantContent {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACT_LPF_REVENUE_PAY_ORIGINAL = "lpfrevenuepayoriginal";

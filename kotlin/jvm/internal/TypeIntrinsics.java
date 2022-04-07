@@ -107,64 +107,64 @@ public class TypeIntrinsics {
     public static Collection castToCollection(Object obj) {
         try {
             return (Collection) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static Iterable castToIterable(Object obj) {
         try {
             return (Iterable) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static Iterator castToIterator(Object obj) {
         try {
             return (Iterator) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static List castToList(Object obj) {
         try {
             return (List) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static ListIterator castToListIterator(Object obj) {
         try {
             return (ListIterator) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static Map castToMap(Object obj) {
         try {
             return (Map) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static Map.Entry castToMapEntry(Object obj) {
         try {
             return (Map.Entry) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 
     public static Set castToSet(Object obj) {
         try {
             return (Set) obj;
-        } catch (ClassCastException e2) {
-            throw throwCce(e2);
+        } catch (ClassCastException e) {
+            throw throwCce(e);
         }
     }
 

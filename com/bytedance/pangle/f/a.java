@@ -16,7 +16,7 @@ import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicReference<byte[]> a;
@@ -50,12 +50,12 @@ public final class a {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
+            } catch (IOException e) {
+                e = e;
+            } catch (RuntimeException e2) {
                 e = e2;
-            } catch (RuntimeException e3) {
+            } catch (GeneralSecurityException e3) {
                 e = e3;
-            } catch (GeneralSecurityException e4) {
-                e = e4;
             }
             try {
                 ArrayList<JarEntry> arrayList = new ArrayList();
@@ -94,14 +94,14 @@ public final class a {
                     throw new q(4, "Package " + str + " has no certificates at entry AndroidManifest.xml");
                 }
                 throw new q(1, "Package " + str + " has no manifest");
-            } catch (IOException e5) {
+            } catch (IOException e4) {
+                e = e4;
+                throw new q(4, "Failed to collect certificates from ".concat(String.valueOf(str)), e);
+            } catch (RuntimeException e5) {
                 e = e5;
                 throw new q(4, "Failed to collect certificates from ".concat(String.valueOf(str)), e);
-            } catch (RuntimeException e6) {
+            } catch (GeneralSecurityException e6) {
                 e = e6;
-                throw new q(4, "Failed to collect certificates from ".concat(String.valueOf(str)), e);
-            } catch (GeneralSecurityException e7) {
-                e = e7;
                 throw new q(2, "Failed to collect certificates from ".concat(String.valueOf(str)), e);
             } catch (Throwable th2) {
                 th = th2;
@@ -125,7 +125,7 @@ public final class a {
     */
     public static Certificate[][] a(JarFile jarFile, JarEntry jarEntry) {
         InterceptResult invokeLL;
-        Throwable e2;
+        Throwable e;
         InputStream inputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jarFile, jarEntry)) == null) {
@@ -145,18 +145,18 @@ public final class a {
                         if (inputStream3 != null) {
                             try {
                                 inputStream3.close();
-                            } catch (RuntimeException e3) {
-                                throw e3;
+                            } catch (RuntimeException e2) {
+                                throw e2;
                             } catch (Exception unused) {
                             }
                         }
                         return certificateArr;
-                    } catch (IOException e4) {
-                        e2 = e4;
-                        throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e2);
-                    } catch (RuntimeException e5) {
-                        e2 = e5;
-                        throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e2);
+                    } catch (IOException e3) {
+                        e = e3;
+                        throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e);
+                    } catch (RuntimeException e4) {
+                        e = e4;
+                        throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e);
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -164,21 +164,21 @@ public final class a {
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
-                        } catch (RuntimeException e6) {
-                            throw e6;
+                        } catch (RuntimeException e5) {
+                            throw e5;
                         } catch (Exception unused2) {
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e7) {
+            } catch (IOException e6) {
+                e = e6;
+                e = e;
+                throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e);
+            } catch (RuntimeException e7) {
                 e = e7;
-                e2 = e;
-                throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e2);
-            } catch (RuntimeException e8) {
-                e = e8;
-                e2 = e;
-                throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e2);
+                e = e;
+                throw new q(5, "Failed reading " + jarEntry.getName() + " in " + jarFile, e);
             } catch (Throwable th2) {
                 th = th2;
                 if (inputStream2 != null) {

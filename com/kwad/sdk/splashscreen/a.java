@@ -2,22 +2,18 @@ package com.kwad.sdk.splashscreen;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends com.kwad.sdk.core.download.a.c {
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f41230b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdInfo f41231c;
+    public AdTemplate b;
+    public AdInfo c;
 
     public a(AdTemplate adTemplate) {
-        this.f41230b = adTemplate;
-        this.f41231c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.b = adTemplate;
+        this.c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     private void b(int i) {
-        a(e.a(this.f41230b, this.f41231c, i));
+        a(e.a(this.b, this.c, i));
     }
 
     @Override // com.kwad.sdk.core.download.a.c
@@ -26,7 +22,7 @@ public abstract class a extends com.kwad.sdk.core.download.a.c {
     }
 
     public void a(AdTemplate adTemplate) {
-        this.f41230b = adTemplate;
+        this.b = adTemplate;
     }
 
     public abstract void a(String str);

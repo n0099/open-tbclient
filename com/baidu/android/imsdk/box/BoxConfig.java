@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BoxConfig extends DefaultConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,9 +112,9 @@ public class BoxConfig extends DefaultConfig {
                     return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
                 }
                 return null;
-            } catch (Exception e2) {
-                LogUtils.e("BoxConfig", "parseTokenToChatObject", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e("BoxConfig", "parseTokenToChatObject", e);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }

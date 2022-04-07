@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BdGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public class BdGridView extends GridView {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             try {
                 super.dispatchDraw(canvas);
-            } catch (NullPointerException e2) {
-                BdLog.detailException(e2);
+            } catch (NullPointerException e) {
+                BdLog.detailException(e);
                 if (getContext() instanceof Activity) {
                     ((Activity) getContext()).finish();
                 }

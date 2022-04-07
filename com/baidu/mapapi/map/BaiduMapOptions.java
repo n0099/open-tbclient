@@ -13,33 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class BaiduMapOptions implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BaiduMapOptions> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public MapStatus a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26129b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f26130c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f26131d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f26132e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f26133f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f26134g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f26135h;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
     public boolean i;
     public LogoPosition j;
     public Point k;
@@ -75,13 +61,13 @@ public final class BaiduMapOptions implements Parcelable {
             }
         }
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f26129b = true;
-        this.f26130c = 1;
-        this.f26131d = true;
-        this.f26132e = true;
-        this.f26133f = true;
-        this.f26134g = true;
-        this.f26135h = true;
+        this.b = true;
+        this.c = 1;
+        this.d = true;
+        this.e = true;
+        this.f = true;
+        this.g = true;
+        this.h = true;
         this.i = true;
     }
 
@@ -101,22 +87,22 @@ public final class BaiduMapOptions implements Parcelable {
             }
         }
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f26129b = true;
-        this.f26130c = 1;
-        this.f26131d = true;
-        this.f26132e = true;
-        this.f26133f = true;
-        this.f26134g = true;
-        this.f26135h = true;
+        this.b = true;
+        this.c = 1;
+        this.d = true;
+        this.e = true;
+        this.f = true;
+        this.g = true;
+        this.h = true;
         this.i = true;
         this.a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
-        this.f26129b = parcel.readByte() != 0;
-        this.f26130c = parcel.readInt();
-        this.f26131d = parcel.readByte() != 0;
-        this.f26132e = parcel.readByte() != 0;
-        this.f26133f = parcel.readByte() != 0;
-        this.f26134g = parcel.readByte() != 0;
-        this.f26135h = parcel.readByte() != 0;
+        this.b = parcel.readByte() != 0;
+        this.c = parcel.readInt();
+        this.d = parcel.readByte() != 0;
+        this.e = parcel.readByte() != 0;
+        this.f = parcel.readByte() != 0;
+        this.g = parcel.readByte() != 0;
+        this.h = parcel.readByte() != 0;
         this.i = parcel.readByte() != 0;
         this.k = (Point) parcel.readParcelable(Point.class.getClassLoader());
         this.l = (Point) parcel.readParcelable(Point.class.getClassLoader());
@@ -125,14 +111,14 @@ public final class BaiduMapOptions implements Parcelable {
     public com.baidu.mapsdkplatform.comapi.map.z a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new com.baidu.mapsdkplatform.comapi.map.z().a(this.a.c()).a(this.f26129b).a(this.f26130c).b(this.f26131d).c(this.f26132e).d(this.f26133f).e(this.f26134g) : (com.baidu.mapsdkplatform.comapi.map.z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new com.baidu.mapsdkplatform.comapi.map.z().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g) : (com.baidu.mapsdkplatform.comapi.map.z) invokeV.objValue;
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.f26129b = z;
+            this.b = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
@@ -174,7 +160,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.f26130c = i;
+            this.c = i;
             return this;
         }
         return (BaiduMapOptions) invokeI.objValue;
@@ -184,7 +170,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f26133f = z;
+            this.f = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
@@ -194,7 +180,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f26131d = z;
+            this.d = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
@@ -224,7 +210,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.f26132e = z;
+            this.e = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
@@ -235,13 +221,13 @@ public final class BaiduMapOptions implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeParcelable(this.a, i);
-            parcel.writeByte(this.f26129b ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.f26130c);
-            parcel.writeByte(this.f26131d ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.f26132e ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.f26133f ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.f26134g ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.f26135h ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.c);
+            parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.e ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.g ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.h ? (byte) 1 : (byte) 0);
             parcel.writeByte(this.i ? (byte) 1 : (byte) 0);
             parcel.writeParcelable(this.k, i);
             parcel.writeParcelable(this.l, i);
@@ -252,7 +238,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            this.f26135h = z;
+            this.h = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
@@ -272,7 +258,7 @@ public final class BaiduMapOptions implements Parcelable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-            this.f26134g = z;
+            this.g = z;
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;

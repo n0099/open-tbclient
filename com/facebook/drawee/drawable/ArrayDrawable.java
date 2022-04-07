@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ArrayDrawable extends Drawable implements Drawable.Callback, TransformCallback, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -538,9 +538,9 @@ public class ArrayDrawable extends Drawable implements Drawable.Callback, Transf
 
     @Override // android.graphics.drawable.Drawable
     @TargetApi(21)
-    public void setHotspot(float f2, float f3) {
+    public void setHotspot(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) {
             return;
         }
         int i = 0;
@@ -551,7 +551,7 @@ public class ArrayDrawable extends Drawable implements Drawable.Callback, Transf
             }
             Drawable drawable = drawableArr[i];
             if (drawable != null) {
-                drawable.setHotspot(f2, f3);
+                drawable.setHotspot(f, f2);
             }
             i++;
         }

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DrawableUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public final class DrawableUtils {
                     throw new XmlPullParserException("Must have a <" + ((Object) charSequence) + "> start tag");
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException | XmlPullParserException e2) {
+            } catch (IOException | XmlPullParserException e) {
                 Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i));
-                notFoundException.initCause(e2);
+                notFoundException.initCause(e);
                 throw notFoundException;
             }
         }
@@ -85,8 +85,8 @@ public final class DrawableUtils {
             }
             try {
                 RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i));
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                throw new IllegalStateException("Couldn't set RippleDrawable radius", e2);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                throw new IllegalStateException("Couldn't set RippleDrawable radius", e);
             }
         }
     }

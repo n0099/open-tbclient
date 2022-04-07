@@ -71,8 +71,8 @@ public class d extends h<Long, Bitmap> {
                     i a2;
                     try {
                         a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, str, null);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         bufferedInputStream = null;
                     } catch (Throwable th2) {
                         bufferedInputStream = null;
@@ -104,14 +104,14 @@ public class d extends h<Long, Bitmap> {
                                 jSONObject.putOpt("bm_original_w", Integer.valueOf(i));
                                 jSONObject.putOpt("bm_original_h", Integer.valueOf(i2));
                                 jSONObject.putOpt("bm_bytes", Integer.valueOf(decodeStream == null ? -1 : decodeStream.getByteCount()));
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                             }
                             com.ss.android.downloadlib.d.a.a().a("ttd_pref_monitor", jSONObject, j2);
                             d.this.put(Long.valueOf(j), decodeStream);
                             f.a(bufferedInputStream);
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             com.ss.android.downloadlib.e.c.a().a(e, "BitmapCache loadBitmap");
                             f.a(bufferedInputStream);
                             return null;

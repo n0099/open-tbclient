@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PassBioGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +54,11 @@ public final class PassBioGlobalUtils {
             if (context.getApplicationContext() != null) {
                 context = context.getApplicationContext();
             }
-            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0658, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091abf)) == null) {
+            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0654, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091aaf)) == null) {
                 return;
             }
             textView.setText(charSequence);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091abe);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091aae);
             if (imageView != null && i > 0) {
                 imageView.setImageResource(i);
                 imageView.setVisibility(0);

@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,15 +112,15 @@ public class bj {
         return invokeL.intValue;
     }
 
-    public static Rect e(View view) {
+    public static Rect e(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, view)) == null) {
-            if (view.getVisibility() != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, view2)) == null) {
+            if (view2.getVisibility() != 0) {
                 return null;
             }
             Rect rect = new Rect();
-            if (a(view, rect) && rect.right > rect.left && rect.bottom > rect.top) {
+            if (a(view2, rect) && rect.right > rect.left && rect.bottom > rect.top) {
                 return rect;
             }
             return null;
@@ -128,16 +128,16 @@ public class bj {
         return (Rect) invokeL.objValue;
     }
 
-    public static String f(View view) {
+    public static String f(View view2) {
         InterceptResult invokeL;
         int lastIndexOf;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view2)) == null) {
             String str = null;
             try {
-                if (view.getId() != 0) {
-                    str = view.getResources().getResourceName(view.getId());
+                if (view2.getId() != 0) {
+                    str = view2.getResources().getResourceName(view2.getId());
                 }
             } catch (Exception unused) {
             }
@@ -149,12 +149,12 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static Map<String, String> g(View view) {
+    public static Map<String, String> g(View view2) {
         InterceptResult invokeL;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, view)) == null) {
-            Object tag = view.getTag(-96000);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, view2)) == null) {
+            Object tag = view2.getTag(-96000);
             if (tag != null && (tag instanceof Map)) {
                 try {
                     map = (Map) tag;
@@ -170,28 +170,28 @@ public class bj {
         return (Map) invokeL.objValue;
     }
 
-    public static String h(View view) {
+    public static String h(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view2)) == null) {
             String str = null;
-            if (view instanceof TextView) {
-                CharSequence text = ((TextView) view).getText();
+            if (view2 instanceof TextView) {
+                CharSequence text = ((TextView) view2).getText();
                 if (text != null) {
                     str = text.toString();
                 }
-            } else if (view instanceof ViewGroup) {
+            } else if (view2 instanceof ViewGroup) {
                 StringBuilder sb = new StringBuilder();
-                ViewGroup viewGroup = (ViewGroup) view;
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
                 for (int i = 0; i < childCount && sb.length() < 128; i++) {
-                    String h2 = h(viewGroup.getChildAt(i));
-                    if (h2 != null && h2.length() > 0) {
+                    String h = h(viewGroup.getChildAt(i));
+                    if (h != null && h.length() > 0) {
                         if (z) {
                             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                         }
-                        sb.append(h2);
+                        sb.append(h);
                         z = true;
                     }
                 }
@@ -207,42 +207,42 @@ public class bj {
     }
 
     @SuppressLint({"NewApi"})
-    public static int i(View view) {
+    public static int i(View view2) {
         InterceptResult invokeL;
         Drawable background;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, view)) == null) {
-            return (int) (view.getAlpha() * ((Build.VERSION.SDK_INT < 14 || (background = view.getBackground()) == null) ? 0 : background.getAlpha()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, view2)) == null) {
+            return (int) (view2.getAlpha() * ((Build.VERSION.SDK_INT < 14 || (background = view2.getBackground()) == null) ? 0 : background.getAlpha()));
         }
         return invokeL.intValue;
     }
 
     @SuppressLint({"NewApi"})
-    public static float j(View view) {
+    public static float j(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getZ();
+                return view2.getZ();
             }
             return 0.0f;
         }
         return invokeL.floatValue;
     }
 
-    public static String k(View view) {
+    public static String k(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, view2)) == null) {
             String str = null;
-            if (view instanceof TextView) {
-                CharSequence text = ((TextView) view).getText();
+            if (view2 instanceof TextView) {
+                CharSequence text = ((TextView) view2).getText();
                 if (text != null) {
                     str = text.toString();
                 }
-            } else if (view instanceof ViewGroup) {
+            } else if (view2 instanceof ViewGroup) {
                 StringBuilder sb = new StringBuilder();
-                ViewGroup viewGroup = (ViewGroup) view;
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
                 for (int i = 0; i < childCount && sb.length() < 128; i++) {
@@ -266,34 +266,34 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static String l(View view) {
+    public static String l(View view2) {
         InterceptResult invokeL;
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, view)) == null) {
-            if (view == null || (cls = view.getClass()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, view2)) == null) {
+            if (view2 == null || (cls = view2.getClass()) == null) {
                 return "";
             }
-            String d2 = d(cls);
-            if (!TextUtils.isEmpty(d2) && cls.isAnonymousClass()) {
-                d2 = d2 + "$";
+            String d = d(cls);
+            if (!TextUtils.isEmpty(d) && cls.isAnonymousClass()) {
+                d = d + "$";
             }
-            return d2 == null ? "" : d2;
+            return d == null ? "" : d;
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean m(View view) {
+    public static boolean m(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, view2)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            if ((view instanceof ListView) || (view instanceof GridView)) {
+            if ((view2 instanceof ListView) || (view2 instanceof GridView)) {
                 return true;
             }
-            String a = a(view.getClass());
+            String a = a(view2.getClass());
             if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return false;
             }
@@ -302,60 +302,60 @@ public class bj {
                 cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
             } catch (Exception unused) {
             }
-            return cls != null && cls.isAssignableFrom(view.getClass());
+            return cls != null && cls.isAssignableFrom(view2.getClass());
         }
         return invokeL.booleanValue;
     }
 
-    public static View n(View view) {
+    public static View n(View view2) {
         InterceptResult invokeL;
-        View view2;
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, view2)) == null) {
+            if (view2 == null) {
                 return null;
             }
-            ViewParent parent = view.getParent();
-            if ((parent instanceof View) && (view2 = (View) parent) != null && m(view2)) {
-                return view2;
+            ViewParent parent = view2.getParent();
+            if ((parent instanceof View) && (view3 = (View) parent) != null && m(view3)) {
+                return view3;
             }
             return null;
         }
         return (View) invokeL.objValue;
     }
 
-    public static int o(View view) {
+    public static int o(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, view)) == null) {
-            if (view != null) {
-                return view.getWidth();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, view2)) == null) {
+            if (view2 != null) {
+                return view2.getWidth();
             }
             return 0;
         }
         return invokeL.intValue;
     }
 
-    public static int p(View view) {
+    public static int p(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, view)) == null) {
-            if (view != null) {
-                return view.getHeight();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, view2)) == null) {
+            if (view2 != null) {
+                return view2.getHeight();
             }
             return 0;
         }
         return invokeL.intValue;
     }
 
-    public static boolean q(View view) {
+    public static boolean q(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, view2)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            String a = a(view.getClass());
+            String a = a(view2.getClass());
             if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return false;
             }
@@ -364,52 +364,52 @@ public class bj {
                 cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
             } catch (Exception unused) {
             }
-            return cls != null && cls.isAssignableFrom(view.getClass());
+            return cls != null && cls.isAssignableFrom(view2.getClass());
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean r(View view) {
+    public static boolean r(View view2) {
         InterceptResult invokeL;
         Object tag;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65594, null, view)) == null) ? (view == null || (tag = view.getTag(-97001)) == null || !(tag instanceof String)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65594, null, view2)) == null) ? (view2 == null || (tag = view2.getTag(-97001)) == null || !(tag instanceof String)) ? false : true : invokeL.booleanValue;
     }
 
-    public static String s(View view) {
+    public static String s(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, view2)) == null) {
             String str = "";
-            if (view == null) {
+            if (view2 == null) {
                 return "";
             }
-            Object tag = view.getTag(-97003);
+            Object tag = view2.getTag(-97003);
             if (tag != null && (tag instanceof String)) {
                 str = (String) tag;
             }
-            return TextUtils.isEmpty(str) ? u(view) : str;
+            return TextUtils.isEmpty(str) ? u(view2) : str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String t(View view) {
+    public static String t(View view2) {
         InterceptResult invokeL;
         Object tag;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65596, null, view)) == null) ? (view == null || (tag = view.getTag(-97004)) == null || !(tag instanceof String)) ? "" : (String) tag : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65596, null, view2)) == null) ? (view2 == null || (tag = view2.getTag(-97004)) == null || !(tag instanceof String)) ? "" : (String) tag : (String) invokeL.objValue;
     }
 
-    public static String u(View view) {
+    public static String u(View view2) {
         InterceptResult invokeL;
-        View view2;
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, view2)) == null) {
+            if (view2 == null) {
                 return "";
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            a(view, linkedHashMap);
+            a(view2, linkedHashMap);
             if (linkedHashMap.size() == 0) {
                 return "";
             }
@@ -423,8 +423,8 @@ public class bj {
             }
             StringBuilder sb = new StringBuilder();
             for (Map.Entry entry2 : arrayList) {
-                if (((Integer) entry2.getValue()).intValue() >= i && (view2 = (View) entry2.getKey()) != null && (view2 instanceof TextView)) {
-                    CharSequence text = ((TextView) view2).getText();
+                if (((Integer) entry2.getValue()).intValue() >= i && (view3 = (View) entry2.getKey()) != null && (view3 instanceof TextView)) {
+                    CharSequence text = ((TextView) view3).getText();
                     String charSequence = text != null ? text.toString() : "";
                     if (!TextUtils.isEmpty(charSequence)) {
                         if (!TextUtils.isEmpty(sb.toString())) {
@@ -440,20 +440,20 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static boolean v(View view) {
+    public static boolean v(View view2) {
         InterceptResult invokeL;
         Object tag;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view)) == null) ? (view == null || (tag = view.getTag(-97002)) == null || !(tag instanceof Boolean)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view2)) == null) ? (view2 == null || (tag = view2.getTag(-97002)) == null || !(tag instanceof Boolean)) ? false : true : invokeL.booleanValue;
     }
 
-    public static Rect w(View view) {
+    public static Rect w(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, view)) == null) {
-            if (view != null && view.getVisibility() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, view2)) == null) {
+            if (view2 != null && view2.getVisibility() == 0) {
                 Rect rect = new Rect();
-                a(view, rect);
+                a(view2, rect);
                 return rect;
             }
             return null;
@@ -461,27 +461,27 @@ public class bj {
         return (Rect) invokeL.objValue;
     }
 
-    public static boolean x(View view) {
+    public static boolean x(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65600, null, view)) == null) ? view != null && "com.android.internal.policy".equals(a(view.getClass())) && "DecorView".equals(l(view)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65600, null, view2)) == null) ? view2 != null && "com.android.internal.policy".equals(a(view2.getClass())) && "DecorView".equals(l(view2)) : invokeL.booleanValue;
     }
 
     @SuppressLint({"NewApi"})
-    public static String a(View view) {
+    public static String a(View view2) {
         InterceptResult invokeL;
         String str;
         CharSequence textOff;
         CharSequence text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
+            if (view2 == null) {
                 return "";
             }
-            if (view instanceof TextView) {
-                str = ((view instanceof EditText) || (text = ((TextView) view).getText()) == null) ? "" : text.toString();
-                if (Build.VERSION.SDK_INT >= 14 && (view instanceof Switch)) {
-                    Switch r4 = (Switch) view;
+            if (view2 instanceof TextView) {
+                str = ((view2 instanceof EditText) || (text = ((TextView) view2).getText()) == null) ? "" : text.toString();
+                if (Build.VERSION.SDK_INT >= 14 && (view2 instanceof Switch)) {
+                    Switch r4 = (Switch) view2;
                     if (r4.isChecked()) {
                         textOff = r4.getTextOn();
                     } else {
@@ -491,8 +491,8 @@ public class bj {
                         str = textOff.toString();
                     }
                 }
-            } else if (view instanceof Spinner) {
-                Spinner spinner = (Spinner) view;
+            } else if (view2 instanceof Spinner) {
+                Spinner spinner = (Spinner) view2;
                 Object selectedItem = spinner.getSelectedItem();
                 if (selectedItem != null && (selectedItem instanceof String)) {
                     str = (String) selectedItem;
@@ -508,31 +508,31 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static String b(View view) {
+    public static String b(View view2) {
         InterceptResult invokeL;
         String simpleName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, view)) == null) {
-            if (view instanceof ListView) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, view2)) == null) {
+            if (view2 instanceof ListView) {
                 simpleName = ListView.class.getSimpleName();
             } else {
-                simpleName = view instanceof WebView ? WebView.class.getSimpleName() : "";
+                simpleName = view2 instanceof WebView ? WebView.class.getSimpleName() : "";
             }
             if (TextUtils.isEmpty(simpleName)) {
-                String a = a(view.getClass());
+                String a = a(view2.getClass());
                 if (!"android.widget".equals(a) && !"android.view".equals(a)) {
                     Class<?> cls = null;
                     try {
                         cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
                     } catch (Exception unused) {
                     }
-                    if (cls != null && cls.isAssignableFrom(view.getClass())) {
+                    if (cls != null && cls.isAssignableFrom(view2.getClass())) {
                         simpleName = RecyclerView.TAG;
                     }
                 }
             }
             if (TextUtils.isEmpty(simpleName)) {
-                simpleName = c(view.getClass());
+                simpleName = c(view2.getClass());
             }
             return TextUtils.isEmpty(simpleName) ? "Object" : simpleName;
         }
@@ -555,14 +555,14 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static boolean d(View view) {
+    public static boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, view)) == null) {
-            if (view.getVisibility() != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, view2)) == null) {
+            if (view2.getVisibility() != 0) {
                 return false;
             }
-            return a(view, new Rect());
+            return a(view2, new Rect());
         }
         return invokeL.booleanValue;
     }
@@ -587,8 +587,8 @@ public class bj {
             if (activity == null) {
                 return "";
             }
-            String h2 = h(activity);
-            if (TextUtils.isEmpty(h2)) {
+            String h = h(activity);
+            if (TextUtils.isEmpty(h)) {
                 Uri i = i(activity);
                 if (i != null) {
                     String host = i.getHost();
@@ -596,7 +596,7 @@ public class bj {
                 }
                 return "";
             }
-            return h2;
+            return h;
         }
         return (String) invokeL.objValue;
     }
@@ -651,9 +651,9 @@ public class bj {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    String b2 = b(jSONObject.getString("p"));
+                    String b = b(jSONObject.getString("p"));
                     String string = jSONObject.getString("i");
-                    sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
+                    sb.append("/" + b + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                     String optString = jSONObject.optString("d");
                     if (!TextUtils.isEmpty(optString)) {
                         sb.append("#" + optString);
@@ -667,13 +667,13 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static String c(View view) {
+    public static String c(View view2) {
         InterceptResult invokeL;
         ViewParent parent;
         String valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, view)) == null) {
-            if (view == null || (parent = view.getParent()) == null || !(parent instanceof ViewGroup)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, view2)) == null) {
+            if (view2 == null || (parent = view2.getParent()) == null || !(parent instanceof ViewGroup)) {
                 return "";
             }
             String a = a(parent.getClass());
@@ -722,15 +722,15 @@ public class bj {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // java.util.Comparator
                                 /* renamed from: a */
-                                public int compare(View view2, View view3) {
+                                public int compare(View view3, View view4) {
                                     InterceptResult invokeLL;
                                     Interceptable interceptable2 = $ic;
-                                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, view3)) == null) ? view2.getLeft() - view3.getLeft() : invokeLL.intValue;
+                                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, view4)) == null) ? view3.getLeft() - view4.getLeft() : invokeLL.intValue;
                                 }
                             });
                         } catch (Exception unused2) {
                         }
-                        int left = view.getLeft() / Math.abs(((View) arrayList.get(1)).getLeft() - ((View) arrayList.get(0)).getLeft());
+                        int left = view2.getLeft() / Math.abs(((View) arrayList.get(1)).getLeft() - ((View) arrayList.get(0)).getLeft());
                         int count = viewPager.getAdapter().getCount();
                         if (count != 0) {
                             left %= count;
@@ -753,16 +753,16 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bitmap)) == null) {
-            byte[] c2 = c(bitmap);
-            return c2 != null ? bt.a.a(c2) : "";
+            byte[] c = c(bitmap);
+            return c != null ? bt.a.a(c) : "";
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean b(View view, String str) {
+    public static boolean b(View view2, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, view, str)) == null) ? "ListView".equals(str) || RecyclerView.TAG.equals(str) || "GridView".equals(str) || view.isClickable() : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, view2, str)) == null) ? "ListView".equals(str) || RecyclerView.TAG.equals(str) || "GridView".equals(str) || view2.isClickable() : invokeLL.booleanValue;
     }
 
     public static String b(JSONArray jSONArray) {
@@ -818,24 +818,24 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static String a(View view, View view2) {
+    public static String a(View view2, View view3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, view, view2)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, view2, view3)) == null) {
+            if (view2 == null) {
                 return String.valueOf(0);
             }
-            if (view == view2) {
+            if (view2 == view3) {
                 return String.valueOf(0);
             }
-            ViewParent parent = view.getParent();
+            ViewParent parent = view2.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                Class<?> cls = view.getClass();
+                Class<?> cls = view2.getClass();
                 if (cls == null) {
                     return String.valueOf(0);
                 }
-                String b2 = b(cls);
-                if (TextUtils.isEmpty(b2)) {
+                String b = b(cls);
+                if (TextUtils.isEmpty(b)) {
                     return String.valueOf(0);
                 }
                 ViewGroup viewGroup = (ViewGroup) parent;
@@ -843,9 +843,9 @@ public class bj {
                 for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                     View childAt = viewGroup.getChildAt(i2);
                     if (childAt != null) {
-                        if (childAt == view) {
+                        if (childAt == view2) {
                             break;
-                        } else if (childAt.getClass() != null && b2.equals(b(childAt.getClass()))) {
+                        } else if (childAt.getClass() != null && b.equals(b(childAt.getClass()))) {
                             i++;
                         }
                     }
@@ -945,9 +945,9 @@ public class bj {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    String b2 = b(jSONObject.getString("p"));
+                    String b = b(jSONObject.getString("p"));
                     String string = jSONObject.getString("i");
-                    sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
+                    sb.append("/" + b + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                 } catch (Exception unused) {
                     return "";
                 }
@@ -962,40 +962,40 @@ public class bj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList<Integer> b(Activity activity, View view) {
+    public static ArrayList<Integer> b(Activity activity, View view2) {
         InterceptResult invokeLL;
         int i;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, activity, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, activity, view2)) == null) {
             ArrayList<Integer> arrayList = new ArrayList<>();
-            if (view == null) {
+            if (view2 == null) {
                 arrayList.add(0);
                 arrayList.add(0);
                 return arrayList;
             }
-            int width = view.getWidth();
-            int height = view.getHeight();
-            if (view instanceof WebView) {
-                i = view.getScrollX();
-                i2 = view.getScrollY();
+            int width = view2.getWidth();
+            int height = view2.getHeight();
+            if (view2 instanceof WebView) {
+                i = view2.getScrollX();
+                i2 = view2.getScrollY();
             } else {
-                if (view instanceof ScrollView) {
-                    ScrollView scrollView = (ScrollView) view;
+                if (view2 instanceof ScrollView) {
+                    ScrollView scrollView = (ScrollView) view2;
                     if (scrollView.getChildCount() > 0) {
                         i = scrollView.getScrollX();
                         i2 = scrollView.getScrollY();
                     }
                     i2 = 0;
-                } else if (view instanceof ListView) {
-                    i2 = b((ListView) view);
-                } else if (view instanceof GridView) {
-                    i2 = b((GridView) view);
+                } else if (view2 instanceof ListView) {
+                    i2 = b((ListView) view2);
+                } else if (view2 instanceof GridView) {
+                    i2 = b((GridView) view2);
                 } else {
-                    if (q(view)) {
+                    if (q(view2)) {
                         try {
-                            RecyclerView recyclerView = (RecyclerView) view;
+                            RecyclerView recyclerView = (RecyclerView) view2;
                             i = recyclerView.computeHorizontalScrollOffset();
                             try {
                                 i2 = recyclerView.computeVerticalScrollOffset();
@@ -1032,28 +1032,28 @@ public class bj {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static String a(View view, String str) {
+    public static String a(View view2, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view2, str)) == null) {
             String str2 = "";
-            if (TextUtils.isEmpty(str) || view == null) {
+            if (TextUtils.isEmpty(str) || view2 == null) {
                 return "";
             }
-            ViewParent parent = view.getParent();
+            ViewParent parent = view2.getParent();
             if (parent != null && (parent instanceof View)) {
-                View view2 = (View) parent;
+                View view3 = (View) parent;
                 try {
                     if (ListView.class.getSimpleName().equals(str)) {
-                        if ((view2 instanceof ListView) && view.getParent() != null) {
-                            str2 = String.valueOf(((ListView) view2).getPositionForView(view));
+                        if ((view3 instanceof ListView) && view2.getParent() != null) {
+                            str2 = String.valueOf(((ListView) view3).getPositionForView(view2));
                         }
                     } else if (GridView.class.getSimpleName().equals(str)) {
-                        if ((view2 instanceof GridView) && view.getParent() != null) {
-                            str2 = String.valueOf(((GridView) view2).getPositionForView(view));
+                        if ((view3 instanceof GridView) && view2.getParent() != null) {
+                            str2 = String.valueOf(((GridView) view3).getPositionForView(view2));
                         }
                     } else if (RecyclerView.TAG.equals(str)) {
-                        str2 = String.valueOf(((RecyclerView) view2).getChildLayoutPosition(view));
+                        str2 = String.valueOf(((RecyclerView) view3).getChildLayoutPosition(view2));
                     }
                 } catch (Throwable unused) {
                 }
@@ -1063,32 +1063,32 @@ public class bj {
         return (String) invokeLL.objValue;
     }
 
-    public static String c(View view, String str) {
+    public static String c(View view2, String str) {
         InterceptResult invokeLL;
         Object tag;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, view, str)) == null) {
-            String str2 = (view == null || (tag = view.getTag(-97001)) == null || !(tag instanceof String)) ? "" : (String) tag;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, view2, str)) == null) {
+            String str2 = (view2 == null || (tag = view2.getTag(-97001)) == null || !(tag instanceof String)) ? "" : (String) tag;
             return (str == null || !TextUtils.isEmpty(str2)) ? str2 : str;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static boolean c(Activity activity, View view) {
+    public static boolean c(Activity activity, View view2) {
         InterceptResult invokeLL;
         View a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, activity, view)) == null) ? (activity == null || view == null || (a = a(activity)) == null || !x(view) || a == view) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, activity, view2)) == null) ? (activity == null || view2 == null || (a = a(activity)) == null || !x(view2) || a == view2) ? false : true : invokeLL.booleanValue;
     }
 
     public static String a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            byte[] c2 = c(bitmap);
-            if (c2 != null) {
+            byte[] c = c(bitmap);
+            if (c != null) {
                 try {
-                    return bp.b(c2);
+                    return bp.b(c);
                 } catch (Exception unused) {
                     return "";
                 }
@@ -1098,18 +1098,18 @@ public class bj {
         return (String) invokeL.objValue;
     }
 
-    public static boolean a(View view, Rect rect) {
+    public static boolean a(View view2, Rect rect) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, view, rect)) == null) {
-            if (view != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, view2, rect)) == null) {
+            if (view2 != null) {
                 if (rect != null) {
                     try {
                     } catch (Exception unused) {
                         return false;
                     }
                 }
-                return view.getGlobalVisibleRect(rect);
+                return view2.getGlobalVisibleRect(rect);
             }
             return false;
         }
@@ -1129,47 +1129,47 @@ public class bj {
         return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008c */
-    public static JSONArray a(Activity activity, View view) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x008b */
+    public static JSONArray a(Activity activity, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, activity, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, activity, view2)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (activity == null || view == null) {
+            if (activity == null || view2 == null) {
                 return jSONArray;
             }
-            View view2 = null;
+            View view3 = null;
             try {
-                view2 = a(activity);
+                view3 = a(activity);
             } catch (Exception unused) {
             }
-            if (view2 == null) {
+            if (view3 == null) {
                 return jSONArray;
             }
-            while (view != null) {
+            while (view2 != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("p", l(view));
-                    String c2 = c(view);
-                    if (TextUtils.isEmpty(c2)) {
+                    jSONObject.put("p", l(view2));
+                    String c = c(view2);
+                    if (TextUtils.isEmpty(c)) {
                         String str = "";
-                        ViewParent parent = view.getParent();
+                        ViewParent parent = view2.getParent();
                         if (parent != null && (parent instanceof View)) {
                             str = b((View) parent);
                         }
-                        c2 = a(view, str);
-                        if (TextUtils.isEmpty(c2)) {
-                            c2 = a(view, view2);
+                        c = a(view2, str);
+                        if (TextUtils.isEmpty(c)) {
+                            c = a(view2, view3);
                         }
                     }
-                    jSONObject.put("i", c2);
-                    jSONObject.put("t", b(view));
+                    jSONObject.put("i", c);
+                    jSONObject.put("t", b(view2));
                     jSONArray.put(jSONObject);
-                    ViewParent parent2 = view.getParent();
-                    if (parent2 == null || view == view2 || !(parent2 instanceof View) || x(view) || jSONArray.length() > 1000) {
+                    ViewParent parent2 = view2.getParent();
+                    if (parent2 == null || view2 == view3 || !(parent2 instanceof View) || x(view2) || jSONArray.length() > 1000) {
                         break;
                     }
-                    view = (View) parent2;
+                    view2 = (View) parent2;
                 } catch (Exception unused2) {
                     jSONArray = new JSONArray();
                 }
@@ -1232,7 +1232,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a = au.a().a(str, au.a.f27247b);
+            String a = au.a().a(str, au.a.b);
             return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
@@ -1263,28 +1263,28 @@ public class bj {
         return invokeLL.booleanValue;
     }
 
-    public static View a(View view, Activity activity) {
+    public static View a(View view2, Activity activity) {
         InterceptResult invokeLL;
-        View view2;
+        View view3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view, activity)) == null) {
-            if (view == null || activity == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, activity)) == null) {
+            if (view2 == null || activity == null) {
                 return null;
             }
             try {
-                view2 = a(activity);
+                view3 = a(activity);
             } catch (Exception unused) {
-                view2 = null;
+                view3 = null;
             }
-            if (view2 == null) {
+            if (view3 == null) {
                 return null;
             }
-            while (view != null && view != view2 && view.getParent() != null && (view.getParent() instanceof View)) {
-                View view3 = (View) view.getParent();
-                if (m(view3)) {
-                    return view;
+            while (view2 != null && view2 != view3 && view2.getParent() != null && (view2.getParent() instanceof View)) {
+                View view4 = (View) view2.getParent();
+                if (m(view4)) {
+                    return view2;
                 }
-                view = view3;
+                view2 = view4;
             }
             return null;
         }
@@ -1331,18 +1331,18 @@ public class bj {
         return invokeL.intValue;
     }
 
-    public static void a(View view, LinkedHashMap<View, Integer> linkedHashMap) {
+    public static void a(View view2, LinkedHashMap<View, Integer> linkedHashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65550, null, view, linkedHashMap) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65550, null, view2, linkedHashMap) == null) || view2 == null) {
             return;
         }
-        if (view instanceof TextView) {
-            TextView textView = (TextView) view;
+        if (view2 instanceof TextView) {
+            TextView textView = (TextView) view2;
             if (textView.getVisibility() == 0) {
-                linkedHashMap.put(view, Integer.valueOf((int) (textView.getTextSize() * 10.0f)));
+                linkedHashMap.put(view2, Integer.valueOf((int) (textView.getTextSize() * 10.0f)));
             }
-        } else if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
+        } else if (view2 instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view2;
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 a(viewGroup.getChildAt(i), linkedHashMap);
@@ -1350,17 +1350,17 @@ public class bj {
         }
     }
 
-    public static boolean a(View view, float f2) {
+    public static boolean a(View view2, float f) {
         InterceptResult invokeLF;
         Rect w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, view, f2)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, view2, f)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            int width = view.getWidth();
-            int height = view.getHeight();
-            return width * height > 0 && (w = w(view)) != null && ((float) (w.width() * w.height())) >= (f2 * ((float) width)) * ((float) height);
+            int width = view2.getWidth();
+            int height = view2.getHeight();
+            return width * height > 0 && (w = w(view2)) != null && ((float) (w.width() * w.height())) >= (f * ((float) width)) * ((float) height);
         }
         return invokeLF.booleanValue;
     }

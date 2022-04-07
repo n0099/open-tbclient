@@ -79,7 +79,7 @@ import java.util.Properties;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonMethods {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOW_MUTI_PROCESS_FLAG_FILE_NAME = "ampf";
@@ -1365,8 +1365,8 @@ public class CommonMethods {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, bArr)) == null) {
             String str = "";
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() == 1) {
                     hexString = "0" + hexString;
                 }
@@ -1450,8 +1450,8 @@ public class CommonMethods {
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             handleNuLException(e);
                             return false;
                         }
@@ -1461,8 +1461,8 @@ public class CommonMethods {
                 if (readLine == null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                         handleNuLException(e);
                         return false;
                     }
@@ -1472,8 +1472,8 @@ public class CommonMethods {
             try {
                 bufferedReader.close();
                 return true;
-            } catch (IOException e4) {
-                handleNuLException(e4);
+            } catch (IOException e3) {
+                handleNuLException(e3);
                 return true;
             }
         }
@@ -2091,15 +2091,15 @@ public class CommonMethods {
             try {
                 Report report = Report.getInstance(context);
                 JSONObject jSONObject = new JSONObject();
-                D d2 = D.getInstance(context);
-                Map<Integer, String> initSuceedPluginKeys = d2.getInitSuceedPluginKeys();
+                D d = D.getInstance(context);
+                Map<Integer, String> initSuceedPluginKeys = d.getInitSuceedPluginKeys();
                 jSONObject.put("0", initSuceedPluginKeys.keySet());
                 jSONObject.put("1", initSuceedPluginKeys.values());
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("1003003", jSONObject);
                 jSONObject2.put("0", jSONObject3);
-                Map<Integer, String> initSuceedPluginPkgs = d2.getInitSuceedPluginPkgs();
+                Map<Integer, String> initSuceedPluginPkgs = d.getInitSuceedPluginPkgs();
                 JSONArray jSONArray = new JSONArray();
                 for (String str : initSuceedPluginPkgs.values()) {
                     jSONArray.put(str);
@@ -2265,8 +2265,8 @@ public class CommonMethods {
                             try {
                                 fileOutputStream.close();
                                 return true;
-                            } catch (IOException e2) {
-                                handleNuLException(e2);
+                            } catch (IOException e) {
+                                handleNuLException(e);
                                 return true;
                             }
                         } catch (Throwable th2) {
@@ -2278,8 +2278,8 @@ public class CommonMethods {
                                 if (fileOutputStream != null) {
                                     try {
                                         fileOutputStream.close();
-                                    } catch (IOException e3) {
-                                        handleNuLException(e3);
+                                    } catch (IOException e2) {
+                                        handleNuLException(e2);
                                     }
                                 }
                             }

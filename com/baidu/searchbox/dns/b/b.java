@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, List<String>> s;
@@ -100,7 +100,7 @@ public class b {
                     hashMap.put("local", parseRawAddressList);
                 }
                 return hashMap;
-            } catch (UnknownHostException e2) {
+            } catch (UnknownHostException e) {
                 if (v) {
                     if (DnsChecker.isIPv4Reachable()) {
                         String i = i(str.trim());
@@ -114,10 +114,10 @@ public class b {
                             return hashMap;
                         }
                     } else {
-                        throw e2;
+                        throw e;
                     }
                 }
-                throw e2;
+                throw e;
             }
         }
         return (Map) invokeL.objValue;
@@ -127,8 +127,8 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            com.baidu.searchbox.dns.d.a.a d2 = com.baidu.searchbox.dns.a.a.e().d(str);
-            List<String> ipList = d2 != null ? d2.getIpList() : null;
+            com.baidu.searchbox.dns.d.a.a d = com.baidu.searchbox.dns.a.a.e().d(str);
+            List<String> ipList = d != null ? d.getIpList() : null;
             if (ipList == null || ipList.size() == 0) {
                 ipList = s.get(str);
             }

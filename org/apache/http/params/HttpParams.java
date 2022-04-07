@@ -6,7 +6,7 @@ public interface HttpParams {
 
     boolean getBooleanParameter(String str, boolean z);
 
-    double getDoubleParameter(String str, double d2);
+    double getDoubleParameter(String str, double d);
 
     int getIntParameter(String str, int i);
 
@@ -22,7 +22,7 @@ public interface HttpParams {
 
     HttpParams setBooleanParameter(String str, boolean z);
 
-    HttpParams setDoubleParameter(String str, double d2);
+    HttpParams setDoubleParameter(String str, double d);
 
     HttpParams setIntParameter(String str, int i);
 

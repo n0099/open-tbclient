@@ -51,8 +51,8 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("getIBinder", String.class);
                         sGetIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve getIBinder method", e2);
+                    } catch (NoSuchMethodException e) {
+                        Log.i(TAG, "Failed to retrieve getIBinder method", e);
                     }
                     sGetIBinderMethodFetched = true;
                 }
@@ -60,8 +60,8 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         return (IBinder) method2.invoke(bundle, str);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
-                        Log.i(TAG, "Failed to invoke getIBinder via reflection", e3);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e2) {
+                        Log.i(TAG, "Failed to invoke getIBinder via reflection", e2);
                         sGetIBinderMethod = null;
                     }
                 }
@@ -78,8 +78,8 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("putIBinder", String.class, IBinder.class);
                         sPutIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve putIBinder method", e2);
+                    } catch (NoSuchMethodException e) {
+                        Log.i(TAG, "Failed to retrieve putIBinder method", e);
                     }
                     sPutIBinderMethodFetched = true;
                 }
@@ -87,8 +87,8 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         method2.invoke(bundle, str, iBinder);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
-                        Log.i(TAG, "Failed to invoke putIBinder via reflection", e3);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e2) {
+                        Log.i(TAG, "Failed to invoke putIBinder via reflection", e2);
                         sPutIBinderMethod = null;
                     }
                 }

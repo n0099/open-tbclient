@@ -14,20 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y34;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
+    public a b;
+    public y34 c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f29594b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.n0.j.p0.g.e.a f29595c;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(int i);
     }
@@ -56,17 +53,17 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
         RecommendItemModel recommendItemModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) || (recommendItemModel = this.f29595c.f8898b.get(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) || (recommendItemModel = this.c.b.get(i)) == null) {
             return;
         }
         listRecommendViewHolder.a.setImageURI(recommendItemModel.iconUrl);
-        listRecommendViewHolder.f29598b.setText(recommendItemModel.appName);
-        listRecommendViewHolder.f29599c.setText(recommendItemModel.desc);
-        listRecommendViewHolder.f29600d.setText(recommendItemModel.buttonText);
+        listRecommendViewHolder.b.setText(recommendItemModel.appName);
+        listRecommendViewHolder.c.setText(recommendItemModel.desc);
+        listRecommendViewHolder.d.setText(recommendItemModel.buttonText);
         listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
-        listRecommendViewHolder.f29600d.setTag(Integer.valueOf(i));
+        listRecommendViewHolder.d.setTag(Integer.valueOf(i));
         listRecommendViewHolder.itemView.setOnClickListener(this);
-        listRecommendViewHolder.f29600d.setOnClickListener(this);
+        listRecommendViewHolder.d.setOnClickListener(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,20 +72,20 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d07f0, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d07e7, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
     }
 
     public void f(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f29594b = aVar;
+            this.b = aVar;
         }
     }
 
-    public void g(c.a.n0.j.p0.g.e.a aVar) {
+    public void g(y34 y34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f29595c = aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, y34Var) == null) {
+            this.c = y34Var;
             notifyDataSetChanged();
         }
     }
@@ -99,8 +96,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.n0.j.p0.g.e.a aVar = this.f29595c;
-            if (aVar == null || (list = aVar.f8898b) == null) {
+            y34 y34Var = this.c;
+            if (y34Var == null || (list = y34Var.b) == null) {
                 return 0;
             }
             return list.size();
@@ -109,11 +106,11 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || this.f29594b == null || view == null || !(view.getTag() instanceof Integer)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || this.b == null || view2 == null || !(view2.getTag() instanceof Integer)) {
             return;
         }
-        this.f29594b.a(((Integer) view.getTag()).intValue());
+        this.b.a(((Integer) view2.getTag()).intValue());
     }
 }

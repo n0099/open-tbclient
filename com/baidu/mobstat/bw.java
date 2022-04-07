@@ -52,19 +52,13 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bw {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f27333b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f27334c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f27335d;
+    public static String b;
+    public static String c;
+    public static final Pattern d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,7 +74,7 @@ public class bw {
                 return;
             }
         }
-        f27335d = Pattern.compile("\\s*|\t|\r|\n");
+        d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -312,17 +306,17 @@ public class bw {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:10|11|12|(11:14|15|16|17|19|20|(1:24)|25|(2:26|(1:1)(8:32|33|(1:35)|36|(1:44)(1:40)|41|42|43))|48|(1:50)(6:51|52|53|(1:55)|56|57))|67|15|16|17|19|20|(2:22|24)|25|(3:26|(2:28|60)(1:61)|43)|48|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x003f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x003e, code lost:
         r4 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00bc A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00bd  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x00b6 A[ADDED_TO_REGION, EDGE_INSN: B:73:0x00b6->B:44:0x00b6 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x005a  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00ba A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00b4 A[ADDED_TO_REGION, EDGE_INSN: B:72:0x00b4->B:44:0x00b4 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -536,7 +530,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f27333b;
+            String str = b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -544,7 +538,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f27333b = str;
+                b = str;
             }
             return str;
         }
@@ -604,7 +598,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -831,7 +825,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f27334c;
+            String str2 = c;
             if (str2 != null) {
                 return str2;
             }
@@ -852,7 +846,7 @@ public class bw {
                     str = "flyme";
                 }
             }
-            f27334c = str;
+            c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -878,7 +872,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f27335d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {

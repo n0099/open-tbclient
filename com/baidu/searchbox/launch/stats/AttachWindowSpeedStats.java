@@ -1,17 +1,12 @@
 package com.baidu.searchbox.launch.stats;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONCERN_TAB_DURATION = "ConcernTabFragment";
@@ -148,7 +143,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public long getStatsEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHomeFragmentOnResumeEndStamp : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Math.max(this.mHomeFragmentOnResumeEndStamp, this.mHomeFragmentOnActivityCreatedStartStamp) : invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -158,76 +153,313 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHomeTabOnAttachStartStamp : invokeV.longValue;
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x0236
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public boolean packData(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            super.packData(jSONObject);
-            if (jSONObject == null) {
-                return true;
-            }
-            long j = this.mHomeFragmentOnResumeEndStamp;
-            long j2 = this.mHomeTabOnAttachStartStamp;
-            long j3 = j - j2;
-            long j4 = this.mHomeTabOnAttachEndStamp - j2;
-            long j5 = this.mHomeTabOnCreateEndStamp - this.mHomeTabOnCreateStartStamp;
-            long j6 = this.mHomeFragmentOnCreateViewEndStamp - this.mHomeFragmentOnCreateViewStartStamp;
-            long j7 = this.mScrollFragmentTabHostInitEndStamp - this.mScrollFragmentTabHostInitStartStamp;
-            long j8 = this.mHomeTabBarViewInitEndStamp - this.mHomeTabBarViewInitStartStamp;
-            long j9 = this.mCustomViewPagerEndStamp - this.mCustomViewPagerStartStamp;
-            long j10 = this.mNestedScrollHeaderEndStamp - this.mNestedScrollHeaderStartStamp;
-            long j11 = this.mHomeFragmentInitModelEndStamp - this.mHomeFragmentInitModelStartStamp;
-            long j12 = this.mHomeFragmentInitTableEndStamp - this.mHomeFragmentInitTableStartStamp;
-            long j13 = this.mHomeFragmentInitViewPaperEndStamp - this.mHomeFragmentInitViewPaperStartStamp;
-            long j14 = this.mHomeFragmentStartFirstLoadPaperEndStamp - this.mHomeFragmentStartFirstLoadStartStamp;
-            long j15 = this.mHomeFragmentCheckConcernRedTipEndStamp - this.mHomeFragmentCheckConcernRedTipStartStamp;
-            long j16 = this.mHomeFragmentShowConcernTabTipsEndStamp - this.mHomeFragmentShowConcernTabTipsStartStamp;
-            long j17 = this.mHomeFragmentOnActivityCreatedEndStamp - this.mHomeFragmentOnActivityCreatedStartStamp;
-            long j18 = j - this.mHomeFragmentOnResumeStartStamp;
-            long j19 = this.mConcernTabFragmentEndTimeStamp - this.mConcernTabFragmentStartTimeStamp;
-            long j20 = this.mHotTopicTabFragmentEndTimeStamp - this.mHotTopicTabFragmentStartTimeStamp;
-            long j21 = this.mPersonalizeTabFragmentEndTimeStamp - this.mPersonalizeTabFragmentStartTimeStamp;
-            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mHomeTabOnAttachStartStamp, this.mHomeFragmentOnResumeEndStamp);
-            if (j3 < 0 || j3 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j20 < 0 || j20 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(HOME_FRAGMENT_TOTAL_TIME, String.valueOf(j3));
-            hashMap.put(HOME_FRAGMENT_ON_ATTACH, String.valueOf(j4));
-            hashMap.put(HOME_FRAGMENT_ON_CREATE, String.valueOf(j5));
-            hashMap.put(HOME_FRAGMENT_ON_CREATE_VIEW, String.valueOf(j6));
-            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_INIT, String.valueOf(j7));
-            hashMap.put(HOME_TAB_BAR_VIEW_INIT, String.valueOf(j8));
-            hashMap.put(CUSTOM_VIEW_PAPER_INIT, String.valueOf(j9));
-            hashMap.put(NESTED_SCROLL_HEADER_INIT, String.valueOf(j10));
-            hashMap.put(HOME_FRAGMENT_INIT_MODEL, String.valueOf(j11));
-            hashMap.put(HOME_FRAGMENT_INIT_TABLE, String.valueOf(j12));
-            hashMap.put(HOME_FRAGMENT_INIT_VIEW_PAPER, String.valueOf(j13));
-            hashMap.put(HOME_FRAGMENT_FIRST_LOAD, String.valueOf(j14));
-            hashMap.put(HOME_FRAGMENT_CHECK_CONCERN_RED_TIP, String.valueOf(j15));
-            hashMap.put(HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS, String.valueOf(j16));
-            hashMap.put(HOME_FRAGMENT_ON_ACTIVITY_CREATED, String.valueOf(j17));
-            hashMap.put(HOME_FRAGMENT_ON_RESUME, String.valueOf(j18));
-            hashMap.put(CONCERN_TAB_DURATION, String.valueOf(j19));
-            hashMap.put(HOT_TOPIC_TAB_DURATION, String.valueOf(j20));
-            hashMap.put(PERSONALIZE_TAB_DURATION, String.valueOf(j21));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.ATTACH_WINDOW_STAGE, jsonData);
-                    return true;
-                } catch (JSONException e2) {
-                    if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    public boolean packData(org.json.JSONObject r51) {
+        /*
+            r50 = this;
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.AttachWindowSpeedStats.$ic
+            if (r0 != 0) goto L25f
+        L4:
+            r1 = r50
+            r2 = r51
+            super.packData(r51)
+            r3 = 1
+            if (r2 != 0) goto Lf
+            return r3
+        Lf:
+            long r4 = r1.mHomeFragmentOnResumeEndStamp
+            long r6 = r1.mHomeTabOnAttachStartStamp
+            long r8 = r4 - r6
+            long r10 = r1.mHomeTabOnAttachEndStamp
+            long r10 = r10 - r6
+            long r6 = r1.mHomeTabOnCreateEndStamp
+            long r12 = r1.mHomeTabOnCreateStartStamp
+            long r6 = r6 - r12
+            long r12 = r1.mHomeFragmentOnCreateViewEndStamp
+            long r14 = r1.mHomeFragmentOnCreateViewStartStamp
+            long r12 = r12 - r14
+            long r14 = r1.mScrollFragmentTabHostInitEndStamp
+            r16 = r4
+            long r3 = r1.mScrollFragmentTabHostInitStartStamp
+            long r14 = r14 - r3
+            long r3 = r1.mHomeTabBarViewInitEndStamp
+            r18 = r14
+            long r14 = r1.mHomeTabBarViewInitStartStamp
+            long r3 = r3 - r14
+            long r14 = r1.mCustomViewPagerEndStamp
+            r20 = r3
+            long r2 = r1.mCustomViewPagerStartStamp
+            long r14 = r14 - r2
+            long r2 = r1.mNestedScrollHeaderEndStamp
+            long r4 = r1.mNestedScrollHeaderStartStamp
+            long r2 = r2 - r4
+            long r4 = r1.mHomeFragmentInitModelEndStamp
+            r22 = r2
+            long r2 = r1.mHomeFragmentInitModelStartStamp
+            long r4 = r4 - r2
+            long r2 = r1.mHomeFragmentInitTableEndStamp
+            r24 = r4
+            long r4 = r1.mHomeFragmentInitTableStartStamp
+            long r2 = r2 - r4
+            long r4 = r1.mHomeFragmentInitViewPaperEndStamp
+            r26 = r2
+            long r2 = r1.mHomeFragmentInitViewPaperStartStamp
+            long r4 = r4 - r2
+            long r2 = r1.mHomeFragmentStartFirstLoadPaperEndStamp
+            r28 = r4
+            long r4 = r1.mHomeFragmentStartFirstLoadStartStamp
+            long r2 = r2 - r4
+            long r4 = r1.mHomeFragmentCheckConcernRedTipEndStamp
+            r30 = r2
+            long r2 = r1.mHomeFragmentCheckConcernRedTipStartStamp
+            long r4 = r4 - r2
+            long r2 = r1.mHomeFragmentShowConcernTabTipsEndStamp
+            r32 = r4
+            long r4 = r1.mHomeFragmentShowConcernTabTipsStartStamp
+            long r2 = r2 - r4
+            long r4 = r1.mHomeFragmentOnActivityCreatedEndStamp
+            r34 = r2
+            long r2 = r1.mHomeFragmentOnActivityCreatedStartStamp
+            long r4 = r4 - r2
+            long r2 = r1.mHomeFragmentOnResumeStartStamp
+            long r2 = r16 - r2
+            r16 = r2
+            long r2 = r1.mConcernTabFragmentEndTimeStamp
+            r36 = r14
+            long r14 = r1.mConcernTabFragmentStartTimeStamp
+            long r2 = r2 - r14
+            long r14 = r1.mHotTopicTabFragmentEndTimeStamp
+            r38 = r12
+            long r12 = r1.mHotTopicTabFragmentStartTimeStamp
+            long r14 = r14 - r12
+            long r12 = r1.mPersonalizeTabFragmentEndTimeStamp
+            r40 = r2
+            long r2 = r1.mPersonalizeTabFragmentStartTimeStamp
+            long r12 = r12 - r2
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r2 = r1.mHomeTabOnAttachStartStamp
+            r42 = r12
+            long r12 = r1.mHomeFragmentOnResumeEndStamp
+            long r2 = r0.getDurationWithoutAD(r2, r12)
+            long r12 = r1.mHomeFragmentOnActivityCreatedStartStamp
+            r44 = r14
+            long r14 = r1.mHomeFragmentOnResumeEndStamp
+            r46 = 0
+            int r0 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
+            if (r0 <= 0) goto Lb0
+            long r2 = r2 + r4
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r12 = r1.mHomeFragmentOnActivityCreatedStartStamp
+            long r14 = r1.mHomeFragmentOnResumeEndStamp
+            long r12 = r0.getDurationWithoutAD(r12, r14)
+            goto Lb2
+        Lb0:
+            r12 = r46
+        Lb2:
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r14 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r14 = r14.getMainTabActivityEndDuration()
+            r48 = r4
+            long r4 = r1.mHomeTabOnAttachStartStamp
+            long r4 = r0.getDurationWithoutAD(r14, r4)
+            long r12 = r12 + r4
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r4 = r0.getExtraSecondCreateDuration()
+            long r12 = r12 - r4
+            int r0 = (r8 > r46 ? 1 : (r8 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            r4 = 60000(0xea60, double:2.9644E-319)
+            int r0 = (r8 > r4 ? 1 : (r8 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r2 > r46 ? 1 : (r2 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r10 > r46 ? 1 : (r10 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r6 > r46 ? 1 : (r6 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r6 > r4 ? 1 : (r6 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r44 > r46 ? 1 : (r44 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r44 > r4 ? 1 : (r44 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r40 > r46 ? 1 : (r40 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r40 > r4 ? 1 : (r40 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r42 > r46 ? 1 : (r42 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r42 > r4 ? 1 : (r42 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r38 > r46 ? 1 : (r38 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r38 > r4 ? 1 : (r38 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r18 > r46 ? 1 : (r18 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r18 > r4 ? 1 : (r18 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r20 > r46 ? 1 : (r20 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r20 > r4 ? 1 : (r20 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r36 > r46 ? 1 : (r36 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r36 > r4 ? 1 : (r36 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r22 > r46 ? 1 : (r22 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r22 > r4 ? 1 : (r22 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r24 > r46 ? 1 : (r24 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r24 > r4 ? 1 : (r24 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r26 > r46 ? 1 : (r26 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r26 > r4 ? 1 : (r26 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r28 > r46 ? 1 : (r28 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r28 > r4 ? 1 : (r28 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r30 > r46 ? 1 : (r30 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r30 > r4 ? 1 : (r30 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r32 > r46 ? 1 : (r32 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r32 > r4 ? 1 : (r32 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r34 > r46 ? 1 : (r34 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r34 > r4 ? 1 : (r34 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r48 > r46 ? 1 : (r48 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r48 > r4 ? 1 : (r48 == r4 ? 0 : -1))
+            if (r0 > 0) goto L25d
+            int r0 = (r16 > r46 ? 1 : (r16 == r46 ? 0 : -1))
+            if (r0 < 0) goto L25d
+            int r0 = (r16 > r4 ? 1 : (r16 == r4 ? 0 : -1))
+            if (r0 <= 0) goto L175
+            goto L25d
+        L175:
+            java.util.HashMap r4 = new java.util.HashMap
+            r4.<init>()
+            java.lang.String r0 = java.lang.String.valueOf(r8)
+            java.lang.String r5 = "homeFragmentTotal"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r10)
+            java.lang.String r5 = "homeFragmentOnAttach"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r5 = "homeFragmentOnCreate"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r38)
+            java.lang.String r5 = "homeFragmentOnCreateView"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r18)
+            java.lang.String r5 = "homeFragmentTabHostInit"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r20)
+            java.lang.String r5 = "HomeTabBarViewInit"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r36)
+            java.lang.String r5 = "CustomViewPagerInit"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r22)
+            java.lang.String r5 = "NestedScrollHeaderInit"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r24)
+            java.lang.String r5 = "homeFragmentInitModel"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r26)
+            java.lang.String r5 = "homeFragmentInitTable"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r28)
+            java.lang.String r5 = "homeFragmentInitViewPaper"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r30)
+            java.lang.String r5 = "homeFragmentStartFirstLoad"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r32)
+            java.lang.String r5 = "homeFragmentCheckConcernRedTip"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r34)
+            java.lang.String r5 = "homeFragmentShowConcernTabTips"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r48)
+            java.lang.String r5 = "homeFragmentOnActivityCreated"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r16)
+            java.lang.String r5 = "homeFragmentOnResume"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r40)
+            java.lang.String r5 = "ConcernTabFragment"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r44)
+            java.lang.String r5 = "HotTopicTabFragment"
+            r4.put(r5, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r42)
+            java.lang.String r5 = "PersonalizeTabFragment"
+            r4.put(r5, r0)
+            r0 = 0
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r12, r0)
+            if (r0 == 0) goto L243
+            java.lang.String r5 = "activity2attach"
+            r6 = r51
+            r6.put(r5, r0)     // Catch: org.json.JSONException -> L234
+            goto L245
+        L234:
+            r0 = move-exception
+            goto L239
+        L236:
+            r0 = move-exception
+            r6 = r51
+        L239:
+            boolean r5 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r5 == 0) goto L245
+            r0.printStackTrace()
+            goto L245
+        L243:
+            r6 = r51
+        L245:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r4)
+            if (r0 == 0) goto L25b
+            java.lang.String r2 = "attachWindow"
+            r6.put(r2, r0)     // Catch: org.json.JSONException -> L251
+            goto L25b
+        L251:
+            r0 = move-exception
+            boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r2 == 0) goto L25b
+            r0.printStackTrace()
+        L25b:
+            r2 = 1
+            return r2
+        L25d:
+            r0 = 0
+            return r0
+        L25f:
+            r48 = r0
+            r49 = 1048580(0x100004, float:1.469374E-39)
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r48.invokeL(r49, r50, r51)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.launch.stats.AttachWindowSpeedStats.packData(org.json.JSONObject):boolean");
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats

@@ -49,51 +49,51 @@ public class ViewUtilsApi19 extends ViewUtilsBase {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void clearNonTransitionAlpha(@NonNull View view) {
+    public void clearNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public float getTransitionAlpha(@NonNull View view) {
+    public float getTransitionAlpha(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             if (sTryHiddenTransitionAlpha) {
                 try {
-                    return view.getTransitionAlpha();
+                    return view2.getTransitionAlpha();
                 } catch (NoSuchMethodError unused) {
                     sTryHiddenTransitionAlpha = false;
                 }
             }
-            return view.getAlpha();
+            return view2.getAlpha();
         }
         return invokeL.floatValue;
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void saveNonTransitionAlpha(@NonNull View view) {
+    public void saveNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setTransitionAlpha(@NonNull View view, float f2) {
+    public void setTransitionAlpha(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
             if (sTryHiddenTransitionAlpha) {
                 try {
-                    view.setTransitionAlpha(f2);
+                    view2.setTransitionAlpha(f);
                     return;
                 } catch (NoSuchMethodError unused) {
                     sTryHiddenTransitionAlpha = false;
                 }
             }
-            view.setAlpha(f2);
+            view2.setAlpha(f);
         }
     }
 }

@@ -2,8 +2,6 @@ package com.baidu.tbadk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.e;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,8 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fi;
+import com.repackage.oi;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TiebaIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
@@ -76,7 +76,7 @@ public class TiebaIMConfig {
     public static int getMaxChatImageWidthInPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? n.d(context, 300.0f) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? oi.d(context, 300.0f) : invokeL.intValue;
     }
 
     public static BdAsyncTaskParallel getParallel() {
@@ -88,6 +88,6 @@ public class TiebaIMConfig {
     public static byte[] getRSAPublicKey() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? e.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? fi.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
     }
 }

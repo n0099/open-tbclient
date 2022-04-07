@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class p extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class p extends z {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("messageID", String.valueOf(oVar2.f()));
                 Context context = this.a;
-                String b2 = com.vivo.push.util.aa.b(context, context.getPackageName());
-                if (!TextUtils.isEmpty(b2)) {
-                    hashMap.put("remoteAppId", b2);
+                String b = com.vivo.push.util.aa.b(context, context.getPackageName());
+                if (!TextUtils.isEmpty(b)) {
+                    hashMap.put("remoteAppId", b);
                 }
                 xVar.a(hashMap);
                 com.vivo.push.e.a().a(xVar);
@@ -57,19 +57,19 @@ public final class p extends z {
                 HashMap<String, String> hashMap2 = new HashMap<>();
                 hashMap2.put("messageID", String.valueOf(oVar2.f()));
                 Context context2 = this.a;
-                String b3 = com.vivo.push.util.aa.b(context2, context2.getPackageName());
-                if (!TextUtils.isEmpty(b3)) {
-                    hashMap2.put("remoteAppId", b3);
+                String b2 = com.vivo.push.util.aa.b(context2, context2.getPackageName());
+                if (!TextUtils.isEmpty(b2)) {
+                    hashMap2.put("remoteAppId", b2);
                 }
                 xVar2.a(hashMap2);
                 com.vivo.push.e.a().a(xVar2);
             } else {
-                UnvarnishedMessage e2 = oVar2.e();
-                if (e2 != null) {
-                    int targetType = e2.getTargetType();
-                    String tragetContent = e2.getTragetContent();
+                UnvarnishedMessage e = oVar2.e();
+                if (e != null) {
+                    int targetType = e.getTargetType();
+                    String tragetContent = e.getTragetContent();
                     com.vivo.push.util.p.d("OnMessageTask", "tragetType is " + targetType + " ; target is " + tragetContent);
-                    com.vivo.push.m.b(new q(this, e2));
+                    com.vivo.push.m.b(new q(this, e));
                     return;
                 }
                 com.vivo.push.util.p.a("OnMessageTask", " message is null");

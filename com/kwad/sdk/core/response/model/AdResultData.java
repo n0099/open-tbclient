@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;
@@ -92,15 +92,15 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 if (!at.a(optString)) {
                     this.pageInfo.parseJson(new JSONObject(d.b(optString)));
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a("json bug", e2.toString());
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a("json bug", e.toString());
+                com.kwad.sdk.core.d.a.a(e);
             }
             String optString2 = jSONObject.optString("impAdInfo");
             if (!TextUtils.isEmpty(optString2)) {
-                String b2 = d.b(optString2);
-                if (!at.a(b2)) {
-                    JSONArray jSONArray = new JSONArray(b2);
+                String b = d.b(optString2);
+                if (!at.a(b)) {
+                    JSONArray jSONArray = new JSONArray(b);
                     if (jSONArray.length() > 0) {
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject optJSONObject = jSONArray.optJSONObject(i);
@@ -137,15 +137,15 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                     aVar.parseJson(optJSONObject2);
                     this.entryInfo.k = this.adTemplateList;
                 }
-            } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.a(e3);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
             if (com.kwad.sdk.core.d.a.a) {
                 com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
             }
-        } catch (Exception e4) {
-            com.kwad.sdk.core.d.a.a(e4);
-            com.kwad.sdk.core.d.a.a("json bug", e4.toString());
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.a(e3);
+            com.kwad.sdk.core.d.a.a("json bug", e3.toString());
         }
     }
 

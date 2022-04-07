@@ -110,7 +110,9 @@ public final class AsyncLayoutInflater {
         public AsyncLayoutInflater inflater;
         public ViewGroup parent;
         public int resid;
-        public View view;
+
+        /* renamed from: view  reason: collision with root package name */
+        public View f978view;
 
         public InflateRequest() {
             Interceptable interceptable = $ic;
@@ -181,8 +183,8 @@ public final class AsyncLayoutInflater {
             if (interceptable == null || interceptable.invokeL(1048576, this, inflateRequest) == null) {
                 try {
                     this.mQueue.put(inflateRequest);
-                } catch (InterruptedException e2) {
-                    throw new RuntimeException("Failed to enqueue async inflate request", e2);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException("Failed to enqueue async inflate request", e);
                 }
             }
         }
@@ -204,7 +206,7 @@ public final class AsyncLayoutInflater {
                 inflateRequest.inflater = null;
                 inflateRequest.parent = null;
                 inflateRequest.resid = 0;
-                inflateRequest.view = null;
+                inflateRequest.f978view = null;
                 this.mRequestPool.release(inflateRequest);
             }
         }
@@ -226,13 +228,13 @@ public final class AsyncLayoutInflater {
                 try {
                     InflateRequest take = this.mQueue.take();
                     try {
-                        take.view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
-                    } catch (RuntimeException e2) {
-                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e2);
+                        take.f978view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
+                    } catch (RuntimeException e) {
+                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
                     }
                     Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
-                } catch (InterruptedException e3) {
-                    Log.w(AsyncLayoutInflater.TAG, e3);
+                } catch (InterruptedException e2) {
+                    Log.w(AsyncLayoutInflater.TAG, e2);
                 }
             }
         }
@@ -240,7 +242,7 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(@NonNull View view, @LayoutRes int i, @Nullable ViewGroup viewGroup);
+        void onInflateFinished(@NonNull View view2, @LayoutRes int i, @Nullable ViewGroup viewGroup);
     }
 
     public AsyncLayoutInflater(@NonNull Context context) {
@@ -287,10 +289,10 @@ public final class AsyncLayoutInflater {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
                     InflateRequest inflateRequest = (InflateRequest) message.obj;
-                    if (inflateRequest.view == null) {
-                        inflateRequest.view = this.this$0.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
+                    if (inflateRequest.f978view == null) {
+                        inflateRequest.f978view = this.this$0.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
                     }
-                    inflateRequest.callback.onInflateFinished(inflateRequest.view, inflateRequest.resid, inflateRequest.parent);
+                    inflateRequest.callback.onInflateFinished(inflateRequest.f978view, inflateRequest.resid, inflateRequest.parent);
                     this.this$0.mInflateThread.releaseRequest(inflateRequest);
                     return true;
                 }

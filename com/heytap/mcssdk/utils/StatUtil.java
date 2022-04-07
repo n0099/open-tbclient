@@ -14,7 +14,7 @@ import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class StatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNT = "count";
@@ -85,8 +85,8 @@ public class StatUtil {
                 }
                 intent.putStringArrayListExtra("list", arrayList);
                 context.startService(intent);
-            } catch (Exception e2) {
-                LogUtil.e("statisticMessage--Exception" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.e("statisticMessage--Exception" + e.getMessage());
             }
         }
     }

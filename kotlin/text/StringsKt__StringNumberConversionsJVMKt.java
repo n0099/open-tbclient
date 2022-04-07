@@ -119,8 +119,8 @@ public class StringsKt__StringNumberConversionsJVMKt extends StringsKt__StringBu
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final String toString(byte b2, int i) {
-        String num = Integer.toString(b2, CharsKt__CharJVMKt.checkRadix(CharsKt__CharJVMKt.checkRadix(i)));
+    public static final String toString(byte b, int i) {
+        String num = Integer.toString(b, CharsKt__CharJVMKt.checkRadix(CharsKt__CharJVMKt.checkRadix(i)));
         Intrinsics.checkNotNullExpressionValue(num, "java.lang.Integer.toStri…(this, checkRadix(radix))");
         return num;
     }

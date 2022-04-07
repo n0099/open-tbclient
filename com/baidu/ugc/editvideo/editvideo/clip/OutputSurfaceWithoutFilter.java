@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class OutputSurfaceWithoutFilter extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,13 +104,13 @@ public class OutputSurfaceWithoutFilter extends BaseOutputSurface {
         }
     }
 
-    public void setAngle(float f2) {
+    public void setAngle(float f) {
         FullFrameRect fullFrameRect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || (fullFrameRect = this.mFullScreenEXT) == null) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || (fullFrameRect = this.mFullScreenEXT) == null) {
             return;
         }
-        fullFrameRect.setAngle(f2);
+        fullFrameRect.setAngle(f);
     }
 
     public void setMirror(boolean z) {
@@ -122,12 +122,12 @@ public class OutputSurfaceWithoutFilter extends BaseOutputSurface {
         fullFrameRect.setMirror(z);
     }
 
-    public void setScale(float f2, float f3) {
+    public void setScale(float f, float f2) {
         FullFrameRect fullFrameRect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (fullFrameRect = this.mFullScreenEXT) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (fullFrameRect = this.mFullScreenEXT) == null) {
             return;
         }
-        fullFrameRect.setScale(f2, f3);
+        fullFrameRect.setScale(f, f2);
     }
 }

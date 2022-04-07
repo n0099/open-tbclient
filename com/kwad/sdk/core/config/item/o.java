@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class o extends b<List<ReportInfo>> {
     public o() {
         super("reportItems", d());
@@ -56,8 +56,8 @@ public class o extends b<List<ReportInfo>> {
                     }
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         a((o) c());
     }

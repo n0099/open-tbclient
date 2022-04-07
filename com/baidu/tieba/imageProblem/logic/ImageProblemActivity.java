@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public ImageProblemView mView;
 
     /* renamed from: com.baidu.tieba.imageProblem.logic.ImageProblemActivity$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
                 super.onPostExecute(bdStatSwitchData);
-                this.a.mView.getCheckButton().setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f04d0));
+                this.a.mView.getCheckButton().setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f04d7));
                 this.a.mView.complete();
                 this.a.mTask = null;
             }
@@ -100,7 +100,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                 super.onProgressUpdate(numArr);
                 int intValue = numArr[0].intValue();
                 ImageProblemActivity imageProblemActivity = this.a;
-                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f34119d);
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.d);
             }
         }
 
@@ -140,17 +140,17 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && view == this.mView.getCheckButton()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 == this.mView.getCheckButton()) {
             if (this.mTask == null) {
-                this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f11db));
+                this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f11e3));
                 CheckTask checkTask = new CheckTask(this, null);
                 this.mTask = checkTask;
                 checkTask.execute(new Object[0]);
                 return;
             }
-            this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f04d0));
+            this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f04d7));
             CheckTask checkTask2 = this.mTask;
             if (checkTask2 != null) {
                 checkTask2.cancel();

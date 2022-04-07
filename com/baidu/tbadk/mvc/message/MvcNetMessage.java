@@ -1,7 +1,5 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.o0.k0.b.g;
-import c.a.o0.k0.b.h;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
+import com.repackage.o65;
+import com.repackage.p65;
+/* loaded from: classes3.dex */
+public class MvcNetMessage<T extends o65, D extends p65> extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;

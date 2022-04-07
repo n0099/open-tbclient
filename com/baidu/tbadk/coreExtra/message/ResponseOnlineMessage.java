@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.o0.e0.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.z35;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                a.b(1001, 0, 2, 0, 0);
+                z35.b(1001, 0, 2, 0, 0);
                 return;
             }
-            a.b(1001, 0, 1, 0, 0);
+            z35.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {

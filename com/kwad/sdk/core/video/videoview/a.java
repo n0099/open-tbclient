@@ -21,30 +21,18 @@ import com.kwad.sdk.utils.z;
 import com.kwad.sdk.widget.KSRelativeLayout;
 @SuppressLint({"ViewConstructor"})
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends c implements View.OnClickListener {
-    public InterfaceC1968a A;
+    public InterfaceC0308a A;
     public final com.kwad.sdk.core.download.a.c B;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f39902b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f39903c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f39904e;
+    public ImageView b;
+    public TextView c;
+    public Context e;
     @NonNull
-
-    /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f39905f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AdInfo f39906g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f39907h;
+    public AdTemplate f;
+    public AdInfo g;
+    public boolean h;
     public boolean i;
     public boolean j;
     public int k;
@@ -65,12 +53,12 @@ public class a extends c implements View.OnClickListener {
     public b z;
 
     /* renamed from: com.kwad.sdk.core.video.videoview.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1968a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0308a {
         void a(int i, z.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(long j);
 
@@ -94,12 +82,12 @@ public class a extends c implements View.OnClickListener {
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.A(a.this.f39906g));
+                a.this.x.setText(com.kwad.sdk.core.response.a.a.A(a.this.g));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.a(a.this.f39905f));
+                a.this.x.setText(com.kwad.sdk.core.response.a.a.a(a.this.f));
             }
 
             @Override // com.kwad.sdk.core.download.a.c, com.kwad.sdk.api.KsAppDownloadListener
@@ -110,12 +98,12 @@ public class a extends c implements View.OnClickListener {
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
                 a aVar = a.this;
-                aVar.a(com.kwad.sdk.core.response.a.a.A(aVar.f39906g));
+                aVar.a(com.kwad.sdk.core.response.a.a.A(aVar.g));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                a.this.x.setText(com.kwad.sdk.core.response.a.a.m(a.this.f39906g));
+                a.this.x.setText(com.kwad.sdk.core.response.a.a.m(a.this.g));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -123,45 +111,45 @@ public class a extends c implements View.OnClickListener {
                 a.this.x.setText(com.kwad.sdk.core.response.a.a.a(i));
             }
         };
-        this.f39904e = context;
-        this.f39905f = adTemplate;
-        this.f39906g = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.e = context;
+        this.f = adTemplate;
+        this.g = com.kwad.sdk.core.response.a.d.j(adTemplate);
         m();
     }
 
     private void b(int i) {
-        InterfaceC1968a interfaceC1968a = this.A;
-        if (interfaceC1968a != null) {
-            interfaceC1968a.a(i, this.m.getTouchCoords());
+        InterfaceC0308a interfaceC0308a = this.A;
+        if (interfaceC0308a != null) {
+            interfaceC0308a.a(i, this.m.getTouchCoords());
         }
     }
 
     private void m() {
         ImageView imageView;
         int i;
-        LayoutInflater.from(this.f39904e).inflate(R.layout.obfuscated_res_0x7f0d0440, (ViewGroup) this, true);
-        this.m = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09117b);
-        this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091061);
-        this.f39903c = (TextView) findViewById(R.id.obfuscated_res_0x7f091063);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
-        this.f39902b = imageView2;
+        LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d043b, (ViewGroup) this, true);
+        this.m = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091174);
+        this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09105a);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09105c);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105b);
+        this.b = imageView2;
         imageView2.setOnClickListener(this);
-        this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091172);
-        this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09116b);
-        this.s = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09117a);
-        this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f091182);
-        String a = com.kwad.sdk.core.response.a.a.aa(this.f39906g).a();
+        this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09116b);
+        this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091164);
+        this.s = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091173);
+        this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117b);
+        String a = com.kwad.sdk.core.response.a.a.aa(this.g).a();
         if (TextUtils.isEmpty(a)) {
             imageView = this.t;
             i = 8;
         } else {
             this.t.setImageDrawable(null);
-            KSImageLoader.loadImage(this.t, a, this.f39905f);
+            KSImageLoader.loadImage(this.t, a, this.f);
             imageView = this.t;
             i = 0;
         }
         imageView.setVisibility(i);
-        this.f39903c.setText(aw.a(com.kwad.sdk.core.response.a.a.b(this.f39906g) * 1000));
+        this.c.setText(aw.a(com.kwad.sdk.core.response.a.a.b(this.g) * 1000));
         a();
     }
 
@@ -175,7 +163,7 @@ public class a extends c implements View.OnClickListener {
     private void o() {
         this.n.setVisibility(0);
         this.t.setVisibility(0);
-        this.f39905f.mVideoPlayerStatus.setVideoPlayerBehavior(2);
+        this.f.mVideoPlayerStatus.setVideoPlayerBehavior(2);
     }
 
     private void p() {
@@ -183,7 +171,7 @@ public class a extends c implements View.OnClickListener {
     }
 
     private void q() {
-        this.f39918d.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(this.f39905f));
+        this.d.setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b.a(this.f));
     }
 
     private void setTopBottomVisible(boolean z) {
@@ -205,7 +193,7 @@ public class a extends c implements View.OnClickListener {
             setTopBottomVisible(false);
             this.q.setVisibility(8);
             this.r.setVisibility(0);
-            com.kwad.sdk.core.report.d.b(this.f39905f, this.k, this.l);
+            com.kwad.sdk.core.report.d.b(this.f, this.k, this.l);
         } else if (i == 4) {
             b bVar = this.z;
             if (bVar != null) {
@@ -219,7 +207,7 @@ public class a extends c implements View.OnClickListener {
             }
             l();
             setTopBottomVisible(false);
-            KSImageLoader.loadImage(this.t, com.kwad.sdk.core.response.a.a.h(this.f39906g), this.f39905f);
+            KSImageLoader.loadImage(this.t, com.kwad.sdk.core.response.a.a.h(this.g), this.f);
             this.t.setVisibility(0);
             b();
         } else if (i == 1) {
@@ -246,7 +234,7 @@ public class a extends c implements View.OnClickListener {
     }
 
     public void a(String str) {
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091032)).setText(str);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f09102b)).setText(str);
     }
 
     public void a(boolean z) {
@@ -268,26 +256,26 @@ public class a extends c implements View.OnClickListener {
     }
 
     public void b() {
-        if (com.kwad.sdk.core.response.a.a.B(this.f39906g)) {
-            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115c);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091038);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091032);
-            KSImageLoader.loadAppIcon(this.v, com.kwad.sdk.core.response.a.d.o(this.f39905f), this.f39905f, 12);
-            this.w.setText(com.kwad.sdk.core.response.a.a.at(this.f39906g));
-            this.x.setText(com.kwad.sdk.core.response.a.a.A(this.f39906g));
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09115b);
+        if (com.kwad.sdk.core.response.a.a.B(this.g)) {
+            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f091155);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091031);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f09102b);
+            KSImageLoader.loadAppIcon(this.v, com.kwad.sdk.core.response.a.d.o(this.f), this.f, 12);
+            this.w.setText(com.kwad.sdk.core.response.a.a.at(this.g));
+            this.x.setText(com.kwad.sdk.core.response.a.a.A(this.g));
+            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091154);
             this.v.setOnClickListener(this);
             this.w.setOnClickListener(this);
             this.x.setOnClickListener(this);
-            com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f39905f);
+            com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.f);
             this.y = bVar;
             bVar.a(this.B);
         } else {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09108c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091085);
             this.x = textView;
-            textView.setText(com.kwad.sdk.core.response.a.a.A(this.f39906g));
+            textView.setText(com.kwad.sdk.core.response.a.a.A(this.g));
             this.x.setOnClickListener(this);
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09115d);
+            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091156);
         }
         this.u.setOnClickListener(this);
         this.u.setVisibility(0);
@@ -312,46 +300,46 @@ public class a extends c implements View.OnClickListener {
         this.s.setVisibility(8);
         this.t.setVisibility(8);
         this.n.setVisibility(8);
-        this.f39905f.mVideoPlayerStatus.setVideoPlayerBehavior(1);
+        this.f.mVideoPlayerStatus.setVideoPlayerBehavior(1);
         n();
     }
 
     public void f() {
-        if (!this.f39918d.d()) {
-            if (this.f39918d.h() || this.f39918d.f()) {
+        if (!this.d.d()) {
+            if (this.d.h() || this.d.f()) {
                 q();
-                this.f39918d.b();
+                this.d.b();
             }
-        } else if (!com.ksad.download.c.b.a(this.f39904e)) {
+        } else if (!com.ksad.download.c.b.a(this.e)) {
             c();
         } else {
             d();
-            if (!this.a && ((!this.j || !com.ksad.download.c.b.b(this.f39904e)) && (!this.j || (!this.i && !this.f39907h)))) {
+            if (!this.a && ((!this.j || !com.ksad.download.c.b.b(this.e)) && (!this.j || (!this.i && !this.h)))) {
                 o();
                 return;
             }
             q();
-            this.f39918d.a();
+            this.d.a();
         }
     }
 
     public void g() {
-        this.f39918d.c();
+        this.d.c();
     }
 
     public AdTemplate getAdTemplate() {
-        return this.f39905f;
+        return this.f;
     }
 
     public void h() {
-        this.f39918d.k();
+        this.d.k();
     }
 
     @Override // com.kwad.sdk.core.video.videoview.c
     public void i() {
-        long currentPosition = this.f39918d.getCurrentPosition();
-        long duration = this.f39918d.getDuration();
-        this.s.setSecondaryProgress(this.f39918d.getBufferPercentage());
+        long currentPosition = this.d.getCurrentPosition();
+        long duration = this.d.getDuration();
+        this.s.setSecondaryProgress(this.d.getBufferPercentage());
         this.s.setProgress((int) ((((float) currentPosition) * 100.0f) / ((float) duration)));
         b bVar = this.z;
         if (bVar != null) {
@@ -365,20 +353,20 @@ public class a extends c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.f39902b) {
-            this.f39907h = true;
+    public void onClick(View view2) {
+        if (view2 == this.b) {
+            this.h = true;
             this.j = true;
             f();
-        } else if (view == this.v) {
+        } else if (view2 == this.v) {
             b(1);
         } else {
-            b(view == this.w ? 2 : view == this.x ? 3 : 4);
+            b(view2 == this.w ? 2 : view2 == this.x ? 3 : 4);
         }
     }
 
-    public void setAdClickListener(InterfaceC1968a interfaceC1968a) {
-        this.A = interfaceC1968a;
+    public void setAdClickListener(InterfaceC0308a interfaceC0308a) {
+        this.A = interfaceC0308a;
     }
 
     public void setCanControlPlay(boolean z) {

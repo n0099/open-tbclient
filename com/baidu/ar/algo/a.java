@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a bV;
@@ -105,10 +105,10 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
                 a aVar2 = new a(i, i2);
-                float f2 = i;
+                float f = i;
                 a aVar3 = bX;
-                if (Math.abs((f2 / i2) - (aVar3.width / aVar3.height)) < 0.03d) {
-                    aVar2.a(bX, f2 / aVar.width);
+                if (Math.abs((f / i2) - (aVar3.width / aVar3.height)) < 0.03d) {
+                    aVar2.a(bX, f / aVar.width);
                 }
                 return aVar2;
             }
@@ -117,14 +117,14 @@ public class a {
         return (a) invokeCommon.objValue;
     }
 
-    private void a(a aVar, float f2) {
+    private void a(a aVar, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, f) == null) {
             this.bY = new float[9];
             this.bZ = new float[5];
             this.ca = true;
             for (int i = 0; i < 8; i++) {
-                this.bY[i] = aVar.bY[i] * f2;
+                this.bY[i] = aVar.bY[i] * f;
             }
             for (int i2 = 0; i2 < 5; i2++) {
                 this.bZ[i2] = aVar.bZ[i2];
@@ -138,19 +138,19 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
             a aVar2 = new a(i, i2);
-            float f2 = i;
-            float f3 = f2 / i2;
+            float f = i;
+            float f2 = f / i2;
             a aVar3 = bV;
-            if (Math.abs(f3 - (aVar3.width / aVar3.height)) < 0.03d) {
+            if (Math.abs(f2 - (aVar3.width / aVar3.height)) < 0.03d) {
                 aVar = bV;
             } else {
                 a aVar4 = bW;
-                if (Math.abs(f3 - (aVar4.width / aVar4.height)) >= 0.03d) {
+                if (Math.abs(f2 - (aVar4.width / aVar4.height)) >= 0.03d) {
                     return aVar2;
                 }
                 aVar = bW;
             }
-            aVar2.a(aVar, f2 / aVar.width);
+            aVar2.a(aVar, f / aVar.width);
             return aVar2;
         }
         return (a) invokeII.objValue;

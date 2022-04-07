@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f25466b;
+    public ArrayList<e> b;
 
     public c(int i) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class c {
             }
         }
         this.a = i;
-        this.f25466b = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
     public int a() {
@@ -54,9 +52,9 @@ public class c {
             if (i != 24321 && i != 24323 && i != 24322 && i != 20488) {
                 jSONObject.put("type", i);
             }
-            int size = this.f25466b.size();
+            int size = this.b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                e eVar = this.f25466b.get(i2);
+                e eVar = this.b.get(i2);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -69,14 +67,14 @@ public class c {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f25466b.add(eVar);
+            this.b.add(eVar);
         }
     }
 
     public void b() {
         ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f25466b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.b) == null) {
             return;
         }
         arrayList.clear();

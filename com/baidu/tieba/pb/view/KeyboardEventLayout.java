@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class KeyboardEventLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public a b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f35255b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
     }
@@ -41,7 +39,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.a = 0;
-        this.f35255b = null;
+        this.b = null;
     }
 
     @Override // android.view.View
@@ -52,7 +50,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             super.onSizeChanged(i, i2, i3, i4);
             int max = Math.max(Math.max(i4, i2), this.a);
             this.a = max;
-            if (i4 == 0 || (aVar = this.f35255b) == null) {
+            if (i4 == 0 || (aVar = this.b) == null) {
                 return;
             }
             if (i4 > i2) {
@@ -67,7 +65,7 @@ public class KeyboardEventLayout extends RelativeLayout {
     public void setOnKeyStateChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f35255b = aVar;
+            this.b = aVar;
         }
     }
 
@@ -90,7 +88,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.a = 0;
-        this.f35255b = null;
+        this.b = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,6 +111,6 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.a = 0;
-        this.f35255b = null;
+        this.b = null;
     }
 }

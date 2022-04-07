@@ -8,7 +8,6 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.a0.l0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,23 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.v31;
+/* loaded from: classes2.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Path f27768b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f27769c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f27770d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f27771e;
+    public Path b;
+    public int c;
+    public int d;
+    public boolean e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ArrowView(Context context) {
@@ -55,10 +47,10 @@ public class ArrowView extends View {
         }
     }
 
-    public float a(float f2) {
+    public float a(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? getResources().getDisplayMetrics().density * f2 : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? getResources().getDisplayMetrics().density * f : invokeF.floatValue;
     }
 
     public final Path b(Path path, int i) {
@@ -77,32 +69,32 @@ public class ArrowView extends View {
             int measuredHeight = getMeasuredHeight();
             path.reset();
             if (i == 1) {
-                float f2 = paddingTop;
-                path.moveTo(paddingLeft, (((measuredHeight - paddingTop) - paddingBottom) / 2.0f) + f2);
-                float f3 = measuredWidth - paddingRight;
-                path.lineTo(f3, f2);
-                path.lineTo(f3, measuredHeight - paddingBottom);
+                float f = paddingTop;
+                path.moveTo(paddingLeft, (((measuredHeight - paddingTop) - paddingBottom) / 2.0f) + f);
+                float f2 = measuredWidth - paddingRight;
+                path.lineTo(f2, f);
+                path.lineTo(f2, measuredHeight - paddingBottom);
                 path.close();
             } else if (i == 2) {
-                float f4 = paddingLeft;
-                float f5 = measuredHeight - paddingBottom;
-                path.moveTo(f4, f5);
-                path.lineTo(measuredWidth - paddingRight, f5);
-                path.lineTo((((measuredWidth - paddingLeft) - paddingRight) / 2.0f) + f4, paddingTop);
+                float f3 = paddingLeft;
+                float f4 = measuredHeight - paddingBottom;
+                path.moveTo(f3, f4);
+                path.lineTo(measuredWidth - paddingRight, f4);
+                path.lineTo((((measuredWidth - paddingLeft) - paddingRight) / 2.0f) + f3, paddingTop);
                 path.close();
             } else if (i == 3) {
-                float f6 = paddingLeft;
-                float f7 = paddingTop;
-                path.moveTo(f6, f7);
-                path.lineTo(measuredWidth - paddingRight, ((i2 - paddingTop) / 2.0f) + f7);
-                path.lineTo(f6, measuredHeight - paddingBottom);
+                float f5 = paddingLeft;
+                float f6 = paddingTop;
+                path.moveTo(f5, f6);
+                path.lineTo(measuredWidth - paddingRight, ((i2 - paddingTop) / 2.0f) + f6);
+                path.lineTo(f5, measuredHeight - paddingBottom);
                 path.close();
             } else if (i == 4) {
-                float f8 = paddingLeft;
-                float f9 = paddingTop;
-                path.moveTo(f8, f9);
-                path.lineTo(measuredWidth - paddingRight, f9);
-                path.lineTo((((measuredWidth - paddingLeft) - paddingRight) / 2.0f) + f8, measuredHeight - paddingBottom);
+                float f7 = paddingLeft;
+                float f8 = paddingTop;
+                path.moveTo(f7, f8);
+                path.lineTo(measuredWidth - paddingRight, f8);
+                path.lineTo((((measuredWidth - paddingLeft) - paddingRight) / 2.0f) + f7, measuredHeight - paddingBottom);
                 path.close();
             }
             return path;
@@ -123,54 +115,54 @@ public class ArrowView extends View {
             int paddingBottom = getPaddingBottom();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            float f2 = ((measuredWidth - paddingLeft) - paddingRight) / 2.0f;
-            float f3 = ((measuredHeight - paddingTop) - paddingBottom) / 2.0f;
+            float f = ((measuredWidth - paddingLeft) - paddingRight) / 2.0f;
+            float f2 = ((measuredHeight - paddingTop) - paddingBottom) / 2.0f;
             float a = a(2.0f);
             path.reset();
             if (i == 1) {
-                float f4 = paddingLeft + a;
-                float f5 = paddingTop;
-                float f6 = f3 + f5;
-                path.moveTo(f4, f6 - a);
-                float f7 = measuredWidth - paddingRight;
-                path.lineTo(f7, f5);
-                path.lineTo(f7, measuredHeight - paddingBottom);
-                path.lineTo(f4, f6 + a);
+                float f3 = paddingLeft + a;
+                float f4 = paddingTop;
+                float f5 = f2 + f4;
+                path.moveTo(f3, f5 - a);
+                float f6 = measuredWidth - paddingRight;
+                path.lineTo(f6, f4);
+                path.lineTo(f6, measuredHeight - paddingBottom);
+                path.lineTo(f3, f5 + a);
                 path.close();
-                path.addCircle(f4 + (a / 2.0f), f6, a, Path.Direction.CW);
+                path.addCircle(f3 + (a / 2.0f), f5, a, Path.Direction.CW);
             } else if (i == 2) {
-                float f8 = paddingLeft;
-                float f9 = measuredHeight - paddingBottom;
-                path.moveTo(f8, f9);
-                path.lineTo(measuredWidth - paddingRight, f9);
-                float f10 = f2 + f8;
-                float f11 = paddingTop + a;
-                path.lineTo(f10 + a, f11);
-                path.lineTo(f10 - a, f11);
+                float f7 = paddingLeft;
+                float f8 = measuredHeight - paddingBottom;
+                path.moveTo(f7, f8);
+                path.lineTo(measuredWidth - paddingRight, f8);
+                float f9 = f + f7;
+                float f10 = paddingTop + a;
+                path.lineTo(f9 + a, f10);
+                path.lineTo(f9 - a, f10);
                 path.close();
-                path.addCircle(f10, f11 + (a / 2.0f), a, Path.Direction.CCW);
+                path.addCircle(f9, f10 + (a / 2.0f), a, Path.Direction.CCW);
             } else if (i == 3) {
-                float f12 = paddingLeft;
-                float f13 = paddingTop;
-                path.moveTo(f12, f13);
-                float f14 = (measuredWidth - paddingRight) - a;
-                float f15 = f3 + f13;
-                path.lineTo(f14, f15 - a);
-                path.lineTo(f14, f15 + a);
-                path.lineTo(f12, measuredHeight - paddingBottom);
+                float f11 = paddingLeft;
+                float f12 = paddingTop;
+                path.moveTo(f11, f12);
+                float f13 = (measuredWidth - paddingRight) - a;
+                float f14 = f2 + f12;
+                path.lineTo(f13, f14 - a);
+                path.lineTo(f13, f14 + a);
+                path.lineTo(f11, measuredHeight - paddingBottom);
                 path.close();
-                path.addCircle(f14 - (a / 2.0f), f15, a, Path.Direction.CW);
+                path.addCircle(f13 - (a / 2.0f), f14, a, Path.Direction.CW);
             } else if (i == 4) {
-                float f16 = paddingLeft;
-                float f17 = paddingTop;
-                path.moveTo(f16, f17);
-                path.lineTo(measuredWidth - paddingRight, f17);
-                float f18 = f2 + f16;
-                float f19 = (measuredHeight - paddingBottom) - a;
-                path.lineTo(f18 + a, f19);
-                path.lineTo(f18 - a, f19);
+                float f15 = paddingLeft;
+                float f16 = paddingTop;
+                path.moveTo(f15, f16);
+                path.lineTo(measuredWidth - paddingRight, f16);
+                float f17 = f + f15;
+                float f18 = (measuredHeight - paddingBottom) - a;
+                path.lineTo(f17 + a, f18);
+                path.lineTo(f17 - a, f18);
                 path.close();
-                path.addCircle(f18, f19 - (a / 2.0f), a, Path.Direction.CW);
+                path.addCircle(f17, f18 - (a / 2.0f), a, Path.Direction.CW);
             }
             return path;
         }
@@ -180,13 +172,13 @@ public class ArrowView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f27770d = b.a().getResources().getColor(R.color.obfuscated_res_0x7f060318);
-            this.f27768b = new Path();
+            this.d = v31.a().getResources().getColor(R.color.obfuscated_res_0x7f060318);
+            this.b = new Path();
             Paint paint = new Paint();
             this.a = paint;
             paint.setAntiAlias(true);
             this.a.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.a.setColor(this.f27770d);
+            this.a.setColor(this.d);
         }
     }
 
@@ -195,19 +187,19 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f27771e) {
-                this.f27768b = c(this.f27768b, this.f27769c);
+            if (this.e) {
+                this.b = c(this.b, this.c);
             } else {
-                this.f27768b = b(this.f27768b, this.f27769c);
+                this.b = b(this.b, this.c);
             }
-            canvas.drawPath(this.f27768b, this.a);
+            canvas.drawPath(this.b, this.a);
         }
     }
 
     public void setArrowViewColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f27770d = i;
+            this.d = i;
             this.a.setColor(i);
             invalidate();
         }
@@ -216,7 +208,7 @@ public class ArrowView extends View {
     public void setDirection(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f27769c = i;
+            this.c = i;
             invalidate();
         }
     }
@@ -261,9 +253,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f27769c = 4;
-        this.f27770d = Color.argb(204, 0, 0, 0);
-        this.f27771e = true;
+        this.c = 4;
+        this.d = Color.argb(204, 0, 0, 0);
+        this.e = true;
         d();
     }
 }

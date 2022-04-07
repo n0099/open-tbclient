@@ -112,10 +112,10 @@ public class ListFragment extends Fragment {
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view2, int i3, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-                    this.this$0.onListItemClick((ListView) adapterView, view, i3, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                    this.this$0.onListItemClick((ListView) adapterView, view2, i3, j);
                 }
             }
         };
@@ -124,21 +124,21 @@ public class ListFragment extends Fragment {
     private void ensureList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.mList == null) {
-            View view = getView();
-            if (view != null) {
-                if (view instanceof ListView) {
-                    this.mList = (ListView) view;
+            View view2 = getView();
+            if (view2 != null) {
+                if (view2 instanceof ListView) {
+                    this.mList = (ListView) view2;
                 } else {
-                    TextView textView = (TextView) view.findViewById(INTERNAL_EMPTY_ID);
+                    TextView textView = (TextView) view2.findViewById(INTERNAL_EMPTY_ID);
                     this.mStandardEmptyView = textView;
                     if (textView == null) {
-                        this.mEmptyView = view.findViewById(16908292);
+                        this.mEmptyView = view2.findViewById(16908292);
                     } else {
                         textView.setVisibility(8);
                     }
-                    this.mProgressContainer = view.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
-                    this.mListContainer = view.findViewById(INTERNAL_LIST_CONTAINER_ID);
-                    View findViewById = view.findViewById(16908298);
+                    this.mProgressContainer = view2.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
+                    this.mListContainer = view2.findViewById(INTERNAL_LIST_CONTAINER_ID);
+                    View findViewById = view2.findViewById(16908298);
                     if (!(findViewById instanceof ListView)) {
                         if (findViewById == null) {
                             throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
@@ -147,9 +147,9 @@ public class ListFragment extends Fragment {
                     }
                     ListView listView = (ListView) findViewById;
                     this.mList = listView;
-                    View view2 = this.mEmptyView;
-                    if (view2 != null) {
-                        listView.setEmptyView(view2);
+                    View view3 = this.mEmptyView;
+                    if (view3 != null) {
+                        listView.setEmptyView(view3);
                     } else {
                         CharSequence charSequence = this.mEmptyText;
                         if (charSequence != null) {
@@ -259,17 +259,17 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i, long j) {
+    public void onListItemClick(@NonNull ListView listView, @NonNull View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view, bundle) == null) {
-            super.onViewCreated(view, bundle);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
             ensureList();
         }
     }
@@ -347,18 +347,18 @@ public class ListFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             ensureList();
-            View view = this.mProgressContainer;
-            if (view != null) {
+            View view2 = this.mProgressContainer;
+            if (view2 != null) {
                 if (this.mListShown == z) {
                     return;
                 }
                 this.mListShown = z;
                 if (z) {
                     if (z2) {
-                        view.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432577));
+                        view2.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432577));
                         this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432576));
                     } else {
-                        view.clearAnimation();
+                        view2.clearAnimation();
                         this.mListContainer.clearAnimation();
                     }
                     this.mProgressContainer.setVisibility(8);
@@ -366,10 +366,10 @@ public class ListFragment extends Fragment {
                     return;
                 }
                 if (z2) {
-                    view.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432576));
+                    view2.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432576));
                     this.mListContainer.startAnimation(AnimationUtils.loadAnimation(getContext(), 17432577));
                 } else {
-                    view.clearAnimation();
+                    view2.clearAnimation();
                     this.mListContainer.clearAnimation();
                 }
                 this.mProgressContainer.setVisibility(0);

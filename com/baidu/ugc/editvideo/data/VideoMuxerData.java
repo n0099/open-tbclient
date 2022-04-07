@@ -22,7 +22,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoMuxerData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -635,10 +635,10 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setOriginMusicVolume(float f2) {
+    public void setOriginMusicVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048659, this, f2) == null) {
-            this.mOriginMusicVolume = f2;
+        if (interceptable == null || interceptable.invokeF(1048659, this, f) == null) {
+            this.mOriginMusicVolume = f;
         }
     }
 
@@ -789,10 +789,10 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setVideoRatio(float f2) {
+    public void setVideoRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048681, this, f2) == null) {
-            this.mVideoRatio = f2;
+        if (interceptable == null || interceptable.invokeF(1048681, this, f) == null) {
+            this.mVideoRatio = f;
         }
     }
 

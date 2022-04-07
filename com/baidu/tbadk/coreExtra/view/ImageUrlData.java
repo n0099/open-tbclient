@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_CHUDIAN = 1;
@@ -92,8 +92,8 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
                     return new Rect(((Integer) jSONArray.get(4)).intValue(), ((Integer) jSONArray.get(5)).intValue(), ((Integer) jSONArray.get(6)).intValue(), ((Integer) jSONArray.get(7)).intValue());
                 }
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -113,8 +113,8 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
                     return new Rect(((Integer) jSONArray.get(0)).intValue(), ((Integer) jSONArray.get(1)).intValue(), ((Integer) jSONArray.get(2)).intValue(), ((Integer) jSONArray.get(3)).intValue());
                 }
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

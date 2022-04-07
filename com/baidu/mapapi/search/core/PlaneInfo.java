@@ -11,21 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlaneInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PlaneInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26374b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public double f26375c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26376d;
+    public String b;
+    public double c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +70,9 @@ public class PlaneInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f26374b = parcel.readString();
-        this.f26375c = parcel.readDouble();
-        this.f26376d = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readDouble();
+        this.d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -94,13 +88,13 @@ public class PlaneInfo extends TransitBaseInfo {
     public String getAirlines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26374b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public String getBooking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26376d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public double getDiscount() {
@@ -112,34 +106,34 @@ public class PlaneInfo extends TransitBaseInfo {
     public double getPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26375c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.doubleValue;
     }
 
     public void setAirlines(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26374b = str;
+            this.b = str;
         }
     }
 
     public void setBooking(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f26376d = str;
+            this.d = str;
         }
     }
 
-    public void setDiscount(double d2) {
+    public void setDiscount(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.a = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.a = d;
         }
     }
 
-    public void setPrice(double d2) {
+    public void setPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f26375c = d2;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
         }
     }
 
@@ -149,9 +143,9 @@ public class PlaneInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f26374b);
-            parcel.writeDouble(this.f26375c);
-            parcel.writeString(this.f26376d);
+            parcel.writeString(this.b);
+            parcel.writeDouble(this.c);
+            parcel.writeString(this.d);
         }
     }
 }

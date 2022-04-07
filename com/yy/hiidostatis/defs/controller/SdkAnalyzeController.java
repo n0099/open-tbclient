@@ -18,7 +18,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SdkAnalyzeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
@@ -61,13 +61,13 @@ public class SdkAnalyzeController {
                     string = jSONObject.getString("sdkName");
                     string2 = jSONObject.has("sdkFileName") ? jSONObject.getString("sdkFileName") : null;
                     string3 = jSONObject.has("sdkClassName") ? jSONObject.getString("sdkClassName") : null;
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e) {
+                    e = e;
                 }
                 if (Util.empty(ArdUtil.getMetaDataParam(context, jSONObject.has("sdkConfigKey") ? jSONObject.getString("sdkConfigKey") : null)) && !Util.isExistClass(string3)) {
                     try {
-                    } catch (JSONException e3) {
-                        e = e3;
+                    } catch (JSONException e2) {
+                        e = e2;
                         L.debug("SdkAnalyzeController", "getSdkList exception: %s", e);
                     }
                     if (!isExistFile(context, string2)) {
@@ -157,8 +157,8 @@ public class SdkAnalyzeController {
                             JSONObject sdkListConfig = this.this$0.mConfigAPI.getSdkListConfig(this.val$context, true);
                             if (sdkListConfig != null) {
                                 try {
-                                } catch (JSONException e2) {
-                                    L.debug("SdkAnalyzeController", "get json.enable exception: %s", e2);
+                                } catch (JSONException e) {
+                                    L.debug("SdkAnalyzeController", "get json.enable exception: %s", e);
                                 }
                                 if (sdkListConfig.has("enable")) {
                                     if ("1".equals(sdkListConfig.get("enable") + "")) {
@@ -168,8 +168,8 @@ public class SdkAnalyzeController {
                                             JSONArray jSONArray = null;
                                             try {
                                                 jSONArray = sdkListConfig.getJSONArray("sdkListConfig");
-                                            } catch (JSONException e3) {
-                                                L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e3);
+                                            } catch (JSONException e2) {
+                                                L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e2);
                                             }
                                             if (jSONArray != null && jSONArray.length() != 0) {
                                                 this.this$0.reportSdkList(this.val$context, this.val$uid, jSONArray);

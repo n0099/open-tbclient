@@ -19,35 +19,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TurbonetEngine a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final String f37779b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final Callback f37780c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final Executor f37781d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f37782e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f37783f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public boolean f37784g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f37785h;
+        public final String b;
+        public final Callback c;
+        public final Executor d;
+        public String e;
+        public final ArrayList<Pair<String, String>> f;
+        public boolean g;
+        public boolean h;
         public int i;
         public Collection<Object> j;
         public UploadDataProvider k;
@@ -64,7 +50,7 @@ public interface UrlRequest {
         public String v;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public @interface RequestPriority {
         }
 
@@ -83,7 +69,7 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f37783f = new ArrayList<>();
+            this.f = new ArrayList<>();
             this.i = 3;
             this.j = Collections.emptyList();
             if (str == null) {
@@ -96,9 +82,9 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f37779b = str;
-                this.f37780c = callback;
-                this.f37781d = executor;
+                this.b = str;
+                this.c = callback;
+                this.d = executor;
                 this.a = turbonetEngine;
                 this.m = false;
                 this.o = false;
@@ -123,7 +109,7 @@ public interface UrlRequest {
                         if ("Accept-Encoding".equalsIgnoreCase(str)) {
                             return this;
                         }
-                        this.f37783f.add(Pair.create(str, str2));
+                        this.f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -137,53 +123,53 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.a.b(this.f37779b, this.f37780c, this.f37781d, this.i, this.j, this.f37784g, this.f37785h, this.n);
-                String str = this.f37782e;
+                UrlRequest b = this.a.b(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.n);
+                String str = this.e;
                 if (str != null) {
-                    b2.e(str);
+                    b.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f37783f.iterator();
+                Iterator<Pair<String, String>> it = this.f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
-                    b2.addHeader((String) next.first, (String) next.second);
+                    b.addHeader((String) next.first, (String) next.second);
                 }
                 UploadDataProvider uploadDataProvider = this.k;
                 if (uploadDataProvider != null) {
-                    b2.i(uploadDataProvider, this.l);
+                    b.i(uploadDataProvider, this.l);
                 }
                 if (this.m) {
-                    b2.h();
+                    b.h();
                 }
                 if (this.o) {
-                    b2.g();
+                    b.g();
                 }
                 int i = this.p;
                 if (i > 0) {
-                    b2.b(i);
+                    b.b(i);
                 }
                 int i2 = this.q;
                 if (i2 > 0) {
-                    b2.l(i2);
+                    b.l(i2);
                 }
                 int i3 = this.r;
                 if (i3 > 0) {
-                    b2.c(i3);
+                    b.c(i3);
                 }
                 int i4 = this.s;
                 if (i4 > 0) {
-                    b2.a(i4);
+                    b.a(i4);
                 }
                 Object obj = this.t;
                 if (obj != null) {
-                    b2.f(obj);
+                    b.f(obj);
                 }
                 if (!TextUtils.isEmpty(this.u)) {
-                    b2.k(this.u);
+                    b.k(this.u);
                 }
                 if (!TextUtils.isEmpty(this.v)) {
-                    b2.j(this.v);
+                    b.j(this.v);
                 }
-                return b2;
+                return b;
             }
             return (UrlRequest) invokeV.objValue;
         }
@@ -192,7 +178,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f37784g = true;
+                this.g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -223,7 +209,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f37782e = str;
+                    this.e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -277,8 +263,8 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f37782e == null) {
-                            this.f37782e = "POST";
+                        if (this.e == null) {
+                            this.e = "POST";
                         }
                         this.k = uploadDataProvider;
                         this.l = executor;
@@ -302,7 +288,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -338,13 +324,13 @@ public interface UrlRequest {
         public abstract void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public @interface StatusValues {
         }
 
@@ -421,7 +407,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

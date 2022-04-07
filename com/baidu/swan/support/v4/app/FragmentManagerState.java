@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class FragmentManagerState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FragmentManagerState> CREATOR;
@@ -19,7 +19,7 @@ public final class FragmentManagerState implements Parcelable {
     public int[] mAdded;
     public BackStackState[] mBackStack;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<FragmentManagerState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

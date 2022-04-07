@@ -9,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
-import com.fun.openid.sdk.g;
 import com.fun.openid.sdk.v;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,26 +39,26 @@ public class g implements f {
             return;
         }
         v vVar = new v();
-        v.a aVar2 = new v.a() { // from class: c.d.e0.a.b
+        v.a aVar2 = new v.a() { // from class: com.repackage.uk9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.fun.openid.sdk.v.a
-            public final void a(Object obj, v vVar2) {
+            public final void a(Object obj, com.fun.openid.sdk.v vVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, vVar2) == null) {
-                    g.this.a(aVar, (String) obj, vVar2);
+                    com.fun.openid.sdk.g.this.a(aVar, (String) obj, vVar2);
                 }
             }
         };
         vVar.a = context;
-        vVar.f38682d = aVar2;
-        vVar.f38681c = new u(vVar);
+        vVar.d = aVar2;
+        vVar.c = new u(vVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = vVar.a.bindService(intent, vVar.f38681c, 1) ? (char) 1 : (char) 65535;
+        char c = vVar.a.bindService(intent, vVar.c, 1) ? (char) 1 : (char) 65535;
         this.a = true;
-        if (c2 != 1) {
+        if (c != 1) {
             aVar.a(true, null);
         }
     }
@@ -80,7 +79,7 @@ public class g implements f {
         if (interceptable == null || interceptable.invokeLLL(65537, this, aVar, str, vVar) == null) {
             vVar.getClass();
             try {
-                tVar2 = vVar.f38680b;
+                tVar2 = vVar.b;
             } catch (RemoteException unused) {
             }
             if (tVar2 != null) {
@@ -88,9 +87,9 @@ public class g implements f {
                 if (!z) {
                     if (vVar.a != null) {
                         try {
-                            tVar = vVar.f38680b;
-                        } catch (RemoteException e2) {
-                            e2.printStackTrace();
+                            tVar = vVar.b;
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
                         }
                         if (tVar != null) {
                             str2 = tVar.b();
@@ -107,15 +106,15 @@ public class g implements f {
                     }
                     aVar.a(false, null);
                 }
-                vVar.a.unbindService(vVar.f38681c);
-                vVar.f38680b = null;
+                vVar.a.unbindService(vVar.c);
+                vVar.b = null;
                 this.a = false;
             }
             z = false;
             if (!z) {
             }
-            vVar.a.unbindService(vVar.f38681c);
-            vVar.f38680b = null;
+            vVar.a.unbindService(vVar.c);
+            vVar.b = null;
             this.a = false;
         }
     }

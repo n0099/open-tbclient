@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FitModeResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,12 +15,12 @@ public class FitModeResult {
     public final float endScale;
     public final float startScale;
 
-    public FitModeResult(float f2, float f3, float f4, float f5, float f6, float f7) {
+    public FitModeResult(float f, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,11 +30,11 @@ public class FitModeResult {
                 return;
             }
         }
-        this.startScale = f2;
-        this.endScale = f3;
-        this.currentStartWidth = f4;
-        this.currentStartHeight = f5;
-        this.currentEndWidth = f6;
-        this.currentEndHeight = f7;
+        this.startScale = f;
+        this.endScale = f2;
+        this.currentStartWidth = f3;
+        this.currentStartHeight = f4;
+        this.currentEndWidth = f5;
+        this.currentEndHeight = f6;
     }
 }

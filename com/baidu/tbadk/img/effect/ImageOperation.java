@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageOperation extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class ImageOperation extends OrmObject implements Serializable {
                 jSONObject.put("actionName", this.actionName);
                 jSONObject.put("actionParam", this.actionParam);
                 return jSONObject;
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
                 return null;
             }
         }

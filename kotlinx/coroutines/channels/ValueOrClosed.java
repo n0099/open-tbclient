@@ -47,11 +47,11 @@ public final class ValueOrClosed<T> {
         }
 
         public final <E> Object closed$kotlinx_coroutines_core(Throwable th) {
-            return ValueOrClosed.m2082constructorimpl(new Closed(th));
+            return ValueOrClosed.m2078constructorimpl(new Closed(th));
         }
 
-        public final <E> Object value$kotlinx_coroutines_core(E e2) {
-            return ValueOrClosed.m2082constructorimpl(e2);
+        public final <E> Object value$kotlinx_coroutines_core(E e) {
+            return ValueOrClosed.m2078constructorimpl(e);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -66,7 +66,7 @@ public final class ValueOrClosed<T> {
     }
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ ValueOrClosed m2081boximpl(Object obj) {
+    public static final /* synthetic */ ValueOrClosed m2077boximpl(Object obj) {
         return new ValueOrClosed(obj);
     }
 
@@ -74,22 +74,22 @@ public final class ValueOrClosed<T> {
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m2082constructorimpl(Object obj) {
+    public static Object m2078constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m2083equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof ValueOrClosed) && Intrinsics.areEqual(obj, ((ValueOrClosed) obj2).m2091unboximpl());
+    public static boolean m2079equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof ValueOrClosed) && Intrinsics.areEqual(obj, ((ValueOrClosed) obj2).m2087unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m2084equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m2080equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
     /* renamed from: getCloseCause-impl  reason: not valid java name */
-    public static final Throwable m2085getCloseCauseimpl(Object obj) {
+    public static final Throwable m2081getCloseCauseimpl(Object obj) {
         if (obj instanceof Closed) {
             return ((Closed) obj).cause;
         }
@@ -99,7 +99,7 @@ public final class ValueOrClosed<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getValue-impl  reason: not valid java name */
-    public static final T m2086getValueimpl(Object obj) {
+    public static final T m2082getValueimpl(Object obj) {
         if (obj instanceof Closed) {
             throw new IllegalStateException(ChannelsKt.DEFAULT_CLOSE_MESSAGE.toString());
         }
@@ -109,7 +109,7 @@ public final class ValueOrClosed<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getValueOrNull-impl  reason: not valid java name */
-    public static final T m2087getValueOrNullimpl(Object obj) {
+    public static final T m2083getValueOrNullimpl(Object obj) {
         if (obj instanceof Closed) {
             return null;
         }
@@ -117,7 +117,7 @@ public final class ValueOrClosed<T> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m2088hashCodeimpl(Object obj) {
+    public static int m2084hashCodeimpl(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -125,12 +125,12 @@ public final class ValueOrClosed<T> {
     }
 
     /* renamed from: isClosed-impl  reason: not valid java name */
-    public static final boolean m2089isClosedimpl(Object obj) {
+    public static final boolean m2085isClosedimpl(Object obj) {
         return obj instanceof Closed;
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m2090toStringimpl(Object obj) {
+    public static String m2086toStringimpl(Object obj) {
         if (obj instanceof Closed) {
             return obj.toString();
         }
@@ -144,19 +144,19 @@ public final class ValueOrClosed<T> {
     }
 
     public boolean equals(Object obj) {
-        return m2083equalsimpl(this.holder, obj);
+        return m2079equalsimpl(this.holder, obj);
     }
 
     public int hashCode() {
-        return m2088hashCodeimpl(this.holder);
+        return m2084hashCodeimpl(this.holder);
     }
 
     public String toString() {
-        return m2090toStringimpl(this.holder);
+        return m2086toStringimpl(this.holder);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m2091unboximpl() {
+    public final /* synthetic */ Object m2087unboximpl() {
         return this.holder;
     }
 }

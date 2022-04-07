@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BdMemberCenterListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int V = 1;
@@ -37,23 +37,21 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int T;
     public a U;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(float f2);
+        void a(float f);
 
         void b();
 
         void onRefresh();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f34448b;
+        public int b;
 
         public b(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -71,13 +69,13 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
             }
             this.a = i2;
-            this.f34448b = i4;
+            this.b = i4;
         }
 
-        public int a(float f2) {
+        public int a(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (int) (this.a + (f / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -119,15 +117,15 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f0401ee});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f04025c});
         this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
-    public final void I(float f2) {
+    public final void I(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.U.a(360.0f - ((f2 * 360.0f) / this.T));
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.U.a(360.0f - ((f * 360.0f) / this.T));
         }
     }
 
@@ -145,9 +143,9 @@ public class BdMemberCenterListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.O == null) {
             return;
         }
-        View view = this.L;
-        int height = view == null ? 0 : view.getHeight();
-        if (height >= this.O.f34448b - (this.T / 2)) {
+        View view2 = this.L;
+        int height = view2 == null ? 0 : view2.getHeight();
+        if (height >= this.O.b - (this.T / 2)) {
             J();
         } else {
             this.U.b();
@@ -187,15 +185,15 @@ public class BdMemberCenterListView extends BdTypeListView {
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float f2 = this.R;
-                            float f3 = f2 - this.Q;
-                            float f4 = y - this.M;
-                            this.Q = f2;
-                            View view = this.L;
-                            if (view != null && view.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f4) >= this.S && Math.abs(f3) < this.S) {
+                            float f = this.R;
+                            float f2 = f - this.Q;
+                            float f3 = y - this.M;
+                            this.Q = f;
+                            View view2 = this.L;
+                            if (view2 != null && view2.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f3) >= this.S && Math.abs(f2) < this.S) {
                                 int a2 = this.O.a(this.N - this.M);
                                 b bVar = this.O;
-                                if (a2 > bVar.a && a2 <= bVar.f34448b) {
+                                if (a2 > bVar.a && a2 <= bVar.b) {
                                     this.P = true;
                                     this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
                                     I(a2 - this.O.a);
@@ -203,7 +201,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                                     b bVar2 = this.O;
                                     if (a2 <= bVar2.a) {
                                         this.P = false;
-                                    } else if (a2 > bVar2.f34448b) {
+                                    } else if (a2 > bVar2.b) {
                                         this.P = true;
                                     } else {
                                         this.P = false;
@@ -220,8 +218,8 @@ public class BdMemberCenterListView extends BdTypeListView {
                         this.U.b();
                     }
                 } else {
-                    View view2 = this.L;
-                    int height = view2 == null ? 0 : view2.getHeight();
+                    View view3 = this.L;
+                    int height = view3 == null ? 0 : view3.getHeight();
                     this.M = this.N;
                     this.Q = this.R;
                     this.O = new b(0, height, 0, this.T + height);
@@ -259,10 +257,10 @@ public class BdMemberCenterListView extends BdTypeListView {
         return invokeL.booleanValue;
     }
 
-    public void setExpandView(View view, int i) {
+    public void setExpandView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, view, i) == null) {
-            this.L = view;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
+            this.L = view2;
         }
     }
 

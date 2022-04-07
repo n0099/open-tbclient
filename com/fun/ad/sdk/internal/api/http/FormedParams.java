@@ -11,13 +11,11 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FormedParams extends RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f38612d;
+    public final Map<String, String> d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FormedParams() {
@@ -35,7 +33,7 @@ public class FormedParams extends RequestParams {
                 return;
             }
         }
-        this.f38612d = new HashMap();
+        this.d = new HashMap();
     }
 
     @Override // com.fun.ad.sdk.internal.api.http.RequestParams
@@ -51,12 +49,12 @@ public class FormedParams extends RequestParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (String str : this.f38612d.keySet()) {
+            for (String str : this.d.keySet()) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
                 sb.append(str);
-                String str2 = this.f38612d.get(str);
+                String str2 = this.d.get(str);
                 if (str2 != null) {
                     sb.append("=");
                     try {
@@ -80,14 +78,14 @@ public class FormedParams extends RequestParams {
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f38612d.put(str, str2);
+            this.d.put(str, str2);
         }
     }
 
     public void put(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.f38612d.putAll(map);
+            this.d.putAll(map);
         }
     }
 }

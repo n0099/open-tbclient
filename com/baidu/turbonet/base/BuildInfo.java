@@ -6,14 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes6.dex */
+import com.repackage.b39;
+/* loaded from: classes4.dex */
 public class BuildInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class BuildInfo {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 return packageInfo.versionCode > 0 ? Integer.toString(packageInfo.versionCode) : "";
             } catch (PackageManager.NameNotFoundException unused) {
-                a.a("BuildInfo", "versionCode not available.");
+                b39.a("BuildInfo", "versionCode not available.");
                 return "versionCode not available.";
             }
         }
@@ -147,7 +147,7 @@ public class BuildInfo {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 return packageInfo.versionName != null ? packageInfo.versionName : "";
             } catch (PackageManager.NameNotFoundException unused) {
-                a.a("BuildInfo", "versionName not available");
+                b39.a("BuildInfo", "versionName not available");
                 return "versionName not available";
             }
         }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SelectedLocationInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS = "address";
@@ -29,7 +29,7 @@ public class SelectedLocationInfo implements Parcelable {
     public double mLongitude;
     public String mName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SelectedLocationInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +107,8 @@ public class SelectedLocationInfo implements Parcelable {
                 jSONObject.put("address", this.mAddress);
                 jSONObject.put("latitude", this.mLatitude);
                 jSONObject.put("longitude", this.mLongitude);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -126,12 +126,12 @@ public class SelectedLocationInfo implements Parcelable {
         }
     }
 
-    public SelectedLocationInfo(String str, String str2, double d2, double d3) {
+    public SelectedLocationInfo(String str, String str2, double d, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Double.valueOf(d2), Double.valueOf(d3)};
+            Object[] objArr = {str, str2, Double.valueOf(d), Double.valueOf(d2)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -143,8 +143,8 @@ public class SelectedLocationInfo implements Parcelable {
         }
         this.mName = str;
         this.mAddress = str2;
-        this.mLatitude = d2;
-        this.mLongitude = d3;
+        this.mLatitude = d;
+        this.mLongitude = d2;
     }
 
     public SelectedLocationInfo(String str, String str2, LatLng latLng) {

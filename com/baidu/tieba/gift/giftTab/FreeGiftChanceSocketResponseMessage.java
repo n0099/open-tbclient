@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserFreeChance.DataRes;
 import tbclient.GetUserFreeChance.GetUserFreeChanceResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FreeGiftChanceSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

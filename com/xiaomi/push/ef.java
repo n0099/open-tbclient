@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ef implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,16 +45,16 @@ public class ef implements ed {
                             dw.a(context, "provider", 1008, "B get a incorrect message");
                             return;
                         }
-                        String b2 = dv.b(decode);
-                        if (!TextUtils.isEmpty(b2)) {
-                            dw.a(context, b2, 1007, "play with provider successfully");
+                        String b = dv.b(decode);
+                        if (!TextUtils.isEmpty(b)) {
+                            dw.a(context, b, 1007, "play with provider successfully");
                             return;
                         }
                     }
                 }
                 dw.a(context, "provider", 1008, "B get a incorrect message");
-            } catch (Exception e2) {
-                dw.a(context, "provider", 1008, "B meet a exception" + e2.getMessage());
+            } catch (Exception e) {
+                dw.a(context, "provider", 1008, "B meet a exception" + e.getMessage());
             }
         }
     }
@@ -62,38 +62,38 @@ public class ef implements ed {
     private void b(Context context, dz dzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String b2 = dzVar.b();
-            String d2 = dzVar.d();
+            String b = dzVar.b();
+            String d = dzVar.d();
             int a = dzVar.a();
-            if (context == null || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
-                if (TextUtils.isEmpty(d2)) {
+            if (context == null || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+                if (TextUtils.isEmpty(d)) {
                     dw.a(context, "provider", 1008, "argument error");
                 } else {
-                    dw.a(context, d2, 1008, "argument error");
+                    dw.a(context, d, 1008, "argument error");
                 }
-            } else if (!com.xiaomi.push.service.g.b(context, b2)) {
-                dw.a(context, d2, 1003, "B is not ready");
+            } else if (!com.xiaomi.push.service.g.b(context, b)) {
+                dw.a(context, d, 1003, "B is not ready");
             } else {
-                dw.a(context, d2, 1002, "B is ready");
-                dw.a(context, d2, 1004, "A is ready");
-                String a2 = dv.a(d2);
+                dw.a(context, d, 1002, "B is ready");
+                dw.a(context, d, 1004, "A is ready");
+                String a2 = dv.a(d);
                 try {
                     if (TextUtils.isEmpty(a2)) {
-                        dw.a(context, d2, 1008, "info is empty");
-                    } else if (a == 1 && !ea.m324a(context)) {
-                        dw.a(context, d2, 1008, "A not in foreground");
+                        dw.a(context, d, 1008, "info is empty");
+                    } else if (a == 1 && !ea.m320a(context)) {
+                        dw.a(context, d, 1008, "A not in foreground");
                     } else {
-                        String type = context.getContentResolver().getType(dv.a(b2, a2));
+                        String type = context.getContentResolver().getType(dv.a(b, a2));
                         if (TextUtils.isEmpty(type) || !"success".equals(type)) {
-                            dw.a(context, d2, 1008, "A is fail to help B's provider");
+                            dw.a(context, d, 1008, "A is fail to help B's provider");
                             return;
                         }
-                        dw.a(context, d2, 1005, "A is successful");
-                        dw.a(context, d2, 1006, "The job is finished");
+                        dw.a(context, d, 1005, "A is successful");
+                        dw.a(context, d, 1006, "The job is finished");
                     }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
-                    dw.a(context, d2, 1008, "A meet a exception when help B's provider");
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    dw.a(context, d, 1008, "A meet a exception when help B's provider");
                 }
             }
         }

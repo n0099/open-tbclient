@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_ID = "forum_id";
@@ -23,7 +23,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public ArrayList<String> tabs;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class FromType {
         public static final /* synthetic */ FromType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

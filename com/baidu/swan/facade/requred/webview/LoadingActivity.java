@@ -11,11 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.d0.k.d;
-import c.a.n0.a.d0.k.e;
-import c.a.n0.a.p2.n0;
-import c.a.n0.a.p2.q0;
-import c.a.n0.a.t1.i;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -25,8 +20,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
+import com.repackage.aa2;
+import com.repackage.ae3;
+import com.repackage.cf3;
+import com.repackage.de3;
+import com.repackage.dn3;
+import com.repackage.i03;
+import com.repackage.n03;
+import com.repackage.y92;
+import com.repackage.z92;
+/* loaded from: classes2.dex */
+public class LoadingActivity extends Activity implements cf3<n03.a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_ID_HIDE = "loading_hide";
     public static final String EXT_SO_LIB_NAME = "so_lib_name";
@@ -36,30 +40,30 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     public static final int PROGRESS_MAX = 100;
     public static final int PROGRESS_MIN = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c.a.n0.a.p2.g1.c<e> mFinishCallback;
+    public final cf3<aa2> mFinishCallback;
     public boolean mFirstAnimIsLoaded;
     public LottieAnimationView mFirstLottieAnimationView;
     public ImageView mLogoView;
-    public final c.a.n0.a.p2.g1.c<e> mProgressCallback;
+    public final cf3<aa2> mProgressCallback;
     public TextView mProgressView;
     public LottieAnimationView mSecondLottieAnimationView;
     public SwanAppActionBar mSwanAppActionBar;
-    public e mUpdating;
+    public aa2 mUpdating;
 
-    /* loaded from: classes4.dex */
-    public class a implements c.a.n0.a.p2.g1.c<e> {
+    /* loaded from: classes2.dex */
+    public class a implements cf3<aa2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC1825a implements Runnable {
+        /* loaded from: classes2.dex */
+        public class RunnableC0166a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC1825a(a aVar) {
+            public RunnableC0166a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,18 +109,18 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.n0.a.p2.g1.c
+        @Override // com.repackage.cf3
         /* renamed from: a */
-        public void onCallback(e eVar) {
+        public void onCallback(aa2 aa2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                q0.e0(new RunnableC1825a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
+                de3.e0(new RunnableC0166a(this));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements c.a.n0.a.p2.g1.c<e> {
+    /* loaded from: classes2.dex */
+    public class b implements cf3<aa2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -140,17 +144,17 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.n0.a.p2.g1.c
+        @Override // com.repackage.cf3
         /* renamed from: a */
-        public void onCallback(e eVar) {
+        public void onCallback(aa2 aa2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +188,7 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,9 +213,9 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -239,16 +243,16 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mProgressView.setText(getString(R.string.obfuscated_res_0x7f0f0192, new Object[]{0}));
+            this.mProgressView.setText(getString(R.string.obfuscated_res_0x7f0f0193, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = c.a.n0.g.k.b.b.b().d();
+            Bitmap d2 = dn3.b().d();
             if (d2 == null) {
                 this.mLogoView.setImageResource(R.drawable.obfuscated_res_0x7f0801c0);
             } else {
                 this.mLogoView.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-            e j = c.a.n0.a.d0.k.c.f4054d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            aa2 j = y92.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.mUpdating = j;
             if (j != null && !j.n()) {
                 this.mUpdating.v(this.mProgressCallback);
@@ -263,7 +267,7 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     private void initActionBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017e);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090186);
             this.mSwanAppActionBar = swanAppActionBar;
             swanAppActionBar.f(-16777216, false);
             this.mSwanAppActionBar.setRightExitOnClickListener(new d(this));
@@ -273,13 +277,13 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a8);
-            this.mLogoView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a5);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a6);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0901b0);
+            this.mLogoView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901ad);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901ae);
             this.mFirstLottieAnimationView = lottieAnimationView;
             lottieAnimationView.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
             this.mFirstLottieAnimationView.setAnimation(LOTTIE_ANIM_FIRST_NAME);
-            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a7);
+            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901af);
             this.mSecondLottieAnimationView = lottieAnimationView2;
             lottieAnimationView2.setImageAssetsFolder(LOTTIE_ASSETS_PATH);
             this.mSecondLottieAnimationView.setAnimation(LOTTIE_ANIM_SECOND_NAME);
@@ -293,7 +297,7 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     private void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            c.a.n0.a.t1.d.J().v(this);
+            i03.J().v(this);
         }
     }
 
@@ -313,7 +317,7 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     private void unregisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            c.a.n0.a.t1.d.J().p(this);
+            i03.J().p(this);
         }
     }
 
@@ -321,13 +325,13 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            int c0 = q0.c0(this);
+            int c0 = de3.c0(this);
             super.onCreate(bundle);
-            q0.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d0040);
+            de3.g(this, c0);
+            setContentView(R.layout.obfuscated_res_0x7f0d0042);
             initViews();
             initActionBar();
-            n0.a(this);
+            ae3.a(this);
             registerListener();
             init();
             LogUtil.logActivity(this, "onCreate");
@@ -341,10 +345,10 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
             this.mFirstLottieAnimationView.removeAllAnimatorListeners();
             this.mFirstLottieAnimationView.cancelAnimation();
             this.mSecondLottieAnimationView.cancelAnimation();
-            e eVar = this.mUpdating;
-            if (eVar != null) {
-                eVar.g(this.mFinishCallback);
-                eVar.h(this.mProgressCallback);
+            aa2 aa2Var = this.mUpdating;
+            if (aa2Var != null) {
+                aa2Var.g(this.mFinishCallback);
+                aa2Var.h(this.mProgressCallback);
             }
             unregisterListener();
             super.onDestroy();
@@ -354,25 +358,25 @@ public class LoadingActivity extends Activity implements c.a.n0.a.p2.g1.c<i.a> {
     public void updateUiProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            e eVar = this.mUpdating;
-            d.b m = eVar == null ? null : eVar.m();
+            aa2 aa2Var = this.mUpdating;
+            z92.b m = aa2Var == null ? null : aa2Var.m();
             if (m == null || !m.a()) {
                 return;
             }
-            int min = (int) ((Math.min(Math.max(m.a, 0L), m.f4060b) / m.f4060b) * 100.0d);
+            int min = (int) ((Math.min(Math.max(m.a, 0L), m.b) / m.b) * 100.0d);
             TextView textView = this.mProgressView;
             if (textView == null || min <= 0) {
                 return;
             }
-            textView.setText(getString(R.string.obfuscated_res_0x7f0f0192, new Object[]{Integer.valueOf(min)}));
+            textView.setText(getString(R.string.obfuscated_res_0x7f0f0193, new Object[]{Integer.valueOf(min)}));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.n0.a.p2.g1.c
-    public void onCallback(i.a aVar) {
+    @Override // com.repackage.cf3
+    public void onCallback(n03.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.f6352b, EVENT_ID_HIDE)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.b, EVENT_ID_HIDE)) {
             finish();
         }
     }

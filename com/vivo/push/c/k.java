@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public final class k extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
             com.vivo.push.b.l lVar = (com.vivo.push.b.l) oVar;
-            int d2 = lVar.d();
-            int e2 = lVar.e();
-            com.vivo.push.util.x.b().a("key_dispatch_environment", d2);
-            com.vivo.push.util.x.b().a("key_dispatch_area", e2);
+            int d = lVar.d();
+            int e = lVar.e();
+            com.vivo.push.util.x.b().a("key_dispatch_environment", d);
+            com.vivo.push.util.x.b().a("key_dispatch_area", e);
         }
     }
 }

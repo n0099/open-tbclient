@@ -72,11 +72,11 @@ public class SecurityHelper {
             }
             try {
                 return containSign(packageManager.getPackageInfo(resolveActivity.activityInfo.packageName, 64).signatures, WBConstants.WEIBO_SIGN);
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return false;
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return false;
             }
         }

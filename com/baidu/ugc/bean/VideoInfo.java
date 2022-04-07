@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,8 +48,8 @@ public class VideoInfo implements Serializable {
             try {
                 mediaMetadataRetriever.setDataSource(str);
                 videoInfo = new VideoInfo();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 String extractMetadata = mediaMetadataRetriever.extractMetadata(24);
@@ -62,8 +62,8 @@ public class VideoInfo implements Serializable {
                 videoInfo.duration = Integer.parseInt(extractMetadata4);
                 videoInfo.rotation = Integer.parseInt(extractMetadata);
                 return videoInfo;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 videoInfo2 = videoInfo;
                 e.printStackTrace();
                 return videoInfo2;

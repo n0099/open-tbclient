@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.p0.f1.l0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -9,14 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.je6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mData;
+    public je6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceHttpResponseMessage() {
@@ -34,13 +34,13 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
                 return;
             }
         }
-        this.mData = new a();
+        this.mData = new je6();
     }
 
-    public a getData() {
+    public je6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (je6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

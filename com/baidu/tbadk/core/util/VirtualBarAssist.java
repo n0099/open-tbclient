@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VirtualBarAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,12 +96,12 @@ public class VirtualBarAssist {
     }
 
     private void measureIsAliveViewTreeObserver() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             ViewTreeObserver viewTreeObserver = this.viewTreeObserver;
-            if ((viewTreeObserver == null || !viewTreeObserver.isAlive()) && (view = this.childOfContent) != null) {
-                this.viewTreeObserver = view.getViewTreeObserver();
+            if ((viewTreeObserver == null || !viewTreeObserver.isAlive()) && (view2 = this.childOfContent) != null) {
+                this.viewTreeObserver = view2.getViewTreeObserver();
             }
         }
     }

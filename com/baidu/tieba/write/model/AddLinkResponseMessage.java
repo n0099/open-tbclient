@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.model;
 
-import c.a.p0.s4.l.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -9,15 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qz8;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR = -1;
     public static final int SUCCESS = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public a addLinkResponseData;
+    public qz8 addLinkResponseData;
     public String errmsg;
     public int errno;
 
@@ -48,7 +48,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.addLinkResponseData = new a();
+        this.addLinkResponseData = new qz8();
         int optInt = jSONObject.optInt("errno", -1);
         this.errno = optInt;
         this.addLinkResponseData.a = optInt == 0;
@@ -58,18 +58,18 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject == null) {
                 return;
             }
-            this.addLinkResponseData.f18384b = optJSONObject.optString("link_url");
-            this.addLinkResponseData.f18385c = optJSONObject.optString("link_url_code");
+            this.addLinkResponseData.b = optJSONObject.optString("link_url");
+            this.addLinkResponseData.c = optJSONObject.optString("link_url_code");
             JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-            this.addLinkResponseData.f18386d = jSONObject2.optInt("link_type");
-            this.addLinkResponseData.f18387e = jSONObject2.optString("link_title");
-            this.addLinkResponseData.f18388f = jSONObject2.optString("link_abstract");
-            this.addLinkResponseData.f18389g = jSONObject2.optString("link_head_pic");
-            this.addLinkResponseData.f18390h = jSONObject2.optString("link_head_small_pic");
+            this.addLinkResponseData.d = jSONObject2.optInt("link_type");
+            this.addLinkResponseData.e = jSONObject2.optString("link_title");
+            this.addLinkResponseData.f = jSONObject2.optString("link_abstract");
+            this.addLinkResponseData.g = jSONObject2.optString("link_head_pic");
+            this.addLinkResponseData.h = jSONObject2.optString("link_head_small_pic");
             this.addLinkResponseData.i = jSONObject2.optString("link_head_big_pic");
             this.addLinkResponseData.j = jSONObject2.optString("video_url");
             this.addLinkResponseData.l = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
@@ -85,10 +85,10 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public a getAddLinkResponseData() {
+    public qz8 getAddLinkResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (qz8) invokeV.objValue;
     }
 
     public String getErrmsg() {

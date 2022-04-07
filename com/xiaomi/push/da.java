@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class da {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "/MiPushLog";
@@ -45,15 +45,11 @@ public class da {
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f196a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f44146b;
+    public int b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f197b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f44147c;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -84,7 +80,7 @@ public class da {
             }
         }
         this.f194a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f44146b = 2097152;
+        this.b = 2097152;
         this.f195a = new ArrayList<>();
     }
 
@@ -106,7 +102,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f197b.length() + start);
                     if (this.f196a) {
-                        if (substring.compareTo(this.f44147c) > 0) {
+                        if (substring.compareTo(this.c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -125,7 +121,7 @@ public class da {
                     int i3 = read - i2;
                     this.f193a += i3;
                     bufferedWriter.write(cArr, i2, i3);
-                    if (z || this.f193a > this.f44146b) {
+                    if (z || this.f193a > this.b) {
                         return;
                     }
                 }
@@ -147,7 +143,7 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m654a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m650a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
                     this.f193a = 0;
                     Iterator<File> it = this.f195a.iterator();
                     while (it.hasNext()) {
@@ -156,16 +152,16 @@ public class da {
                             a(bufferedReader, bufferedWriter, compile);
                             bufferedReader.close();
                             bufferedReader2 = bufferedReader;
-                        } catch (FileNotFoundException e2) {
-                            e = e2;
+                        } catch (FileNotFoundException e) {
+                            e = e;
                             bufferedReader2 = bufferedWriter;
                             str = "LOG: filter error = " + e.getMessage();
                             com.xiaomi.channel.commonutils.logger.b.c(str);
                             y.a(bufferedReader2);
                             y.a(bufferedReader);
                             return;
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             bufferedReader2 = bufferedWriter;
                             str = "LOG: filter error = " + e.getMessage();
                             com.xiaomi.channel.commonutils.logger.b.c(str);
@@ -183,11 +179,11 @@ public class da {
                     bufferedWriter.write(cs.a().c());
                     y.a(bufferedWriter);
                     y.a(bufferedReader2);
-                } catch (FileNotFoundException e4) {
-                    e = e4;
+                } catch (FileNotFoundException e3) {
+                    e = e3;
                     bufferedReader = bufferedReader2;
-                } catch (IOException e5) {
-                    e = e5;
+                } catch (IOException e4) {
+                    e = e4;
                     bufferedReader = bufferedReader2;
                 } catch (Throwable th2) {
                     th = th2;
@@ -196,11 +192,11 @@ public class da {
             } catch (Throwable th3) {
                 th = th3;
             }
-        } catch (FileNotFoundException e6) {
-            e = e6;
+        } catch (FileNotFoundException e5) {
+            e = e5;
             bufferedReader = null;
-        } catch (IOException e7) {
-            e = e7;
+        } catch (IOException e6) {
+            e = e6;
             bufferedReader = null;
         } catch (Throwable th4) {
             th = th4;
@@ -209,7 +205,7 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m281a(File file) {
+    public da m277a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
@@ -233,7 +229,7 @@ public class da {
                 this.f197b = this.f194a.format(date);
                 format = this.f194a.format(date2);
             }
-            this.f44147c = format;
+            this.c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -250,14 +246,14 @@ public class da {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m281a(new File(file2, "xmsf.log.1"));
+                m277a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
                 file2 = new File(context.getExternalFilesDir(null) + a);
-                m281a(new File(file2, "log0.txt"));
+                m277a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m281a(file3);
+            m277a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {
@@ -289,6 +285,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == 0) {
             return;
         }
-        this.f44146b = i;
+        this.b = i;
     }
 }

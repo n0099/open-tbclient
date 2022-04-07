@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.extractor.MpegAudioHeader;
 import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class XingSeeker implements Mp3Extractor.Seeker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +90,13 @@ public final class XingSeeker implements Mp3Extractor.Seeker {
             if (!isSeekable()) {
                 return this.firstFramePosition;
             }
-            float f2 = (((float) j) * 100.0f) / ((float) this.durationUs);
-            if (f2 <= 0.0f) {
+            float f = (((float) j) * 100.0f) / ((float) this.durationUs);
+            if (f <= 0.0f) {
                 r0 = 0.0f;
-            } else if (f2 < 100.0f) {
-                int i = (int) f2;
-                float f3 = i != 0 ? (float) this.tableOfContents[i - 1] : 0.0f;
-                r0 = (((i < 99 ? (float) this.tableOfContents[i] : 256.0f) - f3) * (f2 - i)) + f3;
+            } else if (f < 100.0f) {
+                int i = (int) f;
+                float f2 = i != 0 ? (float) this.tableOfContents[i - 1] : 0.0f;
+                r0 = (((i < 99 ? (float) this.tableOfContents[i] : 256.0f) - f2) * (f - i)) + f2;
             }
             long round = Math.round(r0 * 0.00390625d * this.sizeBytes);
             long j2 = this.firstFramePosition;
@@ -115,12 +115,12 @@ public final class XingSeeker implements Mp3Extractor.Seeker {
             if (isSeekable()) {
                 long j2 = this.firstFramePosition;
                 if (j >= j2) {
-                    double d2 = ((j - j2) * 256.0d) / this.sizeBytes;
-                    int binarySearchFloor = Util.binarySearchFloor(this.tableOfContents, (long) d2, true, false) + 1;
+                    double d = ((j - j2) * 256.0d) / this.sizeBytes;
+                    int binarySearchFloor = Util.binarySearchFloor(this.tableOfContents, (long) d, true, false) + 1;
                     long timeUsForTocPosition = getTimeUsForTocPosition(binarySearchFloor);
                     long j3 = binarySearchFloor == 0 ? 0L : this.tableOfContents[binarySearchFloor - 1];
                     long j4 = binarySearchFloor == 99 ? 256L : this.tableOfContents[binarySearchFloor];
-                    return timeUsForTocPosition + (j4 != j3 ? (long) (((getTimeUsForTocPosition(binarySearchFloor + 1) - timeUsForTocPosition) * (d2 - j3)) / (j4 - j3)) : 0L);
+                    return timeUsForTocPosition + (j4 != j3 ? (long) (((getTimeUsForTocPosition(binarySearchFloor + 1) - timeUsForTocPosition) * (d - j3)) / (j4 - j3)) : 0L);
                 }
             }
             return 0L;

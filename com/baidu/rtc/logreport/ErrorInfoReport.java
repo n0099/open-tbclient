@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ErrorInfoReport {
     public static /* synthetic */ Interceptable $ic;
     public static ErrorInfoReport instance;
@@ -41,7 +41,7 @@ public class ErrorInfoReport {
     public String version;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ErrorCode {
         public static final /* synthetic */ ErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -454,8 +454,8 @@ public class ErrorInfoReport {
                 if (j > 0) {
                     jSONObject.put("value", j);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             RtcLogReport.getInstance().report(jSONObject.toString(), 4);
         }

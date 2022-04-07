@@ -1,6 +1,5 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import c.a.o0.s.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ky4;
 import com.squareup.wire.Wire;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b lbsInfo;
+    public ky4 lbsInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonalLbsInfoMessage() {
@@ -36,16 +36,16 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public b getLbsInfo() {
+    public ky4 getLbsInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lbsInfo : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lbsInfo : (ky4) invokeV.objValue;
     }
 
-    public void setLbsInfo(b bVar) {
+    public void setLbsInfo(ky4 ky4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.lbsInfo = bVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ky4Var) == null) {
+            this.lbsInfo = ky4Var;
         }
     }
 
@@ -75,6 +75,6 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         } else {
             str = "";
         }
-        this.lbsInfo = new b(str, j, i2);
+        this.lbsInfo = new ky4(str, j, i2);
     }
 }

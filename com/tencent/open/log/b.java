@@ -15,32 +15,18 @@ import com.tencent.open.utils.l;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43759b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f43760c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f43761d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f43762e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f43763f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public File f43764g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f43765h;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public long f;
+    public File g;
+    public int h;
     public String i;
     public long j;
 
@@ -57,7 +43,7 @@ public class b {
                 return;
             }
         }
-        a = d.C2110d.a("yy.MM.dd.HH");
+        a = d.C0654d.a("yy.MM.dd.HH");
     }
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
@@ -75,12 +61,12 @@ public class b {
                 return;
             }
         }
-        this.f43759b = "Tracer.File";
-        this.f43760c = Integer.MAX_VALUE;
-        this.f43761d = Integer.MAX_VALUE;
-        this.f43762e = 4096;
-        this.f43763f = 10000L;
-        this.f43765h = 10;
+        this.b = "Tracer.File";
+        this.c = Integer.MAX_VALUE;
+        this.d = Integer.MAX_VALUE;
+        this.e = 4096;
+        this.f = 10000L;
+        this.h = 10;
         this.i = ".log";
         this.j = Long.MAX_VALUE;
         a(file);
@@ -98,27 +84,27 @@ public class b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
-            File b2 = b();
-            String c2 = c(d(j));
+            File b = b();
+            String c = c(d(j));
             try {
-                b2 = new File(b2, c2);
+                b = new File(b, c);
             } catch (Throwable th) {
                 SLog.e(SLog.TAG, "getWorkFile,get old sdcard file exception:", th);
             }
-            String b3 = l.b();
+            String b2 = l.b();
             File file = null;
-            if (!TextUtils.isEmpty(b3) || b3 != null) {
+            if (!TextUtils.isEmpty(b2) || b2 != null) {
                 try {
-                    File file2 = new File(b3, c.o);
+                    File file2 = new File(b2, c.o);
                     if (!file2.exists()) {
                         file2.mkdirs();
                     }
-                    file = new File(file2, c2);
-                } catch (Exception e2) {
-                    SLog.e(SLog.TAG, "getWorkFile,get app specific file exception:", e2);
+                    file = new File(file2, c);
+                } catch (Exception e) {
+                    SLog.e(SLog.TAG, "getWorkFile,get app specific file exception:", e);
                 }
             }
-            return new File[]{b2, file};
+            return new File[]{b, file};
         }
         return (File[]) invokeJ.objValue;
     }
@@ -144,11 +130,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            File e2 = e();
-            if (e2 != null) {
-                e2.mkdirs();
+            File e = e();
+            if (e != null) {
+                e.mkdirs();
             }
-            return e2;
+            return e;
         }
         return (File) invokeV.objValue;
     }
@@ -156,40 +142,40 @@ public class b {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f43764g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.g : (File) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f43765h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f43759b = str;
+            this.b = str;
         }
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.f43760c = i;
+            this.c = i;
         }
     }
 
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f43761d = i;
+            this.d = i;
         }
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f43763f = j;
+            this.f = j;
         }
     }
 
@@ -203,7 +189,7 @@ public class b {
     public void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            this.f43764g = file;
+            this.g = file;
         }
     }
 
@@ -217,13 +203,13 @@ public class b {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f43762e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : invokeV.intValue;
     }
 
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f43765h = i;
+            this.h = i;
         }
     }
 
@@ -239,13 +225,13 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43759b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f43762e = i;
+            this.e = i;
         }
     }
 }

@@ -6,17 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.cmic.sso.sdk.c.d.c f38420b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final com.cmic.sso.sdk.c.a f38421c;
+    public com.cmic.sso.sdk.c.d.c b;
+    public final com.cmic.sso.sdk.c.a c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +27,7 @@ public class c implements b {
                 return;
             }
         }
-        this.f38421c = new com.cmic.sso.sdk.c.a();
+        this.c = new com.cmic.sso.sdk.c.a();
     }
 
     public void b(com.cmic.sso.sdk.c.c.c cVar, com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
@@ -39,19 +35,13 @@ public class c implements b {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, cVar2, aVar) == null) || this.a == null) {
             return;
         }
-        this.f38420b = new com.cmic.sso.sdk.c.d.c(this, cVar, aVar, cVar2) { // from class: com.cmic.sso.sdk.c.a.c.1
+        this.b = new com.cmic.sso.sdk.c.d.c(this, cVar, aVar, cVar2) { // from class: com.cmic.sso.sdk.c.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ com.cmic.sso.sdk.c.c.c a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.a f38422b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.c.d.c f38423c;
-
-            /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ c f38424d;
+            public final /* synthetic */ com.cmic.sso.sdk.a b;
+            public final /* synthetic */ com.cmic.sso.sdk.c.d.c c;
+            public final /* synthetic */ c d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,10 +58,10 @@ public class c implements b {
                         return;
                     }
                 }
-                this.f38424d = this;
+                this.d = this;
                 this.a = cVar;
-                this.f38422b = aVar;
-                this.f38423c = cVar2;
+                this.b = aVar;
+                this.c = cVar2;
             }
 
             @Override // com.cmic.sso.sdk.c.d.c
@@ -79,11 +69,11 @@ public class c implements b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                     if (bVar.d()) {
-                        this.f38424d.b(this.f38424d.f38421c.a(this.a, bVar, this.f38422b), this.f38423c, this.f38422b);
-                    } else if (!TextUtils.isEmpty(this.f38424d.f38421c.a())) {
-                        this.f38424d.b(this.f38424d.f38421c.b(this.a, bVar, this.f38422b), this.f38423c, this.f38422b);
+                        this.d.b(this.d.c.a(this.a, bVar, this.b), this.c, this.b);
+                    } else if (!TextUtils.isEmpty(this.d.c.a())) {
+                        this.d.b(this.d.c.b(this.a, bVar, this.b), this.c, this.b);
                     } else {
-                        this.f38423c.a(bVar);
+                        this.c.a(bVar);
                     }
                 }
             }
@@ -94,15 +84,15 @@ public class c implements b {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                     if (this.a.j()) {
                         com.cmic.sso.sdk.e.c.a("RetryAndRedirectInterceptor", "retry: " + this.a.a());
-                        this.f38424d.b(this.a, this.f38423c, this.f38422b);
+                        this.d.b(this.a, this.c, this.b);
                         return;
                     }
-                    this.f38423c.a(aVar2);
+                    this.c.a(aVar2);
                 }
             }
         };
         if (cVar.g()) {
-            this.a.a(cVar, this.f38420b, aVar);
+            this.a.a(cVar, this.b, aVar);
         } else {
             cVar2.a(com.cmic.sso.sdk.c.d.a.a(200025));
         }

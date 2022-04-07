@@ -20,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.k80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LcmPb$LcmResponse extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 2;
@@ -42,7 +43,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
     public int memoizedSerializedSize;
     public long nextIntervalMs_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<LcmPb$LcmResponse> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,23 +72,15 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmResponse, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f25631b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f25632c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Object f25633d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f25634e;
+        public long b;
+        public int c;
+        public Object d;
+        public long e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -102,7 +95,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                     return;
                 }
             }
-            this.f25633d = "";
+            this.d = "";
             maybeForceBuilderInitialization();
         }
 
@@ -172,22 +165,22 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (c.a.t.a.e.a) null);
+                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (k80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                lcmPb$LcmResponse.logId_ = this.f25631b;
+                lcmPb$LcmResponse.logId_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                lcmPb$LcmResponse.errorCode_ = this.f25632c;
+                lcmPb$LcmResponse.errorCode_ = this.c;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                lcmPb$LcmResponse.errorMsg_ = this.f25633d;
+                lcmPb$LcmResponse.errorMsg_ = this.d;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                lcmPb$LcmResponse.nextIntervalMs_ = this.f25634e;
+                lcmPb$LcmResponse.nextIntervalMs_ = this.e;
                 lcmPb$LcmResponse.bitField0_ = i2;
                 return lcmPb$LcmResponse;
             }
@@ -199,16 +192,16 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 super.clear();
-                this.f25631b = 0L;
+                this.b = 0L;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f25632c = 0;
+                this.c = 0;
                 int i2 = i & (-3);
                 this.a = i2;
-                this.f25633d = "";
+                this.d = "";
                 int i3 = i2 & (-5);
                 this.a = i3;
-                this.f25634e = 0L;
+                this.e = 0L;
                 this.a = i3 & (-9);
                 return this;
             }
@@ -259,7 +252,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                 }
                 if (lcmPb$LcmResponse.hasErrorMsg()) {
                     this.a |= 4;
-                    this.f25633d = lcmPb$LcmResponse.errorMsg_;
+                    this.d = lcmPb$LcmResponse.errorMsg_;
                 }
                 if (lcmPb$LcmResponse.hasNextIntervalMs()) {
                     x(lcmPb$LcmResponse.getNextIntervalMs());
@@ -285,10 +278,10 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                             t(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        LcmPb$LcmResponse lcmPb$LcmResponse2 = (LcmPb$LcmResponse) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        LcmPb$LcmResponse lcmPb$LcmResponse2 = (LcmPb$LcmResponse) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             lcmPb$LcmResponse = lcmPb$LcmResponse2;
@@ -313,7 +306,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
                 this.a |= 2;
-                this.f25632c = i;
+                this.c = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -324,7 +317,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048602, this, j)) == null) {
                 this.a |= 1;
-                this.f25631b = j;
+                this.b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -335,7 +328,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048603, this, j)) == null) {
                 this.a |= 8;
-                this.f25634e = j;
+                this.e = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -381,7 +374,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         lcmPb$LcmResponse.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, k80 k80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -578,7 +571,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
+    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, k80 k80Var) {
         this(builder);
     }
 
@@ -748,10 +741,10 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                         }
                     }
                     z = true;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2.setUnfinishedMessage(this);
-                } catch (IOException e3) {
-                    throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

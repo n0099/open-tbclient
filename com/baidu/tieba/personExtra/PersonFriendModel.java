@@ -1,8 +1,6 @@
 package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
-import c.a.o0.r.r.f1;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,20 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.wp4;
+/* loaded from: classes3.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f35433c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static TbHttpMessageTask f35434d;
+    public static final String c;
+    public static TbHttpMessageTask d;
     public transient /* synthetic */ FieldHolder $fh;
-    public f1 a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f35435b;
+    public wp4 a;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,11 +43,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f35433c = str;
+        c = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f35434d = tbHttpMessageTask;
+        d = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f35434d);
+        MessageManager.getInstance().registerTask(d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,13 +62,13 @@ public class PersonFriendModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new f1();
+        this.a = new wp4();
     }
 
     public void A(boolean z, String str, int i, int i2) {
@@ -92,17 +86,17 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public void B(f1 f1Var) {
+    public void B(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f1Var) == null) {
-            this.a = f1Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wp4Var) == null) {
+            this.a = wp4Var;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f35435b = str;
+            this.b = str;
         }
     }
 
@@ -119,7 +113,7 @@ public class PersonFriendModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35435b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -138,10 +132,10 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public f1 y() {
+    public wp4 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (f1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (wp4) invokeV.objValue;
     }
 
     public void z() {

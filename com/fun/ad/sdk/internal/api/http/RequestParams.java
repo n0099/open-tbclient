@@ -14,17 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final ContentType f38614b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f38615c;
+    public final ContentType b;
+    public Map<String, Object> c;
 
     public RequestParams(ContentType contentType) {
         Interceptable interceptable = $ic;
@@ -41,7 +37,7 @@ public class RequestParams {
                 return;
             }
         }
-        this.f38614b = contentType;
+        this.b = contentType;
     }
 
     public RequestParams(String str, ContentType contentType) {
@@ -60,7 +56,7 @@ public class RequestParams {
             }
         }
         this.a = str;
-        this.f38614b = contentType;
+        this.b = contentType;
     }
 
     public RequestParams(Map<String, Object> map) {
@@ -78,9 +74,9 @@ public class RequestParams {
                 return;
             }
         }
-        this.f38614b = ContentType.TEXT_PLAIN;
+        this.b = ContentType.TEXT_PLAIN;
         HashMap hashMap = new HashMap();
-        this.f38615c = hashMap;
+        this.c = hashMap;
         hashMap.putAll(map);
     }
 
@@ -147,14 +143,14 @@ public class RequestParams {
             if (str != null) {
                 return str;
             }
-            if (this.f38615c != null) {
+            if (this.c != null) {
                 StringBuilder sb = new StringBuilder();
-                for (String str2 : this.f38615c.keySet()) {
+                for (String str2 : this.c.keySet()) {
                     if (sb.length() > 0) {
                         sb.append("&");
                     }
                     sb.append(str2);
-                    Object obj = this.f38615c.get(str2);
+                    Object obj = this.c.get(str2);
                     if (obj != null) {
                         sb.append("=");
                         try {
@@ -173,6 +169,6 @@ public class RequestParams {
     public String getContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38614b.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
     }
 }

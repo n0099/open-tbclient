@@ -1,7 +1,6 @@
 package com.baidu.tieba.enterForum.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -21,7 +21,7 @@ import tbclient.ForumGuide.ForumGuideResIdl;
 import tbclient.ForumGuide.HotSearch;
 import tbclient.ForumGuide.LikeForum;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -163,8 +163,8 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        a.f();
-        a.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
+        cr4.f();
+        cr4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

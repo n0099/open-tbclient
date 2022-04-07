@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SendCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "*&Hjkfa{{07";
@@ -71,8 +71,8 @@ public class SendCell {
                 SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), IMAudioTransRequest.CHARSET).trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
                 try {
                     fileInputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return sendCell;
             } catch (Throwable th) {
@@ -84,8 +84,8 @@ public class SendCell {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }
@@ -205,8 +205,8 @@ public class SendCell {
                 fileOutputStream2.flush();
                 try {
                     fileOutputStream2.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return true;
             } catch (Throwable th) {
@@ -218,8 +218,8 @@ public class SendCell {
                         try {
                             fileOutputStream.close();
                             return false;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                             return false;
                         }
                     }
@@ -228,8 +228,8 @@ public class SendCell {
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th2;

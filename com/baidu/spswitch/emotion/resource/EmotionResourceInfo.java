@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class EmotionResourceInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";
@@ -108,8 +108,8 @@ public final class EmotionResourceInfo {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 return new EmotionResourceInfo(jSONObject.optString(JSON_KEY_PKG_NAME), "", jSONObject.optString(JSON_KEY_RES_SAVE_PATH), jSONObject.optLong("version"), jSONObject.optString(JSON_KEY_MIN_HOST_VER), jSONObject.optString(JSON_KEY_MAX_HOST_VER));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -171,8 +171,8 @@ public final class EmotionResourceInfo {
                 jSONObject.put(JSON_KEY_MIN_HOST_VER, this.mMinHostVer);
                 jSONObject.put(JSON_KEY_MAX_HOST_VER, this.mMaxHostVer);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return "";
             }
         }

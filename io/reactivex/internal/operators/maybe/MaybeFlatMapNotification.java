@@ -30,9 +30,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         public static final long serialVersionUID = 4375739915521278546L;
         public transient /* synthetic */ FieldHolder $fh;
         public final MaybeObserver<? super R> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45309d;
+        public Disposable d;
         public final Callable<? extends MaybeSource<? extends R>> onCompleteSupplier;
         public final Function<? super Throwable, ? extends MaybeSource<? extends R>> onErrorMapper;
         public final Function<? super T, ? extends MaybeSource<? extends R>> onSuccessMapper;
@@ -120,7 +118,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
-                this.f45309d.dispose();
+                this.d.dispose();
             }
         }
 
@@ -137,9 +135,9 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
                     ((MaybeSource) ObjectHelper.requireNonNull(this.onCompleteSupplier.call(), "The onCompleteSupplier returned a null MaybeSource")).subscribe(new InnerObserver(this));
-                } catch (Exception e2) {
-                    Exceptions.throwIfFatal(e2);
-                    this.actual.onError(e2);
+                } catch (Exception e) {
+                    Exceptions.throwIfFatal(e);
+                    this.actual.onError(e);
                 }
             }
         }
@@ -150,9 +148,9 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 try {
                     ((MaybeSource) ObjectHelper.requireNonNull(this.onErrorMapper.apply(th), "The onErrorMapper returned a null MaybeSource")).subscribe(new InnerObserver(this));
-                } catch (Exception e2) {
-                    Exceptions.throwIfFatal(e2);
-                    this.actual.onError(new CompositeException(th, e2));
+                } catch (Exception e) {
+                    Exceptions.throwIfFatal(e);
+                    this.actual.onError(new CompositeException(th, e));
                 }
             }
         }
@@ -160,8 +158,8 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45309d, disposable)) {
-                this.f45309d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -172,9 +170,9 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 try {
                     ((MaybeSource) ObjectHelper.requireNonNull(this.onSuccessMapper.apply(t), "The onSuccessMapper returned a null MaybeSource")).subscribe(new InnerObserver(this));
-                } catch (Exception e2) {
-                    Exceptions.throwIfFatal(e2);
-                    this.actual.onError(e2);
+                } catch (Exception e) {
+                    Exceptions.throwIfFatal(e);
+                    this.actual.onError(e);
                 }
             }
         }

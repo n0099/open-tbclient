@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.l0;
+import com.repackage.py9;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
@@ -57,8 +57,8 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
             for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
                 try {
                     mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
-                } catch (IllegalArgumentException e2) {
-                    Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
+                } catch (IllegalArgumentException e) {
+                    Logging.e(TAG, "Cannot retrieve decoder codec info", e);
                     mediaCodecInfo = null;
                 }
                 if (mediaCodecInfo != null && !mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
@@ -125,7 +125,7 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return l0.$default$createDecoder(this, str);
+        return py9.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory

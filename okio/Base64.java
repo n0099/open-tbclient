@@ -168,8 +168,8 @@ public final class Base64 {
             }
             try {
                 return new String(bArr3, "US-ASCII");
-            } catch (UnsupportedEncodingException e2) {
-                throw new AssertionError(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeLL.objValue;

@@ -27,12 +27,12 @@ public class B64 {
         }
     }
 
-    public static void b64from24bit(byte b2, byte b3, byte b4, int i, StringBuilder sb) {
+    public static void b64from24bit(byte b, byte b2, byte b3, int i, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Integer.valueOf(i), sb}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i), sb}) != null) {
             return;
         }
-        int i2 = ((b2 << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16777215) | ((b3 << 8) & 65535) | (b4 & 255);
+        int i2 = ((b << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16777215) | ((b2 << 8) & 65535) | (b3 & 255);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {

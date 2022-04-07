@@ -378,11 +378,11 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2) {
+    public MenuItem setAlphabeticShortcut(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Character.valueOf(c)})) == null) {
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -481,11 +481,11 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2) {
+    public MenuItem setNumericShortcut(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.mShortcutNumericChar = c2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Character.valueOf(c)})) == null) {
+            this.mShortcutNumericChar = c;
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -513,12 +513,12 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3) {
+    public MenuItem setShortcut(char c, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) {
-            this.mShortcutNumericChar = c2;
-            this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Character.valueOf(c), Character.valueOf(c2)})) == null) {
+            this.mShortcutNumericChar = c;
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
@@ -575,11 +575,11 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i) {
+    public MenuItem setAlphabeticShortcut(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c);
             this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
             return this;
         }
@@ -599,11 +599,11 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i) {
+    public MenuItem setNumericShortcut(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            this.mShortcutNumericChar = c2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            this.mShortcutNumericChar = c;
             this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
             return this;
         }
@@ -647,10 +647,10 @@ public class ActionMenuItem implements SupportMenuItem {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(View view) {
+    public SupportMenuItem setActionView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, view2)) == null) {
             throw new UnsupportedOperationException();
         }
         return (SupportMenuItem) invokeL.objValue;
@@ -669,13 +669,13 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
+    public MenuItem setShortcut(char c, char c2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            this.mShortcutNumericChar = c2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Character.valueOf(c), Character.valueOf(c2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.mShortcutNumericChar = c;
             this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
-            this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
             this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
             return this;
         }

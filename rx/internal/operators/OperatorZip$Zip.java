@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.d;
-import g.e;
-import g.j;
-import g.n.h;
-import g.o.d.f;
-import g.u.b;
+import com.repackage.az9;
+import com.repackage.e1a;
+import com.repackage.gz9;
+import com.repackage.oz9;
+import com.repackage.p3a;
+import com.repackage.uy9;
+import com.repackage.vy9;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
@@ -22,23 +23,19 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
     public static final int THRESHOLD;
     public static final long serialVersionUID = 5995274816189928317L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e<? super R> child;
-    public final b childSubscription;
+    public final vy9<? super R> child;
+    public final p3a childSubscription;
     public int emitted;
     public AtomicLong requested;
     public volatile Object[] subscribers;
-    public final h<? extends R> zipFunction;
+    public final oz9<? extends R> zipFunction;
 
     /* loaded from: classes8.dex */
-    public final class a extends j {
+    public final class a extends az9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final f f45442e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OperatorZip$Zip f45443f;
+        public final e1a e;
+        public final /* synthetic */ OperatorZip$Zip f;
 
         public a(OperatorZip$Zip operatorZip$Zip) {
             Interceptable interceptable = $ic;
@@ -55,15 +52,15 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                     return;
                 }
             }
-            this.f45443f = operatorZip$Zip;
-            this.f45442e = f.a();
+            this.f = operatorZip$Zip;
+            this.e = e1a.a();
         }
 
-        @Override // g.j
+        @Override // com.repackage.az9
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e(f.f44995c);
+                e(e1a.c);
             }
         }
 
@@ -74,33 +71,33 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f45442e.f();
-                this.f45443f.tick();
+                this.e.f();
+                this.f.tick();
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f45443f.child.onError(th);
+                this.f.child.onError(th);
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    this.f45442e.g(obj);
-                } catch (MissingBackpressureException e2) {
-                    onError(e2);
+                    this.e.g(obj);
+                } catch (MissingBackpressureException e) {
+                    onError(e);
                 }
-                this.f45443f.tick();
+                this.f.tick();
             }
         }
     }
@@ -118,15 +115,15 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        THRESHOLD = (int) (f.f44995c * 0.7d);
+        THRESHOLD = (int) (e1a.c * 0.7d);
     }
 
-    public OperatorZip$Zip(j<? super R> jVar, h<? extends R> hVar) {
+    public OperatorZip$Zip(az9<? super R> az9Var, oz9<? extends R> oz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, hVar};
+            Object[] objArr = {az9Var, oz9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -136,26 +133,26 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        b bVar = new b();
-        this.childSubscription = bVar;
-        this.child = jVar;
-        this.zipFunction = hVar;
-        jVar.b(bVar);
+        p3a p3aVar = new p3a();
+        this.childSubscription = p3aVar;
+        this.child = az9Var;
+        this.zipFunction = oz9Var;
+        az9Var.b(p3aVar);
     }
 
-    public void start(d[] dVarArr, AtomicLong atomicLong) {
+    public void start(uy9[] uy9VarArr, AtomicLong atomicLong) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, dVarArr, atomicLong) == null) {
-            Object[] objArr = new Object[dVarArr.length];
-            for (int i = 0; i < dVarArr.length; i++) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, uy9VarArr, atomicLong) == null) {
+            Object[] objArr = new Object[uy9VarArr.length];
+            for (int i = 0; i < uy9VarArr.length; i++) {
                 a aVar = new a(this);
                 objArr[i] = aVar;
                 this.childSubscription.a(aVar);
             }
             this.requested = atomicLong;
             this.subscribers = objArr;
-            for (int i2 = 0; i2 < dVarArr.length; i2++) {
-                dVarArr[i2].D((a) objArr[i2]);
+            for (int i2 = 0; i2 < uy9VarArr.length; i2++) {
+                uy9VarArr[i2].D((a) objArr[i2]);
             }
         }
     }
@@ -168,34 +165,34 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             return;
         }
         int length = objArr.length;
-        e<? super R> eVar = this.child;
+        vy9<? super R> vy9Var = this.child;
         AtomicLong atomicLong = this.requested;
         while (true) {
             Object[] objArr2 = new Object[length];
             boolean z = true;
             for (int i = 0; i < length; i++) {
-                f fVar = ((a) objArr[i]).f45442e;
-                Object h2 = fVar.h();
-                if (h2 == null) {
+                e1a e1aVar = ((a) objArr[i]).e;
+                Object h = e1aVar.h();
+                if (h == null) {
                     z = false;
-                } else if (fVar.d(h2)) {
-                    eVar.onCompleted();
+                } else if (e1aVar.d(h)) {
+                    vy9Var.onCompleted();
                     this.childSubscription.unsubscribe();
                     return;
                 } else {
-                    objArr2[i] = fVar.c(h2);
+                    objArr2[i] = e1aVar.c(h);
                 }
             }
             if (z && atomicLong.get() > 0) {
                 try {
-                    eVar.onNext((R) this.zipFunction.call(objArr2));
+                    vy9Var.onNext((R) this.zipFunction.call(objArr2));
                     atomicLong.decrementAndGet();
                     this.emitted++;
                     for (Object obj : objArr) {
-                        f fVar2 = ((a) obj).f45442e;
-                        fVar2.i();
-                        if (fVar2.d(fVar2.h())) {
-                            eVar.onCompleted();
+                        e1a e1aVar2 = ((a) obj).e;
+                        e1aVar2.i();
+                        if (e1aVar2.d(e1aVar2.h())) {
+                            vy9Var.onCompleted();
                             this.childSubscription.unsubscribe();
                             return;
                         }
@@ -207,7 +204,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                         this.emitted = 0;
                     }
                 } catch (Throwable th) {
-                    g.m.a.g(th, eVar, objArr2);
+                    gz9.g(th, vy9Var, objArr2);
                     return;
                 }
             } else if (decrementAndGet() <= 0) {

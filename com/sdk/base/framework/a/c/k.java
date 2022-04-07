@@ -9,16 +9,14 @@ public class k<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
+    public final E b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final E f42506b;
-
-    public k(int i, E e2) {
+    public k(int i, E e) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), e2};
+            Object[] objArr = {Integer.valueOf(i), e};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,6 +27,6 @@ public class k<E> {
             }
         }
         this.a = i == 0 ? b.a : i;
-        this.f42506b = e2;
+        this.b = e;
     }
 }

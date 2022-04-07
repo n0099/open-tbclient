@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +25,8 @@ public final class b {
         }
         try {
             a(context).edit().putInt(str, i).commit();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -37,8 +37,8 @@ public final class b {
         }
         try {
             a(context).edit().putString(str, str2).commit();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -49,8 +49,8 @@ public final class b {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
                     return a(context).getInt(str, i);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return i;
@@ -71,8 +71,8 @@ public final class b {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
                     return a(context).getString(str, str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return str2;

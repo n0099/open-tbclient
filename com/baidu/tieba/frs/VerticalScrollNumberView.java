@@ -3,7 +3,6 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -13,24 +12,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VerticalScrollNumberView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f32351b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f32352c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f32353d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f32354e;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalScrollNumberView(Context context) {
@@ -68,8 +60,8 @@ public class VerticalScrollNumberView extends LinearLayout {
             scrollTextView.setMaxLines(1);
             scrollTextView.setContinuousScrolling(false);
             scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-            scrollTextView.setWidth(this.f32351b);
-            scrollTextView.setHeight(this.f32352c);
+            scrollTextView.setWidth(this.b);
+            scrollTextView.setHeight(this.c);
             addView(scrollTextView);
         }
     }
@@ -78,10 +70,10 @@ public class VerticalScrollNumberView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.f32351b = n.f(context, R.dimen.obfuscated_res_0x7f070201);
-            this.f32352c = n.f(this.a, R.dimen.obfuscated_res_0x7f070225);
-            this.f32353d = n.f(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.f32354e = n.f(this.a, R.dimen.obfuscated_res_0x7f0702fb);
+            this.b = oi.f(context, R.dimen.obfuscated_res_0x7f070201);
+            this.c = oi.f(this.a, R.dimen.obfuscated_res_0x7f070225);
+            this.d = oi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4);
+            this.e = oi.f(this.a, R.dimen.obfuscated_res_0x7f070305);
         }
     }
 
@@ -106,10 +98,10 @@ public class VerticalScrollNumberView extends LinearLayout {
                 if (getChildAt(childCount) instanceof ScrollTextView) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     if (i3 == 2) {
-                        layoutParams.setMargins(this.f32354e, 0, 0, 0);
+                        layoutParams.setMargins(this.e, 0, 0, 0);
                         i3 = 0;
                     } else {
-                        layoutParams.setMargins(this.f32353d, 0, 0, 0);
+                        layoutParams.setMargins(this.d, 0, 0, 0);
                         i3++;
                     }
                     getChildAt(childCount).setLayoutParams(layoutParams);

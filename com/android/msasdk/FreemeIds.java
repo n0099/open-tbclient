@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FreemeIds implements FreemeIdsSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FreemeIds";
@@ -98,8 +98,8 @@ public class FreemeIds implements FreemeIdsSupplier {
             intent.setPackage("com.android.creator");
             try {
                 this.context.bindService(intent, this.mServiceConnection, 1);
-            } catch (SecurityException e2) {
-                e2.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -114,8 +114,8 @@ public class FreemeIds implements FreemeIdsSupplier {
                     Log.d("MsaIds", "getAAID idsSupplier:" + this.idsSupplier);
                     Log.d("MsaIds", "getAAID pkgname:" + str);
                     return this.idsSupplier.getAAID(str);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -132,8 +132,8 @@ public class FreemeIds implements FreemeIdsSupplier {
             if (idsSupplier != null) {
                 try {
                     return idsSupplier.getOAID();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -150,8 +150,8 @@ public class FreemeIds implements FreemeIdsSupplier {
             if (idsSupplier != null) {
                 try {
                     return idsSupplier.getUDID(str);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -168,8 +168,8 @@ public class FreemeIds implements FreemeIdsSupplier {
             if (idsSupplier != null) {
                 try {
                     return idsSupplier.getVAID();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -187,9 +187,9 @@ public class FreemeIds implements FreemeIdsSupplier {
             if (idsSupplier != null) {
                 try {
                     isSupported = idsSupplier.isSupported();
-                } catch (RemoteException e2) {
-                    Log.d("MsaIds", "isSupported exception:" + e2.getMessage());
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    Log.d("MsaIds", "isSupported exception:" + e.getMessage());
+                    e.printStackTrace();
                 }
                 Log.d("MsaIds", "isSupported:" + this.idsSupplier);
                 Log.d("MsaIds", "isSupported ret:" + isSupported);

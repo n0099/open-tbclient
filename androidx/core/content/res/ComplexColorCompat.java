@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,17 +68,17 @@ public final class ComplexColorCompat {
             } while (next != 1);
             if (next == 2) {
                 String name = xml.getName();
-                char c2 = 65535;
+                char c = 65535;
                 int hashCode = name.hashCode();
                 if (hashCode != 89650992) {
                     if (hashCode == 1191572447 && name.equals("selector")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                } else if (name.equals("gradient")) {
-                    c2 = 1;
+                } else if (name.equals(NativeConstants.GRADIENT)) {
+                    c = 1;
                 }
-                if (c2 != 0) {
-                    if (c2 == 1) {
+                if (c != 0) {
+                    if (c == 1) {
                         return from(GradientColorInflaterCompat.createFromXmlInner(resources, xml, asAttributeSet, theme));
                     }
                     throw new XmlPullParserException(xml.getPositionDescription() + ": unsupported complex color tag " + name);
@@ -102,8 +103,8 @@ public final class ComplexColorCompat {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
             try {
                 return createFromXml(resources, i, theme);
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e2);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
                 return null;
             }
         }

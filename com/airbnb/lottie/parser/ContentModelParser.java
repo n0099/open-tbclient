@@ -10,7 +10,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.kuaishou.weapon.un.x;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ContentModelParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(Config.EXCEPTION_CRASH_CHANNEL, "d");
 
@@ -26,7 +26,7 @@ public class ContentModelParser {
         ContentModel contentModel;
         String str;
         jsonReader.beginObject();
-        char c2 = 2;
+        char c = 2;
         int i = 2;
         while (true) {
             contentModel = null;
@@ -51,95 +51,95 @@ public class ContentModelParser {
         switch (str.hashCode()) {
             case 3239:
                 if (str.equals(x.t)) {
-                    c2 = 7;
+                    c = 7;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3270:
                 if (str.equals("fl")) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3295:
                 if (str.equals("gf")) {
-                    c2 = 4;
+                    c = 4;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case SpeedStatsStampTable.AD_CALL_SHOW_START_STAMP_KEY /* 3307 */:
                 if (str.equals("gr")) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY /* 3308 */:
                 break;
             case 3488:
                 if (str.equals("mm")) {
-                    c2 = 11;
+                    c = 11;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3633:
                 if (str.equals("rc")) {
-                    c2 = '\b';
+                    c = '\b';
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3646:
                 if (str.equals("rp")) {
-                    c2 = '\f';
+                    c = '\f';
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3669:
                 if (str.equals("sh")) {
-                    c2 = 6;
+                    c = 6;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3679:
                 if (str.equals(BaseStatisContent.SR)) {
-                    c2 = '\n';
+                    c = '\n';
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3681:
                 if (str.equals("st")) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3705:
                 if (str.equals("tm")) {
-                    c2 = '\t';
+                    c = '\t';
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3710:
                 if (str.equals("tr")) {
-                    c2 = 5;
+                    c = 5;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             default:
-                c2 = 65535;
+                c = 65535;
                 break;
         }
-        switch (c2) {
+        switch (c) {
             case 0:
                 contentModel = ShapeGroupParser.parse(jsonReader, lottieComposition);
                 break;

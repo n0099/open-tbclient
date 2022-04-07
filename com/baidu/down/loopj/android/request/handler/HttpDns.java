@@ -29,7 +29,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class HttpDns {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ID = "0024";
@@ -46,7 +46,7 @@ public final class HttpDns {
     public CopyOnWriteArrayList<String> mRequstingHost;
     public ExecutorService pool;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class HostObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class QueryHostTask implements Callable<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,8 +221,8 @@ public final class HttpDns {
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
-                                            } catch (IOException e2) {
-                                                e = e2;
+                                            } catch (IOException e) {
+                                                e = e;
                                                 e.printStackTrace();
                                                 this.this$0.mRequstingHost.remove(this.hostName);
                                                 return null;
@@ -249,8 +249,8 @@ public final class HttpDns {
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
-                                                } catch (IOException e3) {
-                                                    e3.printStackTrace();
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
                                                 }
                                             }
                                             this.this$0.mRequstingHost.remove(this.hostName);
@@ -262,8 +262,8 @@ public final class HttpDns {
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
-                                            } catch (IOException e4) {
-                                                e = e4;
+                                            } catch (IOException e3) {
+                                                e = e3;
                                                 e.printStackTrace();
                                                 this.this$0.mRequstingHost.remove(this.hostName);
                                                 return null;
@@ -281,8 +281,8 @@ public final class HttpDns {
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
+                                    } catch (IOException e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 this.this$0.mRequstingHost.remove(this.hostName);
@@ -297,8 +297,8 @@ public final class HttpDns {
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                                 this.this$0.mRequstingHost.remove(this.hostName);

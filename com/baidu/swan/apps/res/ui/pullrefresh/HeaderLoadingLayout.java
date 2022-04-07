@@ -20,22 +20,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f29152e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f29153f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f29154g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f29155h;
+    public RelativeLayout e;
+    public ImageView f;
+    public ProgressBar g;
+    public TextView h;
     public TextView i;
     public TextView j;
     public Animation k;
@@ -66,7 +58,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c9, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cb, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -74,10 +66,10 @@ public class HeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (ILoadingLayout$State.RELEASE_TO_REFRESH == getPreState()) {
-                this.f29153f.clearAnimation();
-                this.f29153f.startAnimation(this.l);
+                this.f.clearAnimation();
+                this.f.startAnimation(this.l);
             }
-            this.f29155h.setText(R.string.obfuscated_res_0x7f0f01a7);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01a8);
         }
     }
 
@@ -86,7 +78,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RelativeLayout relativeLayout = this.f29152e;
+            RelativeLayout relativeLayout = this.e;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
@@ -99,10 +91,10 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f29153f.clearAnimation();
-            this.f29153f.setVisibility(4);
-            this.f29154g.setVisibility(0);
-            this.f29155h.setText(R.string.obfuscated_res_0x7f0f01a6);
+            this.f.clearAnimation();
+            this.f.setVisibility(4);
+            this.g.setVisibility(0);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01a7);
         }
     }
 
@@ -110,9 +102,9 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f29153f.clearAnimation();
-            this.f29153f.startAnimation(this.k);
-            this.f29155h.setText(R.string.obfuscated_res_0x7f0f01a8);
+            this.f.clearAnimation();
+            this.f.startAnimation(this.k);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01a9);
         }
     }
 
@@ -120,8 +112,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29153f.clearAnimation();
-            this.f29155h.setText(R.string.obfuscated_res_0x7f0f01a7);
+            this.f.clearAnimation();
+            this.h.setText(R.string.obfuscated_res_0x7f0f01a8);
         }
     }
 
@@ -129,8 +121,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f29153f.setVisibility(0);
-            this.f29154g.setVisibility(4);
+            this.f.setVisibility(0);
+            this.g.setVisibility(4);
             super.l(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }
@@ -138,12 +130,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.f29152e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091970);
-            this.f29153f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09196e);
-            this.f29155h = (TextView) findViewById(R.id.obfuscated_res_0x7f091971);
-            this.f29154g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091972);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091974);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091976);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091961);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09195f);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091962);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091963);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091965);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091967);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

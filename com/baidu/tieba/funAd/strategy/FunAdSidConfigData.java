@@ -1,7 +1,6 @@
 package com.baidu.tieba.funAd.strategy;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.repackage.go4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class FunAdSidConfigData extends p implements Serializable {
+/* loaded from: classes3.dex */
+public class FunAdSidConfigData extends go4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mBearSidList;
@@ -79,7 +79,7 @@ public class FunAdSidConfigData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mThreshold : invokeV.intValue;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
@@ -98,8 +98,8 @@ public class FunAdSidConfigData extends p implements Serializable {
             this.mRecordNum = jSONObject.optInt("record_num", 0);
             this.mSpace = jSONObject.optLong("space", 0L);
             this.mForce = jSONObject.optInt(TTDownloadField.TT_FORCE, 0);
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
@@ -161,8 +161,8 @@ public class FunAdSidConfigData extends p implements Serializable {
                 jSONObject.put("record_num", this.mRecordNum);
                 jSONObject.put("space", this.mSpace);
                 jSONObject.put(TTDownloadField.TT_FORCE, this.mForce);
-            } catch (JSONException e2) {
-                BdLog.detailException(e2);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
             }
             return jSONObject;
         }

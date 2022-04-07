@@ -379,11 +379,11 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return (int[]) invokeV.objValue;
     }
 
-    private void horizontalScrollTo(float f2) {
+    private void horizontalScrollTo(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65544, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65544, this, f) == null) {
             int[] horizontalRange = getHorizontalRange();
-            float max = Math.max(horizontalRange[0], Math.min(horizontalRange[1], f2));
+            float max = Math.max(horizontalRange[0], Math.min(horizontalRange[1], f));
             if (Math.abs(this.mHorizontalThumbCenterX - max) < 2.0f) {
                 return;
             }
@@ -409,16 +409,16 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    private int scrollTo(float f2, float f3, int[] iArr, int i, int i2, int i3) {
+    private int scrollTo(float f, float f2, int[] iArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int i4 = iArr[1] - iArr[0];
             if (i4 == 0) {
                 return 0;
             }
             int i5 = i - i3;
-            int i6 = (int) (((f3 - f2) / i4) * i5);
+            int i6 = (int) (((f2 - f) / i4) * i5);
             int i7 = i2 + i6;
             if (i7 >= i5 || i7 < 0) {
                 return 0;
@@ -437,11 +437,11 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    private void verticalScrollTo(float f2) {
+    private void verticalScrollTo(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65549, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65549, this, f) == null) {
             int[] verticalRange = getVerticalRange();
-            float max = Math.max(verticalRange[0], Math.min(verticalRange[1], f2));
+            float max = Math.max(verticalRange[0], Math.min(verticalRange[1], f));
             if (Math.abs(this.mVerticalThumbCenterY - max) < 2.0f) {
                 return;
             }
@@ -521,14 +521,14 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     }
 
     @VisibleForTesting
-    public boolean isPointInsideHorizontalThumb(float f2, float f3) {
+    public boolean isPointInsideHorizontalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f3 >= this.mRecyclerViewHeight - this.mHorizontalThumbHeight) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (f2 >= this.mRecyclerViewHeight - this.mHorizontalThumbHeight) {
                 int i = this.mHorizontalThumbCenterX;
                 int i2 = this.mHorizontalThumbWidth;
-                if (f2 >= i - (i2 / 2) && f2 <= i + (i2 / 2)) {
+                if (f >= i - (i2 / 2) && f <= i + (i2 / 2)) {
                     return true;
                 }
             }
@@ -538,14 +538,14 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     }
 
     @VisibleForTesting
-    public boolean isPointInsideVerticalThumb(float f2, float f3) {
+    public boolean isPointInsideVerticalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (!isLayoutRTL() ? f2 >= this.mRecyclerViewWidth - this.mVerticalThumbWidth : f2 <= this.mVerticalThumbWidth / 2) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (!isLayoutRTL() ? f >= this.mRecyclerViewWidth - this.mVerticalThumbWidth : f <= this.mVerticalThumbWidth / 2) {
                 int i = this.mVerticalThumbCenterY;
                 int i2 = this.mVerticalThumbHeight;
-                if (f3 >= i - (i2 / 2) && f3 <= i + (i2 / 2)) {
+                if (f2 >= i - (i2 / 2) && f2 <= i + (i2 / 2)) {
                     return true;
                 }
             }
@@ -723,13 +723,13 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
                 return;
             }
             if (this.mNeedVerticalScrollbar) {
-                float f2 = i3;
-                this.mVerticalThumbCenterY = (int) ((f2 * (i2 + (f2 / 2.0f))) / computeVerticalScrollRange);
+                float f = i3;
+                this.mVerticalThumbCenterY = (int) ((f * (i2 + (f / 2.0f))) / computeVerticalScrollRange);
                 this.mVerticalThumbHeight = Math.min(i3, (i3 * i3) / computeVerticalScrollRange);
             }
             if (this.mNeedHorizontalScrollbar) {
-                float f3 = i4;
-                this.mHorizontalThumbCenterX = (int) ((f3 * (i + (f3 / 2.0f))) / computeHorizontalScrollRange);
+                float f2 = i4;
+                this.mHorizontalThumbCenterX = (int) ((f2 * (i + (f2 / 2.0f))) / computeHorizontalScrollRange);
                 this.mHorizontalThumbWidth = Math.min(i4, (i4 * i4) / computeHorizontalScrollRange);
             }
             int i5 = this.mState;

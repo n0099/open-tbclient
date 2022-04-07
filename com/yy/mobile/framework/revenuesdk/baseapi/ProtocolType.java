@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ProtocolType {
     public static final /* synthetic */ ProtocolType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

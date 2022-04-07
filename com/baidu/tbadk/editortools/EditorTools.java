@@ -8,13 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.e;
-import c.a.o0.w.f;
-import c.a.o0.w.h;
-import c.a.o0.w.j;
-import c.a.o0.w.m;
-import c.a.o0.w.n;
-import c.a.p0.l0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,6 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i05;
+import com.repackage.j05;
+import com.repackage.lz5;
+import com.repackage.n05;
+import com.repackage.o05;
+import com.repackage.oi;
+import com.repackage.p05;
+import com.repackage.pg;
+import com.repackage.r05;
+import com.repackage.u05;
+import com.repackage.v05;
+import com.repackage.wr4;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,38 +40,24 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditorTools extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorBar a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditorDesk f30482b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f30483c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f30484d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<m> f30485e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SparseArray<c.a.o0.w.b> f30486f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public SparseArray<HashSet<c.a.o0.w.b>> f30487g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public SparseArray<HashSet<Integer>> f30488h;
+    public EditorDesk b;
+    public View c;
+    public View d;
+    public List<u05> e;
+    public SparseArray<j05> f;
+    public SparseArray<HashSet<j05>> g;
+    public SparseArray<HashSet<Integer>> h;
     public int i;
     public boolean j;
     public int k;
     public int l;
     public boolean m;
-    public LinkedList<h> n;
+    public LinkedList<p05> n;
     public boolean o;
     public boolean p;
     public boolean q;
@@ -78,7 +70,7 @@ public class EditorTools extends LinearLayout {
     public Runnable x;
     public List<Integer> y;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,15 +95,15 @@ public class EditorTools extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.a.x(view);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.x(view2);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,8 +136,8 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Comparator<m> {
+    /* loaded from: classes3.dex */
+    public class c implements Comparator<u05> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorTools a;
@@ -171,14 +163,14 @@ public class EditorTools extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(m mVar, m mVar2) {
+        public int compare(u05 u05Var, u05 u05Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, mVar2)) == null) ? mVar.j - mVar2.j : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, u05Var, u05Var2)) == null) ? u05Var.j - u05Var2.j : invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,12 +195,12 @@ public class EditorTools extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.w == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.w == null) {
                 return;
             }
-            this.a.w.onClick(view);
+            this.a.w.onClick(view2);
         }
     }
 
@@ -245,79 +237,79 @@ public class EditorTools extends LinearLayout {
         r(context);
     }
 
-    public void A(c.a.o0.w.a aVar) {
+    public void A(i05 i05Var) {
         HashSet<Integer> hashSet;
         int i;
-        m n;
-        n nVar;
+        u05 n;
+        v05 v05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, i05Var) == null) || i05Var == null) {
             return;
         }
-        int i2 = aVar.a;
+        int i2 = i05Var.a;
         if (i2 == 2) {
             boolean z = false;
-            h q = this.a.q(aVar.f11498b);
+            p05 q = this.a.q(i05Var.b);
             if (q == null) {
-                q = this.f30482b.l(aVar.f11498b);
+                q = this.b.l(i05Var.b);
                 z = true;
             }
             if (q == null) {
-                Iterator<h> it = this.n.iterator();
+                Iterator<p05> it = this.n.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    h next = it.next();
-                    if (next.getToolId() == aVar.f11498b) {
+                    p05 next = it.next();
+                    if (next.getToolId() == i05Var.b) {
                         q = next;
                         break;
                     }
                 }
             }
             if (q != null) {
-                q.onAction(aVar);
-                if (!z || (n = n(2)) == null || (nVar = n.k) == null) {
+                q.onAction(i05Var);
+                if (!z || (n = n(2)) == null || (v05Var = n.k) == null) {
                     return;
                 }
-                nVar.onAction(aVar);
+                v05Var.onAction(i05Var);
             }
         } else if (i2 == 5) {
             this.a.n(null);
-            this.f30482b.g();
+            this.b.g();
         } else {
-            int i3 = aVar.f11498b;
+            int i3 = i05Var.b;
             if (i3 > 0) {
-                c.a.o0.w.b bVar = this.f30486f.get(i3);
-                if (bVar != null) {
-                    int i4 = aVar.a;
-                    if (i4 != 19 && i4 != 20 && (i = aVar.f11498b) != 27) {
+                j05 j05Var = this.f.get(i3);
+                if (j05Var != null) {
+                    int i4 = i05Var.a;
+                    if (i4 != 19 && i4 != 20 && (i = i05Var.b) != 27) {
                         this.a.o(i);
                     }
-                    m n2 = n(aVar.f11498b);
+                    u05 n2 = n(i05Var.b);
                     if (n2 != null && n2.l == 5) {
                         q();
                         p();
                     } else {
-                        this.f30482b.h(aVar.f11498b);
+                        this.b.h(i05Var.b);
                     }
-                    bVar.onAction(aVar);
+                    j05Var.onAction(i05Var);
                 }
             } else if (i3 <= 0) {
-                if (i3 < 0 && (hashSet = this.f30488h.get(i2)) != null && !hashSet.isEmpty()) {
+                if (i3 < 0 && (hashSet = this.h.get(i2)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        c.a.o0.w.b bVar2 = this.f30486f.get(it2.next().intValue());
-                        if (bVar2 != null) {
-                            bVar2.onAction(aVar);
+                        j05 j05Var2 = this.f.get(it2.next().intValue());
+                        if (j05Var2 != null) {
+                            j05Var2.onAction(i05Var);
                         }
                     }
                 }
-                HashSet<c.a.o0.w.b> hashSet2 = this.f30487g.get(aVar.a);
+                HashSet<j05> hashSet2 = this.g.get(i05Var.a);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
-                    Iterator<c.a.o0.w.b> it3 = hashSet2.iterator();
+                    Iterator<j05> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
-                        it3.next().onAction(aVar);
+                        it3.next().onAction(i05Var);
                     }
                 }
             }
@@ -331,36 +323,36 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void B(int[] iArr, int i, c.a.o0.w.b bVar) {
+    public void B(int[] iArr, int i, j05 j05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i, j05Var) == null) {
             int i2 = 0;
             if (i == 0) {
                 if (iArr == null || iArr.length == 0) {
                     return;
                 }
-                HashSet<c.a.o0.w.b> hashSet = this.f30487g.get(iArr[0]);
+                HashSet<j05> hashSet = this.g.get(iArr[0]);
                 if (hashSet == null) {
                     hashSet = new HashSet<>();
                     int length = iArr.length;
                     while (i2 < length) {
-                        this.f30487g.put(iArr[i2], hashSet);
+                        this.g.put(iArr[i2], hashSet);
                         i2++;
                     }
                 }
-                hashSet.add(bVar);
+                hashSet.add(j05Var);
             } else if (i > 0) {
-                this.f30486f.put(i, bVar);
+                this.f.put(i, j05Var);
                 if (iArr == null || iArr.length <= 0) {
                     return;
                 }
                 int length2 = iArr.length;
                 while (i2 < length2) {
                     int i3 = iArr[i2];
-                    HashSet<Integer> hashSet2 = this.f30488h.get(i3);
+                    HashSet<Integer> hashSet2 = this.h.get(i3);
                     if (hashSet2 == null) {
                         hashSet2 = new HashSet<>();
-                        this.f30488h.put(i3, hashSet2);
+                        this.h.put(i3, hashSet2);
                     }
                     hashSet2.add(Integer.valueOf(i));
                     i2++;
@@ -383,32 +375,32 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void E(View view) {
+    public void E(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             BaseActivity baseActivity = (BaseActivity) this.r;
-            g gVar = new g(baseActivity.getPageContext(), view);
-            gVar.g0(R.drawable.obfuscated_res_0x7f0802ef);
-            gVar.O(48);
-            gVar.U(true);
-            gVar.L(2);
-            gVar.h0(true);
-            gVar.k0(c.a.d.f.p.n.f(baseActivity, R.dimen.tbds_21));
-            gVar.j0(c.a.d.f.p.n.f(baseActivity, R.dimen.tbds0));
-            gVar.d0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds26));
-            gVar.a0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds44));
-            gVar.N((int) 3000);
-            gVar.n0(baseActivity.getString(R.string.obfuscated_res_0x7f0f149e), "write_associate_item_hint_tip_key", true);
+            lz5 lz5Var = new lz5(baseActivity.getPageContext(), view2);
+            lz5Var.g0(R.drawable.obfuscated_res_0x7f0802ec);
+            lz5Var.O(48);
+            lz5Var.U(true);
+            lz5Var.L(2);
+            lz5Var.h0(true);
+            lz5Var.k0(oi.f(baseActivity, R.dimen.tbds_21));
+            lz5Var.j0(oi.f(baseActivity, R.dimen.tbds0));
+            lz5Var.d0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds26));
+            lz5Var.a0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds44));
+            lz5Var.N((int) 3000);
+            lz5Var.n0(baseActivity.getString(R.string.obfuscated_res_0x7f0f14a6), "write_associate_item_hint_tip_key", true);
         }
     }
 
-    public void b(m mVar) {
+    public void b(u05 u05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, u05Var) == null) || u05Var == null) {
             return;
         }
-        d(mVar);
-        h i = i(mVar, 1);
+        d(u05Var);
+        p05 i = i(u05Var, 1);
         i.hide();
         EditorBar editorBar = this.a;
         if (editorBar != null) {
@@ -422,128 +414,128 @@ public class EditorTools extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View view = this.f30484d;
-            if (view == null || view.getParent() != null) {
-                View view2 = new View(getContext());
-                this.f30484d = view2;
-                SkinManager.setBackgroundResource(view2, R.color.transparent);
+            View view2 = this.d;
+            if (view2 == null || view2.getParent() != null) {
+                View view3 = new View(getContext());
+                this.d = view3;
+                SkinManager.setBackgroundResource(view3, R.color.transparent);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
                 layoutParams.weight = 1.0f;
-                this.f30484d.setLayoutParams(layoutParams);
-                this.f30484d.setOnClickListener(new d(this));
+                this.d.setLayoutParams(layoutParams);
+                this.d.setOnClickListener(new d(this));
             }
-            addView(this.f30484d, 0);
+            addView(this.d, 0);
         }
     }
 
-    public void d(m mVar) {
+    public void d(u05 u05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, mVar) == null) || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, u05Var) == null) || u05Var == null) {
             return;
         }
-        this.f30485e.add(mVar);
+        this.e.add(u05Var);
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View view = this.f30483c;
-            if (view == null || view.getParent() != null) {
-                View view2 = new View(getContext());
-                this.f30483c = view2;
-                c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(view2);
+            View view2 = this.c;
+            if (view2 == null || view2.getParent() != null) {
+                View view3 = new View(getContext());
+                this.c = view3;
+                wr4 d2 = wr4.d(view3);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
-                this.f30483c.setLayoutParams(new RelativeLayout.LayoutParams(-1, c.a.d.f.p.n.f(getContext(), R.dimen.L_X01)));
+                this.c.setLayoutParams(new RelativeLayout.LayoutParams(-1, oi.f(getContext(), R.dimen.L_X01)));
             }
-            addView(this.f30483c);
+            addView(this.c);
         }
     }
 
     public void f() {
-        List<m> list;
-        j jVar;
-        n nVar;
+        List<u05> list;
+        r05 r05Var;
+        v05 v05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (list = this.f30485e) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (list = this.e) == null || list.size() == 0) {
             return;
         }
         g();
         LinkedList linkedList = new LinkedList();
         boolean z = false;
-        for (m mVar : this.f30485e) {
-            if (mVar.f11510d > 0) {
-                linkedList.add(mVar);
+        for (u05 u05Var : this.e) {
+            if (u05Var.d > 0) {
+                linkedList.add(u05Var);
             }
-            n nVar2 = mVar.k;
-            if (nVar2 != null) {
-                nVar2.setToolId(mVar.f11509c);
-                mVar.k.setEditorTools(this);
-                int i = mVar.l;
+            v05 v05Var2 = u05Var.k;
+            if (v05Var2 != null) {
+                v05Var2.setToolId(u05Var.c);
+                u05Var.k.setEditorTools(this);
+                int i = u05Var.l;
                 if (i == 6) {
-                    this.f30482b.e(mVar.k);
+                    this.b.e(u05Var.k);
                 } else if (i == 1 || i == 2 || i == 3 || i == 4 || i == 5) {
-                    this.a.k(mVar.k, mVar.l, !mVar.m);
-                    if (mVar.l == 5 && n(1) == null) {
+                    this.a.k(u05Var.k, u05Var.l, !u05Var.m);
+                    if (u05Var.l == 5 && n(1) == null) {
                         z = true;
                     }
                 }
-                B(mVar.n, mVar.f11509c, mVar.k);
+                B(u05Var.n, u05Var.c, u05Var.k);
             }
         }
         Collections.sort(linkedList, new c(this));
         if (linkedList.size() > this.i) {
             if (this.p) {
-                jVar = new j(getContext(), true);
+                r05Var = new r05(getContext(), true);
             } else {
-                jVar = new j(getContext());
+                r05Var = new r05(getContext());
             }
             int i2 = this.l;
-            if (i2 > 0 && (nVar = jVar.k) != null && (nVar instanceof CommonTabHost)) {
-                ((CommonTabHost) nVar).setBackgroundColorId(i2);
+            if (i2 > 0 && (v05Var = r05Var.k) != null && (v05Var instanceof CommonTabHost)) {
+                ((CommonTabHost) v05Var).setBackgroundColorId(i2);
             }
-            if (!c.a.o0.r.j0.b.k().h("key_write_more_tool_point", false)) {
-                jVar.o = true;
+            if (!wt4.k().h("key_write_more_tool_point", false)) {
+                r05Var.o = true;
             } else {
-                jVar.o = false;
+                r05Var.o = false;
             }
-            d(jVar);
-            jVar.k.setToolId(jVar.f11509c);
-            jVar.k.setEditorTools(this);
-            B(jVar.n, jVar.f11509c, jVar.k);
-            this.f30482b.e(jVar.k);
+            d(r05Var);
+            r05Var.k.setToolId(r05Var.c);
+            r05Var.k.setEditorTools(this);
+            B(r05Var.n, r05Var.c, r05Var.k);
+            this.b.e(r05Var.k);
             if (this.j) {
-                linkedList.add(this.i, jVar);
+                linkedList.add(this.i, r05Var);
             } else {
-                linkedList.add(0, jVar);
+                linkedList.add(0, r05Var);
             }
         }
         int i3 = this.i + 1;
         Iterator it = linkedList.iterator();
         int i4 = 0;
         while (it.hasNext()) {
-            m mVar2 = (m) it.next();
+            u05 u05Var2 = (u05) it.next();
             if (i4 < i3) {
-                this.a.j(i(mVar2, 1));
+                this.a.j(i(u05Var2, 1));
             } else {
-                this.f30482b.d(i(mVar2, 2));
+                this.b.d(i(u05Var2, 2));
             }
             i4++;
         }
         if (z) {
-            f fVar = new f();
-            d(fVar);
-            h i5 = i(fVar, 1);
+            n05 n05Var = new n05();
+            d(n05Var);
+            p05 i5 = i(n05Var, 1);
             i5.hide();
             this.a.i(0, i5);
         }
         this.a.l();
-        this.f30482b.f();
+        this.b.f();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         this.a.setLayoutParams(layoutParams);
-        this.f30482b.setLayoutParams(layoutParams2);
-        this.f30482b.n();
+        this.b.setLayoutParams(layoutParams2);
+        this.b.n();
         if (this.p || this.u) {
             this.a.setPadding(0, 0, 0, 0);
         }
@@ -553,7 +545,7 @@ public class EditorTools extends LinearLayout {
             e();
         }
         addView(this.a);
-        addView(this.f30482b);
+        addView(this.b);
         invalidate();
     }
 
@@ -561,14 +553,14 @@ public class EditorTools extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.a.p();
-            this.f30482b.i();
+            this.b.i();
         }
     }
 
-    public List<m> getAllTools() {
+    public List<u05> getAllTools() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30485e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
     public List<Integer> getCollectTools() {
@@ -598,20 +590,20 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public final h i(m mVar, int i) {
+    public final p05 i(u05 u05Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, mVar, i)) == null) {
-            h a2 = c.a.o0.w.g.a(getContext(), mVar, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, u05Var, i)) == null) {
+            p05 a2 = o05.a(getContext(), u05Var, i);
             if (a2 instanceof View) {
-                ((View) a2).setContentDescription(mVar.f11508b);
+                ((View) a2).setContentDescription(u05Var.b);
             }
             if (a2 instanceof BLauncher) {
                 ((View) a2).setOnClickListener(this.v);
             }
             return a2;
         }
-        return (h) invokeLI.objValue;
+        return (p05) invokeLI.objValue;
     }
 
     public void j() {
@@ -624,11 +616,11 @@ public class EditorTools extends LinearLayout {
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            for (m mVar : this.f30485e) {
-                if (mVar != null) {
-                    n nVar = mVar.k;
-                    if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
-                        mVar.k.b();
+            for (u05 u05Var : this.e) {
+                if (u05Var != null) {
+                    v05 v05Var = u05Var.k;
+                    if ((v05Var instanceof View) && ((View) v05Var).getVisibility() == 0 && !u05Var.m) {
+                        u05Var.k.b();
                     }
                 }
             }
@@ -637,7 +629,7 @@ public class EditorTools extends LinearLayout {
                 q();
             }
             if (!u() && z) {
-                e.a().postDelayed(this.x, 200L);
+                pg.a().postDelayed(this.x, 200L);
             }
             setVisibility(0);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.TRUE));
@@ -645,41 +637,41 @@ public class EditorTools extends LinearLayout {
     }
 
     public void l() {
-        m n;
+        u05 n;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (n = n(3)) == null) {
             return;
         }
-        n nVar = n.k;
-        if (nVar instanceof View) {
-            View view = (View) nVar;
-            view.requestFocus();
-            c.a.d.f.p.n.L(getContext(), view);
+        v05 v05Var = n.k;
+        if (v05Var instanceof View) {
+            View view2 = (View) v05Var;
+            view2.requestFocus();
+            oi.L(getContext(), view2);
         }
     }
 
-    public h m(int i) {
+    public p05 m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            h q = this.a.q(i);
-            return q != null ? q : this.f30482b.l(i);
+            p05 q = this.a.q(i);
+            return q != null ? q : this.b.l(i);
         }
-        return (h) invokeI.objValue;
+        return (p05) invokeI.objValue;
     }
 
-    public m n(int i) {
+    public u05 n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            for (m mVar : this.f30485e) {
-                if (mVar.f11509c == i) {
-                    return mVar;
+            for (u05 u05Var : this.e) {
+                if (u05Var.c == i) {
+                    return u05Var;
                 }
             }
             return null;
         }
-        return (m) invokeI.objValue;
+        return (u05) invokeI.objValue;
     }
 
     public void o() {
@@ -706,31 +698,31 @@ public class EditorTools extends LinearLayout {
         View currentFocus;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            e.a().removeCallbacks(this.x);
+            pg.a().removeCallbacks(this.x);
             boolean z = false;
             if ((getContext() instanceof Activity) && (currentFocus = ((Activity) getContext()).getCurrentFocus()) != null) {
                 z = true;
-                c.a.d.f.p.n.w(getContext(), currentFocus);
+                oi.w(getContext(), currentFocus);
             }
             if (z) {
                 return;
             }
-            m n = n(3);
+            u05 n = n(3);
             if (n != null && (n.k instanceof View)) {
-                c.a.d.f.p.n.w(getContext(), (View) n.k);
+                oi.w(getContext(), (View) n.k);
             }
-            m n2 = n(28);
+            u05 n2 = n(28);
             if (n2 == null || !(n2.k instanceof View)) {
                 return;
             }
-            c.a.d.f.p.n.w(getContext(), (View) n2.k);
+            oi.w(getContext(), (View) n2.k);
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f30482b.n();
+            this.b.n();
             this.a.n(null);
         }
     }
@@ -739,12 +731,12 @@ public class EditorTools extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, context) == null) {
             this.r = context;
-            this.f30485e = new LinkedList();
-            this.f30486f = new SparseArray<>();
-            this.f30487g = new SparseArray<>();
-            this.f30488h = new SparseArray<>();
+            this.e = new LinkedList();
+            this.f = new SparseArray<>();
+            this.g = new SparseArray<>();
+            this.h = new SparseArray<>();
             this.a = new EditorBar(context, this);
-            this.f30482b = new EditorDesk(context, this);
+            this.b = new EditorDesk(context, this);
             this.n = new LinkedList<>();
             setOrientation(1);
         }
@@ -756,10 +748,10 @@ public class EditorTools extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
-    public void setActionListener(int i, c.a.o0.w.b bVar) {
+    public void setActionListener(int i, j05 j05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048604, this, i, bVar) == null) {
-            B(new int[]{i}, 0, bVar);
+        if (interceptable == null || interceptable.invokeIL(1048604, this, i, j05Var) == null) {
+            B(new int[]{i}, 0, j05Var);
         }
     }
 
@@ -814,14 +806,14 @@ public class EditorTools extends LinearLayout {
     public void setDeskBackgroundColorId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-            this.f30482b.setBackgroundColorId(i);
+            this.b.setBackgroundColorId(i);
         }
     }
 
     public void setDeskLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
-            this.f30482b.setDeskLauncherEnabled(z);
+            this.b.setDeskLauncherEnabled(z);
         }
     }
 
@@ -893,7 +885,7 @@ public class EditorTools extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || this.a.x(z, i)) {
             return;
         }
-        this.f30482b.v(z, i);
+        this.b.v(z, i);
     }
 
     public boolean t() {
@@ -905,7 +897,7 @@ public class EditorTools extends LinearLayout {
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f30482b.s() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.b.s() : invokeV.booleanValue;
     }
 
     public boolean v() {
@@ -919,41 +911,41 @@ public class EditorTools extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
             SkinManager.setBackgroundColor(this, this.k, i);
             this.a.v(i);
-            this.f30482b.t(i);
-            View view = this.f30483c;
-            if (view != null) {
-                c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(view);
+            this.b.t(i);
+            View view2 = this.c;
+            if (view2 != null) {
+                wr4 d2 = wr4.d(view2);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
             }
         }
     }
 
-    public void x(View view) {
+    public void x(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048628, this, view) == null) && (view instanceof h)) {
-            h hVar = (h) view;
-            int toolId = hVar.getToolId();
-            m n = n(toolId);
+        if ((interceptable == null || interceptable.invokeL(1048628, this, view2) == null) && (view2 instanceof p05)) {
+            p05 p05Var = (p05) view2;
+            int toolId = p05Var.getToolId();
+            u05 n = n(toolId);
             if (n.a()) {
-                A(new c.a.o0.w.a(31, 0, Integer.valueOf(hVar.getToolId())));
+                A(new i05(31, 0, Integer.valueOf(p05Var.getToolId())));
                 this.a.n(n);
-                if (hVar.getToolId() == 2 && !c.a.o0.r.j0.b.k().h("key_write_more_tool_point", false)) {
-                    c.a.o0.r.j0.b.k().u("key_write_more_tool_point", true);
-                    hVar.f();
+                if (p05Var.getToolId() == 2 && !wt4.k().h("key_write_more_tool_point", false)) {
+                    wt4.k().u("key_write_more_tool_point", true);
+                    p05Var.e();
                 }
-                if (hVar.getToolId() == 1) {
-                    hVar.hide();
+                if (p05Var.getToolId() == 1) {
+                    p05Var.hide();
                     j();
-                    A(new c.a.o0.w.a(1, 3, null));
+                    A(new i05(1, 3, null));
                 } else if (n.k == null) {
                     int[] iArr = n.n;
                     if (iArr == null || iArr.length <= 0) {
                         return;
                     }
-                    A(new c.a.o0.w.a(iArr[0], -1, null));
+                    A(new i05(iArr[0], -1, null));
                 } else {
-                    A(new c.a.o0.w.a(1, toolId, null));
+                    A(new i05(1, toolId, null));
                 }
             }
         }
@@ -973,10 +965,10 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void setActionListener(int[] iArr, c.a.o0.w.b bVar) {
+    public void setActionListener(int[] iArr, j05 j05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, iArr, bVar) == null) {
-            B(iArr, 0, bVar);
+        if (interceptable == null || interceptable.invokeLL(1048605, this, iArr, j05Var) == null) {
+            B(iArr, 0, j05Var);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PxUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,10 +28,10 @@ public class PxUtils {
         }
     }
 
-    public static int dp2px(float f2) {
+    public static int dp2px(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) ? (int) ((f2 * FunAdSdk.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? (int) ((f * FunAdSdk.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
     }
 
     public static int dpToPx(Context context, int i) {

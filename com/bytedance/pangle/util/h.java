@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -49,8 +49,8 @@ public final class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 assetManager = (AssetManager) AssetManager.class.newInstance();
-            } catch (Exception e2) {
-                ZeusLogger.e(ZeusLogger.TAG_RESOURCES, "Execute 'AssetManager.class.newInstance()' failed. ", e2);
+            } catch (Exception e) {
+                ZeusLogger.e(ZeusLogger.TAG_RESOURCES, "Execute 'AssetManager.class.newInstance()' failed. ", e);
                 assetManager = null;
             }
             return a(assetManager);
@@ -123,8 +123,8 @@ public final class h {
                 try {
                     Resources resources = Zeus.getAppApplication().getResources();
                     arrayList.add(Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir);
-                } catch (Exception e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths1 failed.", e2);
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths1 failed.", e);
                 }
             } else if (g.c()) {
                 try {
@@ -137,8 +137,8 @@ public final class h {
                     } else {
                         arrayList.add(((Context) invokeStaticMethod).getApplicationInfo().sourceDir);
                     }
-                } catch (Exception e3) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths2 failed.", e3);
+                } catch (Exception e2) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths2 failed.", e2);
                 }
             }
             return arrayList;

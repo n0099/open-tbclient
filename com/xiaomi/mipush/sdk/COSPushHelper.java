@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class COSPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
@@ -79,7 +79,7 @@ public class COSPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m174a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m170a(context) : invokeL.booleanValue;
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -97,10 +97,10 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f44080c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.c)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH :  register cos when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH :  register cos when network change!");
         a2.register();
     }
 
@@ -116,7 +116,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.a(context, e.f44080c, str);
+            i.a(context, e.c, str);
         }
     }
 }

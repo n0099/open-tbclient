@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SelectForumConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_SELECT_INTEREST_FORUM = "is_select_interest_forum";

@@ -29,7 +29,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -66,7 +66,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     public SettableDraweeHierarchy mSettableDraweeHierarchy;
     public final Executor mUiThreadImmediateExecutor;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class InternalForwardingListener<INFO> extends ForwardingControllerListener<INFO> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,9 +256,9 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     /* JADX INFO: Access modifiers changed from: private */
-    public void onNewResultInternal(String str, DataSource<T> dataSource, @Nullable T t, float f2, boolean z, boolean z2, boolean z3) {
+    public void onNewResultInternal(String str, DataSource<T> dataSource, @Nullable T t, float f, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{str, dataSource, t, Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{str, dataSource, t, Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("AbstractDraweeController#onNewResultInternal");
@@ -291,7 +291,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
                         getControllerListener().onFinalImageSet(str, getImageInfo(t), getAnimatable());
                     } else {
                         logMessageAndImage("set_intermediate_result @ onNewResult", t);
-                        this.mSettableDraweeHierarchy.setImage(createDrawable, f2, z2);
+                        this.mSettableDraweeHierarchy.setImage(createDrawable, f, z2);
                         getControllerListener().onIntermediateImageSet(str, getImageInfo(t));
                     }
                     if (drawable != null && drawable != createDrawable) {
@@ -304,10 +304,10 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     logMessageAndImage("drawable_failed @ onNewResult", t);
                     releaseImage(t);
-                    onFailureInternal(str, dataSource, e2, z);
+                    onFailureInternal(str, dataSource, e, z);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
@@ -322,15 +322,15 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onProgressUpdateInternal(String str, DataSource<T> dataSource, float f2, boolean z) {
+    public void onProgressUpdateInternal(String str, DataSource<T> dataSource, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{str, dataSource, Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{str, dataSource, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             if (!isExpectedDataSource(str, dataSource)) {
                 logMessageAndFailure("ignore_old_datasource @ onProgress", null);
                 dataSource.close();
             } else if (z) {
             } else {
-                this.mSettableDraweeHierarchy.setProgress(f2, false);
+                this.mSettableDraweeHierarchy.setProgress(f, false);
             }
         }
     }

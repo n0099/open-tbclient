@@ -7,8 +7,6 @@ import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -23,6 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.ni;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,8 +34,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
-public class StringHelper extends m {
+/* loaded from: classes3.dex */
+public class StringHelper extends ni {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ALA_CARD_DAY_BEFORE = null;
     public static String ALA_CARD_HOUR_BEFORE = null;
@@ -86,16 +86,16 @@ public class StringHelper extends m {
         long j2 = j * 60;
         MS_TO_HOUR = j2;
         MS_TO_DAY = j2 * 24;
-        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13bf);
-        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c4);
-        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c6);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f046f);
-        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13be);
-        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c5);
-        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c7);
-        ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fa);
-        ALA_CARD_HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fb);
-        ALA_CARD_MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fc);
+        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c7);
+        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13cc);
+        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13ce);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0476);
+        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c6);
+        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13cd);
+        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13cf);
+        ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fb);
+        ALA_CARD_HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fc);
+        ALA_CARD_MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fd);
         FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
         FORMATE_DATE_DAY_TIME = new SimpleDateFormat("dd日HH:mm");
@@ -109,16 +109,16 @@ public class StringHelper extends m {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            m.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            m.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            m.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            m.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            m.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            m.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            m.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            m.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            m.FORMATE_DATE_MS.setTimeZone(timeZone);
-            m.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            ni.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            ni.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            ni.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            ni.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            ni.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            ni.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            ni.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            ni.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            ni.FORMATE_DATE_MS.setTimeZone(timeZone);
+            ni.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -149,8 +149,8 @@ public class StringHelper extends m {
             while (i < length) {
                 try {
                     sb.append(jSONArray.get(i));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 i++;
                 if (i < length) {
@@ -202,7 +202,7 @@ public class StringHelper extends m {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                i3 = ni.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
                 if (i3 >= i) {
                     break;
                 }
@@ -235,7 +235,7 @@ public class StringHelper extends m {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                i3 = ni.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
                 if (i3 >= i) {
                     break;
                 }
@@ -264,7 +264,7 @@ public class StringHelper extends m {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                i3 = ni.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
                 if (i3 >= i) {
                     break;
                 }
@@ -298,7 +298,7 @@ public class StringHelper extends m {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    i3 = m.isChinese(replaceAll.charAt(i2)) ? i3 + 2 : i3 + 1;
+                    i3 = ni.isChinese(replaceAll.charAt(i2)) ? i3 + 2 : i3 + 1;
                     if (i3 >= i) {
                         break;
                     }
@@ -368,7 +368,7 @@ public class StringHelper extends m {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                i3 = ni.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
                 if (i3 >= i) {
                     break;
                 }
@@ -427,8 +427,8 @@ public class StringHelper extends m {
                 if (i2 >= 0 && i2 <= 11) {
                     return strArr[i2];
                 }
-            } catch (ParseException e2) {
-                e2.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
             return null;
         }
@@ -451,7 +451,7 @@ public class StringHelper extends m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (m.isEmpty(str)) {
+            if (ni.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -481,11 +481,11 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String formatDistanceNum(double d2) {
+    public static String formatDistanceNum(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Double.valueOf(d2)})) == null) {
-            String format = String.format(Locale.getDefault(), "%.1f", Double.valueOf(d2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Double.valueOf(d)})) == null) {
+            String format = String.format(Locale.getDefault(), "%.1f", Double.valueOf(d));
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
             }
@@ -508,27 +508,27 @@ public class StringHelper extends m {
             String valueOf = String.valueOf(j);
             if (j < 100000000) {
                 if (j >= 10000000) {
-                    float f2 = ((float) j) / 10000.0f;
+                    float f = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
                     if (j % 10000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                     }
-                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                 }
                 return valueOf;
             }
             long j3 = j % 100000000;
             if (j3 != 0) {
-                double d2 = ((float) j) / 1.0E8f;
-                double d3 = j / 100000000;
+                double d = ((float) j) / 1.0E8f;
+                double d2 = j / 100000000;
                 if (j3 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 } else {
-                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 }
                 return str;
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
         }
         return (String) invokeJ.objValue;
     }
@@ -544,52 +544,52 @@ public class StringHelper extends m {
             String valueOf = String.valueOf(j);
             if (j < 100000000) {
                 if (j >= 1000000) {
-                    float f2 = ((float) j) / 10000.0f;
+                    float f = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
                     if (j % 1000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                        return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                     }
-                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                 }
                 return valueOf;
             }
             long j3 = j % 100000000;
             if (j3 != 0) {
-                double d2 = ((float) j) / 1.0E8f;
-                double d3 = j / 100000000;
+                double d = ((float) j) / 1.0E8f;
+                double d2 = j / 100000000;
                 if (j3 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                    str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 } else {
-                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                    str = d2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 }
                 return str;
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String formatOverBaiwanNum(float f2) {
+    public static String formatOverBaiwanNum(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65558, null, f2)) == null) {
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65558, null, f)) == null) {
+            if (f < 0.0f) {
+                f = 0.0f;
             }
-            String valueOf = String.valueOf(f2);
-            if (f2 >= 1.0E8f) {
-                if (f2 % 1.0E8f != 0.0f) {
-                    double d2 = f2 / 1.0E8f;
-                    return String.format("%.1f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+            String valueOf = String.valueOf(f);
+            if (f >= 1.0E8f) {
+                if (f % 1.0E8f != 0.0f) {
+                    double d = f / 1.0E8f;
+                    return String.format("%.1f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 }
-                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
-            } else if (f2 >= 1000000.0f) {
-                float f3 = f2 / 10000.0f;
-                long j = f3;
-                if (f3 > ((float) j)) {
-                    return String.format("%.1f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
+            } else if (f >= 1000000.0f) {
+                float f2 = f / 10000.0f;
+                long j = f2;
+                if (f2 > ((float) j)) {
+                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                 }
-                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
             } else {
                 return valueOf;
             }
@@ -619,32 +619,32 @@ public class StringHelper extends m {
         return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i)) == null) ? new DecimalFormat("#,###").format(i) : (String) invokeI.objValue;
     }
 
-    public static String formatYdouOverBaiwanNum(float f2) {
+    public static String formatYdouOverBaiwanNum(float f) {
         InterceptResult invokeF;
-        float f3;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65564, null, f2)) == null) {
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65564, null, f)) == null) {
+            if (f < 0.0f) {
+                f = 0.0f;
             }
-            if (f2 >= 1.0E8f) {
-                if (f2 % 1.0E8f != 0.0f) {
-                    double d2 = f2 / 1.0E8f;
-                    return String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+            if (f >= 1.0E8f) {
+                if (f % 1.0E8f != 0.0f) {
+                    double d = f / 1.0E8f;
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 }
-                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
-            } else if (f2 < 1000000.0f) {
-                int i = (int) f2;
-                if (f2 > i) {
-                    return ((int) (100.0f * f2)) % 10 == 0 ? String.format("%.1f", Float.valueOf(f2)) : String.format("%.2f", Float.valueOf(f2));
+                return (f / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
+            } else if (f < 1000000.0f) {
+                int i = (int) f;
+                if (f > i) {
+                    return ((int) (100.0f * f)) % 10 == 0 ? String.format("%.1f", Float.valueOf(f)) : String.format("%.2f", Float.valueOf(f));
                 }
                 return String.valueOf(i);
             } else {
-                long j = f2 / 10000;
-                if (f2 / 10000.0f > ((float) j)) {
-                    return String.format("%.2f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                long j = f / 10000;
+                if (f / 10000.0f > ((float) j)) {
+                    return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                 }
-                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
             }
         }
         return (String) invokeF.objValue;
@@ -655,14 +655,14 @@ public class StringHelper extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), 1);
+                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), 1);
             }
-            float d2 = b.d(str, 0.0f);
-            if (d2 > 1.0f) {
-                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), Integer.valueOf(Math.round(d2)));
+            float d = mg.d(str, 0.0f);
+            if (d > 1.0f) {
+                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9), Integer.valueOf(Math.round(d)));
             }
-            int round = Math.round(d2 * 12.0f);
-            return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), Integer.valueOf(round));
+            int round = Math.round(d * 12.0f);
+            return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), Integer.valueOf(round));
         }
         return (String) invokeL.objValue;
     }
@@ -683,7 +683,7 @@ public class StringHelper extends m {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                i = m.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
+                i = ni.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
             }
             return i;
         }
@@ -755,8 +755,8 @@ public class StringHelper extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             Date date2 = new Date();
-            synchronized (m.FORMATE_DATE_MS) {
-                format = m.FORMATE_DATE_MS.format(date2);
+            synchronized (ni.FORMATE_DATE_MS) {
+                format = ni.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -769,8 +769,8 @@ public class StringHelper extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (m.FORMATE_DATE_DAY) {
-                format = m.FORMATE_DATE_DAY.format(date2);
+            synchronized (ni.FORMATE_DATE_DAY) {
+                format = ni.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -822,8 +822,8 @@ public class StringHelper extends m {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, date2)) == null) {
-            synchronized (m.FORMATE_DATE_DAY_1) {
-                format = m.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (ni.FORMATE_DATE_DAY_1) {
+                format = ni.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -835,8 +835,8 @@ public class StringHelper extends m {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (m.FORMATE_DATE_DAY_NO_YEAR) {
-                format = m.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (ni.FORMATE_DATE_DAY_NO_YEAR) {
+                format = ni.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -959,8 +959,8 @@ public class StringHelper extends m {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, date2)) == null) {
-            synchronized (m.FORMATE_DATE_DAY_WEEK) {
-                format = m.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (ni.FORMATE_DATE_DAY_WEEK) {
+                format = ni.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -975,15 +975,15 @@ public class StringHelper extends m {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            double d2 = 0.0d;
+            double d = 0.0d;
             int i2 = 0;
             while (true) {
                 if (i2 >= str.length()) {
                     break;
                 }
                 char charAt = str.charAt(i2);
-                d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-                if (d2 <= i) {
+                d += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
+                if (d <= i) {
                     sb.append(charAt);
                     i2++;
                 } else if (z) {
@@ -1014,8 +1014,8 @@ public class StringHelper extends m {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65592, null, j)) == null) {
-            float f2 = (float) j;
-            return f2 >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f2 / SIZE_FLOAT_G)) : f2 >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f2 / SIZE_FLOAT_M)) : f2 >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f2 / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d2);
+            float f = (float) j;
+            return f >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f / SIZE_FLOAT_G)) : f >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f / SIZE_FLOAT_M)) : f >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d2);
         }
         return (String) invokeJ.objValue;
     }
@@ -1097,7 +1097,7 @@ public class StringHelper extends m {
                 }
                 return String.valueOf(time / MS_TO_HOUR) + HOUR_BEFORE;
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ad1);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ad3);
         }
         return (String) invokeL.objValue;
     }
@@ -1130,8 +1130,8 @@ public class StringHelper extends m {
             try {
                 str3 = str.replaceAll("<em>", "<font color='" + str2 + "'>");
                 return str3.replaceAll("</em>", "</font>");
-            } catch (Exception e2) {
-                BdLog.e(e2.toString());
+            } catch (Exception e) {
+                BdLog.e(e.toString());
                 return str3;
             }
         }
@@ -1152,8 +1152,8 @@ public class StringHelper extends m {
                     return str.substring(lastIndexOf, lastIndexOf2);
                 }
                 return str.substring(lastIndexOf);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return null;
             }
         }
@@ -1201,7 +1201,7 @@ public class StringHelper extends m {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                i = m.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
+                i = ni.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
             }
             return i;
         }
@@ -1328,11 +1328,11 @@ public class StringHelper extends m {
         if (interceptable == null || (invokeI = interceptable.invokeI(65614, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0818);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0819);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1150);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1158);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0818);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0819);
         }
         return (String) invokeI.objValue;
     }
@@ -1426,7 +1426,7 @@ public class StringHelper extends m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, str)) == null) {
-            if (!m.isEmpty(str)) {
+            if (!ni.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1441,7 +1441,7 @@ public class StringHelper extends m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, str)) == null) {
-            if (m.isEmpty(str)) {
+            if (ni.isEmpty(str)) {
                 return false;
             }
             try {
@@ -1451,8 +1451,8 @@ public class StringHelper extends m {
                 }
                 boolean z = nextValue instanceof JSONArray;
                 return false;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -1523,9 +1523,9 @@ public class StringHelper extends m {
                 }
                 return "" + j;
             }
-            float f2 = ((float) j) / 10000.0f;
-            long round = Math.round(f2);
-            if (((float) round) > f2) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
                 round--;
             }
             return round + "w+";
@@ -1543,9 +1543,9 @@ public class StringHelper extends m {
                 }
                 return "" + j;
             }
-            float f2 = ((float) j) / 10000.0f;
-            long round = Math.round(f2);
-            if (((float) round) > f2) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
                 round--;
             }
             return round + "W";
@@ -1563,9 +1563,9 @@ public class StringHelper extends m {
                 }
                 return "" + j;
             }
-            float f2 = ((float) j) / 10000.0f;
-            long round = Math.round(f2);
-            if (((float) round) > f2) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
                 round--;
             }
             return round + "w+";
@@ -1600,12 +1600,12 @@ public class StringHelper extends m {
             }
             if (j > 9999) {
                 DecimalFormat decimalFormat = new DecimalFormat("#.#");
-                float f2 = ((float) j) / 10000.0f;
-                if (f2 < 1000.0f) {
-                    return decimalFormat.format(f2) + "W";
+                float f = ((float) j) / 10000.0f;
+                if (f < 1000.0f) {
+                    return decimalFormat.format(f) + "W";
                 }
-                long round = Math.round(f2);
-                if (((float) round) > f2) {
+                long round = Math.round(f);
+                if (((float) round) > f) {
                     round--;
                 }
                 return round + "W";
@@ -1615,21 +1615,21 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String longNumFormatOver9999wanDoublePoint(double d2) {
+    public static String longNumFormatOver9999wanDoublePoint(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65634, null, new Object[]{Double.valueOf(d2)})) == null) {
-            if (d2 < 0.0d) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65634, null, new Object[]{Double.valueOf(d)})) == null) {
+            if (d < 0.0d) {
                 return "0";
             }
-            if (d2 > 9.999E7d) {
+            if (d > 9.999E7d) {
                 return "9999万+";
             }
-            if (d2 > 9999.0d) {
+            if (d > 9999.0d) {
                 DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-                return decimalFormat.format(((float) d2) / 10000.0f) + "万";
+                return decimalFormat.format(((float) d) / 10000.0f) + "万";
             }
-            return new DecimalFormat("#0.00").format(d2);
+            return new DecimalFormat("#0.00").format(d);
         }
         return (String) invokeCommon.objValue;
     }
@@ -1679,9 +1679,9 @@ public class StringHelper extends m {
                 }
                 return "" + j;
             }
-            float f2 = ((float) j) / 10000.0f;
-            long round = Math.round(f2);
-            if (((float) round) > f2) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
                 round--;
             }
             if (round >= 9999) {
@@ -1737,19 +1737,19 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOver10000wan(float f2) {
+    public static String numFormatOver10000wan(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65641, null, f2)) == null) {
-            if (f2 <= 9999999.0f) {
-                if (f2 < 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65641, null, f)) == null) {
+            if (f <= 9999999.0f) {
+                if (f < 0.0f) {
                     return "0";
                 }
-                return "" + f2;
+                return "" + f;
             }
-            float f3 = f2 / 10000.0f;
-            long round = Math.round(f3);
-            if (((float) round) > f3) {
+            float f2 = f / 10000.0f;
+            long round = Math.round(f2);
+            if (((float) round) > f2) {
                 round--;
             }
             return round + "W";
@@ -1857,14 +1857,14 @@ public class StringHelper extends m {
                 if (j < 10000000) {
                     return (j / 10000) + "W";
                 }
-                float f2 = ((float) (j / 1000000)) / 10.0f;
-                if (f2 >= 9999.0f) {
+                float f = ((float) (j / 1000000)) / 10.0f;
+                if (f >= 9999.0f) {
                     return "9999KW+";
                 }
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "KW";
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "KW";
                 }
-                return ((int) f2) + "KW";
+                return ((int) f) + "KW";
             }
         }
         return (String) invokeJ.objValue;
@@ -1895,11 +1895,11 @@ public class StringHelper extends m {
             if (j < 10000) {
                 return j + "";
             } else if (j < 9999000.0d) {
-                float f2 = ((float) (j / 1000)) / 10.0f;
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "万";
+                float f = ((float) (j / 1000)) / 10.0f;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "万";
                 }
-                return f2 + "万";
+                return f + "万";
             } else {
                 return "999.9万";
             }
@@ -1917,17 +1917,17 @@ public class StringHelper extends m {
             if (j < 10000) {
                 return j + "";
             } else if (j < 10000000) {
-                float f2 = ((float) (j / 1000)) / 10.0f;
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "万";
+                float f = ((float) (j / 1000)) / 10.0f;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "万";
                 }
-                return f2 + "万";
+                return f + "万";
             } else {
-                float f3 = ((float) (j / 1000000)) / 10.0f;
-                if (f3 % 1.0f == 0.0f) {
-                    return ((int) f3) + "千万";
+                float f2 = ((float) (j / 1000000)) / 10.0f;
+                if (f2 % 1.0f == 0.0f) {
+                    return ((int) f2) + "千万";
                 }
-                return f3 + "千万";
+                return f2 + "千万";
             }
         }
         return (String) invokeJ.objValue;
@@ -1943,20 +1943,20 @@ public class StringHelper extends m {
             if (j < 10000) {
                 return j + "";
             } else if (j < 10000000) {
-                float f2 = ((float) (j / 1000)) / 10.0f;
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "W";
+                float f = ((float) (j / 1000)) / 10.0f;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "W";
                 }
-                return f2 + "W";
+                return f + "W";
             } else {
-                float f3 = ((float) (j / 1000000)) / 10.0f;
-                if (f3 >= 9999.0f) {
+                float f2 = ((float) (j / 1000000)) / 10.0f;
+                if (f2 >= 9999.0f) {
                     return "9999KW+";
                 }
-                if (f3 % 1.0f == 0.0f) {
-                    return ((int) f3) + "KW";
+                if (f2 % 1.0f == 0.0f) {
+                    return ((int) f2) + "KW";
                 }
-                return f3 + "KW";
+                return f2 + "KW";
             }
         }
         return (String) invokeJ.objValue;
@@ -1974,14 +1974,14 @@ public class StringHelper extends m {
             } else if (j < 10000000) {
                 return String.format("%.1f", Double.valueOf(j / 10000.0d)) + "W";
             } else {
-                float f2 = ((float) (j / 1000000)) / 10.0f;
-                if (f2 >= 9999.0f) {
+                float f = ((float) (j / 1000000)) / 10.0f;
+                if (f >= 9999.0f) {
                     return "9999KW+";
                 }
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "KW";
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "KW";
                 }
-                return f2 + "KW";
+                return f + "KW";
             }
         }
         return (String) invokeJ.objValue;
@@ -1997,19 +1997,19 @@ public class StringHelper extends m {
             if (j < 10000) {
                 return j + "";
             }
-            double d2 = j;
-            if (d2 < 9999000.0d) {
-                float f2 = ((float) (j / 1000)) / 10.0f;
+            double d = j;
+            if (d < 9999000.0d) {
+                float f = ((float) (j / 1000)) / 10.0f;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "W";
+                }
+                return f + "W";
+            } else if (d < 9.9999E10d) {
+                float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "W";
+                    return ((int) f2) + "KW";
                 }
-                return f2 + "W";
-            } else if (d2 < 9.9999E10d) {
-                float f3 = ((float) (j / 1000000)) / 10.0f;
-                if (f3 % 1.0f == 0.0f) {
-                    return ((int) f3) + "KW";
-                }
-                return f3 + "KW";
+                return f2 + "KW";
             } else {
                 return "9999.9KW";
             }
@@ -2037,14 +2037,14 @@ public class StringHelper extends m {
                 if (format2.endsWith(".0")) {
                     format2 = format2.substring(0, format2.length() - 2);
                 }
-                float d2 = b.d(format2, 1.0f);
-                if (d2 >= 9999.0f) {
+                float d = mg.d(format2, 1.0f);
+                if (d >= 9999.0f) {
                     return "9999KW+";
                 }
-                if (d2 % 1.0f == 0.0f) {
-                    return ((int) d2) + "KW";
+                if (d % 1.0f == 0.0f) {
+                    return ((int) d) + "KW";
                 }
-                return d2 + "KW";
+                return d + "KW";
             }
         }
         return (String) invokeJ.objValue;
@@ -2066,14 +2066,14 @@ public class StringHelper extends m {
                 }
                 return format + "w";
             } else {
-                float f2 = ((float) (j / 1000000)) / 10.0f;
-                if (f2 >= 999.0f) {
+                float f = ((float) (j / 1000000)) / 10.0f;
+                if (f >= 999.0f) {
                     return "999kw+";
                 }
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + TiebaStatic.Params.H5_FORUM_NAME;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + TiebaStatic.Params.H5_FORUM_NAME;
                 }
-                return f2 + TiebaStatic.Params.H5_FORUM_NAME;
+                return f + TiebaStatic.Params.H5_FORUM_NAME;
             }
         }
         return (String) invokeJ.objValue;
@@ -2089,11 +2089,11 @@ public class StringHelper extends m {
             if (j < 10000) {
                 return j + "";
             } else if (j < 9999000.0d) {
-                float f2 = ((float) (j / 1000)) / 10.0f;
-                if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + "W";
+                float f = ((float) (j / 1000)) / 10.0f;
+                if (f % 1.0f == 0.0f) {
+                    return ((int) f) + "W";
                 }
-                return f2 + "W";
+                return f + "W";
             } else {
                 return "999.9W";
             }
@@ -2128,7 +2128,7 @@ public class StringHelper extends m {
             } else {
                 valueOf = String.valueOf(date2.getMinutes());
             }
-            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c8, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c8, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c9, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c9, new Object[]{String.valueOf(date2.getHours()), valueOf});
+            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13d0, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13d0, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13d1, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13d1, new Object[]{String.valueOf(date2.getHours()), valueOf});
         }
         return (String) invokeJ.objValue;
     }
@@ -2139,8 +2139,8 @@ public class StringHelper extends m {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65658, null, str, str2)) == null) {
             try {
                 return new SimpleDateFormat(str2).parse(str).getTime();
-            } catch (java.text.ParseException e2) {
-                e2.printStackTrace();
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
                 return 0L;
             }
         }
@@ -2178,7 +2178,7 @@ public class StringHelper extends m {
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
                 char charAt = str.charAt(i3);
-                i2 = m.isChinese(charAt) ? i2 + 2 : i2 + 1;
+                i2 = ni.isChinese(charAt) ? i2 + 2 : i2 + 1;
                 if (i2 > i) {
                     break;
                 }
@@ -2256,7 +2256,7 @@ public class StringHelper extends m {
             int day = date2.getDay() - date3.getDay();
             long time = date2.getTime() - date3.getTime();
             if (time < 0) {
-                return time > -120000 ? "刚刚" : m.getDateStringDay(date3);
+                return time > -120000 ? "刚刚" : ni.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2266,9 +2266,9 @@ public class StringHelper extends m {
                 if (time < 3600000) {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
-                    return day == 0 ? m.getDateStringHm(date3) : "1天前";
+                    return day == 0 ? ni.getDateStringHm(date3) : "1天前";
                 } else if (time >= 2678400000L) {
-                    return time < 2764800000L ? "1个月前" : m.getDateStringDay(date3);
+                    return time < 2764800000L ? "1个月前" : ni.getDateStringDay(date3);
                 } else {
                     return String.valueOf((time * 31) / 2678400000L) + "天前";
                 }
@@ -2307,7 +2307,7 @@ public class StringHelper extends m {
             int day = date2.getDay() - date3.getDay();
             long time = date2.getTime() - date3.getTime();
             if (time < 0) {
-                return time > -120000 ? "刚刚" : m.getDateStringDay(date3);
+                return time > -120000 ? "刚刚" : ni.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2317,20 +2317,20 @@ public class StringHelper extends m {
                 if (time < 3600000) {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
-                    return day == 0 ? m.getDateStringHm(date3) : "1天前";
+                    return day == 0 ? ni.getDateStringHm(date3) : "1天前";
                 } else if (time < 2678400000L) {
                     return String.valueOf((time * 31) / 2678400000L) + "天前";
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (m.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = m.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (ni.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = ni.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (m.FORMATE_DATE_DAY) {
-                        format = m.FORMATE_DATE_DAY.format(date3);
+                    synchronized (ni.FORMATE_DATE_DAY) {
+                        format = ni.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2349,7 +2349,7 @@ public class StringHelper extends m {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                i = m.isChinese(charSequence.charAt(i2)) ? i + 2 : i + 1;
+                i = ni.isChinese(charSequence.charAt(i2)) ? i + 2 : i + 1;
             }
             return i;
         }
@@ -2366,9 +2366,9 @@ public class StringHelper extends m {
                 }
                 return "" + j;
             }
-            float f2 = ((float) j) / 10000.0f;
-            long round = Math.round(f2);
-            if (((float) round) > f2) {
+            float f = ((float) j) / 10000.0f;
+            long round = Math.round(f);
+            if (((float) round) > f) {
                 round--;
             }
             return round + "W";
@@ -2387,7 +2387,7 @@ public class StringHelper extends m {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                i3 = m.isChinese(charSequence.charAt(i2)) ? i3 + 2 : i3 + 1;
+                i3 = ni.isChinese(charSequence.charAt(i2)) ? i3 + 2 : i3 + 1;
                 if (i3 >= i) {
                     break;
                 }
@@ -2443,7 +2443,7 @@ public class StringHelper extends m {
                 if (z) {
                     return getDateStringDayNoYear(date2);
                 }
-                return m.getDateStringDay(date2);
+                return ni.getDateStringDay(date2);
             } else if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
                     long j = time / MS_TO_SEC;
@@ -2497,7 +2497,7 @@ public class StringHelper extends m {
                 if (z) {
                     return getDateStringDayNoYear(date2);
                 }
-                return m.getDateStringDay(date2);
+                return ni.getDateStringDay(date2);
             } else if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
                     return "刚刚";
@@ -2520,16 +2520,16 @@ public class StringHelper extends m {
             String valueOf = String.valueOf(j);
             if (j >= 100000000) {
                 if (j % 100000000 != 0) {
-                    return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                    return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
                 }
-                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1476);
             } else if (j >= 1000000) {
-                float f2 = ((float) j) / 10000.0f;
+                float f = ((float) j) / 10000.0f;
                 long j2 = j / 10000;
-                if (f2 > ((float) j2)) {
-                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                if (f > ((float) j2)) {
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
                 }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
             } else {
                 return valueOf;
             }

@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AppendTrack extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -134,8 +134,8 @@ public class AppendTrack extends AbstractTrack {
                                                                         eSDescriptorBox.setDescriptor(mergeDescriptors(eSDescriptorBox.getEsDescriptor(), ((ESDescriptorBox) next).getEsDescriptor()));
                                                                         audioSampleEntry3.addBox(box);
                                                                     }
-                                                                } catch (IOException e2) {
-                                                                    LOG.logWarn(e2.getMessage());
+                                                                } catch (IOException e) {
+                                                                    LOG.logWarn(e.getMessage());
                                                                     return null;
                                                                 }
                                                             }
@@ -249,8 +249,8 @@ public class AppendTrack extends AbstractTrack {
                     sampleDescriptionBox.setBoxes(Collections.singletonList(mergeSampleEntry));
                 }
                 return sampleDescriptionBox;
-            } catch (IOException e2) {
-                LOG.logError(e2.getMessage());
+            } catch (IOException e) {
+                LOG.logError(e.getMessage());
                 return null;
             }
         }
@@ -293,8 +293,8 @@ public class AppendTrack extends AbstractTrack {
                                                         abstractDescriptorBox.setDescriptor(mergeDescriptors(abstractDescriptorBox.getDescriptor(), ((AbstractDescriptorBox) next).getDescriptor()));
                                                         visualSampleEntry3.addBox(box);
                                                     }
-                                                } catch (IOException e2) {
-                                                    LOG.logWarn(e2.getMessage());
+                                                } catch (IOException e) {
+                                                    LOG.logWarn(e.getMessage());
                                                     return null;
                                                 }
                                             }

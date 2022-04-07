@@ -10,19 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Object> f28062b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<Integer> f28063c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f28064d;
+    public static HashMap<String, Object> b;
+    public static ArrayList<Integer> c;
+    public static HashMap<String, Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +32,9 @@ public class a {
                 return;
             }
         }
-        f28062b = new HashMap<>();
-        f28063c = new ArrayList<>();
-        f28064d = new HashMap<>();
+        b = new HashMap<>();
+        c = new ArrayList<>();
+        d = new HashMap<>();
     }
 
     public a() {
@@ -66,41 +60,41 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            HashMap<String, Integer> hashMap = f28064d;
+            HashMap<String, Integer> hashMap = d;
             if (hashMap != null && !hashMap.containsKey(str)) {
-                f28064d.put(str, 1);
+                d.put(str, 1);
                 return;
             }
-            HashMap<String, Integer> hashMap2 = f28064d;
+            HashMap<String, Integer> hashMap2 = d;
             if (hashMap2 == null || !hashMap2.containsKey(str)) {
                 return;
             }
-            f28064d.put(str, Integer.valueOf(f28064d.get(str).intValue() + 1));
+            d.put(str, Integer.valueOf(d.get(str).intValue() + 1));
         }
     }
 
     public static void a(String str, Object obj) {
         HashMap<String, Object> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj) == null) || (hashMap = f28062b) == null || hashMap.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj) == null) || (hashMap = b) == null || hashMap.containsKey(str)) {
             return;
         }
-        f28062b.put(str, obj);
+        b.put(str, obj);
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f28062b = new HashMap<>();
-            f28063c = new ArrayList<>();
-            f28064d = new HashMap<>();
+            b = new HashMap<>();
+            c = new ArrayList<>();
+            d = new HashMap<>();
         }
     }
 
     public static void b(String str, Object obj) {
         HashMap<String, Object> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, obj) == null) || (hashMap = f28062b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, obj) == null) || (hashMap = b) == null) {
             return;
         }
         hashMap.put(str, obj);

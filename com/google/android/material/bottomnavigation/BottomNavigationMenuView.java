@@ -44,7 +44,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACTIVE_ANIMATION_DURATION_MS = 115;
@@ -727,11 +727,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         this.selectedItemPosition = 0;
         this.badgeDrawables = new SparseArray<>(5);
         Resources resources = getResources();
-        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f7);
-        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f8);
-        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f1);
-        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f2);
-        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f5);
+        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fc);
+        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fd);
+        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f5);
+        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f6);
+        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fa);
         this.itemTextColorDefault = createDefaultColorStateList(16842808);
         AutoTransition autoTransition = new AutoTransition();
         this.set = autoTransition;
@@ -763,10 +763,10 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    MenuItemImpl itemData = ((BottomNavigationItemView) view).getItemData();
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    MenuItemImpl itemData = ((BottomNavigationItemView) view2).getItemData();
                     if (this.this$0.menu.performItemAction(itemData, this.this$0.presenter, 0)) {
                         return;
                     }

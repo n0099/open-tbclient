@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import okhttp3.Call;
 import okhttp3.Dns;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HostInfo implements HostManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_DNS_MIN_ERR_COUNT = 30;
@@ -67,8 +67,8 @@ public class HostInfo implements HostManager {
             for (String str : strArr) {
                 try {
                     arrayList.add(InetAddress.getByName(str));
-                } catch (UnknownHostException e2) {
-                    e2.printStackTrace();
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
                 }
             }
             Collections.shuffle(arrayList);

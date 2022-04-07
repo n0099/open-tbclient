@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VmTraceParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER_END = "*end";
@@ -43,7 +43,7 @@ public class VmTraceParser {
     public VmClockType mVmClockType;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceParser$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$VmClockType;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class VmTraceParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class StreamingTraceParser {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -495,7 +495,7 @@ public class VmTraceParser {
             BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8")));
             long j = 0;
             loop0: while (true) {
-                char c2 = 0;
+                char c = 0;
                 while (true) {
                     try {
                         String readLine = bufferedReader2.readLine();
@@ -507,9 +507,9 @@ public class VmTraceParser {
                             if (readLine.equals(HEADER_SECTION_VERSION)) {
                                 break;
                             } else if (readLine.equals(HEADER_SECTION_THREADS)) {
-                                c2 = 2;
+                                c = 2;
                             } else if (readLine.equals(HEADER_SECTION_METHODS)) {
-                                c2 = 1;
+                                c = 1;
                             } else if (readLine.equals(HEADER_END)) {
                                 try {
                                     bufferedReader2.close();
@@ -518,16 +518,16 @@ public class VmTraceParser {
                                 return j;
                             }
                         }
-                        if (c2 == 0) {
+                        if (c == 0) {
                             int intValue = Integer.decode(readLine).intValue();
                             this.mVersion = intValue;
                             this.mTraceDataHandler.setVersion(intValue);
-                            c2 = 4;
-                        } else if (c2 == 1) {
+                            c = 4;
+                        } else if (c == 1) {
                             parseMethod(readLine);
-                        } else if (c2 == 2) {
+                        } else if (c == 2) {
                             parseThread(readLine);
-                        } else if (c2 == 4) {
+                        } else if (c == 4) {
                             parseOption(readLine);
                         }
                     } catch (Throwable th) {

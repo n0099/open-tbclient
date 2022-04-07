@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SapiCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, SoftReference<String>> cache;
@@ -53,7 +53,7 @@ public final class SapiCache {
     public final List<String> newModuleIds;
     public final List<String> oldModuleIds;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LoadModuleEventListener {
         void onFailure(SapiOptions.Cache.Module module);
 
@@ -614,8 +614,8 @@ public final class SapiCache {
                     if (process == null) {
                         return;
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     if (process == null) {
                         return;
                     }
@@ -686,8 +686,8 @@ public final class SapiCache {
                             JSONObject jSONObject = new JSONObject(str);
                             i2 = jSONObject.optInt("errno");
                             str2 = jSONObject.optString("data");
-                        } catch (JSONException e2) {
-                            Log.e(e2);
+                        } catch (JSONException e) {
+                            Log.e(e);
                         }
                         if (i2 != 0 || TextUtils.isEmpty(str2)) {
                             return;

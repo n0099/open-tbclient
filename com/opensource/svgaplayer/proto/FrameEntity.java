@@ -1,8 +1,5 @@
 package com.opensource.svgaplayer.proto;
 
-import c.k.a.c;
-import c.k.a.d;
-import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,6 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pn9;
+import com.repackage.qn9;
+import com.repackage.un9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
@@ -18,7 +18,7 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<FrameEntity> ADAPTER;
@@ -37,7 +37,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     @WireField(adapter = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,14 +60,14 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = a.i();
+            this.shapes = un9.i();
         }
 
-        public Builder alpha(Float f2) {
+        public Builder alpha(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) {
-                this.alpha = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f)) == null) {
+                this.alpha = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -97,7 +97,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                a.a(list);
+                un9.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -124,7 +124,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,59 +151,59 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(c cVar) throws IOException {
+        public FrameEntity decode(pn9 pn9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, cVar)) != null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, pn9Var)) != null) {
                 return (FrameEntity) invokeL.objValue;
             }
             Builder builder = new Builder();
-            long c2 = cVar.c();
+            long c = pn9Var.c();
             while (true) {
-                int f2 = cVar.f();
-                if (f2 == -1) {
-                    cVar.d(c2);
+                int f = pn9Var.f();
+                if (f == -1) {
+                    pn9Var.d(c);
                     return builder.build();
-                } else if (f2 == 1) {
-                    builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
-                } else if (f2 == 2) {
-                    builder.layout(Layout.ADAPTER.decode(cVar));
-                } else if (f2 == 3) {
-                    builder.transform(Transform.ADAPTER.decode(cVar));
-                } else if (f2 == 4) {
-                    builder.clipPath(ProtoAdapter.STRING.decode(cVar));
-                } else if (f2 != 5) {
-                    FieldEncoding g2 = cVar.g();
-                    builder.addUnknownField(f2, g2, g2.rawProtoAdapter().decode(cVar));
+                } else if (f == 1) {
+                    builder.alpha(ProtoAdapter.FLOAT.decode(pn9Var));
+                } else if (f == 2) {
+                    builder.layout(Layout.ADAPTER.decode(pn9Var));
+                } else if (f == 3) {
+                    builder.transform(Transform.ADAPTER.decode(pn9Var));
+                } else if (f == 4) {
+                    builder.clipPath(ProtoAdapter.STRING.decode(pn9Var));
+                } else if (f != 5) {
+                    FieldEncoding g = pn9Var.g();
+                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(pn9Var));
                 } else {
-                    builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
+                    builder.shapes.add(ShapeEntity.ADAPTER.decode(pn9Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(d dVar, FrameEntity frameEntity) throws IOException {
+        public void encode(qn9 qn9Var, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, frameEntity) == null) {
-                Float f2 = frameEntity.alpha;
-                if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qn9Var, frameEntity) == null) {
+                Float f = frameEntity.alpha;
+                if (f != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(dVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(qn9Var, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(dVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(qn9Var, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(dVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(qn9Var, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(dVar, 5, frameEntity.shapes);
-                dVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(qn9Var, 5, frameEntity.shapes);
+                qn9Var.k(frameEntity.unknownFields());
             }
         }
 
@@ -213,8 +213,8 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, frameEntity)) == null) {
-                Float f2 = frameEntity.alpha;
-                int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
+                Float f = frameEntity.alpha;
+                int encodedSizeWithTag = f != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f) : 0;
                 Layout layout = frameEntity.layout;
                 int encodedSizeWithTag2 = encodedSizeWithTag + (layout != null ? Layout.ADAPTER.encodedSizeWithTag(2, layout) : 0);
                 Transform transform = frameEntity.transform;
@@ -241,7 +241,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                a.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                un9.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -267,13 +267,13 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FrameEntity(Float f2, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
-        this(f2, layout, transform, str, list, ByteString.EMPTY);
+    public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
+        this(f, layout, transform, str, list, ByteString.EMPTY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, layout, transform, str, list};
+            Object[] objArr = {f, layout, transform, str, list};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -296,7 +296,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             }
             if (obj instanceof FrameEntity) {
                 FrameEntity frameEntity = (FrameEntity) obj;
-                return unknownFields().equals(frameEntity.unknownFields()) && a.f(this.alpha, frameEntity.alpha) && a.f(this.layout, frameEntity.layout) && a.f(this.transform, frameEntity.transform) && a.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes);
+                return unknownFields().equals(frameEntity.unknownFields()) && un9.f(this.alpha, frameEntity.alpha) && un9.f(this.layout, frameEntity.layout) && un9.f(this.transform, frameEntity.transform) && un9.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes);
             }
             return false;
         }
@@ -310,8 +310,8 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             int i = this.hashCode;
             if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
-                Float f2 = this.alpha;
-                int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
+                Float f = this.alpha;
+                int hashCode2 = (hashCode + (f != null ? f.hashCode() : 0)) * 37;
                 Layout layout = this.layout;
                 int hashCode3 = (hashCode2 + (layout != null ? layout.hashCode() : 0)) * 37;
                 Transform transform = this.transform;
@@ -360,13 +360,13 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrameEntity(Float f2, Layout layout, Transform transform, String str, List<ShapeEntity> list, ByteString byteString) {
+    public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list, ByteString byteString) {
         super(ADAPTER, byteString);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, layout, transform, str, list, byteString};
+            Object[] objArr = {f, layout, transform, str, list, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -378,11 +378,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return;
             }
         }
-        this.alpha = f2;
+        this.alpha = f;
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = a.g("shapes", list);
+        this.shapes = un9.g("shapes", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -398,7 +398,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = a.c("shapes", this.shapes);
+            builder.shapes = un9.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

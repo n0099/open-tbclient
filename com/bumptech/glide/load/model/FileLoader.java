@@ -21,14 +21,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
     public transient /* synthetic */ FieldHolder $fh;
     public final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,17 +206,17 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                     Data open = this.opener.open(this.file);
                     this.data = open;
                     dataCallback.onDataReady(open);
-                } catch (FileNotFoundException e2) {
+                } catch (FileNotFoundException e) {
                     if (Log.isLoggable(FileLoader.TAG, 3)) {
-                        Log.d(FileLoader.TAG, "Failed to open file", e2);
+                        Log.d(FileLoader.TAG, "Failed to open file", e);
                     }
-                    dataCallback.onLoadFailed(e2);
+                    dataCallback.onLoadFailed(e);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -225,7 +225,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -20,7 +20,7 @@ import com.kwai.sodler.lib.kwai.g;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -86,9 +86,9 @@ public class b {
                                 a.a((InputStream) null);
                                 a.a((OutputStream) null);
                                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                                j.a h2 = j.a().h();
-                                if (h2 != null) {
-                                    h2.a("sodler_download", String.valueOf(currentTimeMillis2));
+                                j.a h = j.a().h();
+                                if (h != null) {
+                                    h.a("sodler_download", String.valueOf(currentTimeMillis2));
                                 }
                             } catch (Throwable th) {
                                 try {

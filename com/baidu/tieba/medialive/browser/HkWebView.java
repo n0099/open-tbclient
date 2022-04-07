@@ -16,24 +16,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HkWebView extends HkMWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HkWebView d;
+    public Context e;
 
-    /* renamed from: d  reason: collision with root package name */
-    public HkWebView f34387d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f34388e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HkMWebView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HkWebView f34389c;
+        public final /* synthetic */ HkWebView c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HkWebView hkWebView, HkMWebView hkMWebView, Activity activity) {
@@ -54,7 +48,7 @@ public class HkWebView extends HkMWebView {
                     return;
                 }
             }
-            this.f34389c = hkWebView;
+            this.c = hkWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
@@ -115,8 +109,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.f34387d = this;
-        this.f34388e = context;
+        this.d = this;
+        this.e = context;
         init();
     }
 
@@ -130,10 +124,10 @@ public class HkWebView extends HkMWebView {
                     declaredMethod.setAccessible(true);
                     declaredMethod.invoke(accessibilityManager, 0);
                 }
-            } catch (Error e2) {
+            } catch (Error e) {
+                e.printStackTrace();
+            } catch (Exception e2) {
                 e2.printStackTrace();
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
         }
     }
@@ -152,18 +146,18 @@ public class HkWebView extends HkMWebView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    this.f34387d.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.f34387d.removeJavascriptInterface("accessibility");
-                    this.f34387d.removeJavascriptInterface("accessibilityTraversal");
+                    this.d.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.d.removeJavascriptInterface("accessibility");
+                    this.d.removeJavascriptInterface("accessibilityTraversal");
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            b(this.f34388e);
+            b(this.e);
             getSettings().setCacheMode(-1);
             getSettings().setUserAgentString(getUserAgent());
-            setDownloadListener(new HkMWebView.b(this.f34387d, (Activity) this.f34388e));
-            setWebViewClient(new a(this, this.f34387d, (Activity) this.f34388e));
+            setDownloadListener(new HkMWebView.b(this.d, (Activity) this.e));
+            setWebViewClient(new a(this, this.d, (Activity) this.e));
         }
     }
 
@@ -186,8 +180,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.f34387d = this;
-        this.f34388e = context;
+        this.d = this;
+        this.e = context;
         init();
     }
 }

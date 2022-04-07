@@ -10,23 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BestStringsFitTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f36024b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public float f36025c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f36026d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f36027e;
+    public String b;
+    public float c;
+    public String d;
+    public boolean e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BestStringsFitTextView(Context context) {
@@ -46,37 +38,37 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f36024b = " ";
-        this.f36025c = 0.0f;
-        this.f36026d = "";
-        this.f36027e = false;
+        this.b = " ";
+        this.c = 0.0f;
+        this.d = "";
+        this.e = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f36025c = (getWidth() - getPaddingLeft()) - getPaddingRight();
+            this.c = (getWidth() - getPaddingLeft()) - getPaddingRight();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < this.a.length; i++) {
                 if (i > 0) {
-                    sb.append(this.f36024b);
+                    sb.append(this.b);
                 }
                 sb.append(this.a[i]);
                 String sb2 = sb.toString();
-                if (this.f36025c < getPaint().measureText(sb2)) {
+                if (this.c < getPaint().measureText(sb2)) {
                     break;
                 }
-                this.f36027e = true;
-                this.f36026d = sb2;
+                this.e = true;
+                this.d = sb2;
             }
-            setText(this.f36026d);
+            setText(this.d);
         }
     }
 
     public String getSeperator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36024b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -84,7 +76,7 @@ public class BestStringsFitTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.a == null || this.f36027e) {
+            if (this.a == null || this.e) {
                 return;
             }
             a();
@@ -94,7 +86,7 @@ public class BestStringsFitTextView extends TextView {
     public void setSeperator(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f36024b = str;
+            this.b = str;
         }
     }
 
@@ -125,10 +117,10 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f36024b = " ";
-        this.f36025c = 0.0f;
-        this.f36026d = "";
-        this.f36027e = false;
+        this.b = " ";
+        this.c = 0.0f;
+        this.d = "";
+        this.e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,9 +142,9 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f36024b = " ";
-        this.f36025c = 0.0f;
-        this.f36026d = "";
-        this.f36027e = false;
+        this.b = " ";
+        this.c = 0.0f;
+        this.d = "";
+        this.e = false;
     }
 }

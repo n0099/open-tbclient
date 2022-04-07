@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReportThemeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String REPORT_TID_LIST = "report_tid_list";

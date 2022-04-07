@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.as;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class e {
     public static String a() {
         Context context = KsAdSDKImpl.get().getContext();

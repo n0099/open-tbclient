@@ -1,13 +1,13 @@
 package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
-import c.k.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qn9;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public d unknownFieldsWriter;
+        public qn9 unknownFieldsWriter;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new d(buffer);
+                    this.unknownFieldsWriter = new qn9(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -75,7 +75,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new d(buffer);
+                        this.unknownFieldsWriter = new qn9(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);

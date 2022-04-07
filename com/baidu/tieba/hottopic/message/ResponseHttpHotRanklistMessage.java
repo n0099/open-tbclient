@@ -1,6 +1,5 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.p0.s1.b.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -9,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c47;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j ranklistData;
+    public c47 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotRanklistMessage() {
@@ -35,10 +35,10 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public j getHotRanklistData() {
+    public c47 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (c47) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        j jVar = new j();
-        this.ranklistData = jVar;
-        jVar.b(topicListResIdl.data);
+        c47 c47Var = new c47();
+        this.ranklistData = c47Var;
+        c47Var.b(topicListResIdl.data);
     }
 }

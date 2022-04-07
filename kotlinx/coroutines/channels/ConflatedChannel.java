@@ -84,7 +84,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerInternal(E e2) {
+    public Object offerInternal(E e) {
         ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed;
         Symbol tryResumeReceive;
         ReentrantLock reentrantLock = this.lock;
@@ -107,7 +107,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
                         if (takeFirstReceiveOrPeekClosed == null) {
                             Intrinsics.throwNpe();
                         }
-                        tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e2, null);
+                        tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e, null);
                     }
                 } while (tryResumeReceive == null);
                 if (DebugKt.getASSERTIONS_ENABLED()) {
@@ -119,13 +119,13 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
                 if (takeFirstReceiveOrPeekClosed == null) {
                     Intrinsics.throwNpe();
                 }
-                takeFirstReceiveOrPeekClosed.completeResumeReceive(e2);
+                takeFirstReceiveOrPeekClosed.completeResumeReceive(e);
                 if (takeFirstReceiveOrPeekClosed == null) {
                     Intrinsics.throwNpe();
                 }
                 return takeFirstReceiveOrPeekClosed.getOfferResult();
             }
-            this.value = e2;
+            this.value = e;
             return AbstractChannelKt.OFFER_SUCCESS;
         } finally {
             reentrantLock.unlock();
@@ -133,7 +133,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerSelectInternal(E e2, SelectInstance<?> selectInstance) {
+    public Object offerSelectInternal(E e, SelectInstance<?> selectInstance) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
@@ -143,7 +143,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
             }
             if (this.value == EMPTY) {
                 while (true) {
-                    AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e2);
+                    AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e);
                     Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryOffer);
                     if (performAtomicTrySelect == null) {
                         ReceiveOrClosed<? super E> result = describeTryOffer.getResult();
@@ -151,7 +151,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
                         if (result == null) {
                             Intrinsics.throwNpe();
                         }
-                        result.completeResumeReceive(e2);
+                        result.completeResumeReceive(e);
                         if (result == null) {
                             Intrinsics.throwNpe();
                         }
@@ -169,7 +169,7 @@ public class ConflatedChannel<E> extends AbstractChannel<E> {
             if (!selectInstance.trySelect()) {
                 return SelectKt.getALREADY_SELECTED();
             }
-            this.value = e2;
+            this.value = e;
             return AbstractChannelKt.OFFER_SUCCESS;
         } finally {
             reentrantLock.unlock();

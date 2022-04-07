@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static Random a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final float[] a;
@@ -21,7 +21,7 @@ public final class d {
 
         static {
             InterceptResult invokeClinit;
-            float f2;
+            float f;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
             if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1360944751, "Lcom/badlogic/gdx/math/d$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
@@ -38,7 +38,7 @@ public final class d {
                 a[i] = (float) Math.sin(((i + 0.5f) / 16384.0f) * 6.2831855f);
             }
             for (int i2 = 0; i2 < 360; i2 += 90) {
-                a[((int) (45.511112f * i2)) & 16383] = (float) Math.sin(f2 * 0.017453292f);
+                a[((int) (45.511112f * i2)) & 16383] = (float) Math.sin(f * 0.017453292f);
             }
         }
     }
@@ -59,59 +59,59 @@ public final class d {
         a = new RandomXS128();
     }
 
-    public static float a(float f2, float f3) {
+    public static float a(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f3 == 0.0f) {
-                int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (f2 == 0.0f) {
+                int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
                 if (i > 0) {
                     return 1.5707964f;
                 }
                 return i == 0 ? 0.0f : -1.5707964f;
             }
-            float f4 = f2 / f3;
-            if (Math.abs(f4) >= 1.0f) {
-                float f5 = 1.5707964f - (f4 / ((f4 * f4) + 0.28f));
-                return f2 < 0.0f ? f5 - 3.1415927f : f5;
+            float f3 = f / f2;
+            if (Math.abs(f3) >= 1.0f) {
+                float f4 = 1.5707964f - (f3 / ((f3 * f3) + 0.28f));
+                return f < 0.0f ? f4 - 3.1415927f : f4;
             }
-            float f6 = f4 / (((0.28f * f4) * f4) + 1.0f);
-            if (f3 < 0.0f) {
-                return f6 + (f2 < 0.0f ? -3.1415927f : 3.1415927f);
+            float f5 = f3 / (((0.28f * f3) * f3) + 1.0f);
+            if (f2 < 0.0f) {
+                return f5 + (f < 0.0f ? -3.1415927f : 3.1415927f);
             }
-            return f6;
+            return f5;
         }
         return invokeCommon.floatValue;
     }
 
-    public static float b(float f2, float f3, float f4) {
+    public static float b(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f < f2 ? f2 : f > f3 ? f3 : f : invokeCommon.floatValue;
     }
 
-    public static float c(float f2) {
+    public static float c(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) ? a.a[((int) ((f2 + 1.5707964f) * 2607.5945f)) & 16383] : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? a.a[((int) ((f + 1.5707964f) * 2607.5945f)) & 16383] : invokeF.floatValue;
     }
 
-    public static float d(float f2) {
+    public static float d(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) ? a.a[((int) ((f2 + 90.0f) * 45.511112f)) & 16383] : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) ? a.a[((int) ((f + 90.0f) * 45.511112f)) & 16383] : invokeF.floatValue;
     }
 
-    public static boolean e(float f2, float f3) {
+    public static boolean e(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.abs(f2 - f3) <= 1.0E-6f : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? Math.abs(f - f2) <= 1.0E-6f : invokeCommon.booleanValue;
     }
 
-    public static boolean f(float f2, float f3, float f4) {
+    public static boolean f(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.abs(f2 - f3) <= f4 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.abs(f - f2) <= f3 : invokeCommon.booleanValue;
     }
 
     public static boolean g(int i) {
@@ -120,16 +120,16 @@ public final class d {
         return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i != 0 && (i & (i + (-1))) == 0 : invokeI.booleanValue;
     }
 
-    public static boolean h(float f2) {
+    public static boolean h(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65544, null, f2)) == null) ? Math.abs(f2) <= 1.0E-6f : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65544, null, f)) == null) ? Math.abs(f) <= 1.0E-6f : invokeF.booleanValue;
     }
 
-    public static boolean i(float f2, float f3) {
+    public static boolean i(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.abs(f2) <= f3 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? Math.abs(f) <= f2 : invokeCommon.booleanValue;
     }
 
     public static int j(int i) {
@@ -155,16 +155,16 @@ public final class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a.nextFloat() : invokeV.floatValue;
     }
 
-    public static float l(float f2) {
+    public static float l(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65548, null, f2)) == null) ? a.nextFloat() * f2 : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65548, null, f)) == null) ? a.nextFloat() * f : invokeF.floatValue;
     }
 
-    public static float m(float f2, float f3) {
+    public static float m(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f2 + (a.nextFloat() * (f3 - f2)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f + (a.nextFloat() * (f2 - f)) : invokeCommon.floatValue;
     }
 
     public static int n(int i, int i2) {
@@ -173,15 +173,15 @@ public final class d {
         return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i, i2)) == null) ? i + a.nextInt((i2 - i) + 1) : invokeII.intValue;
     }
 
-    public static float o(float f2) {
+    public static float o(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f2)) == null) ? a.a[((int) (f2 * 2607.5945f)) & 16383] : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) ? a.a[((int) (f * 2607.5945f)) & 16383] : invokeF.floatValue;
     }
 
-    public static float p(float f2) {
+    public static float p(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65552, null, f2)) == null) ? a.a[((int) (f2 * 45.511112f)) & 16383] : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65552, null, f)) == null) ? a.a[((int) (f * 45.511112f)) & 16383] : invokeF.floatValue;
     }
 }

@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PercentSizeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f35586b;
+    public float b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PercentSizeView(Context context) {
@@ -37,7 +35,7 @@ public class PercentSizeView extends View {
             }
         }
         this.a = 1.0f;
-        this.f35586b = 1.0f;
+        this.b = 1.0f;
     }
 
     @Override // android.view.View
@@ -50,7 +48,7 @@ public class PercentSizeView extends View {
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 measuredWidth = View.MeasureSpec.getSize(i);
             } else {
-                measuredWidth = (int) (getMeasuredWidth() * this.f35586b);
+                measuredWidth = (int) (getMeasuredWidth() * this.b);
             }
             if (View.MeasureSpec.getMode(i2) == 1073741824) {
                 measuredHeight = View.MeasureSpec.getSize(i2);
@@ -61,20 +59,20 @@ public class PercentSizeView extends View {
         }
     }
 
-    public void setHeightPercent(float f2) {
+    public void setHeightPercent(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || f2 <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || f <= 0.0f) {
             return;
         }
-        this.a = f2;
+        this.a = f;
     }
 
-    public void setWidthPercent(float f2) {
+    public void setWidthPercent(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) || f <= 0.0f) {
             return;
         }
-        this.f35586b = f2;
+        this.b = f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,7 +95,7 @@ public class PercentSizeView extends View {
             }
         }
         this.a = 1.0f;
-        this.f35586b = 1.0f;
+        this.b = 1.0f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,6 +118,6 @@ public class PercentSizeView extends View {
             }
         }
         this.a = 1.0f;
-        this.f35586b = 1.0f;
+        this.b = 1.0f;
     }
 }

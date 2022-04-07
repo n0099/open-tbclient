@@ -17,15 +17,13 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e extends a {
     public static volatile e a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Context f38309b;
+    public final Context b;
 
     public e(Context context) {
-        this.f38309b = context;
+        this.b = context;
     }
 
     public static e a(Context context) {
@@ -110,11 +108,11 @@ public class e extends a {
                 return null;
             case 5:
                 int intValue2 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
-                DownloadModel b2 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
-                d.a().a(this.f38309b, intValue2, a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), b2);
+                DownloadModel b = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
+                d.a().a(this.b, intValue2, a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), b);
                 return null;
             case 6:
-                return (T) Boolean.valueOf(d.a(this.f38309b, (String) map.get(TTDownloadField.TT_DOWNLOAD_URL)));
+                return (T) Boolean.valueOf(d.a(this.b, (String) map.get(TTDownloadField.TT_DOWNLOAD_URL)));
             case 7:
                 d.b();
                 return null;
@@ -132,18 +130,18 @@ public class e extends a {
             default:
                 return (T) super.callMethod(cls, i, map);
             case 12:
-                DownloadModel b3 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
-                DownloadEventConfig c2 = c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG));
-                DownloadController d2 = d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER));
-                return (T) Boolean.valueOf(d.a(this.f38309b, (Uri) map.get("uri"), b3, c2, d2));
+                DownloadModel b2 = b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL));
+                DownloadEventConfig c = c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG));
+                DownloadController d = d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER));
+                return (T) Boolean.valueOf(d.a(this.b, (Uri) map.get("uri"), b2, c, d));
             case 13:
                 int intValue3 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
                 boolean booleanValue2 = ((Boolean) map.get(TTDownloadField.TT_IS_DISABLE_DIALOG)).booleanValue();
-                d.a().e().a(this.f38309b, (String) map.get(TTDownloadField.TT_USERAGENT), booleanValue2, b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), intValue3);
+                d.a().e().a(this.b, (String) map.get(TTDownloadField.TT_USERAGENT), booleanValue2, b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), intValue3);
                 return null;
             case 14:
                 int intValue4 = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
-                return (T) Boolean.valueOf(d.a().e().a(this.f38309b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, intValue4));
+                return (T) Boolean.valueOf(d.a().e().a(this.b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, intValue4));
             case 15:
                 return (T) Boolean.valueOf(d.a((Uri) map.get("uri")));
             case 16:
@@ -161,7 +159,7 @@ public class e extends a {
             if (i != 1) {
                 return (T) super.getObj(cls);
             }
-            return (T) Boolean.valueOf(d.f38298b);
+            return (T) Boolean.valueOf(d.b);
         }
         return (T) d.a;
     }
@@ -169,7 +167,7 @@ public class e extends a {
     @Override // com.bytedance.sdk.openadsdk.downloadnew.a, com.bytedance.sdk.openadsdk.TTAdBridge
     public void init(Bundle bundle) {
         super.init(bundle);
-        d.a(this.f38309b);
+        d.a(this.b);
     }
 
     private DownloadStatusChangeListener a(Object obj) {

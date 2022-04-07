@@ -8,8 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -17,28 +15,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+import com.repackage.wr4;
+/* loaded from: classes4.dex */
 public class CountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public CountDownTimer f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f36070b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f36071c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f36072d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f36073e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public CountDownTimer f36074f;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,25 +101,25 @@ public class CountDownView extends LinearLayout {
     private void setTimeSkin(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView) == null) {
-            c d2 = c.d(textView);
-            d2.n(R.string.J_X06);
-            d2.z(R.dimen.T_X04);
-            d2.v(R.color.CAM_X0302);
-            d2.A(R.string.F_X02);
-            d2.f(R.color.CAM_X0206);
+            wr4 d = wr4.d(textView);
+            d.n(R.string.J_X06);
+            d.z(R.dimen.T_X04);
+            d.v(R.color.CAM_X0302);
+            d.A(R.string.F_X02);
+            d.f(R.color.CAM_X0206);
         }
     }
 
     public final void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.f36073e = new TextView(getContext());
-            this.f36073e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f36073e.setText(getContext().getResources().getString(i));
-            c d2 = c.d(this.f36073e);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X08);
-            addView(this.f36073e);
+            this.e = new TextView(getContext());
+            this.e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.e.setText(getContext().getResources().getString(i));
+            wr4 d = wr4.d(this.e);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X08);
+            addView(this.e);
         }
     }
 
@@ -138,19 +128,19 @@ public class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                c d2 = c.d(textView);
-                d2.v(R.color.CAM_X0108);
-                d2.z(R.dimen.T_X08);
+                wr4 d = wr4.d(textView);
+                d.v(R.color.CAM_X0108);
+                d.z(R.dimen.T_X08);
             }
-            TextView textView2 = this.f36070b;
+            TextView textView2 = this.b;
             if (textView2 != null) {
                 setTimeSkin(textView2);
             }
-            TextView textView3 = this.f36071c;
+            TextView textView3 = this.c;
             if (textView3 != null) {
                 setTimeSkin(textView3);
             }
-            TextView textView4 = this.f36072d;
+            TextView textView4 = this.d;
             if (textView4 != null) {
                 setTimeSkin(textView4);
             }
@@ -169,27 +159,27 @@ public class CountDownView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f36070b = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(getContext(), R.dimen.tbds104), n.f(getContext(), R.dimen.tbds104));
-            layoutParams.setMargins(n.f(getContext(), R.dimen.M_W_X004), 0, n.f(getContext(), R.dimen.M_W_X004), 0);
-            this.f36070b.setLayoutParams(layoutParams);
-            this.f36070b.setGravity(17);
-            addView(this.f36070b);
+            this.b = new TextView(getContext());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds104), oi.f(getContext(), R.dimen.tbds104));
+            layoutParams.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, oi.f(getContext(), R.dimen.M_W_X004), 0);
+            this.b.setLayoutParams(layoutParams);
+            this.b.setGravity(17);
+            addView(this.b);
             b(R.string.obfuscated_res_0x7f0f088e);
-            this.f36071c = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(n.f(getContext(), R.dimen.tbds104), n.f(getContext(), R.dimen.tbds104));
-            layoutParams2.setMargins(n.f(getContext(), R.dimen.M_W_X004), 0, n.f(getContext(), R.dimen.M_W_X004), 0);
-            this.f36071c.setLayoutParams(layoutParams2);
-            this.f36071c.setGravity(17);
-            addView(this.f36071c);
-            b(R.string.obfuscated_res_0x7f0f0abb);
-            this.f36072d = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(n.f(getContext(), R.dimen.tbds104), n.f(getContext(), R.dimen.tbds104));
-            layoutParams3.setMargins(n.f(getContext(), R.dimen.M_W_X004), 0, n.f(getContext(), R.dimen.M_W_X004), 0);
-            this.f36072d.setLayoutParams(layoutParams3);
-            this.f36072d.setGravity(17);
-            addView(this.f36072d);
-            b(R.string.obfuscated_res_0x7f0f13c7);
+            this.c = new TextView(getContext());
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds104), oi.f(getContext(), R.dimen.tbds104));
+            layoutParams2.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, oi.f(getContext(), R.dimen.M_W_X004), 0);
+            this.c.setLayoutParams(layoutParams2);
+            this.c.setGravity(17);
+            addView(this.c);
+            b(R.string.obfuscated_res_0x7f0f0abd);
+            this.d = new TextView(getContext());
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds104), oi.f(getContext(), R.dimen.tbds104));
+            layoutParams3.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, oi.f(getContext(), R.dimen.M_W_X004), 0);
+            this.d.setLayoutParams(layoutParams3);
+            this.d.setGravity(17);
+            addView(this.d);
+            b(R.string.obfuscated_res_0x7f0f13cf);
         }
     }
 
@@ -198,7 +188,7 @@ public class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = new TextView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.a.setText(R.string.obfuscated_res_0x7f0f0449);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0450);
             addView(this.a);
         }
     }
@@ -216,10 +206,10 @@ public class CountDownView extends LinearLayout {
     public final void h(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d2);
-            this.f36070b.setText(String.format(string, Long.valueOf(j)));
-            this.f36071c.setText(String.format(string, Long.valueOf(j2)));
-            this.f36072d.setText(String.format(string, Long.valueOf(j3)));
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d3);
+            this.b.setText(String.format(string, Long.valueOf(j)));
+            this.c.setText(String.format(string, Long.valueOf(j2)));
+            this.d.setText(String.format(string, Long.valueOf(j3)));
         }
     }
 
@@ -227,7 +217,7 @@ public class CountDownView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             a aVar = new a(this, j, 1000L);
-            this.f36074f = aVar;
+            this.f = aVar;
             aVar.start();
         }
     }
@@ -235,11 +225,11 @@ public class CountDownView extends LinearLayout {
     public void j() {
         CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (countDownTimer = this.f36074f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (countDownTimer = this.f) == null) {
             return;
         }
         countDownTimer.cancel();
-        this.f36074f = null;
+        this.f = null;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

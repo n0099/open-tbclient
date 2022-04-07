@@ -33,7 +33,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCreateGroupRequest";
@@ -43,7 +43,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                     i = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     j = (i == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                     j = 0;
                 }
@@ -115,9 +115,9 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                     ArrayList arrayList2 = new ArrayList();
                     try {
                         j2 = Long.valueOf(AccountManagerImpl.getInstance(this.this$0.mContext).getUid()).longValue();
-                    } catch (Exception e3) {
-                        LogUtils.e(IMCreateGroupRequest.TAG, e3.getMessage());
-                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e3)).build();
+                    } catch (Exception e2) {
+                        LogUtils.e(IMCreateGroupRequest.TAG, e2.getMessage());
+                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                     arrayList2.add(new GroupMember(String.valueOf(j), AccountManagerImpl.getInstance(this.this$0.mContext).getUK(), "", j2, 1, System.currentTimeMillis() / 1000));
                     long addMemberToGroup = GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(j), arrayList2);
@@ -201,9 +201,9 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                 try {
                     sb.append("&group_name=");
                     sb.append(URLEncoder.encode(this.mName, IMAudioTransRequest.CHARSET));
-                } catch (UnsupportedEncodingException e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                } catch (UnsupportedEncodingException e) {
+                    LogUtils.e(TAG, "Exception ", e);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             sb.append("&sign=");

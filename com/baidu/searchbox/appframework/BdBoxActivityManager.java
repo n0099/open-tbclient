@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdBoxActivityManager {
     public static /* synthetic */ Interceptable $ic;
     public static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;

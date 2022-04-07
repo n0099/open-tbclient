@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.Scanner;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_REQUEST_TIMEOUT_MS = 5000;
@@ -28,7 +28,7 @@ public class AsyncHttpRequest {
     public final String method;
     public final String url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AsyncHttpEvents {
         void onHttpComplete(String str);
 
@@ -70,7 +70,7 @@ public class AsyncHttpRequest {
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: c.a.h0.d.a
+            new Thread(new Runnable() { // from class: com.repackage.lc1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,9 +133,9 @@ public class AsyncHttpRequest {
             } catch (SocketTimeoutException unused) {
                 AsyncHttpEvents asyncHttpEvents2 = this.events;
                 asyncHttpEvents2.onHttpError("HTTP " + this.method + " to " + this.url + " timeout");
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 AsyncHttpEvents asyncHttpEvents3 = this.events;
-                asyncHttpEvents3.onHttpError("HTTP " + this.method + " to " + this.url + " error: " + e2.getMessage());
+                asyncHttpEvents3.onHttpError("HTTP " + this.method + " to " + this.url + " error: " + e.getMessage());
             }
         }
     }

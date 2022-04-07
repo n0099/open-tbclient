@@ -31,7 +31,7 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "http";
@@ -40,7 +40,7 @@ public class LogInterceptor implements Interceptor {
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class LogInterceptor implements Interceptor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,7 +142,7 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Logger {
         void log(String str);
     }

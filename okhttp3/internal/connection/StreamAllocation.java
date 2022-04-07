@@ -388,8 +388,8 @@ public final class StreamAllocation {
                     this.codec = newCodec;
                 }
                 return newCodec;
-            } catch (IOException e2) {
-                throw new RouteException(e2);
+            } catch (IOException e) {
+                throw new RouteException(e);
             }
         }
         return (HttpCodec) invokeLLZ.objValue;

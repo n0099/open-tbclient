@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
@@ -32,7 +32,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface GravityFlag {
     }
 
@@ -55,70 +55,70 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         this.slideEdge = i;
     }
 
-    public static Animator createTranslationAppearAnimator(View view, View view2, int i, @Px int i2) {
+    public static Animator createTranslationAppearAnimator(View view2, View view3, int i, @Px int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, view, view2, i, i2)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, view2, view3, i, i2)) == null) {
             if (i != 3) {
                 if (i != 5) {
                     if (i != 48) {
                         if (i != 80) {
                             if (i == 8388611) {
-                                return createTranslationXAnimator(view2, isRtl(view) ? i2 : -i2, 0.0f);
+                                return createTranslationXAnimator(view3, isRtl(view2) ? i2 : -i2, 0.0f);
                             } else if (i == 8388613) {
-                                return createTranslationXAnimator(view2, isRtl(view) ? -i2 : i2, 0.0f);
+                                return createTranslationXAnimator(view3, isRtl(view2) ? -i2 : i2, 0.0f);
                             } else {
                                 throw new IllegalArgumentException("Invalid slide direction: " + i);
                             }
                         }
-                        return createTranslationYAnimator(view2, i2, 0.0f);
+                        return createTranslationYAnimator(view3, i2, 0.0f);
                     }
-                    return createTranslationYAnimator(view2, -i2, 0.0f);
+                    return createTranslationYAnimator(view3, -i2, 0.0f);
                 }
-                return createTranslationXAnimator(view2, -i2, 0.0f);
+                return createTranslationXAnimator(view3, -i2, 0.0f);
             }
-            return createTranslationXAnimator(view2, i2, 0.0f);
+            return createTranslationXAnimator(view3, i2, 0.0f);
         }
         return (Animator) invokeLLII.objValue;
     }
 
-    public static Animator createTranslationDisappearAnimator(View view, View view2, int i, @Px int i2) {
+    public static Animator createTranslationDisappearAnimator(View view2, View view3, int i, @Px int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, view, view2, i, i2)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, view2, view3, i, i2)) == null) {
             if (i != 3) {
                 if (i != 5) {
                     if (i != 48) {
                         if (i != 80) {
                             if (i == 8388611) {
-                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? -i2 : i2);
+                                return createTranslationXAnimator(view3, 0.0f, isRtl(view2) ? -i2 : i2);
                             } else if (i == 8388613) {
-                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? i2 : -i2);
+                                return createTranslationXAnimator(view3, 0.0f, isRtl(view2) ? i2 : -i2);
                             } else {
                                 throw new IllegalArgumentException("Invalid slide direction: " + i);
                             }
                         }
-                        return createTranslationYAnimator(view2, 0.0f, -i2);
+                        return createTranslationYAnimator(view3, 0.0f, -i2);
                     }
-                    return createTranslationYAnimator(view2, 0.0f, i2);
+                    return createTranslationYAnimator(view3, 0.0f, i2);
                 }
-                return createTranslationXAnimator(view2, 0.0f, i2);
+                return createTranslationXAnimator(view3, 0.0f, i2);
             }
-            return createTranslationXAnimator(view2, 0.0f, -i2);
+            return createTranslationXAnimator(view3, 0.0f, -i2);
         }
         return (Animator) invokeLLII.objValue;
     }
 
-    public static Animator createTranslationXAnimator(View view, float f2, float f3) {
+    public static Animator createTranslationXAnimator(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f2, f3)) : (Animator) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f, f2)) : (Animator) invokeCommon.objValue;
     }
 
-    public static Animator createTranslationYAnimator(View view, float f2, float f3) {
+    public static Animator createTranslationYAnimator(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f2, f3)) : (Animator) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f, f2)) : (Animator) invokeCommon.objValue;
     }
 
     private int getSlideDistanceOrDefault(Context context) {
@@ -126,31 +126,31 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             int i = this.slideDistance;
-            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070478);
+            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070482);
         }
         return invokeL.intValue;
     }
 
-    public static boolean isRtl(View view) {
+    public static boolean isRtl(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) ? ViewCompat.getLayoutDirection(view) == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
     @Nullable
-    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view)) == null) ? createTranslationAppearAnimator(viewGroup, view, this.slideEdge, getSlideDistanceOrDefault(view.getContext())) : (Animator) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) ? createTranslationAppearAnimator(viewGroup, view2, this.slideEdge, getSlideDistanceOrDefault(view2.getContext())) : (Animator) invokeLL.objValue;
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
     @Nullable
-    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view)) == null) ? createTranslationDisappearAnimator(viewGroup, view, this.slideEdge, getSlideDistanceOrDefault(view.getContext())) : (Animator) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) ? createTranslationDisappearAnimator(viewGroup, view2, this.slideEdge, getSlideDistanceOrDefault(view2.getContext())) : (Animator) invokeLL.objValue;
     }
 
     @Px

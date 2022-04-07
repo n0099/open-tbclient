@@ -4,9 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.o0.h0.b;
-import c.a.o0.h0.c;
-import c.a.p0.f1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,12 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class FrsGameStrategyFragmentDelegateStatic extends b {
+import com.repackage.he6;
+import com.repackage.m45;
+import com.repackage.n45;
+/* loaded from: classes3.dex */
+public class FrsGameStrategyFragmentDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,23 +54,23 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c b2;
+            n45 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            j0 j0Var = (j0) customResponsedMessage.getData();
+            he6 he6Var = (he6) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            j0Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (j0Var.getContext() == null || (b2 = frsGameStrategyFragmentDelegateStatic.b()) == null) {
+            he6Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (he6Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", j0Var.d());
+            bundle.putString("name", he6Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            b2.a.setArguments(bundle);
+            b.a.setArguments(bundle);
         }
     }
 
@@ -104,34 +104,34 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.o0.h0.b
-    public c a() {
+    @Override // com.repackage.m45
+    public n45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c();
-            cVar.a = new FrsGameStrategyMainFragment();
-            cVar.f10299e = 3;
-            cVar.i = c.l;
-            return cVar;
+            n45 n45Var = new n45();
+            n45Var.a = new FrsGameStrategyMainFragment();
+            n45Var.e = 3;
+            n45Var.i = n45.l;
+            return n45Var;
         }
-        return (c) invokeV.objValue;
+        return (n45) invokeV.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
-            this.f10295b = fragmentTabIndicator;
+            this.b = fragmentTabIndicator;
             fragmentTabIndicator.setTextSize(2.0f);
-            return this.f10295b;
+            return this.b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.o0.h0.b
+    @Override // com.repackage.m45
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
 import androidx.annotation.Nullable;
-import c.d.w;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,18 +17,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.xf9;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class i0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile NetworkInfo a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<b> f38640b;
+    public static final HashSet<b> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +56,7 @@ public class i0 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onActiveNetworkInfo(@Nullable NetworkInfo networkInfo);
     }
@@ -77,7 +75,7 @@ public class i0 {
             }
         }
         a aVar = new a();
-        f38640b = new HashSet<>();
+        b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -97,7 +95,7 @@ public class i0 {
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
             a = activeNetworkInfo;
-            HashSet<b> hashSet = f38640b;
+            HashSet<b> hashSet = b;
             synchronized (hashSet) {
                 Iterator<b> it = hashSet.iterator();
                 while (it.hasNext()) {
@@ -110,11 +108,11 @@ public class i0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet<b> hashSet = f38640b;
+            HashSet<b> hashSet = b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
-            ((w.b) bVar).onActiveNetworkInfo(a);
+            ((xf9.b) bVar).onActiveNetworkInfo(a);
         }
     }
 }

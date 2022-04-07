@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UbcBlockRegister implements IBlockRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BLOCK_CATCH_ACTIVE_UPLOAD = "key_block_catch_active_upload";
@@ -174,8 +174,8 @@ public class UbcBlockRegister implements IBlockRegister {
                 if (uBCManager != null) {
                     uBCManager.onEvent("3256", jSONObject3);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

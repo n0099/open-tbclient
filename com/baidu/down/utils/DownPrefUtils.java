@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DownPrefUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -86,10 +86,10 @@ public final class DownPrefUtils {
         return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z) : invokeLLZ.booleanValue;
     }
 
-    public static float getFloat(Context context, String str, float f2) {
+    public static float getFloat(Context context, String str, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Float.valueOf(f2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Float.valueOf(f)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f) : invokeCommon.floatValue;
     }
 
     public static int getInt(Context context, String str, int i) {
@@ -126,8 +126,8 @@ public final class DownPrefUtils {
                 try {
                     try {
                         fileInputStream = new FileInputStream(file);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     try {
                         properties.load(fileInputStream);
@@ -158,8 +158,8 @@ public final class DownPrefUtils {
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
                         }
                         throw th;
@@ -183,14 +183,14 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static void setFloat(Context context, String str, float f2) {
+    public static void setFloat(Context context, String str, float f) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Float.valueOf(f2)}) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Float.valueOf(f)}) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putFloat(str, f2);
+        edit.putFloat(str, f);
         edit.commit();
     }
 

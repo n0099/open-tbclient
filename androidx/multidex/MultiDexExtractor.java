@@ -112,22 +112,22 @@ public final class MultiDexExtractor implements Closeable {
                 Log.i("MultiDex", "Blocking on lock " + file3.getPath());
                 this.cacheLock = this.lockChannel.lock();
                 Log.i("MultiDex", file3.getPath() + " locked");
-            } catch (IOException e2) {
+            } catch (IOException e) {
+                e = e;
+                closeQuietly(this.lockChannel);
+                throw e;
+            } catch (Error e2) {
                 e = e2;
                 closeQuietly(this.lockChannel);
                 throw e;
-            } catch (Error e3) {
+            } catch (RuntimeException e3) {
                 e = e3;
                 closeQuietly(this.lockChannel);
                 throw e;
-            } catch (RuntimeException e4) {
-                e = e4;
-                closeQuietly(this.lockChannel);
-                throw e;
             }
-        } catch (IOException | Error | RuntimeException e5) {
+        } catch (IOException | Error | RuntimeException e4) {
             closeQuietly(this.lockRaf);
-            throw e5;
+            throw e4;
         }
     }
 
@@ -184,8 +184,8 @@ public final class MultiDexExtractor implements Closeable {
         if (interceptable == null || interceptable.invokeL(65538, null, closeable) == null) {
             try {
                 closeable.close();
-            } catch (IOException e2) {
-                Log.w("MultiDex", "Failed to close resource", e2);
+            } catch (IOException e) {
+                Log.w("MultiDex", "Failed to close resource", e);
             }
         }
     }
@@ -326,8 +326,8 @@ public final class MultiDexExtractor implements Closeable {
                         try {
                             extractedDex.crc = getZipCrc(extractedDex);
                             z = true;
-                        } catch (IOException e2) {
-                            Log.w("MultiDex", "Failed to read crc from " + extractedDex.getAbsolutePath(), e2);
+                        } catch (IOException e) {
+                            Log.w("MultiDex", "Failed to read crc from " + extractedDex.getAbsolutePath(), e);
                             z = false;
                         }
                         StringBuilder sb = new StringBuilder();
@@ -358,15 +358,15 @@ public final class MultiDexExtractor implements Closeable {
                 }
                 try {
                     zipFile.close();
-                } catch (IOException e3) {
-                    Log.w("MultiDex", "Failed to close resource", e3);
+                } catch (IOException e2) {
+                    Log.w("MultiDex", "Failed to close resource", e2);
                 }
                 return arrayList;
             } catch (Throwable th) {
                 try {
                     zipFile.close();
-                } catch (IOException e4) {
-                    Log.w("MultiDex", "Failed to close resource", e4);
+                } catch (IOException e3) {
+                    Log.w("MultiDex", "Failed to close resource", e3);
                 }
                 throw th;
             }
@@ -412,8 +412,8 @@ public final class MultiDexExtractor implements Closeable {
                 if (!z && !isModified(context, this.sourceApk, this.sourceCrc, str)) {
                     try {
                         list = loadExistingExtractions(context, str);
-                    } catch (IOException e2) {
-                        Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e2);
+                    } catch (IOException e) {
+                        Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                         performExtractions = performExtractions();
                         putStoredApkInfo(context, str, getTimeStamp(this.sourceApk), this.sourceCrc, performExtractions);
                     }

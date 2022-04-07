@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.c.a.b;
 import com.kwad.sdk.c.kwai.d;
 import com.kwad.sdk.utils.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements b.a {
     @NonNull
     public final com.kwad.sdk.c.c a;

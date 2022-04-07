@@ -70,7 +70,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FragmentedMp4Builder implements Mp4Builder {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -515,7 +515,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             ProgressiveDownloadInformationBox progressiveDownloadInformationBox = new ProgressiveDownloadInformationBox();
             LinkedList linkedList = new LinkedList();
             Iterator<Track> it2 = movie.getTracks().iterator();
-            double d2 = 0.0d;
+            double d = 0.0d;
             long j2 = 0;
             while (true) {
                 j = 10000;
@@ -530,23 +530,23 @@ public class FragmentedMp4Builder implements Mp4Builder {
                 List<Sample> samples = next.getSamples();
                 if (samples.size() < 10000) {
                     while (samples.iterator().hasNext()) {
-                        d2 += it.next().getSize();
+                        d += it.next().getSize();
                     }
                 } else {
                     long j3 = 0;
                     for (int i = 0; i < 10000; i++) {
                         j3 += samples.get(i).getSize();
                     }
-                    d2 += (j3 * samples.size()) / 10000;
+                    d += (j3 * samples.size()) / 10000;
                 }
             }
-            double d3 = j2;
-            double d4 = (d2 * 1.2d) / d3;
+            double d2 = j2;
+            double d3 = (d * 1.2d) / d2;
             do {
-                long round = Math.round(((d4 * d3) / j) - d3) * 1000;
+                long round = Math.round(((d3 * d2) / j) - d2) * 1000;
                 linkedList.add(new ProgressiveDownloadInformationBox.Entry(j, round > 0 ? round + 3000 : 0L));
                 j *= 2;
-            } while (d4 > j);
+            } while (d3 > j);
             progressiveDownloadInformationBox.setEntries(linkedList);
             return progressiveDownloadInformationBox;
         }

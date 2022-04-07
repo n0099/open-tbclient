@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class al {
     public static String a = "";
 
@@ -22,12 +22,12 @@ public class al {
             String a2 = a();
             a = a2;
             if (TextUtils.isEmpty(a2)) {
-                String b2 = b();
-                a = b2;
-                if (TextUtils.isEmpty(b2)) {
-                    String b3 = b(context);
-                    a = b3;
-                    return b3;
+                String b = b();
+                a = b;
+                if (TextUtils.isEmpty(b)) {
+                    String b2 = b(context);
+                    a = b2;
+                    return b2;
                 }
                 return a;
             }

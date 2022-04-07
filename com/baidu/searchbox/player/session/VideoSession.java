@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class VideoSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,43 +56,43 @@ public final class VideoSession {
         if (interceptable == null || interceptable.invokeL(1048576, this, videoEvent) == null) {
             if (videoEvent.getType() == 4 || videoEvent.getType() == 2) {
                 String action = videoEvent.getAction();
-                char c2 = 65535;
+                char c = 65535;
                 switch (action.hashCode()) {
                     case -525235558:
                         if (action.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
                         break;
                     case -461848373:
                         if (action.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
                         break;
                     case 154871702:
                         if (action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
                         break;
                     case 1370689931:
                         if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     int intExtra = videoEvent.getIntExtra(1);
                     if (904 == intExtra || 956 == intExtra) {
                         statusChangeNotify(PlayerStatus.PLAYING);
                     }
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     statusChangeNotify(PlayerStatus.COMPLETE);
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     statusChangeNotify(PlayerStatus.PREPARED);
-                } else if (c2 != 3) {
+                } else if (c != 3) {
                 } else {
                     statusChangeNotify(PlayerStatus.ERROR);
                 }

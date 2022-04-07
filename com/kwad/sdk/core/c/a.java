@@ -13,12 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static volatile a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static SimpleDateFormat f39318b = new SimpleDateFormat("yyyy-MM-dd");
+    public static SimpleDateFormat b = new SimpleDateFormat("yyyy-MM-dd");
 
     public static a a() {
         if (a == null) {
@@ -112,7 +110,7 @@ public class a {
             return;
         }
         long j = context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("ksadsdk_local_ad_task_info_date", -1L);
-        if (j > 0 && !f39318b.format(new Date(j)).equals(f39318b.format(new Date()))) {
+        if (j > 0 && !b.format(new Date(j)).equals(b.format(new Date()))) {
             c();
         }
     }

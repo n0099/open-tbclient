@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.c.r;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class t implements r.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,12 +46,12 @@ public final class t implements r.a {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("srt", "1");
-            hashMap.put("message_id", String.valueOf(this.a.f43875b.f()));
-            context = this.a.f43876c.a;
-            context2 = this.a.f43876c.a;
-            String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("app_id", b2);
+            hashMap.put("message_id", String.valueOf(this.a.b.f()));
+            context = this.a.c.a;
+            context2 = this.a.c.a;
+            String b = com.vivo.push.util.aa.b(context, context2.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("app_id", b);
             }
             hashMap.put("type", "1");
             hashMap.put("dtp", "1");
@@ -66,12 +66,12 @@ public final class t implements r.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("messageID", String.valueOf(this.a.f43875b.f()));
-            context = this.a.f43876c.a;
-            context2 = this.a.f43876c.a;
-            String b2 = com.vivo.push.util.aa.b(context, context2.getPackageName());
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("remoteAppId", b2);
+            hashMap.put("messageID", String.valueOf(this.a.b.f()));
+            context = this.a.c.a;
+            context2 = this.a.c.a;
+            String b = com.vivo.push.util.aa.b(context, context2.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("remoteAppId", b);
             }
             com.vivo.push.util.e.a(2122L, hashMap);
         }

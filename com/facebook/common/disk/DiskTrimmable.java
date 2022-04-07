@@ -1,5 +1,5 @@
 package com.facebook.common.disk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface DiskTrimmable {
     void trimToMinimum();
 

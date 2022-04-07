@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlayerLoadingFlow implements IUbcFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,8 +104,8 @@ public class PlayerLoadingFlow implements IUbcFlow {
                     this.mUBCManager.flowSetValueWithDuration(this.mFlow, ubcContent);
                     resetFlow();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

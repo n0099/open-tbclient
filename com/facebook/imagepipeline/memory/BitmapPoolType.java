@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.memory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public @interface BitmapPoolType {
     public static final String DEFAULT = "legacy";
     public static final String DUMMY = "dummy";

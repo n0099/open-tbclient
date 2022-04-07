@@ -25,7 +25,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTUAL_IMAGE_INDEX = 2;
@@ -210,13 +210,13 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    private void setProgress(float f2) {
+    private void setProgress(float f) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65548, this, f2) == null) || (drawable = this.mFadeDrawable.getDrawable(3)) == null) {
+        if (!(interceptable == null || interceptable.invokeF(65548, this, f) == null) || (drawable = this.mFadeDrawable.getDrawable(3)) == null) {
             return;
         }
-        if (f2 >= 0.999f) {
+        if (f >= 0.999f) {
             if (drawable instanceof Animatable) {
                 ((Animatable) drawable).stop();
             }
@@ -227,7 +227,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
             }
             fadeInLayer(3);
         }
-        drawable.setLevel(Math.round(f2 * 10000.0f));
+        drawable.setLevel(Math.round(f * 10000.0f));
     }
 
     public void getActualImageBounds(RectF rectF) {
@@ -366,16 +366,16 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     }
 
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
-    public void setImage(Drawable drawable, float f2, boolean z) {
+    public void setImage(Drawable drawable, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{drawable, Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{drawable, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             Drawable maybeApplyLeafRounding = WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources);
             maybeApplyLeafRounding.mutate();
             this.mActualImageWrapper.setDrawable(maybeApplyLeafRounding);
             this.mFadeDrawable.beginBatchMode();
             fadeOutBranches();
             fadeInLayer(2);
-            setProgress(f2);
+            setProgress(f);
             if (z) {
                 this.mFadeDrawable.finishTransitionImmediately();
             }
@@ -549,13 +549,13 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     }
 
     @Override // com.facebook.drawee.interfaces.SettableDraweeHierarchy
-    public void setProgress(float f2, boolean z) {
+    public void setProgress(float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) || this.mFadeDrawable.getDrawable(3) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) || this.mFadeDrawable.getDrawable(3) == null) {
             return;
         }
         this.mFadeDrawable.beginBatchMode();
-        setProgress(f2);
+        setProgress(f);
         if (z) {
             this.mFadeDrawable.finishTransitionImmediately();
         }

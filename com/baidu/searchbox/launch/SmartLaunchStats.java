@@ -23,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SmartLaunchStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -453,8 +453,8 @@ public class SmartLaunchStats {
             if (DEBUG) {
                 Log.d(TAG, jSONObject.toString());
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

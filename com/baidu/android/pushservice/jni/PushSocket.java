@@ -9,28 +9,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PushSocket {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static byte[] f24749b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f24750c = 0;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f24751d = "PushSocket";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f24752e = 36;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f24753f = 32;
+    public static byte[] b = null;
+    public static int c = 0;
+    public static String d = "PushSocket";
+    public static int e = 36;
+    public static int f = 32;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnCreateSocketListener {
         void onConnect(int i);
     }
@@ -76,8 +66,8 @@ public class PushSocket {
     public static void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            f24749b = null;
-            f24750c = 0;
+            b = null;
+            c = 0;
             if (i >= 0) {
                 closeSocket(i);
             }
@@ -93,7 +83,7 @@ public class PushSocket {
                     System.loadLibrary("bdpush_V3_5");
                     a = true;
                 } catch (Throwable unused) {
-                    Log.e("BDPushSDK-" + f24751d, "Native library not found! Please copy libbdpush_V3_5.so into your project!");
+                    Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_5.so into your project!");
                 }
             }
             return a;
@@ -103,9 +93,9 @@ public class PushSocket {
 
     /* JADX WARN: Code restructure failed: missing block: B:31:0x006d, code lost:
         r7 = new byte[2];
-        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f24749b, com.baidu.android.pushservice.jni.PushSocket.f24750c, r7, 0, 2);
-        com.baidu.android.pushservice.message.h.f24780g.b();
-        com.baidu.android.pushservice.jni.PushSocket.f24750c += 2;
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r7, 0, 2);
+        com.baidu.android.pushservice.message.h.g.b();
+        com.baidu.android.pushservice.jni.PushSocket.c += 2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x0081, code lost:
         return r7;
@@ -123,28 +113,28 @@ public class PushSocket {
             return null;
         }
         while (true) {
-            byte[] bArr = f24749b;
+            byte[] bArr = b;
             if (bArr != null) {
                 int length = bArr.length;
-                int i2 = f24750c;
+                int i2 = c;
                 if (length == i2) {
-                    f24749b = null;
-                    f24750c = 0;
+                    b = null;
+                    c = 0;
                 } else if (length - i2 > 1) {
                     short a2 = a(bArr, i2);
-                    if (a2 == h.f24779f.b() || a2 == h.f24780g.b()) {
+                    if (a2 == h.f.b() || a2 == h.g.b()) {
                         break;
-                    } else if (length - f24750c < f24752e && !b(i)) {
+                    } else if (length - c < e && !b(i)) {
                         return null;
                     } else {
-                        int b2 = b(f24749b, f24750c + f24753f);
-                        int i3 = f24750c;
-                        int i4 = f24752e;
+                        int b2 = b(b, c + f);
+                        int i3 = c;
+                        int i4 = e;
                         if (i3 + b2 + i4 <= length - i3) {
                             int i5 = i4 + b2;
                             byte[] bArr2 = new byte[i5];
-                            System.arraycopy(f24749b, i3, bArr2, 0, i5);
-                            f24750c += b2 + f24752e;
+                            System.arraycopy(b, i3, bArr2, 0, i5);
+                            c += b2 + e;
                             return bArr2;
                         } else if (!b(i)) {
                             return null;
@@ -173,16 +163,16 @@ public class PushSocket {
             if (rcvMsg == null || rcvMsg.length == 0) {
                 return false;
             }
-            byte[] bArr = f24749b;
+            byte[] bArr = b;
             if (bArr == null) {
-                f24749b = rcvMsg;
+                b = rcvMsg;
                 return true;
             }
             byte[] bArr2 = new byte[bArr.length + rcvMsg.length];
-            int i2 = f24750c;
+            int i2 = c;
             System.arraycopy(bArr, i2, bArr2, 0, bArr.length - i2);
-            System.arraycopy(rcvMsg, 0, bArr2, f24749b.length, rcvMsg.length);
-            f24749b = bArr2;
+            System.arraycopy(rcvMsg, 0, bArr2, b.length, rcvMsg.length);
+            b = bArr2;
             return true;
         }
         return invokeI.booleanValue;

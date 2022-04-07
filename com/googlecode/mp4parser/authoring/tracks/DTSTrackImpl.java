@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -290,8 +290,8 @@ public class DTSTrackImpl extends AbstractTrack {
                         if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
                             try {
                                 return this.this$0.dataSource.map(this.val$currentPosition, this.this$0.frameSize);
-                            } catch (IOException e2) {
-                                throw new RuntimeException(e2);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
                             }
                         }
                         return (ByteBuffer) invokeV2.objValue;

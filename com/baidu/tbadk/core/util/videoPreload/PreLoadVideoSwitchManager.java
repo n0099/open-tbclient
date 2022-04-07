@@ -1,8 +1,6 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
-import c.a.d.f.p.l;
-import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.wt4;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PreLoadVideoSwitchManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRE_LOAD_SIZE = 512000;
@@ -42,9 +42,9 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(b.k().q("video_sync_switch_json", ""));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            parseJson(wt4.k().q("video_sync_switch_json", ""));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -100,7 +100,7 @@ public class PreLoadVideoSwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (VideoPreLoadSwitch.isOn()) {
-                return !this.isWifi || l.H();
+                return !this.isWifi || mi.H();
             }
             VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
             return false;
@@ -117,9 +117,9 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                b.k().y("video_sync_switch_json", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                wt4.k().y("video_sync_switch_json", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

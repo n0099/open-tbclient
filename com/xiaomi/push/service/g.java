@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class g {
                     return false;
                 }
                 return false;
-            } catch (PackageManager.NameNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("checkService " + e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkService " + e);
                 return false;
             }
         }
@@ -90,8 +90,8 @@ public class g {
                     return !queryIntentServices.isEmpty();
                 }
                 return false;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return false;
             }
         }
@@ -106,8 +106,8 @@ public class g {
             boolean z = false;
             try {
                 packageManager = context.getPackageManager();
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("checkProvider " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkProvider " + e);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(null, 0, 8);
@@ -134,8 +134,8 @@ public class g {
                 Intent intent = new Intent(str2);
                 intent.setPackage(str);
                 return packageManager.resolveActivity(intent, 65536) != null;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return false;
             }
         }

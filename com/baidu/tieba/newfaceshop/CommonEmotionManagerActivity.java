@@ -3,7 +3,6 @@ package com.baidu.tieba.newfaceshop;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";
@@ -49,10 +49,10 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01f2);
-            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
+            setContentView(R.layout.obfuscated_res_0x7f0d01f3);
+            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = n.r(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = oi.r(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.mUrl = stringExtra;
@@ -63,7 +63,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.mUrl);
             this.mFragment.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906c9, this.mFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906d2, this.mFragment).commit();
         }
     }
 

@@ -38,7 +38,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestManager implements LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DECODE_TYPE_BITMAP;
@@ -56,19 +56,19 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public final TargetTracker targetTracker;
     public final RequestManagerTreeNode treeNode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ClearTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ClearTarget(@NonNull View view) {
-            super(view);
+        public ClearTarget(@NonNull View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,10 +229,10 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? as(GifDrawable.class).apply(DECODE_TYPE_GIF) : (RequestBuilder) invokeV.objValue;
     }
 
-    public void clear(@NonNull View view) {
+    public void clear(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            clear(new ClearTarget(view));
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            clear(new ClearTarget(view2));
         }
     }
 
@@ -370,7 +370,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public void setRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, requestOptions) == null) {
-            this.requestOptions = requestOptions.m103clone().autoClone();
+            this.requestOptions = requestOptions.m99clone().autoClone();
         }
     }
 

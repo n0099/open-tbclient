@@ -13,11 +13,11 @@ public class c {
         int length = str2.length();
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        for (byte b2 : decode) {
+        for (byte b : decode) {
             if (i >= length) {
                 i %= length;
             }
-            sb.append((char) (b2 ^ str2.charAt(i)));
+            sb.append((char) (b ^ str2.charAt(i)));
             i++;
         }
         return sb.toString();

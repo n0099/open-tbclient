@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginManager";
@@ -110,18 +110,18 @@ public class PluginManager {
                                 Plugin plugin2 = new Plugin(new JSONObject(str2), this.mHandler);
                                 concurrentHashMap.put(plugin2.mPkgName, plugin2);
                                 ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManagerparsePluginsJson. find " + plugin2.mPkgName);
-                            } catch (JSONException e2) {
-                                ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed. " + str2.trim(), e2);
+                            } catch (JSONException e) {
+                                ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed. " + str2.trim(), e);
                             }
                         }
                         this.mPlugins = concurrentHashMap;
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson success");
-                    } catch (Exception e3) {
-                        ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e3);
+                    } catch (Exception e2) {
+                        ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e2);
                     }
                     this.mIsParsePluginConfig = true;
-                } catch (PackageManager.NameNotFoundException e4) {
-                    ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e4);
+                } catch (PackageManager.NameNotFoundException e3) {
+                    ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed.", e3);
                 }
             }
         }
@@ -210,7 +210,7 @@ public class PluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(g.a().f38133b.getInstallThreads());
+                this.mInstallThreadPool = e.a(g.a().b.getInstallThreads());
             }
             e.a.execute(new d());
         }

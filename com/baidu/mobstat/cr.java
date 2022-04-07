@@ -12,23 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class cr implements cp {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static byte[] f27377b;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f27378c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public cq.a f27379d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f27380e;
+    public boolean c;
+    public cq.a d;
+    public boolean e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +35,7 @@ public class cr implements cp {
                 return;
             }
         }
-        f27377b = new byte[0];
+        b = new byte[0];
     }
 
     public cr() {
@@ -64,7 +56,7 @@ public class cr implements cp {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f27378c = z;
+            this.c = z;
         }
     }
 
@@ -72,7 +64,7 @@ public class cr implements cp {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f27380e = z;
+            this.e = z;
         }
     }
 
@@ -87,21 +79,21 @@ public class cr implements cp {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27378c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     @Override // com.baidu.mobstat.cq
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27380e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     @Override // com.baidu.mobstat.cq
     public cq.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27379d : (cq.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (cq.a) invokeV.objValue;
     }
 
     public String toString() {
@@ -128,15 +120,15 @@ public class cr implements cp {
                 return;
             }
         }
-        this.f27379d = aVar;
-        this.a = ByteBuffer.wrap(f27377b);
+        this.d = aVar;
+        this.a = ByteBuffer.wrap(b);
     }
 
     @Override // com.baidu.mobstat.cp
     public void a(cq.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f27379d = aVar;
+            this.d = aVar;
         }
     }
 
@@ -152,31 +144,31 @@ public class cr implements cp {
     public void a(cq cqVar) throws ci {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cqVar) == null) {
-            ByteBuffer c2 = cqVar.c();
+            ByteBuffer c = cqVar.c();
             if (this.a == null) {
-                this.a = ByteBuffer.allocate(c2.remaining());
-                c2.mark();
-                this.a.put(c2);
-                c2.reset();
+                this.a = ByteBuffer.allocate(c.remaining());
+                c.mark();
+                this.a.put(c);
+                c.reset();
             } else {
-                c2.mark();
+                c.mark();
                 ByteBuffer byteBuffer = this.a;
                 byteBuffer.position(byteBuffer.limit());
                 ByteBuffer byteBuffer2 = this.a;
                 byteBuffer2.limit(byteBuffer2.capacity());
-                if (c2.remaining() > this.a.remaining()) {
-                    ByteBuffer allocate = ByteBuffer.allocate(c2.remaining() + this.a.capacity());
+                if (c.remaining() > this.a.remaining()) {
+                    ByteBuffer allocate = ByteBuffer.allocate(c.remaining() + this.a.capacity());
                     this.a.flip();
                     allocate.put(this.a);
-                    allocate.put(c2);
+                    allocate.put(c);
                     this.a = allocate;
                 } else {
-                    this.a.put(c2);
+                    this.a.put(c);
                 }
                 this.a.rewind();
-                c2.reset();
+                c.reset();
             }
-            this.f27378c = cqVar.d();
+            this.c = cqVar.d();
         }
     }
 
@@ -195,9 +187,9 @@ public class cr implements cp {
                 return;
             }
         }
-        this.f27378c = cqVar.d();
-        this.f27379d = cqVar.f();
+        this.c = cqVar.d();
+        this.d = cqVar.f();
         this.a = cqVar.c();
-        this.f27380e = cqVar.e();
+        this.e = cqVar.e();
     }
 }

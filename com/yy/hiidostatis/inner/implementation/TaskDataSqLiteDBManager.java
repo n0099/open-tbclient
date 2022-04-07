@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 2;
@@ -349,8 +349,8 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
             try {
                 this.db = sQLiteDatabase;
                 saveAll(version1);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -408,8 +408,8 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
                         this.db.execSQL(insertSql(), allArgs(taskData));
                     }
                     this.db.setTransactionSuccessful();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 this.db.endTransaction();

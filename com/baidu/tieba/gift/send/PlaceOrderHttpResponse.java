@@ -1,6 +1,5 @@
 package com.baidu.tieba.gift.send;
 
-import c.a.p0.j1.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.et6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a orderInfo;
+    public et6 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderHttpResponse(int i) {
@@ -37,10 +37,10 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
         }
     }
 
-    public a getOrderInfo() {
+    public et6 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderInfo : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderInfo : (et6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
             setErrorString(placeOrderResIdl.error.usermsg);
         }
         if (placeOrderResIdl.data != null) {
-            a aVar = new a();
-            this.orderInfo = aVar;
-            aVar.c(placeOrderResIdl.data);
+            et6 et6Var = new et6();
+            this.orderInfo = et6Var;
+            et6Var.c(placeOrderResIdl.data);
         }
     }
 }

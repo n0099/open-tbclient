@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR;
@@ -161,8 +161,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
                 bIMInviteRtcInfo.setRtcRoomType(jSONObject.optInt("rtc_room_type"));
                 optJSONArray = jSONObject.optJSONArray("user_list");
-            } catch (Exception e2) {
-                LogUtils.e("IMInviteRtcInfo", "BIMInviteRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("IMInviteRtcInfo", "BIMInviteRtcInfo toRtcInfo Exception ", e);
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -211,8 +211,8 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 jSONObject.put("user_list", jSONArray);
                 LogUtils.d("IMInviteRtcInfo", "IMInviteRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e);
                 return "";
             }
         }
@@ -241,7 +241,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class BIMInviteUser implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<BIMInviteUser> CREATOR;

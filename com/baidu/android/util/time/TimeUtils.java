@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MD = "MM-dd";

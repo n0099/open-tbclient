@@ -11,7 +11,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchMetaInfo {
     public static final String KEY_BOOT_LOAD_SYNC_POLICY = "bootLoadSyncPolicy";
     public static final String KEY_LOAD_POLICY = "loadPolicy";
@@ -24,7 +24,7 @@ public class PatchMetaInfo {
     public int loadPolicy = 0;
     public int bootLoadSyncPolicy = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VersionInfo {
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";
         public static final String KEY_HOST_VERSIONNAME = "hostVersionName";
@@ -43,8 +43,8 @@ public class PatchMetaInfo {
                 jSONObject.put("hostVersionName", this.hostVersionName);
                 jSONObject.put("hostVersionCode", this.hostVersionCode);
                 return jSONObject;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return jSONObject;
             }
         }
@@ -57,8 +57,8 @@ public class PatchMetaInfo {
                 jSONObject.put("hostVersionName", this.hostVersionName);
                 jSONObject.put("hostVersionCode", this.hostVersionCode);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return jSONObject.toString();
             }
         }
@@ -142,8 +142,8 @@ public class PatchMetaInfo {
                 jSONObject.put("versionInfo", this.versionInfo.toJson());
             }
             return jSONObject;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return jSONObject;
         }
     }
@@ -158,8 +158,8 @@ public class PatchMetaInfo {
                 jSONObject.put("versionInfo", this.versionInfo.toJsonString());
             }
             return jSONObject.toString();
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return jSONObject.toString();
         }
     }

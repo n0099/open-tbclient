@@ -1,5 +1,5 @@
 package com.kwad.sdk.reward.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void a(com.kwad.sdk.core.e.a aVar);
 

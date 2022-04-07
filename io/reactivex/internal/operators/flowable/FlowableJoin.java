@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
     public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
     public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, FlowableGroupJoin.JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;

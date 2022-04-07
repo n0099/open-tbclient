@@ -13,14 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class BitmapDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Bundle f26136b;
+    public Bundle b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -73,7 +71,7 @@ public final class BitmapDescriptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.a != null) {
-                if (this.f26136b == null) {
+                if (this.b == null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("image_width", this.a.getWidth());
                     bundle.putInt("image_height", this.a.getHeight());
@@ -82,21 +80,21 @@ public final class BitmapDescriptor {
                     MessageDigest messageDigest = null;
                     try {
                         messageDigest = MessageDigest.getInstance("MD5");
-                    } catch (NoSuchAlgorithmException e2) {
-                        e2.printStackTrace();
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
                     }
                     if (messageDigest != null) {
                         messageDigest.update(a, 0, a.length);
                         byte[] digest = messageDigest.digest();
                         StringBuilder sb = new StringBuilder("");
-                        for (byte b2 : digest) {
-                            sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                        for (byte b : digest) {
+                            sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
                         }
                         bundle.putString("image_hashcode", sb.toString());
                     }
-                    this.f26136b = bundle;
+                    this.b = bundle;
                 }
-                return this.f26136b;
+                return this.b;
             }
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }

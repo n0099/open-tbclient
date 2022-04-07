@@ -13,10 +13,10 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface AdaptiveMediaSourceEventListener {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

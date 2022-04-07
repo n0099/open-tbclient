@@ -107,12 +107,12 @@ public class RequestEngine {
                     }
                     iRequestParam.setUrl(httpURLConnection.getHeaderField(Headers.LOCATION));
                     return request(iRequestParam);
-                } catch (MalformedURLException e2) {
+                } catch (MalformedURLException e) {
+                    LogUtil.v("weibosdk", e.toString());
+                    throw new RequestException("请求异常" + e.toString());
+                } catch (IOException e2) {
                     LogUtil.v("weibosdk", e2.toString());
                     throw new RequestException("请求异常" + e2.toString());
-                } catch (IOException e3) {
-                    LogUtil.v("weibosdk", e3.toString());
-                    throw new RequestException("请求异常" + e3.toString());
                 }
             }
             throw new RequestException("非法的请求地址");

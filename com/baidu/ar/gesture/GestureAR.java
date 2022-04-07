@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GestureAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MDL_GESTURE_STATUS_DETECTED = 5002;

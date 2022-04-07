@@ -66,12 +66,12 @@ public class ArcMotion extends PathMotion {
         this.mMaximumTangent = DEFAULT_MAX_TANGENT;
     }
 
-    public static float toTangent(float f2) {
+    public static float toTangent(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) {
-            if (f2 >= 0.0f && f2 <= 90.0f) {
-                return (float) Math.tan(Math.toRadians(f2 / 2.0f));
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            if (f >= 0.0f && f <= 90.0f) {
+                return (float) Math.tan(Math.toRadians(f / 2.0f));
             }
             throw new IllegalArgumentException("Arc must be between 0 and 90 degrees");
         }
@@ -97,84 +97,84 @@ public class ArcMotion extends PathMotion {
     }
 
     @Override // androidx.transition.PathMotion
-    public Path getPath(float f2, float f3, float f4, float f5) {
+    public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
+        float f5;
         float f6;
         float f7;
-        float f8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             Path path = new Path();
-            path.moveTo(f2, f3);
+            path.moveTo(f, f2);
+            float f8 = f3 - f;
             float f9 = f4 - f2;
-            float f10 = f5 - f3;
-            float f11 = (f9 * f9) + (f10 * f10);
+            float f10 = (f8 * f8) + (f9 * f9);
+            float f11 = (f + f3) / 2.0f;
             float f12 = (f2 + f4) / 2.0f;
-            float f13 = (f3 + f5) / 2.0f;
-            float f14 = 0.25f * f11;
-            boolean z = f3 > f5;
-            if (Math.abs(f9) < Math.abs(f10)) {
-                float abs = Math.abs(f11 / (f10 * 2.0f));
+            float f13 = 0.25f * f10;
+            boolean z = f2 > f4;
+            if (Math.abs(f8) < Math.abs(f9)) {
+                float abs = Math.abs(f10 / (f9 * 2.0f));
                 if (z) {
-                    f7 = abs + f5;
-                    f6 = f4;
+                    f6 = abs + f4;
+                    f5 = f3;
                 } else {
-                    f7 = abs + f3;
-                    f6 = f2;
+                    f6 = abs + f2;
+                    f5 = f;
                 }
-                f8 = this.mMinimumVerticalTangent;
+                f7 = this.mMinimumVerticalTangent;
             } else {
-                float f15 = f11 / (f9 * 2.0f);
+                float f14 = f10 / (f8 * 2.0f);
                 if (z) {
-                    f7 = f3;
-                    f6 = f15 + f2;
+                    f6 = f2;
+                    f5 = f14 + f;
                 } else {
-                    f6 = f4 - f15;
-                    f7 = f5;
+                    f5 = f3 - f14;
+                    f6 = f4;
                 }
-                f8 = this.mMinimumHorizontalTangent;
+                f7 = this.mMinimumHorizontalTangent;
             }
-            float f16 = f14 * f8 * f8;
+            float f15 = f13 * f7 * f7;
+            float f16 = f11 - f5;
             float f17 = f12 - f6;
-            float f18 = f13 - f7;
-            float f19 = (f17 * f17) + (f18 * f18);
-            float f20 = this.mMaximumTangent;
-            float f21 = f14 * f20 * f20;
-            if (f19 >= f16) {
-                f16 = f19 > f21 ? f21 : 0.0f;
+            float f18 = (f16 * f16) + (f17 * f17);
+            float f19 = this.mMaximumTangent;
+            float f20 = f13 * f19 * f19;
+            if (f18 >= f15) {
+                f15 = f18 > f20 ? f20 : 0.0f;
             }
-            if (f16 != 0.0f) {
-                float sqrt = (float) Math.sqrt(f16 / f19);
-                f6 = ((f6 - f12) * sqrt) + f12;
-                f7 = f13 + (sqrt * (f7 - f13));
+            if (f15 != 0.0f) {
+                float sqrt = (float) Math.sqrt(f15 / f18);
+                f5 = ((f5 - f11) * sqrt) + f11;
+                f6 = f12 + (sqrt * (f6 - f12));
             }
-            path.cubicTo((f2 + f6) / 2.0f, (f3 + f7) / 2.0f, (f6 + f4) / 2.0f, (f7 + f5) / 2.0f, f4, f5);
+            path.cubicTo((f + f5) / 2.0f, (f2 + f6) / 2.0f, (f5 + f3) / 2.0f, (f6 + f4) / 2.0f, f3, f4);
             return path;
         }
         return (Path) invokeCommon.objValue;
     }
 
-    public void setMaximumAngle(float f2) {
+    public void setMaximumAngle(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.mMaximumAngle = f2;
-            this.mMaximumTangent = toTangent(f2);
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.mMaximumAngle = f;
+            this.mMaximumTangent = toTangent(f);
         }
     }
 
-    public void setMinimumHorizontalAngle(float f2) {
+    public void setMinimumHorizontalAngle(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.mMinimumHorizontalAngle = f2;
-            this.mMinimumHorizontalTangent = toTangent(f2);
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.mMinimumHorizontalAngle = f;
+            this.mMinimumHorizontalTangent = toTangent(f);
         }
     }
 
-    public void setMinimumVerticalAngle(float f2) {
+    public void setMinimumVerticalAngle(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.mMinimumVerticalAngle = f2;
-            this.mMinimumVerticalTangent = toTangent(f2);
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            this.mMinimumVerticalAngle = f;
+            this.mMinimumVerticalTangent = toTangent(f);
         }
     }
 

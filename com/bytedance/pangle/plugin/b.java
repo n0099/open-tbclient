@@ -32,21 +32,21 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(String str, byte b2) {
+        public /* synthetic */ a(String str, byte b) {
             this(str);
         }
 
-        public /* synthetic */ a(String str, Throwable th, byte b2) {
+        public /* synthetic */ a(String str, Throwable th, byte b) {
             this(str, th);
         }
 
@@ -117,7 +117,7 @@ public final class b {
         try {
             try {
                 com.bytedance.pangle.log.c a2 = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_INSTALL, "PluginInstaller", "install:".concat(String.valueOf(str)));
-                a(com.bytedance.pangle.b.b.f38020e, b.a.l, str, i, -1L, null, null);
+                a(com.bytedance.pangle.b.b.e, b.a.l, str, i, -1L, null, null);
                 e.a(PluginDirHelper.getPackageVersionDir(str, i));
                 long a3 = a2.a("cleanDir");
                 if (a3 > 30 || a3 < 0) {
@@ -126,7 +126,7 @@ public final class b {
                     sb.append(";");
                 }
                 try {
-                    ApkVerifier verifier = g.a().f38133b.getVerifier();
+                    ApkVerifier verifier = g.a().b.getVerifier();
                     if (verifier != null) {
                         if (!verifier.verify(file)) {
                             throw new RuntimeException("安装包签名校验失败[0]");
@@ -140,7 +140,7 @@ public final class b {
                         sb.append(a4);
                         sb.append(";");
                     }
-                    ZeusParam zeusParam = g.a().f38133b;
+                    ZeusParam zeusParam = g.a().b;
                     if (zeusParam != null) {
                         try {
                             if (zeusParam.checkMatchHostAbi()) {
@@ -148,13 +148,13 @@ public final class b {
                                     if (!com.bytedance.pangle.helper.b.a(file)) {
                                         throw new a("插件包包含so不符合宿主ABI类型", (byte) 0);
                                     }
-                                } catch (Exception e2) {
-                                    a(com.bytedance.pangle.b.b.f38021f, b.a.u, str, i, -1L, null, e2);
-                                    throw new a("插件包包含so不符合宿主ABI类型", e2, (byte) 0);
+                                } catch (Exception e) {
+                                    a(com.bytedance.pangle.b.b.f, b.a.u, str, i, -1L, null, e);
+                                    throw new a("插件包包含so不符合宿主ABI类型", e, (byte) 0);
                                 }
                             }
-                        } catch (a e3) {
-                            e = e3;
+                        } catch (a e2) {
+                            e = e2;
                             str2 = str;
                             ZeusLogger.e(ZeusLogger.TAG_INSTALL, "PluginInstaller " + str2 + " install failed.", e);
                             return false;
@@ -185,11 +185,11 @@ public final class b {
                                 }
                                 try {
                                     f.a(new FileInputStream(absolutePath), new FileOutputStream(sourceFile), file2.length());
-                                } catch (IOException e4) {
+                                } catch (IOException e3) {
                                     if (file3.exists()) {
                                         file3.delete();
                                     }
-                                    throw e4;
+                                    throw e3;
                                 }
                             }
                         }
@@ -216,12 +216,12 @@ public final class b {
                                         if (com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
                                             DexFile.loadDex(absolutePath2, null, 0).close();
                                         }
-                                    } catch (Exception e5) {
-                                        e5.printStackTrace();
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 String sourceFile2 = PluginDirHelper.getSourceFile(str, i);
-                                if (g.a().f38133b.fastDex2Oat()) {
+                                if (g.a().b.fastDex2Oat()) {
                                     int i2 = Build.VERSION.SDK_INT;
                                     if (i2 >= 21 && i2 < 26) {
                                         StringBuilder sb2 = new StringBuilder();
@@ -240,7 +240,7 @@ public final class b {
                                         String sb3 = sb2.toString();
                                         File file4 = new File(sb3);
                                         if (!file4.exists() || !com.bytedance.pangle.d.c.a(file4)) {
-                                            int i3 = b.a.f38040b;
+                                            int i3 = b.a.b;
                                             ArrayList arrayList = new ArrayList();
                                             arrayList.add("dex2oat");
                                             if (Build.VERSION.SDK_INT >= 24) {
@@ -252,10 +252,10 @@ public final class b {
                                             arrayList.add("--instruction-set=" + com.bytedance.pangle.d.b.a());
                                             if (i3 == b.a.a) {
                                                 arrayList.add("--compiler-filter=verify-none");
-                                            } else if (i3 == b.a.f38040b) {
+                                            } else if (i3 == b.a.b) {
                                                 arrayList.add("--compiler-filter=interpret-only");
                                             } else {
-                                                int i4 = b.a.f38041c;
+                                                int i4 = b.a.c;
                                             }
                                             arrayList.add("--dex-file=".concat(String.valueOf(sourceFile2)));
                                             arrayList.add("--oat-file=".concat(String.valueOf(sb3)));
@@ -280,32 +280,32 @@ public final class b {
                                     sb.append(a10);
                                     sb.append(";");
                                 }
-                                a(com.bytedance.pangle.b.b.f38021f, b.a.m, str, i, a2.a(), sb.toString(), null);
+                                a(com.bytedance.pangle.b.b.f, b.a.m, str, i, a2.a(), sb.toString(), null);
                                 a2.b("success");
                                 return true;
-                            } catch (Exception e6) {
-                                a(com.bytedance.pangle.b.b.f38021f, b.a.t, str, i, -1L, null, e6);
-                                throw new a("dexOpt失败", e6, (byte) 0);
+                            } catch (Exception e5) {
+                                a(com.bytedance.pangle.b.b.f, b.a.t, str, i, -1L, null, e5);
+                                throw new a("dexOpt失败", e5, (byte) 0);
                             }
-                        } catch (Exception e7) {
-                            a(com.bytedance.pangle.b.b.f38021f, b.a.r, str, i, -1L, null, e7);
-                            throw new a("安装包动态库拷贝失败", e7, (byte) 0);
+                        } catch (Exception e6) {
+                            a(com.bytedance.pangle.b.b.f, b.a.r, str, i, -1L, null, e6);
+                            throw new a("安装包动态库拷贝失败", e6, (byte) 0);
                         }
-                    } catch (Exception e8) {
-                        a(com.bytedance.pangle.b.b.f38021f, b.a.q, str, i, -1L, null, e8);
-                        throw new a("安装包拷贝失败", e8, (byte) 0);
+                    } catch (Exception e7) {
+                        a(com.bytedance.pangle.b.b.f, b.a.q, str, i, -1L, null, e7);
+                        throw new a("安装包拷贝失败", e7, (byte) 0);
                     }
-                } catch (Exception e9) {
-                    a(com.bytedance.pangle.b.b.f38021f, b.a.o, str, i, -1L, null, e9);
-                    throw new a(e9.getMessage(), e9, (byte) 0);
+                } catch (Exception e8) {
+                    a(com.bytedance.pangle.b.b.f, b.a.o, str, i, -1L, null, e8);
+                    throw new a(e8.getMessage(), e8, (byte) 0);
                 }
-            } catch (a e10) {
-                e = e10;
+            } catch (a e9) {
+                e = e9;
                 str2 = str;
             }
-        } catch (Exception e11) {
-            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "PluginInstaller " + str + " install failed unknown error.", e11);
-            a(com.bytedance.pangle.b.b.f38021f, b.a.n, str, i, -1L, sb.toString(), e11);
+        } catch (Exception e10) {
+            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "PluginInstaller " + str + " install failed unknown error.", e10);
+            a(com.bytedance.pangle.b.b.f, b.a.n, str, i, -1L, sb.toString(), e10);
             return false;
         }
     }
@@ -314,7 +314,7 @@ public final class b {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, null, file, str, i) == null) {
-            ZeusParam zeusParam = g.a().f38133b;
+            ZeusParam zeusParam = g.a().b;
             try {
                 PackageInfo packageInfo = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 4096);
                 PackageInfo packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 4096);
@@ -335,9 +335,9 @@ public final class b {
                 if (zeusParam != null && zeusParam.checkPermission()) {
                     throw new a("The following permissions are declared in the plugin but not in the host: ".concat(String.valueOf(arrayList)), (byte) 0);
                 }
-            } catch (Exception e2) {
-                a(com.bytedance.pangle.b.b.f38021f, b.a.p, str, i, -1L, null, e2);
-                throw new a("安装包权限校验失败", e2, (byte) 0);
+            } catch (Exception e) {
+                a(com.bytedance.pangle.b.b.f, b.a.p, str, i, -1L, null, e);
+                throw new a("安装包权限校验失败", e, (byte) 0);
             }
         }
     }
@@ -356,8 +356,8 @@ public final class b {
                 jSONObject2.putOpt("throwable", com.bytedance.pangle.log.d.a(th));
                 jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
                 jSONObject2.putOpt("message", com.bytedance.pangle.log.d.a(str3));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject3, jSONObject2);
         }

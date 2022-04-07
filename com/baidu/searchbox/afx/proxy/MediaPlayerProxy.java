@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaPlayerProxy";
@@ -35,7 +35,7 @@ public class MediaPlayerProxy extends PlayerProxy {
     public long mStartTimeMs;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.MediaPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
@@ -272,17 +272,17 @@ public class MediaPlayerProxy extends PlayerProxy {
             try {
                 this.mMediaPlayer.prepareAsync();
                 this.mPlayerState = PlayerProxy.PlayerState.PREPARING;
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
                 OnReportListener onReportListener = this.mOnReportListener;
                 if (onReportListener != null) {
-                    onReportListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e2, "-1", null, getSourcePath(), valueOf));
+                    onReportListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e, "-1", null, getSourcePath(), valueOf));
                 }
                 OnVideoErrorListener onVideoErrorListener = this.mOnVideoErrorListener;
                 if (onVideoErrorListener != null) {
-                    onVideoErrorListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e2, "-1", null, getSourcePath(), valueOf));
+                    onVideoErrorListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e, "-1", null, getSourcePath(), valueOf));
                 }
-                throw e2;
+                throw e;
             }
         }
     }
@@ -397,18 +397,18 @@ public class MediaPlayerProxy extends PlayerProxy {
                 this.mMediaPlayer.start();
                 super.play();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             String glVersion = getGlVersion();
             String sourcePath = getSourcePath();
             String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
             OnReportListener onReportListener = this.mOnReportListener;
             if (onReportListener != null) {
-                onReportListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e2, "-1", glVersion, sourcePath, valueOf));
+                onReportListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e, "-1", glVersion, sourcePath, valueOf));
             }
             OnVideoErrorListener onVideoErrorListener = this.mOnVideoErrorListener;
             if (onVideoErrorListener != null) {
-                onVideoErrorListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e2, "-1", glVersion, sourcePath, valueOf));
+                onVideoErrorListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e, "-1", glVersion, sourcePath, valueOf));
             }
         }
     }
@@ -459,8 +459,8 @@ public class MediaPlayerProxy extends PlayerProxy {
                 if (this.mMediaPlayer != null) {
                     this.mMediaPlayer.setDataSource(fileDescriptor);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -534,8 +534,8 @@ public class MediaPlayerProxy extends PlayerProxy {
                 if (this.mMediaPlayer != null) {
                     this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

@@ -59,14 +59,14 @@ public class Huffman {
         buildTree();
     }
 
-    private void addCode(int i, int i2, byte b2) {
+    private void addCode(int i, int i2, byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2)}) == null) {
-            Node node = new Node(i, b2);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
+            Node node = new Node(i, b);
             Node node2 = this.root;
-            while (b2 > 8) {
-                b2 = (byte) (b2 - 8);
-                int i3 = (i2 >>> b2) & 255;
+            while (b > 8) {
+                b = (byte) (b - 8);
+                int i3 = (i2 >>> b) & 255;
                 Node[] nodeArr = node2.children;
                 if (nodeArr != null) {
                     if (nodeArr[i3] == null) {
@@ -77,7 +77,7 @@ public class Huffman {
                     throw new IllegalStateException("invalid dictionary: prefix not unique");
                 }
             }
-            int i4 = 8 - b2;
+            int i4 = 8 - b;
             int i5 = (i2 << i4) & 255;
             int i6 = 1 << i4;
             for (int i7 = i5; i7 < i5 + i6; i7++) {
@@ -116,8 +116,8 @@ public class Huffman {
             Node node = this.root;
             int i = 0;
             int i2 = 0;
-            for (byte b2 : bArr) {
-                i = (i << 8) | (b2 & 255);
+            for (byte b : bArr) {
+                i = (i << 8) | (b & 255);
                 i2 += 8;
                 while (i2 >= 8) {
                     node = node.children[(i >>> (i2 - 8)) & 255];
@@ -149,22 +149,22 @@ public class Huffman {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteString, bufferedSink) == null) {
             int i = 0;
             long j = 0;
-            byte b2 = 0;
+            byte b = 0;
             while (i < byteString.size()) {
                 int i2 = byteString.getByte(i) & 255;
                 int i3 = CODES[i2];
-                byte b3 = CODE_LENGTHS[i2];
-                j = (j << b3) | i3;
-                int i4 = b2 + b3;
+                byte b2 = CODE_LENGTHS[i2];
+                j = (j << b2) | i3;
+                int i4 = b + b2;
                 while (i4 >= 8) {
                     i4 = (i4 == 1 ? 1 : 0) - 8;
                     bufferedSink.writeByte((int) (j >> i4));
                 }
                 i++;
-                b2 = i4;
+                b = i4;
             }
-            if (b2 > 0) {
-                bufferedSink.writeByte((int) ((255 >>> b2) | (j << (8 - b2))));
+            if (b > 0) {
+                bufferedSink.writeByte((int) ((255 >>> b) | (j << (8 - b))));
             }
         }
     }

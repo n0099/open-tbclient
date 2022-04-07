@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BUSINESS_FROM = "business_from";
@@ -246,7 +246,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 this.w = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 CoreViewRouter.getInstance().releaseOneKeyLoginCallback();
                 init();

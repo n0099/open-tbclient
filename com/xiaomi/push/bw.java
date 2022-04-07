@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bw extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class bw extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10054" : (String) invokeV.objValue;
@@ -43,15 +43,15 @@ public class bw extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        String c2;
+        String c;
         Context context;
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
-            c2 = this.a.c();
+            c = this.a.c();
             context = this.a.f141a;
-            bz bzVar = new bz(c2, new WeakReference(context));
+            bz bzVar = new bz(c, new WeakReference(context));
             context2 = this.a.f141a;
             cg.a(context2).a(bzVar);
             this.a.b("check_time");

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isSuccess;
@@ -122,9 +122,9 @@ public class ZipUtils {
                     fileOutputStream.close();
                 }
             }
-        } catch (Exception e2) {
-            Log.e(com.baidu.android.util.io.ZipUtils.TAG, "e = " + e2.getMessage());
-            e2.printStackTrace();
+        } catch (Exception e) {
+            Log.e(com.baidu.android.util.io.ZipUtils.TAG, "e = " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
@@ -160,8 +160,8 @@ public class ZipUtils {
                     bufferedOutputStream.flush();
                 }
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -196,8 +196,8 @@ public class ZipUtils {
         }
         try {
             fileOutputStream = new FileOutputStream(file2);
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
             r6 = 0;
         } catch (Throwable th) {
             th = th;
@@ -209,8 +209,8 @@ public class ZipUtils {
                 addEntry("/", file, r6);
                 IOUtil.closeQuietly(new Closeable[]{r6, fileOutputStream});
                 return file2;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 r6 = r6;
                 try {
@@ -228,8 +228,8 @@ public class ZipUtils {
                 IOUtil.closeQuietly(fileOutputStream2, fileOutputStream);
                 throw th;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             r6 = 0;
         } catch (Throwable th4) {
             th = th4;

@@ -95,8 +95,8 @@ public class WbShareHandler {
             intent.putExtras(bundle);
             try {
                 this.context.startActivityForResult(intent, 1);
-            } catch (Exception e2) {
-                LogUtil.v("weibo sdk error ", e2.toString());
+            } catch (Exception e) {
+                LogUtil.v("weibo sdk error ", e.toString());
             }
         }
     }

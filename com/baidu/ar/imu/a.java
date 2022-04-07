@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -87,24 +87,24 @@ public class a extends j {
         if ((interceptable == null || interceptable.invokeL(1048576, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4) {
             long j = this.timestamp;
             if (j != 0) {
-                float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
+                float f = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
                 float[] fArr = sensorEvent.values;
-                float f3 = fArr[0];
-                float f4 = fArr[1];
-                float f5 = fArr[2];
-                double sqrt = Math.sqrt((f3 * f3) + (f4 * f4) + (f5 * f5));
+                float f2 = fArr[0];
+                float f3 = fArr[1];
+                float f4 = fArr[2];
+                double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
                 this.rC = sqrt;
                 if (sqrt > 0.10000000149011612d) {
+                    f2 = (float) (f2 / sqrt);
                     f3 = (float) (f3 / sqrt);
                     f4 = (float) (f4 / sqrt);
-                    f5 = (float) (f5 / sqrt);
                 }
-                double d2 = (this.rC * f2) / 2.0d;
-                double sin = Math.sin(d2);
-                double cos = Math.cos(d2);
-                this.rA.setX((float) (f3 * sin));
-                this.rA.setY((float) (f4 * sin));
-                this.rA.setZ((float) (sin * f5));
+                double d = (this.rC * f) / 2.0d;
+                double sin = Math.sin(d);
+                double cos = Math.cos(d);
+                this.rA.setX((float) (f2 * sin));
+                this.rA.setY((float) (f3 * sin));
+                this.rA.setZ((float) (sin * f4));
                 this.rA.setW(-((float) cos));
                 synchronized (this.sy) {
                     this.rA.multiplyByQuat(this.sB, this.sB);

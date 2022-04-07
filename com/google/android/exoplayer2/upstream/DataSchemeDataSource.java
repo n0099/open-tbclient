@@ -12,7 +12,7 @@ import com.bumptech.glide.load.model.DataUrlLoader;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DataSchemeDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_DATA = "data";
@@ -73,8 +73,8 @@ public final class DataSchemeDataSource implements DataSource {
                     if (split[0].contains(DataUrlLoader.BASE64_TAG)) {
                         try {
                             this.data = Base64.decode(str, 0);
-                        } catch (IllegalArgumentException e2) {
-                            throw new ParserException("Error while parsing Base64 encoded string: " + str, e2);
+                        } catch (IllegalArgumentException e) {
+                            throw new ParserException("Error while parsing Base64 encoded string: " + str, e);
                         }
                     } else {
                         this.data = URLDecoder.decode(str, "US-ASCII").getBytes();

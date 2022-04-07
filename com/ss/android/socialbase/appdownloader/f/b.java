@@ -23,9 +23,9 @@ public class b {
         com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.f.b.1
             @Override // java.lang.Runnable
             public void run() {
-                com.ss.android.socialbase.appdownloader.c.d b2 = com.ss.android.socialbase.appdownloader.d.j().b();
+                com.ss.android.socialbase.appdownloader.c.d b = com.ss.android.socialbase.appdownloader.d.j().b();
                 z downloadNotificationEventListener = Downloader.getInstance(N).getDownloadNotificationEventListener(downloadInfo.getId());
-                if (b2 == null && downloadNotificationEventListener == null) {
+                if (b == null && downloadNotificationEventListener == null) {
                     return;
                 }
                 File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
@@ -34,15 +34,15 @@ public class b {
                         PackageInfo a2 = com.ss.android.socialbase.appdownloader.c.a(downloadInfo, file);
                         if (a2 != null) {
                             String packageName = (a == 1 || TextUtils.isEmpty(downloadInfo.getPackageName())) ? a2.packageName : downloadInfo.getPackageName();
-                            if (b2 != null) {
-                                b2.a(downloadInfo.getId(), 1, packageName, -3, downloadInfo.getDownloadTime());
+                            if (b != null) {
+                                b.a(downloadInfo.getId(), 1, packageName, -3, downloadInfo.getDownloadTime());
                             }
                             if (downloadNotificationEventListener != null) {
                                 downloadNotificationEventListener.a(1, downloadInfo, packageName, "");
                             }
                         }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }

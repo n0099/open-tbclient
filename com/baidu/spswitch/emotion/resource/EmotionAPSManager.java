@@ -27,7 +27,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EmotionAPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -46,12 +46,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
@@ -138,8 +138,8 @@ public class EmotionAPSManager {
                             }
                             Closeables.closeSafely(open);
                             Closeables.closeSafely(fileOutputStream);
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             inputStream = open;
                             try {
                                 e.printStackTrace();
@@ -160,15 +160,15 @@ public class EmotionAPSManager {
                             Closeables.closeSafely(fileOutputStream);
                             throw th;
                         }
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                         fileOutputStream = null;
                     } catch (Throwable th3) {
                         th = th3;
                         fileOutputStream = null;
                     }
-                } catch (IOException e4) {
-                    e = e4;
+                } catch (IOException e3) {
+                    e = e3;
                     fileOutputStream = null;
                 } catch (Throwable th4) {
                     th = th4;

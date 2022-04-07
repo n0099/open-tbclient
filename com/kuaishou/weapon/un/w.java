@@ -5,27 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f39011c = "plc001_c_h_c";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f39012d = 1;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f39013e = 2;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f39014f = 4;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f39015g = 8;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f39016h = 16;
+    public static final String c = "plc001_c_h_c";
+    public static final int d = 1;
+    public static final int e = 2;
+    public static final int f = 4;
+    public static final int g = 8;
+    public static final int h = 16;
     public static final int i = 32;
     public static final int j = 64;
     public static final int k = 128;
@@ -37,9 +25,7 @@ public class w {
     public static final int q = 8192;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public d f39017b;
+    public d b;
 
     public w(d dVar) {
         Interceptable interceptable = $ic;
@@ -58,8 +44,8 @@ public class w {
         }
         this.a = 0;
         try {
-            this.f39017b = dVar;
-            this.a = dVar.b(f39011c, 0);
+            this.b = dVar;
+            this.a = dVar.b(c, 0);
             a();
         } catch (Throwable th) {
             x0.a(th);
@@ -73,7 +59,7 @@ public class w {
                 int i2 = l1.i();
                 if (this.a != i2) {
                     this.a = i2;
-                    this.f39017b.c(f39011c, i2);
+                    this.b.c(c, i2);
                 }
             } catch (Throwable th) {
                 x0.a(th);

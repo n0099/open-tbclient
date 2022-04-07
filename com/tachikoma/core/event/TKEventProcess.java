@@ -16,12 +16,12 @@ import com.tachikoma.core.event.base.IBaseEvent;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import com.tachikoma.core.manager.TKExportManager;
 import com.tachikoma.core.utility.V8Proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKEventProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface EventInterface {
         void callBackEvent(IBaseEvent iBaseEvent);
     }
@@ -53,8 +53,8 @@ public class TKEventProcess {
                 V8Array push = jSContext.makeV8Array().push((V8Value) v8Object);
                 try {
                     obj = v8Function.call(null, push);
-                } catch (Exception e2) {
-                    TKExceptionDispatcher.dispatchJSException(e2, jSContext.getTKJsContextHashcode());
+                } catch (Exception e) {
+                    TKExceptionDispatcher.dispatchJSException(e, jSContext.getTKJsContextHashcode());
                 }
                 V8Proxy.release(v8Object);
                 V8Proxy.release(push);

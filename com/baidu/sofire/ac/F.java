@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class F implements FI {
     public static /* synthetic */ Interceptable $ic;
     public static F instance;
@@ -52,16 +52,16 @@ public class F implements FI {
 
     public static synchronized F getInstance() {
         InterceptResult invokeV;
-        F f2;
+        F f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (F.class) {
                 if (instance == null) {
                     instance = new F();
                 }
-                f2 = instance;
+                f = instance;
             }
-            return f2;
+            return f;
         }
         return (F) invokeV.objValue;
     }

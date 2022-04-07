@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaUserInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,8 +60,8 @@ public class AlaUserInfoData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -95,8 +95,8 @@ public class AlaUserInfoData extends OrmObject implements Serializable {
             this.lat = alaUserInfo.lat.doubleValue();
             this.user_id = alaUserInfo.user_id.longValue();
             this.anchor_fans = alaUserInfo.anchor_fans.intValue();
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -130,8 +130,8 @@ public class AlaUserInfoData extends OrmObject implements Serializable {
             this.lat = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
             this.user_id = jSONObject.optLong("user_id");
             this.anchor_fans = jSONObject.optInt("anchor_fans");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

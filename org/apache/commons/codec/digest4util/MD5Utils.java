@@ -40,8 +40,8 @@ public class MD5Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase(Locale.getDefault());
                 }
@@ -66,8 +66,8 @@ public class MD5Utils {
                 messageDigest.reset();
                 messageDigest.update(bArr);
                 return toHexString(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeLZ.objValue;

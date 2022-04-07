@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.i2.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -13,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.ig7;
+/* loaded from: classes4.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     private void hideDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            a.j().n();
+            ig7.j().n();
         }
     }
 
@@ -88,9 +88,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view.getId() == R.id.obfuscated_res_0x7f09130e) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091302) {
             finish();
             hideDialog();
         }
@@ -105,26 +105,26 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d08c8);
+            setContentView(R.layout.obfuscated_res_0x7f0d08be);
             Intent intent = getIntent();
             this.showHideView = intent.getBooleanExtra("showHideView", false);
             this.mDialogId = intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09192e);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091921);
             this.mRoundProgressBar = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.mRoundProgressBar.setRoundColor(0);
             this.mRoundProgressBar.setTextColor(-1);
             this.mRoundProgressBar.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09130e);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091302);
             this.mCancel = textView;
             if (this.showHideView) {
                 textView.setVisibility(8);
             }
             this.mCancel.setOnClickListener(this);
-            if (!a.j().m()) {
+            if (!ig7.j().m()) {
                 finish();
             } else {
-                a.j().o(this);
+                ig7.j().o(this);
             }
         }
     }

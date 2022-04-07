@@ -1,6 +1,5 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.p0.s1.b.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.w37;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d hotThreadItemListData;
+    public w37 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -40,10 +40,10 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         }
     }
 
-    public d getHotThreadItemListData() {
+    public w37 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hotThreadItemListData : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hotThreadItemListData : (w37) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -74,8 +74,8 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         DataRes dataRes = getTopicRelateThreadResIdl.data;
         this.thread_list = dataRes.thread_list;
         this.page = dataRes.page;
-        d dVar = new d();
-        this.hotThreadItemListData = dVar;
-        dVar.q(getTopicRelateThreadResIdl.data);
+        w37 w37Var = new w37();
+        this.hotThreadItemListData = w37Var;
+        w37Var.q(getTopicRelateThreadResIdl.data);
     }
 }

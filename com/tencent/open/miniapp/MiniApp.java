@@ -22,7 +22,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MiniApp extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIAPP_CONTEXT_NULL = -6;
@@ -106,16 +106,16 @@ public class MiniApp extends BaseApi {
                     return -7;
                 } else if (l.e(activity)) {
                     Intent intent = new Intent("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.f43645c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.f43645c.getOpenId()))));
+                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.c.getOpenId()))));
                     intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
                     activity.startActivity(intent);
                     SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_SUCCESS : 0");
                     return 0;
                 } else {
                     try {
-                        new TDialog(activity, "", a(""), null, this.f43645c).show();
-                    } catch (RuntimeException e2) {
-                        SLog.e("openSDK_LOG.MiniApp", "Show download dialog exception:" + e2.getMessage());
+                        new TDialog(activity, "", a(""), null, this.c).show();
+                    } catch (RuntimeException e) {
+                        SLog.e("openSDK_LOG.MiniApp", "Show download dialog exception:" + e.getMessage());
                     }
                     SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_SHOULD_DOWNLOAD : -2");
                     return -2;

@@ -7,8 +7,6 @@ import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
-import c.a.d.c.e.c.k.c;
-import c.a.d.f.m.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -18,15 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.ia;
+import com.repackage.qg;
+import com.repackage.ug;
+/* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static c sCallBack;
+    public static ia sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public class BdSocketDaemonService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,24 +113,24 @@ public class BdSocketDaemonService extends BdBaseService {
         this.conn = new a(this);
     }
 
-    public static void setLinkServiceDisconnectCallBack(c cVar) {
+    public static void setLinkServiceDisconnectCallBack(ia iaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            sCallBack = cVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, iaVar) == null) {
+            sCallBack = iaVar;
         }
     }
 
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            qg.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            qg.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
     }
 
@@ -149,7 +150,7 @@ public class BdSocketDaemonService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    ug statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
@@ -166,7 +167,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 unbindService(this.conn);
             } catch (Exception unused) {
-                c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                ug statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -175,7 +176,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startService(intent);
             } catch (Exception unused2) {
-                c.a.d.f.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                ug statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
             }

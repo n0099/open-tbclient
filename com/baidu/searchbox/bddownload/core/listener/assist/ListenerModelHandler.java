@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ListenerModelHandler<T extends ListenerModel> implements ListenerAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,14 +21,14 @@ public class ListenerModelHandler<T extends ListenerModel> implements ListenerAs
     public final SparseArray<T> modelList;
     public volatile T singleTaskModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ListenerModel {
         int getId();
 
         void onInfoValid(@NonNull BreakpointInfo breakpointInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ModelCreator<T extends ListenerModel> {
         T create(int i);
     }

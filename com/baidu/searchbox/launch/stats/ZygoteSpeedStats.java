@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AFTER_MAINTAB_CREATE_COST = "afterMainTabCreateCost";
@@ -41,6 +41,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String ELAPSED_NO_TOTAL_SPLASH_COST = "elapsedNoTotalSplashCost";
     public static final String ELAPSED_REALTIME_COST = "elapsedRealtimeCost";
     public static final String FIX_USER_PERCEPTION_COST = "fixUserPerceptionCost";
+    public static final String IS_SWITCH_ON = "isSwitchOn";
     public static final String LAUNCH_2_APP_ON_START = "launch2AppOnStart";
     public static final String LAUNCH_TO_DEAW_COST = "launch2draw";
     public static final int STAT_PROCESS_START_TIME_INDEX = 21;
@@ -49,6 +50,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final int USER_PERCEPTION_THRESHOLD = 10000;
     public transient /* synthetic */ FieldHolder $fh;
     public long appOnCreateRealTime;
+    public boolean isSwitchOn;
     public long mElapsedCpuTimeEnd;
     public long mElapsedCpuTimeStart;
     public long mElapsedRealtimeCost;
@@ -98,6 +100,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         this.mElapsedRealtimeCost = -1L;
         this.mSecondDrawDispatchedTimeStamp = -1L;
         this.mLaunchStartStamp = -1L;
+        this.isSwitchOn = false;
     }
 
     private void calculate() {
@@ -125,9 +128,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     private long getStartTimeFromStats() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
-        NumberFormatException e2;
-        IOException e3;
-        FileNotFoundException e4;
+        NumberFormatException e;
+        IOException e2;
+        FileNotFoundException e3;
         Closeable closeable;
         String readLine;
         long j;
@@ -144,26 +147,26 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
                     try {
                         readLine = bufferedReader.readLine();
-                    } catch (FileNotFoundException e5) {
-                        e4 = e5;
+                    } catch (FileNotFoundException e4) {
+                        e3 = e4;
                         if (DEBUG) {
-                            Log.e(TAG, "can't read process status file", e4);
+                            Log.e(TAG, "can't read process status file", e3);
                         }
                         Closeables.closeSafely(bufferedReader);
                         this.mStartTimeFromStats = j3;
                         return j3;
-                    } catch (IOException e6) {
-                        e3 = e6;
+                    } catch (IOException e5) {
+                        e2 = e5;
                         if (DEBUG) {
-                            Log.e(TAG, "read process status failed", e3);
+                            Log.e(TAG, "read process status failed", e2);
                         }
                         Closeables.closeSafely(bufferedReader);
                         this.mStartTimeFromStats = j3;
                         return j3;
-                    } catch (NumberFormatException e7) {
-                        e2 = e7;
+                    } catch (NumberFormatException e6) {
+                        e = e6;
                         if (DEBUG) {
-                            Log.e(TAG, "parse status file failed", e2);
+                            Log.e(TAG, "parse status file failed", e);
                         }
                         Closeables.closeSafely(bufferedReader);
                         this.mStartTimeFromStats = j3;
@@ -175,15 +178,15 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     Closeables.closeSafely(closeable2);
                     throw th;
                 }
-            } catch (FileNotFoundException e8) {
+            } catch (FileNotFoundException e7) {
                 bufferedReader = null;
-                e4 = e8;
-            } catch (IOException e9) {
+                e3 = e7;
+            } catch (IOException e8) {
                 bufferedReader = null;
-                e3 = e9;
-            } catch (NumberFormatException e10) {
+                e2 = e8;
+            } catch (NumberFormatException e9) {
                 bufferedReader = null;
-                e2 = e10;
+                e = e9;
             } catch (Throwable th2) {
                 th = th2;
                 Closeables.closeSafely(closeable2);
@@ -198,9 +201,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 String str = split[21];
                 try {
                     j = LaunchNativeUtils.getClkTck();
-                } catch (UnsatisfiedLinkError e11) {
+                } catch (UnsatisfiedLinkError e10) {
                     if (DEBUG) {
-                        Log.e(TAG, "load so failed, UnsatisfiedLinkError", e11);
+                        Log.e(TAG, "load so failed, UnsatisfiedLinkError", e10);
                     }
                     j = 0;
                 }
@@ -228,7 +231,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 this.mElapsedCpuTimeStart = j;
             }
             if (i == 5054) {
-                this.mSecondDrawDispatchedTimeStamp = SystemClock.elapsedRealtime();
+                this.mSecondDrawDispatchedTimeStamp = j;
             }
         }
     }
@@ -283,9 +286,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 if (jsonData != null) {
                     try {
                         jSONObject.put(LAUNCH_2_APP_ON_START, jsonData);
-                    } catch (JSONException e2) {
+                    } catch (JSONException e) {
                         if (DEBUG) {
-                            e2.printStackTrace();
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -297,9 +300,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 if (jsonData2 != null) {
                     try {
                         jSONObject.put(ELAPSED_NO_SPLASH_COST, jsonData2);
-                    } catch (JSONException e3) {
+                    } catch (JSONException e2) {
                         if (DEBUG) {
-                            e3.printStackTrace();
+                            e2.printStackTrace();
                         }
                     }
                 }
@@ -311,9 +314,9 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 if (jsonData3 != null) {
                     try {
                         jSONObject.put(ELAPSED_NO_TOTAL_SPLASH_COST, jsonData3);
-                    } catch (JSONException e4) {
+                    } catch (JSONException e3) {
                         if (DEBUG) {
-                            e4.printStackTrace();
+                            e3.printStackTrace();
                         }
                     }
                 }
@@ -323,7 +326,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                 hashMap.put(LAUNCH_TO_DEAW_COST, String.valueOf(durationWithoutAD));
             }
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - this.mSecondDrawDispatchedTimeStamp;
-            if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {
+            if (appLaunchEndTimeStamp > 0 && appLaunchEndTimeStamp < 60000) {
                 hashMap.put(DRAW_TO_END_COST, String.valueOf(appLaunchEndTimeStamp));
             }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
@@ -332,42 +335,29 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             if (j2 > 50 && j2 < 60000) {
                 hashMap.put(FIX_USER_PERCEPTION_COST, String.valueOf(j2));
             }
-            long appLaunchEndTimeStamp2 = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
-            if (appLaunchEndTimeStamp2 > 50 && appLaunchEndTimeStamp2 < 60000) {
-                hashMap.put(AFTER_MAINTAB_CREATE_COST, String.valueOf(appLaunchEndTimeStamp2));
-                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(appLaunchEndTimeStamp2, null);
-                if (jsonData4 != null) {
-                    try {
-                        jSONObject.put(AFTER_MAINTAB_CREATE_COST, jsonData4);
-                    } catch (JSONException e5) {
-                        if (DEBUG) {
-                            e5.printStackTrace();
-                        }
-                    }
-                }
-            }
-            long durationWithoutAD2 = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp());
+            long durationWithoutAD2 = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp()) - SpeedStatsManager.getInstance().getExtraSecondCreateDuration();
             if (durationWithoutAD2 > 50 && durationWithoutAD2 < 60000) {
                 hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(durationWithoutAD2));
-                JSONObject jsonData5 = SpeedStatsUtils.getJsonData(durationWithoutAD2, null);
-                if (jsonData5 != null) {
+                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(durationWithoutAD2, null);
+                if (jsonData4 != null) {
                     try {
-                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData5);
-                    } catch (JSONException e6) {
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData4);
+                    } catch (JSONException e4) {
                         if (DEBUG) {
-                            e6.printStackTrace();
+                            e4.printStackTrace();
                         }
                     }
                 }
             }
-            JSONObject jsonData6 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
-            if (jsonData6 != null) {
+            hashMap.put(IS_SWITCH_ON, this.isSwitchOn ? "1" : "0");
+            JSONObject jsonData5 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
+            if (jsonData5 != null) {
                 try {
-                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData6);
+                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData5);
                     return true;
-                } catch (JSONException e7) {
+                } catch (JSONException e5) {
                     if (DEBUG) {
-                        e7.printStackTrace();
+                        e5.printStackTrace();
                         return true;
                     }
                     return true;
@@ -376,6 +366,13 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public void setIsSwitchOn(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.isSwitchOn = z;
+        }
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats

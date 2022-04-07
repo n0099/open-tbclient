@@ -1,6 +1,5 @@
 package com.baidu.tieba.stampmission.model;
 
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -16,19 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b9;
+import com.repackage.ii8;
+/* loaded from: classes4.dex */
 public class StampMissionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public boolean b;
+    public HttpMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f36068b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f36069c;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +57,7 @@ public class StampMissionModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.f36068b = false;
+                this.a.b = false;
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003525 && (httpResponsedMessage instanceof StampMissionHttpResponsedMessage)) {
                     if (httpResponsedMessage.getError() == 0 || this.a.a == null) {
                         if (this.a.a != null) {
@@ -75,11 +72,11 @@ public class StampMissionModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
-        void b(c.a.p0.x3.c.b bVar);
+        void b(ii8 ii8Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,7 +89,7 @@ public class StampMissionModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((f) newInitContext.callArgs[0]);
+                this((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -111,10 +108,10 @@ public class StampMissionModel extends BdBaseModel {
 
     public void B(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f36068b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.b) {
             return;
         }
-        this.f36068b = true;
+        this.b = true;
         sendMessage(StampMissionHttpRequestMessage.newSyncHttpMessage(str));
     }
 
@@ -127,10 +124,10 @@ public class StampMissionModel extends BdBaseModel {
 
     public void D() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f36068b) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
             return;
         }
-        this.f36068b = true;
+        this.b = true;
         sendMessage(StampMissionHttpRequestMessage.newStartHttpMessage());
     }
 
@@ -165,30 +162,30 @@ public class StampMissionModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().registerListener(this.f36069c);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampMissionModel(f fVar) {
-        super(fVar);
+    public StampMissionModel(b9 b9Var) {
+        super(b9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
+            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36068b = false;
-        this.f36069c = new a(this, CmdConfigHttp.CMD_GET_SYNC_ICON_TASK);
+        this.b = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_SYNC_ICON_TASK);
         init();
     }
 }

@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TaskNetRequestMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -191,13 +191,13 @@ public final class TaskNetRequestMng {
                                         }
                                         DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_HTTP_LIB_TYPE, optString14);
                                     }
-                                } catch (MalformedURLException e2) {
-                                    e2.printStackTrace();
+                                } catch (MalformedURLException e) {
+                                    e.printStackTrace();
                                     TaskNetRequestMng.restoreDefaultConfig(this.val$context);
                                 }
                             }
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                             TaskNetRequestMng.restoreDefaultConfig(this.val$context);
                         }
                     }
@@ -292,8 +292,8 @@ public final class TaskNetRequestMng {
                             }
                             DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, System.currentTimeMillis());
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }, 1);
@@ -336,16 +336,16 @@ public final class TaskNetRequestMng {
                 jSONObject2.put("sdk_ver", com.baidu.down.utils.Constants.SDK_VER);
                 try {
                     jSONObject2.put("domain", new URL(str4).getHost());
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     jSONObject2.put("domain", com.baidu.down.utils.Constants.DOMAIN_VALUE);
                 }
                 jSONObject.put("dyreq", jSONObject2);
                 jSONObject.put("cut", DeviceInfoUtils.getCut());
                 jSONObject.put("cc", DeviceInfoUtils.getCpuCoresWithCache(context) + "");
                 jSONObject.put("cf", DeviceInfoUtils.getCpuFreqWithCache(context) + "");
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             if (!TextUtils.isEmpty(jSONObject.toString()) && (encode = Base64Utils.encode(Utils.getEncodedValue(jSONObject.toString()).getBytes())) != null) {
                 arrayList.add(new BasicNameValuePair("data", encode));

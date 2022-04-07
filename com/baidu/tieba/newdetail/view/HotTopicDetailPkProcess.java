@@ -12,7 +12,6 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -24,38 +23,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class HotTopicDetailPkProcess extends View {
     public static /* synthetic */ Interceptable $ic;
     public static int k;
     public static int l;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f34640b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f34641c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f34642d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f34643e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f34644f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RectF f34645g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Path f34646h;
+    public int b;
+    public Paint c;
+    public int d;
+    public int e;
+    public float f;
+    public RectF g;
+    public Path h;
     public int i;
     public ValueAnimator j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,8 +87,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,20 +110,20 @@ public class HotTopicDetailPkProcess extends View {
             }
         }
         this.a = 3;
-        this.f34644f = 50.0f;
-        this.f34645g = new RectF();
-        this.f34646h = new Path();
+        this.f = 50.0f;
+        this.g = new RectF();
+        this.h = new Path();
         f();
     }
 
-    public final void a(float f2) {
+    public final void a(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             ValueAnimator valueAnimator = this.j;
             if (valueAnimator != null) {
                 valueAnimator.cancel();
             }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f34644f / 100.0f, f2);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f / 100.0f, f);
             this.j = ofFloat;
             ofFloat.setDuration(300L);
             this.j.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -149,15 +135,15 @@ public class HotTopicDetailPkProcess extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f34641c.setColor(this.f34642d);
-            RectF rectF = this.f34645g;
+            this.c.setColor(this.d);
+            RectF rectF = this.g;
             int i = k;
             rectF.set(0.0f, 0.0f, i, i);
-            canvas.drawArc(this.f34645g, 90.0f, 180.0f, true, this.f34641c);
-            RectF rectF2 = this.f34645g;
+            canvas.drawArc(this.g, 90.0f, 180.0f, true, this.c);
+            RectF rectF2 = this.g;
             int i2 = k;
             rectF2.set(i2 / 2, 0.0f, this.i, i2);
-            canvas.drawRect(this.f34645g, this.f34641c);
+            canvas.drawRect(this.g, this.c);
         }
     }
 
@@ -173,40 +159,40 @@ public class HotTopicDetailPkProcess extends View {
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            this.f34641c.setColor(this.f34643e);
-            RectF rectF = this.f34645g;
-            int i = this.f34640b;
+            this.c.setColor(this.e);
+            RectF rectF = this.g;
+            int i = this.b;
             int i2 = k;
             rectF.set(i - i2, 0.0f, i, i2);
-            canvas.drawArc(this.f34645g, -90.0f, 180.0f, true, this.f34641c);
-            RectF rectF2 = this.f34645g;
+            canvas.drawArc(this.g, -90.0f, 180.0f, true, this.c);
+            RectF rectF2 = this.g;
             int i3 = this.i;
             int i4 = k;
-            rectF2.set(i3 + i4 + l, 0.0f, this.f34640b - (i4 / 2), i4);
-            canvas.drawRect(this.f34645g, this.f34641c);
+            rectF2.set(i3 + i4 + l, 0.0f, this.b - (i4 / 2), i4);
+            canvas.drawRect(this.g, this.c);
         }
     }
 
     public final void e(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            this.f34641c.setColor(this.f34642d);
-            this.f34646h.reset();
-            this.f34646h.moveTo(this.i, k);
-            this.f34646h.lineTo(this.i + k, 0.0f);
-            this.f34646h.lineTo(this.i, 0.0f);
-            this.f34646h.close();
-            canvas.drawPath(this.f34646h, this.f34641c);
-            this.f34641c.setColor(this.f34643e);
-            this.f34646h.reset();
-            this.f34646h.moveTo(this.i + l, k);
-            Path path = this.f34646h;
+            this.c.setColor(this.d);
+            this.h.reset();
+            this.h.moveTo(this.i, k);
+            this.h.lineTo(this.i + k, 0.0f);
+            this.h.lineTo(this.i, 0.0f);
+            this.h.close();
+            canvas.drawPath(this.h, this.c);
+            this.c.setColor(this.e);
+            this.h.reset();
+            this.h.moveTo(this.i + l, k);
+            Path path = this.h;
             int i = this.i + l;
             int i2 = k;
             path.lineTo(i + i2, i2);
-            this.f34646h.lineTo(this.i + l + k, 0.0f);
-            this.f34646h.close();
-            canvas.drawPath(this.f34646h, this.f34641c);
+            this.h.lineTo(this.i + l + k, 0.0f);
+            this.h.close();
+            canvas.drawPath(this.h, this.c);
         }
     }
 
@@ -214,7 +200,7 @@ public class HotTopicDetailPkProcess extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Paint paint = new Paint(1);
-            this.f34641c = paint;
+            this.c = paint;
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
             g(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -225,8 +211,8 @@ public class HotTopicDetailPkProcess extends View {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.a == i) {
             return;
         }
-        this.f34642d = SkinManager.getColor(R.color.CAM_X0308);
-        this.f34643e = SkinManager.getColor(R.color.CAM_X0303);
+        this.d = SkinManager.getColor(R.color.CAM_X0308);
+        this.e = SkinManager.getColor(R.color.CAM_X0303);
         if (this.a != 3) {
             invalidate();
         }
@@ -238,7 +224,7 @@ public class HotTopicDetailPkProcess extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f34640b <= 0) {
+            if (this.b <= 0) {
                 return;
             }
             c(canvas);
@@ -258,31 +244,31 @@ public class HotTopicDetailPkProcess extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.f34640b = i;
+            this.b = i;
             int i5 = k;
-            this.i = ((int) ((((i - i5) - (l + i5)) * this.f34644f) / 100.0f)) + (i5 / 2);
+            this.i = ((int) ((((i - i5) - (l + i5)) * this.f) / 100.0f)) + (i5 / 2);
         }
     }
 
-    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f2, boolean z) {
+    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+            if (f < 0.0f) {
+                f = 0.0f;
             }
-            if (f2 > 1.0f) {
-                f2 = 1.0f;
+            if (f > 1.0f) {
+                f = 1.0f;
             }
             if (!z) {
-                float f3 = f2 * 100.0f;
-                this.f34644f = f3;
-                int i = this.f34640b;
+                float f2 = f * 100.0f;
+                this.f = f2;
+                int i = this.b;
                 int i2 = k;
-                this.i = ((int) ((((i - i2) - (l + i2)) * f3) / 100.0f)) + (i2 / 2);
+                this.i = ((int) ((((i - i2) - (l + i2)) * f2) / 100.0f)) + (i2 / 2);
                 invalidate();
                 return;
             }
-            a(f2);
+            a(f);
         }
     }
 
@@ -306,9 +292,9 @@ public class HotTopicDetailPkProcess extends View {
             }
         }
         this.a = 3;
-        this.f34644f = 50.0f;
-        this.f34645g = new RectF();
-        this.f34646h = new Path();
+        this.f = 50.0f;
+        this.g = new RectF();
+        this.h = new Path();
         f();
     }
 
@@ -332,9 +318,9 @@ public class HotTopicDetailPkProcess extends View {
             }
         }
         this.a = 3;
-        this.f34644f = 50.0f;
-        this.f34645g = new RectF();
-        this.f34646h = new Path();
+        this.f = 50.0f;
+        this.g = new RectF();
+        this.h = new Path();
         f();
     }
 }

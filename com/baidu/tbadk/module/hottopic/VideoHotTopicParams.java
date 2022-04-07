@@ -13,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoHotTopicParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

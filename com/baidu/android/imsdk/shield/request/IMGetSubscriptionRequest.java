@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetSubscriptionRequest";
@@ -124,9 +124,9 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         }
                         str3 = str4;
                         str4 = optString;
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         j = j2;
-                        exc = e2;
+                        exc = e;
                         str = str4;
                         str4 = str2;
                         LogUtils.e(TAG, "JSONException", exc);
@@ -144,9 +144,9 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str3 = "";
                     str2 = str3;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 j = j2;
-                exc = e3;
+                exc = e2;
                 str = "";
             }
             removeListener = ListenerManager.getInstance().removeListener(this.mKey);

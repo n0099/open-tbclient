@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.ResultPoint;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class FinderPattern {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public final class FinderPattern {
         }
         this.value = i;
         this.startEnd = iArr;
-        float f2 = i4;
-        this.resultPoints = new ResultPoint[]{new ResultPoint(i2, f2), new ResultPoint(i3, f2)};
+        float f = i4;
+        this.resultPoints = new ResultPoint[]{new ResultPoint(i2, f), new ResultPoint(i3, f)};
     }
 
     public boolean equals(Object obj) {

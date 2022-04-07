@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 @TargetApi(23)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,10 +65,10 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uuid)) == null) {
             try {
                 return new FrameworkMediaDrm(uuid);
-            } catch (UnsupportedSchemeException e2) {
-                throw new UnsupportedDrmException(1, e2);
-            } catch (Exception e3) {
-                throw new UnsupportedDrmException(2, e3);
+            } catch (UnsupportedSchemeException e) {
+                throw new UnsupportedDrmException(1, e);
+            } catch (Exception e2) {
+                throw new UnsupportedDrmException(2, e2);
             }
         }
         return (FrameworkMediaDrm) invokeL.objValue;

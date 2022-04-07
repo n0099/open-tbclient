@@ -6,9 +6,6 @@ import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
-import c.a.b0.g.a;
-import c.a.b0.h.c;
-import c.a.b0.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
@@ -20,7 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.o61;
+import com.repackage.u61;
+import com.repackage.w61;
+/* loaded from: classes2.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
@@ -31,7 +31,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public a mRuntime;
+    public o61 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Application applicationContext = ContextHolder.getApplicationContext();
-            PackageInfo a = e.a(c.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+            PackageInfo a = w61.a(u61.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
             if (a == null) {
                 return false;
             }
@@ -83,9 +83,9 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                a b2 = a.b(this.mBundleInfo);
-                this.mRuntime = b2;
-                if (b2 == null) {
+                o61 b = o61.b(this.mBundleInfo);
+                this.mRuntime = b;
+                if (b == null) {
                     return false;
                 }
                 bindProviders();
@@ -110,10 +110,10 @@ public class Bundle {
                         this.mInvoker = (IInvoker) loadClass.newInstance();
                     }
                     return true;
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    throw new InvokeException(17, Log.getStackTraceString(e));
+                } catch (InstantiationException e2) {
                     throw new InvokeException(17, Log.getStackTraceString(e2));
-                } catch (InstantiationException e3) {
-                    throw new InvokeException(17, Log.getStackTraceString(e3));
                 }
             }
         }
@@ -170,15 +170,15 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            a aVar = this.mRuntime;
-            if (aVar != null) {
+            o61 o61Var = this.mRuntime;
+            if (o61Var != null) {
                 try {
                     if (cls == null) {
-                        return aVar.c().loadClass(str);
+                        return o61Var.c().loadClass(str);
                     }
-                    return aVar.c().loadClass(str).asSubclass(cls);
-                } catch (ClassNotFoundException e2) {
-                    throw new InvokeException(18, Log.getStackTraceString(e2));
+                    return o61Var.c().loadClass(str).asSubclass(cls);
+                } catch (ClassNotFoundException e) {
+                    throw new InvokeException(18, Log.getStackTraceString(e));
                 }
             }
             throw new InvokeException(19, "runtime is null");

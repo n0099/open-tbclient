@@ -36,7 +36,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -204,8 +204,8 @@ public final class Util {
         }
         try {
             closeable.close();
-        } catch (RuntimeException e2) {
-            throw e2;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception unused) {
         }
     }
@@ -225,21 +225,21 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static int decodeHexDigit(char c2) {
+    public static int decodeHexDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < '0' || c2 > '9') {
-                char c3 = 'a';
-                if (c2 < 'a' || c2 > 'f') {
-                    c3 = 'A';
-                    if (c2 < 'A' || c2 > 'F') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
                         return -1;
                     }
                 }
-                return (c2 - c3) + 10;
+                return (c - c2) + 10;
             }
-            return c2 - '0';
+            return c - '0';
         }
         return invokeCommon.intValue;
     }
@@ -685,12 +685,12 @@ public final class Util {
         }
     }
 
-    public static int delimiterOffset(String str, int i, int i2, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
             while (i < i2) {
-                if (str.charAt(i) == c2) {
+                if (str.charAt(i) == c) {
                     return i;
                 }
                 i++;

@@ -14,7 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ActivityInfoArray implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -87,16 +87,16 @@ public class ActivityInfoArray implements Serializable {
                 try {
                     objectInputStream.close();
                     byteArrayInputStream.close();
-                } catch (IOException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (IOException e) {
+                    CommonMethods.handleNuLException(e);
                 }
                 return arrayList;
             } catch (Throwable unused3) {
                 if (objectInputStream != null) {
                     try {
                         objectInputStream.close();
-                    } catch (IOException e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (IOException e2) {
+                        CommonMethods.handleNuLException(e2);
                         return null;
                     }
                 }
@@ -142,16 +142,16 @@ public class ActivityInfoArray implements Serializable {
                 try {
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (IOException e) {
+                    CommonMethods.handleNuLException(e);
                 }
                 return byteArray;
             } catch (IOException unused3) {
                 if (objectOutputStream != null) {
                     try {
                         objectOutputStream.close();
-                    } catch (IOException e3) {
-                        CommonMethods.handleNuLException(e3);
+                    } catch (IOException e2) {
+                        CommonMethods.handleNuLException(e2);
                         return null;
                     }
                 }
@@ -164,8 +164,8 @@ public class ActivityInfoArray implements Serializable {
                 if (objectOutputStream != null) {
                     try {
                         objectOutputStream.close();
-                    } catch (IOException e4) {
-                        CommonMethods.handleNuLException(e4);
+                    } catch (IOException e3) {
+                        CommonMethods.handleNuLException(e3);
                         throw th;
                     }
                 }

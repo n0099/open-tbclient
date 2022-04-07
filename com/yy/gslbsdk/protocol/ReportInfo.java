@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ReportInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,9 @@ public class ReportInfo {
     public HashMap<String, StatsInfo> stats1;
     public HashMap<String, StatsInfo> stats15;
     public int tt;
-    public String view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public String f1035view;
 
     public ReportInfo() {
         Interceptable interceptable = $ic;
@@ -40,7 +42,7 @@ public class ReportInfo {
             }
         }
         this.host = null;
-        this.view = null;
+        this.f1035view = null;
         this.netInfo = null;
         this.stats0 = null;
         this.stats1 = null;
@@ -118,7 +120,7 @@ public class ReportInfo {
     public String getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.view : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1035view : (String) invokeV.objValue;
     }
 
     public void setCt(int i) {
@@ -194,7 +196,7 @@ public class ReportInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.view = str;
+            this.f1035view = str;
         }
     }
 }

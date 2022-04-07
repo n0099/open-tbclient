@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ContentDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class ContentDataSource implements DataSource {
     public final ContentResolver resolver;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public final class ContentDataSource implements DataSource {
                             if (this.assetFileDescriptor != null) {
                                 this.assetFileDescriptor.close();
                             }
-                        } catch (IOException e2) {
-                            throw new ContentDataSourceException(e2);
+                        } catch (IOException e) {
+                            throw new ContentDataSourceException(e);
                         }
                     } finally {
                         this.assetFileDescriptor = null;
@@ -105,8 +105,8 @@ public final class ContentDataSource implements DataSource {
                             }
                         }
                     }
-                } catch (IOException e3) {
-                    throw new ContentDataSourceException(e3);
+                } catch (IOException e2) {
+                    throw new ContentDataSourceException(e2);
                 }
             } catch (Throwable th) {
                 this.inputStream = null;
@@ -124,8 +124,8 @@ public final class ContentDataSource implements DataSource {
                             }
                         }
                         throw th;
-                    } catch (IOException e4) {
-                        throw new ContentDataSourceException(e4);
+                    } catch (IOException e3) {
+                        throw new ContentDataSourceException(e3);
                     }
                 } finally {
                     this.assetFileDescriptor = null;
@@ -189,8 +189,8 @@ public final class ContentDataSource implements DataSource {
                     throw new EOFException();
                 }
                 throw new FileNotFoundException("Could not open file descriptor for: " + this.uri);
-            } catch (IOException e2) {
-                throw new ContentDataSourceException(e2);
+            } catch (IOException e) {
+                throw new ContentDataSourceException(e);
             }
         }
         return invokeL.longValue;
@@ -211,8 +211,8 @@ public final class ContentDataSource implements DataSource {
             if (j != -1) {
                 try {
                     i2 = (int) Math.min(j, i2);
-                } catch (IOException e2) {
-                    throw new ContentDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new ContentDataSourceException(e);
                 }
             }
             int read = this.inputStream.read(bArr, i, i2);

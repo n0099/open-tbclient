@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ABTestExtraData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ABTestExtraData implements Serializable {
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
-            b.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+            wt4.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
         }
     }
 
@@ -56,8 +56,8 @@ public class ABTestExtraData implements Serializable {
             try {
                 this.mABTestResult = jSONObject.optString(TiebaStatic.Params.ABTEST_RESULT);
                 saveABTestExtraToSharedPref(jSONObject);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -66,13 +66,13 @@ public class ABTestExtraData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String q = b.k().q("abtest_extra_info_json", null);
+                String q = wt4.k().q("abtest_extra_info_json", null);
                 if (TextUtils.isEmpty(q)) {
                     return;
                 }
                 parseJson(new JSONObject(q));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

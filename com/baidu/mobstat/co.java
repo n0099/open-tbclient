@@ -11,17 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class co extends cr implements cn {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteBuffer a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f27369f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f27370g;
+    public int f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +37,7 @@ public class co extends cr implements cn {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co() {
-        super(cq.a.f27375f);
+        super(cq.a.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,42 +89,42 @@ public class co extends cr implements cn {
     private void g() throws ci {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f27369f = 1005;
-            ByteBuffer c2 = super.c();
-            c2.mark();
-            if (c2.remaining() >= 2) {
+            this.f = 1005;
+            ByteBuffer c = super.c();
+            c.mark();
+            if (c.remaining() >= 2) {
                 ByteBuffer allocate = ByteBuffer.allocate(4);
                 allocate.position(2);
-                allocate.putShort(c2.getShort());
+                allocate.putShort(c.getShort());
                 allocate.position(0);
                 int i = allocate.getInt();
-                this.f27369f = i;
+                this.f = i;
                 if (i == 1006 || i == 1015 || i == 1005 || i > 4999 || i < 1000 || i == 1004) {
-                    throw new ci("closecode must not be sent over the wire: " + this.f27369f);
+                    throw new ci("closecode must not be sent over the wire: " + this.f);
                 }
             }
-            c2.reset();
+            c.reset();
         }
     }
 
     private void h() throws ch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            if (this.f27369f == 1005) {
-                this.f27370g = dc.a(super.c());
+            if (this.f == 1005) {
+                this.g = dc.a(super.c());
                 return;
             }
-            ByteBuffer c2 = super.c();
-            int position = c2.position();
+            ByteBuffer c = super.c();
+            int position = c.position();
             try {
                 try {
-                    c2.position(c2.position() + 2);
-                    this.f27370g = dc.a(c2);
-                } catch (IllegalArgumentException e2) {
-                    throw new ci(e2);
+                    c.position(c.position() + 2);
+                    this.g = dc.a(c);
+                } catch (IllegalArgumentException e) {
+                    throw new ci(e);
                 }
             } finally {
-                c2.position(position);
+                c.position(position);
             }
         }
     }
@@ -137,7 +133,7 @@ public class co extends cr implements cn {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27370g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
@@ -145,7 +141,7 @@ public class co extends cr implements cn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f27369f == 1005) {
+            if (this.f == 1005) {
                 return a;
             }
             return super.c();
@@ -158,14 +154,14 @@ public class co extends cr implements cn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return super.toString() + "code: " + this.f27369f;
+            return super.toString() + "code: " + this.f;
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co(int i, String str) throws ch {
-        super(cq.a.f27375f);
+        super(cq.a.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,7 +185,7 @@ public class co extends cr implements cn {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27369f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
     }
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cp

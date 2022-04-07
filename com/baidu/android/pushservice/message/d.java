@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinkedList<e> f24768b;
+    public LinkedList<e> b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +33,7 @@ public abstract class d {
                 return;
             }
         }
-        this.f24768b = new LinkedList<>();
+        this.b = new LinkedList<>();
         this.a = context;
     }
 
@@ -44,7 +42,7 @@ public abstract class d {
     public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24768b : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (LinkedList) invokeV.objValue;
     }
 
     public abstract void a(int i);
@@ -54,12 +52,12 @@ public abstract class d {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            synchronized (this.f24768b) {
+            synchronized (this.b) {
                 try {
-                    this.f24768b.add(eVar);
-                    this.f24768b.notifyAll();
-                } catch (Exception e2) {
-                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                    this.b.add(eVar);
+                    this.b.notifyAll();
+                } catch (Exception e) {
+                    new b.c(this.a).a(Log.getStackTraceString(e)).a();
                 }
             }
         }

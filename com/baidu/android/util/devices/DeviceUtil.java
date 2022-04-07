@@ -27,12 +27,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DeviceUtil implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class BrandInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -199,10 +199,10 @@ public class DeviceUtil implements IDevices {
                     }
                     bufferedReader.close();
                     fileReader.close();
-                } catch (FileNotFoundException e2) {
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e2) {
                     e2.printStackTrace();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
                 }
                 if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
                     cPUInfo2.processor = "x86";
@@ -295,7 +295,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KITKAT = 19;
@@ -459,7 +459,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
@@ -496,16 +496,16 @@ public class DeviceUtil implements IDevices {
             }
         }
 
-        public static int dp2px(@Nullable Context context, float f2) {
+        public static int dp2px(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) ? (int) ((f2 * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) ? (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
         }
 
-        public static float dp2pxf(@Nullable Context context, float f2) {
+        public static float dp2pxf(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f2)) == null) ? f2 * getDensity(AppRuntime.getAppContext()) : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? f * getDensity(AppRuntime.getAppContext()) : invokeLF.floatValue;
         }
 
         public static float getDensity(@Nullable Context context) {
@@ -660,17 +660,17 @@ public class DeviceUtil implements IDevices {
             return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? DeviceUtils.ScreenInfo.isScreenPortrait() : invokeV.booleanValue;
         }
 
-        public static int px2dp(@Nullable Context context, float f2) {
+        public static int px2dp(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f2)) == null) ? (int) ((f2 / AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) ? (int) ((f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
         }
 
         @Deprecated
-        public static float px2dpFloat(float f2) {
+        public static float px2dpFloat(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(65555, null, f2)) == null) ? f2 / getDensity(AppRuntime.getAppContext()) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(65555, null, f)) == null) ? f / getDensity(AppRuntime.getAppContext()) : invokeF.floatValue;
         }
     }
 

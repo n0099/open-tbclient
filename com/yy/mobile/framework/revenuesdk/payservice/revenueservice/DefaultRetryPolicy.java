@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = -1;

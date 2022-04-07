@@ -106,9 +106,9 @@ public class Placeholder extends View {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.mContentId == i) {
             return;
         }
-        View view = this.mContent;
-        if (view != null) {
-            view.setVisibility(0);
+        View view2 = this.mContent;
+        if (view2 != null) {
+            view2.setVisibility(0);
             ((ConstraintLayout.LayoutParams) this.mContent.getLayoutParams()).isInPlaceholder = false;
             this.mContent = null;
         }

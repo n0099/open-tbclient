@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
@@ -84,7 +84,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int mVideoLoopCount;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class InternalPlayerDispatcher implements InternalEventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -945,6 +945,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
@@ -955,6 +956,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public boolean onError(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -968,6 +970,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return invokeIIL.booleanValue;
     }
 
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public boolean onInfo(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -991,6 +994,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return invokeIIL.booleanValue;
     }
 
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
@@ -998,6 +1002,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
+    @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onSeekComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
@@ -1382,13 +1387,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @PublicMethod(version = "11.26.0.0")
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048691, this, f2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048691, this, f) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
-        baseKernelLayer.setRadius(f2);
+        baseKernelLayer.setRadius(f);
     }
 
     public void setReuseHelper(@NonNull IKernelLayerReuseHelper iKernelLayerReuseHelper) {
@@ -1399,14 +1404,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @PublicMethod
-    public void setSpeed(float f2) {
+    public void setSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048693, this, f2) == null) {
-            this.mSpeed = f2;
+        if (interceptable == null || interceptable.invokeF(1048693, this, f) == null) {
+            this.mSpeed = f;
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
-                baseKernelLayer.setSpeed(f2);
-                BdVideoLog.i(wrapMessage("setSpeed(" + f2 + SmallTailInfo.EMOTION_SUFFIX));
+                baseKernelLayer.setSpeed(f);
+                BdVideoLog.i(wrapMessage("setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX));
             }
         }
     }

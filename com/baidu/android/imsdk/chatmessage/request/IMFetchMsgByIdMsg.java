@@ -35,7 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
@@ -52,7 +52,7 @@ public class IMFetchMsgByIdMsg extends Message {
     public JSONObject mMessageExt;
     public long mTriggerReason;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class FetchTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,8 +111,8 @@ public class IMFetchMsgByIdMsg extends Message {
                             i2 = jSONArray.length();
                             try {
                                 LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message result hasMore = " + z + " realMsgCount = " + i2 + " count = " + this.this$0.mCount);
-                            } catch (JSONException e2) {
-                                e = e2;
+                            } catch (JSONException e) {
+                                e = e;
                                 LogUtils.e(IMFetchMsgByIdMsg.TAG, "Exception ", e);
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 if (z) {
@@ -124,12 +124,12 @@ public class IMFetchMsgByIdMsg extends Message {
                                 arrayList = parserMessage;
                                 ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, this.this$0.mCategory, this.this$0.mContacter, this.this$0.mBeginId, this.this$0.mEndId, this.this$0.mCount, i, ((Long) type.t).longValue(), this.this$0.getUUID(), arrayList, this.this$0.getListenerKey());
                             }
-                        } catch (JSONException e3) {
-                            e = e3;
+                        } catch (JSONException e2) {
+                            e = e2;
                             i2 = 0;
                         }
-                    } catch (JSONException e4) {
-                        e = e4;
+                    } catch (JSONException e3) {
+                        e = e3;
                         i2 = 0;
                         z = false;
                     }
@@ -169,8 +169,8 @@ public class IMFetchMsgByIdMsg extends Message {
                                             jSONObject.put(Constants.RELIABLE_CASTID, ((TextMsg) arrayList2.get(0)).getCastId());
                                             jSONObject.put(Constants.RELIABLE_UPDATTIME, System.currentTimeMillis());
                                             Utility.setReliableMaxMsg(this.mContext, jSONObject);
-                                        } catch (JSONException e5) {
-                                            e5.printStackTrace();
+                                        } catch (JSONException e4) {
+                                            e4.printStackTrace();
                                         }
                                     }
                                     long castId = ((TextMsg) arrayList2.get(0)).getCastId();
@@ -353,9 +353,9 @@ public class IMFetchMsgByIdMsg extends Message {
                 }
                 this.mBody = jSONObject.toString();
                 LogUtils.d(TAG, "长连接拉消息的消息body" + this.mBody);
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

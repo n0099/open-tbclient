@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ResultPoint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float x;
     public final float y;
 
-    public ResultPoint(float f2, float f3) {
+    public ResultPoint(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,17 +29,17 @@ public class ResultPoint {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
+        this.x = f;
+        this.y = f2;
     }
 
     public static float crossProductZ(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, resultPoint, resultPoint2, resultPoint3)) == null) {
-            float f2 = resultPoint2.x;
-            float f3 = resultPoint2.y;
-            return ((resultPoint3.x - f2) * (resultPoint.y - f3)) - ((resultPoint3.y - f3) * (resultPoint.x - f2));
+            float f = resultPoint2.x;
+            float f2 = resultPoint2.y;
+            return ((resultPoint3.x - f) * (resultPoint.y - f2)) - ((resultPoint3.y - f2) * (resultPoint.x - f));
         }
         return invokeLLL.floatValue;
     }

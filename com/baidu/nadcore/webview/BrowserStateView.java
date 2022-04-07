@@ -17,29 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BrowserStateView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f27720b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f27721c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f27722d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f27723e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f27724f;
+    public View b;
+    public LayoutInflater c;
+    public int d;
+    public int e;
+    public View.OnClickListener f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ViewState {
         public static final /* synthetic */ ViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +88,7 @@ public class BrowserStateView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -152,20 +142,20 @@ public class BrowserStateView extends FrameLayout {
     }
 
     public void a(ViewState viewState) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewState) == null) {
             int i = a.a[viewState.ordinal()];
             if (i != 1) {
-                if (i == 2 && (view = this.a) != null) {
-                    view.setVisibility(8);
+                if (i == 2 && (view2 = this.a) != null) {
+                    view2.setVisibility(8);
                     return;
                 }
                 return;
             }
-            View view2 = this.f27720b;
-            if (view2 != null) {
-                view2.setVisibility(8);
+            View view3 = this.b;
+            if (view3 != null) {
+                view3.setVisibility(8);
             }
         }
     }
@@ -173,9 +163,9 @@ public class BrowserStateView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27723e = R.layout.obfuscated_res_0x7f0d05e0;
-            this.f27722d = R.layout.obfuscated_res_0x7f0d05e1;
-            this.f27721c = LayoutInflater.from(getContext());
+            this.e = R.layout.obfuscated_res_0x7f0d05e2;
+            this.d = R.layout.obfuscated_res_0x7f0d05e3;
+            this.c = LayoutInflater.from(getContext());
             d();
             c();
         }
@@ -184,7 +174,7 @@ public class BrowserStateView extends FrameLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = this.f27721c.inflate(this.f27723e, (ViewGroup) this, false);
+            View inflate = this.c.inflate(this.e, (ViewGroup) this, false);
             this.a = inflate;
             addView(inflate, inflate.getLayoutParams());
             this.a.setVisibility(8);
@@ -194,28 +184,28 @@ public class BrowserStateView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = this.f27721c.inflate(this.f27722d, (ViewGroup) this, false);
-            this.f27720b = inflate;
+            View inflate = this.c.inflate(this.d, (ViewGroup) this, false);
+            this.b = inflate;
             addView(inflate, inflate.getLayoutParams());
-            this.f27720b.setVisibility(8);
+            this.b.setVisibility(8);
         }
     }
 
     public void e(ViewState viewState) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, viewState) == null) {
             int i = a.a[viewState.ordinal()];
             if (i != 1) {
-                if (i == 2 && (view = this.a) != null) {
-                    view.setVisibility(0);
+                if (i == 2 && (view2 = this.a) != null) {
+                    view2.setVisibility(0);
                     return;
                 }
                 return;
             }
-            View view2 = this.f27720b;
-            if (view2 != null) {
-                view2.setVisibility(0);
+            View view3 = this.b;
+            if (view3 != null) {
+                view3.setVisibility(0);
             }
         }
     }
@@ -223,10 +213,10 @@ public class BrowserStateView extends FrameLayout {
     public void setErrorViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f27724f = onClickListener;
-            View view = this.a;
-            if (view != null) {
-                view.setOnClickListener(onClickListener);
+            this.f = onClickListener;
+            View view2 = this.a;
+            if (view2 != null) {
+                view2.setOnClickListener(onClickListener);
             }
         }
     }
@@ -234,10 +224,10 @@ public class BrowserStateView extends FrameLayout {
     public void setViewForState(int i, ViewState viewState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, viewState) == null) {
-            if (this.f27721c == null) {
-                this.f27721c = LayoutInflater.from(getContext());
+            if (this.c == null) {
+                this.c = LayoutInflater.from(getContext());
             }
-            setViewForState(this.f27721c.inflate(i, (ViewGroup) this, false), viewState);
+            setViewForState(this.c.inflate(i, (ViewGroup) this, false), viewState);
         }
     }
 
@@ -263,30 +253,30 @@ public class BrowserStateView extends FrameLayout {
         b();
     }
 
-    public void setViewForState(View view, ViewState viewState) {
+    public void setViewForState(View view2, ViewState viewState) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, view, viewState) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, view2, viewState) == null) || view2 == null) {
             return;
         }
         int i = a.a[viewState.ordinal()];
         if (i == 1) {
-            View view2 = this.f27720b;
-            if (view2 != null) {
-                removeView(view2);
-            }
-            this.f27720b = view;
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.gravity = 17;
-            addView(this.f27720b, layoutParams);
-        } else if (i == 2) {
-            View view3 = this.a;
+            View view3 = this.b;
             if (view3 != null) {
                 removeView(view3);
             }
-            this.a = view;
-            addView(view);
-            this.a.setOnClickListener(this.f27724f);
+            this.b = view2;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            layoutParams.gravity = 17;
+            addView(this.b, layoutParams);
+        } else if (i == 2) {
+            View view4 = this.a;
+            if (view4 != null) {
+                removeView(view4);
+            }
+            this.a = view2;
+            addView(view2);
+            this.a.setOnClickListener(this.f);
         }
-        view.setVisibility(8);
+        view2.setVisibility(8);
     }
 }

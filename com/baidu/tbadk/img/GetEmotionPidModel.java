@@ -1,8 +1,6 @@
 package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
-import c.a.o0.c0.c;
-import c.a.o0.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -18,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.l35;
+import com.repackage.zl4;
+/* loaded from: classes3.dex */
 public class GetEmotionPidModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f30570b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +67,9 @@ public class GetEmotionPidModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void a(c cVar);
+        void a(l35 l35Var);
 
         void onFail(int i, String str);
     }
@@ -89,12 +87,12 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
         }
-        this.f30570b = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f30570b.setTag(getUniqueId());
-        this.f30570b.setSelfListener(true);
-        registerListener(this.f30570b);
+        this.b.setTag(getUniqueId());
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -102,7 +100,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f30570b);
+            MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
             return true;
         }
@@ -140,7 +138,7 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
-            httpMessage.addParam("pic_url", e.q(str));
+            httpMessage.addParam("pic_url", zl4.q(str));
             sendMessage(httpMessage);
         }
     }

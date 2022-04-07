@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = FpsConfigCommandListener.CLOUD_FLUENCY_FPS_ACTION, module = "aap_share_20")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FpsConfigCommandListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_FLUENCY_FPS_ACTION = "apm_fluency_fps";

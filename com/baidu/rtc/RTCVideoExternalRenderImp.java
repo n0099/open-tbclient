@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.i0;
+import com.repackage.my9;
 import org.webrtc.EglBase;
 import org.webrtc.GlRectDrawer;
 import org.webrtc.Logging;
@@ -20,7 +20,7 @@ import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceEglRenderer;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements RendererCommon.RendererEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ExternalRenderImp";
@@ -128,7 +128,7 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Logging.d(TAG, this.userId + " : External renderer init");
-            init(i0.a().getEglBaseContext(), null);
+            init(my9.a().getEglBaseContext(), null);
         }
     }
 
@@ -202,17 +202,17 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         }
     }
 
-    public void setFpsReduction(float f2) {
+    public void setFpsReduction(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            this.eglRenderer.setFpsReduction(f2);
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            this.eglRenderer.setFpsReduction(f);
         }
     }
 
-    public void setLayoutAspect(float f2) {
+    public void setLayoutAspect(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.eglRenderer.setLayoutAspectRatio(f2);
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.eglRenderer.setLayoutAspectRatio(f);
         }
     }
 

@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.b0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,8 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.h35;
+import com.repackage.oi;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -46,8 +46,8 @@ public class TbConfig {
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
-    public static final int AUTO_PLAY_CLOSED = 1;
-    public static final int AUTO_PLAY_IN_WIFI = 0;
+    public static final int AUTO_PLAY_CLOSED = 3;
+    public static final int AUTO_PLAY_IN_WIFI = 1;
     public static final int AUTO_PLAY_UNSET = -1;
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
     public static final String BAWUTEAME_ADDRESS = "http://tieba.baidu.com/mo/q/bawuteam";
@@ -157,7 +157,6 @@ public class TbConfig {
     public static final int FONT_SIZE_SMALL = 3;
     public static final int FONT_SIZE_XLAGER = 0;
     public static final String FORBID_USER_ADDRESS = "c/c/bawu/commitprison";
-    public static boolean FORCE_UPDATE = false;
     public static final String FORTUNE_ADDRESS = "mo/q/fudaiindex";
     public static final String FORUM_CLASS_LIST = "c/f/forumsquare/getForumClassList";
     public static final String FORUM_RULES_SHOW = "c/f/forum/forumRuleDetail";
@@ -556,7 +555,7 @@ public class TbConfig {
     public static final String URL_DELETE_REPLY_AT_MSG = "c/c/post/delmsg";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
-    public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
+    public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
     public static final String URL_FORUM_MANAGER_APPLY = "https://tieba.baidu.com/mo/q/managerapply/newapplyelection?nomenu=1&fid=";
@@ -720,7 +719,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -794,7 +793,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -870,7 +869,6 @@ public class TbConfig {
         COMMIT_GRAFFITI = "c/c/graffiti/commit";
         NOVEL_PAY = "c/s/adNovelPay";
         COULD_UPDATE = true;
-        FORCE_UPDATE = false;
         VALUE_COMMON_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
         VALUE_COMMON_FONT_SIZE_BIG = getDimens(R.dimen.T_X13);
         VALUE_COMMON_FONT_SIZE_MID = getDimens(R.dimen.T_X05);
@@ -1125,7 +1123,7 @@ public class TbConfig {
     public static final int getDimens(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) ? n.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) ? oi.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1375,7 +1373,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(n.k(context) * n.i(context));
+        int sqrt = (int) Math.sqrt(oi.k(context) * oi.i(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1402,11 +1400,11 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            int d2 = n.d(context, 427.0f);
-            if (d2 > 640) {
-                d2 = 640;
+            int d = oi.d(context, 427.0f);
+            if (d > 640) {
+                d = 640;
             }
-            int i = (int) (d2 * d2 * 1.6f * 2.0f);
+            int i = (int) (d * d * 1.6f * 2.0f);
             BIG_IMAGE_SIZE = i;
             return i;
         }
@@ -1473,7 +1471,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                c.k().t(i);
+                h35.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

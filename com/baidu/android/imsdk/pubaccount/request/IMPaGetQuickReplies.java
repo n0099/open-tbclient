@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,8 +141,8 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-        } catch (JSONException e2) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+        } catch (JSONException e) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
         }
         if (i2 == 0) {
             str = jSONObject.has("response_params") ? jSONObject.getString("response_params") : "";

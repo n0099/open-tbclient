@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LEFT_MOUNT = "[";
@@ -56,10 +56,10 @@ public class PreferencesUtil {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) ? getPreferences().getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
-    public static float getFloat(String str, float f2) {
+    public static float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, str, f2)) == null) ? getPreferences().getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, str, f)) == null) ? getPreferences().getFloat(str, f) : invokeLF.floatValue;
     }
 
     public static int getInt(String str, int i) {
@@ -140,11 +140,11 @@ public class PreferencesUtil {
         }
     }
 
-    public static void putFloat(String str, float f2) {
+    public static void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65548, null, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(65548, null, str, f) == null) {
             SharedPreferences.Editor edit = getPreferences().edit();
-            edit.putFloat(str, f2);
+            edit.putFloat(str, f);
             if (Build.VERSION.SDK_INT < 9) {
                 edit.commit();
             } else {

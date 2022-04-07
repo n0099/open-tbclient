@@ -7,22 +7,20 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.n0.a;
-import c.a.p0.a4.n0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.fl8;
+import com.repackage.gl8;
+/* loaded from: classes4.dex */
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public b f36135b;
+    public fl8 a;
+    public gl8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragLayer(Context context) {
@@ -46,17 +44,17 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        b bVar;
+        gl8 gl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f36135b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gl8Var = this.b) == null) {
             return;
         }
-        Bitmap bitmap = bVar.f12307b;
+        Bitmap bitmap = gl8Var.b;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f36135b.f12307b = null;
+            this.b.b = null;
         }
-        this.f36135b = null;
+        this.b = null;
     }
 
     public final void b() {
@@ -70,24 +68,24 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            b bVar = this.f36135b;
-            if (bVar == null || !this.a.f12304f) {
+            gl8 gl8Var = this.b;
+            if (gl8Var == null || !this.a.f) {
                 return;
             }
-            bVar.a(canvas);
+            gl8Var.a(canvas);
         }
     }
 
-    public a getDragController() {
+    public fl8 getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (fl8) invokeV.objValue;
     }
 
-    public b getDragObject() {
+    public gl8 getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36135b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (gl8) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -121,17 +119,17 @@ public class DragLayer extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.a.d(motionEvent) : invokeL.booleanValue;
     }
 
-    public void setDragController(a aVar) {
+    public void setDragController(fl8 fl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, fl8Var) == null) {
+            this.a = fl8Var;
         }
     }
 
-    public void setDragObject(b bVar) {
+    public void setDragObject(gl8 gl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f36135b = bVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, gl8Var) == null) {
+            this.b = gl8Var;
             invalidate();
         }
     }

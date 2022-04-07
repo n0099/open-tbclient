@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,13 +48,13 @@ public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch 
                     return downloadChain.processConnect();
                 }
                 throw InterruptException.SIGNAL;
-            } catch (IOException e2) {
-                if (e2 instanceof RetryException) {
+            } catch (IOException e) {
+                if (e instanceof RetryException) {
                     downloadChain.resetConnectForRetry();
                 } else {
-                    downloadChain.getCache().catchException(e2);
+                    downloadChain.getCache().catchException(e);
                     downloadChain.getOutputStream().catchBlockConnectException(downloadChain.getBlockIndex());
-                    throw e2;
+                    throw e;
                 }
             }
         }
@@ -67,9 +67,9 @@ public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch 
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadChain)) == null) {
             try {
                 return downloadChain.processFetch();
-            } catch (IOException e2) {
-                downloadChain.getCache().catchException(e2);
-                throw e2;
+            } catch (IOException e) {
+                downloadChain.getCache().catchException(e);
+                throw e;
             }
         }
         return invokeL.longValue;

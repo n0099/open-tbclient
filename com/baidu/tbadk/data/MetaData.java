@@ -2,9 +2,6 @@ package com.baidu.tbadk.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.d.f.p.m;
-import c.a.o0.r.l0.t.a;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,6 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.mv4;
+import com.repackage.ni;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +43,8 @@ import tbclient.SpringVirtualUser;
 import tbclient.TbVipInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
-/* loaded from: classes5.dex */
-public class MetaData extends OrmObject implements Serializable, a {
+/* loaded from: classes3.dex */
+public class MetaData extends OrmObject implements Serializable, mv4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2658065756886586092L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.fansNickName : (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -353,7 +353,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.is_god_user : invokeV.intValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.likeNum : invokeV.intValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -469,7 +469,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.pendantData : (UserPendantData) invokeV.objValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -536,7 +536,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -546,7 +546,7 @@ public class MetaData extends OrmObject implements Serializable, a {
     public long getUserIdLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? b.g(this.userId, 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? mg.g(this.userId, 0L) : invokeV.longValue;
     }
 
     public String getUserName() {
@@ -603,7 +603,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -674,8 +674,8 @@ public class MetaData extends OrmObject implements Serializable, a {
         if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -885,7 +885,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public void setFansNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
@@ -978,7 +978,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
@@ -1064,7 +1064,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.a
+    @Override // com.repackage.mv4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
@@ -1189,7 +1189,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
             BazhuGradeData bazhuGradeData = this.mBazhuGrade;
-            if (bazhuGradeData == null || m.isEmpty(bazhuGradeData.getDesc())) {
+            if (bazhuGradeData == null || ni.isEmpty(bazhuGradeData.getDesc())) {
                 return false;
             }
             return (this.is_bawu == 1 && "manager".equals(this.bawu_type)) ? this.privSetsData.getBazhuShowInside() != 3 : this.privSetsData.getBazhuShowOutside() != 3;
@@ -1460,8 +1460,8 @@ public class MetaData extends OrmObject implements Serializable, a {
             optJSONObject10 = jSONObject.optJSONObject("work_creator_info");
             if (optJSONObject10 == null) {
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

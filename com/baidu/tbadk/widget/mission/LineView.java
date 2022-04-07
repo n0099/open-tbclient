@@ -8,7 +8,6 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -16,14 +15,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class LineView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Path f30856b;
+    public Path b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LineView(Context context) {
@@ -54,9 +52,9 @@ public class LineView extends View {
             paint.setAntiAlias(true);
             this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
             this.a.setStyle(Paint.Style.STROKE);
-            this.a.setStrokeWidth(n.f(getContext(), R.dimen.tbds2));
-            this.a.setPathEffect(new DashPathEffect(new float[]{n.f(getContext(), R.dimen.tbds8), n.f(getContext(), R.dimen.tbds8)}, 0.0f));
-            this.f30856b = new Path();
+            this.a.setStrokeWidth(oi.f(getContext(), R.dimen.tbds2));
+            this.a.setPathEffect(new DashPathEffect(new float[]{oi.f(getContext(), R.dimen.tbds8), oi.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.b = new Path();
         }
     }
 
@@ -73,11 +71,11 @@ public class LineView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f30856b.reset();
+            this.b.reset();
             float height = getHeight() / 2;
-            this.f30856b.moveTo(0.0f, height);
-            this.f30856b.lineTo(getWidth(), height);
-            canvas.drawPath(this.f30856b, this.a);
+            this.b.moveTo(0.0f, height);
+            this.b.lineTo(getWidth(), height);
+            canvas.drawPath(this.b, this.a);
         }
     }
 

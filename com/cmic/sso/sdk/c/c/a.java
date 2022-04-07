@@ -23,7 +23,7 @@ import com.cmic.sso.sdk.e.p;
 import com.cmic.sso.sdk.e.q;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -85,8 +85,8 @@ public class a {
             bVar.f(AuthnHelper.SDK_VERSION);
             bVar.g(aVar.b("appid"));
             bVar.h(bVar.u("iYm0HAnkxQtpvN44"));
-            com.cmic.sso.sdk.a.a b2 = aVar.b();
-            a(new c("https://" + b2.c() + "/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
+            com.cmic.sso.sdk.a.a b = aVar.b();
+            a(new c("https://" + b.c() + "/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
         }
     }
 
@@ -95,13 +95,13 @@ public class a {
         c bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, dVar) == null) {
-            int c2 = aVar.c("networktype");
+            int c = aVar.c("networktype");
             h hVar = new h();
             hVar.b("1.0");
             hVar.c(AuthnHelper.SDK_VERSION);
             hVar.d(aVar.b("appid"));
             hVar.e(aVar.b("operatortype"));
-            hVar.f(c2 + "");
+            hVar.f(c + "");
             hVar.g(m.a());
             hVar.h(m.b());
             hVar.i(m.c());
@@ -124,23 +124,23 @@ public class a {
                 hVar.s("authz");
             }
             q.a(aVar, "scripAndTokenForHttps");
-            com.cmic.sso.sdk.a.a b2 = aVar.b();
+            com.cmic.sso.sdk.a.a b = aVar.b();
             if (aVar.b("isCacheScrip", false)) {
                 hVar.q(p.a(false));
                 hVar.r(p.b(false));
                 hVar.v(aVar.b("phonescrip"));
                 hVar.n(hVar.u(aVar.b("appkey")));
-                bVar = new c("https://" + b2.a() + "/unisdk/rs/scripAndTokenForHttps", hVar, "POST", aVar.b("traceId"));
+                bVar = new c("https://" + b.a() + "/unisdk/rs/scripAndTokenForHttps", hVar, "POST", aVar.b("traceId"));
                 bVar.a("defendEOF", "0");
             } else {
                 e eVar = new e();
                 eVar.a(aVar.a(b.a.a));
-                eVar.b(aVar.a(b.a.f38415b));
+                eVar.b(aVar.a(b.a.b));
                 eVar.a(hVar);
                 eVar.a(false);
-                aVar.a("isCloseIpv4", b2.h());
-                aVar.a("isCloseIpv6", b2.i());
-                String str = "https://" + b2.b() + "/unisdk/rs/scripAndTokenForHttps";
+                aVar.a("isCloseIpv4", b.h());
+                aVar.a("isCloseIpv6", b.i());
+                String str = "https://" + b.b() + "/unisdk/rs/scripAndTokenForHttps";
                 if (aVar.b("use2048PublicKey", false)) {
                     com.cmic.sso.sdk.e.c.a(BaseRequest.TAG, "使用2对应的编码");
                     eVar.b("2");
@@ -151,7 +151,7 @@ public class a {
                 eVar.c(a2);
                 bVar = new b(str, eVar, "POST", aVar.b("traceId"));
                 bVar.a("defendEOF", "1");
-                if (c2 == 3) {
+                if (c == 3) {
                     bVar.a(true);
                     aVar.a("doNetworkSwitch", true);
                 } else {
@@ -178,8 +178,8 @@ public class a {
             aVar2.a(jSONObject);
             fVar.a(aVar2);
             fVar.a(bVar);
-            com.cmic.sso.sdk.a.a b2 = aVar.b();
-            a(new c("https://" + b2.d() + "/log/logReport", fVar, "POST", aVar.b("traceId")), dVar, aVar);
+            com.cmic.sso.sdk.a.a b = aVar.b();
+            a(new c("https://" + b.d() + "/log/logReport", fVar, "POST", aVar.b("traceId")), dVar, aVar);
         }
     }
 
@@ -196,15 +196,9 @@ public class a {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f38459b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f38460c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f38461d;
+                public final /* synthetic */ com.cmic.sso.sdk.a b;
+                public final /* synthetic */ d c;
+                public final /* synthetic */ a d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -221,10 +215,10 @@ public class a {
                             return;
                         }
                     }
-                    this.f38461d = this;
+                    this.d = this;
                     this.a = cVar;
-                    this.f38459b = aVar;
-                    this.f38460c = dVar;
+                    this.b = aVar;
+                    this.c = dVar;
                 }
 
                 @Override // com.cmic.sso.sdk.c.d.c
@@ -240,10 +234,10 @@ public class a {
                             } else {
                                 string = jSONObject.getString("resultCode");
                             }
-                            q.b(this.f38459b, string);
-                            this.f38460c.a(string, jSONObject.optString("desc"), jSONObject);
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                            q.b(this.b, string);
+                            this.c.a(string, jSONObject.optString("desc"), jSONObject);
+                        } catch (Exception e) {
+                            e.printStackTrace();
                             a(com.cmic.sso.sdk.c.d.a.a(102223));
                         }
                     }
@@ -254,8 +248,8 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.a.g()) {
                         a();
-                        q.b(this.f38459b, String.valueOf(aVar3.a()));
-                        this.f38460c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
+                        q.b(this.b, String.valueOf(aVar3.a()));
+                        this.c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
                     }
                 }
 
@@ -264,7 +258,7 @@ public class a {
                     if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.a.a().contains("uniConfig")) {
                         return;
                     }
-                    q.c(this.f38459b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
+                    q.c(this.b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
                 }
             }, aVar);
         }

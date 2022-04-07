@@ -2,8 +2,6 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.o0.s.d.d;
-import c.a.p0.p3.c.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -14,8 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fe8;
+import com.repackage.zx4;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public MsgRemindModel mModel;
     public MsgRemindModel.e mMsgRemindModelCallback;
     public OfficialAccountPushModel mOfficialPushModel;
-    public f mView;
+    public fe8 mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,28 +58,28 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                         return;
                     }
                     if (z2) {
-                        this.a.mView.j().h();
-                        this.a.mView.q(false);
-                        this.a.mView.s(false);
+                        this.a.mView.j().i();
+                        this.a.mView.r(false);
+                        this.a.mView.t(false);
                         return;
                     }
                     this.a.mView.j().l();
-                    this.a.mView.q(true);
-                    this.a.mView.s(true);
+                    this.a.mView.r(true);
+                    this.a.mView.t(true);
                 } else if (i == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.a.mView.l().h();
+                        this.a.mView.l().i();
                     } else {
                         this.a.mView.l().l();
                     }
                 } else if (i == 7) {
                     if (z) {
-                        d.d().S(z2);
+                        zx4.d().S(z2);
                     } else if (z2) {
-                        this.a.mView.i().h();
+                        this.a.mView.i().i();
                     } else {
                         this.a.mView.i().l();
                     }
@@ -88,7 +88,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements OfficialAccountPushModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i, str) == null) && i == OfficialAccountPushModel.NET_SUCCESS && this.a.mView != null) {
-                this.a.mView.r(arrayList);
+                this.a.mView.s(arrayList);
             }
         }
     }
@@ -139,26 +139,26 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
+    public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
-            if (view == this.mView.j()) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+            if (view2 == this.mView.j()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(8, true, this.mMsgRemindModelCallback);
-                    this.mView.q(true);
-                    this.mView.s(true);
+                    this.mView.r(true);
+                    this.mView.t(true);
                     return;
                 }
                 this.mModel.B(8, false, this.mMsgRemindModelCallback);
-                this.mView.q(false);
-                this.mView.s(false);
-            } else if (view == this.mView.l()) {
+                this.mView.r(false);
+                this.mView.t(false);
+            } else if (view2 == this.mView.l()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.B(9, true, this.mMsgRemindModelCallback);
                 } else {
                     this.mModel.B(9, false, this.mMsgRemindModelCallback);
                 }
-            } else if (view == this.mView.i()) {
+            } else if (view2 == this.mView.i()) {
                 this.mModel.B(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
             }
         }
@@ -174,11 +174,11 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            super.onClick(view);
-            if (view == this.mView.h()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            super.onClick(view2);
+            if (view2 == this.mView.h()) {
                 finish();
             }
         }
@@ -189,9 +189,9 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            f fVar = new f(this);
-            this.mView = fVar;
-            fVar.m();
+            fe8 fe8Var = new fe8(this);
+            this.mView = fe8Var;
+            fe8Var.m();
             this.mModel = new MsgRemindModel(this);
         }
     }

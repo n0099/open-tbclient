@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kuaishou.weapon.un.x;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class i {
                 SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putInt(str, i);
                 edit.commit();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -66,8 +66,8 @@ public class i {
                 m.a = 1;
                 edit.putLong("version_code", m.c(context, context.getPackageName()));
                 edit.apply();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -81,8 +81,8 @@ public class i {
                 edit.putString(str, str2);
                 edit.commit();
                 return true;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }
@@ -108,8 +108,8 @@ public class i {
                 SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putLong(str, j);
                 edit.commit();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -121,8 +121,8 @@ public class i {
                 SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putString(str, str2);
                 edit.apply();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -140,8 +140,8 @@ public class i {
                 SharedPreferences.Editor edit = context.getSharedPreferences("pst_bdservice_v1", 0).edit();
                 edit.putString(str, str2);
                 edit.apply();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }

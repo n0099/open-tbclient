@@ -83,10 +83,10 @@ public class TintTypedArray {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? (!this.mWrapped.hasValue(i) || (resourceId = this.mWrapped.getResourceId(i, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(this.mContext, resourceId)) == null) ? this.mWrapped.getColorStateList(i) : colorStateList : (ColorStateList) invokeI.objValue;
     }
 
-    public float getDimension(int i, float f2) {
+    public float getDimension(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? this.mWrapped.getDimension(i, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? this.mWrapped.getDimension(i, f) : invokeCommon.floatValue;
     }
 
     public int getDimensionPixelOffset(int i, int i2) {
@@ -127,10 +127,10 @@ public class TintTypedArray {
         return (Drawable) invokeI.objValue;
     }
 
-    public float getFloat(int i, float f2) {
+    public float getFloat(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? this.mWrapped.getFloat(i, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? this.mWrapped.getFloat(i, f) : invokeCommon.floatValue;
     }
 
     @Nullable
@@ -150,10 +150,10 @@ public class TintTypedArray {
         return (Typeface) invokeIIL.objValue;
     }
 
-    public float getFraction(int i, int i2, int i3, float f2) {
+    public float getFraction(int i, int i2, int i3, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) ? this.mWrapped.getFraction(i, i2, i3, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) ? this.mWrapped.getFraction(i, i2, i3, f) : invokeCommon.floatValue;
     }
 
     public int getIndex(int i) {

@@ -13,9 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tg1;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAR_DESC = "sign";
@@ -35,7 +36,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearName;
     public String bearVipType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SwanAppBearInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +87,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = c.a.n0.a.a.a;
+        DEBUG = tg1.a;
         CREATOR = new a();
     }
 
@@ -205,9 +206,9 @@ public class SwanAppBearInfo extends SwanAppIPCData {
             this.bearLogo = jSONObject.optString("avatar");
             this.bearName = jSONObject.optString("name");
             this.bearVipType = jSONObject.optString(BEAR_VIP_TYPE);
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
             if (DEBUG) {
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -87,9 +87,9 @@ public class a {
         try {
             ARMdlInterfaceJNI.setAssetManager(context.getAssets());
             this.cH = true;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             b.b(TAG, "setup error");
-            e2.printStackTrace();
+            e.printStackTrace();
         }
     }
 

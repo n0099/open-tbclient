@@ -14,12 +14,12 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class r extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -62,9 +62,9 @@ public final class r extends z {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("messageID", String.valueOf(qVar.f()));
                 Context context2 = this.a;
-                String b2 = com.vivo.push.util.aa.b(context2, context2.getPackageName());
-                if (!TextUtils.isEmpty(b2)) {
-                    hashMap.put("remoteAppId", b2);
+                String b = com.vivo.push.util.aa.b(context2, context2.getPackageName());
+                if (!TextUtils.isEmpty(b)) {
+                    hashMap.put("remoteAppId", b);
                 }
                 xVar.a(hashMap);
                 com.vivo.push.e.a().a(xVar);
@@ -77,9 +77,9 @@ public final class r extends z {
                 HashMap<String, String> hashMap2 = new HashMap<>();
                 hashMap2.put("messageID", String.valueOf(qVar.f()));
                 Context context3 = this.a;
-                String b3 = com.vivo.push.util.aa.b(context3, context3.getPackageName());
-                if (!TextUtils.isEmpty(b3)) {
-                    hashMap2.put("remoteAppId", b3);
+                String b2 = com.vivo.push.util.aa.b(context3, context3.getPackageName());
+                if (!TextUtils.isEmpty(b2)) {
+                    hashMap2.put("remoteAppId", b2);
                 }
                 xVar2.a(hashMap2);
                 com.vivo.push.e.a().a(xVar2);
@@ -88,9 +88,9 @@ public final class r extends z {
                 HashMap<String, String> hashMap3 = new HashMap<>();
                 hashMap3.put("messageID", String.valueOf(qVar.f()));
                 Context context4 = this.a;
-                String b4 = com.vivo.push.util.aa.b(context4, context4.getPackageName());
-                if (!TextUtils.isEmpty(b4)) {
-                    hashMap3.put("remoteAppId", b4);
+                String b3 = com.vivo.push.util.aa.b(context4, context4.getPackageName());
+                if (!TextUtils.isEmpty(b3)) {
+                    hashMap3.put("remoteAppId", b3);
                 }
                 xVar3.a(hashMap3);
                 com.vivo.push.e.a().a(xVar3);
@@ -104,9 +104,9 @@ public final class r extends z {
                         HashMap<String, String> hashMap4 = new HashMap<>();
                         hashMap4.put("messageID", String.valueOf(qVar.f()));
                         Context context5 = this.a;
-                        String b5 = com.vivo.push.util.aa.b(context5, context5.getPackageName());
-                        if (!TextUtils.isEmpty(b5)) {
-                            hashMap4.put("remoteAppId", b5);
+                        String b4 = com.vivo.push.util.aa.b(context5, context5.getPackageName());
+                        if (!TextUtils.isEmpty(b4)) {
+                            hashMap4.put("remoteAppId", b4);
                         }
                         xVar4.a(hashMap4);
                         com.vivo.push.e.a().a(xVar4);
@@ -119,9 +119,9 @@ public final class r extends z {
                                 com.vivo.push.util.p.b(this.a, "通知通道开关关闭，导致通知无法展示，请到设置页打开应用通知开关");
                                 HashMap hashMap5 = new HashMap();
                                 hashMap5.put("messageID", String.valueOf(qVar.f()));
-                                String b6 = com.vivo.push.util.aa.b(this.a, this.a.getPackageName());
-                                if (!TextUtils.isEmpty(b6)) {
-                                    hashMap5.put("remoteAppId", b6);
+                                String b5 = com.vivo.push.util.aa.b(this.a, this.a.getPackageName());
+                                if (!TextUtils.isEmpty(b5)) {
+                                    hashMap5.put("remoteAppId", b5);
                                 }
                                 com.vivo.push.util.e.a(2121L, hashMap5);
                                 return;
@@ -131,12 +131,12 @@ public final class r extends z {
                         }
                     }
                 }
-                InsideNotificationItem d2 = qVar.d();
-                if (d2 != null) {
-                    int targetType = d2.getTargetType();
-                    String tragetContent = d2.getTragetContent();
+                InsideNotificationItem d = qVar.d();
+                if (d != null) {
+                    int targetType = d.getTargetType();
+                    String tragetContent = d.getTragetContent();
                     com.vivo.push.util.p.d("OnNotificationArrivedTask", "tragetType is " + targetType + " ; target is " + tragetContent);
-                    com.vivo.push.m.c(new s(this, d2, qVar));
+                    com.vivo.push.m.c(new s(this, d, qVar));
                     return;
                 }
                 com.vivo.push.util.p.a("OnNotificationArrivedTask", "notify is null");

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
@@ -28,7 +28,7 @@ public class Config {
     public long mPerfUploadFrequency;
     public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

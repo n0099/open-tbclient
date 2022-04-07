@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static File a(Context context) {
         File filesDir = context.getFilesDir();
@@ -19,11 +19,11 @@ public class a {
     }
 
     public static String a(Context context, String str) {
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        return b2 + File.separator + str;
+        return b + File.separator + str;
     }
 
     public static void a(String str, String str2) {
@@ -77,35 +77,35 @@ public class a {
     }
 
     public static String b(Context context, String str) {
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        return b2 + File.separator + str + ".zip";
+        return b + File.separator + str + ".zip";
     }
 
     public static String c(Context context) {
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        a(b2);
-        return b2 + File.separator + "packageIndex.json";
+        a(b);
+        return b + File.separator + "packageIndex.json";
     }
 
     public static String c(Context context, String str) {
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        return b2 + File.separator + str;
+        return b + File.separator + str;
     }
 
     public static String d(Context context, String str) {
-        String b2 = b(context);
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(context);
+        if (TextUtils.isEmpty(b)) {
             return null;
         }
-        return b2 + File.separator + str + File.separator + "_manifest_.json";
+        return b + File.separator + str + File.separator + "_manifest_.json";
     }
 }

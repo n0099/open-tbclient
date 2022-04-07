@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import c.a.o0.c1.q;
-import c.a.p0.l0.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -23,17 +21,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.fc5;
+import com.repackage.nz5;
+/* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f25205b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f25206c;
+    public nz5 a;
+    public int b;
+    public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnfollowedDecorView(Context context) {
@@ -86,14 +82,14 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f25205b, SkinManager.getColor(this.f25206c), WebPManager.ResourceStateType.NORMAL_PRESS));
+            setImageDrawable(WebPManager.getPureDrawable(this.b, SkinManager.getColor(this.c), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || q.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || fc5.a()) {
             return;
         }
         this.a.n();
@@ -102,8 +98,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void setWebPResId(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.f25205b = i;
-            this.f25206c = i2;
+            this.b = i;
+            this.c = i2;
             setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -148,11 +144,11 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.f25205b = R.drawable.obfuscated_res_0x7f0808ea;
-        this.f25206c = R.color.CAM_X0111;
-        this.a = new i(g((Activity) context), this);
+        this.b = R.drawable.obfuscated_res_0x7f0808ef;
+        this.c = R.color.CAM_X0111;
+        this.a = new nz5(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ea, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ef, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

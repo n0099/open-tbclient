@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import java.util.Timer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TimerMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TimerMgr";
@@ -77,8 +77,8 @@ public class TimerMgr {
             try {
                 this.mTimer.schedule(timerTaskInfo.getWorker(), j, j2);
                 this.workerList.put(timerTaskInfo.getTaskName(), timerTaskInfo);
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return 0;
         }

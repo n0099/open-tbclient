@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GoodSSLSocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GoodSSLSocketFactory";
@@ -68,8 +68,8 @@ public class GoodSSLSocketFactory extends SSLSocketFactory {
                 }
             }
             LogTools.printDebug(TAG, String.format(Locale.US, "protocols: %s, cipherSuites: %s", Arrays.toString(protocols), Arrays.toString(cipherSuites)));
-        } catch (IOException e2) {
-            throw new RuntimeException(e2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

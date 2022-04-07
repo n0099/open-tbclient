@@ -3,9 +3,6 @@ package com.baidu.tieba.frs.examination;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import c.a.p0.f1.q1.a;
-import c.a.p0.f1.q1.b;
-import c.a.p0.f1.q1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.frs.ForumWriteData;
@@ -15,11 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.qi6;
+import com.repackage.ri6;
+import com.repackage.ti6;
+/* loaded from: classes3.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mEvaluationView;
+    public qi6 mEvaluationView;
     public ForumWriteData mForumWriteData;
     public SerializableItemInfo mItemInfo;
     public boolean mItemIsSchool;
@@ -67,9 +67,9 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
                 this.mItemIsSchool = getIntent().getBooleanExtra("item_is_school", false);
             }
             if (this.mItemIsSchool) {
-                this.mEvaluationView = new d(this, this.mForumWriteData, this.mItemInfo);
+                this.mEvaluationView = new ti6(this, this.mForumWriteData, this.mItemInfo);
             } else {
-                this.mEvaluationView = new b(this, this.mForumWriteData, this.mItemInfo);
+                this.mEvaluationView = new ri6(this, this.mForumWriteData, this.mItemInfo);
             }
             this.mEvaluationView.c();
             setContentView(this.mEvaluationView.d());

@@ -54,8 +54,8 @@ public class StringBody extends AbstractContentBody {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, charset)) == null) {
             try {
                 return new StringBody(str, str2, charset);
-            } catch (UnsupportedEncodingException e2) {
-                throw new IllegalArgumentException("Charset " + charset + " is not supported", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new IllegalArgumentException("Charset " + charset + " is not supported", e);
             }
         }
         return (StringBody) invokeLLL.objValue;

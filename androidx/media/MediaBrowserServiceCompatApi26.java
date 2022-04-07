@@ -119,8 +119,8 @@ public class MediaBrowserServiceCompatApi26 {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i) == null) {
                 try {
                     MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i);
-                } catch (IllegalAccessException e2) {
-                    Log.w(MediaBrowserServiceCompatApi26.TAG, e2);
+                } catch (IllegalAccessException e) {
+                    Log.w(MediaBrowserServiceCompatApi26.TAG, e);
                 }
                 this.mResultObj.sendResult(parcelListToItemList(list));
             }
@@ -149,8 +149,8 @@ public class MediaBrowserServiceCompatApi26 {
             Field declaredField = MediaBrowserService.Result.class.getDeclaredField("mFlags");
             sResultFlags = declaredField;
             declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.w(TAG, e2);
+        } catch (NoSuchFieldException e) {
+            Log.w(TAG, e);
         }
     }
 

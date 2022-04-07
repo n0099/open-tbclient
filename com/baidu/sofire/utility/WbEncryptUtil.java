@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WbEncryptUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_LEN = 1024;
@@ -179,12 +179,12 @@ public class WbEncryptUtil {
                     return -1;
                 }
                 int length = 16 - (bArr.length % 16);
-                byte b2 = (byte) length;
+                byte b = (byte) length;
                 int length2 = bArr.length + length;
                 byte[] bArr3 = new byte[length2];
                 System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
                 for (int i = 0; i < length; i++) {
-                    bArr3[bArr.length + i] = b2;
+                    bArr3[bArr.length + i] = b;
                 }
                 if (bArr2.length < length2) {
                     return -1;
@@ -215,18 +215,18 @@ public class WbEncryptUtil {
                 return new byte[0];
             }
             int length = 16 - (bArr.length % 16);
-            byte b2 = (byte) length;
+            byte b = (byte) length;
             int length2 = bArr.length + length;
             byte[] bArr2 = new byte[length2];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
             for (int i = 0; i < length; i++) {
-                bArr2[bArr.length + i] = b2;
+                bArr2[bArr.length + i] = b;
             }
             byte[] bArr3 = new byte[length2];
             try {
                 mWbaes.encrypt(bArr2, bArr3, length2);
-            } catch (WBAESException e2) {
-                handleException(e2);
+            } catch (WBAESException e) {
+                handleException(e);
             }
             return bArr3;
         }

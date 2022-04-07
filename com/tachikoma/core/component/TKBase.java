@@ -69,7 +69,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class TKBase<T extends View> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_INLINE = "inline";
@@ -100,7 +100,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public ViewBackgroundManager viewBackgroundManager;
     public String viewID;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IV8Function iV8Function);
     }
@@ -129,26 +129,26 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         T createView = createView(context);
         this.mTargetView = createView;
         if (createView != null) {
-            createView.setTag(R.id.obfuscated_res_0x7f09207d, this);
+            createView.setTag(R.id.obfuscated_res_0x7f092062, this);
         }
         this.mNode = TKDomNode.nodeForView(this, list);
         this.viewBackgroundManager = new ViewBackgroundManager(getView());
         this.rootTkBase = this;
     }
 
-    private void backtrackRoot(View view) {
+    private void backtrackRoot(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, view2) == null) || view2 == null) {
             return;
         }
-        ViewParent parent = view.getParent();
+        ViewParent parent = view2.getParent();
         if (parent instanceof View) {
-            View view2 = (View) parent;
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f09207d);
+            View view3 = (View) parent;
+            Object tag = view3.getTag(R.id.obfuscated_res_0x7f092062);
             if (tag instanceof TKBase) {
                 this.rootTkBase = (TKBase) tag;
             }
-            backtrackRoot(view2);
+            backtrackRoot(view3);
         }
     }
 
@@ -201,13 +201,13 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 }
 
                 @Override // com.tachikoma.core.component.anim.TKBasicAnimation.AnimationJsCallback
-                public void onJsExecuteComplete(double d2) {
+                public void onJsExecuteComplete(double d) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)}) == null) {
                         if (this.this$0.rootTkBase != null && this.this$0.rootTkBase.getDomNode() != null) {
                             this.this$0.rootTkBase.getDomNode().layoutSubviews();
                         }
-                        this.this$0.mAnimationPropertySnapshot.put(new Float(d2), this.this$0.makeAnimationPropertySnapshot());
+                        this.this$0.mAnimationPropertySnapshot.put(new Float(d), this.this$0.makeAnimationPropertySnapshot());
                     }
                 }
             };
@@ -224,10 +224,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public static <T extends View> TKBase<T> getTKBaseFromView(View view) {
+    public static <T extends View> TKBase<T> getTKBaseFromView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view)) == null) ? (TKBase) view.getTag(R.id.obfuscated_res_0x7f09207d) : (TKBase) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (TKBase) view2.getTag(R.id.obfuscated_res_0x7f092062) : (TKBase) invokeL.objValue;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -327,11 +327,11 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 }
 
                 @Override // android.view.GestureDetector.OnGestureListener
-                public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+                public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                        this.this$0.dispatchEvent(TKBaseEvent.TK_SWIPE_EVENT_NAME, new TKEventProcess.EventInterface(this, motionEvent, motionEvent2, f2, f3) { // from class: com.tachikoma.core.component.TKBase.2.5
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                        this.this$0.dispatchEvent(TKBaseEvent.TK_SWIPE_EVENT_NAME, new TKEventProcess.EventInterface(this, motionEvent, motionEvent2, f, f2) { // from class: com.tachikoma.core.component.TKBase.2.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -345,7 +345,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                 if (interceptable3 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)};
+                                    Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -358,8 +358,8 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                 this.this$1 = this;
                                 this.val$e1 = motionEvent;
                                 this.val$e2 = motionEvent2;
-                                this.val$velocityX = f2;
-                                this.val$velocityY = f3;
+                                this.val$velocityX = f;
+                                this.val$velocityY = f2;
                             }
 
                             @Override // com.tachikoma.core.event.TKEventProcess.EventInterface
@@ -480,11 +480,11 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 }
 
                 @Override // android.view.GestureDetector.OnGestureListener
-                public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+                public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                        this.this$0.dispatchEvent(TKBaseEvent.TK_PAN_EVENT_NAME, new TKEventProcess.EventInterface(this, motionEvent, motionEvent2, f2, f3) { // from class: com.tachikoma.core.component.TKBase.2.3
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                        this.this$0.dispatchEvent(TKBaseEvent.TK_PAN_EVENT_NAME, new TKEventProcess.EventInterface(this, motionEvent, motionEvent2, f, f2) { // from class: com.tachikoma.core.component.TKBase.2.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -498,7 +498,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                 if (interceptable3 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)};
+                                    Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -511,8 +511,8 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                 this.this$1 = this;
                                 this.val$e1 = motionEvent;
                                 this.val$e2 = motionEvent2;
-                                this.val$distanceX = f2;
-                                this.val$distanceY = f3;
+                                this.val$distanceX = f;
+                                this.val$distanceY = f2;
                             }
 
                             @Override // com.tachikoma.core.event.TKEventProcess.EventInterface
@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C20862 this$2;
+                                        public final /* synthetic */ C06302 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -752,10 +752,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
+                public boolean onTouch(View view2, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                         this.this$0.mLatestMotionEvent = motionEvent;
                         int actionMasked = motionEvent.getActionMasked();
                         if (actionMasked == 1 || actionMasked == 3) {
@@ -881,7 +881,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 if (getDomNode() != null && getDomNode().getYogaNode() != null) {
                     hashMap.put("width", getDomNode().getYogaNode().getWidth());
                     hashMap.put("height", getDomNode().getYogaNode().getHeight());
-                    hashMap.put(AnimationProperty.MARGIN, getDomNode().getYogaNode().getMargin(YogaEdge.ALL));
+                    hashMap.put("margin", getDomNode().getYogaNode().getMargin(YogaEdge.ALL));
                     hashMap.put(AnimationProperty.MARGIN_LEFT, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.LEFT)));
                     hashMap.put(AnimationProperty.MARGIN_RIGHT, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.RIGHT)));
                     hashMap.put(AnimationProperty.MARGIN_TOP, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.TOP)));
@@ -894,7 +894,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
             if (getDomNode() != null) {
                 hashMap.put("width", getDomNode().getYogaNode().getWidth());
                 hashMap.put("height", getDomNode().getYogaNode().getHeight());
-                hashMap.put(AnimationProperty.MARGIN, getDomNode().getYogaNode().getMargin(YogaEdge.ALL));
+                hashMap.put("margin", getDomNode().getYogaNode().getMargin(YogaEdge.ALL));
                 hashMap.put(AnimationProperty.MARGIN_LEFT, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.LEFT)));
                 hashMap.put(AnimationProperty.MARGIN_RIGHT, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.RIGHT)));
                 hashMap.put(AnimationProperty.MARGIN_TOP, Float.valueOf(getDomNode().getYogaNode().getLayoutMargin(YogaEdge.TOP)));
@@ -946,9 +946,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                     }
 
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && this.this$0.mGestureDetector == null) {
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.this$0.mGestureDetector == null) {
                             this.this$0.dispatchEvent(TKBaseEvent.TK_CLICK_EVENT_NAME, new TKEventProcess.EventInterface(this) { // from class: com.tachikoma.core.component.TKBase.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C20831 this$2;
+                                            public final /* synthetic */ C06271 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;
@@ -1329,8 +1329,8 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                         if (file.exists()) {
                             lottieTask = LottieCompositionFactory.fromJsonInputStream(new FileInputStream(file), this.lottiePath);
                         }
-                    } catch (Exception e2) {
-                        Logger.logE("load lottie from file failed", e2);
+                    } catch (Exception e) {
+                        Logger.logE("load lottie from file failed", e);
                     }
                 }
             }
@@ -1474,9 +1474,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         return invokeLLL.objValue;
     }
 
-    public void onShadowSet(float f2) {
+    public void onShadowSet(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
         }
     }
 
@@ -1590,10 +1590,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         this.viewBackgroundManager.setBorderStyle(str);
     }
 
-    public void setBorderWidth(double d2) {
+    public void setBorderWidth(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.viewBackgroundManager.setBorderWidth(8, TKConverter.dp2px(Tachikoma.sApplication, (float) d2));
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.viewBackgroundManager.setBorderWidth(8, TKConverter.dp2px(Tachikoma.sApplication, (float) d));
         }
     }
 
@@ -1713,45 +1713,45 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setOpacity(double d2) {
+    public void setOpacity(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Double.valueOf(d2)}) == null) {
-            getView().setAlpha((float) d2);
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Double.valueOf(d)}) == null) {
+            getView().setAlpha((float) d);
         }
     }
 
-    public void setRotate(float f2) {
+    public void setRotate(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048621, this, f2) == null) {
-            getView().setRotation(f2);
+        if (interceptable == null || interceptable.invokeF(1048621, this, f) == null) {
+            getView().setRotation(f);
         }
     }
 
-    public void setRotateX(float f2) {
+    public void setRotateX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
-            getView().setRotationX(f2);
+        if (interceptable == null || interceptable.invokeF(1048622, this, f) == null) {
+            getView().setRotationX(f);
         }
     }
 
-    public void setRotateY(float f2) {
+    public void setRotateY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048623, this, f2) == null) {
-            getView().setRotationY(f2);
+        if (interceptable == null || interceptable.invokeF(1048623, this, f) == null) {
+            getView().setRotationY(f);
         }
     }
 
-    public void setScaleX(float f2) {
+    public void setScaleX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048624, this, f2) == null) {
-            getView().setScaleX(f2);
+        if (interceptable == null || interceptable.invokeF(1048624, this, f) == null) {
+            getView().setScaleX(f);
         }
     }
 
-    public void setScaleY(float f2) {
+    public void setScaleY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048625, this, f2) == null) {
-            getView().setScaleY(f2);
+        if (interceptable == null || interceptable.invokeF(1048625, this, f) == null) {
+            getView().setScaleY(f);
         }
     }
 
@@ -1811,17 +1811,17 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setTranslateX(float f2) {
+    public void setTranslateX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048631, this, f2) == null) {
-            getView().setTranslationX(f2);
+        if (interceptable == null || interceptable.invokeF(1048631, this, f) == null) {
+            getView().setTranslationX(f);
         }
     }
 
-    public void setTranslateY(float f2) {
+    public void setTranslateY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
-            getView().setTranslationY(f2);
+        if (interceptable == null || interceptable.invokeF(1048632, this, f) == null) {
+            getView().setTranslationY(f);
         }
     }
 
@@ -1840,10 +1840,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void startViewAnimation(String str, long j, float f2, float f3) {
+    public void startViewAnimation(String str, long j, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            new CustomViewPropertyAnimator(this, str, j, f2, f3).start();
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Long.valueOf(j), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            new CustomViewPropertyAnimator(this, str, j, f, f2).start();
         }
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import android.content.pm.ApplicationInfo;
-import c.a.d.f.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.mg;
+/* loaded from: classes2.dex */
 public class InitVersionTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class InitVersionTask extends LaunchTask {
             ApplicationInfo applicationInfo = null;
             try {
                 applicationInfo = TbadkCoreApplication.getInst().getContext().getPackageManager().getApplicationInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 128);
-                TbConfig.setVersionType(b.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
-            } catch (Exception e2) {
+                TbConfig.setVersionType(mg.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+            } catch (Exception e) {
                 TbConfig.setVersionType(3);
-                BdLog.e(e2.getMessage());
+                BdLog.e(e.getMessage());
             }
             try {
                 if (TbConfig.getVersionType() == 2) {
@@ -55,8 +55,8 @@ public class InitVersionTask extends LaunchTask {
                     return;
                 }
                 TbConfig.setSubVersion(String.valueOf(applicationInfo.metaData.get("subVersion")));
-            } catch (Exception e3) {
-                BdLog.e(e3.getMessage());
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
             }
         }
     }

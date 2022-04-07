@@ -12,7 +12,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODING = "UTF-8";
@@ -60,11 +60,11 @@ public class AES {
                     Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
-                } catch (NoSuchAlgorithmException e2) {
-                    e2.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
                     return null;
-                } catch (NoSuchPaddingException e3) {
-                    e3.printStackTrace();
+                } catch (NoSuchPaddingException e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
@@ -84,11 +84,11 @@ public class AES {
                     Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(padString(str).getBytes());
-                } catch (NoSuchAlgorithmException e2) {
-                    e2.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
                     return null;
-                } catch (NoSuchPaddingException e3) {
-                    e3.printStackTrace();
+                } catch (NoSuchPaddingException e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }

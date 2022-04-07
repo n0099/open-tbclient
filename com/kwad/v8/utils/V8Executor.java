@@ -13,7 +13,7 @@ import com.kwad.v8.V8;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8Executor extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class V8Executor extends Thread {
     public volatile boolean shuttingDown;
     public volatile boolean terminated;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class ExecutorTermination implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,8 +254,8 @@ public class V8Executor extends Thread {
                         }
                         this.terminated = true;
                     }
-                } catch (Exception e2) {
-                    this.exception = e2;
+                } catch (Exception e) {
+                    this.exception = e;
                     synchronized (this) {
                         if (this.runtime.getLocker().hasLock()) {
                             this.runtime.close();

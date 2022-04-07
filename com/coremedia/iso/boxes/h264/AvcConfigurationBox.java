@@ -30,7 +30,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "avcC";
@@ -408,7 +408,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AVCDecoderConfigurationRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -529,8 +529,8 @@ public final class AvcConfigurationBox extends AbstractBox {
                 for (byte[] bArr : this.pictureParameterSets) {
                     try {
                         arrayList.add(PictureParameterSet.read(new ByteArrayInputStream(bArr, 1, bArr.length - 1)).toString());
-                    } catch (IOException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return (String[]) arrayList.toArray(new String[arrayList.size()]);

@@ -20,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.mj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
@@ -38,7 +39,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<Bdtls$Alert> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,17 +68,13 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Alert, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f29395b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ByteString f29396c;
+        public int b;
+        public ByteString c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -92,7 +89,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
                     return;
                 }
             }
-            this.f29396c = ByteString.EMPTY;
+            this.c = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -150,14 +147,14 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (c.a.n0.c.a.i.a) null);
+                Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (mj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                bdtls$Alert.level_ = this.f29395b;
+                bdtls$Alert.level_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                bdtls$Alert.description_ = this.f29396c;
+                bdtls$Alert.description_ = this.c;
                 bdtls$Alert.bitField0_ = i2;
                 return bdtls$Alert;
             }
@@ -169,10 +166,10 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f29395b = 0;
+                this.b = 0;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f29396c = ByteString.EMPTY;
+                this.c = ByteString.EMPTY;
                 this.a = i & (-3);
                 return this;
             }
@@ -248,10 +245,10 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
                             u(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        Bdtls$Alert bdtls$Alert2 = (Bdtls$Alert) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        Bdtls$Alert bdtls$Alert2 = (Bdtls$Alert) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             bdtls$Alert = bdtls$Alert2;
@@ -277,7 +274,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, byteString)) == null) {
                 if (byteString != null) {
                     this.a |= 2;
-                    this.f29396c = byteString;
+                    this.c = byteString;
                     return this;
                 }
                 throw null;
@@ -290,7 +287,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
                 this.a |= 1;
-                this.f29395b = i;
+                this.b = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -336,7 +333,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         bdtls$Alert.initFields();
     }
 
-    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -465,7 +462,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, c.a.n0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
         this(builder);
     }
 
@@ -630,11 +627,11 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
                             }
                         }
                         z = true;
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e) {
+                        throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    throw e3.setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e2) {
+                    throw e2.setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

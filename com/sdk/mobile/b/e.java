@@ -13,12 +13,8 @@ public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f42618b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f42619c;
+    public long b;
+    public /* synthetic */ a c;
 
     public e(a aVar, long j) {
         Interceptable interceptable = $ic;
@@ -35,15 +31,15 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f42619c = aVar;
+        this.c = aVar;
         this.a = new Handler(Looper.getMainLooper());
-        this.f42618b = j;
+        this.b = j;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.postDelayed(this, this.f42618b);
+            this.a.postDelayed(this, this.b);
         }
     }
 
@@ -62,15 +58,15 @@ public final class e implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f42619c.f42605f;
+            fVar = this.c.f;
             if (fVar != null) {
                 str = a.a;
-                bool = a.f42601b;
+                bool = a.b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f42619c.f42605f;
+                fVar2 = this.c.f;
                 fVar2.a();
             }
-            this.f42619c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

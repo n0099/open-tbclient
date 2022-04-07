@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,14 +42,14 @@ public class af {
                 return null;
             }
             Point point = new Point(0, 0);
-            String b2 = this.a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
-            if (b2 != null && !b2.isEmpty()) {
+            String b = this.a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
+            if (b != null && !b.isEmpty()) {
                 try {
-                    JSONObject jSONObject = new JSONObject(b2);
+                    JSONObject jSONObject = new JSONObject(b);
                     point.x = jSONObject.getInt("scrx");
                     point.y = jSONObject.getInt("scry");
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return point;
@@ -68,8 +68,8 @@ public class af {
                     JSONObject jSONObject = new JSONObject(a);
                     geoPoint.setLongitudeE6(jSONObject.getInt("geox"));
                     geoPoint.setLatitudeE6(jSONObject.getInt("geoy"));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return geoPoint;

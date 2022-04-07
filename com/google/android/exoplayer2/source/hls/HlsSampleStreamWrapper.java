@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loader.ReleaseCallback, SequenceableLoader, ExtractorOutput, SampleQueue.UpstreamFormatChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIMARY_TYPE_AUDIO = 2;
@@ -72,7 +72,7 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
     public TrackGroupArray trackGroups;
     public final int trackType;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Callback extends SequenceableLoader.Callback<HlsSampleStreamWrapper> {
         void onPlaylistRefreshRequired(HlsMasterPlaylist.HlsUrl hlsUrl);
 
@@ -147,25 +147,25 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             int length = this.sampleQueues.length;
             int i = 0;
-            char c2 = 0;
+            char c = 0;
             int i2 = -1;
             while (true) {
-                char c3 = 3;
+                char c2 = 3;
                 if (i >= length) {
                     break;
                 }
                 String str = this.sampleQueues[i].getUpstreamFormat().sampleMimeType;
                 if (!MimeTypes.isVideo(str)) {
                     if (MimeTypes.isAudio(str)) {
-                        c3 = 2;
+                        c2 = 2;
                     } else {
-                        c3 = MimeTypes.isText(str) ? (char) 1 : (char) 0;
+                        c2 = MimeTypes.isText(str) ? (char) 1 : (char) 0;
                     }
                 }
-                if (c3 > c2) {
+                if (c2 > c) {
                     i2 = i;
-                    c2 = c3;
-                } else if (c3 == c2 && i2 != -1) {
+                    c = c2;
+                } else if (c2 == c && i2 != -1) {
                     i2 = -1;
                 }
                 i++;
@@ -190,7 +190,7 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                     trackGroupArr[i4] = new TrackGroup(formatArr);
                     this.primaryTrackGroupIndex = i4;
                 } else {
-                    trackGroupArr[i4] = new TrackGroup(deriveFormat((c2 == 3 && MimeTypes.isAudio(upstreamFormat.sampleMimeType)) ? this.muxedAudioFormat : null, upstreamFormat));
+                    trackGroupArr[i4] = new TrackGroup(deriveFormat((c == 3 && MimeTypes.isAudio(upstreamFormat.sampleMimeType)) ? this.muxedAudioFormat : null, upstreamFormat));
                 }
             }
             this.trackGroups = new TrackGroupArray(trackGroupArr);

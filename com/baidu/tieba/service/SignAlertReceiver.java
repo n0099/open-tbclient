@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.o0.s.d.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -18,7 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.xx4;
+/* loaded from: classes4.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(R.string.obfuscated_res_0x7f0f115d);
+                String string = context.getString(R.string.obfuscated_res_0x7f0f1165);
                 String string2 = context.getString(R.string.obfuscated_res_0x7f0f029e);
-                b.g0().j(b.g0().C(12), 12);
+                xx4.g0().j(xx4.g0().C(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_SHOW);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

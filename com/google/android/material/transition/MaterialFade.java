@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MaterialFade extends MaterialVisibility<FadeProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_FADE_END_THRESHOLD_ENTER = 0.3f;
@@ -66,13 +66,13 @@ public final class MaterialFade extends MaterialVisibility<FadeProvider> {
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
-    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        return super.onAppear(viewGroup, view, transitionValues, transitionValues2);
+    public /* bridge */ /* synthetic */ Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        return super.onAppear(viewGroup, view2, transitionValues, transitionValues2);
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
-    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        return super.onDisappear(viewGroup, view, transitionValues, transitionValues2);
+    public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        return super.onDisappear(viewGroup, view2, transitionValues, transitionValues2);
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility

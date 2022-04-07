@@ -4,9 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,11 +46,11 @@ public class MessageV4 extends MessageV3 {
                         messageV4.setActVideoSetting(ActVideoSetting.parse(jSONObject2.getJSONObject(ActVideoSetting.ACT_VIDEO_SETTING)));
                     }
                 }
-            } catch (JSONException e2) {
-                c.h.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b(TAG, "parse messageV4 error " + e.getMessage());
             }
         }
-        c.h.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        rm9.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultLoadControl implements LoadControl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABOVE_HIGH_WATERMARK = 0;

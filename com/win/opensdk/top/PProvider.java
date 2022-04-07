@@ -7,16 +7,16 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import c.m.a.c0;
-import c.m.a.h2;
-import c.m.a.r0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.repackage.ap9;
+import com.repackage.fr9;
+import com.repackage.pp9;
+/* loaded from: classes8.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h2.A(this.a) == 0) {
-            r0.E(this.a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && fr9.A(this.a) == 0) {
+            pp9.E(this.a);
         }
     }
 
@@ -81,13 +81,13 @@ public class PProvider extends ContentProvider {
             Context context = getContext();
             this.a = context;
             if (context != null) {
-                if (h2.A(context) == 0) {
-                    r0.E(this.a);
+                if (fr9.A(context) == 0) {
+                    pp9.E(this.a);
                     return true;
                 }
                 return true;
             }
-            new Handler(Looper.getMainLooper()).post(new c0(this));
+            new Handler(Looper.getMainLooper()).post(new ap9(this));
             return true;
         }
         return invokeV.booleanValue;

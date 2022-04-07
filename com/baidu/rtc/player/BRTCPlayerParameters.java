@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BRTCPlayerParameters {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AAC = 2;
@@ -219,10 +219,10 @@ public class BRTCPlayerParameters {
         }
     }
 
-    public void setVolume(double d2) {
+    public void setVolume(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mVolume = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mVolume = d;
         }
     }
 }

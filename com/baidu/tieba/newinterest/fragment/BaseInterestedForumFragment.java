@@ -1,8 +1,6 @@
 package com.baidu.tieba.newinterest.fragment;
 
 import android.view.View;
-import c.a.p0.s2.c.b;
-import c.a.p0.s2.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,24 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lp7;
+import com.repackage.sp7;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BaseInterestedForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f34760b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String[] f34761c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<b> f34762d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f34763e;
+    public boolean b;
+    public String[] c;
+    public List<lp7> d;
+    public View e;
 
     public BaseInterestedForumFragment() {
         Interceptable interceptable = $ic;
@@ -43,31 +35,31 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public int C0() {
+    public int B0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void D0() {
+    public void C0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hideLoadingView(this.f34763e);
+            hideLoadingView(this.e);
         }
     }
 
-    public void E0(String str) {
+    public void D0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            hideLoadingView(this.f34763e);
-            showNetRefreshView(this.f34763e, str, false);
+            hideLoadingView(this.e);
+            showNetRefreshView(this.e, str, false);
         }
     }
 
-    public void F0(List<b> list) {
+    public void E0(List<lp7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f34762d = list;
+            this.d = list;
         }
     }
 
@@ -77,7 +69,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                a.c(2, this.a);
+                sp7.c(2, this.a);
             }
         }
     }

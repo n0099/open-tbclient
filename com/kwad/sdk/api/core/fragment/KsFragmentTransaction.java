@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsFragmentTransaction {
     public final FragmentTransaction mBase;
 
@@ -38,8 +38,8 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction addSharedElement(View view, String str) {
-        this.mBase.addSharedElement(view, str);
+    public KsFragmentTransaction addSharedElement(View view2, String str) {
+        this.mBase.addSharedElement(view2, str);
         return this;
     }
 

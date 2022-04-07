@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.p0.h0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -23,35 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.cx5;
+/* loaded from: classes3.dex */
 public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ClickableHeaderImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f33217b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f33218c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f33219d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f33220e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ThreadData f33221f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f33222g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f33223h;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public View e;
+    public ThreadData f;
+    public View.OnClickListener g;
+    public View.OnClickListener h;
     public View.OnClickListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,14 +62,14 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f33221f == null || StringUtils.isNull(this.a.f33221f.getForum_name())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null || StringUtils.isNull(this.a.f.getForum_name())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f33221f.getForum_name(), m.g())));
-            if (this.a.f33223h != null) {
-                this.a.f33223h.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), cx5.g())));
+            if (this.a.h != null) {
+                this.a.h.onClick(view2);
             }
         }
     }
@@ -112,15 +98,15 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f8, (ViewGroup) this, true);
-            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09053f);
-            this.f33217b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb1);
-            this.f33218c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd2);
-            this.f33219d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091faa);
-            this.f33220e = inflate.findViewById(R.id.obfuscated_res_0x7f0907e1);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f9, (ViewGroup) this, true);
+            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090547);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f9c);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbd);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f96);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907ea);
             setGravity(16);
             d();
-            this.f33217b.setOnClickListener(this.i);
+            this.b.setOnClickListener(this.i);
         }
     }
 
@@ -154,13 +140,13 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public TextView getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33218c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (TextView) invokeV.objValue;
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f33223h = onClickListener;
+            this.h = onClickListener;
         }
     }
 
@@ -176,7 +162,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f33222g = onClickListener;
+            this.g = onClickListener;
             ClickableHeaderImageView clickableHeaderImageView = this.a;
             if (clickableHeaderImageView != null) {
                 clickableHeaderImageView.setAfterClickListener(onClickListener);

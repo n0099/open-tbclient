@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PassBioDataEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassBioDataEncryptor";
@@ -87,14 +87,14 @@ public class PassBioDataEncryptor {
             String a2 = a(16);
             try {
                 str2 = SecurityUtil.base64Encode(new AES().encrypt(str, new StringBuffer(a2).reverse().toString(), a2));
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 str2 = "";
             }
             try {
                 str3 = SecurityUtil.base64Encode(RSA.encrypt(a2));
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 Log.e(a, a, e);
                 return TextUtils.join("_", new String[]{str3, str2});
             }

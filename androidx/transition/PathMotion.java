@@ -26,7 +26,7 @@ public abstract class PathMotion {
         }
     }
 
-    public abstract Path getPath(float f2, float f3, float f4, float f5);
+    public abstract Path getPath(float f, float f2, float f3, float f4);
 
     public PathMotion(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;

@@ -183,7 +183,7 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public abstract void addContentView(View view, ViewGroup.LayoutParams layoutParams);
+    public abstract void addContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     public abstract boolean applyDayNight();
 
@@ -206,7 +206,7 @@ public abstract class AppCompatDelegate {
         return (Context) invokeL.objValue;
     }
 
-    public abstract View createView(@Nullable View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
+    public abstract View createView(@Nullable View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
 
     @Nullable
     public abstract <T extends View> T findViewById(@IdRes int i);
@@ -256,9 +256,9 @@ public abstract class AppCompatDelegate {
 
     public abstract void setContentView(@LayoutRes int i);
 
-    public abstract void setContentView(View view);
+    public abstract void setContentView(View view2);
 
-    public abstract void setContentView(View view, ViewGroup.LayoutParams layoutParams);
+    public abstract void setContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
     public abstract void setHandleNativeActionModesEnabled(boolean z);
 

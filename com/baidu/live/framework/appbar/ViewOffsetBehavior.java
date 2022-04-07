@@ -3,7 +3,6 @@ package com.baidu.live.framework.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.v.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,17 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.wa0;
+/* loaded from: classes2.dex */
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f25825b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f25826c;
+    public wa0 a;
+    public int b;
+    public int c;
 
     public ViewOffsetBehavior() {
         Interceptable interceptable = $ic;
@@ -36,17 +32,17 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f25825b = 0;
-        this.f25826c = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                return bVar.a();
+            wa0 wa0Var = this.a;
+            if (wa0Var != null) {
+                return wa0Var.a();
             }
             return 0;
         }
@@ -64,11 +60,11 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                return bVar.d(i);
+            wa0 wa0Var = this.a;
+            if (wa0Var != null) {
+                return wa0Var.d(i);
             }
-            this.f25825b = i;
+            this.b = i;
             return false;
         }
         return invokeI.booleanValue;
@@ -81,18 +77,18 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
             F(coordinatorLayout, v, i);
             if (this.a == null) {
-                this.a = new b(v);
+                this.a = new wa0(v);
             }
             this.a.b();
-            int i2 = this.f25825b;
+            int i2 = this.b;
             if (i2 != 0) {
                 this.a.d(i2);
-                this.f25825b = 0;
+                this.b = 0;
             }
-            int i3 = this.f25826c;
+            int i3 = this.c;
             if (i3 != 0) {
                 this.a.c(i3);
-                this.f25826c = 0;
+                this.c = 0;
                 return true;
             }
             return true;
@@ -119,7 +115,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f25825b = 0;
-        this.f25826c = 0;
+        this.b = 0;
+        this.c = 0;
     }
 }

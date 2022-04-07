@@ -142,11 +142,11 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C2073a(iBinder);
+            return new C0617a(iBinder);
         }
 
         public static i g() {
-            return C2073a.a;
+            return C0617a.a;
         }
 
         @Override // android.os.IInterface
@@ -160,7 +160,7 @@ public interface i extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        a(a.AbstractBinderC2077a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0621a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     case 2:
@@ -175,9 +175,9 @@ public interface i extends IInterface {
                         return true;
                     case 4:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean b2 = b(parcel.readInt());
+                        boolean b = b(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeInt(b2 ? 1 : 0);
+                        parcel2.writeInt(b ? 1 : 0);
                         return true;
                     case 5:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -196,29 +196,29 @@ public interface i extends IInterface {
                         return true;
                     case 8:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        long e2 = e(parcel.readInt());
+                        long e = e(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeLong(e2);
+                        parcel2.writeLong(e);
                         return true;
                     case 9:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        int f2 = f(parcel.readInt());
+                        int f = f(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeInt(f2);
+                        parcel2.writeInt(f);
                         return true;
                     case 10:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean g2 = g(parcel.readInt());
+                        boolean g = g(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeInt(g2 ? 1 : 0);
+                        parcel2.writeInt(g ? 1 : 0);
                         return true;
                     case 11:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        DownloadInfo h2 = h(parcel.readInt());
+                        DownloadInfo h = h(parcel.readInt());
                         parcel2.writeNoException();
-                        if (h2 != null) {
+                        if (h != null) {
                             parcel2.writeInt(1);
-                            h2.writeToParcel(parcel2, 1);
+                            h.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
@@ -243,38 +243,38 @@ public interface i extends IInterface {
                         return true;
                     case 15:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        DownloadInfo b3 = b(parcel.readString(), parcel.readString());
+                        DownloadInfo b2 = b(parcel.readString(), parcel.readString());
                         parcel2.writeNoException();
-                        if (b3 != null) {
+                        if (b2 != null) {
                             parcel2.writeInt(1);
-                            b3.writeToParcel(parcel2, 1);
+                            b2.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 16:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        List<DownloadInfo> b4 = b(parcel.readString());
+                        List<DownloadInfo> b3 = b(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(b4);
+                        parcel2.writeTypedList(b3);
                         return true;
                     case 17:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        List<DownloadInfo> c2 = c(parcel.readString());
+                        List<DownloadInfo> c = c(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(c2);
+                        parcel2.writeTypedList(c);
                         return true;
                     case 18:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        List<DownloadInfo> d2 = d(parcel.readString());
+                        List<DownloadInfo> d = d(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(d2);
+                        parcel2.writeTypedList(d);
                         return true;
                     case 19:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        List<DownloadInfo> b5 = b();
+                        List<DownloadInfo> b4 = b();
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(b5);
+                        parcel2.writeTypedList(b4);
                         return true;
                     case 20:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -332,15 +332,15 @@ public interface i extends IInterface {
                         return true;
                     case 31:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean c3 = c();
+                        boolean c2 = c();
                         parcel2.writeNoException();
-                        parcel2.writeInt(c3 ? 1 : 0);
+                        parcel2.writeInt(c2 ? 1 : 0);
                         return true;
                     case 32:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        List<DownloadInfo> e3 = e(parcel.readString());
+                        List<DownloadInfo> e2 = e(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(e3);
+                        parcel2.writeTypedList(e2);
                         return true;
                     case 33:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -355,9 +355,9 @@ public interface i extends IInterface {
                         return true;
                     case 35:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean d3 = d();
+                        boolean d2 = d();
                         parcel2.writeNoException();
-                        parcel2.writeInt(d3 ? 1 : 0);
+                        parcel2.writeInt(d2 ? 1 : 0);
                         return true;
                     case 36:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -377,9 +377,9 @@ public interface i extends IInterface {
                         return true;
                     case 39:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean b6 = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
+                        boolean b5 = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
                         parcel2.writeNoException();
-                        parcel2.writeInt(b6 ? 1 : 0);
+                        parcel2.writeInt(b5 ? 1 : 0);
                         return true;
                     case 40:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -463,9 +463,9 @@ public interface i extends IInterface {
                         return true;
                     case 55:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        boolean f3 = f();
+                        boolean f2 = f();
                         parcel2.writeNoException();
-                        parcel2.writeInt(f3 ? 1 : 0);
+                        parcel2.writeInt(f2 ? 1 : 0);
                         return true;
                     case 56:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
@@ -482,14 +482,12 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2073a implements i {
+        public static class C0617a implements i {
             public static i a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43271b;
-
-            public C2073a(IBinder iBinder) {
-                this.f43271b = iBinder;
+            public C0617a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.downloader.i
@@ -499,7 +497,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeStrongBinder(aVar != null ? aVar.asBinder() : null);
-                    if (!this.f43271b.transact(1, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(aVar);
                     } else {
                         obtain2.readException();
@@ -512,7 +510,7 @@ public interface i extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43271b;
+                return this.b;
             }
 
             @Override // com.ss.android.socialbase.downloader.downloader.i
@@ -522,7 +520,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(4, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(4, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().b(i);
                     }
                     obtain2.readException();
@@ -540,7 +538,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(5, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(5, obtain, obtain2, 0) && a.g() != null) {
                         a.g().c(i);
                     } else {
                         obtain2.readException();
@@ -558,7 +556,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(6, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(6, obtain, obtain2, 0) && a.g() != null) {
                         a.g().d(i);
                     } else {
                         obtain2.readException();
@@ -576,7 +574,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(8, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(8, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().e(i);
                     }
                     obtain2.readException();
@@ -594,7 +592,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(9, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(9, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().f(i);
                     }
                     obtain2.readException();
@@ -612,7 +610,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(10, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(10, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().g(i);
                     }
                     obtain2.readException();
@@ -630,7 +628,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(11, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(11, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().h(i);
                     }
                     obtain2.readException();
@@ -648,7 +646,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(13, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(13, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().i(i);
                     }
                     obtain2.readException();
@@ -666,7 +664,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(24, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(24, obtain, obtain2, 0) && a.g() != null) {
                         a.g().j(i);
                     } else {
                         obtain2.readException();
@@ -684,7 +682,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(33, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(33, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().k(i);
                     }
                     obtain2.readException();
@@ -702,7 +700,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(34, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(34, obtain, obtain2, 0) && a.g() != null) {
                         a.g().l(i);
                     } else {
                         obtain2.readException();
@@ -720,7 +718,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(37, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(37, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().m(i);
                     }
                     obtain2.readException();
@@ -738,7 +736,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(40, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(40, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().n(i);
                     }
                     obtain2.readException();
@@ -756,7 +754,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(41, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(41, obtain, obtain2, 0) && a.g() != null) {
                         a.g().o(i);
                     } else {
                         obtain2.readException();
@@ -774,7 +772,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(45, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(45, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().p(i);
                     }
                     obtain2.readException();
@@ -792,7 +790,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(51, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(51, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().q(i);
                     }
                     obtain2.readException();
@@ -810,7 +808,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(52, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(52, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().r(i);
                     }
                     obtain2.readException();
@@ -828,7 +826,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(54, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(54, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().s(i);
                     }
                     obtain2.readException();
@@ -846,7 +844,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
-                    if (!this.f43271b.transact(2, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(2, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i);
                     } else {
                         obtain2.readException();
@@ -864,7 +862,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
-                    if (!this.f43271b.transact(17, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(17, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().c(str);
                     }
                     obtain2.readException();
@@ -882,7 +880,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
-                    if (!this.f43271b.transact(18, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(18, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().d(str);
                     }
                     obtain2.readException();
@@ -901,7 +899,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f43271b.transact(15, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(15, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().b(str, str2);
                     }
                     obtain2.readException();
@@ -919,7 +917,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
-                    if (!this.f43271b.transact(32, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(32, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().e(str);
                     }
                     obtain2.readException();
@@ -936,7 +934,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(55, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(55, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().f();
                     }
                     obtain2.readException();
@@ -955,7 +953,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(3, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(3, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, z);
                     } else {
                         obtain2.readException();
@@ -974,7 +972,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(23, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(23, obtain, obtain2, 0) && a.g() != null) {
                         a.g().c(i, z);
                     } else {
                         obtain2.readException();
@@ -991,7 +989,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(35, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(35, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().d();
                     }
                     obtain2.readException();
@@ -1008,7 +1006,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(46, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(46, obtain, obtain2, 0) && a.g() != null) {
                         a.g().e();
                     } else {
                         obtain2.readException();
@@ -1026,7 +1024,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
-                    if (!this.f43271b.transact(16, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(16, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().b(str);
                     }
                     obtain2.readException();
@@ -1043,7 +1041,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(7, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(7, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a();
                     } else {
                         obtain2.readException();
@@ -1062,7 +1060,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(36, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(36, obtain, obtain2, 0) && a.g() != null) {
                         a.g().d(i, z);
                     } else {
                         obtain2.readException();
@@ -1079,7 +1077,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(31, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(31, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().c();
                     }
                     obtain2.readException();
@@ -1096,7 +1094,7 @@ public interface i extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                    if (!this.f43271b.transact(19, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(19, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().b();
                     }
                     obtain2.readException();
@@ -1114,7 +1112,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
-                    if (!this.f43271b.transact(12, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(12, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().a(str);
                     }
                     obtain2.readException();
@@ -1132,7 +1130,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeStringList(list);
-                    if (!this.f43271b.transact(21, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(21, obtain, obtain2, 0) && a.g() != null) {
                         a.g().b(list);
                     } else {
                         obtain2.readException();
@@ -1151,7 +1149,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f43271b.transact(14, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(14, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().a(str, str2);
                     }
                     obtain2.readException();
@@ -1170,7 +1168,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(22, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(22, obtain, obtain2, 0) && a.g() != null) {
                         a.g().b(i, z);
                     } else {
                         obtain2.readException();
@@ -1188,7 +1186,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeStringList(list);
-                    if (!this.f43271b.transact(20, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(20, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(list);
                     } else {
                         obtain2.readException();
@@ -1210,7 +1208,7 @@ public interface i extends IInterface {
                     obtain.writeStrongBinder(iVar != null ? iVar.asBinder() : null);
                     obtain.writeInt(i3);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(26, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(26, obtain, obtain2, 0) && a.g() != null) {
                         a.g().b(i, i2, iVar, i3, z);
                     } else {
                         obtain2.readException();
@@ -1232,7 +1230,7 @@ public interface i extends IInterface {
                     obtain.writeStrongBinder(iVar != null ? iVar.asBinder() : null);
                     obtain.writeInt(i3);
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f43271b.transact(25, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(25, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, i2, iVar, i3, z);
                     } else {
                         obtain2.readException();
@@ -1255,7 +1253,7 @@ public interface i extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43271b.transact(39, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(39, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -1283,7 +1281,7 @@ public interface i extends IInterface {
                     }
                     obtain.writeInt(i4);
                     try {
-                        if (!this.f43271b.transact(27, obtain, obtain2, 0) && a.g() != null) {
+                        if (!this.b.transact(27, obtain, obtain2, 0) && a.g() != null) {
                             a.g().a(i, i2, iVar, i3, z, z2);
                             obtain2.recycle();
                             obtain.recycle();
@@ -1311,7 +1309,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f43271b.transact(48, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(48, obtain, obtain2, 0) && a.g() != null) {
                         a.g().b(i, list);
                     } else {
                         obtain2.readException();
@@ -1334,7 +1332,7 @@ public interface i extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43271b.transact(28, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(28, obtain, obtain2, 0) && a.g() != null) {
                         return a.g().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -1357,7 +1355,7 @@ public interface i extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (this.f43271b.transact(29, obtain, null, 1) || a.g() == null) {
+                    if (this.b.transact(29, obtain, null, 1) || a.g() == null) {
                         return;
                     }
                     a.g().a(i, notification);
@@ -1372,7 +1370,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(z ? 1 : 0);
-                    if (this.f43271b.transact(30, obtain, null, 1) || a.g() == null) {
+                    if (this.b.transact(30, obtain, null, 1) || a.g() == null) {
                         return;
                     }
                     a.g().a(z);
@@ -1393,7 +1391,7 @@ public interface i extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43271b.transact(38, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(38, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(bVar);
                     } else {
                         obtain2.readException();
@@ -1413,7 +1411,7 @@ public interface i extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeLong(j);
-                    if (!this.f43271b.transact(42, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(42, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, i2, j);
                     } else {
                         obtain2.readException();
@@ -1434,7 +1432,7 @@ public interface i extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeLong(j);
-                    if (!this.f43271b.transact(43, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(43, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, i2, i3, j);
                     } else {
                         obtain2.readException();
@@ -1455,7 +1453,7 @@ public interface i extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
-                    if (!this.f43271b.transact(44, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(44, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, i2, i3, i4);
                     } else {
                         obtain2.readException();
@@ -1474,7 +1472,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f43271b.transact(47, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(47, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, list);
                     } else {
                         obtain2.readException();
@@ -1492,7 +1490,7 @@ public interface i extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeStrongBinder(ajVar != null ? ajVar.asBinder() : null);
-                    if (!this.f43271b.transact(49, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(49, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(ajVar);
                     } else {
                         obtain2.readException();
@@ -1511,7 +1509,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f43271b.transact(50, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(50, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, i2);
                     } else {
                         obtain2.readException();
@@ -1530,7 +1528,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeStrongBinder(yVar != null ? yVar.asBinder() : null);
-                    if (!this.f43271b.transact(53, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(53, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, yVar);
                     } else {
                         obtain2.readException();
@@ -1549,7 +1547,7 @@ public interface i extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43271b.transact(56, obtain, obtain2, 0) && a.g() != null) {
+                    if (!this.b.transact(56, obtain, obtain2, 0) && a.g() != null) {
                         a.g().a(i, j);
                     } else {
                         obtain2.readException();

@@ -21,7 +21,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RecordHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PREVIEW_HEIGHT = 480;
@@ -54,7 +54,7 @@ public class RecordHelper {
             if (supportedVideoSizes == null || supportedVideoSizes.size() == 0 || supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
                 return cameraSize;
             }
-            float f2 = cameraSize.height / cameraSize.width;
+            float f = cameraSize.height / cameraSize.width;
             MediaRecordManager.CameraSize cameraSize2 = new MediaRecordManager.CameraSize(0, 0);
             MediaRecordManager.CameraSize cameraSize3 = new MediaRecordManager.CameraSize(0, 0);
             MediaRecordManager.CameraSize cameraSize4 = new MediaRecordManager.CameraSize(0, 0);
@@ -73,8 +73,8 @@ public class RecordHelper {
                     cameraSize2.height = i5;
                     return cameraSize2;
                 }
-                float f3 = 0.01f;
-                if (Math.abs((size.height / size.width) - f2) < 0.01f && (i = cameraSize3.width) >= cameraSize2.width && (i2 = cameraSize3.height) >= cameraSize2.height && i * i2 <= 921600) {
+                float f2 = 0.01f;
+                if (Math.abs((size.height / size.width) - f) < 0.01f && (i = cameraSize3.width) >= cameraSize2.width && (i2 = cameraSize3.height) >= cameraSize2.height && i * i2 <= 921600) {
                     cameraSize2.width = i;
                     cameraSize2.height = i2;
                 }
@@ -85,7 +85,7 @@ public class RecordHelper {
                     cameraSize4.width = i7;
                     int i8 = size2.height;
                     cameraSize4.height = i8;
-                    if (!(cameraSize3.width == i7 && cameraSize3.height == i8) && Math.abs((cameraSize4.height / cameraSize4.width) - (cameraSize3.height / cameraSize3.width)) >= f3) {
+                    if (!(cameraSize3.width == i7 && cameraSize3.height == i8) && Math.abs((cameraSize4.height / cameraSize4.width) - (cameraSize3.height / cameraSize3.width)) >= f2) {
                         list = supportedVideoSizes;
                     } else {
                         int i9 = cameraSize3.width;
@@ -100,7 +100,7 @@ public class RecordHelper {
                     }
                     i6++;
                     supportedVideoSizes = list;
-                    f3 = 0.01f;
+                    f2 = 0.01f;
                 }
                 List<Camera.Size> list2 = supportedVideoSizes;
                 int i11 = cameraSize3.width;
@@ -126,14 +126,14 @@ public class RecordHelper {
             if (supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
                 Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
                 MediaRecordManager.CameraSize cameraSize2 = new MediaRecordManager.CameraSize(defaultDisplay.getWidth(), defaultDisplay.getHeight());
-                float f2 = cameraSize2.height / cameraSize2.width;
-                float f3 = cameraSize.width / cameraSize.height;
+                float f = cameraSize2.height / cameraSize2.width;
+                float f2 = cameraSize.width / cameraSize.height;
                 for (int i = 0; i < supportedPreviewSizes.size(); i++) {
                     MediaRecordManager.CameraSize cameraSize3 = supportedPreviewSizes.get(i);
-                    float abs = Math.abs((cameraSize3.width / cameraSize3.height) - f2);
-                    if (abs < f3) {
+                    float abs = Math.abs((cameraSize3.width / cameraSize3.height) - f);
+                    if (abs < f2) {
                         cameraSize = cameraSize3;
-                        f3 = abs;
+                        f2 = abs;
                     }
                 }
             }
@@ -226,13 +226,13 @@ public class RecordHelper {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 try {
                     bufferedInputStream2.close();
-                } catch (IOException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (IOException e) {
+                    CommonMethods.handleNuLException(e);
                 }
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e3) {
-                    CommonMethods.handleNuLException(e3);
+                } catch (IOException e2) {
+                    CommonMethods.handleNuLException(e2);
                 }
                 return byteArray;
             } catch (Throwable th) {
@@ -243,28 +243,28 @@ public class RecordHelper {
                     if (bufferedInputStream != null) {
                         try {
                             bufferedInputStream.close();
-                        } catch (IOException e4) {
-                            CommonMethods.handleNuLException(e4);
+                        } catch (IOException e3) {
+                            CommonMethods.handleNuLException(e3);
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e5) {
-                        CommonMethods.handleNuLException(e5);
+                    } catch (IOException e4) {
+                        CommonMethods.handleNuLException(e4);
                     }
                     return new byte[0];
                 } catch (Throwable th2) {
                     if (bufferedInputStream != null) {
                         try {
                             bufferedInputStream.close();
-                        } catch (IOException e6) {
-                            CommonMethods.handleNuLException(e6);
+                        } catch (IOException e5) {
+                            CommonMethods.handleNuLException(e5);
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e7) {
-                        CommonMethods.handleNuLException(e7);
+                    } catch (IOException e6) {
+                        CommonMethods.handleNuLException(e6);
                     }
                     throw th2;
                 }

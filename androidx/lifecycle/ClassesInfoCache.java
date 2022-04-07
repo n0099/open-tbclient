@@ -144,10 +144,10 @@ public class ClassesInfoCache {
                     } else {
                         this.mMethod.invoke(obj, lifecycleOwner, event);
                     }
-                } catch (IllegalAccessException e2) {
-                    throw new RuntimeException(e2);
-                } catch (InvocationTargetException e3) {
-                    throw new RuntimeException("Failed to call observer method", e3.getCause());
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                } catch (InvocationTargetException e2) {
+                    throw new RuntimeException("Failed to call observer method", e2.getCause());
                 }
             }
         }
@@ -250,8 +250,8 @@ public class ClassesInfoCache {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cls)) == null) {
             try {
                 return cls.getDeclaredMethods();
-            } catch (NoClassDefFoundError e2) {
-                throw new IllegalArgumentException("The observer class has some methods that use newer APIs which are not available in the current OS version. Lifecycles cannot access even other methods so you should make sure that your observer classes only access framework classes that are available in your min API level OR use lifecycle:compiler annotation processor.", e2);
+            } catch (NoClassDefFoundError e) {
+                throw new IllegalArgumentException("The observer class has some methods that use newer APIs which are not available in the current OS version. Lifecycles cannot access even other methods so you should make sure that your observer classes only access framework classes that are available in your min API level OR use lifecycle:compiler annotation processor.", e);
             }
         }
         return (Method[]) invokeL.objValue;

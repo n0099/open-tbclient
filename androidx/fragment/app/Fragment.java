@@ -330,10 +330,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
                     public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
-                        View view;
+                        View view2;
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_STOP && (view = this.this$0.mView) != null) {
-                            view.cancelPendingInputEvents();
+                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_STOP && (view2 = this.this$0.mView) != null) {
+                            view2.cancelPendingInputEvents();
                         }
                     }
                 });
@@ -1092,9 +1092,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final boolean isVisible() {
         InterceptResult invokeV;
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? (!isAdded() || isHidden() || (view = this.mView) == null || view.getWindowToken() == null || this.mView.getVisibility() != 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? (!isAdded() || isHidden() || (view2 = this.mView) == null || view2.getWindowToken() == null || this.mView.getVisibility() != 0) ? false : true : invokeV.booleanValue;
     }
 
     public void noteStateNotSaved() {
@@ -1198,10 +1198,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     @Override // android.view.View.OnCreateContextMenuListener
     @MainThread
-    public void onCreateContextMenu(@NonNull ContextMenu contextMenu, @NonNull View view, @Nullable ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(@NonNull ContextMenu contextMenu, @NonNull View view2, @Nullable ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048650, this, contextMenu, view, contextMenuInfo) == null) {
-            requireActivity().onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (interceptable == null || interceptable.invokeLLL(1048650, this, contextMenu, view2, contextMenuInfo) == null) {
+            requireActivity().onCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
 
@@ -1393,9 +1393,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @MainThread
-    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048674, this, view, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048674, this, view2, bundle) == null) {
         }
     }
 
@@ -1455,9 +1455,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) {
-                        View view = this.this$0.mView;
-                        if (view != null) {
-                            return view.findViewById(i);
+                        View view2 = this.this$0.mView;
+                        if (view2 != null) {
+                            return view2.findViewById(i);
                         }
                         throw new IllegalStateException("Fragment " + this + " does not have a view");
                     }
@@ -1792,10 +1792,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void registerForContextMenu(@NonNull View view) {
+    public void registerForContextMenu(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, view) == null) {
-            view.setOnCreateContextMenuListener(this);
+        if (interceptable == null || interceptable.invokeL(1048701, this, view2) == null) {
+            view2.setOnCreateContextMenuListener(this);
         }
     }
 
@@ -1897,9 +1897,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) {
-            View view = getView();
-            if (view != null) {
-                return view;
+            View view2 = getView();
+            if (view2 != null) {
+                return view2;
             }
             throw new IllegalStateException("Fragment " + this + " did not return a View from onCreateView() or this was called before onCreateView().");
         }
@@ -1951,10 +1951,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void setAnimatingAway(View view) {
+    public void setAnimatingAway(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, view) == null) {
-            ensureAnimationInfo().mAnimatingAway = view;
+        if (interceptable == null || interceptable.invokeL(1048714, this, view2) == null) {
+            ensureAnimationInfo().mAnimatingAway = view2;
         }
     }
 
@@ -2291,10 +2291,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (String) invokeV.objValue;
     }
 
-    public void unregisterForContextMenu(@NonNull View view) {
+    public void unregisterForContextMenu(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048744, this, view) == null) {
-            view.setOnCreateContextMenuListener(null);
+        if (interceptable == null || interceptable.invokeL(1048744, this, view2) == null) {
+            view2.setOnCreateContextMenuListener(null);
         }
     }
 
@@ -2438,14 +2438,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                     newInstance.setArguments(bundle);
                 }
                 return newInstance;
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
+            } catch (java.lang.InstantiationException e2) {
                 throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
-            } catch (java.lang.InstantiationException e3) {
-                throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
-            } catch (NoSuchMethodException e4) {
-                throw new InstantiationException("Unable to instantiate fragment " + str + ": could not find Fragment constructor", e4);
-            } catch (InvocationTargetException e5) {
-                throw new InstantiationException("Unable to instantiate fragment " + str + ": calling Fragment constructor caused an exception", e5);
+            } catch (NoSuchMethodException e3) {
+                throw new InstantiationException("Unable to instantiate fragment " + str + ": could not find Fragment constructor", e3);
+            } catch (InvocationTargetException e4) {
+                throw new InstantiationException("Unable to instantiate fragment " + str + ": calling Fragment constructor caused an exception", e4);
             }
         }
         return (Fragment) invokeLLL.objValue;

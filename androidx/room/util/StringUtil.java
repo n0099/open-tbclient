@@ -107,8 +107,8 @@ public class StringUtil {
             while (stringTokenizer.hasMoreElements()) {
                 try {
                     arrayList.add(Integer.valueOf(Integer.parseInt(stringTokenizer.nextToken())));
-                } catch (NumberFormatException e2) {
-                    Log.e(Room.LOG_TAG, "Malformed integer list", e2);
+                } catch (NumberFormatException e) {
+                    Log.e(Room.LOG_TAG, "Malformed integer list", e);
                 }
             }
             return arrayList;

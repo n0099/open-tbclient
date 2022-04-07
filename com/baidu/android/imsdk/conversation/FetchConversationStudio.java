@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.conversation;
 
 import android.content.Context;
-import c.a.s.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
@@ -16,10 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FetchConversationStudio {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FETCH_INTERVAL_TIME = 1000;
@@ -104,12 +104,12 @@ public class FetchConversationStudio {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    a.f21226c.removeCallbacks(this.this$0.fetchRunnable);
+                    p70.c.removeCallbacks(this.this$0.fetchRunnable);
                     if (this.this$0.mReliableFetchCount.get() > 0) {
                         this.this$0.mReliableFetchCount.set(0);
                         if (ConversationStudioManImpl.getInstance(this.this$0.mContext).isReliable(this.this$0.mCastId)) {
                             this.this$0.fetchCastMsgByMsgId();
-                            a.f21226c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            p70.c.postDelayed(this.this$0.fetchRunnable, 1000L);
                             return;
                         }
                         return;
@@ -165,15 +165,15 @@ public class FetchConversationStudio {
                     this.this$0.mMaxMsgId = j4;
                     if (i3 == 0) {
                         if (i6 >= i5) {
-                            a.f21226c.removeCallbacks(this.this$0.fetchRunnable);
-                            a.f21226c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            p70.c.removeCallbacks(this.this$0.fetchRunnable);
+                            p70.c.postDelayed(this.this$0.fetchRunnable, 1000L);
                         }
                     } else if (i3 == 1024) {
                         int unused = FetchConversationStudio.PULL_COUNT = 80;
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg length over 1024*1024");
                     } else if (this.this$0.mFetchNum == 0) {
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
-                        a.f21226c.postDelayed(this.this$0.mReliableRunnable, 1000L);
+                        p70.c.postDelayed(this.this$0.mReliableRunnable, 1000L);
                     }
                 }
             }
@@ -208,12 +208,12 @@ public class FetchConversationStudio {
                     FetchConversationStudio.access$708(this.this$0);
                     if (this.this$0.mFetchNum > 3) {
                         this.this$0.mFetchNum = 0;
-                        a.f21226c.removeCallbacks(this);
+                        p70.c.removeCallbacks(this);
                         return;
                     }
                     this.this$0.fetchCastMsgByMsgId();
-                    a.f21226c.removeCallbacks(this);
-                    a.f21226c.postDelayed(this, this.this$0.mFetchNum != 3 ? 5000L : 10000L);
+                    p70.c.removeCallbacks(this);
+                    p70.c.postDelayed(this, this.this$0.mFetchNum != 3 ? 5000L : 10000L);
                 }
             }
         };
@@ -264,7 +264,7 @@ public class FetchConversationStudio {
         }
         LogUtils.d(TAG, "begin set fetchRunnable");
         this.mReliableFetching.set(true);
-        a.f21226c.removeCallbacks(this.fetchRunnable);
-        a.f21226c.postDelayed(this.fetchRunnable, 1000L);
+        p70.c.removeCallbacks(this.fetchRunnable);
+        p70.c.postDelayed(this.fetchRunnable, 1000L);
     }
 }

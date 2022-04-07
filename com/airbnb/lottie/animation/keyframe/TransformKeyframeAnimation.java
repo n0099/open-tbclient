@@ -12,7 +12,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TransformKeyframeAnimation {
     @NonNull
     public BaseKeyframeAnimation<PointF, PointF> anchorPoint;
@@ -240,8 +240,8 @@ public class TransformKeyframeAnimation {
             float[] fArr = this.skewValues;
             fArr[0] = cos;
             fArr[1] = sin;
-            float f2 = -sin;
-            fArr[3] = f2;
+            float f = -sin;
+            fArr[3] = f;
             fArr[4] = cos;
             fArr[8] = 1.0f;
             this.skewMatrix1.setValues(fArr);
@@ -255,7 +255,7 @@ public class TransformKeyframeAnimation {
             clearSkewValues();
             float[] fArr3 = this.skewValues;
             fArr3[0] = cos;
-            fArr3[1] = f2;
+            fArr3[1] = f;
             fArr3[3] = sin;
             fArr3[4] = cos;
             fArr3[8] = 1.0f;
@@ -281,25 +281,25 @@ public class TransformKeyframeAnimation {
         return this.matrix;
     }
 
-    public Matrix getMatrixForRepeater(float f2) {
+    public Matrix getMatrixForRepeater(float f) {
         BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation = this.position;
         PointF value = baseKeyframeAnimation == null ? null : baseKeyframeAnimation.getValue();
         BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation2 = this.scale;
         ScaleXY value2 = baseKeyframeAnimation2 == null ? null : baseKeyframeAnimation2.getValue();
         this.matrix.reset();
         if (value != null) {
-            this.matrix.preTranslate(value.x * f2, value.y * f2);
+            this.matrix.preTranslate(value.x * f, value.y * f);
         }
         if (value2 != null) {
-            double d2 = f2;
-            this.matrix.preScale((float) Math.pow(value2.getScaleX(), d2), (float) Math.pow(value2.getScaleY(), d2));
+            double d = f;
+            this.matrix.preScale((float) Math.pow(value2.getScaleX(), d), (float) Math.pow(value2.getScaleY(), d));
         }
         BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation3 = this.rotation;
         if (baseKeyframeAnimation3 != null) {
             float floatValue = baseKeyframeAnimation3.getValue().floatValue();
             BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
             PointF value3 = baseKeyframeAnimation4 != null ? baseKeyframeAnimation4.getValue() : null;
-            this.matrix.preRotate(floatValue * f2, value3 == null ? 0.0f : value3.x, value3 != null ? value3.y : 0.0f);
+            this.matrix.preRotate(floatValue * f, value3 == null ? 0.0f : value3.x, value3 != null ? value3.y : 0.0f);
         }
         return this.matrix;
     }
@@ -314,42 +314,42 @@ public class TransformKeyframeAnimation {
         return this.startOpacity;
     }
 
-    public void setProgress(float f2) {
+    public void setProgress(float f) {
         BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation = this.opacity;
         if (baseKeyframeAnimation != null) {
-            baseKeyframeAnimation.setProgress(f2);
+            baseKeyframeAnimation.setProgress(f);
         }
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2 = this.startOpacity;
         if (baseKeyframeAnimation2 != null) {
-            baseKeyframeAnimation2.setProgress(f2);
+            baseKeyframeAnimation2.setProgress(f);
         }
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation3 = this.endOpacity;
         if (baseKeyframeAnimation3 != null) {
-            baseKeyframeAnimation3.setProgress(f2);
+            baseKeyframeAnimation3.setProgress(f);
         }
         BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
         if (baseKeyframeAnimation4 != null) {
-            baseKeyframeAnimation4.setProgress(f2);
+            baseKeyframeAnimation4.setProgress(f);
         }
         BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation5 = this.position;
         if (baseKeyframeAnimation5 != null) {
-            baseKeyframeAnimation5.setProgress(f2);
+            baseKeyframeAnimation5.setProgress(f);
         }
         BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation6 = this.scale;
         if (baseKeyframeAnimation6 != null) {
-            baseKeyframeAnimation6.setProgress(f2);
+            baseKeyframeAnimation6.setProgress(f);
         }
         BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation7 = this.rotation;
         if (baseKeyframeAnimation7 != null) {
-            baseKeyframeAnimation7.setProgress(f2);
+            baseKeyframeAnimation7.setProgress(f);
         }
         FloatKeyframeAnimation floatKeyframeAnimation = this.skew;
         if (floatKeyframeAnimation != null) {
-            floatKeyframeAnimation.setProgress(f2);
+            floatKeyframeAnimation.setProgress(f);
         }
         FloatKeyframeAnimation floatKeyframeAnimation2 = this.skewAngle;
         if (floatKeyframeAnimation2 != null) {
-            floatKeyframeAnimation2.setProgress(f2);
+            floatKeyframeAnimation2.setProgress(f);
         }
     }
 }

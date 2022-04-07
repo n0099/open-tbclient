@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InsetDialogOnTouchListener implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public class InsetDialogOnTouchListener implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
+    public boolean onTouch(@NonNull View view2, @NonNull MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-            View findViewById = view.findViewById(16908290);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            View findViewById = view2.findViewById(16908290);
             int left = this.leftInset + findViewById.getLeft();
             int width = findViewById.getWidth() + left;
             int top = this.topInset + findViewById.getTop();
@@ -67,7 +67,7 @@ public class InsetDialogOnTouchListener implements View.OnTouchListener {
                 int i = this.prePieSlop;
                 obtain.setLocation((-i) - 1, (-i) - 1);
             }
-            view.performClick();
+            view2.performClick();
             return this.dialog.onTouchEvent(obtain);
         }
         return invokeLL.booleanValue;

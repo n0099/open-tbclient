@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MD5Util {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HEXDIGITS;
@@ -56,8 +56,8 @@ public final class MD5Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : bArr) {
-                stringBuffer.append(byteToHexString(b2));
+            for (byte b : bArr) {
+                stringBuffer.append(byteToHexString(b));
             }
             return stringBuffer.toString();
         }
@@ -69,14 +69,14 @@ public final class MD5Util {
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String byteToHexString(byte b2) {
+    public static String byteToHexString(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) {
-            if (b2 < 0) {
-                b2 += 256;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
             }
-            return HEXDIGITS[b2 / 16] + HEXDIGITS[b2 % 16];
+            return HEXDIGITS[b / 16] + HEXDIGITS[b % 16];
         }
         return (String) invokeB.objValue;
     }
@@ -88,10 +88,10 @@ public final class MD5Util {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             char[] cArr2 = new char[bArr.length * 2];
             for (int i = 0; i < bArr.length; i++) {
-                byte b2 = bArr[i];
+                byte b = bArr[i];
                 int i2 = i * 2;
-                cArr2[i2] = cArr[(b2 >>> 4) & 15];
-                cArr2[i2 + 1] = cArr[b2 & 15];
+                cArr2[i2] = cArr[(b >>> 4) & 15];
+                cArr2[i2 + 1] = cArr[b & 15];
             }
             return new String(cArr2);
         }
@@ -145,8 +145,8 @@ public final class MD5Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase();
                 }
@@ -170,8 +170,8 @@ public final class MD5Util {
                 messageDigest.reset();
                 messageDigest.update(bArr);
                 return toHexString(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeLZ.objValue;
@@ -219,8 +219,8 @@ public final class MD5Util {
                 String bytesToString = bytesToString(messageDigest.digest());
                 try {
                     fileInputStream.close();
-                } catch (IOException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (IOException e) {
+                    CommonMethods.handleNuLException(e);
                 }
                 return bytesToString;
             } catch (Throwable th) {
@@ -232,8 +232,8 @@ public final class MD5Util {
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException e3) {
-                            CommonMethods.handleNuLException(e3);
+                        } catch (IOException e2) {
+                            CommonMethods.handleNuLException(e2);
                         }
                     }
                 }

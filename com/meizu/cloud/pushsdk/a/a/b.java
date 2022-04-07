@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.repackage.rm9;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,38 +19,32 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static final String a = "b";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Object f41861b = new Object();
-
-    /* renamed from: c  reason: collision with root package name */
-    public static b f41862c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f41863d;
+    public static final Object b = new Object();
+    public static b c;
+    public Context d;
 
     public b(Context context) {
-        this.f41863d = context;
+        this.d = context;
         try {
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         a.a(context);
     }
 
     public static b a(Context context) {
-        if (f41862c == null) {
-            synchronized (f41861b) {
-                if (f41862c == null) {
-                    f41862c = new b(context);
+        if (c == null) {
+            synchronized (b) {
+                if (c == null) {
+                    c = new b(context);
                 }
             }
         }
-        return f41862c;
+        return c;
     }
 
     private Map<String, String> a(Map<String, String> map) {
@@ -62,13 +57,13 @@ public class b {
             if (b2 != null && b2.length > 0) {
                 String str = new String(a.a().b());
                 String str2 = a;
-                c.h.a.a.a.a(str2, "attach x_a_key: " + str);
+                rm9.a(str2, "attach x_a_key: " + str);
                 map.put("X-A-Key", str);
             }
         } else {
             String str3 = new String(c2);
             String str4 = a;
-            c.h.a.a.a.a(str4, "attach x_s_key: " + str3);
+            rm9.a(str4, "attach x_s_key: " + str3);
             map.put("X-S-Key", str3);
         }
         return map;
@@ -105,7 +100,7 @@ public class b {
         try {
             String headerField = uRLConnection.getHeaderField("X-S-Key");
             String str = a;
-            c.h.a.a.a.a(str, "get x_s_key = " + headerField);
+            rm9.a(str, "get x_s_key = " + headerField);
             if (TextUtils.isEmpty(headerField)) {
                 return;
             }
@@ -199,7 +194,7 @@ public class b {
                                 }
                                 a(httpURLConnection, str3.getBytes());
                                 int responseCode = httpURLConnection.getResponseCode();
-                                c.h.a.a.a.a(a, "code = " + responseCode);
+                                rm9.a(a, "code = " + responseCode);
                                 a(httpURLConnection);
                                 b(httpURLConnection);
                                 inputStream = httpURLConnection.getInputStream();
@@ -208,16 +203,16 @@ public class b {
                                         a2 = a(inputStream);
                                         if (a2 != null) {
                                             String str4 = new String(a2);
-                                            c.h.a.a.a.a(a, "body = " + str4);
+                                            rm9.a(a, "body = " + str4);
                                             try {
                                                 new JSONObject(str4).getInt("code");
-                                            } catch (JSONException e2) {
-                                                e2.printStackTrace();
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
                                             }
                                         }
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        c.h.a.a.a.b(a, "realStringPartRequest error " + e.getMessage());
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        rm9.b(a, "realStringPartRequest error " + e.getMessage());
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
@@ -239,7 +234,7 @@ public class b {
                         }
                         a(httpURLConnection, str3.getBytes());
                         int responseCode2 = httpURLConnection.getResponseCode();
-                        c.h.a.a.a.a(a, "code = " + responseCode2);
+                        rm9.a(a, "code = " + responseCode2);
                         a(httpURLConnection);
                         b(httpURLConnection);
                         inputStream = httpURLConnection.getInputStream();
@@ -263,8 +258,8 @@ public class b {
                         }
                         throw th;
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     inputStream = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -274,8 +269,8 @@ public class b {
                     }
                     throw th;
                 }
-            } catch (MalformedURLException e5) {
-                e5.printStackTrace();
+            } catch (MalformedURLException e4) {
+                e4.printStackTrace();
             }
         }
         return cVar;
@@ -285,7 +280,7 @@ public class b {
         try {
             String headerField = uRLConnection.getHeaderField("Key-Timeout");
             String str = a;
-            c.h.a.a.a.a(str, "get keyTimeout = " + headerField);
+            rm9.a(str, "get keyTimeout = " + headerField);
         } catch (NullPointerException unused) {
         }
     }
@@ -293,8 +288,8 @@ public class b {
     public c a(String str, Map<String, String> map, String str2) {
         try {
             return b(str, a(map), str2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

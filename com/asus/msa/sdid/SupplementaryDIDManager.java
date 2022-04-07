@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -116,9 +116,9 @@ public class SupplementaryDIDManager {
                 } else {
                     this.mListener.onError();
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.e(TAG, "notify did bind status error :" + e2.getMessage());
+                    Log.e(TAG, "notify did bind status error :" + e.getMessage());
                 }
             }
         }
@@ -136,8 +136,8 @@ public class SupplementaryDIDManager {
                 }
                 this.isBinded = false;
                 this.mContext.unbindService(this.mServiceConnection);
-            } catch (Exception e2) {
-                Log.w(TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.w(TAG, e.getMessage());
             }
         }
     }

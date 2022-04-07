@@ -2,12 +2,10 @@ package com.bytedance.sdk.openadsdk.api.plugin;
 
 import com.bytedance.pangle.download.PluginDownloadBean;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d extends PluginDownloadBean {
     public String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public File f38272b = null;
+    public File b = null;
 
     public d() {
         this.mOrder = 0;

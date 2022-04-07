@@ -2,7 +2,6 @@ package com.baidu.tieba.ala.personcenter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.p0.c0.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -11,12 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.yt5;
+/* loaded from: classes3.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext mContext;
-    public a mPersonCenterController;
+    public yt5 mPersonCenterController;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.mContext = pageContext;
-            a aVar = new a(pageContext, false);
-            this.mPersonCenterController = aVar;
-            setContentView(aVar.i());
+            yt5 yt5Var = new yt5(pageContext, false);
+            this.mPersonCenterController = yt5Var;
+            setContentView(yt5Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.mPersonCenterController.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
@@ -102,9 +102,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            a aVar = this.mPersonCenterController;
-            if (aVar != null) {
-                aVar.p();
+            yt5 yt5Var = this.mPersonCenterController;
+            if (yt5Var != null) {
+                yt5Var.p();
             }
         }
     }

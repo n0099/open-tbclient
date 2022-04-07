@@ -18,32 +18,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BannerDownloadView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f27529b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public float f27530c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f27531d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f27532e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f27533f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f27534g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f27535h;
+    public int b;
+    public float c;
+    public int d;
+    public int e;
+    public String f;
+    public float g;
+    public int h;
     public int i;
     public final Paint j;
     public final Paint k;
@@ -71,10 +57,10 @@ public class BannerDownloadView extends AppCompatTextView {
             }
         }
         this.a = 0.0f;
-        this.f27529b = -1;
-        this.f27530c = 10.0f;
-        this.f27534g = 1.0f;
-        this.f27535h = 0;
+        this.b = -1;
+        this.c = 10.0f;
+        this.g = 1.0f;
+        this.h = 0;
         this.i = 0;
         this.j = new Paint();
         this.k = new Paint();
@@ -87,7 +73,7 @@ public class BannerDownloadView extends AppCompatTextView {
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f27535h = getMeasuredHeight() / 2;
+            this.h = getMeasuredHeight() / 2;
             RectF rectF = this.n;
             rectF.left = 0.0f;
             rectF.top = 0.0f;
@@ -96,7 +82,7 @@ public class BannerDownloadView extends AppCompatTextView {
             this.k.setStrokeWidth(this.i);
             this.k.setColor(Color.parseColor("#E5E5E5"));
             RectF rectF2 = this.n;
-            int i = this.f27535h;
+            int i = this.h;
             canvas.drawRoundRect(rectF2, i, i, this.k);
         }
     }
@@ -104,7 +90,7 @@ public class BannerDownloadView extends AppCompatTextView {
     public final void e(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f27535h = getMeasuredHeight() / 2;
+            this.h = getMeasuredHeight() / 2;
             RectF rectF = this.m;
             int i = this.i;
             rectF.left = i;
@@ -112,14 +98,14 @@ public class BannerDownloadView extends AppCompatTextView {
             rectF.bottom = getMeasuredHeight() - this.i;
             this.m.right = getMeasuredWidth() * this.a;
             RectF rectF2 = this.m;
-            float f2 = rectF2.right;
-            int i2 = this.f27535h;
-            if (f2 < i2 * 2) {
+            float f = rectF2.right;
+            int i2 = this.h;
+            if (f < i2 * 2) {
                 rectF2.right = i2 * 2;
             }
-            this.j.setShader(new LinearGradient(0.0f, 0.0f, this.m.right, 0.0f, new int[]{this.f27531d, this.f27532e}, (float[]) null, Shader.TileMode.CLAMP));
+            this.j.setShader(new LinearGradient(0.0f, 0.0f, this.m.right, 0.0f, new int[]{this.d, this.e}, (float[]) null, Shader.TileMode.CLAMP));
             RectF rectF3 = this.m;
-            int i3 = this.f27535h;
+            int i3 = this.h;
             canvas.drawRoundRect(rectF3, i3, i3, this.j);
         }
     }
@@ -128,28 +114,28 @@ public class BannerDownloadView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
-            float f2 = fontMetrics.descent;
-            float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f27533f)) / 2.0f;
-            canvas.drawText(this.f27533f, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
+            float f = fontMetrics.descent;
+            float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f)) / 2.0f;
+            canvas.drawText(this.f, measuredWidth, (float) (((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
         }
     }
 
     public final void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040436, R.attr.obfuscated_res_0x7f040437, R.attr.obfuscated_res_0x7f040438, R.attr.obfuscated_res_0x7f040439, R.attr.obfuscated_res_0x7f04043a, R.attr.obfuscated_res_0x7f04043b, R.attr.obfuscated_res_0x7f04043c, R.attr.obfuscated_res_0x7f04043d, R.attr.obfuscated_res_0x7f04043e, R.attr.obfuscated_res_0x7f04043f, R.attr.obfuscated_res_0x7f040440, R.attr.obfuscated_res_0x7f040441, R.attr.obfuscated_res_0x7f040442});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060806);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060805);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070502);
-            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070501);
-            this.f27531d = obtainStyledAttributes.getInteger(0, color2);
-            this.f27532e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f060804));
-            this.f27529b = obtainStyledAttributes.getColor(8, color);
-            this.f27534g = obtainStyledAttributes.getFloat(2, this.f27534g);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040474, R.attr.obfuscated_res_0x7f040475, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478, R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f04047a, R.attr.obfuscated_res_0x7f04047b, R.attr.obfuscated_res_0x7f04047c, R.attr.obfuscated_res_0x7f04047d, R.attr.obfuscated_res_0x7f04047e, R.attr.obfuscated_res_0x7f04047f, R.attr.obfuscated_res_0x7f040480});
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060810);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06080f);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050c);
+            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050b);
+            this.d = obtainStyledAttributes.getInteger(0, color2);
+            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06080e));
+            this.b = obtainStyledAttributes.getColor(8, color);
+            this.g = obtainStyledAttributes.getFloat(2, this.g);
             this.a = obtainStyledAttributes.getFloat(4, 0.0f);
-            this.f27533f = obtainStyledAttributes.getString(6);
-            this.f27530c = obtainStyledAttributes.getDimension(9, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070500));
-            this.f27535h = obtainStyledAttributes.getDimensionPixelSize(5, dimensionPixelSize);
+            this.f = obtainStyledAttributes.getString(6);
+            this.c = obtainStyledAttributes.getDimension(9, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07050a));
+            this.h = obtainStyledAttributes.getDimensionPixelSize(5, dimensionPixelSize);
             obtainStyledAttributes.recycle();
             h();
         }
@@ -159,8 +145,8 @@ public class BannerDownloadView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.l.setAntiAlias(true);
-            this.l.setTextSize(this.f27530c);
-            this.l.setColor(this.f27529b);
+            this.l.setTextSize(this.c);
+            this.l.setColor(this.b);
             this.j.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k.setAntiAlias(true);
@@ -178,38 +164,38 @@ public class BannerDownloadView extends AppCompatTextView {
                 e(canvas);
             }
             d(canvas);
-            if (TextUtils.isEmpty(this.f27533f)) {
+            if (TextUtils.isEmpty(this.f)) {
                 return;
             }
             f(canvas);
         }
     }
 
-    public void setProgress(float f2) {
+    public void setProgress(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048582, this, f2) == null) || f2 < 0.0f || f2 > this.f27534g || f2 == this.a) {
+        if (!(interceptable == null || interceptable.invokeF(1048582, this, f) == null) || f < 0.0f || f > this.g || f == this.a) {
             return;
         }
-        this.a = f2;
+        this.a = f;
         postInvalidate();
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || str == null || str.equals(this.f27533f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || str == null || str.equals(this.f)) {
             return;
         }
-        this.f27533f = str;
+        this.f = str;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || i == this.f27529b) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || i == this.b) {
             return;
         }
-        this.f27529b = i;
+        this.b = i;
         h();
         postInvalidate();
     }
@@ -234,10 +220,10 @@ public class BannerDownloadView extends AppCompatTextView {
             }
         }
         this.a = 0.0f;
-        this.f27529b = -1;
-        this.f27530c = 10.0f;
-        this.f27534g = 1.0f;
-        this.f27535h = 0;
+        this.b = -1;
+        this.c = 10.0f;
+        this.g = 1.0f;
+        this.h = 0;
         this.i = 0;
         this.j = new Paint();
         this.k = new Paint();

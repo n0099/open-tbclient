@@ -49,8 +49,8 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
                 try {
                     return this.a.decode(parcel.createByteArray());
-                } catch (IOException e2) {
-                    throw new RuntimeException(e2);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
             return (M) invokeL.objValue;

@@ -14,20 +14,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonExpandImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Rect a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Rect f35527b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Paint f35528c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f35529d;
+    public final Rect b;
+    public final Paint c;
+    public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
@@ -49,10 +43,10 @@ public class PersonExpandImageView extends ImageView {
             }
         }
         this.a = new Rect();
-        this.f35527b = new Rect();
-        this.f35529d = 0;
+        this.b = new Rect();
+        this.d = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.f35528c = new Paint();
+        this.c = new Paint();
         getResources().getDisplayMetrics();
     }
 
@@ -60,10 +54,10 @@ public class PersonExpandImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Drawable drawable;
         Bitmap bitmap;
+        float f;
         float f2;
-        float f3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f35529d == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.d == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
             return;
         }
         int width = bitmap.getWidth();
@@ -71,47 +65,47 @@ public class PersonExpandImageView extends ImageView {
         if (width == 0 || height == 0) {
             return;
         }
-        float f4 = width;
-        float f5 = height;
-        float f6 = 0.0f;
-        if ((f4 * 1.0f) / f5 < (getWidth() * 1.0f) / this.f35529d) {
-            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.f35529d) - getWidth()) * 0.2f) + getWidth();
-            float f7 = ((1.0f * f5) / f4) * width2;
-            if (width2 == 0.0f || f7 == 0.0f) {
+        float f3 = width;
+        float f4 = height;
+        float f5 = 0.0f;
+        if ((f3 * 1.0f) / f4 < (getWidth() * 1.0f) / this.d) {
+            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.d) - getWidth()) * 0.2f) + getWidth();
+            float f6 = ((1.0f * f4) / f3) * width2;
+            if (width2 == 0.0f || f6 == 0.0f) {
                 return;
             }
             float width3 = (getWidth() * width) / width2;
-            float height2 = (getHeight() * height) / f7;
-            f2 = (f4 - width3) / 2.0f;
-            float f8 = (f5 - height2) / 2.0f;
-            f3 = width3 + f2;
-            if (f8 < 0.0f) {
-                float abs = Math.abs(f8) + height2;
-                if (abs <= f5) {
-                    f5 = abs;
+            float height2 = (getHeight() * height) / f6;
+            f = (f3 - width3) / 2.0f;
+            float f7 = (f4 - height2) / 2.0f;
+            f2 = width3 + f;
+            if (f7 < 0.0f) {
+                float abs = Math.abs(f7) + height2;
+                if (abs <= f4) {
+                    f4 = abs;
                 }
             } else {
-                f5 = f8 + height2;
-                f6 = f8;
+                f4 = f7 + height2;
+                f5 = f7;
             }
         } else {
-            float height3 = ((getHeight() * width) * 1.0f) / f5;
+            float height3 = ((getHeight() * width) * 1.0f) / f4;
             if (height3 == 0.0f) {
                 return;
             }
             float width4 = (getWidth() * width) / height3;
-            f2 = (f4 - width4) / 2.0f;
-            f3 = width4 + f2;
+            f = (f3 - width4) / 2.0f;
+            f2 = width4 + f;
         }
-        this.a.set((int) f2, (int) f6, (int) f3, (int) f5);
-        this.f35527b.set(0, 0, getWidth(), getHeight());
-        canvas.drawBitmap(bitmap, this.a, this.f35527b, this.f35528c);
+        this.a.set((int) f, (int) f5, (int) f2, (int) f4);
+        this.b.set(0, 0, getWidth(), getHeight());
+        canvas.drawBitmap(bitmap, this.a, this.b, this.c);
     }
 
     public void setInitHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f35529d = i;
+            this.d = i;
         }
     }
 }

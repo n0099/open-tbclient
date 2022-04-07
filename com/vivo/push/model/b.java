@@ -8,26 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f43911b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f43912c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f43913d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f43914e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f43915f;
+    public long b;
+    public int c;
+    public String d;
+    public boolean e;
+    public boolean f;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -44,10 +34,10 @@ public final class b {
                 return;
             }
         }
-        this.f43911b = -1L;
-        this.f43912c = -1;
-        this.f43914e = false;
-        this.f43915f = false;
+        this.b = -1L;
+        this.c = -1;
+        this.e = false;
+        this.f = false;
         if (!TextUtils.isEmpty(str)) {
             this.a = str;
             return;
@@ -64,26 +54,26 @@ public final class b {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43911b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.longValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43914e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f43915f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.f43911b + ", mPackageVersion=" + this.f43912c + ", mInBlackList=" + this.f43914e + ", mPushEnable=" + this.f43915f + "}";
+            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
         }
         return (String) invokeV.objValue;
     }
@@ -91,35 +81,35 @@ public final class b {
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f43911b = j;
+            this.b = j;
         }
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f43915f = z;
+            this.f = z;
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f43914e = z;
+            this.e = z;
         }
     }
 
     public final void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f43912c = i;
+            this.c = i;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f43913d = str;
+            this.d = str;
         }
     }
 }

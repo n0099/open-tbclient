@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_ASSET = "asset";
@@ -110,14 +110,14 @@ public final class DefaultDataSource implements DataSource {
                     this.rtmpDataSource = (DataSource) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException unused) {
                     Log.w(TAG, "Attempting to play RTMP stream without depending on the RTMP extension");
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    Log.e(TAG, "Error instantiating RtmpDataSource", e);
+                } catch (InstantiationException e2) {
                     Log.e(TAG, "Error instantiating RtmpDataSource", e2);
-                } catch (InstantiationException e3) {
+                } catch (NoSuchMethodException e3) {
                     Log.e(TAG, "Error instantiating RtmpDataSource", e3);
-                } catch (NoSuchMethodException e4) {
+                } catch (InvocationTargetException e4) {
                     Log.e(TAG, "Error instantiating RtmpDataSource", e4);
-                } catch (InvocationTargetException e5) {
-                    Log.e(TAG, "Error instantiating RtmpDataSource", e5);
                 }
                 if (this.rtmpDataSource == null) {
                     this.rtmpDataSource = this.baseDataSource;

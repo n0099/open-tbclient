@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ThumbnailStreamOpener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileService DEFAULT_SERVICE;
@@ -131,9 +131,9 @@ public class ThumbnailStreamOpener {
                     }
                     throw th;
                 }
-            } catch (IOException | NullPointerException e2) {
+            } catch (IOException | NullPointerException e) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to open uri: " + uri, e2);
+                    Log.d(TAG, "Failed to open uri: " + uri, e);
                 }
                 if (inputStream != null) {
                     try {
@@ -162,8 +162,8 @@ public class ThumbnailStreamOpener {
                 Uri fromFile = Uri.fromFile(file);
                 try {
                     return this.contentResolver.openInputStream(fromFile);
-                } catch (NullPointerException e2) {
-                    throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e2));
+                } catch (NullPointerException e) {
+                    throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e));
                 }
             }
             return null;

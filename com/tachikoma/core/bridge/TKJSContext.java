@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKJSContext implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public static Integer fileIndex;
@@ -79,7 +79,7 @@ public class TKJSContext implements ILifeCycle {
     public JSContext.V8AssociateReference mRootViewReference;
     public Context mViewCreateContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class V8ClassRegisterSlot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,15 +179,15 @@ public class TKJSContext implements ILifeCycle {
         return (String) invokeV.objValue;
     }
 
-    private void dfsDestroyChildren(@Nullable View view) {
+    private void dfsDestroyChildren(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65552, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view instanceof ViewGroup) {
+        if (view2 instanceof ViewGroup) {
             int i = 0;
             while (true) {
-                ViewGroup viewGroup = (ViewGroup) view;
+                ViewGroup viewGroup = (ViewGroup) view2;
                 if (i >= viewGroup.getChildCount()) {
                     break;
                 }
@@ -195,7 +195,7 @@ public class TKJSContext implements ILifeCycle {
                 i++;
             }
         }
-        TKBase tKBaseFromView = TKBase.getTKBaseFromView(view);
+        TKBase tKBaseFromView = TKBase.getTKBaseFromView(view2);
         if (tKBaseFromView != null) {
             tKBaseFromView.destroy();
         }
@@ -238,8 +238,8 @@ public class TKJSContext implements ILifeCycle {
                     this.mInvokeMethodCache.put(str2, method);
                 }
                 return method.invoke(obj, objArr);
-            } catch (Exception e2) {
-                TKExceptionDispatcher.reportException(this, e2);
+            } catch (Exception e) {
+                TKExceptionDispatcher.reportException(this, e);
                 return null;
             }
         }
@@ -274,8 +274,8 @@ public class TKJSContext implements ILifeCycle {
                 if (this.density == -1.0f) {
                     this.density = this.mContext.getResources().getDisplayMetrics().density;
                 }
-            } catch (Exception e2) {
-                TKExceptionDispatcher.reportException(this, e2);
+            } catch (Exception e) {
+                TKExceptionDispatcher.reportException(this, e);
             }
         }
     }

@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class s1 {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -54,14 +54,14 @@ public final class s1 {
     /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b2) {
+    public static String a(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) {
-            if (b2 < 0) {
-                b2 += 256;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
             }
-            return a[b2 / 16] + a[b2 % 16];
+            return a[b / 16] + a[b % 16];
         }
         return (String) invokeB.objValue;
     }
@@ -88,13 +88,13 @@ public final class s1 {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                String b2 = b(messageDigest.digest());
+                String b = b(messageDigest.digest());
                 try {
                     fileInputStream.close();
                 } catch (Throwable th) {
                     l1.a(th);
                 }
-                return b2;
+                return b;
             } catch (Throwable th2) {
                 th = th2;
                 try {
@@ -168,8 +168,8 @@ public final class s1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : bArr) {
-                stringBuffer.append(a(b2));
+            for (byte b : bArr) {
+                stringBuffer.append(a(b));
             }
             return stringBuffer.toString();
         }
@@ -183,10 +183,10 @@ public final class s1 {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             char[] cArr2 = new char[bArr.length * 2];
             for (int i = 0; i < bArr.length; i++) {
-                byte b2 = bArr[i];
+                byte b = bArr[i];
                 int i2 = i * 2;
-                cArr2[i2] = cArr[(b2 >>> 4) & 15];
-                cArr2[i2 + 1] = cArr[b2 & 15];
+                cArr2[i2] = cArr[(b >>> 4) & 15];
+                cArr2[i2 + 1] = cArr[b & 15];
             }
             return new String(cArr2);
         }
@@ -248,8 +248,8 @@ public final class s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) {
-            byte[] d2 = d(bArr);
-            return d2 != null ? a(d2) : "";
+            byte[] d = d(bArr);
+            return d != null ? a(d) : "";
         }
         return (String) invokeL.objValue;
     }

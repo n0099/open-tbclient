@@ -28,7 +28,7 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "ZeusLogRecorder";
@@ -48,7 +48,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     public String recordPrefName;
     public AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class LogRecordBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +103,12 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnFinishedUploadLogListener {
         void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class WatchThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,8 +165,8 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                             }
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e2));
+                } catch (Exception e) {
+                    Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e));
                 }
             }
         }
@@ -249,10 +249,10 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                         Log.e(TAG, Log.getStackTraceString(th));
                         return;
                     }
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
+                    e = e;
+                } catch (Exception e2) {
                     e = e2;
-                } catch (Exception e3) {
-                    e = e3;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -284,15 +284,15 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                     str = bufferedReader.readLine();
                 } while (str != null);
                 bufferedReader.close();
-            } catch (InterruptedException e4) {
-                e = e4;
+            } catch (InterruptedException e3) {
+                e = e3;
                 bufferedReader2 = bufferedReader;
                 e.printStackTrace();
                 if (bufferedReader2 != null) {
                     bufferedReader2.close();
                 }
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 Log.e(TAG, Log.getStackTraceString(e));
                 throw new IOException(e);
             } catch (Throwable th3) {
@@ -557,8 +557,8 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                                 this.this$0.isUploading = true;
                                 this.this$0.uploadLogRecord();
                             }
-                        } catch (Exception e2) {
-                            Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e2));
+                        } catch (Exception e) {
+                            Log.e(ZeusLogRecorder.TAG, Log.getStackTraceString(e));
                             this.this$0.quitUploadLog();
                         }
                     }

@@ -69,7 +69,7 @@ public class Sha2Crypt {
         InterceptResult invokeCommon;
         int i2;
         boolean z;
-        byte b2;
+        byte b;
         byte[] bArr2;
         int i3;
         Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class Sha2Crypt {
                         B64.b64from24bit(digest4[18], digest4[28], digest4[8], 4, sb);
                         B64.b64from24bit(digest4[9], digest4[19], digest4[29], 4, sb);
                         B64.b64from24bit((byte) 0, digest4[31], digest4[30], 3, sb);
-                        b2 = 0;
+                        b = 0;
                     } else {
                         B64.b64from24bit(digest4[0], digest4[21], digest4[42], 4, sb);
                         B64.b64from24bit(digest4[22], digest4[43], digest4[1], 4, sb);
@@ -207,16 +207,16 @@ public class Sha2Crypt {
                         B64.b64from24bit(digest4[18], digest4[39], digest4[60], 4, sb);
                         B64.b64from24bit(digest4[40], digest4[61], digest4[19], 4, sb);
                         B64.b64from24bit(digest4[62], digest4[20], digest4[41], 4, sb);
-                        b2 = 0;
+                        b = 0;
                         B64.b64from24bit((byte) 0, (byte) 0, digest4[63], 2, sb);
                     }
-                    Arrays.fill(digest8, b2);
-                    Arrays.fill(bArr3, b2);
-                    Arrays.fill(bArr4, b2);
+                    Arrays.fill(digest8, b);
+                    Arrays.fill(bArr3, b);
+                    Arrays.fill(bArr4, b);
                     messageDigest.reset();
                     digest7.reset();
-                    Arrays.fill(bArr, b2);
-                    Arrays.fill(bArr5, b2);
+                    Arrays.fill(bArr, b);
+                    Arrays.fill(bArr5, b);
                     return sb.toString();
                 }
                 throw new IllegalArgumentException("Invalid salt value: " + str);

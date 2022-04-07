@@ -77,11 +77,11 @@ public class AndroidPlatform extends Platform {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
                 try {
                     return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
-                } catch (IllegalAccessException e2) {
-                    throw new AssertionError(e2);
-                } catch (InvocationTargetException e3) {
-                    SSLPeerUnverifiedException sSLPeerUnverifiedException = new SSLPeerUnverifiedException(e3.getMessage());
-                    sSLPeerUnverifiedException.initCause(e3);
+                } catch (IllegalAccessException e) {
+                    throw new AssertionError(e);
+                } catch (InvocationTargetException e2) {
+                    SSLPeerUnverifiedException sSLPeerUnverifiedException = new SSLPeerUnverifiedException(e2.getMessage());
+                    sSLPeerUnverifiedException.initCause(e2);
                     throw sSLPeerUnverifiedException;
                 }
             }
@@ -157,8 +157,8 @@ public class AndroidPlatform extends Platform {
                         return trustAnchor.getTrustedCert();
                     }
                     return null;
-                } catch (IllegalAccessException e2) {
-                    throw Util.assertionError("unable to get issues and signature", e2);
+                } catch (IllegalAccessException e) {
+                    throw Util.assertionError("unable to get issues and signature", e);
                 } catch (InvocationTargetException unused) {
                     return null;
                 }
@@ -410,21 +410,21 @@ public class AndroidPlatform extends Platform {
         if (interceptable == null || interceptable.invokeLLI(1048579, this, socket, inetSocketAddress, i) == null) {
             try {
                 socket.connect(inetSocketAddress, i);
-            } catch (AssertionError e2) {
-                if (!Util.isAndroidGetsocknameError(e2)) {
-                    throw e2;
+            } catch (AssertionError e) {
+                if (!Util.isAndroidGetsocknameError(e)) {
+                    throw e;
                 }
-                throw new IOException(e2);
-            } catch (ClassCastException e3) {
+                throw new IOException(e);
+            } catch (ClassCastException e2) {
                 if (Build.VERSION.SDK_INT == 26) {
                     IOException iOException = new IOException("Exception in connect");
-                    iOException.initCause(e3);
+                    iOException.initCause(e2);
                     throw iOException;
                 }
-                throw e3;
-            } catch (SecurityException e4) {
+                throw e2;
+            } catch (SecurityException e3) {
                 IOException iOException2 = new IOException("Exception in connect");
-                iOException2.initCause(e4);
+                iOException2.initCause(e3);
                 throw iOException2;
             }
         }
@@ -444,8 +444,8 @@ public class AndroidPlatform extends Platform {
             }
             try {
                 return SSLContext.getInstance("TLS");
-            } catch (NoSuchAlgorithmException e2) {
-                throw new IllegalStateException("No TLS provider", e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException("No TLS provider", e);
             }
         }
         return (SSLContext) invokeV.objValue;
@@ -484,14 +484,14 @@ public class AndroidPlatform extends Platform {
                 return api24IsCleartextTrafficPermitted(str, cls, cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]));
             } catch (ClassNotFoundException | NoSuchMethodException unused) {
                 return super.isCleartextTrafficPermitted(str);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e = e;
+                throw Util.assertionError("unable to determine cleartext support", e);
+            } catch (IllegalArgumentException e2) {
                 e = e2;
                 throw Util.assertionError("unable to determine cleartext support", e);
-            } catch (IllegalArgumentException e3) {
+            } catch (InvocationTargetException e3) {
                 e = e3;
-                throw Util.assertionError("unable to determine cleartext support", e);
-            } catch (InvocationTargetException e4) {
-                e = e4;
                 throw Util.assertionError("unable to determine cleartext support", e);
             }
         }

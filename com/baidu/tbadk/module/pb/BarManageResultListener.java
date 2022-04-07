@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BarManageResultListener extends SimpleMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class OptType {
         public static final /* synthetic */ OptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,19 +80,15 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public OptType a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f30587b;
+        public boolean b;
         @Nullable
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f30588c;
+        public String c;
 
         public a(@NonNull OptType optType, boolean z, @Nullable String str) {
             Interceptable interceptable = $ic;
@@ -110,8 +106,8 @@ public class BarManageResultListener extends SimpleMessageListener {
                 }
             }
             this.a = optType;
-            this.f30587b = z;
-            this.f30588c = str;
+            this.b = z;
+            this.c = str;
         }
 
         public static a a(@NonNull OptType optType, boolean z, @Nullable String str) {
@@ -124,7 +120,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30588c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
         }
 
         @NonNull
@@ -137,7 +133,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30587b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
         }
     }
 
@@ -162,10 +158,10 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    public static void d(@NonNull a aVar) {
+    public static void l(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            SimpleMessageListener.c(2001458, aVar);
+            SimpleMessageListener.k(2001458, aVar);
         }
     }
 }

@@ -21,7 +21,7 @@ import com.google.zxing.aztec.detector.Detector;
 import com.google.zxing.common.DecoderResult;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class AztecReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,11 +80,11 @@ public final class AztecReader implements Reader {
             try {
                 detect = detector.detect(false);
                 resultPointArr = detect.getPoints();
-            } catch (FormatException e2) {
-                e = e2;
+            } catch (FormatException e) {
+                e = e;
                 resultPointArr = null;
-            } catch (NotFoundException e3) {
-                e = e3;
+            } catch (NotFoundException e2) {
+                e = e2;
                 resultPointArr = null;
             }
             try {
@@ -92,8 +92,8 @@ public final class AztecReader implements Reader {
                 formatException = null;
                 decoderResult = new Decoder().decode(detect);
                 e = null;
-            } catch (FormatException e4) {
-                e = e4;
+            } catch (FormatException e3) {
+                e = e3;
                 resultPointArr2 = resultPointArr;
                 formatException = e;
                 e = null;
@@ -112,8 +112,8 @@ public final class AztecReader implements Reader {
                 if (eCLevel != null) {
                 }
                 return result;
-            } catch (NotFoundException e5) {
-                e = e5;
+            } catch (NotFoundException e4) {
+                e = e4;
                 resultPointArr2 = resultPointArr;
                 formatException = null;
                 if (decoderResult == null) {
@@ -135,12 +135,12 @@ public final class AztecReader implements Reader {
                     AztecDetectorResult detect2 = detector.detect(true);
                     resultPointArr2 = detect2.getPoints();
                     decoderResult = new Decoder().decode(detect2);
-                } catch (FormatException | NotFoundException e6) {
+                } catch (FormatException | NotFoundException e5) {
                     if (e == null) {
                         if (formatException != null) {
                             throw formatException;
                         }
-                        throw e6;
+                        throw e5;
                     }
                     throw e;
                 }

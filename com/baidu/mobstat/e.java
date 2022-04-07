@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static final e a;
@@ -66,8 +66,8 @@ public class e {
         List<PackageInfo> arrayList = new ArrayList<>(1);
         try {
             arrayList = packageManager.getInstalledPackages(0);
-        } catch (Exception e2) {
-            bb.c().b(e2);
+        } catch (Exception e) {
+            bb.c().b(e);
         }
         JSONArray jSONArray = new JSONArray();
         for (PackageInfo packageInfo : arrayList) {
@@ -98,7 +98,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f27412b.a(System.currentTimeMillis(), str);
+        k.b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {
@@ -139,8 +139,8 @@ public class e {
                 jSONObject.put("l", j2);
                 jSONObject.put("m", a2);
                 jSONArray.put(jSONObject);
-            } catch (JSONException e2) {
-                bb.c().b(e2);
+            } catch (JSONException e) {
+                bb.c().b(e);
             }
         }
     }

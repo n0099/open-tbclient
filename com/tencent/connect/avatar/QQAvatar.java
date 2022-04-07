@@ -24,7 +24,7 @@ import com.tencent.open.utils.f;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QQAvatar extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_SDK_AVATAR_SET_IMAGE = "FROM_SDK_AVATAR_SET_IMAGE";
@@ -73,17 +73,17 @@ public class QQAvatar extends BaseApi {
             Bundle bundle = new Bundle();
             bundle.putString("picture", uri.toString());
             bundle.putInt("exitAnim", i);
-            bundle.putString("appid", this.f43645c.getAppId());
-            bundle.putString("access_token", this.f43645c.getAccessToken());
-            bundle.putLong("expires_in", this.f43645c.getExpireTimeInSecond());
-            bundle.putString("openid", this.f43645c.getOpenId());
+            bundle.putString("appid", this.c.getAppId());
+            bundle.putString("access_token", this.c.getAccessToken());
+            bundle.putLong("expires_in", this.c.getExpireTimeInSecond());
+            bundle.putString("openid", this.c.getOpenId());
             Intent a = a(activity);
             if (a(a)) {
                 a(activity, bundle, a);
-                d.a().a(this.f43645c.getOpenId(), this.f43645c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
+                d.a().a(this.c.getOpenId(), this.c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
                 return;
             }
-            d.a().a(this.f43645c.getOpenId(), this.f43645c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
+            d.a().a(this.c.getOpenId(), this.c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
         }
     }
 
@@ -108,8 +108,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f43645c.getAppId();
-                String openId = this.f43645c.getOpenId();
+                String appId = this.c.getAppId();
+                String openId = this.c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -121,8 +121,8 @@ public class QQAvatar extends BaseApi {
                     try {
                         activity.grantUriPermission("com.tencent.mobileqq", uri, 3);
                         stringBuffer.append("&set_uri=" + Base64.encodeToString(l.i(uri.toString()), 2));
-                    } catch (Exception e2) {
-                        SLog.e("QQAvatar", "Exception", e2);
+                    } catch (Exception e) {
+                        SLog.e("QQAvatar", "Exception", e);
                     }
                 }
                 if (!TextUtils.isEmpty(a2)) {
@@ -163,8 +163,8 @@ public class QQAvatar extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f43645c.getAppId();
-                String openId = this.f43645c.getOpenId();
+                String appId = this.c.getAppId();
+                String openId = this.c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -177,8 +177,8 @@ public class QQAvatar extends BaseApi {
                         activity.grantUriPermission("com.tencent.mobileqq", uri, 3);
                         stringBuffer.append("&video_uri=");
                         stringBuffer.append(Base64.encodeToString(l.i(uri.toString()), 2));
-                    } catch (Exception e2) {
-                        SLog.e("QQAvatar", "Exception", e2);
+                    } catch (Exception e) {
+                        SLog.e("QQAvatar", "Exception", e);
                     }
                 }
                 if (!TextUtils.isEmpty(a2)) {
@@ -212,22 +212,22 @@ public class QQAvatar extends BaseApi {
     private void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
-            QQToken qQToken = this.f43645c;
+            QQToken qQToken = this.c;
             if (qQToken != null) {
                 bundle.putString("appid", qQToken.getAppId());
-                if (this.f43645c.isSessionValid()) {
-                    bundle.putString(Constants.PARAM_KEY_STR, this.f43645c.getAccessToken());
+                if (this.c.isSessionValid()) {
+                    bundle.putString(Constants.PARAM_KEY_STR, this.c.getAccessToken());
                     bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
                 }
-                String openId = this.f43645c.getOpenId();
+                String openId = this.c.getOpenId();
                 if (openId != null) {
                     bundle.putString("hopenid", openId);
                 }
                 bundle.putString(Constants.PARAM_PLATFORM, "androidqz");
                 try {
                     bundle.putString("pf", f.a().getSharedPreferences(Constants.PREFERENCE_PF, 0).getString("pf", Constants.DEFAULT_PF));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     bundle.putString("pf", Constants.DEFAULT_PF);
                 }
             }

@@ -127,10 +127,10 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         requestLayout();
     }
 
-    public void addFrameListener(EglRenderer.FrameListener frameListener, float f2, RendererCommon.GlDrawer glDrawer) {
+    public void addFrameListener(EglRenderer.FrameListener frameListener, float f, RendererCommon.GlDrawer glDrawer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer}) == null) {
-            this.eglRenderer.addFrameListener(frameListener, f2, glDrawer);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f), glDrawer}) == null) {
+            this.eglRenderer.addFrameListener(frameListener, f, glDrawer);
         }
     }
 
@@ -184,7 +184,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             if (i3 == 0 || i3 == 180) {
                 i = i2;
             }
-            postOrRun(new Runnable() { // from class: f.c.w
+            postOrRun(new Runnable() { // from class: com.repackage.ay9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,10 +250,10 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         }
     }
 
-    public void setFpsReduction(float f2) {
+    public void setFpsReduction(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.eglRenderer.setFpsReduction(f2);
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.eglRenderer.setFpsReduction(f);
         }
     }
 
@@ -298,10 +298,10 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         }
     }
 
-    public void addFrameListener(EglRenderer.FrameListener frameListener, float f2) {
+    public void addFrameListener(EglRenderer.FrameListener frameListener, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameListener, f2) == null) {
-            this.eglRenderer.addFrameListener(frameListener, f2);
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameListener, f) == null) {
+            this.eglRenderer.addFrameListener(frameListener, f);
         }
     }
 

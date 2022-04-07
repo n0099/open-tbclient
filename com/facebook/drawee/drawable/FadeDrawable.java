@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -119,15 +119,15 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    private boolean updateAlphas(float f2) {
+    private boolean updateAlphas(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65543, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65543, this, f)) == null) {
             boolean z = true;
             for (int i = 0; i < this.mLayers.length; i++) {
                 int i2 = this.mIsLayerOn[i] ? 1 : -1;
                 int[] iArr = this.mAlphas;
-                iArr[i] = (int) (this.mStartAlphas[i] + (i2 * 255 * f2));
+                iArr[i] = (int) (this.mStartAlphas[i] + (i2 * 255 * f));
                 if (iArr[i] < 0) {
                     iArr[i] = 0;
                 }

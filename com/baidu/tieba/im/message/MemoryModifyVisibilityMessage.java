@@ -5,22 +5,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f33861b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f33862c;
+        public int b;
+        public boolean c;
 
         public a(String str, int i, boolean z) {
             Interceptable interceptable = $ic;
@@ -38,8 +34,8 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
                 }
             }
             this.a = str;
-            this.f33861b = i;
-            this.f33862c = z;
+            this.b = i;
+            this.c = z;
         }
     }
 

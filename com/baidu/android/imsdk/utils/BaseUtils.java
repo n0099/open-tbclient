@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class BaseUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHOD_RECEIVEESSAGE = "93";
@@ -55,17 +55,17 @@ public abstract class BaseUtils {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(str.getBytes());
                 return Utility.byte2Hex(messageDigest.digest());
-            } catch (NoSuchAlgorithmException e2) {
-                LogUtils.e("BaseUtils", "MD5 error " + e2.getMessage());
+            } catch (NoSuchAlgorithmException e) {
+                LogUtils.e("BaseUtils", "MD5 error " + e.getMessage());
                 return str;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean isEmojiCharacter(char c2) {
+    public static boolean isEmojiCharacter(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 == 0 || c2 == '\t' || c2 == '\n' || c2 == '\r' || (c2 >= ' ' && c2 <= 55295) || ((c2 >= 57344 && c2 <= 65533) || (c2 >= 0 && c2 <= 65535)) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) ? c == 0 || c == '\t' || c == '\n' || c == '\r' || (c >= ' ' && c <= 55295) || ((c >= 57344 && c <= 65533) || (c >= 0 && c <= 65535)) : invokeCommon.booleanValue;
     }
 }

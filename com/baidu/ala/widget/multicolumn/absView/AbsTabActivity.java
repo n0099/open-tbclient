@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
@@ -18,7 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.oi;
+/* loaded from: classes.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     public FragmentTabHost mTabHost;
     public FragmentTabHost.a onTabSelectionListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class CustomOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             }
         }
 
-        public void onPageScrolled(int i, float f2, int i2, int i3) {
+        public void onPageScrolled(int i, float f, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             }
         }
 
@@ -89,14 +89,14 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f29925c = fragment;
+        bVar.c = fragment;
         bVar.a = i;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f29924b = fragmentTabIndicator;
+        bVar.b = fragmentTabIndicator;
         this.mTabHost.c(bVar);
     }
 
@@ -121,7 +121,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ee);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (!this.isSupportNight) {
@@ -130,7 +130,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 this.mNavigationBar.onCenterTextOnChangeSkin(0);
             }
             setNavigationBar(this.mNavigationBar);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e43);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e2f);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setVisibility(0);
             this.mTabHost.setup(getSupportFragmentManager());
@@ -168,12 +168,12 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 }
 
                 @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-                public void onPageScrolled(int i, float f2, int i2) {
+                public void onPageScrolled(int i, float f, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || this.this$0.mPageChangeListener == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.this$0.mPageChangeListener == null) {
                         return;
                     }
-                    this.this$0.mPageChangeListener.onPageScrolled(i, f2, i2, this.this$0.getAdapter().getPageType(i));
+                    this.this$0.mPageChangeListener.onPageScrolled(i, f, i2, this.this$0.getAdapter().getPageType(i));
                 }
 
                 @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -233,9 +233,9 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             this.mTabHost.u();
             this.mTabHost.getFragmentTabWidget().setDiverColor(getResources().getColor(R.color.CAM_X0105));
-            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(n.f(getActivity(), R.dimen.obfuscated_res_0x7f070258));
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(n.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
+            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070258));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
             initTabSpec();
             this.mTabHost.setCurrentTab(getCurrentIndex());

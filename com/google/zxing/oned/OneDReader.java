@@ -21,7 +21,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class OneDReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public abstract class OneDReader implements Reader {
             int height = binaryBitmap.getHeight();
             BitArray bitArray = new BitArray(width);
             int i2 = height >> 1;
-            char c2 = 0;
+            char c = 0;
             int i3 = 1;
             boolean z = enumMap != null && enumMap.containsKey(DecodeHintType.TRY_HARDER);
             int max = Math.max(1, height >> (z ? 8 : 5));
@@ -87,7 +87,7 @@ public abstract class OneDReader implements Reader {
                                 ResultPoint[] resultPoints = decodeRow.getResultPoints();
                                 if (resultPoints != null) {
                                     map2 = enumMap;
-                                    float f2 = width;
+                                    float f = width;
                                     try {
                                         i = width;
                                     } catch (ReaderException unused) {
@@ -95,26 +95,26 @@ public abstract class OneDReader implements Reader {
                                         i9++;
                                         enumMap = map2;
                                         width = i;
-                                        c2 = 0;
+                                        c = 0;
                                         i3 = 1;
                                     }
                                     try {
-                                        resultPoints[0] = new ResultPoint((f2 - resultPoints[c2].getX()) - 1.0f, resultPoints[c2].getY());
+                                        resultPoints[0] = new ResultPoint((f - resultPoints[c].getX()) - 1.0f, resultPoints[c].getY());
                                         try {
-                                            resultPoints[1] = new ResultPoint((f2 - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
+                                            resultPoints[1] = new ResultPoint((f - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
                                         } catch (ReaderException unused2) {
                                             continue;
                                             i9++;
                                             enumMap = map2;
                                             width = i;
-                                            c2 = 0;
+                                            c = 0;
                                             i3 = 1;
                                         }
                                     } catch (ReaderException unused3) {
                                         i9++;
                                         enumMap = map2;
                                         width = i;
-                                        c2 = 0;
+                                        c = 0;
                                         i3 = 1;
                                     }
                                 }
@@ -129,7 +129,7 @@ public abstract class OneDReader implements Reader {
                 }
                 i5 = i6;
                 width = width;
-                c2 = 0;
+                c = 0;
                 i3 = 1;
             }
             throw NotFoundException.getNotFoundInstance();
@@ -137,10 +137,10 @@ public abstract class OneDReader implements Reader {
         return (Result) invokeLL.objValue;
     }
 
-    public static float patternMatchVariance(int[] iArr, int[] iArr2, float f2) {
+    public static float patternMatchVariance(int[] iArr, int[] iArr2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{iArr, iArr2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{iArr, iArr2, Float.valueOf(f)})) == null) {
             int length = iArr.length;
             int i = 0;
             int i2 = 0;
@@ -151,20 +151,20 @@ public abstract class OneDReader implements Reader {
             if (i < i2) {
                 return Float.POSITIVE_INFINITY;
             }
-            float f3 = i;
-            float f4 = f3 / i2;
-            float f5 = f2 * f4;
-            float f6 = 0.0f;
+            float f2 = i;
+            float f3 = f2 / i2;
+            float f4 = f * f3;
+            float f5 = 0.0f;
             for (int i4 = 0; i4 < length; i4++) {
-                float f7 = iArr2[i4] * f4;
-                float f8 = iArr[i4];
-                float f9 = f8 > f7 ? f8 - f7 : f7 - f8;
-                if (f9 > f5) {
+                float f6 = iArr2[i4] * f3;
+                float f7 = iArr[i4];
+                float f8 = f7 > f6 ? f7 - f6 : f6 - f7;
+                if (f8 > f4) {
                     return Float.POSITIVE_INFINITY;
                 }
-                f6 += f9;
+                f5 += f8;
             }
-            return f6 / f3;
+            return f5 / f2;
         }
         return invokeCommon.floatValue;
     }
@@ -246,7 +246,7 @@ public abstract class OneDReader implements Reader {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
             try {
                 return doDecode(binaryBitmap, map);
-            } catch (NotFoundException e2) {
+            } catch (NotFoundException e) {
                 if ((map != null && map.containsKey(DecodeHintType.TRY_HARDER)) && binaryBitmap.isRotateSupported()) {
                     BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                     Result doDecode = doDecode(rotateCounterClockwise, map);
@@ -265,7 +265,7 @@ public abstract class OneDReader implements Reader {
                     }
                     return doDecode;
                 }
-                throw e2;
+                throw e;
             }
         }
         return (Result) invokeLL.objValue;

@@ -48,32 +48,18 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static g a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Random f43711b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<Serializable> f43712c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<Serializable> f43713d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f43714e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Handler f43715f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Executor f43716g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Executor f43717h;
+    public Random b;
+    public List<Serializable> c;
+    public List<Serializable> d;
+    public HandlerThread e;
+    public Handler f;
+    public Executor g;
+    public Executor h;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -88,21 +74,21 @@ public class g {
                 return;
             }
         }
-        this.f43714e = null;
-        this.f43711b = new Random();
-        this.f43713d = Collections.synchronizedList(new ArrayList());
-        this.f43712c = Collections.synchronizedList(new ArrayList());
-        this.f43716g = j.b();
-        this.f43717h = j.b();
-        if (this.f43714e == null) {
+        this.e = null;
+        this.b = new Random();
+        this.d = Collections.synchronizedList(new ArrayList());
+        this.c = Collections.synchronizedList(new ArrayList());
+        this.g = j.b();
+        this.h = j.b();
+        if (this.e == null) {
             HandlerThread handlerThread = new HandlerThread("opensdk.report.handlerthread", 10);
-            this.f43714e = handlerThread;
+            this.e = handlerThread;
             handlerThread.start();
         }
-        if (!this.f43714e.isAlive() || this.f43714e.getLooper() == null) {
+        if (!this.e.isAlive() || this.e.getLooper() == null) {
             return;
         }
-        this.f43715f = new Handler(this, this.f43714e.getLooper()) { // from class: com.tencent.open.a.g.1
+        this.f = new Handler(this, this.e.getLooper()) { // from class: com.tencent.open.a.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -163,7 +149,7 @@ public class g {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f43717h.execute(new Runnable(this) { // from class: com.tencent.open.a.g.4
+            this.h.execute(new Runnable(this) { // from class: com.tencent.open.a.g.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -315,11 +301,11 @@ public class g {
                         if (r7 != 0) goto Lb4
                         com.tencent.open.a.f r1 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> Lbc
                         com.tencent.open.a.g r2 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List<java.io.Serializable> r2 = r2.f43712c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List<java.io.Serializable> r2 = r2.c     // Catch: java.lang.Exception -> Lbc
                         r1.a(r0, r2)     // Catch: java.lang.Exception -> Lbc
                     Lb4:
                         com.tencent.open.a.g r0 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List<java.io.Serializable> r0 = r0.f43712c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List<java.io.Serializable> r0 = r0.c     // Catch: java.lang.Exception -> Lbc
                         r0.clear()     // Catch: java.lang.Exception -> Lbc
                         goto Lc2
                     Lbc:
@@ -345,10 +331,10 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f43712c.size() == 0) {
+            if (this.c.size() == 0) {
                 return null;
             }
-            b bVar = (b) this.f43712c.get(0);
+            b bVar = (b) this.c.get(0);
             if (bVar == null) {
                 SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, the 0th cgireportitem is null.");
                 return null;
@@ -356,10 +342,10 @@ public class g {
             String str = bVar.a.get("appid");
             List<Serializable> a2 = f.a().a("report_cgi");
             if (a2 != null) {
-                this.f43712c.addAll(a2);
+                this.c.addAll(a2);
             }
-            SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, mCgiList size: " + this.f43712c.size());
-            if (this.f43712c.size() == 0) {
+            SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, mCgiList size: " + this.c.size());
+            if (this.c.size() == 0) {
                 return null;
             }
             Bundle bundle = new Bundle();
@@ -369,8 +355,8 @@ public class g {
                 bundle.putString(Config.DEVICE_PART, Build.DEVICE);
                 bundle.putString("qua", Constants.SDK_QUA);
                 bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
-                for (int i = 0; i < this.f43712c.size(); i++) {
-                    b bVar2 = (b) this.f43712c.get(i);
+                for (int i = 0; i < this.c.size(); i++) {
+                    b bVar2 = (b) this.c.get(i);
                     bundle.putString(i + SkinManager.nightSufix, bVar2.a.get("apn"));
                     bundle.putString(i + SkinManager.darkSuffix, bVar2.a.get("frequency"));
                     bundle.putString(i + "_3", bVar2.a.get("commandid"));
@@ -384,8 +370,8 @@ public class g {
                 }
                 SLog.v("openSDK_LOG.ReportManager", "-->prepareCgiData, end. params: " + bundle.toString());
                 return bundle;
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.ReportManager", "-->prepareCgiData, exception.", e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.ReportManager", "-->prepareCgiData, exception.", e);
                 return null;
             }
         }
@@ -398,14 +384,14 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             List<Serializable> a2 = f.a().a("report_via");
             if (a2 != null) {
-                this.f43713d.addAll(a2);
+                this.d.addAll(a2);
             }
-            SLog.d("openSDK_LOG.ReportManager", "-->prepareViaData, mViaList size: " + this.f43713d.size());
-            if (this.f43713d.size() == 0) {
+            SLog.d("openSDK_LOG.ReportManager", "-->prepareViaData, mViaList size: " + this.d.size());
+            if (this.d.size() == 0) {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            Iterator<Serializable> it = this.f43713d.iterator();
+            Iterator<Serializable> it = this.d.iterator();
             while (it.hasNext()) {
                 JSONObject jSONObject = new JSONObject();
                 b bVar = (b) it.next();
@@ -416,8 +402,8 @@ public class g {
                             str2 = "";
                         }
                         jSONObject.put(str, str2);
-                    } catch (JSONException e2) {
-                        SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e2);
+                    } catch (JSONException e) {
+                        SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e);
                     }
                 }
                 jSONArray.put(jSONObject);
@@ -429,8 +415,8 @@ public class g {
                 jSONObject2.put("data", jSONArray);
                 bundle.putString("data", jSONObject2.toString());
                 return bundle;
-            } catch (JSONException e3) {
-                SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e3);
+            } catch (JSONException e2) {
+                SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e2);
                 return null;
             }
         }
@@ -440,7 +426,7 @@ public class g {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f43716g.execute(new Runnable(this) { // from class: com.tencent.open.a.g.5
+            this.g.execute(new Runnable(this) { // from class: com.tencent.open.a.g.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -475,11 +461,11 @@ public class g {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Bundle d2 = this.a.d();
-                            if (d2 == null) {
+                            Bundle d = this.a.d();
+                            if (d == null) {
                                 return;
                             }
-                            SLog.v("openSDK_LOG.ReportManager", "-->doReportVia, params: " + d2.toString());
+                            SLog.v("openSDK_LOG.ReportManager", "-->doReportVia, params: " + d.toString());
                             int a2 = e.a();
                             int i2 = 0;
                             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -492,7 +478,7 @@ public class g {
                                 try {
                                     try {
                                         try {
-                                            l.a openUrl2 = HttpUtils.openUrl2(com.tencent.open.utils.f.a(), "https://appsupport.qq.com/cgi-bin/appstage/mstats_batch_report", "POST", d2);
+                                            l.a openUrl2 = HttpUtils.openUrl2(com.tencent.open.utils.f.a(), "https://appsupport.qq.com/cgi-bin/appstage/mstats_batch_report", "POST", d);
                                             try {
                                                 i = l.d(openUrl2.a).getInt(Constants.KEYS.RET);
                                             } catch (JSONException unused) {
@@ -502,8 +488,8 @@ public class g {
                                                 i4 = a2;
                                                 z = true;
                                             }
-                                            j = openUrl2.f43812b;
-                                            j2 = openUrl2.f43813c;
+                                            j = openUrl2.b;
+                                            j2 = openUrl2.c;
                                             i2 = i4;
                                             continue;
                                         } catch (JSONException unused2) {
@@ -517,16 +503,16 @@ public class g {
                                                 this.a.a("mapp_apptrace_sdk", elapsedRealtime, j, j2, i5, null, false);
                                                 if (!z) {
                                                 }
-                                                this.a.f43713d.clear();
+                                                this.a.d.clear();
                                                 SLog.d("openSDK_LOG.ReportManager", "-->doReportVia, uploadSuccess: " + z);
                                             }
                                         }
                                     } catch (HttpUtils.NetworkUnavailableException unused3) {
-                                        this.a.f43713d.clear();
+                                        this.a.d.clear();
                                         SLog.d("openSDK_LOG.ReportManager", "doReportVia, NetworkUnavailableException.");
                                         return;
-                                    } catch (IOException e2) {
-                                        i3 = HttpUtils.getErrorCodeFromException(e2);
+                                    } catch (IOException e) {
+                                        i3 = HttpUtils.getErrorCodeFromException(e);
                                         i2 = i4;
                                         j = 0;
                                         j2 = 0;
@@ -534,9 +520,9 @@ public class g {
                                         if (i2 >= a2) {
                                         }
                                     }
-                                } catch (HttpUtils.HttpStatusException e3) {
+                                } catch (HttpUtils.HttpStatusException e2) {
                                     try {
-                                        i3 = Integer.parseInt(e3.getMessage().replace(HttpUtils.HttpStatusException.ERROR_INFO, ""));
+                                        i3 = Integer.parseInt(e2.getMessage().replace(HttpUtils.HttpStatusException.ERROR_INFO, ""));
                                     } catch (Exception unused4) {
                                     }
                                 } catch (SocketTimeoutException unused5) {
@@ -572,12 +558,12 @@ public class g {
                             if (!z) {
                                 f.a().b("report_via");
                             } else {
-                                f.a().a("report_via", this.a.f43713d);
+                                f.a().a("report_via", this.a.d);
                             }
-                            this.a.f43713d.clear();
+                            this.a.d.clear();
                             SLog.d("openSDK_LOG.ReportManager", "-->doReportVia, uploadSuccess: " + z);
-                        } catch (Exception e4) {
-                            SLog.e("openSDK_LOG.ReportManager", "-->doReportVia, exception in serial executor.", e4);
+                        } catch (Exception e3) {
+                            SLog.e("openSDK_LOG.ReportManager", "-->doReportVia, exception in serial executor.", e3);
                         }
                     }
                 }
@@ -592,16 +578,12 @@ public class g {
         }
         SLog.v("openSDK_LOG.ReportManager", "-->reportVia, bundle: " + bundle.toString());
         if (a("report_via", str) || z) {
-            this.f43716g.execute(new Runnable(this, bundle, z) { // from class: com.tencent.open.a.g.2
+            this.g.execute(new Runnable(this, bundle, z) { // from class: com.tencent.open.a.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bundle a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f43718b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f43719c;
+                public final /* synthetic */ boolean b;
+                public final /* synthetic */ g c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -618,9 +600,9 @@ public class g {
                             return;
                         }
                     }
-                    this.f43719c = this;
+                    this.c = this;
                     this.a = bundle;
-                    this.f43718b = z;
+                    this.b = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -656,25 +638,25 @@ public class g {
                             if (this.a != null) {
                                 bundle2.putAll(this.a);
                             }
-                            this.f43719c.f43713d.add(new b(bundle2));
-                            int size = this.f43719c.f43713d.size();
+                            this.c.d.add(new b(bundle2));
+                            int size = this.c.d.size();
                             int a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
                             if (a2 == 0) {
                                 a2 = 10000;
                             }
-                            if (!this.f43719c.a("report_via", size) && !this.f43718b) {
-                                if (this.f43719c.f43715f.hasMessages(1001)) {
+                            if (!this.c.a("report_via", size) && !this.b) {
+                                if (this.c.f.hasMessages(1001)) {
                                     return;
                                 }
                                 Message obtain = Message.obtain();
                                 obtain.what = 1001;
-                                this.f43719c.f43715f.sendMessageDelayed(obtain, a2);
+                                this.c.f.sendMessageDelayed(obtain, a2);
                                 return;
                             }
-                            this.f43719c.e();
-                            this.f43719c.f43715f.removeMessages(1001);
-                        } catch (Exception e2) {
-                            SLog.e("openSDK_LOG.ReportManager", "--> reporVia, exception in sub thread.", e2);
+                            this.c.e();
+                            this.c.f.removeMessages(1001);
+                        } catch (Exception e) {
+                            SLog.e("openSDK_LOG.ReportManager", "--> reporVia, exception in sub thread.", e);
                         }
                     }
                 }
@@ -694,31 +676,17 @@ public class g {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
             SLog.v("openSDK_LOG.ReportManager", "-->reportCgi, command: " + str + " | startTime: " + j + " | reqSize:" + j2 + " | rspSize: " + j3 + " | responseCode: " + i + " | detail: " + str2);
             if (a("report_cgi", "" + i) || z) {
-                this.f43717h.execute(new Runnable(this, j, str, str2, i, j2, j3, z) { // from class: com.tencent.open.a.g.3
+                this.h.execute(new Runnable(this, j, str, str2, i, j2, j3, z) { // from class: com.tencent.open.a.g.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f43720b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f43721c;
-
-                    /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ int f43722d;
-
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f43723e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ long f43724f;
-
-                    /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ boolean f43725g;
-
-                    /* renamed from: h  reason: collision with root package name */
-                    public final /* synthetic */ g f43726h;
+                    public final /* synthetic */ String b;
+                    public final /* synthetic */ String c;
+                    public final /* synthetic */ int d;
+                    public final /* synthetic */ long e;
+                    public final /* synthetic */ long f;
+                    public final /* synthetic */ boolean g;
+                    public final /* synthetic */ g h;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -735,14 +703,14 @@ public class g {
                                 return;
                             }
                         }
-                        this.f43726h = this;
+                        this.h = this;
                         this.a = j;
-                        this.f43720b = str;
-                        this.f43721c = str2;
-                        this.f43722d = i;
-                        this.f43723e = j2;
-                        this.f43724f = j3;
-                        this.f43725g = z;
+                        this.b = str;
+                        this.c = str2;
+                        this.d = i;
+                        this.e = j2;
+                        this.f = j3;
+                        this.g = z;
                     }
 
                     @Override // java.lang.Runnable
@@ -755,8 +723,8 @@ public class g {
                                 String a2 = a.a(com.tencent.open.utils.f.a());
                                 bundle.putString("apn", a2);
                                 bundle.putString("appid", "1000067");
-                                bundle.putString("commandid", this.f43720b);
-                                bundle.putString("detail", this.f43721c);
+                                bundle.putString("commandid", this.b);
+                                bundle.putString("detail", this.c);
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("network=");
                                 sb.append(a2);
@@ -768,33 +736,33 @@ public class g {
                                 sb.append("wifi=");
                                 sb.append(a.e(com.tencent.open.utils.f.a()));
                                 bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, sb.toString());
-                                int a3 = 100 / this.f43726h.a(this.f43722d);
+                                int a3 = 100 / this.h.a(this.d);
                                 if (a3 > 0) {
                                     i2 = a3 > 100 ? 100 : a3;
                                 }
                                 bundle.putString("frequency", i2 + "");
-                                bundle.putString("reqSize", this.f43723e + "");
-                                bundle.putString("resultCode", this.f43722d + "");
-                                bundle.putString("rspSize", this.f43724f + "");
+                                bundle.putString("reqSize", this.e + "");
+                                bundle.putString("resultCode", this.d + "");
+                                bundle.putString("rspSize", this.f + "");
                                 bundle.putString("timeCost", elapsedRealtime + "");
                                 bundle.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
-                                this.f43726h.f43712c.add(new b(bundle));
-                                int size = this.f43726h.f43712c.size();
+                                this.h.c.add(new b(bundle));
+                                int size = this.h.c.size();
                                 int a4 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
                                 if (a4 == 0) {
                                     a4 = 10000;
                                 }
-                                if (!this.f43726h.a("report_cgi", size) && !this.f43725g) {
-                                    if (!this.f43726h.f43715f.hasMessages(1000)) {
+                                if (!this.h.a("report_cgi", size) && !this.g) {
+                                    if (!this.h.f.hasMessages(1000)) {
                                         Message obtain = Message.obtain();
                                         obtain.what = 1000;
-                                        this.f43726h.f43715f.sendMessageDelayed(obtain, a4);
+                                        this.h.f.sendMessageDelayed(obtain, a4);
                                     }
                                 }
-                                this.f43726h.b();
-                                this.f43726h.f43715f.removeMessages(1000);
-                            } catch (Exception e2) {
-                                SLog.e("openSDK_LOG.ReportManager", "--> reportCGI, exception in sub thread.", e2);
+                                this.h.b();
+                                this.h.f.removeMessages(1000);
+                            } catch (Exception e) {
+                                SLog.e("openSDK_LOG.ReportManager", "--> reportCGI, exception in sub thread.", e);
                             }
                         }
                     }
@@ -817,7 +785,7 @@ public class g {
             if (str.equals("report_cgi")) {
                 try {
                     a2 = a(Integer.parseInt(str2));
-                    if (this.f43711b.nextInt(100) < a2) {
+                    if (this.b.nextInt(100) < a2) {
                         z = true;
                     }
                 } catch (Exception unused) {
@@ -826,7 +794,7 @@ public class g {
             } else {
                 if (str.equals("report_via")) {
                     a2 = e.a(str2);
-                    if (this.f43711b.nextInt(100) < a2) {
+                    if (this.b.nextInt(100) < a2) {
                         i = a2;
                         z = true;
                     }
@@ -901,18 +869,10 @@ public class g {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bundle a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43727b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f43728c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f43729d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ g f43730e;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ boolean c;
+                public final /* synthetic */ String d;
+                public final /* synthetic */ g e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -929,11 +889,11 @@ public class g {
                             return;
                         }
                     }
-                    this.f43730e = this;
+                    this.e = this;
                     this.a = bundle;
-                    this.f43727b = str;
-                    this.f43728c = z;
-                    this.f43729d = str2;
+                    this.b = str;
+                    this.c = z;
+                    this.d = str2;
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:109:0x0149 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -962,17 +922,17 @@ public class g {
                         }
                         SLog.d("openSDK_LOG.ReportManager", "-->httpRequest, retryCount: " + a2);
                         HttpResponse httpResponse2 = null;
-                        HttpClient httpClient = HttpUtils.getHttpClient(com.tencent.open.utils.f.a(), null, this.f43727b);
+                        HttpClient httpClient = HttpUtils.getHttpClient(com.tencent.open.utils.f.a(), null, this.b);
                         String encodeUrl = HttpUtils.encodeUrl(this.a);
-                        if (this.f43728c) {
+                        if (this.c) {
                             encodeUrl = URLEncoder.encode(encodeUrl);
                         }
-                        if (this.f43729d.toUpperCase().equals("GET")) {
-                            StringBuffer stringBuffer = new StringBuffer(this.f43727b);
+                        if (this.d.toUpperCase().equals("GET")) {
+                            StringBuffer stringBuffer = new StringBuffer(this.b);
                             stringBuffer.append(encodeUrl);
                             httpUriRequest = new HttpGet(stringBuffer.toString());
-                        } else if (this.f43729d.toUpperCase().equals("POST")) {
-                            HttpPost httpPost = new HttpPost(this.f43727b);
+                        } else if (this.d.toUpperCase().equals("POST")) {
+                            HttpPost httpPost = new HttpPost(this.b);
                             httpPost.setEntity(new ByteArrayEntity(l.i(encodeUrl)));
                             httpUriRequest = httpPost;
                         } else {
@@ -997,8 +957,8 @@ public class g {
                                             try {
                                                 SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread success");
                                                 z2 = true;
-                                            } catch (SocketTimeoutException e2) {
-                                                e = e2;
+                                            } catch (SocketTimeoutException e) {
+                                                e = e;
                                                 z2 = true;
                                                 try {
                                                     SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest SocketTimeoutException:", e);
@@ -1011,8 +971,8 @@ public class g {
                                                             } else {
                                                                 continue;
                                                             }
-                                                        } catch (Exception e3) {
-                                                            e = e3;
+                                                        } catch (Exception e2) {
+                                                            e = e2;
                                                             SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                             continue;
                                                             if (i >= a2) {
@@ -1032,14 +992,14 @@ public class g {
                                                             if (entity2 != null) {
                                                                 entity2.consumeContent();
                                                             }
-                                                        } catch (Exception e4) {
-                                                            SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e4);
+                                                        } catch (Exception e3) {
+                                                            SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e3);
                                                         }
                                                     }
                                                     throw th;
                                                 }
-                                            } catch (ConnectTimeoutException e5) {
-                                                e = e5;
+                                            } catch (ConnectTimeoutException e4) {
+                                                e = e4;
                                                 z2 = true;
                                                 SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest ConnectTimeoutException:", e);
                                                 if (httpResponse != null) {
@@ -1051,8 +1011,8 @@ public class g {
                                                         } else {
                                                             continue;
                                                         }
-                                                    } catch (Exception e6) {
-                                                        e = e6;
+                                                    } catch (Exception e5) {
+                                                        e = e5;
                                                         SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                         continue;
                                                         if (i >= a2) {
@@ -1065,8 +1025,8 @@ public class g {
                                                 }
                                                 if (i >= a2) {
                                                 }
-                                            } catch (Exception e7) {
-                                                e = e7;
+                                            } catch (Exception e6) {
+                                                e = e6;
                                                 httpResponse2 = httpResponse;
                                                 z2 = true;
                                                 SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Exception:", e);
@@ -1076,8 +1036,8 @@ public class g {
                                                         if (entity4 != null) {
                                                             entity4.consumeContent();
                                                         }
-                                                    } catch (Exception e8) {
-                                                        e = e8;
+                                                    } catch (Exception e7) {
+                                                        e = e7;
                                                         SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                         if (!z2) {
                                                         }
@@ -1093,19 +1053,19 @@ public class g {
                                                 if (entity5 != null) {
                                                     entity5.consumeContent();
                                                 }
-                                            } catch (Exception e9) {
-                                                e = e9;
+                                            } catch (Exception e8) {
+                                                e = e8;
                                                 SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                 if (!z2) {
                                                 }
                                             }
                                         }
-                                    } catch (SocketTimeoutException e10) {
+                                    } catch (SocketTimeoutException e9) {
+                                        e = e9;
+                                    } catch (ConnectTimeoutException e10) {
                                         e = e10;
-                                    } catch (ConnectTimeoutException e11) {
+                                    } catch (Exception e11) {
                                         e = e11;
-                                    } catch (Exception e12) {
-                                        e = e12;
                                         httpResponse2 = httpResponse;
                                     }
                                 } catch (Throwable th2) {
@@ -1114,14 +1074,14 @@ public class g {
                                     }
                                     throw th;
                                 }
-                            } catch (SocketTimeoutException e13) {
+                            } catch (SocketTimeoutException e12) {
+                                e = e12;
+                                httpResponse = null;
+                            } catch (ConnectTimeoutException e13) {
                                 e = e13;
                                 httpResponse = null;
-                            } catch (ConnectTimeoutException e14) {
+                            } catch (Exception e14) {
                                 e = e14;
-                                httpResponse = null;
-                            } catch (Exception e15) {
-                                e = e15;
                             }
                             if (!z2) {
                                 SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread request success");
@@ -1133,8 +1093,8 @@ public class g {
                         } while (i >= a2);
                         if (!z2) {
                         }
-                    } catch (Exception e16) {
-                        SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, exception in serial executor:", e16);
+                    } catch (Exception e15) {
+                        SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, exception in serial executor:", e15);
                     }
                 }
             });

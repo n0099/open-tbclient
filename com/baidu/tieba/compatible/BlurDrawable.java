@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BlurDrawable {
     public static /* synthetic */ Interceptable $ic;
     public static boolean enabled;
@@ -80,8 +80,8 @@ public class BlurDrawable {
                     this.mRenderScript = create;
                     this.mBlurScript = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 enabled = false;
             }
         }
@@ -131,8 +131,8 @@ public class BlurDrawable {
                 this.mBlurScript.setRadius(i);
                 Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
                 Matrix matrix = new Matrix();
-                float f2 = 1.0f / i2;
-                matrix.postScale(f2, f2);
+                float f = 1.0f / i2;
+                matrix.postScale(f, f);
                 this.mBitmapToBlur = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, true);
             } catch (Exception unused) {
             }

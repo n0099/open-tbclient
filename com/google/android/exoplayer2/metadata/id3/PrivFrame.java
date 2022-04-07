@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PrivFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PrivFrame> CREATOR;

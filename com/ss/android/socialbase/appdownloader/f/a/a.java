@@ -4,21 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class a implements i {
-
-    /* renamed from: b  reason: collision with root package name */
-    public d f43074b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public f f43076d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int[] f43077e;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f43079g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f43080h;
+    public d b;
+    public f d;
+    public int[] e;
+    public boolean g;
+    public int h;
     public int i;
     public int j;
     public int k;
@@ -26,19 +16,15 @@ public class a implements i {
     public int m;
     public int n;
     public int o;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f43075c = false;
-
-    /* renamed from: f  reason: collision with root package name */
-    public C2052a f43078f = new C2052a();
+    public boolean c = false;
+    public C0596a f = new C0596a();
 
     public a() {
         g();
     }
 
     private final void g() {
-        this.f43080h = -1;
+        this.h = -1;
         this.i = -1;
         this.j = -1;
         this.k = -1;
@@ -55,108 +41,108 @@ public class a implements i {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private final void h() throws IOException {
-        int b2;
-        if (this.f43076d == null) {
-            b.a(this.f43074b, 524291);
-            this.f43074b.c();
-            this.f43076d = f.a(this.f43074b);
-            this.f43078f.e();
-            this.f43075c = true;
+        int b;
+        if (this.d == null) {
+            b.a(this.b, 524291);
+            this.b.c();
+            this.d = f.a(this.b);
+            this.f.e();
+            this.c = true;
         }
-        int i = this.f43080h;
+        int i = this.h;
         if (i != 1) {
             g();
             while (true) {
-                if (this.f43079g) {
-                    this.f43079g = false;
-                    this.f43078f.f();
+                if (this.g) {
+                    this.g = false;
+                    this.f.f();
                 }
                 int i2 = 3;
-                if (i == 3 && this.f43078f.d() == 1 && this.f43078f.b() == 0) {
-                    this.f43080h = 1;
+                if (i == 3 && this.f.d() == 1 && this.f.b() == 0) {
+                    this.h = 1;
                     return;
                 }
-                int b3 = i == 0 ? 1048834 : this.f43074b.b();
-                if (b3 == 524672) {
-                    b2 = this.f43074b.b();
-                    if (b2 < 8 || b2 % 4 != 0) {
+                int b2 = i == 0 ? 1048834 : this.b.b();
+                if (b2 == 524672) {
+                    b = this.b.b();
+                    if (b < 8 || b % 4 != 0) {
                         break;
                     }
-                    this.f43077e = this.f43074b.b((b2 / 4) - 2);
-                } else if (b3 < 1048832 || b3 > 1048836) {
+                    this.e = this.b.b((b / 4) - 2);
+                } else if (b2 < 1048832 || b2 > 1048836) {
                     break;
-                } else if (b3 == 1048834 && i == -1) {
-                    this.f43080h = 0;
+                } else if (b2 == 1048834 && i == -1) {
+                    this.h = 0;
                     return;
                 } else {
-                    this.f43074b.c();
-                    int b4 = this.f43074b.b();
-                    this.f43074b.c();
-                    if (b3 != 1048832 && b3 != 1048833) {
-                        this.i = b4;
-                        if (b3 == 1048834) {
-                            this.k = this.f43074b.b();
-                            this.j = this.f43074b.b();
-                            this.f43074b.c();
-                            int b5 = this.f43074b.b();
-                            this.m = (b5 >>> 16) - 1;
-                            int b6 = this.f43074b.b();
-                            this.n = b6;
-                            this.o = (b6 >>> 16) - 1;
-                            this.n = (65535 & b6) - 1;
-                            this.l = this.f43074b.b((b5 & 65535) * 5);
+                    this.b.c();
+                    int b3 = this.b.b();
+                    this.b.c();
+                    if (b2 != 1048832 && b2 != 1048833) {
+                        this.i = b3;
+                        if (b2 == 1048834) {
+                            this.k = this.b.b();
+                            this.j = this.b.b();
+                            this.b.c();
+                            int b4 = this.b.b();
+                            this.m = (b4 >>> 16) - 1;
+                            int b5 = this.b.b();
+                            this.n = b5;
+                            this.o = (b5 >>> 16) - 1;
+                            this.n = (65535 & b5) - 1;
+                            this.l = this.b.b((b4 & 65535) * 5);
                             while (true) {
                                 int[] iArr = this.l;
                                 if (i2 < iArr.length) {
                                     iArr[i2] = iArr[i2] >>> 24;
                                     i2 += 5;
                                 } else {
-                                    this.f43078f.e();
-                                    this.f43080h = 2;
+                                    this.f.e();
+                                    this.h = 2;
                                     return;
                                 }
                             }
-                        } else if (b3 == 1048835) {
-                            this.k = this.f43074b.b();
-                            this.j = this.f43074b.b();
-                            this.f43080h = 3;
-                            this.f43079g = true;
+                        } else if (b2 == 1048835) {
+                            this.k = this.b.b();
+                            this.j = this.b.b();
+                            this.h = 3;
+                            this.g = true;
                             return;
-                        } else if (b3 == 1048836) {
-                            this.j = this.f43074b.b();
-                            this.f43074b.c();
-                            this.f43074b.c();
-                            this.f43080h = 4;
+                        } else if (b2 == 1048836) {
+                            this.j = this.b.b();
+                            this.b.c();
+                            this.b.c();
+                            this.h = 4;
                             return;
                         }
-                    } else if (b3 == 1048832) {
-                        this.f43078f.a(this.f43074b.b(), this.f43074b.b());
+                    } else if (b2 == 1048832) {
+                        this.f.a(this.b.b(), this.b.b());
                     } else {
-                        this.f43074b.c();
-                        this.f43074b.c();
-                        this.f43078f.c();
+                        this.b.c();
+                        this.b.c();
+                        this.f.c();
                     }
                 }
             }
-            throw new IOException("Invalid resource ids size (" + b2 + ").");
+            throw new IOException("Invalid resource ids size (" + b + ").");
         }
     }
 
     public void a(InputStream inputStream) {
         a();
         if (inputStream != null) {
-            this.f43074b = new d(inputStream, false);
+            this.b = new d(inputStream, false);
         }
     }
 
     public int b() throws h, IOException {
-        if (this.f43074b != null) {
+        if (this.b != null) {
             try {
                 h();
-                return this.f43080h;
-            } catch (IOException e2) {
+                return this.h;
+            } catch (IOException e) {
                 a();
-                throw e2;
+                throw e;
             }
         }
         throw new h("Parser is not opened.", this, null);
@@ -173,7 +159,7 @@ public class a implements i {
     }
 
     public int e() {
-        if (this.f43080h != 2) {
+        if (this.h != 2) {
             return -1;
         }
         return this.l.length / 5;
@@ -186,22 +172,18 @@ public class a implements i {
 
     /* renamed from: com.ss.android.socialbase.appdownloader.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C2052a {
+    public static final class C0596a {
         public int[] a = new int[32];
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f43081b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f43082c;
+        public int b;
+        public int c;
 
         public final void a() {
-            this.f43081b = 0;
-            this.f43082c = 0;
+            this.b = 0;
+            this.c = 0;
         }
 
         public final int b() {
-            int i = this.f43081b;
+            int i = this.b;
             if (i == 0) {
                 return 0;
             }
@@ -212,7 +194,7 @@ public class a implements i {
             int i;
             int[] iArr;
             int i2;
-            int i3 = this.f43081b;
+            int i3 = this.b;
             if (i3 == 0 || (i2 = (iArr = this.a)[i3 - 1]) == 0) {
                 return false;
             }
@@ -220,42 +202,42 @@ public class a implements i {
             int i5 = i - 2;
             iArr[i5] = i4;
             iArr[i5 - ((i4 * 2) + 1)] = i4;
-            this.f43081b = i3 - 2;
+            this.b = i3 - 2;
             return true;
         }
 
         public final int d() {
-            return this.f43082c;
+            return this.c;
         }
 
         public final void e() {
             a(2);
-            int i = this.f43081b;
+            int i = this.b;
             int[] iArr = this.a;
             iArr[i] = 0;
             iArr[i + 1] = 0;
-            this.f43081b = i + 2;
-            this.f43082c++;
+            this.b = i + 2;
+            this.c++;
         }
 
         public final void f() {
-            int i = this.f43081b;
+            int i = this.b;
             if (i != 0) {
                 int i2 = i - 1;
                 int i3 = this.a[i2] * 2;
                 if ((i2 - 1) - i3 != 0) {
-                    this.f43081b = i - (i3 + 2);
-                    this.f43082c--;
+                    this.b = i - (i3 + 2);
+                    this.c--;
                 }
             }
         }
 
         public final void a(int i, int i2) {
-            if (this.f43082c == 0) {
+            if (this.c == 0) {
                 e();
             }
             a(2);
-            int i3 = this.f43081b;
+            int i3 = this.b;
             int i4 = i3 - 1;
             int[] iArr = this.a;
             int i5 = iArr[i4];
@@ -264,13 +246,13 @@ public class a implements i {
             iArr[i4] = i;
             iArr[i4 + 1] = i2;
             iArr[i4 + 2] = i6;
-            this.f43081b = i3 + 2;
+            this.b = i3 + 2;
         }
 
         private void a(int i) {
             int[] iArr = this.a;
             int length = iArr.length;
-            int i2 = this.f43081b;
+            int i2 = this.b;
             int i3 = length - i2;
             if (i3 <= i) {
                 int[] iArr2 = new int[(iArr.length + i3) * 2];
@@ -281,7 +263,7 @@ public class a implements i {
     }
 
     private final int e(int i) {
-        if (this.f43080h == 2) {
+        if (this.h == 2) {
             int i2 = i * 5;
             if (i2 < this.l.length) {
                 return i2;
@@ -296,23 +278,23 @@ public class a implements i {
     }
 
     public String d(int i) {
-        int e2 = e(i);
+        int e = e(i);
         int[] iArr = this.l;
-        if (iArr[e2 + 3] == 3) {
-            return this.f43076d.a(iArr[e2 + 2]);
+        if (iArr[e + 3] == 3) {
+            return this.d.a(iArr[e + 2]);
         }
-        int i2 = iArr[e2 + 4];
+        int i2 = iArr[e + 4];
         return "";
     }
 
     public void a() {
-        if (this.f43075c) {
-            this.f43075c = false;
-            this.f43074b.a();
-            this.f43074b = null;
-            this.f43076d = null;
-            this.f43077e = null;
-            this.f43078f.a();
+        if (this.c) {
+            this.c = false;
+            this.b.a();
+            this.b = null;
+            this.d = null;
+            this.e = null;
+            this.f.a();
             g();
         }
     }
@@ -323,6 +305,6 @@ public class a implements i {
 
     public String a(int i) {
         int i2 = this.l[e(i) + 1];
-        return i2 == -1 ? "" : this.f43076d.a(i2);
+        return i2 == -1 ? "" : this.d.a(i2);
     }
 }

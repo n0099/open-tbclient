@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RTCConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;

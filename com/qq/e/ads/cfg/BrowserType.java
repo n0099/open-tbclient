@@ -8,15 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class BrowserType {
     public static /* synthetic */ Interceptable $ic;
     public static final BrowserType Default;
     public static final BrowserType Inner;
     public static final BrowserType Sys;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BrowserType[] f42314b;
+    public static final /* synthetic */ BrowserType[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,7 +35,7 @@ public final class BrowserType {
         Inner = new BrowserType("Inner", 1, 1);
         BrowserType browserType = new BrowserType("Sys", 2, 2);
         Sys = browserType;
-        f42314b = new BrowserType[]{Default, Inner, browserType};
+        b = new BrowserType[]{Default, Inner, browserType};
     }
 
     public BrowserType(String str, int i, int i2) {
@@ -70,7 +68,7 @@ public final class BrowserType {
     public static BrowserType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f42314b.clone() : (BrowserType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) b.clone() : (BrowserType[]) invokeV.objValue;
     }
 
     public int value() {

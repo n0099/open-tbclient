@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewTarget";
@@ -40,10 +40,12 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public boolean isAttachStateListenerAdded;
     public boolean isClearedByUs;
     public final SizeDeterminer sizeDeterminer;
-    public final T view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public final T f1016view;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -54,10 +56,12 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         public final List<SizeReadyCallback> cbs;
         @Nullable
         public SizeDeterminerLayoutListener layoutListener;
-        public final View view;
+
+        /* renamed from: view  reason: collision with root package name */
+        public final View f1017view;
         public boolean waitForLayout;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +104,12 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             }
         }
 
-        public SizeDeterminer(@NonNull View view) {
+        public SizeDeterminer(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,7 +120,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                 }
             }
             this.cbs = new ArrayList();
-            this.view = view;
+            this.f1017view = view2;
         }
 
         public static int getMaxDisplayLength(@NonNull Context context) {
@@ -142,20 +146,20 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                 if (i4 > 0) {
                     return i4;
                 }
-                if (this.waitForLayout && this.view.isLayoutRequested()) {
+                if (this.waitForLayout && this.f1017view.isLayoutRequested()) {
                     return 0;
                 }
                 int i5 = i - i3;
                 if (i5 > 0) {
                     return i5;
                 }
-                if (this.view.isLayoutRequested() || i2 != -2) {
+                if (this.f1017view.isLayoutRequested() || i2 != -2) {
                     return 0;
                 }
                 if (Log.isLoggable(ViewTarget.TAG, 4)) {
                     Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
                 }
-                return getMaxDisplayLength(this.view.getContext());
+                return getMaxDisplayLength(this.f1017view.getContext());
             }
             return invokeIII.intValue;
         }
@@ -164,9 +168,9 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                int paddingTop = this.view.getPaddingTop() + this.view.getPaddingBottom();
-                ViewGroup.LayoutParams layoutParams = this.view.getLayoutParams();
-                return getTargetDimen(this.view.getHeight(), layoutParams != null ? layoutParams.height : 0, paddingTop);
+                int paddingTop = this.f1017view.getPaddingTop() + this.f1017view.getPaddingBottom();
+                ViewGroup.LayoutParams layoutParams = this.f1017view.getLayoutParams();
+                return getTargetDimen(this.f1017view.getHeight(), layoutParams != null ? layoutParams.height : 0, paddingTop);
             }
             return invokeV.intValue;
         }
@@ -175,9 +179,9 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-                int paddingLeft = this.view.getPaddingLeft() + this.view.getPaddingRight();
-                ViewGroup.LayoutParams layoutParams = this.view.getLayoutParams();
-                return getTargetDimen(this.view.getWidth(), layoutParams != null ? layoutParams.width : 0, paddingLeft);
+                int paddingLeft = this.f1017view.getPaddingLeft() + this.f1017view.getPaddingRight();
+                ViewGroup.LayoutParams layoutParams = this.f1017view.getLayoutParams();
+                return getTargetDimen(this.f1017view.getWidth(), layoutParams != null ? layoutParams.width : 0, paddingLeft);
             }
             return invokeV.intValue;
         }
@@ -220,7 +224,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         public void clearCallbacksAndListener() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f1017view.getViewTreeObserver();
                 if (viewTreeObserver.isAlive()) {
                     viewTreeObserver.removeOnPreDrawListener(this.layoutListener);
                 }
@@ -242,7 +246,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                     this.cbs.add(sizeReadyCallback);
                 }
                 if (this.layoutListener == null) {
-                    ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
+                    ViewTreeObserver viewTreeObserver = this.f1017view.getViewTreeObserver();
                     SizeDeterminerLayoutListener sizeDeterminerLayoutListener = new SizeDeterminerLayoutListener(this);
                     this.layoutListener = sizeDeterminerLayoutListener;
                     viewTreeObserver.addOnPreDrawListener(sizeDeterminerLayoutListener);
@@ -273,7 +277,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                 return;
             }
         }
-        this.view = (T) Preconditions.checkNotNull(t);
+        this.f1016view = (T) Preconditions.checkNotNull(t);
         this.sizeDeterminer = new SizeDeterminer(t);
     }
 
@@ -284,9 +288,9 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             Integer num = tagId;
             if (num == null) {
-                return this.view.getTag();
+                return this.f1016view.getTag();
             }
-            return this.view.getTag(num.intValue());
+            return this.f1016view.getTag(num.intValue());
         }
         return invokeV.objValue;
     }
@@ -297,7 +301,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (onAttachStateChangeListener = this.attachStateListener) == null || this.isAttachStateListenerAdded) {
             return;
         }
-        this.view.addOnAttachStateChangeListener(onAttachStateChangeListener);
+        this.f1016view.addOnAttachStateChangeListener(onAttachStateChangeListener);
         this.isAttachStateListenerAdded = true;
     }
 
@@ -305,7 +309,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         View.OnAttachStateChangeListener onAttachStateChangeListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (onAttachStateChangeListener = this.attachStateListener) != null && this.isAttachStateListenerAdded) {
-            this.view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
+            this.f1016view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = false;
         }
     }
@@ -316,10 +320,10 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             Integer num = tagId;
             if (num == null) {
                 isTagUsedAtLeastOnce = true;
-                this.view.setTag(obj);
+                this.f1016view.setTag(obj);
                 return;
             }
-            this.view.setTag(num.intValue(), obj);
+            this.f1016view.setTag(num.intValue(), obj);
         }
     }
 
@@ -366,17 +370,17 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                 }
 
                 @Override // android.view.View.OnAttachStateChangeListener
-                public void onViewAttachedToWindow(View view) {
+                public void onViewAttachedToWindow(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.resumeMyRequest();
                     }
                 }
 
                 @Override // android.view.View.OnAttachStateChangeListener
-                public void onViewDetachedFromWindow(View view) {
+                public void onViewDetachedFromWindow(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                         this.this$0.pauseMyRequest();
                     }
                 }
@@ -418,7 +422,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public T getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.view : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1016view : (T) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
@@ -485,7 +489,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Target for: " + this.view;
+            return "Target for: " + this.f1016view;
         }
         return (String) invokeV.objValue;
     }

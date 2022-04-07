@@ -95,37 +95,37 @@ public class BasicTokenIterator implements TokenIterator {
         return invokeV.booleanValue;
     }
 
-    public boolean isHttpSeparator(char c2) {
+    public boolean isHttpSeparator(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean isTokenChar(char c2) {
+    public boolean isTokenChar(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean isTokenSeparator(char c2) {
+    public boolean isTokenSeparator(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean isWhitespace(char c2) {
+    public boolean isWhitespace(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;

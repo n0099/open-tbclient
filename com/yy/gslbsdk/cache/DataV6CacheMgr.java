@@ -19,7 +19,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataV6CacheMgr {
     public static final /* synthetic */ DataV6CacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -86,8 +86,8 @@ public final class DataV6CacheMgr {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
                 this.mHttpDNSCache.remove(str);
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
         }
     }
@@ -139,8 +139,8 @@ public final class DataV6CacheMgr {
                     return null;
                 }
                 return null;
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return null;
             }
         }
@@ -208,8 +208,8 @@ public final class DataV6CacheMgr {
                 try {
                     this.mHttpDNSCache.put(resultTB.getHost(), resultTB);
                     return 0;
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                     return 0;
                 }
             }

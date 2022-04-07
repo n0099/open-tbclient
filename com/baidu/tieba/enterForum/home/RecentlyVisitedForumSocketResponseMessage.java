@@ -16,7 +16,7 @@ import tbclient.Error;
 import tbclient.GetHistoryForum.DataRes;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,8 +81,8 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
         for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
             if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
                 VisitedForumData visitedForumData = new VisitedForumData();
-                visitedForumData.K(historyForumInfo2);
-                visitedForumData.L(hashMap.containsKey(historyForumInfo2.forum_id));
+                visitedForumData.parseHistoryForum(historyForumInfo2);
+                visitedForumData.setIsPost(hashMap.containsKey(historyForumInfo2.forum_id));
                 this.mForumData.add(visitedForumData);
             }
         }

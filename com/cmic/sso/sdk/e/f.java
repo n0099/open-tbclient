@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,19 +25,19 @@ public class f {
                 return str2;
             }
             try {
-                PackageInfo c2 = c(context);
-                if (c2 == null) {
+                PackageInfo c = c(context);
+                if (c == null) {
                     return null;
                 }
-                return context.getResources().getString(c2.applicationInfo.labelRes);
-            } catch (Exception e2) {
-                e = e2;
+                return context.getResources().getString(c.applicationInfo.labelRes);
+            } catch (Exception e) {
+                e = e;
                 str = str2;
                 e.printStackTrace();
                 return str;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 
@@ -46,17 +46,17 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                PackageInfo c2 = c(context);
-                if (c2 != null) {
+                PackageInfo c = c(context);
+                if (c != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(d(context));
                     sb.append("&");
-                    sb.append(c2.versionName);
+                    sb.append(c.versionName);
                     return sb.toString();
                 }
                 return "";
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -69,8 +69,8 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -81,8 +81,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            PackageInfo c2 = c(context);
-            return c2 == null ? "" : c2.packageName;
+            PackageInfo c = c(context);
+            return c == null ? "" : c.packageName;
         }
         return (String) invokeL.objValue;
     }

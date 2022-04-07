@@ -4,9 +4,6 @@ import android.content.Context;
 import android.location.Address;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.o0.r.r.w1;
-import c.a.p0.w3.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -40,13 +37,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ai8;
+import com.repackage.gf;
+import com.repackage.ni;
+import com.repackage.nq4;
+import com.repackage.vh8;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SignStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<ForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +108,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!m.isEmpty(postNetData)) {
+                                } else if (!ni.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -123,8 +125,8 @@ public class SignStatic {
                                 }
                                 signMessage.signData = signData;
                             }
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
+                        } catch (Exception e) {
+                            BdLog.e(e.getMessage());
                         }
                         TbSingleton.getInstance().setActivityId("");
                         return signMessage;
@@ -136,8 +138,8 @@ public class SignStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<c.a.p0.w3.h.c> {
+    /* loaded from: classes3.dex */
+    public static class b implements CustomMessageTask.CustomRunnable<ai8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,12 +158,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<c.a.p0.w3.h.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ai8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof w1)) {
-                    new e().f((w1) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof nq4)) {
+                    new vh8().f((nq4) customMessage.getData());
                 }
                 return null;
             }
@@ -169,7 +171,7 @@ public class SignStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +255,7 @@ public class SignStatic {
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = c.a.d.f.i.a.n().j(false)) != null) {
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = gf.n().j(false)) != null) {
                 locationLng = String.valueOf(j.getLongitude());
                 locationLat = String.valueOf(j.getLatitude());
             }

@@ -13,16 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.b.b;
 import com.kwai.filedownloader.n;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends b.a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
+    public final WeakReference<FileDownloadServiceProxy> b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<FileDownloadServiceProxy> f41777b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -44,7 +42,7 @@ public class e extends b.a implements i {
                 return;
             }
         }
-        this.f41777b = weakReference;
+        this.b = weakReference;
         this.a = gVar;
     }
 
@@ -70,10 +68,10 @@ public class e extends b.a implements i {
     public void a(int i, Notification notification) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, notification) == null) || (weakReference = this.f41777b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, notification) == null) || (weakReference = this.b) == null || weakReference.get() == null) {
             return;
         }
-        this.f41777b.get().context.startForeground(i, notification);
+        this.b.get().context.startForeground(i, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -103,10 +101,10 @@ public class e extends b.a implements i {
     public void a(boolean z) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.f41777b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.b) == null || weakReference.get() == null) {
             return;
         }
-        this.f41777b.get().context.stopForeground(z);
+        this.b.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.b.b

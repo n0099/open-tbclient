@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.p0.z1.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -23,21 +21,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
+import com.repackage.sb7;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f34157b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f34158c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Paint f34159d;
+    public int b;
+    public int c;
+    public Paint d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LabelItemView(Context context) {
@@ -63,7 +57,7 @@ public class LabelItemView extends LinearLayout {
     public final TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d048a, (ViewGroup) this, false) : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0485, (ViewGroup) this, false) : (TextView) invokeV.objValue;
     }
 
     public final void b() {
@@ -72,11 +66,11 @@ public class LabelItemView extends LinearLayout {
             setWeightSum(3.0f);
             setOrientation(0);
             Paint paint = new Paint();
-            this.f34159d = paint;
+            this.d = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f34159d.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f34159d.setStrokeWidth(1.0f);
-            this.f34158c = n.f(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            this.d.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.d.setStrokeWidth(1.0f);
+            this.c = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070233);
             for (int i = 0; i < 3; i++) {
                 addView(a());
             }
@@ -90,45 +84,45 @@ public class LabelItemView extends LinearLayout {
             super.dispatchDraw(canvas);
             int width = getWidth() / 3;
             int height = getHeight();
-            for (int i = 1; i < this.f34157b; i++) {
+            for (int i = 1; i < this.b; i++) {
                 int i2 = width * i;
-                int i3 = this.f34158c;
-                canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.f34159d);
+                int i3 = this.c;
+                canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.d);
             }
             if (this.a) {
                 return;
             }
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f34159d);
+            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.d);
         }
     }
 
-    public void setData(List<a> list, boolean z) {
+    public void setData(List<sb7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         this.a = z;
-        this.f34157b = Math.min(list.size(), 3);
+        this.b = Math.min(list.size(), 3);
         int i2 = 0;
         while (true) {
-            i = this.f34157b;
+            i = this.b;
             if (i2 >= i) {
                 break;
             }
-            a aVar = list.get(i2);
-            if (aVar != null && (getChildAt(i2) instanceof TextView)) {
+            sb7 sb7Var = list.get(i2);
+            if (sb7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = aVar.f20890b;
-                if (!StringUtils.isNull(str) && aVar.f20890b.length() > 4) {
-                    str = aVar.f20890b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = sb7Var.b;
+                if (!StringUtils.isNull(str) && sb7Var.b.length() > 4) {
+                    str = sb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f20891c);
-                textView.setTag(aVar);
+                textView.setSelected(sb7Var.c);
+                textView.setTag(sb7Var);
             }
             i2++;
         }

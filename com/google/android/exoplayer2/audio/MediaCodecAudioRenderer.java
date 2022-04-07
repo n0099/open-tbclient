@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MediaCodecAudioRenderer extends MediaCodecRenderer implements MediaClock {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,13 +50,13 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     public int pcmEncoding;
 
     /* renamed from: com.google.android.exoplayer2.audio.MediaCodecAudioRenderer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -342,8 +342,8 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
             }
             try {
                 this.audioSink.configure(string, integer, integer2, this.pcmEncoding, 0, iArr, this.encoderDelay, this.encoderPadding);
-            } catch (AudioSink.ConfigurationException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, getIndex());
+            } catch (AudioSink.ConfigurationException e) {
+                throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
         }
     }
@@ -398,8 +398,8 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
                         return true;
                     }
                     return false;
-                } catch (AudioSink.InitializationException | AudioSink.WriteException e2) {
-                    throw ExoPlaybackException.createForRenderer(e2, getIndex());
+                } catch (AudioSink.InitializationException | AudioSink.WriteException e) {
+                    throw ExoPlaybackException.createForRenderer(e, getIndex());
                 }
             }
         }
@@ -412,8 +412,8 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             try {
                 this.audioSink.playToEndOfStream();
-            } catch (AudioSink.WriteException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, getIndex());
+            } catch (AudioSink.WriteException e) {
+                throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
         }
     }

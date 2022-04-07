@@ -10,7 +10,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static final Charset a = Charset.forName("UTF-8");
 
@@ -54,8 +54,8 @@ public final class b {
             Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(i, secretKeySpec);
             return cipher.doFinal(bArr2);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return new byte[0];
         }
     }

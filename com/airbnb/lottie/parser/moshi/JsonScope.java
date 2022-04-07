@@ -1,7 +1,7 @@
 package com.airbnb.lottie.parser.moshi;
 
 import com.baidu.android.common.others.IStringUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class JsonScope {
     public static final int CLOSED = 8;
     public static final int DANGLING_NAME = 4;

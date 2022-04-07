@@ -1,4 +1,4 @@
 package com.baidu.pass;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface a {
 }

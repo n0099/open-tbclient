@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.jni.W;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class e1 {
                 long currentTimeMillis = System.currentTimeMillis();
                 JSONObject jSONObject = new JSONObject();
                 d dVar = new d(this.a);
-                boolean b2 = dVar.b(d.Z0);
-                if (dVar.a(d.E0, 1) == 1 && b2) {
+                boolean b = dVar.b(d.Z0);
+                if (dVar.a(d.E0, 1) == 1 && b) {
                     jSONObject.put("01003", w1.b(this.a, l1.c()));
                     if (l1.d() != null) {
                         str = l1.d()[0];
@@ -57,21 +57,21 @@ public class e1 {
                     jSONObject.put("01004", w1.a(this.a, 1, str2));
                     jSONObject.put("01019", w1.a(this.a, 0, str));
                 }
-                if (dVar.a(d.F0, 1) == 1 && b2) {
+                if (dVar.a(d.F0, 1) == 1 && b) {
                     jSONObject.put("01007", w1.e(this.a));
                     jSONObject.put("01008", w1.b(this.a, 1));
                     jSONObject.put("01020", w1.b(this.a, 2));
                 }
-                if (dVar.a(d.G0, 1) == 1 && b2) {
+                if (dVar.a(d.G0, 1) == 1 && b) {
                     jSONObject.put("01011", w1.d(this.a));
                     jSONObject.put("01012", w1.a(this.a, 1));
                     jSONObject.put("01021", w1.a(this.a, 2));
                 }
-                if (dVar.a(d.H0, 1) == 1 && b2) {
+                if (dVar.a(d.H0, 1) == 1 && b) {
                     jSONObject.put("01016", x0.f(this.a));
                 }
                 if (dVar.a(d.w0, 1) == 1) {
-                    if (b2) {
+                    if (b) {
                         jSONObject.put("01013", w1.a(this.a, l1.a()));
                     }
                     jSONObject.put("01015", x0.t(this.a));
@@ -131,25 +131,25 @@ public class e1 {
                 if (dVar.a(d.L0, 1) == 1) {
                     jSONObject.put("03018", x0.b(this.a));
                 }
-                if (dVar.a(d.J0, 1) == 1 && b2) {
+                if (dVar.a(d.J0, 1) == 1 && b) {
                     jSONObject.put("03028", x0.s(this.a));
                 }
                 if (dVar.a(d.y0, 1) == 1) {
                     try {
-                        z0 b3 = a1.b();
+                        z0 b2 = a1.b();
                         jSONObject.put("04001", a1.a());
-                        jSONObject.put("04002", b3.c());
-                        jSONObject.put("04003", b3.a());
-                        jSONObject.put("04004", b3.b());
+                        jSONObject.put("04002", b2.c());
+                        jSONObject.put("04003", b2.a());
+                        jSONObject.put("04004", b2.b());
                     } catch (Exception unused) {
                     }
                 }
-                if (dVar.a(d.I0, 1) == 1 && b2) {
-                    String c2 = w1.c(this.a, l1.g());
-                    if (c2 == null) {
+                if (dVar.a(d.I0, 1) == 1 && b) {
+                    String c = w1.c(this.a, l1.g());
+                    if (c == null) {
                         jSONObject.put("07005", "");
                     } else {
-                        jSONObject.put("07005", c2);
+                        jSONObject.put("07005", c);
                     }
                 }
                 if (w1.a(this.a, l1.f()) != null) {
@@ -159,7 +159,7 @@ public class e1 {
                 jSONObject.put("11001", W.loadSuccess ? 1 : 0);
                 jSONObject.put("11003", r1.r);
                 jSONObject.put("11005", W.loadSoCount);
-                jSONObject.put("11006", b2 ? 1 : 0);
+                jSONObject.put("11006", b ? 1 : 0);
                 jSONObject.put("11008", dVar.a(d.U, d.S));
                 jSONObject.put("11007", System.currentTimeMillis() - currentTimeMillis);
                 return jSONObject;
@@ -177,7 +177,7 @@ public class e1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                JSONObject a2 = new d1(str, q0.f38953f).a(this.a);
+                JSONObject a2 = new d1(str, q0.f).a(this.a);
                 if (a2 == null || (a = a()) == null) {
                     return null;
                 }

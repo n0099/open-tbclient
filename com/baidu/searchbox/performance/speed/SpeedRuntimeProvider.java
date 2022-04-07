@@ -2,7 +2,6 @@ package com.baidu.searchbox.performance.speed;
 
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fc1;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class SpeedRuntimeProvider extends a<ISpeedContext> {
+/* loaded from: classes2.dex */
+public class SpeedRuntimeProvider extends fc1<ISpeedContext> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
     public static final String SCHEMA_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
@@ -38,7 +38,7 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.g0.b.b.a
+    @Override // com.repackage.fc1
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

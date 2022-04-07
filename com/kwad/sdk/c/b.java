@@ -3,7 +3,7 @@ package com.kwad.sdk.c;
 import android.content.Context;
 import com.kwad.sdk.utils.q;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public final Context a;
 
@@ -13,15 +13,15 @@ public class b {
 
     public String a(com.kwad.sdk.c.kwai.d dVar, boolean z) {
         com.kwad.sdk.c.b.b.a(dVar, 2);
-        String b2 = com.kwad.sdk.c.b.a.b(this.a, dVar.f());
+        String b = com.kwad.sdk.c.b.a.b(this.a, dVar.f());
         try {
-            com.kwad.sdk.c.b.a.a(b2, com.kwad.sdk.c.b.a.a(this.a, dVar.f()));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            com.kwad.sdk.c.b.b.a(dVar, 2, e2.getMessage());
+            com.kwad.sdk.c.b.a.a(b, com.kwad.sdk.c.b.a.a(this.a, dVar.f()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            com.kwad.sdk.c.b.b.a(dVar, 2, e.getMessage());
         }
-        if (b2 != null) {
-            q.c(new File(b2));
+        if (b != null) {
+            q.c(new File(b));
         }
         return dVar.f();
     }

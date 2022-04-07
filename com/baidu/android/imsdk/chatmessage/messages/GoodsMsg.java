@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GoodsMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GoodsMsg> CREATOR;
@@ -232,8 +232,8 @@ public class GoodsMsg extends NormalMsg {
                 this.mEvent = jSONObject.optString("event");
                 this.mOriginPrice = jSONObject.optString("origin_price");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "parseJsonString JSONException", e);
                 return false;
             }
         }

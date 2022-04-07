@@ -34,7 +34,7 @@ import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultTimeBar extends View implements TimeBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AD_MARKER_COLOR = -1291845888;
@@ -128,7 +128,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         int dpToPx5 = dpToPx(displayMetrics, 0);
         int dpToPx6 = dpToPx(displayMetrics, 16);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040078, R.attr.obfuscated_res_0x7f040079, R.attr.obfuscated_res_0x7f0400bf, R.attr.obfuscated_res_0x7f040109, R.attr.obfuscated_res_0x7f040498, R.attr.obfuscated_res_0x7f040499, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040534, R.attr.obfuscated_res_0x7f040535, R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f04065b, R.attr.obfuscated_res_0x7f04066e}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040078, R.attr.obfuscated_res_0x7f040079, R.attr.obfuscated_res_0x7f0400bf, R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f0404d6, R.attr.obfuscated_res_0x7f0404d7, R.attr.obfuscated_res_0x7f040570, R.attr.obfuscated_res_0x7f040571, R.attr.obfuscated_res_0x7f040572, R.attr.obfuscated_res_0x7f040573, R.attr.obfuscated_res_0x7f040574, R.attr.obfuscated_res_0x7f040699, R.attr.obfuscated_res_0x7f0406ac}, 0, 0);
             try {
                 Drawable drawable = obtainStyledAttributes.getDrawable(9);
                 this.scrubberDrawable = drawable;
@@ -346,10 +346,10 @@ public class DefaultTimeBar extends View implements TimeBar {
         return invokeV.longValue;
     }
 
-    private boolean isInSeekBar(float f2, float f3) {
+    private boolean isInSeekBar(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.seekBounds.contains((int) f2, (int) f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.seekBounds.contains((int) f, (int) f2) : invokeCommon.booleanValue;
     }
 
     @TargetApi(16)
@@ -360,12 +360,12 @@ public class DefaultTimeBar extends View implements TimeBar {
         }
     }
 
-    private void positionScrubber(float f2) {
+    private void positionScrubber(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65550, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65550, this, f) == null) {
             Rect rect = this.scrubberBar;
             Rect rect2 = this.progressBar;
-            rect.right = Util.constrainValue((int) f2, rect2.left, rect2.right);
+            rect.right = Util.constrainValue((int) f, rect2.left, rect2.right);
         }
     }
 
@@ -682,10 +682,10 @@ public class DefaultTimeBar extends View implements TimeBar {
                         return true;
                     }
                 } else {
-                    float f2 = i;
-                    if (isInSeekBar(f2, i2)) {
+                    float f = i;
+                    if (isInSeekBar(f, i2)) {
                         startScrubbing();
-                        positionScrubber(f2);
+                        positionScrubber(f);
                         this.scrubPosition = getScrubberPosition();
                         update();
                         invalidate();

@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import c.a.d.i.g.b;
-import c.a.g0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ISignatureVerifier_SignatureVerifier_Provider implements a {
+import com.repackage.ml;
+import com.repackage.pb1;
+/* loaded from: classes2.dex */
+public class ISignatureVerifier_SignatureVerifier_Provider implements pb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class ISignatureVerifier_SignatureVerifier_Provider implements a {
         }
     }
 
-    @Override // c.a.g0.a.a
+    @Override // com.repackage.pb1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ml() : invokeV.objValue;
     }
 }

@@ -174,12 +174,12 @@ public class LinearSystem {
         }
     }
 
-    public static ArrayRow createRowCentering(LinearSystem linearSystem, SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f2, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2, boolean z) {
+    public static ArrayRow createRowCentering(LinearSystem linearSystem, SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{linearSystem, solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f2), solverVariable3, solverVariable4, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{linearSystem, solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f), solverVariable3, solverVariable4, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             ArrayRow createRow = linearSystem.createRow();
-            createRow.createRowCentering(solverVariable, solverVariable2, i, f2, solverVariable3, solverVariable4, i2);
+            createRow.createRowCentering(solverVariable, solverVariable2, i, f, solverVariable3, solverVariable4, i2);
             if (z) {
                 createRow.addError(linearSystem, 4);
             }
@@ -188,15 +188,15 @@ public class LinearSystem {
         return (ArrayRow) invokeCommon.objValue;
     }
 
-    public static ArrayRow createRowDimensionPercent(LinearSystem linearSystem, SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, float f2, boolean z) {
+    public static ArrayRow createRowDimensionPercent(LinearSystem linearSystem, SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, float f, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{linearSystem, solverVariable, solverVariable2, solverVariable3, Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{linearSystem, solverVariable, solverVariable2, solverVariable3, Float.valueOf(f), Boolean.valueOf(z)})) == null) {
             ArrayRow createRow = linearSystem.createRow();
             if (z) {
                 linearSystem.addError(createRow);
             }
-            return createRow.createRowDimensionPercent(solverVariable, solverVariable2, solverVariable3, f2);
+            return createRow.createRowDimensionPercent(solverVariable, solverVariable2, solverVariable3, f);
         }
         return (ArrayRow) invokeCommon.objValue;
     }
@@ -293,13 +293,13 @@ public class LinearSystem {
 
     private int enforceBFS(Row row) throws Exception {
         InterceptResult invokeL;
-        float f2;
+        float f;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, row)) == null) {
             int i = 0;
             while (true) {
-                f2 = 0.0f;
+                f = 0.0f;
                 if (i >= this.mNumRows) {
                     z = false;
                     break;
@@ -320,35 +320,35 @@ public class LinearSystem {
                         metrics.bfs++;
                     }
                     i2++;
-                    float f3 = Float.MAX_VALUE;
+                    float f2 = Float.MAX_VALUE;
                     int i3 = 0;
                     int i4 = -1;
                     int i5 = -1;
                     int i6 = 0;
                     while (i3 < this.mNumRows) {
                         ArrayRow arrayRow = this.mRows[i3];
-                        if (arrayRow.variable.mType != SolverVariable.Type.UNRESTRICTED && !arrayRow.isSimpleDefinition && arrayRow.constantValue < f2) {
+                        if (arrayRow.variable.mType != SolverVariable.Type.UNRESTRICTED && !arrayRow.isSimpleDefinition && arrayRow.constantValue < f) {
                             int i7 = 1;
                             while (i7 < this.mNumColumns) {
                                 SolverVariable solverVariable = this.mCache.mIndexedVariables[i7];
-                                float f4 = arrayRow.variables.get(solverVariable);
-                                if (f4 > f2) {
+                                float f3 = arrayRow.variables.get(solverVariable);
+                                if (f3 > f) {
                                     for (int i8 = 0; i8 < 7; i8++) {
-                                        float f5 = solverVariable.strengthVector[i8] / f4;
-                                        if ((f5 < f3 && i8 == i6) || i8 > i6) {
+                                        float f4 = solverVariable.strengthVector[i8] / f3;
+                                        if ((f4 < f2 && i8 == i6) || i8 > i6) {
                                             i5 = i7;
                                             i6 = i8;
-                                            f3 = f5;
+                                            f2 = f4;
                                             i4 = i3;
                                         }
                                     }
                                 }
                                 i7++;
-                                f2 = 0.0f;
+                                f = 0.0f;
                             }
                         }
                         i3++;
-                        f2 = 0.0f;
+                        f = 0.0f;
                     }
                     if (i4 != -1) {
                         ArrayRow arrayRow2 = this.mRows[i4];
@@ -367,7 +367,7 @@ public class LinearSystem {
                     if (i2 > this.mNumColumns / 2) {
                         z2 = true;
                     }
-                    f2 = 0.0f;
+                    f = 0.0f;
                 }
                 return i2;
             }
@@ -463,17 +463,17 @@ public class LinearSystem {
                     zArr[i3] = true;
                 }
                 if (pivotCandidate != null) {
-                    float f2 = Float.MAX_VALUE;
+                    float f = Float.MAX_VALUE;
                     int i4 = -1;
                     for (int i5 = 0; i5 < this.mNumRows; i5++) {
                         ArrayRow arrayRow = this.mRows[i5];
                         if (arrayRow.variable.mType != SolverVariable.Type.UNRESTRICTED && !arrayRow.isSimpleDefinition && arrayRow.hasVariable(pivotCandidate)) {
-                            float f3 = arrayRow.variables.get(pivotCandidate);
-                            if (f3 < 0.0f) {
-                                float f4 = (-arrayRow.constantValue) / f3;
-                                if (f4 < f2) {
+                            float f2 = arrayRow.variables.get(pivotCandidate);
+                            if (f2 < 0.0f) {
+                                float f3 = (-arrayRow.constantValue) / f2;
+                                if (f3 < f) {
                                     i4 = i5;
-                                    f2 = f4;
+                                    f = f3;
                                 }
                             }
                         }
@@ -529,9 +529,9 @@ public class LinearSystem {
         }
     }
 
-    public void addCenterPoint(ConstraintWidget constraintWidget, ConstraintWidget constraintWidget2, float f2, int i) {
+    public void addCenterPoint(ConstraintWidget constraintWidget, ConstraintWidget constraintWidget2, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{constraintWidget, constraintWidget2, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{constraintWidget, constraintWidget2, Float.valueOf(f), Integer.valueOf(i)}) == null) {
             SolverVariable createObjectVariable = createObjectVariable(constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT));
             SolverVariable createObjectVariable2 = createObjectVariable(constraintWidget.getAnchor(ConstraintAnchor.Type.TOP));
             SolverVariable createObjectVariable3 = createObjectVariable(constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT));
@@ -541,21 +541,21 @@ public class LinearSystem {
             SolverVariable createObjectVariable7 = createObjectVariable(constraintWidget2.getAnchor(ConstraintAnchor.Type.RIGHT));
             SolverVariable createObjectVariable8 = createObjectVariable(constraintWidget2.getAnchor(ConstraintAnchor.Type.BOTTOM));
             ArrayRow createRow = createRow();
-            double d2 = f2;
-            double d3 = i;
-            createRow.createRowWithAngle(createObjectVariable2, createObjectVariable4, createObjectVariable6, createObjectVariable8, (float) (Math.sin(d2) * d3));
+            double d = f;
+            double d2 = i;
+            createRow.createRowWithAngle(createObjectVariable2, createObjectVariable4, createObjectVariable6, createObjectVariable8, (float) (Math.sin(d) * d2));
             addConstraint(createRow);
             ArrayRow createRow2 = createRow();
-            createRow2.createRowWithAngle(createObjectVariable, createObjectVariable3, createObjectVariable5, createObjectVariable7, (float) (Math.cos(d2) * d3));
+            createRow2.createRowWithAngle(createObjectVariable, createObjectVariable3, createObjectVariable5, createObjectVariable7, (float) (Math.cos(d) * d2));
             addConstraint(createRow2);
         }
     }
 
-    public void addCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f2, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2, int i3) {
+    public void addCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f2), solverVariable3, solverVariable4, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f), solverVariable3, solverVariable4, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             ArrayRow createRow = createRow();
-            createRow.createRowCentering(solverVariable, solverVariable2, i, f2, solverVariable3, solverVariable4, i2);
+            createRow.createRowCentering(solverVariable, solverVariable2, i, f, solverVariable3, solverVariable4, i2);
             if (i3 != 6) {
                 createRow.addError(this, i3);
             }
@@ -691,11 +691,11 @@ public class LinearSystem {
         }
     }
 
-    public void addRatio(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f2, int i) {
+    public void addRatio(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f), Integer.valueOf(i)}) == null) {
             ArrayRow createRow = createRow();
-            createRow.createRowDimensionRatio(solverVariable, solverVariable2, solverVariable3, solverVariable4, f2);
+            createRow.createRowDimensionRatio(solverVariable, solverVariable2, solverVariable3, solverVariable4, f);
             if (i != 6) {
                 createRow.addError(this, i);
             }

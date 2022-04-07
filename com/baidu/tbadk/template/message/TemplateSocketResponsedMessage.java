@@ -1,7 +1,6 @@
 package com.baidu.tbadk.template.message;
 
 import android.util.Log;
-import c.a.o0.a1.e.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.pa5;
+/* loaded from: classes3.dex */
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d mIResp;
+    public pa5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateSocketResponsedMessage(int i) {
@@ -47,10 +47,10 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
         return (TemplateNetMessage) invokeV.objValue;
     }
 
-    public d getIResp() {
+    public pa5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (pa5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
             if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
                 return;
             }
-            d iResp = templateNetMessage.getIResp();
+            pa5 iResp = templateNetMessage.getIResp();
             this.mIResp = iResp;
             iResp.a(i, bArr);
             setError(this.mIResp.getErrorCode());

@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public class ah {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
                 return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return false;
             }
         }

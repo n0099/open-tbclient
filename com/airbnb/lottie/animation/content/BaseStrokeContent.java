@@ -28,7 +28,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class BaseStrokeContent implements BaseKeyframeAnimation.AnimationListener, KeyPathElementContent, DrawingContent {
     @Nullable
     public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
@@ -47,7 +47,7 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
     public final RectF rect = new RectF();
     public final List<PathGroup> pathGroups = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class PathGroup {
         public final List<PathContent> paths;
         @Nullable
@@ -59,7 +59,7 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         }
     }
 
-    public BaseStrokeContent(LottieDrawable lottieDrawable, BaseLayer baseLayer, Paint.Cap cap, Paint.Join join, float f2, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableFloatValue animatableFloatValue2) {
+    public BaseStrokeContent(LottieDrawable lottieDrawable, BaseLayer baseLayer, Paint.Cap cap, Paint.Join join, float f, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableFloatValue animatableFloatValue2) {
         LPaint lPaint = new LPaint(1);
         this.paint = lPaint;
         this.lottieDrawable = lottieDrawable;
@@ -67,7 +67,7 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         lPaint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
-        this.paint.setStrokeMiter(f2);
+        this.paint.setStrokeMiter(f);
         this.opacityAnimation = animatableIntegerValue.createAnimation();
         this.widthAnimation = animatableFloatValue.createAnimation();
         if (animatableFloatValue2 == null) {
@@ -146,30 +146,30 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         float floatValue = (pathGroup.trimPath.getOffset().getValue().floatValue() * length) / 360.0f;
         float floatValue2 = ((pathGroup.trimPath.getStart().getValue().floatValue() * length) / 100.0f) + floatValue;
         float floatValue3 = ((pathGroup.trimPath.getEnd().getValue().floatValue() * length) / 100.0f) + floatValue;
-        float f2 = 0.0f;
+        float f = 0.0f;
         for (int size2 = pathGroup.paths.size() - 1; size2 >= 0; size2--) {
             this.trimPathPath.set(((PathContent) pathGroup.paths.get(size2)).getPath());
             this.trimPathPath.transform(matrix);
             this.pm.setPath(this.trimPathPath, false);
             float length2 = this.pm.getLength();
             if (floatValue3 > length) {
-                float f3 = floatValue3 - length;
-                if (f3 < f2 + length2 && f2 < f3) {
-                    Utils.applyTrimPathIfNeeded(this.trimPathPath, floatValue2 > length ? (floatValue2 - length) / length2 : 0.0f, Math.min(f3 / length2, 1.0f), 0.0f);
+                float f2 = floatValue3 - length;
+                if (f2 < f + length2 && f < f2) {
+                    Utils.applyTrimPathIfNeeded(this.trimPathPath, floatValue2 > length ? (floatValue2 - length) / length2 : 0.0f, Math.min(f2 / length2, 1.0f), 0.0f);
                     canvas.drawPath(this.trimPathPath, this.paint);
-                    f2 += length2;
+                    f += length2;
                 }
             }
-            float f4 = f2 + length2;
-            if (f4 >= floatValue2 && f2 <= floatValue3) {
-                if (f4 <= floatValue3 && floatValue2 < f2) {
+            float f3 = f + length2;
+            if (f3 >= floatValue2 && f <= floatValue3) {
+                if (f3 <= floatValue3 && floatValue2 < f) {
                     canvas.drawPath(this.trimPathPath, this.paint);
                 } else {
-                    Utils.applyTrimPathIfNeeded(this.trimPathPath, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 <= f4 ? (floatValue3 - f2) / length2 : 1.0f, 0.0f);
+                    Utils.applyTrimPathIfNeeded(this.trimPathPath, floatValue2 < f ? 0.0f : (floatValue2 - f) / length2, floatValue3 <= f3 ? (floatValue3 - f) / length2 : 1.0f, 0.0f);
                     canvas.drawPath(this.trimPathPath, this.paint);
                 }
             }
-            f2 += length2;
+            f += length2;
         }
         L.endSection("StrokeContent#applyTrimPath");
     }
@@ -247,8 +247,8 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         this.path.computeBounds(this.rect, false);
         float floatValue = ((FloatKeyframeAnimation) this.widthAnimation).getFloatValue();
         RectF rectF2 = this.rect;
-        float f2 = floatValue / 2.0f;
-        rectF2.set(rectF2.left - f2, rectF2.top - f2, rectF2.right + f2, rectF2.bottom + f2);
+        float f = floatValue / 2.0f;
+        rectF2.set(rectF2.left - f, rectF2.top - f, rectF2.right + f, rectF2.bottom + f);
         rectF.set(this.rect);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
         L.endSection("StrokeContent#getBounds");

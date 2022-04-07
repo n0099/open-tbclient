@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface j {
     List<Integer> checkAuth(Context context, byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback);
 

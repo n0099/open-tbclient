@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDIMConversation implements IMConversation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -307,8 +307,8 @@ public class BDIMConversation implements IMConversation {
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
                 this.mConversation.unregisterLiveMsgReceiveListener(Long.parseLong(str));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

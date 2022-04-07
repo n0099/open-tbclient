@@ -2,8 +2,6 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.text.TextUtils;
 import android.view.View;
-import c.a.p0.b2.o.k.a;
-import c.a.p0.l3.j0.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -14,7 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.dc8;
+import com.repackage.gd7;
+/* loaded from: classes3.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,15 +42,15 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void I(AdCard adCard) {
-        e eVar;
+    public void J(AdCard adCard) {
+        dc8 dc8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (eVar = adCard.picInfo) != null && a.k(eVar.f16234c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f16234c, 0);
+            if (adCard != null && (dc8Var = adCard.picInfo) != null && gd7.k(dc8Var.c) >= 1) {
+                String str = (String) gd7.d(adCard.picInfo.c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.o.setVisibility(0);
-                    this.v.J(str, 17, false);
+                    this.v.K(str, 17, false);
                     return;
                 }
                 this.o.setVisibility(8);
@@ -61,12 +61,12 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void K(View view) {
+    public void L(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             float dimensionPixelSize = this.i.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.u = (XfremodeRoundLayout) view.findViewById(R.id.obfuscated_res_0x7f091ac5);
-            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.u = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab5);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900ad);
             this.v = tbImageView;
             tbImageView.setPlaceHolder(3);
             this.u.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
@@ -77,13 +77,13 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0068 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d006a : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d01be : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c1 : invokeV.intValue;
     }
 }

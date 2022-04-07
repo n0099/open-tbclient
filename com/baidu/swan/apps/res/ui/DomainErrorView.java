@@ -3,46 +3,42 @@ package com.baidu.swan.apps.res.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.n0.a.d2.n;
-import c.a.n0.a.d2.s.d;
-import c.a.n0.a.g2.b;
-import c.a.n0.a.p2.n0;
-import c.a.n0.a.p2.o0;
-import c.a.n0.a.p2.q0;
-import c.a.n0.a.t1.e;
-import c.a.n0.a.w0.f;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+import com.repackage.be3;
+import com.repackage.c73;
+import com.repackage.cc3;
+import com.repackage.de3;
+import com.repackage.j03;
+import com.repackage.k73;
+import com.repackage.o93;
+import com.repackage.qj2;
+import com.repackage.wl2;
+/* loaded from: classes2.dex */
 public class DomainErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ j03 c;
+        public final /* synthetic */ DomainErrorView d;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f29093b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f29094c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f29095d;
-
-        public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
+        public a(DomainErrorView domainErrorView, String str, String str2, j03 j03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {domainErrorView, str, str2, eVar};
+                Object[] objArr = {domainErrorView, str, str2, j03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,17 +48,17 @@ public class DomainErrorView extends CommonEmptyView {
                     return;
                 }
             }
-            this.f29095d = domainErrorView;
+            this.d = domainErrorView;
             this.a = str;
-            this.f29093b = str2;
-            this.f29094c = eVar;
+            this.b = str2;
+            this.c = j03Var;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.n0.a.s0.a.u().b(this.f29094c.x(), this.f29094c.N(), this.f29094c.Y(), o0.u(this.a, this.f29093b));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                qj2.u().b(this.c.x(), this.c.N(), this.c.Y(), be3.u(this.a, this.b));
             }
         }
     }
@@ -91,38 +87,38 @@ public class DomainErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            boolean d2 = o0.d(str, stringBuffer);
+            boolean d = be3.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(R.drawable.obfuscated_res_0x7f081162);
-            setTitle(R.string.obfuscated_res_0x7f0f014e);
-            c.a.n0.a.k2.a aVar = new c.a.n0.a.k2.a();
-            aVar.k(5L);
-            aVar.i(41L);
-            aVar.f("domain not in white list--" + stringBuffer2);
-            e a0 = e.a0();
+            setIcon(R.drawable.obfuscated_res_0x7f081169);
+            setTitle(R.string.obfuscated_res_0x7f0f014f);
+            cc3 cc3Var = new cc3();
+            cc3Var.k(5L);
+            cc3Var.i(41L);
+            cc3Var.f("domain not in white list--" + stringBuffer2);
+            j03 a0 = j03.a0();
             if (a0 != null) {
-                String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f019a), q0.D(), b.i(f.U().M(), a0.X().G()), String.valueOf(aVar.a()));
+                String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f019b), de3.D(), o93.i(wl2.U().M(), a0.X().G()), String.valueOf(cc3Var.a()));
                 StringBuilder sb = new StringBuilder();
                 sb.append("(");
-                sb.append(d2 ? stringBuffer2 : format);
+                sb.append(d ? stringBuffer2 : format);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 setSubTitle(sb.toString());
-                this.f29085g.setVisibility(0);
-                this.f29085g.setOnClickListener(new a(this, format, stringBuffer2, a0));
+                this.g.setVisibility(0);
+                this.g.setOnClickListener(new a(this, format, stringBuffer2, a0));
             }
-            this.f29080b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f127b));
-            this.f29081c.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
-            String e2 = q0.n().e();
-            String a2 = q0.v().a();
-            d dVar = new d();
-            dVar.p(aVar);
-            dVar.q(n.n(0));
-            dVar.m(e.f0());
-            dVar.l("errorDomain", stringBuffer2);
-            dVar.l("path", e2);
-            dVar.l("prePath", a2);
-            dVar.l("curPath", q0.n().a());
-            n.R(dVar);
+            this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1283));
+            this.c.setPadding(ae3.g(70.0f), 0, ae3.g(70.0f), 0);
+            String e = de3.n().e();
+            String a2 = de3.v().a();
+            k73 k73Var = new k73();
+            k73Var.p(cc3Var);
+            k73Var.q(c73.n(0));
+            k73Var.m(j03.f0());
+            k73Var.l("errorDomain", stringBuffer2);
+            k73Var.l("path", e);
+            k73Var.l("prePath", a2);
+            k73Var.l("curPath", de3.n().a());
+            c73.R(k73Var);
         }
     }
 

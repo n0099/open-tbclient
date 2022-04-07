@@ -27,7 +27,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,8 +141,8 @@ public class e extends com.baidu.platform.base.d {
                             return false;
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     reverseGeoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                     return false;
                 }

@@ -13,13 +13,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43709b;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -94,7 +92,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f43709b == null) {
+                if (b == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
@@ -130,9 +128,9 @@ public class c {
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f43709b = sb.toString();
+                    b = sb.toString();
                 }
-                return f43709b;
+                return b;
             } catch (Exception unused) {
                 return null;
             }

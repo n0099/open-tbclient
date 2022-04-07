@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import c.a.d.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageLoadSpeedRecorder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOWEST_SPEED_FOR_PARALLEL = 20;
@@ -26,7 +26,7 @@ public class ImageLoadSpeedRecorder {
     public BdAsyncTaskParallel mTaskSerial;
 
     /* renamed from: com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoadSpeedRecorder$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class ImageLoadSpeedRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (l.v()) {
+            if (mi.v()) {
                 if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
                     if (this.mTaskSerial == null) {
                         this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
@@ -129,7 +129,7 @@ public class ImageLoadSpeedRecorder {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedRecordQueue.size() == 5 : invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class LoadSpeedRecordItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

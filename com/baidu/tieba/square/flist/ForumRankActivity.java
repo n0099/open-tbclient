@@ -10,10 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import c.a.d.a.e;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.f;
-import c.a.o0.r.l0.g;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -34,15 +30,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a9;
+import com.repackage.du4;
+import com.repackage.eu4;
+import com.repackage.fh8;
+import com.repackage.oi;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORUM_MAX_NUM = 100;
     public static final int FORUM_NUM = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.v3.c.b mAdapter;
-    public final e mCallback;
+    public fh8 mAdapter;
+    public final a9 mCallback;
     public final ImageProvider mHeadImageProvider;
     public TbImageView mImage;
     public String mImageUrl;
@@ -52,10 +53,10 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public ForumRankModel mModel;
     public NavigationBar mNavigationBar;
     public FrameLayout mNoDataView;
-    public g mPullView;
+    public eu4 mPullView;
     public LinearLayout mRecommendListFooter;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,17 +81,17 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.mListView.removeFooterView(this.a.mRecommendListFooter);
                 this.a.mAdapter.e(100);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements f.g {
+    /* loaded from: classes4.dex */
+    public class b implements du4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -113,7 +114,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // c.a.o0.r.l0.f.g
+        @Override // com.repackage.du4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.mModel.loadData()) {
@@ -123,8 +124,8 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends e {
+    /* loaded from: classes4.dex */
+    public class c extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -147,7 +148,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -156,9 +157,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 if (obj == null || !(obj instanceof ForumRankData)) {
                     this.a.mListView.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091aee), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f57), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091add), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f5c), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                     return;
                 }
                 ForumRankData forumRankData = (ForumRankData) obj;
@@ -174,7 +175,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                         this.a.mImage.setTag(forumRankData.pic_url);
                         ViewGroup.LayoutParams layoutParams = this.a.mImage.getLayoutParams();
                         layoutParams.width = -1;
-                        layoutParams.height = (int) ((n.k(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
+                        layoutParams.height = (int) ((oi.k(this.a.getPageContext().getPageActivity()) * 15.0f) / 32.0f);
                         this.a.mImageUrl = forumRankData.pic_url;
                     }
                     this.a.mAdapter.f(forumRankData.forumsquare_list);
@@ -195,19 +196,19 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 }
                 this.a.mListView.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091aee), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f57), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091add), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f5c), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                 NewErrorData newErrorData = forumRankData.error;
                 if (newErrorData != null) {
                     this.a.showToast(newErrorData.usermsg);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d extends AbstractImageProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,9 +286,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.mIsFirst = true;
             this.mModel.setLoadDataCallBack(this.mCallback);
-            c.a.p0.v3.c.b bVar = new c.a.p0.v3.c.b(getPageContext(), 0);
-            this.mAdapter = bVar;
-            bVar.e(100);
+            fh8 fh8Var = new fh8(getPageContext(), 0);
+            this.mAdapter = fh8Var;
+            fh8Var.e(100);
             this.mAdapter.h(Boolean.TRUE);
             this.mAdapter.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
@@ -304,28 +305,28 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d02c2);
+            setContentView(R.layout.obfuscated_res_0x7f0d02c3);
             TbImageView tbImageView = new TbImageView(getPageContext().getPageActivity());
             this.mImage = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText("");
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091277);
-            this.mImage.setLayoutParams(new AbsListView.LayoutParams(n.k(getPageContext().getPageActivity()), (int) (n.k(getPageContext().getPageActivity()) * 0.5d)));
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09126c);
+            this.mImage.setLayoutParams(new AbsListView.LayoutParams(oi.k(getPageContext().getPageActivity()), (int) (oi.k(getPageContext().getPageActivity()) * 0.5d)));
             this.mImage.setVisibility(8);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02bb, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02bc, (ViewGroup) null);
             this.mRecommendListFooter = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            g gVar = new g(getPageContext());
-            this.mPullView = gVar;
-            this.mListView.setPullRefresh(gVar);
+            eu4 eu4Var = new eu4(getPageContext());
+            this.mPullView = eu4Var;
+            this.mListView.setPullRefresh(eu4Var);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + n.f(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.mListView.x(textView, 0);
             this.mPullView.f(new b(this));
-            this.mNoDataView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908c0);
+            this.mNoDataView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908c8);
         }
     }
 
@@ -357,7 +358,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 this.mListView.setBackgroundColor(getResources().getColor(R.color.common_color_10150));
                 this.mAdapter.d(true);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091aee), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091add), i);
             this.mPullView.H(i);
             this.mAdapter.i(R.drawable.btn_add_end, R.drawable.btn_add);
             SkinManager.setBackgroundResource(this.mRecommendListFooter, R.drawable.bg_black_banner_down);
@@ -382,7 +383,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             return;
         }
         forumRankModel.loadData();
-        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091aee));
+        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091add));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

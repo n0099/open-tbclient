@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_APPKEY = 8;
@@ -68,17 +68,17 @@ public class ActLog {
     public static volatile String mUploadUrl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;
@@ -106,8 +106,8 @@ public class ActLog {
                     if (this.logWriter != null) {
                         try {
                             this.logWriter.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     this.dateString = formatDate;
@@ -122,8 +122,8 @@ public class ActLog {
                         FileWriter fileWriter = new FileWriter(file, true);
                         this.logWriter = fileWriter;
                         return fileWriter;
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                         return null;
                     }
                 }
@@ -149,8 +149,8 @@ public class ActLog {
                         fileWriter.write("\n");
                         fileWriter.flush();
                         poll = this.logBuffer.poll();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
                 this.writing.set(false);
@@ -164,8 +164,8 @@ public class ActLog {
                     if (this.logWriter != null) {
                         try {
                             this.logWriter.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                         this.logWriter = null;
                     }

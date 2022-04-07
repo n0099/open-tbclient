@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebViewRendererService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
@@ -20,7 +20,7 @@ public class WebViewRendererService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceProvider mServiceImpl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ServiceProvider {
         IBinder bind(Intent intent);
 
@@ -54,9 +54,9 @@ public class WebViewRendererService extends Service {
             if (serviceProvider != null) {
                 try {
                     return serviceProvider.bind(intent);
-                } catch (Exception e2) {
-                    android.util.Log.e(TAG, "exception during onBind: ".concat(String.valueOf(e2)));
-                    throw e2;
+                } catch (Exception e) {
+                    android.util.Log.e(TAG, "exception during onBind: ".concat(String.valueOf(e)));
+                    throw e;
                 }
             }
             return null;
@@ -79,9 +79,9 @@ public class WebViewRendererService extends Service {
             if (serviceProvider != null) {
                 try {
                     serviceProvider.create(getApplicationContext());
-                } catch (Exception e2) {
-                    android.util.Log.e(TAG, "exception during onCreate: ".concat(String.valueOf(e2)));
-                    throw e2;
+                } catch (Exception e) {
+                    android.util.Log.e(TAG, "exception during onCreate: ".concat(String.valueOf(e)));
+                    throw e;
                 }
             }
         }

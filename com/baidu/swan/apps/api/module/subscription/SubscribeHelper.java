@@ -12,13 +12,10 @@ import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.d2.n;
-import c.a.n0.a.i0.c;
-import c.a.n0.a.p2.q;
-import c.a.n0.a.p2.q0;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,6 +24,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c73;
+import com.repackage.dd2;
+import com.repackage.dd3;
+import com.repackage.de3;
+import com.repackage.ed2;
+import com.repackage.fd2;
+import com.repackage.i03;
+import com.repackage.j03;
+import com.repackage.l73;
+import com.repackage.ng4;
+import com.repackage.py2;
+import com.repackage.qj2;
+import com.repackage.tg1;
+import com.repackage.vg1;
+import com.repackage.wl2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -35,32 +47,22 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SubscribeHelper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final boolean f28753e;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
+    public l b;
+    public Context c;
+    public j03 d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public l f28754b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f28755c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c.a.n0.a.t1.e f28756d;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28757b;
+        public final /* synthetic */ SubscribeHelper b;
 
         public a(SubscribeHelper subscribeHelper, k kVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +79,7 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28757b = subscribeHelper;
+            this.b = subscribeHelper;
             this.a = kVar;
         }
 
@@ -86,36 +88,30 @@ public class SubscribeHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, linkedHashMap, list) == null) {
                 if (linkedHashMap != null && linkedHashMap.size() != 0) {
-                    if (SubscribeHelper.f28753e) {
+                    if (SubscribeHelper.e) {
                         Iterator<String> it = linkedHashMap.keySet().iterator();
                         while (it.hasNext()) {
                             Log.i("SubscribeHelper", "querySubscribeInfo unallowedTemplateId=" + it.next());
                         }
                     }
-                    SubscribeHelper subscribeHelper = this.f28757b;
-                    subscribeHelper.s(subscribeHelper.f28754b, linkedHashMap, list, this.a);
+                    SubscribeHelper subscribeHelper = this.b;
+                    subscribeHelper.s(subscribeHelper.b, linkedHashMap, list, this.a);
                     return;
                 }
-                SubscribeHelper subscribeHelper2 = this.f28757b;
-                subscribeHelper2.r(subscribeHelper2.f28754b, Arrays.asList(this.f28757b.a), this.a);
+                SubscribeHelper subscribeHelper2 = this.b;
+                subscribeHelper2.r(subscribeHelper2.b, Arrays.asList(this.b.a), this.a);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String[] f28758b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ j f28759c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28760d;
+        public final /* synthetic */ String[] b;
+        public final /* synthetic */ j c;
+        public final /* synthetic */ SubscribeHelper d;
 
         public b(SubscribeHelper subscribeHelper, String str, String[] strArr, j jVar) {
             Interceptable interceptable = $ic;
@@ -132,10 +128,10 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28760d = subscribeHelper;
+            this.d = subscribeHelper;
             this.a = str;
-            this.f28758b = strArr;
-            this.f28759c = jVar;
+            this.b = strArr;
+            this.c = jVar;
         }
 
         @Override // java.lang.Runnable
@@ -145,17 +141,17 @@ public class SubscribeHelper {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap hashMap = new HashMap();
                 if (SubscribeHelper.l()) {
-                    Cursor query = this.f28760d.f28755c.getContentResolver().query(SwanAppSubscribeMsgProvider.CONTENT_URI, new String[]{"templateId", "result"}, "appKey=?", new String[]{this.a}, null);
+                    Cursor query = this.d.c.getContentResolver().query(SwanAppSubscribeMsgProvider.CONTENT_URI, new String[]{"templateId", "result"}, "appKey=?", new String[]{this.a}, null);
                     if (query != null && query.getCount() > 0 && query.moveToFirst()) {
                         do {
                             hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex("result"))));
                         } while (query.moveToNext());
-                        c.a.n0.w.d.d(query);
+                        ng4.d(query);
                     }
                 }
                 LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
                 ArrayList arrayList = new ArrayList();
-                for (String str : this.f28758b) {
+                for (String str : this.b) {
                     Integer num = (Integer) hashMap.get(str);
                     if (num == null) {
                         linkedHashMap.put(str, Boolean.FALSE);
@@ -165,40 +161,28 @@ public class SubscribeHelper {
                         arrayList.add(str);
                     }
                 }
-                this.f28759c.a(linkedHashMap, arrayList);
+                this.c.a(linkedHashMap, arrayList);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
+        public final /* synthetic */ LinkedHashMap b;
+        public final /* synthetic */ l c;
+        public final /* synthetic */ List d;
+        public final /* synthetic */ SubscribeHelper e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedHashMap f28761b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f28762c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f28763d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28764e;
-
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f28765b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f28766c;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ c c;
 
             public a(c cVar, List list, String str) {
                 Interceptable interceptable = $ic;
@@ -215,26 +199,26 @@ public class SubscribeHelper {
                         return;
                     }
                 }
-                this.f28766c = cVar;
+                this.c = cVar;
                 this.a = list;
-                this.f28765b = str;
+                this.b = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ContentResolver contentResolver = this.f28766c.f28764e.f28755c.getContentResolver();
-                    for (c.a.n0.a.i0.d dVar : this.a) {
-                        String str = dVar.a;
-                        Boolean bool = (Boolean) this.f28766c.f28761b.get(str);
+                    ContentResolver contentResolver = this.c.e.c.getContentResolver();
+                    for (fd2 fd2Var : this.a) {
+                        String str = fd2Var.a;
+                        Boolean bool = (Boolean) this.c.b.get(str);
                         if (bool != null && !bool.booleanValue()) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("appKey", this.f28766c.f28762c.a);
+                            contentValues.put("appKey", this.c.c.a);
                             contentValues.put("templateId", str);
                             contentValues.put("result", (Integer) 0);
-                            contentValues.put("title", dVar.f4845b);
-                            contentValues.put("tips", this.f28765b);
+                            contentValues.put("title", fd2Var.b);
+                            contentValues.put("tips", this.b);
                             contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                         }
                     }
@@ -242,17 +226,13 @@ public class SubscribeHelper {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f28767b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f28768c;
+            public final /* synthetic */ List b;
+            public final /* synthetic */ c c;
 
             public b(c cVar, String str, List list) {
                 Interceptable interceptable = $ic;
@@ -269,17 +249,17 @@ public class SubscribeHelper {
                         return;
                     }
                 }
-                this.f28768c = cVar;
+                this.c = cVar;
                 this.a = str;
-                this.f28767b = list;
+                this.b = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.f28768c;
-                    cVar.f28764e.u(cVar.f28762c, this.a, this.f28767b, cVar.f28763d, cVar.a);
+                    c cVar = this.c;
+                    cVar.e.u(cVar.c, this.a, this.b, cVar.d, cVar.a);
                 }
             }
         }
@@ -299,24 +279,24 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28764e = subscribeHelper;
+            this.e = subscribeHelper;
             this.a = kVar;
-            this.f28761b = linkedHashMap;
-            this.f28762c = lVar;
-            this.f28763d = list;
+            this.b = linkedHashMap;
+            this.c = lVar;
+            this.d = list;
         }
 
         @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.i
-        public void a(@Nullable String str, List<c.a.n0.a.i0.d> list, boolean z) {
+        public void a(@Nullable String str, List<fd2> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, list, z) == null) {
                 if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-                    q.k(new a(this, list, str), "createFormDataBase");
-                    if (z && this.f28762c.f28789e) {
-                        this.f28764e.m(this.f28762c, str, list, this.f28763d, this.a);
+                    dd3.k(new a(this, list, str), "createFormDataBase");
+                    if (z && this.c.e) {
+                        this.e.m(this.c, str, list, this.d, this.a);
                         return;
                     } else {
-                        q0.a0(new b(this, str, list));
+                        de3.a0(new b(this, str, list));
                         return;
                     }
                 }
@@ -325,26 +305,16 @@ public class SubscribeHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements c.f {
+    /* loaded from: classes2.dex */
+    public class d implements ed2.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f28769b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f28770c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f28771d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f28772e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28773f;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ List d;
+        public final /* synthetic */ k e;
+        public final /* synthetic */ SubscribeHelper f;
 
         public d(SubscribeHelper subscribeHelper, l lVar, List list, String str, List list2, k kVar) {
             Interceptable interceptable = $ic;
@@ -361,50 +331,48 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28773f = subscribeHelper;
+            this.f = subscribeHelper;
             this.a = lVar;
-            this.f28769b = list;
-            this.f28770c = str;
-            this.f28771d = list2;
-            this.f28772e = kVar;
+            this.b = list;
+            this.c = str;
+            this.d = list2;
+            this.e = kVar;
         }
 
-        @Override // c.a.n0.a.i0.c.f
-        public boolean a(DialogInterface dialogInterface, int i, List<c.a.n0.a.i0.d> list) {
+        @Override // com.repackage.ed2.f
+        public boolean a(DialogInterface dialogInterface, int i, List<fd2> list) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, list)) == null) {
                 boolean z = i == -1;
-                if (SubscribeHelper.f28753e) {
+                if (SubscribeHelper.e) {
                     Log.i("SubscribeHelper", "showSubscribeDialog isPositive=" + z);
                 }
                 if (z && list.size() == 0) {
                     return false;
                 }
-                this.f28773f.q(z ? "permit_click" : "reject_click", this.a.f28788d, this.f28769b, list);
+                this.f.q(z ? "permit_click" : "reject_click", this.a.d, this.b, list);
                 if (z) {
-                    this.f28773f.m(this.a, this.f28770c, list, this.f28771d, this.f28772e);
+                    this.f.m(this.a, this.c, list, this.d, this.e);
                     return true;
                 }
                 if (SubscribeHelper.l()) {
-                    this.f28773f.w(this.a.a, list, this.f28770c, false);
+                    this.f.w(this.a.a, list, this.c, false);
                 }
-                this.f28773f.t();
-                this.f28772e.a(500102, "用户单次拒绝授权", null);
+                this.f.t();
+                this.e.a(500102, "用户单次拒绝授权", null);
                 return true;
             }
             return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class e implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28774b;
+        public final /* synthetic */ SubscribeHelper b;
 
         public e(SubscribeHelper subscribeHelper, k kVar) {
             Interceptable interceptable = $ic;
@@ -421,7 +389,7 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28774b = subscribeHelper;
+            this.b = subscribeHelper;
             this.a = kVar;
         }
 
@@ -429,35 +397,23 @@ public class SubscribeHelper {
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f28774b.t();
+                this.b.t();
                 this.a.a(500103, "用户取消授权", null);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f implements c.a.n0.a.c.a {
+    /* loaded from: classes2.dex */
+    public class f implements vg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f28775b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f28776c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f28777d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f28778e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f28779f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28780g;
+        public final /* synthetic */ l b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ List d;
+        public final /* synthetic */ List e;
+        public final /* synthetic */ k f;
+        public final /* synthetic */ SubscribeHelper g;
 
         public f(SubscribeHelper subscribeHelper, boolean z, l lVar, String str, List list, List list2, k kVar) {
             Interceptable interceptable = $ic;
@@ -474,52 +430,44 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28780g = subscribeHelper;
+            this.g = subscribeHelper;
             this.a = z;
-            this.f28775b = lVar;
-            this.f28776c = str;
-            this.f28777d = list;
-            this.f28778e = list2;
-            this.f28779f = kVar;
+            this.b = lVar;
+            this.c = str;
+            this.d = list;
+            this.e = list2;
+            this.f = kVar;
         }
 
-        @Override // c.a.n0.a.c.a
+        @Override // com.repackage.vg1
         public void onResult(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
                     if (!this.a && SubscribeHelper.l()) {
-                        n.S("success", 12, "component");
+                        c73.S("success", 12, NativeConstants.COMPONENT);
                     }
-                    this.f28780g.v(this.f28775b, this.f28776c, this.f28777d, this.f28778e, this.f28779f);
+                    this.g.v(this.b, this.c, this.d, this.e, this.f);
                     return;
                 }
                 if (!this.a && !SubscribeHelper.l()) {
-                    n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, "component");
+                    c73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
                 }
-                this.f28780g.t();
-                this.f28779f.a(500106, "用户未登录", null);
+                this.g.t();
+                this.f.a(500106, "用户未登录", null);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f28781b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f28782c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f28783d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28784e;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SubscribeHelper e;
 
         public g(SubscribeHelper subscribeHelper, List list, String str, boolean z, String str2) {
             Interceptable interceptable = $ic;
@@ -536,37 +484,35 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28784e = subscribeHelper;
+            this.e = subscribeHelper;
             this.a = list;
-            this.f28781b = str;
-            this.f28782c = z;
-            this.f28783d = str2;
+            this.b = str;
+            this.c = z;
+            this.d = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ContentResolver contentResolver = this.f28784e.f28755c.getContentResolver();
-                for (c.a.n0.a.i0.d dVar : this.a) {
+                ContentResolver contentResolver = this.e.c.getContentResolver();
+                for (fd2 fd2Var : this.a) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("title", dVar.f4845b);
-                    contentValues.put("tips", this.f28781b);
-                    contentValues.put("result", Integer.valueOf(this.f28782c ? 1 : -1));
-                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.f28783d, dVar.a});
+                    contentValues.put("title", fd2Var.b);
+                    contentValues.put("tips", this.b);
+                    contentValues.put("result", Integer.valueOf(this.c ? 1 : -1));
+                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.d, fd2Var.a});
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class h implements c.a.n0.a.i0.b {
+    /* loaded from: classes2.dex */
+    public class h implements dd2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f28785b;
+        public final /* synthetic */ SubscribeHelper b;
 
         public h(SubscribeHelper subscribeHelper, k kVar) {
             Interceptable interceptable = $ic;
@@ -583,25 +529,25 @@ public class SubscribeHelper {
                     return;
                 }
             }
-            this.f28785b = subscribeHelper;
+            this.b = subscribeHelper;
             this.a = kVar;
         }
 
-        @Override // c.a.n0.a.q1.a
+        @Override // com.repackage.ny2
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f28785b.t();
+                this.b.t();
                 this.a.a(0, "调用成功", jSONObject);
-                if (c.a.n0.a.s0.a.h0().e(this.f28785b.f28755c)) {
-                    c.a.n0.a.q1.c.f5996c.e();
+                if (qj2.h0().e(this.b.c)) {
+                    py2.c.e();
                 } else {
-                    c.a.n0.a.q1.c.f5996c.f();
+                    py2.c.f();
                 }
             }
         }
 
-        @Override // c.a.n0.a.q1.a
+        @Override // com.repackage.ny2
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -610,13 +556,13 @@ public class SubscribeHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface i {
-        void a(@Nullable String str, @Nullable List<c.a.n0.a.i0.d> list, boolean z);
+        void a(@Nullable String str, @Nullable List<fd2> list, boolean z);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class invokeSubscribeFrom {
         public static final /* synthetic */ invokeSubscribeFrom[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -675,35 +621,27 @@ public class SubscribeHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface j {
         void a(@NonNull LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface k {
         void a(int i, @NonNull String str, JSONObject jSONObject);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @NonNull
         public final String a;
         @NonNull
-
-        /* renamed from: b  reason: collision with root package name */
-        public final String f28786b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f28787c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f28788d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f28789e;
+        public final String b;
+        public boolean c;
+        public String d;
+        public boolean e;
 
         public l(@NonNull String str, @NonNull String str2) {
             Interceptable interceptable = $ic;
@@ -721,7 +659,7 @@ public class SubscribeHelper {
                 }
             }
             this.a = str;
-            this.f28786b = str2;
+            this.b = str2;
         }
     }
 
@@ -738,7 +676,7 @@ public class SubscribeHelper {
                 return;
             }
         }
-        f28753e = c.a.n0.a.a.a;
+        e = tg1.a;
     }
 
     public SubscribeHelper() {
@@ -758,17 +696,17 @@ public class SubscribeHelper {
     public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.n0.a.t1.d.J().r().M().e(c.a.n0.a.s0.a.c()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? i03.J().r().M().e(qj2.c()) : invokeV.booleanValue;
     }
 
-    public final JSONArray k(List<c.a.n0.a.i0.d> list) {
+    public final JSONArray k(List<fd2> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
-                for (c.a.n0.a.i0.d dVar : list) {
-                    jSONArray.put(dVar.f4845b);
+                for (fd2 fd2Var : list) {
+                    jSONArray.put(fd2Var.b);
                 }
             }
             return jSONArray;
@@ -776,7 +714,7 @@ public class SubscribeHelper {
         return (JSONArray) invokeL.objValue;
     }
 
-    public final void m(@NonNull l lVar, String str, @NonNull List<c.a.n0.a.i0.d> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void m(@NonNull l lVar, String str, @NonNull List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, str, list, list2, kVar) == null) {
             boolean l2 = l();
@@ -785,18 +723,18 @@ public class SubscribeHelper {
                 return;
             }
             if (!l2) {
-                n.S("show", 12, "component");
+                c73.S("show", 12, NativeConstants.COMPONENT);
             }
-            c.a.n0.a.t1.d.J().r().M().f(c.a.n0.a.w0.f.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
+            i03.J().r().M().f(wl2.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
         }
     }
 
-    public boolean n(Context context, c.a.n0.a.t1.e eVar, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
+    public boolean n(Context context, j03 j03Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, eVar, str, jSONObject, invokesubscribefrom, kVar})) == null) {
-            this.f28755c = context;
-            this.f28756d = eVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, j03Var, str, jSONObject, invokesubscribefrom, kVar})) == null) {
+            this.c = context;
+            this.d = j03Var;
             String optString = jSONObject.optString("subscribeId");
             if (TextUtils.isEmpty(optString)) {
                 kVar.a(202, "subscribeId is empty", null);
@@ -804,9 +742,9 @@ public class SubscribeHelper {
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("templateId");
             l lVar = new l(str, optString);
-            this.f28754b = lVar;
-            lVar.f28787c = optJSONArray == null;
-            if (this.f28754b.f28787c) {
+            this.b = lVar;
+            lVar.c = optJSONArray == null;
+            if (this.b.c) {
                 String optString2 = jSONObject.optString("templateId");
                 if (!TextUtils.isEmpty(optString2) && invokesubscribefrom != invokeSubscribeFrom.REQUEST_SUBSCRIBE_FORM_ID_API) {
                     this.a = new String[]{optString2};
@@ -827,11 +765,11 @@ public class SubscribeHelper {
                 }
             }
             if (invokesubscribefrom == invokeSubscribeFrom.REQUEST_SUBSCRIBE_FORM_ID_API) {
-                this.f28754b.f28788d = jSONObject.optString("invokeFrom", RetrieveTaskManager.KEY);
+                this.b.d = jSONObject.optString("invokeFrom", RetrieveTaskManager.KEY);
             } else {
-                this.f28754b.f28788d = jSONObject.optString("invokeFrom", IMConstants.SERVICE_TYPE_FORM);
+                this.b.d = jSONObject.optString("invokeFrom", IMConstants.SERVICE_TYPE_FORM);
             }
-            this.f28754b.f28789e = jSONObject.optBoolean("skipSubscribeAuthorize");
+            this.b.e = jSONObject.optBoolean("skipSubscribeAuthorize");
             return true;
         }
         return invokeCommon.booleanValue;
@@ -848,34 +786,34 @@ public class SubscribeHelper {
     public final void p(String str, String[] strArr, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, strArr, jVar) == null) {
-            q.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
+            dd3.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
         }
     }
 
-    public final void q(String str, String str2, List<c.a.n0.a.i0.d> list, List<c.a.n0.a.i0.d> list2) {
+    public final void q(String str, String str2, List<fd2> list, List<fd2> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, list, list2) == null) {
-            c.a.n0.a.d2.s.e eVar = new c.a.n0.a.d2.s.e();
-            eVar.a = "swan";
-            eVar.f4188b = str;
-            eVar.f4193g = str2;
+            l73 l73Var = new l73();
+            l73Var.a = "swan";
+            l73Var.b = str;
+            l73Var.g = str2;
             if (list2 != null) {
-                eVar.f4191e = String.valueOf(list2.size());
+                l73Var.e = String.valueOf(list2.size());
             }
-            eVar.a("appkey", this.f28756d.getAppId());
-            eVar.a("tpl", k(list));
-            eVar.a("selected_tpl", k(list2));
-            if (f28753e) {
-                Log.d("SubscribeHelper", "event: " + eVar.f());
+            l73Var.a("appkey", this.d.getAppId());
+            l73Var.a("tpl", k(list));
+            l73Var.a("selected_tpl", k(list2));
+            if (e) {
+                Log.d("SubscribeHelper", "event: " + l73Var.f());
             }
-            n.y("1311", "92", eVar);
+            c73.y("1311", "92", l73Var);
         }
     }
 
     public final void r(@NonNull l lVar, @NonNull List<String> list, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, lVar, list, kVar) == null) {
-            c.a.n0.a.s0.a.W().d(lVar.a, list, lVar.f28786b, lVar.f28787c, new h(this, kVar));
+            qj2.W().d(lVar.a, list, lVar.b, lVar.c, new h(this, kVar));
         }
     }
 
@@ -883,40 +821,40 @@ public class SubscribeHelper {
     public final void s(@NonNull l lVar, LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048583, this, lVar, linkedHashMap, list, kVar) == null) {
-            c.a.n0.a.s0.a.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
+            qj2.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c.a.n0.a.t1.d.J().r().V().X0("0");
+            i03.J().r().V().X0("0");
         }
     }
 
-    public final void u(@NonNull l lVar, String str, List<c.a.n0.a.i0.d> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void u(@NonNull l lVar, String str, List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048585, this, lVar, str, list, list2, kVar) == null) {
-            c.a.n0.a.i0.c.a((Activity) this.f28755c, this.f28756d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
-            q("show", lVar.f28788d, list, list);
+            ed2.a((Activity) this.c, this.d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
+            q("show", lVar.d, list, list);
         }
     }
 
-    public final void v(@NonNull l lVar, String str, @NonNull List<c.a.n0.a.i0.d> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void v(@NonNull l lVar, String str, @NonNull List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, lVar, str, list, list2, kVar) == null) {
             w(lVar.a, list, str, true);
-            for (c.a.n0.a.i0.d dVar : list) {
-                list2.add(dVar.a);
+            for (fd2 fd2Var : list) {
+                list2.add(fd2Var.a);
             }
             r(lVar, list2, kVar);
         }
     }
 
-    public final void w(String str, List<c.a.n0.a.i0.d> list, String str2, boolean z) {
+    public final void w(String str, List<fd2> list, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, list, str2, Boolean.valueOf(z)}) == null) {
-            q.g().execute(new g(this, list, str2, z, str));
+            dd3.g().execute(new g(this, list, str2, z, str));
         }
     }
 }

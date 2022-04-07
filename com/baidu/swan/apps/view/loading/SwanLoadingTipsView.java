@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.n0.a.p2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.de3;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -23,25 +23,17 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u001f\u0010\bB\u0019\b\u0016\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010!\u001a\u00020 ¢\u0006\u0004\b\u001f\u0010\"J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00022\b\u0010\n\u001a\u0004\u0018\u00010\t¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\r\u0010\u0004R\u0018\u0010\u000f\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010R\u0018\u0010\u0011\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0011\u0010\u0010R*\u0010\u0013\u001a\n\u0012\u0004\u0012\u00020\u0002\u0018\u00010\u00128\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u001e¨\u0006#"}, d2 = {"Lcom/baidu/swan/apps/view/loading/SwanLoadingTipsView;", "Landroid/widget/RelativeLayout;", "", "doDestroy", "()V", "Landroid/content/Context;", "context", "init", "(Landroid/content/Context;)V", "", "tips", "startTipsAppearAnimation", "(Ljava/lang/String;)V", "startTipsDisAppearAnimation", "Landroid/animation/ObjectAnimator;", "appearAnimator", "Landroid/animation/ObjectAnimator;", "disAppearAnimator", "Lkotlin/Function0;", "tipsAnimationFinishCallback", "Lkotlin/Function0;", "getTipsAnimationFinishCallback", "()Lkotlin/jvm/functions/Function0;", "setTipsAnimationFinishCallback", "(Lkotlin/jvm/functions/Function0;)V", "Ljava/lang/Runnable;", "tipsDismissRunnable", "Ljava/lang/Runnable;", "Landroid/widget/TextView;", "tipsView", "Landroid/widget/TextView;", "<init>", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @SuppressLint({"SwanCommentErr"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Function0<Unit> a;
+    public TextView b;
+    public ObjectAnimator c;
+    public ObjectAnimator d;
+    public Runnable e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f29351b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ObjectAnimator f29352c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ObjectAnimator f29353d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Runnable f29354e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +69,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                q0.b0(this.a.f29354e, 2000L);
+                de3.b0(this.a.e, 2000L);
             }
         }
 
@@ -97,7 +89,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +148,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +200,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f29354e = new c(this);
+        this.e = new c(this);
         d(context);
     }
 
@@ -216,31 +208,31 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            Runnable runnable = this.f29354e;
+            Runnable runnable = this.e;
             if (runnable != null) {
-                q0.d0(runnable);
+                de3.d0(runnable);
             }
-            ObjectAnimator objectAnimator = this.f29352c;
+            ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f29352c;
+                ObjectAnimator objectAnimator2 = this.c;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
-                this.f29352c = null;
+                this.c = null;
             }
-            ObjectAnimator objectAnimator3 = this.f29353d;
+            ObjectAnimator objectAnimator3 = this.d;
             if (objectAnimator3 != null) {
                 if (objectAnimator3 != null) {
                     objectAnimator3.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator4 = this.f29353d;
+                ObjectAnimator objectAnimator4 = this.d;
                 if (objectAnimator4 != null) {
                     objectAnimator4.cancel();
                 }
-                this.f29353d = null;
+                this.d = null;
             }
         }
     }
@@ -248,8 +240,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00b2, this);
-            this.f29351b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00b4, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09019b);
         }
     }
 
@@ -259,35 +251,35 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             if (str == null || str.length() == 0) {
                 return;
             }
-            TextView textView = this.f29351b;
+            TextView textView = this.b;
             if (textView != null) {
                 textView.setText(str);
             }
             setVisibility(8);
-            ObjectAnimator objectAnimator = this.f29352c;
+            ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f29352c;
+                ObjectAnimator objectAnimator2 = this.c;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 1.0f);
-            this.f29352c = ofFloat;
+            this.c = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
             }
-            ObjectAnimator objectAnimator3 = this.f29352c;
+            ObjectAnimator objectAnimator3 = this.c;
             if (objectAnimator3 != null) {
                 objectAnimator3.setStartDelay(1000L);
             }
-            ObjectAnimator objectAnimator4 = this.f29352c;
+            ObjectAnimator objectAnimator4 = this.c;
             if (objectAnimator4 != null) {
                 objectAnimator4.addListener(new a(this));
             }
-            ObjectAnimator objectAnimator5 = this.f29352c;
+            ObjectAnimator objectAnimator5 = this.c;
             if (objectAnimator5 != null) {
                 objectAnimator5.start();
             }
@@ -297,26 +289,26 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ObjectAnimator objectAnimator = this.f29353d;
+            ObjectAnimator objectAnimator = this.d;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f29353d;
+                ObjectAnimator objectAnimator2 = this.d;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f);
-            this.f29353d = ofFloat;
+            this.d = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
             }
-            ObjectAnimator objectAnimator3 = this.f29353d;
+            ObjectAnimator objectAnimator3 = this.d;
             if (objectAnimator3 != null) {
                 objectAnimator3.addListener(new b(this));
             }
-            ObjectAnimator objectAnimator4 = this.f29353d;
+            ObjectAnimator objectAnimator4 = this.d;
             if (objectAnimator4 != null) {
                 objectAnimator4.start();
             }
@@ -357,7 +349,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attrs, "attrs");
-        this.f29354e = new c(this);
+        this.e = new c(this);
         d(context);
     }
 }

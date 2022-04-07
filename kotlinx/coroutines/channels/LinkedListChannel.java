@@ -29,16 +29,16 @@ public class LinkedListChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerInternal(E e2) {
+    public Object offerInternal(E e) {
         ReceiveOrClosed<?> sendBuffered;
         do {
-            Object offerInternal = super.offerInternal(e2);
+            Object offerInternal = super.offerInternal(e);
             Object obj = AbstractChannelKt.OFFER_SUCCESS;
             if (offerInternal == obj) {
                 return obj;
             }
             if (offerInternal == AbstractChannelKt.OFFER_FAILED) {
-                sendBuffered = sendBuffered(e2);
+                sendBuffered = sendBuffered(e);
                 if (sendBuffered == null) {
                     return AbstractChannelKt.OFFER_SUCCESS;
                 }
@@ -52,13 +52,13 @@ public class LinkedListChannel<E> extends AbstractChannel<E> {
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerSelectInternal(E e2, SelectInstance<?> selectInstance) {
+    public Object offerSelectInternal(E e, SelectInstance<?> selectInstance) {
         Object performAtomicTrySelect;
         while (true) {
             if (getHasReceiveOrClosed()) {
-                performAtomicTrySelect = super.offerSelectInternal(e2, selectInstance);
+                performAtomicTrySelect = super.offerSelectInternal(e, selectInstance);
             } else {
-                performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeSendBuffered(e2));
+                performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeSendBuffered(e));
                 if (performAtomicTrySelect == null) {
                     performAtomicTrySelect = AbstractChannelKt.OFFER_SUCCESS;
                 }

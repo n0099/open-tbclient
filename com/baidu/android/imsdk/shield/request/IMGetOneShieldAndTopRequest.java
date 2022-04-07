@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetOneShieldAndTopRequest";
@@ -173,8 +173,8 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                         }
                     }
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

@@ -3,14 +3,13 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bk implements ai {
     public static /* synthetic */ Interceptable $ic;
     public static volatile bk a;
@@ -31,7 +30,7 @@ public final class bk implements ai {
     /* renamed from: a  reason: collision with other field name */
     public volatile boolean f919a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +97,7 @@ public final class bk implements ai {
         this.f919a = false;
         this.f918a = new ConcurrentHashMap<>();
         this.f916a = context.getApplicationContext();
-        this.f917a = context.getSharedPreferences(StampMissionHttpRequestMessage.TYPE_SYNC, 0);
+        this.f917a = context.getSharedPreferences("sync", 0);
     }
 
     public static bk a(Context context) {
@@ -129,7 +128,7 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo661a() {
+    public void mo657a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f919a) {
             return;

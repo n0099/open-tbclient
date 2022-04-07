@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public class a {
                     zipInputStream.closeEntry();
                 }
             }
-        } catch (IOException e2) {
-            com.kwad.sdk.core.d.a.a(ZipUtils.TAG, "error", e2);
-            e2.printStackTrace();
+        } catch (IOException e) {
+            com.kwad.sdk.core.d.a.a(ZipUtils.TAG, "error", e);
+            e.printStackTrace();
             return false;
         }
     }

@@ -37,9 +37,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
     public static int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f43025b;
+    public static NotificationChannel b;
 
     public static int d(Context context, int i, boolean z) {
         if (com.ss.android.socialbase.downloader.g.a.a(i).b("notification_opt_2") == 1) {
@@ -53,14 +51,14 @@ public class c {
     }
 
     public static String a(long j, long j2, String str, boolean z) {
-        double d2 = j;
+        double d = j;
         if (j2 > 1) {
-            d2 /= j2;
+            d /= j2;
         }
         if (!z && !"GB".equals(str) && !"TB".equals(str)) {
-            return new DecimalFormat("#").format(d2) + " " + str;
+            return new DecimalFormat("#").format(d) + " " + str;
         }
-        return new DecimalFormat("#.##").format(d2) + " " + str;
+        return new DecimalFormat("#.##").format(d) + " " + str;
     }
 
     public static String b(long j) {
@@ -149,14 +147,14 @@ public class c {
     }
 
     public static String a(long j, long j2, String str) {
-        double d2 = j;
+        double d = j;
         if (j2 > 1) {
-            d2 /= j2;
+            d /= j2;
         }
         if ("MB".equals(str)) {
-            return new DecimalFormat("#").format(d2) + str;
+            return new DecimalFormat("#").format(d) + str;
         }
-        return new DecimalFormat("#.##").format(d2) + str;
+        return new DecimalFormat("#.##").format(d) + str;
     }
 
     public static void b(DownloadInfo downloadInfo, boolean z, int i) {
@@ -168,20 +166,20 @@ public class c {
             jSONObject.put("by_user", z ? 1 : 2);
             jSONObject.put("view_result", i);
             jSONObject.put("real_package_name", downloadInfo.getFilePackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), "install_view_result", jSONObject);
     }
 
     public static int a(final Context context, final int i, final boolean z) {
-        j g2 = d.j().g();
-        if (g2 == null) {
+        j g = d.j().g();
+        if (g == null) {
             return d(context, i, z);
         }
         DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i);
         a = 1;
-        g2.a(downloadInfo, new com.ss.android.socialbase.appdownloader.c.i() { // from class: com.ss.android.socialbase.appdownloader.c.1
+        g.a(downloadInfo, new com.ss.android.socialbase.appdownloader.c.i() { // from class: com.ss.android.socialbase.appdownloader.c.1
             @Override // com.ss.android.socialbase.appdownloader.c.i
             public void a() {
                 int unused = c.a = c.d(context, i, z);
@@ -306,8 +304,8 @@ public class c {
         }
         try {
             jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         if (!jSONObject.optBoolean("bind_app", false)) {
             if (jSONObject.optBoolean("auto_install_with_notification", true)) {
@@ -320,12 +318,12 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (f43025b == null) {
+            if (b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f43025b = notificationChannel;
+                b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f43025b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f43025b);
+                b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -386,8 +384,8 @@ public class c {
             try {
                 context.startService(intent);
                 return true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return false;
@@ -406,9 +404,9 @@ public class c {
         if (iDownloadFileUriProvider != null) {
             uri = iDownloadFileUriProvider.getUriForFile(str, file.getAbsolutePath());
         } else {
-            com.ss.android.socialbase.appdownloader.c.f e2 = d.j().e();
-            if (e2 != null) {
-                uri = e2.a(i, str, file.getAbsolutePath());
+            com.ss.android.socialbase.appdownloader.c.f e = d.j().e();
+            if (e != null) {
+                uri = e.a(i, str, file.getAbsolutePath());
             }
             uri = null;
             if (uri == null) {
@@ -501,8 +499,8 @@ public class c {
                 }
             }
             return true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -595,12 +593,12 @@ public class c {
     }
 
     public static String a(String str, com.ss.android.socialbase.downloader.g.a aVar) {
-        JSONObject d2;
+        JSONObject d;
         String format;
-        if (aVar == null || (d2 = aVar.d("download_dir")) == null) {
+        if (aVar == null || (d = aVar.d("download_dir")) == null) {
             return "";
         }
-        String optString = d2.optString("dir_name");
+        String optString = d.optString("dir_name");
         if (!TextUtils.isEmpty(optString) && optString.startsWith("/")) {
             optString = optString.substring(1);
         }
@@ -624,8 +622,8 @@ public class c {
             return false;
         }
         try {
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return new JSONObject(str).optBoolean("bind_app", false);
     }
@@ -690,8 +688,8 @@ public class c {
                     return;
                 }
                 activity.finish();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -709,7 +707,7 @@ public class c {
         return packageInfo;
     }
 
-    public static int a(Context context, float f2) {
-        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+    public static int a(Context context, float f) {
+        return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 }

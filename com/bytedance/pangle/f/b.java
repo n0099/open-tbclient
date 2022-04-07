@@ -32,19 +32,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[][] a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final byte[] f38110b;
+        public final byte[] b;
 
         public a(X509Certificate[][] x509CertificateArr, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -62,7 +60,7 @@ public final class b {
                 }
             }
             this.a = x509CertificateArr;
-            this.f38110b = bArr;
+            this.b = bArr;
         }
     }
 
@@ -98,8 +96,8 @@ public final class b {
                         i++;
                         try {
                             arrayList.add(a(f.a(a2), arrayMap, certificateFactory));
-                        } catch (IOException | SecurityException | BufferUnderflowException e2) {
-                            throw new SecurityException("Failed to parse/verify signer #" + i + " block", e2);
+                        } catch (IOException | SecurityException | BufferUnderflowException e) {
+                            throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                         }
                     }
                     if (i > 0) {
@@ -110,11 +108,11 @@ public final class b {
                         throw new SecurityException("No content digests found");
                     }
                     throw new SecurityException("No signers found");
-                } catch (IOException e3) {
-                    throw new SecurityException("Failed to read list of signers", e3);
+                } catch (IOException e2) {
+                    throw new SecurityException("Failed to read list of signers", e2);
                 }
-            } catch (CertificateException e4) {
-                throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e4);
+            } catch (CertificateException e3) {
+                throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e3);
             }
         }
         return (a) invokeLL.objValue;
@@ -129,7 +127,7 @@ public final class b {
         }
         ByteBuffer a3 = f.a(byteBuffer);
         ByteBuffer a4 = f.a(byteBuffer);
-        byte[] b2 = f.b(byteBuffer);
+        byte[] b = f.b(byteBuffer);
         ArrayList arrayList = new ArrayList();
         byte[] bArr = null;
         byte[] bArr2 = null;
@@ -144,12 +142,12 @@ public final class b {
                     }
                     throw new SecurityException("No supported signatures found");
                 }
-                String c2 = f.c(i);
-                Pair<String, ? extends AlgorithmParameterSpec> d2 = f.d(i);
-                String str = (String) d2.first;
-                AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d2.second;
+                String c = f.c(i);
+                Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i);
+                String str = (String) d.first;
+                AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d.second;
                 try {
-                    PublicKey generatePublic = KeyFactory.getInstance(c2).generatePublic(new X509EncodedKeySpec(b2));
+                    PublicKey generatePublic = KeyFactory.getInstance(c).generatePublic(new X509EncodedKeySpec(b));
                     Signature signature = Signature.getInstance(str);
                     signature.initVerify(generatePublic);
                     if (algorithmParameterSpec != null) {
@@ -174,8 +172,8 @@ public final class b {
                                 } else {
                                     throw new IOException("Record too short");
                                 }
-                            } catch (IOException | BufferUnderflowException e2) {
-                                throw new IOException("Failed to parse digest record #".concat(String.valueOf(i3)), e2);
+                            } catch (IOException | BufferUnderflowException e) {
+                                throw new IOException("Failed to parse digest record #".concat(String.valueOf(i3)), e);
                             }
                         }
                         if (arrayList.equals(arrayList2)) {
@@ -188,15 +186,15 @@ public final class b {
                             int i5 = 0;
                             while (a7.hasRemaining()) {
                                 i5++;
-                                byte[] b3 = f.b(a7);
+                                byte[] b2 = f.b(a7);
                                 try {
-                                    arrayList3.add(new p((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(b3)), b3));
-                                } catch (CertificateException e3) {
-                                    throw new SecurityException("Failed to decode certificate #".concat(String.valueOf(i5)), e3);
+                                    arrayList3.add(new p((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(b2)), b2));
+                                } catch (CertificateException e2) {
+                                    throw new SecurityException("Failed to decode certificate #".concat(String.valueOf(i5)), e2);
                                 }
                             }
                             if (!arrayList3.isEmpty()) {
-                                if (Arrays.equals(b2, ((X509Certificate) arrayList3.get(0)).getPublicKey().getEncoded())) {
+                                if (Arrays.equals(b, ((X509Certificate) arrayList3.get(0)).getPublicKey().getEncoded())) {
                                     a(f.a(a3));
                                     return (X509Certificate[]) arrayList3.toArray(new X509Certificate[arrayList3.size()]);
                                 }
@@ -207,8 +205,8 @@ public final class b {
                         throw new SecurityException("Signature algorithms don't match between digests and signatures records");
                     }
                     throw new SecurityException(str + " signature did not verify");
-                } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e4) {
-                    throw new SecurityException("Failed to verify " + str + " signature", e4);
+                } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e3) {
+                    throw new SecurityException("Failed to verify " + str + " signature", e3);
                 }
             }
             i2++;
@@ -236,8 +234,8 @@ public final class b {
                 } else {
                     throw new SecurityException("Signature record too short");
                 }
-            } catch (IOException | BufferUnderflowException e5) {
-                throw new SecurityException("Failed to parse signature record #".concat(String.valueOf(i2)), e5);
+            } catch (IOException | BufferUnderflowException e4) {
+                throw new SecurityException("Failed to parse signature record #".concat(String.valueOf(i2)), e4);
             }
         }
     }

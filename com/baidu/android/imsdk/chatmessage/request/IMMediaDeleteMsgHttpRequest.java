@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaDeleteMsgHttpRequest";
@@ -111,14 +111,14 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
                             jSONArray.put(this.mMsgIds.get(i));
                         }
                         jSONObject.put("msgids", jSONArray);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 LogUtils.d(TAG, "BC> before genSign param=" + jSONObject);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             LogUtils.d(TAG, "BC> param=" + jSONObject.toString());
             return jSONObject.toString().getBytes();
@@ -149,8 +149,8 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
                 if (i == 200) {
                     i = jSONObject.optInt("error_code", -1);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 i = 1010;
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i, "success!");

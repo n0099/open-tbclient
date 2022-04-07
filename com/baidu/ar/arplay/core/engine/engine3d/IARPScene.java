@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.engine3d;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IARPScene {
     IARPCamera getActiveCamera();
 

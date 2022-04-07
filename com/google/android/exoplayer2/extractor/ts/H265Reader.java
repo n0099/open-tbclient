@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class H265Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLA_W_LP = 16;
@@ -45,7 +45,7 @@ public final class H265Reader implements ElementaryStreamReader {
     public long totalBytesWritten;
     public final NalUnitTargetBuffer vps;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FIRST_SLICE_FLAG_OFFSET = 2;
@@ -230,7 +230,7 @@ public final class H265Reader implements ElementaryStreamReader {
 
     public static Format parseMediaFormat(String str, NalUnitTargetBuffer nalUnitTargetBuffer, NalUnitTargetBuffer nalUnitTargetBuffer2, NalUnitTargetBuffer nalUnitTargetBuffer3) {
         InterceptResult invokeLLLL;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, nalUnitTargetBuffer, nalUnitTargetBuffer2, nalUnitTargetBuffer3)) == null) {
             int i = nalUnitTargetBuffer.nalLength;
@@ -305,28 +305,28 @@ public final class H265Reader implements ElementaryStreamReader {
                 }
             }
             parsableNalUnitBitArray.skipBits(2);
-            float f3 = 1.0f;
+            float f2 = 1.0f;
             if (parsableNalUnitBitArray.readBit() && parsableNalUnitBitArray.readBit()) {
                 int readBits2 = parsableNalUnitBitArray.readBits(8);
                 if (readBits2 == 255) {
                     int readBits3 = parsableNalUnitBitArray.readBits(16);
                     int readBits4 = parsableNalUnitBitArray.readBits(16);
                     if (readBits3 != 0 && readBits4 != 0) {
-                        f3 = readBits3 / readBits4;
+                        f2 = readBits3 / readBits4;
                     }
-                    f2 = f3;
+                    f = f2;
                 } else {
                     float[] fArr = NalUnitUtil.ASPECT_RATIO_IDC_VALUES;
                     if (readBits2 < fArr.length) {
-                        f2 = fArr[readBits2];
+                        f = fArr[readBits2];
                     } else {
                         Log.w(TAG, "Unexpected aspect_ratio_idc value: " + readBits2);
                     }
                 }
-                return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f2, null);
+                return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f, null);
             }
-            f2 = 1.0f;
-            return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f2, null);
+            f = 1.0f;
+            return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f, null);
         }
         return (Format) invokeLLLL.objValue;
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageExt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Long DEFAULT;
@@ -116,8 +116,8 @@ public class MessageExt {
                 jSONObject.put(KEY_CAST_ID, this.castId);
                 jSONObject.put(KEY_TS, this.localTimestamp);
                 jSONObject.put(KEY_LATEST_MSG_ID, this.dBLatestMsgId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

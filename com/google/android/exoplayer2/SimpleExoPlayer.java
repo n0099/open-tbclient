@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SimpleExoPlayer implements ExoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleExoPlayer";
@@ -66,13 +66,13 @@ public class SimpleExoPlayer implements ExoPlayer {
     public int videoScalingMode;
 
     /* renamed from: com.google.android.exoplayer2.SimpleExoPlayer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class ComponentListener implements VideoRendererEventListener, AudioRendererEventListener, TextOutput, MetadataOutput, SurfaceHolder.Callback, TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,15 +284,15 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.video.VideoRendererEventListener
-        public void onVideoSizeChanged(int i, int i2, int i3, float f2) {
+        public void onVideoSizeChanged(int i, int i2, int i3, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
                 Iterator it = this.this$0.videoListeners.iterator();
                 while (it.hasNext()) {
-                    ((VideoListener) it.next()).onVideoSizeChanged(i, i2, i3, f2);
+                    ((VideoListener) it.next()).onVideoSizeChanged(i, i2, i3, f);
                 }
                 if (this.this$0.videoDebugListener != null) {
-                    this.this$0.videoDebugListener.onVideoSizeChanged(i, i2, i3, f2);
+                    this.this$0.videoDebugListener.onVideoSizeChanged(i, i2, i3, f);
                 }
             }
         }
@@ -325,11 +325,11 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface VideoListener {
         void onRenderedFirstFrame();
 
-        void onVideoSizeChanged(int i, int i2, int i3, float f2);
+        void onVideoSizeChanged(int i, int i2, int i3, float f);
     }
 
     public SimpleExoPlayer(RenderersFactory renderersFactory, TrackSelector trackSelector, LoadControl loadControl) {
@@ -1027,16 +1027,16 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Renderer[] rendererArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048655, this, f2) == null) {
-            this.audioVolume = f2;
+        if (interceptable == null || interceptable.invokeF(1048655, this, f) == null) {
+            this.audioVolume = f;
             ExoPlayer.ExoPlayerMessage[] exoPlayerMessageArr = new ExoPlayer.ExoPlayerMessage[this.audioRendererCount];
             int i = 0;
             for (Renderer renderer : this.renderers) {
                 if (renderer.getTrackType() == 1) {
-                    exoPlayerMessageArr[i] = new ExoPlayer.ExoPlayerMessage(renderer, 2, Float.valueOf(f2));
+                    exoPlayerMessageArr[i] = new ExoPlayer.ExoPlayerMessage(renderer, 2, Float.valueOf(f));
                     i++;
                 }
             }

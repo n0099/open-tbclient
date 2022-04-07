@@ -17,12 +17,12 @@ public class WindowIdApi18 implements WindowIdImpl {
     public transient /* synthetic */ FieldHolder $fh;
     public final WindowId mWindowId;
 
-    public WindowIdApi18(@NonNull View view) {
+    public WindowIdApi18(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,7 +32,7 @@ public class WindowIdApi18 implements WindowIdImpl {
                 return;
             }
         }
-        this.mWindowId = view.getWindowId();
+        this.mWindowId = view2.getWindowId();
     }
 
     public boolean equals(Object obj) {

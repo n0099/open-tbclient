@@ -10,26 +10,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class InterestedForumStyleATitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f34797b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f34798c;
+    public TbImageView b;
+    public TextView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterestedForumStyleATitleViewHolder(View view) {
-        super(view);
+    public InterestedForumStyleATitleViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,8 +36,8 @@ public class InterestedForumStyleATitleViewHolder extends TypeAdapter.ViewHolder
                 return;
             }
         }
-        this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090f3a);
-        this.f34797b = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090f39);
-        this.f34798c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f38);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f34);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f33);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f32);
     }
 }

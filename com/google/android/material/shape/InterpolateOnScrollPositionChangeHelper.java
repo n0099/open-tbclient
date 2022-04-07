@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InterpolateOnScrollPositionChangeHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class InterpolateOnScrollPositionChangeHelper {
     public final int[] scrollLocation;
     public View shapedView;
 
-    public InterpolateOnScrollPositionChangeHelper(View view, MaterialShapeDrawable materialShapeDrawable, ScrollView scrollView) {
+    public InterpolateOnScrollPositionChangeHelper(View view2, MaterialShapeDrawable materialShapeDrawable, ScrollView scrollView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, materialShapeDrawable, scrollView};
+            Object[] objArr = {view2, materialShapeDrawable, scrollView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class InterpolateOnScrollPositionChangeHelper {
                 }
             }
         };
-        this.shapedView = view;
+        this.shapedView = view2;
         this.materialShapeDrawable = materialShapeDrawable;
         this.containingScrollView = scrollView;
     }

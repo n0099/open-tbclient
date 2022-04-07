@@ -8,8 +8,6 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.g;
-import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
+import com.repackage.xb9;
+import com.repackage.yb9;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (h.e(list)) {
+            if (yb9.e(list)) {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
@@ -240,25 +240,25 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject jSONObject = new JSONObject(str);
                 subTitleUnit.line = jSONObject.optString("line");
                 subTitleUnit.engLine = jSONObject.optString("engLine");
-                subTitleUnit.textSize = g.b(jSONObject.optString("textSize"), 0.0f);
-                subTitleUnit.scale = g.b(jSONObject.optString(AnimationProperty.SCALE), 0.0f);
+                subTitleUnit.textSize = xb9.b(jSONObject.optString("textSize"), 0.0f);
+                subTitleUnit.scale = xb9.b(jSONObject.optString(AnimationProperty.SCALE), 0.0f);
                 subTitleUnit.rotate = jSONObject.optInt(AnimationProperty.ROTATE);
                 subTitleUnit.textColor = jSONObject.optInt("textColor");
                 subTitleUnit.chineseShadowColor = jSONObject.optInt("chineseShadowColor");
                 subTitleUnit.isChineseBold = jSONObject.optInt("isChineseBold", -1);
                 subTitleUnit.isChineseItalic = jSONObject.optInt("isChineseItalic", -1);
                 subTitleUnit.engTextColor = jSONObject.optInt("engTextColor");
-                subTitleUnit.engTextSize = g.b(jSONObject.optString("engTextSize"), 0.0f);
+                subTitleUnit.engTextSize = xb9.b(jSONObject.optString("engTextSize"), 0.0f);
                 subTitleUnit.engShadowColor = jSONObject.optInt("engShadowColor");
                 subTitleUnit.isEngBold = jSONObject.optInt("isEngBold", -1);
                 subTitleUnit.isEngItalic = jSONObject.optInt("isEngItalic", -1);
                 subTitleUnit.startTime = jSONObject.optLong(FetchLog.START_TIME);
                 subTitleUnit.endTime = jSONObject.optLong(FetchLog.END_TIME);
-                subTitleUnit.energy = g.b(jSONObject.optString("energy"), 0.0f);
+                subTitleUnit.energy = xb9.b(jSONObject.optString("energy"), 0.0f);
                 subTitleUnit.currentIndex = jSONObject.optInt("currentIndex");
                 subTitleUnit.isPreviousRotated = jSONObject.optBoolean("isPreviousRotated");
-                subTitleUnit.leftPercent = g.b(jSONObject.optString("leftPercent"), 0.0f);
-                subTitleUnit.topPercent = g.b(jSONObject.optString("topPercent"), 0.0f);
+                subTitleUnit.leftPercent = xb9.b(jSONObject.optString("leftPercent"), 0.0f);
+                subTitleUnit.topPercent = xb9.b(jSONObject.optString("topPercent"), 0.0f);
                 subTitleUnit.x = jSONObject.optInt("x");
                 subTitleUnit.y = jSONObject.optInt("y");
                 subTitleUnit.width = jSONObject.optInt("width");
@@ -268,30 +268,30 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject optJSONObject = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject != null) {
                     SubTitleConfig.ShadowConfig shadowConfig = new SubTitleConfig.ShadowConfig();
-                    shadowConfig.shadowRadius = g.b(optJSONObject.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig.shadowDx = g.b(optJSONObject.optString("shadowDx"), 0.0f);
-                    shadowConfig.shadowDy = g.b(optJSONObject.optString("shadowDy"), 2.0f);
+                    shadowConfig.shadowRadius = xb9.b(optJSONObject.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig.shadowDx = xb9.b(optJSONObject.optString("shadowDx"), 0.0f);
+                    shadowConfig.shadowDy = xb9.b(optJSONObject.optString("shadowDy"), 2.0f);
                     subTitleUnit.chineseShadowConfig = shadowConfig;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject2 != null) {
                     SubTitleConfig.ShadowConfig shadowConfig2 = new SubTitleConfig.ShadowConfig();
-                    shadowConfig2.shadowRadius = g.b(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig2.shadowDx = g.b(optJSONObject2.optString("shadowDx"), 0.0f);
-                    shadowConfig2.shadowDy = g.b(optJSONObject2.optString("shadowDy"), 2.0f);
+                    shadowConfig2.shadowRadius = xb9.b(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig2.shadowDx = xb9.b(optJSONObject2.optString("shadowDx"), 0.0f);
+                    shadowConfig2.shadowDy = xb9.b(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleUnit.engShadowConfig = shadowConfig2;
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("chineseStrokeConfig");
                 if (optJSONObject3 != null) {
                     SubTitleConfig.StrokeConfig strokeConfig = new SubTitleConfig.StrokeConfig();
-                    strokeConfig.strokeWidth = g.b(optJSONObject3.optString("strokeWidth"), 0.0f);
+                    strokeConfig.strokeWidth = xb9.b(optJSONObject3.optString("strokeWidth"), 0.0f);
                     strokeConfig.strokeColor = optJSONObject3.optInt("strokeColor");
                     subTitleUnit.chineseStrokeConfig = strokeConfig;
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("engStrokeConfig");
                 if (optJSONObject4 != null) {
                     SubTitleConfig.StrokeConfig strokeConfig2 = new SubTitleConfig.StrokeConfig();
-                    strokeConfig2.strokeWidth = g.b(optJSONObject4.optString("strokeWidth"), 0.0f);
+                    strokeConfig2.strokeWidth = xb9.b(optJSONObject4.optString("strokeWidth"), 0.0f);
                     strokeConfig2.strokeColor = optJSONObject4.optInt("strokeColor");
                     subTitleUnit.engStrokeConfig = strokeConfig2;
                 }
@@ -317,7 +317,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m96clone() throws CloneNotSupportedException {
+    public SubTitleUnit m92clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SubTitleUnit) super.clone() : (SubTitleUnit) invokeV.objValue;
@@ -325,17 +325,17 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     public AnimatorSet generateFrame(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
         InterceptResult invokeL;
-        float f2;
+        float f;
         ValueAnimator ofFloat;
         LinearInterpolator linearInterpolator;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animatorUpdateListener)) == null) {
-            float f3 = (float) (this.endTime - this.startTime);
+            float f2 = (float) (this.endTime - this.startTime);
             ArrayList arrayList = new ArrayList();
-            if (f3 < 1000.0f) {
+            if (f2 < 1000.0f) {
                 int i = this.currentIndex;
                 ofFloat = ValueAnimator.ofFloat(i, i + 0.999999f);
-                ofFloat.setDuration(f3);
+                ofFloat.setDuration(f2);
                 ofFloat.addUpdateListener(animatorUpdateListener);
                 linearInterpolator = new LinearInterpolator();
             } else {
@@ -346,7 +346,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                     ofFloat2.addUpdateListener(animatorUpdateListener);
                     ofFloat2.setInterpolator(new LinearInterpolator());
                     arrayList.add(ofFloat2);
-                    f2 = 10.0f;
+                    f = 10.0f;
                 } else {
                     int i3 = this.currentIndex;
                     ValueAnimator ofFloat3 = ValueAnimator.ofFloat(i3, i3 + 0.3f);
@@ -354,16 +354,16 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                     ofFloat3.addUpdateListener(animatorUpdateListener);
                     ofFloat3.setInterpolator(new LinearInterpolator());
                     arrayList.add(ofFloat3);
-                    f2 = 300.0f;
+                    f = 300.0f;
                 }
-                float f4 = f3 - f2;
+                float f3 = f2 - f;
                 int i4 = this.currentIndex;
                 ValueAnimator ofFloat4 = ValueAnimator.ofFloat(i4 + 0.3f, i4 + 0.5f);
                 ofFloat4.setDuration(200L);
                 ofFloat4.addUpdateListener(animatorUpdateListener);
                 ofFloat4.setInterpolator(new LinearInterpolator());
                 arrayList.add(ofFloat4);
-                float f5 = f4 - 200.0f;
+                float f4 = f3 - 200.0f;
                 if (this.rotate != 0) {
                     int i5 = this.currentIndex;
                     ofFloat = ValueAnimator.ofFloat(i5 + 0.8f, i5 + 0.999999f);
@@ -372,7 +372,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                     ofFloat.setInterpolator(new LinearInterpolator());
                     int i6 = this.currentIndex;
                     ValueAnimator ofFloat5 = ValueAnimator.ofFloat(i6 + 0.5f, i6 + 0.8f);
-                    ofFloat5.setDuration(f5 - 200.0f);
+                    ofFloat5.setDuration(f4 - 200.0f);
                     ofFloat5.addUpdateListener(animatorUpdateListener);
                     ofFloat5.setInterpolator(new LinearInterpolator());
                     arrayList.add(ofFloat5);
@@ -383,7 +383,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 }
                 int i7 = this.currentIndex;
                 ofFloat = ValueAnimator.ofFloat(i7 + 0.5f, i7 + 0.999999f);
-                ofFloat.setDuration(f5);
+                ofFloat.setDuration(f4);
                 ofFloat.addUpdateListener(animatorUpdateListener);
                 linearInterpolator = new LinearInterpolator();
             }

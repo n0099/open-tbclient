@@ -8,10 +8,10 @@ public class i implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return 0;
         }
-        String e2 = com.ss.android.socialbase.downloader.i.f.e(String.format("%s_%s", str, str2));
-        if (TextUtils.isEmpty(e2)) {
+        String e = com.ss.android.socialbase.downloader.i.f.e(String.format("%s_%s", str, str2));
+        if (TextUtils.isEmpty(e)) {
             return 0;
         }
-        return e2.hashCode();
+        return e.hashCode();
     }
 }

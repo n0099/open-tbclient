@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ByteUnitConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GB = 1073741824;
@@ -21,7 +21,7 @@ public class ByteUnitConverter {
     public String convertStr;
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class ByteUnitConverter {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class UNITS {
         public static final /* synthetic */ UNITS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -126,13 +126,13 @@ public class ByteUnitConverter {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ByteUnitConverter(double d2) {
-        this(d2, UNITS.B);
+    public ByteUnitConverter(double d) {
+        this(d, UNITS.B);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2)};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -146,47 +146,47 @@ public class ByteUnitConverter {
         }
     }
 
-    private void convertByte(double d2) {
-        float f2;
+    private void convertByte(double d) {
+        float f;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Double.valueOf(d2)}) == null) {
-            if (d2 < 1024.0d) {
-                f2 = (float) d2;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Double.valueOf(d)}) == null) {
+            if (d < 1024.0d) {
+                f = (float) d;
                 str = "B";
-            } else if (d2 < 1048576.0d) {
-                f2 = ((float) d2) / 1024.0f;
+            } else if (d < 1048576.0d) {
+                f = ((float) d) / 1024.0f;
                 str = "KB";
-            } else if (d2 < 1.073741824E9d) {
-                f2 = ((float) d2) / 1048576.0f;
+            } else if (d < 1.073741824E9d) {
+                f = ((float) d) / 1048576.0f;
                 str = "MB";
             } else {
-                f2 = ((float) d2) / 1.0737418E9f;
+                f = ((float) d) / 1.0737418E9f;
                 str = "GB";
             }
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
-            this.convertStr = decimalFormat.format(f2) + str;
+            this.convertStr = decimalFormat.format(f) + str;
         }
     }
 
-    private void convertGigaByte(double d2) {
+    private void convertGigaByte(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d2)}) == null) {
-            convertMegaByte(d2 * 1024.0d);
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d)}) == null) {
+            convertMegaByte(d * 1024.0d);
         }
     }
 
-    private void convertKiloByte(double d2) {
+    private void convertKiloByte(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2)}) == null) {
-            convertByte(d2 * 1024.0d);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d)}) == null) {
+            convertByte(d * 1024.0d);
         }
     }
 
-    private void convertMegaByte(double d2) {
+    private void convertMegaByte(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Double.valueOf(d2)}) == null) {
-            convertKiloByte(d2 * 1024.0d);
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Double.valueOf(d)}) == null) {
+            convertKiloByte(d * 1024.0d);
         }
     }
 
@@ -196,12 +196,12 @@ public class ByteUnitConverter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.convertStr : (String) invokeV.objValue;
     }
 
-    public ByteUnitConverter(double d2, UNITS units) {
+    public ByteUnitConverter(double d, UNITS units) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), units};
+            Object[] objArr = {Double.valueOf(d), units};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -213,14 +213,14 @@ public class ByteUnitConverter {
         }
         int i3 = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
         if (i3 == 1) {
-            convertByte(d2);
+            convertByte(d);
         } else if (i3 == 2) {
-            convertKiloByte(d2);
+            convertKiloByte(d);
         } else if (i3 == 3) {
-            convertMegaByte(d2);
+            convertMegaByte(d);
         } else if (i3 != 4) {
         } else {
-            convertGigaByte(d2);
+            convertGigaByte(d);
         }
     }
 }

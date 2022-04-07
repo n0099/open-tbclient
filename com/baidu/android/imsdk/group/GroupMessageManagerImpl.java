@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GroupMessageManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupMessageManagerImpl";
@@ -156,9 +156,9 @@ public class GroupMessageManagerImpl {
                 ArrayList<ChatMsg> arrayList = new ArrayList<>();
                 arrayList.add(chatMsg);
                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -178,9 +178,9 @@ public class GroupMessageManagerImpl {
                 if (chatMsg.isStarMessage()) {
                     try {
                         quitGroupByGroupId(groupMemberDelMsg.getContacter());
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
-                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     }
                     ArrayList<ChatMsg> arrayList = new ArrayList<>();
                     arrayList.add(chatMsg);
@@ -205,9 +205,9 @@ public class GroupMessageManagerImpl {
                 ArrayList<ChatMsg> arrayList = new ArrayList<>();
                 arrayList.add(chatMsg);
                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 LogUtils.d(TAG, "handleDisbandMsg exception, this is normal for device sync logic");
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -514,9 +514,9 @@ public class GroupMessageManagerImpl {
                 try {
                     quitGroupByGroupId(groupMemberQuitMsg.getContacter());
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
-                    new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     return;
                 }
             }
@@ -645,9 +645,9 @@ public class GroupMessageManagerImpl {
                     if (quitBuid != null && quitBuid.equals(AccountManager.getUid(mContext))) {
                         try {
                             quitGroupByGroupId(groupMemberQuitMsg.getContacter());
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
-                            new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                            new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                         }
                         return arrayList;
                     }

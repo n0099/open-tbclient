@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMSyncRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSyncRtcInfo";
@@ -91,8 +91,8 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
                     jSONObject.put("invite_id", this.mInviteId);
                 }
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e);
                 return "";
             }
         }

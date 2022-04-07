@@ -7,16 +7,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.c.b.e;
 import com.cmic.sso.sdk.c.b.g;
 import com.cmic.sso.sdk.e.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final e f38462b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f38463c;
+    public final e b;
+    public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, e eVar, String str2, String str3) {
@@ -37,26 +33,26 @@ public class b extends c {
                 return;
             }
         }
-        this.f38463c = false;
-        this.f38462b = eVar;
+        this.c = false;
+        this.b = eVar;
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f38463c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.c) {
             return;
         }
-        com.cmic.sso.sdk.c.b.a c2 = this.f38462b.c();
+        com.cmic.sso.sdk.c.b.a c = this.b.c();
         if (!aVar.b("isCloseIpv4", false)) {
-            c2.q(p.a(true));
+            c.q(p.a(true));
         }
         if (!aVar.b("isCloseIpv6", false)) {
-            c2.r(p.b(true));
+            c.r(p.b(true));
         }
-        c2.n(c2.u(aVar.b("appkey")));
-        this.f38462b.a(c2);
-        this.f38462b.a(true);
-        this.a = this.f38462b.b().toString();
-        this.f38463c = true;
+        c.n(c.u(aVar.b("appkey")));
+        this.b.a(c);
+        this.b.a(true);
+        this.a = this.b.b().toString();
+        this.c = true;
     }
 }

@@ -23,25 +23,15 @@ import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class KSNativeAdVideoH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f38589b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f38590c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f38591d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f38592e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Button f38593f;
+    public TextView b;
+    public FrameLayout c;
+    public ImageView d;
+    public TextView e;
+    public Button f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -120,17 +110,17 @@ public class KSNativeAdVideoH5OpenView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f38590c.removeAllViews();
-                this.f38590c.addView(videoView);
+                this.c.removeAllViews();
+                this.c.addView(videoView);
             }
-            this.f38591d.setImageBitmap(getSdkLogo());
-            this.f38589b.setText(ksNativeAd.getAdDescription());
+            this.d.setImageBitmap(getSdkLogo());
+            this.b.setText(ksNativeAd.getAdDescription());
             String adSource = ksNativeAd.getAdSource();
             if (TextUtils.isEmpty(adSource)) {
                 adSource = "快手广告";
             }
-            this.f38592e.setText(adSource);
-            this.f38593f.setText(ksNativeAd.getActionDescription());
+            this.e.setText(adSource);
+            this.f.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -139,11 +129,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f38589b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
-            this.f38590c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f8);
-            this.f38591d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d1);
-            this.f38592e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a3);
-            this.f38593f = (Button) findViewById(R.id.obfuscated_res_0x7f0900a4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a7);
+            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900a8);
         }
     }
 
@@ -152,11 +142,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38590c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i5;
             layoutParams.height = (int) (i5 / 1.78f);
-            this.f38590c.setLayoutParams(layoutParams);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 }

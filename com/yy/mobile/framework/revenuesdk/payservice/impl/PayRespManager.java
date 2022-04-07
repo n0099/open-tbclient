@@ -37,7 +37,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PayRespManager";

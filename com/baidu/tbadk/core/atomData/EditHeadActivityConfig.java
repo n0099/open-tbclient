@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EditHeadActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNTDATA = "account_data";
@@ -62,13 +62,13 @@ public class EditHeadActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f2)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f)};
             interceptable.invokeUnInit(65541, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -83,7 +83,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
@@ -122,13 +122,13 @@ public class EditHeadActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2, boolean z) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65543, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -143,7 +143,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
         setRequestCode(i2);
@@ -151,13 +151,13 @@ public class EditHeadActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f2) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), Float.valueOf(f2)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), Float.valueOf(f)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -171,20 +171,20 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", i3);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f2) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Float.valueOf(f2)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -198,20 +198,20 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", 0);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f2, boolean z) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, float f, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Float.valueOf(f2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Float.valueOf(f), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -225,7 +225,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", 0);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra("need_upload", z);
         getIntent().setData(uri);
         setRequestCode(i2);
@@ -233,13 +233,13 @@ public class EditHeadActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f2, String str) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), Float.valueOf(f2), str};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), Float.valueOf(f), str};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -253,7 +253,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("request", i);
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", i3);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra(FROM_WHERE, str);
         getIntent().setData(uri);
         setRequestCode(i2);
@@ -261,13 +261,13 @@ public class EditHeadActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f2, String str2) {
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f2), str2};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, accountData, Integer.valueOf(i3), str, Float.valueOf(f), str2};
             interceptable.invokeUnInit(65542, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -282,7 +282,7 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("account_data", accountData);
         getIntent().putExtra("edit_type", i3);
         getIntent().putExtra(FILE_NAME, str);
-        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f2);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra(FROM_WHERE, str2);
         getIntent().setData(uri);
         setRequestCode(i2);

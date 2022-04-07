@@ -11,17 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Polygon extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Stroke a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f26253b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<LatLng> f26254c;
+    public int b;
+    public List<LatLng> c;
 
     public Polygon() {
         Interceptable interceptable = $ic;
@@ -45,11 +41,11 @@ public final class Polygon extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f26254c.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.c.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            Overlay.a(this.f26254c, bundle);
-            Overlay.a(this.f26253b, bundle);
+            Overlay.a(this.c, bundle);
+            Overlay.a(this.b, bundle);
             if (this.a == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
@@ -64,13 +60,13 @@ public final class Polygon extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26253b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26254c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
     public Stroke getStroke() {
@@ -82,7 +78,7 @@ public final class Polygon extends Overlay {
     public void setFillColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f26253b = i;
+            this.b = i;
             this.listener.b(this);
         }
     }
@@ -109,7 +105,7 @@ public final class Polygon extends Overlay {
                 }
                 i = i2;
             }
-            this.f26254c = list;
+            this.c = list;
             this.listener.b(this);
         }
     }

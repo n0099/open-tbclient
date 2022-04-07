@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FansGroupInviteMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<FansGroupInviteMsg> CREATOR;
@@ -143,8 +143,8 @@ public class FansGroupInviteMsg extends NormalMsg {
                     this.mGroupId = jSONObject.optLong("group_id");
                     this.mInvitor = jSONObject.optLong("invitor");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e("TextMsg", "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e("TextMsg", "parse json err!", e);
                 }
             }
             return false;

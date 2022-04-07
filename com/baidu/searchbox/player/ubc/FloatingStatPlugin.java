@@ -10,7 +10,6 @@ import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FloatingStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -74,8 +73,8 @@ public class FloatingStatPlugin extends AbsPlugin {
                 jSONObject.put("type", "click");
                 jSONObject.put("value", "enter");
                 UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -86,10 +85,10 @@ public class FloatingStatPlugin extends AbsPlugin {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", "click");
-                jSONObject.put("value", IntentConfig.CLOSE);
+                jSONObject.put("value", "close");
                 UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -102,8 +101,8 @@ public class FloatingStatPlugin extends AbsPlugin {
                 jSONObject.put("type", "click");
                 jSONObject.put("value", bool.booleanValue() ? "enlarge" : "reduce");
                 UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -115,8 +114,8 @@ public class FloatingStatPlugin extends AbsPlugin {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", "show");
                 UBC_MANAGER.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -128,8 +127,8 @@ public class FloatingStatPlugin extends AbsPlugin {
                 JSONObject extStatisticsLog = this.mUBCContent.getExtStatisticsLog();
                 extStatisticsLog.put("size", str);
                 extStatisticsLog.put("pos", i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -145,7 +144,7 @@ public class FloatingStatPlugin extends AbsPlugin {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) {
             super.onVideoEventNotify(videoEvent);
@@ -153,54 +152,54 @@ public class FloatingStatPlugin extends AbsPlugin {
             switch (action.hashCode()) {
                 case -2127352417:
                     if (action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -21330261:
                     if (action.equals(StatisticsEvent.ACTION_FLOATING_CLICK)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -6829459:
                     if (action.equals(StatisticsEvent.ACTION_FLOATING_SCALE)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 415426938:
                     if (action.equals(StatisticsEvent.ACTION_FLOATING_SHOW)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1787606765:
                     if (action.equals(StatisticsEvent.ACTION_FLOATING_DISMISS)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
                 onFloatingShow(this.mUBCContent);
                 this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_FLOATING_DURATION);
-            } else if (c2 != 2) {
-                if (c2 == 3) {
+            } else if (c != 2) {
+                if (c == 3) {
                     updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
                     onFloatingScale(this.mUBCContent, Boolean.valueOf(videoEvent.getBooleanExtra(10)));
-                } else if (c2 != 4) {
+                } else if (c != 4) {
                 } else {
                     updateScaleAndPosition(videoEvent.getStringExtra(9), videoEvent.getIntExtra(11), videoEvent.getIntExtra(12));
                     onFloatingClick(this.mUBCContent);

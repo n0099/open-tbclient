@@ -5,12 +5,12 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class e {
     public static void a(String str, long j) {
-        com.ss.android.downloadlib.addownload.b.e e2 = f.a().e(j);
-        if (e2.x()) {
+        com.ss.android.downloadlib.addownload.b.e e = f.a().e(j);
+        if (e.x()) {
             return;
         }
-        e2.f42775c.setRefer(str);
-        com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e2);
+        e.c.setRefer(str);
+        com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e);
     }
 
     public static void b(String str, long j) {
@@ -29,8 +29,8 @@ public class e {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("error_code", Integer.valueOf(i));
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         com.ss.android.downloadlib.d.a.a().b("lp_compliance_error", jSONObject, eVar);
     }
@@ -39,8 +39,8 @@ public class e {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("error_code", Integer.valueOf(i));
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         com.ss.android.downloadlib.d.a.a().b("lp_compliance_error", jSONObject, f.a().e(j));
     }

@@ -5,9 +5,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.lifecycle.ViewModelProviders;
-import c.a.d.f.p.m;
-import c.a.d.f.p.n;
-import c.a.o0.r.r.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -15,7 +12,6 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -23,60 +19,47 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ho4;
+import com.repackage.ni;
+import com.repackage.oi;
 import java.util.ArrayList;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AbsPbActivity f34860b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public q f34861c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f34862d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f34863e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f34864f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f34865g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f34866h;
+    public AbsPbActivity b;
+    public ho4 c;
+    public String d;
+    public boolean e;
+    public int f;
+    public boolean g;
+    public View h;
     public View i;
     public View j;
     public View k;
-    public View l;
-    public TbImageView m;
-    public View n;
-    public TextView o;
-    public View p;
-    public ImageView q;
-    public TextView r;
+    public TbImageView l;
+    public View m;
+    public TextView n;
+    public View o;
+    public ImageView p;
+    public TextView q;
+    public View r;
     public View s;
     public View t;
-    public View u;
+    public TextView u;
     public TextView v;
     public TextView w;
-    public TextView x;
-    public View y;
-    public View.OnClickListener z;
+    public View x;
+    public View.OnClickListener y;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,100 +84,105 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             String str;
             String str2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int id = view.getId();
-                if (this.a.f34861c == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int id = view2.getId();
+                if (this.a.c == null) {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f091ee5) {
-                    VideoInfo threadVideoInfo = this.a.f34861c.getThreadVideoInfo();
+                if (id == R.id.obfuscated_res_0x7f091ed1) {
+                    VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
                             VideoItemData videoItemData = new VideoItemData();
-                            videoItemData.buildWithThreadData(this.a.f34861c);
+                            videoItemData.buildWithThreadData(this.a.c);
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(videoItemData);
-                            if (this.a.f34865g == 2) {
+                            if (this.a.f == 2) {
                                 str2 = "index";
-                            } else if (this.a.f34865g == 1) {
+                            } else if (this.a.f == 1) {
                                 str2 = "concern_tab";
                             } else {
-                                str2 = this.a.f34865g == 3 ? "frs" : "";
+                                str2 = this.a.f == 3 ? "frs" : "";
                             }
-                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.f34860b, arrayList, 0, null, "from_nani_video", "", "", str2);
+                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.b, arrayList, 0, null, "from_nani_video", "", "", str2);
                             videoPlayActivityConfig.setIsFromBjhPb(true);
-                            if (this.a.f34861c.getThreadData() != null && this.a.f34861c.getBaijiahaoData() != null) {
-                                videoPlayActivityConfig.setNid(this.a.f34861c.getBaijiahaoData().oriUgcNid);
+                            if (this.a.c.getThreadData() != null && this.a.c.getBaijiahaoData() != null) {
+                                videoPlayActivityConfig.setNid(this.a.c.getBaijiahaoData().oriUgcNid);
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
                         } else if (threadVideoInfo.is_vertical.intValue() == 0) {
-                            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                            videoSerializeVideoThreadInfo.copyFromThreadInfo(this.a.f34861c);
-                            if (this.a.f34865g == 2) {
+                            VideoItemData videoItemData2 = new VideoItemData();
+                            videoItemData2.buildWithThreadData(this.a.c);
+                            ArrayList arrayList2 = new ArrayList();
+                            arrayList2.add(videoItemData2);
+                            if (this.a.f == 2) {
                                 str = "index";
-                            } else if (this.a.f34865g == 1) {
+                            } else if (this.a.f == 1) {
                                 str = "concern_tab";
                             } else {
-                                str = this.a.f34865g == 3 ? "frs" : "";
+                                str = this.a.f == 3 ? "frs" : "";
                             }
-                            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.a.f34860b, str, this.a.f34861c.getTid(), "", "", videoSerializeVideoThreadInfo);
-                            videoMiddlePageActivityConfig.setNid(this.a.f34864f);
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
+                            VideoPlayActivityConfig videoPlayActivityConfig2 = new VideoPlayActivityConfig(this.a.b, arrayList2, 0, null, "from_nani_video", "", "", str);
+                            videoPlayActivityConfig2.setIsFromBjhPb(true);
+                            if (this.a.c.getThreadData() != null && this.a.c.getBaijiahaoData() != null) {
+                                videoPlayActivityConfig2.setNid(this.a.c.getBaijiahaoData().oriUgcNid);
+                            }
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.obfuscated_res_0x7f091380 || id == R.id.obfuscated_res_0x7f090376 || id == R.id.obfuscated_res_0x7f090375) {
-                    String tid = this.a.f34861c.getTid();
-                    if (this.a.f34865g == 2) {
+                } else if (id == R.id.obfuscated_res_0x7f091375 || id == R.id.obfuscated_res_0x7f090381 || id == R.id.obfuscated_res_0x7f090380) {
+                    String tid = this.a.c.getTid();
+                    if (this.a.f == 2) {
                         i = 1;
-                    } else if (this.a.f34865g == 1) {
+                    } else if (this.a.f == 1) {
                         i = 2;
-                    } else if (this.a.f34865g != 3) {
+                    } else if (this.a.f != 3) {
                         i = 4;
                     }
                     if (i != 0) {
-                        if (this.a.f34861c.threadType == 40) {
-                            StatisticItem.make("c13535").param("tid", tid).param("fid", this.a.f34861c.getFid()).param("obj_source", i).param("obj_locate", this.a.f34861c.e()).param("obj_id", this.a.f34862d).param("obj_type", this.a.f34861c.isBjhDynamicThread() ? 1 : 0).eventStat();
+                        if (this.a.c.threadType == 40) {
+                            StatisticItem.make("c13535").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.e()).param("obj_id", this.a.d).param("obj_type", this.a.c.isBjhDynamicThread() ? 1 : 0).eventStat();
                         } else {
-                            StatisticItem.make("c13534").param("tid", tid).param("fid", this.a.f34861c.getFid()).param("obj_source", i).param("obj_locate", this.a.f34861c.e()).param("obj_id", this.a.f34862d).eventStat();
+                            StatisticItem.make("c13534").param("tid", tid).param("fid", this.a.c.getFid()).param("obj_source", i).param("obj_locate", this.a.c.e()).param("obj_id", this.a.d).eventStat();
                         }
                     }
-                    if (this.a.f34863e) {
+                    if (this.a.e) {
                         StatisticItem statisticItem = new StatisticItem("c13589");
-                        statisticItem.param("tid", this.a.f34861c.getTid());
-                        if (this.a.f34861c.getForumData() != null) {
-                            statisticItem.param("fid", this.a.f34861c.getForumData().c());
+                        statisticItem.param("tid", this.a.c.getTid());
+                        if (this.a.c.getForumData() != null) {
+                            statisticItem.param("fid", this.a.c.getForumData().b());
                         }
-                        statisticItem.param("obj_param1", this.a.f34861c.mRecomWeight);
-                        statisticItem.param("obj_source", this.a.f34861c.mRecomSource);
-                        statisticItem.param("obj_id", this.a.f34862d);
-                        statisticItem.param("obj_locate", this.a.f34861c.e());
+                        statisticItem.param("obj_param1", this.a.c.mRecomWeight);
+                        statisticItem.param("obj_source", this.a.c.mRecomSource);
+                        statisticItem.param("obj_id", this.a.d);
+                        statisticItem.param("obj_locate", this.a.c.e());
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        if (this.a.f34861c.getThreadData().getBaijiahaoData() != null) {
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, this.a.f34861c.getThreadData().getBaijiahaoData().oriUgcNid);
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.a.f34861c.getThreadData().getBaijiahaoData().oriUgcVid);
+                        if (this.a.c.getThreadData().getBaijiahaoData() != null) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, this.a.c.getThreadData().getBaijiahaoData().oriUgcNid);
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.a.c.getThreadData().getBaijiahaoData().oriUgcVid);
                         }
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.a.f34861c.getVideoRecStaticticType());
-                        statisticItem.param("ab_tag", this.a.f34861c.mRecomAbTag);
-                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.a.f34861c.getThreadVideoInfo().is_vertical.intValue());
-                        statisticItem.param("extra", this.a.f34861c.mRecomExtra);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.a.c.getVideoRecStaticticType());
+                        statisticItem.param("ab_tag", this.a.c.mRecomAbTag);
+                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.a.c.getThreadVideoInfo().is_vertical.intValue());
+                        statisticItem.param("extra", this.a.c.mRecomExtra);
                         TiebaStatic.log(statisticItem);
                     }
-                    if (this.a.f34866h) {
-                        ((VideoPbViewModel) ViewModelProviders.of(this.a.f34860b).get(VideoPbViewModel.class)).q(this.a.f34861c);
+                    if (this.a.g) {
+                        ((VideoPbViewModel) ViewModelProviders.of(this.a.b).get(VideoPbViewModel.class)).r(this.a.c);
                         return;
                     }
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.f34860b);
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.b);
                     pbActivityConfig.createNormalCfg(tid, null, "pb");
-                    pbActivityConfig.setBjhFrom(this.a.f34865g);
-                    pbActivityConfig.setLastTid(this.a.f34862d);
+                    pbActivityConfig.setBjhFrom(this.a.f);
+                    pbActivityConfig.setLastTid(this.a.d);
                     pbActivityConfig.setStartFrom(20);
-                    pbActivityConfig.setThreadData(this.a.f34861c);
+                    pbActivityConfig.setThreadData(this.a.c);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
             }
@@ -202,13 +190,13 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbBjhRecommendViewHolder(View view, AbsPbActivity absPbActivity) {
-        super(view);
+    public PbBjhRecommendViewHolder(View view2, AbsPbActivity absPbActivity) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, absPbActivity};
+            Object[] objArr = {view2, absPbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -220,102 +208,101 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = 3;
-        this.z = new a(this);
-        this.f34860b = absPbActivity;
-        this.i = view.findViewById(R.id.obfuscated_res_0x7f091380);
-        this.j = view.findViewById(R.id.obfuscated_res_0x7f09099d);
-        this.k = view.findViewById(R.id.obfuscated_res_0x7f090378);
-        this.l = view.findViewById(R.id.obfuscated_res_0x7f090373);
-        this.m = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090376);
-        this.n = view.findViewById(R.id.obfuscated_res_0x7f090375);
-        this.o = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090374);
-        this.p = view.findViewById(R.id.obfuscated_res_0x7f09037a);
-        this.q = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f09037d);
-        this.r = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09037b);
-        this.s = view.findViewById(R.id.obfuscated_res_0x7f0911ab);
-        this.v = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091ee5);
-        this.t = view.findViewById(R.id.obfuscated_res_0x7f0911a9);
-        this.u = view.findViewById(R.id.obfuscated_res_0x7f0911aa);
-        this.w = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090379);
-        this.x = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09037c);
-        this.y = view.findViewById(R.id.obfuscated_res_0x7f090377);
+        this.y = new a(this);
+        this.b = absPbActivity;
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091375);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0909a4);
+        this.j = view2.findViewById(R.id.obfuscated_res_0x7f090383);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09037e);
+        this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090381);
+        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090380);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037f);
+        this.o = view2.findViewById(R.id.obfuscated_res_0x7f090385);
+        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090388);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090386);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0911a1);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+        this.s = view2.findViewById(R.id.obfuscated_res_0x7f09119f);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f0911a0);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090384);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090387);
+        this.x = view2.findViewById(R.id.obfuscated_res_0x7f090382);
     }
 
-    public void j(q qVar) {
+    public void i(ho4 ho4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f34861c = qVar;
-            this.j.setVisibility(qVar.g() ? 0 : 8);
-            this.u.setVisibility(qVar.k() ? 0 : 8);
-            this.k.setVisibility(qVar.i() ? 8 : 0);
-            this.s.setVisibility(qVar.i() ? 0 : 8);
-            this.v.setOnClickListener(this.z);
-            this.n.setOnClickListener(this.z);
-            this.m.setOnClickListener(this.z);
-            this.m.setConrers(15);
-            this.m.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
-            this.m.setDrawCorner(true);
-            this.m.setPlaceHolder(2);
-            if (qVar.getThreadVideoInfo() != null) {
-                this.o.setText(qVar.getTitle());
-                this.m.J(qVar.getThreadVideoInfo().thumbnail_url, 10, false);
-                this.n.setVisibility(0);
-                this.n.setAlpha(0.5f);
-                this.p.setVisibility(0);
-                this.r.setText(StringUtils.translateSecondsToString(qVar.getThreadVideoInfo().video_duration.intValue()));
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.x.getLayoutParams();
-                if (qVar.getAuthor() != null && !m.isEmpty(qVar.getAuthor().getName_show())) {
-                    this.w.setText(qVar.getAuthor().getName_show());
-                    this.w.setVisibility(0);
-                    layoutParams.leftMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ho4Var) == null) {
+            this.c = ho4Var;
+            this.i.setVisibility(ho4Var.g() ? 0 : 8);
+            this.t.setVisibility(ho4Var.k() ? 0 : 8);
+            this.j.setVisibility(ho4Var.i() ? 8 : 0);
+            this.r.setVisibility(ho4Var.i() ? 0 : 8);
+            this.u.setOnClickListener(this.y);
+            this.m.setOnClickListener(this.y);
+            this.l.setOnClickListener(this.y);
+            this.l.setConrers(15);
+            this.l.setRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.l.setDrawCorner(true);
+            this.l.setPlaceHolder(2);
+            if (ho4Var.getThreadVideoInfo() != null) {
+                this.n.setText(ho4Var.getTitle());
+                this.l.K(ho4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+                this.m.setVisibility(0);
+                this.m.setAlpha(0.5f);
+                this.o.setVisibility(0);
+                this.q.setText(StringUtils.translateSecondsToString(ho4Var.getThreadVideoInfo().video_duration.intValue()));
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
+                if (ho4Var.getAuthor() != null && !ni.isEmpty(ho4Var.getAuthor().getName_show())) {
+                    this.v.setText(ho4Var.getAuthor().getName_show());
+                    this.v.setVisibility(0);
+                    layoutParams.leftMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
-                    this.w.setVisibility(8);
+                    this.v.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
-                this.x.setLayoutParams(layoutParams);
-                this.x.setText(String.format(this.f34860b.getResources().getString(R.string.obfuscated_res_0x7f0f0302), StringHelper.numFormatOverWan(qVar.getThreadVideoInfo().play_count.intValue())));
+                this.w.setLayoutParams(layoutParams);
+                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0303), StringHelper.numFormatOverWan(ho4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
-                this.p.setVisibility(8);
-                this.n.setVisibility(8);
-                this.m.J(qVar.getArticeCover(), 10, false);
-                this.o.setText(qVar.getTitle());
+                this.o.setVisibility(8);
+                this.m.setVisibility(8);
+                this.l.K(ho4Var.getArticeCover(), 10, false);
+                this.n.setText(ho4Var.getTitle());
             }
-            this.i.setOnClickListener(this.z);
+            this.h.setOnClickListener(this.y);
         }
     }
 
-    public void k(int i) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f34865g = i;
+            this.f = i;
         }
     }
 
-    public void l(String str) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f34864f = str;
         }
     }
 
-    public void m(boolean z) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f34863e = z;
+            this.e = z;
         }
     }
 
-    public void n(String str) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34862d = str;
+            this.d = str;
         }
     }
 
-    public void o(boolean z) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f34866h = z;
+            this.g = z;
         }
     }
 }

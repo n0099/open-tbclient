@@ -3,7 +3,6 @@ package com.baidu.searchbox.retrieve.upload;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -20,13 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ae9;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
 @Singleton
 @Service
-/* loaded from: classes4.dex */
-public class AcUploadResultObserver implements a {
+/* loaded from: classes2.dex */
+public class AcUploadResultObserver implements ae9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "FetchAcUploadResult";
@@ -115,14 +115,14 @@ public class AcUploadResultObserver implements a {
         }
     }
 
-    @Override // c.a.x0.b.a
+    @Override // com.repackage.ae9
     public String getBizType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "acupload" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.x0.b.a
+    @Override // com.repackage.ae9
     public void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {

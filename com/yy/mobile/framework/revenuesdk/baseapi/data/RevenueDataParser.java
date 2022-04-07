@@ -17,7 +17,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RevenueDataParser implements IRevenueDataParser {
     public static final /* synthetic */ RevenueDataParser[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

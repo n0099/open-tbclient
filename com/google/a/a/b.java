@@ -12,10 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.vl9;
+/* loaded from: classes4.dex */
 public class b extends Binder implements IInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static c.f.a.a.b a;
+    public static vl9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

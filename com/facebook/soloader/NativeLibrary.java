@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class NativeLibrary {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.facebook.soloader.NativeLibrary";
@@ -99,9 +99,9 @@ public abstract class NativeLibrary {
                     initialNativeCheck();
                     this.mLibrariesLoaded = true;
                     this.mLibraryNames = null;
-                } catch (UnsatisfiedLinkError e2) {
-                    Log.e(TAG, "Failed to load native lib (initial check): ", e2);
-                    this.mLinkError = e2;
+                } catch (UnsatisfiedLinkError e) {
+                    Log.e(TAG, "Failed to load native lib (initial check): ", e);
+                    this.mLinkError = e;
                     this.mLibrariesLoaded = false;
                 } catch (Throwable th) {
                     Log.e(TAG, "Failed to load native lib (other error): ", th);

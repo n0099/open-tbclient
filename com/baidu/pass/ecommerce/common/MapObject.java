@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MapObject implements NoProguard, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MapObject> CREATOR;

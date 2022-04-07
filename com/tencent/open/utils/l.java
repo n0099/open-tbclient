@@ -57,38 +57,24 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43806b = "";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43807c = "";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f43808d = "";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f43809e = -1;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f43810f = "0123456789ABCDEF";
+    public static String b = "";
+    public static String c = "";
+    public static String d = "";
+    public static int e = -1;
+    public static String f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f43812b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f43813c;
+        public long b;
+        public long c;
 
         public a(String str, int i) {
             Interceptable interceptable = $ic;
@@ -106,9 +92,9 @@ public class l {
                 }
             }
             this.a = str;
-            this.f43812b = i;
+            this.b = i;
             if (str != null) {
-                this.f43813c = str.length();
+                this.c = str.length();
             }
         }
     }
@@ -405,7 +391,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f43807c = d2;
+            c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -465,7 +451,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f43806b;
+            return b;
         }
         return (String) invokeLL.objValue;
     }
@@ -536,10 +522,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f43806b = str2;
+            b = str2;
             a = str2.substring(0, str2.lastIndexOf(46));
-            f43808d = f43806b.substring(f43806b.lastIndexOf(46) + 1, f43806b.length());
-            f43809e = packageInfo.versionCode;
+            d = b.substring(b.lastIndexOf(46) + 1, b.length());
+            e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -703,8 +689,8 @@ public class l {
                         try {
                             fileInputStream = new FileInputStream(parcelFileDescriptor.getFileDescriptor());
                             try {
-                                File h2 = h(context, "Images");
-                                if (h2 == null) {
+                                File h = h(context, "Images");
+                                if (h == null) {
                                     SLog.e("openSDK_LOG.Util", "getExternalFilesDir return null");
                                     try {
                                         fileInputStream.close();
@@ -720,10 +706,10 @@ public class l {
                                     }
                                     return null;
                                 }
-                                if (!h2.exists()) {
-                                    h2.mkdirs();
+                                if (!h.exists()) {
+                                    h.mkdirs();
                                 }
-                                File file = new File(h2, uri.getLastPathSegment());
+                                File file = new File(h, uri.getLastPathSegment());
                                 if (!file.exists()) {
                                     file.createNewFile();
                                 }
@@ -892,9 +878,7 @@ public class l {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f43811b;
+                public final /* synthetic */ Bundle b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -912,7 +896,7 @@ public class l {
                         }
                     }
                     this.a = context;
-                    this.f43811b = bundle;
+                    this.b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -920,7 +904,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f43811b);
+                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }

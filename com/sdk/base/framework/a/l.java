@@ -11,12 +11,8 @@ public final class l<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public T f42551b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final boolean f42552c;
+    public T b;
+    public final boolean c;
 
     public l(int i, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +30,8 @@ public final class l<T> {
             }
         }
         this.a = i;
-        this.f42551b = t;
-        this.f42552c = z;
+        this.b = t;
+        this.c = z;
     }
 
     public final int a() {
@@ -47,14 +43,14 @@ public final class l<T> {
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42551b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.a + ", response:" + this.f42551b + ", resultFormCache:" + this.f42552c + "}";
+            return "{code:" + this.a + ", response:" + this.b + ", resultFormCache:" + this.c + "}";
         }
         return (String) invokeV.objValue;
     }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThreadInfo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,12 +14,12 @@ public class ThreadInfo implements Runnable {
     public ThreadMainOper threadMainOper;
     public String threadName;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ThreadEndOper {
         void handleOper(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ThreadMainOper {
         void handleOper(String str);
     }

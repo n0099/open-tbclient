@@ -63,16 +63,16 @@ public class AlertDialogLayout extends LinearLayoutCompat {
         }
     }
 
-    public static int resolveMinimumHeight(View view) {
+    public static int resolveMinimumHeight(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) {
-            int minimumHeight = ViewCompat.getMinimumHeight(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            int minimumHeight = ViewCompat.getMinimumHeight(view2);
             if (minimumHeight > 0) {
                 return minimumHeight;
             }
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 if (viewGroup.getChildCount() == 1) {
                     return resolveMinimumHeight(viewGroup.getChildAt(0));
                 }
@@ -82,10 +82,10 @@ public class AlertDialogLayout extends LinearLayoutCompat {
         return invokeL.intValue;
     }
 
-    private void setChildFrame(View view, int i, int i2, int i3, int i4) {
+    private void setChildFrame(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            view.layout(i, i2, i3 + i, i4 + i2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            view2.layout(i, i2, i3 + i, i4 + i2);
         }
     }
 
@@ -98,21 +98,21 @@ public class AlertDialogLayout extends LinearLayoutCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i, i2)) == null) {
             int childCount = getChildCount();
-            View view = null;
             View view2 = null;
             View view3 = null;
+            View view4 = null;
             for (int i7 = 0; i7 < childCount; i7++) {
                 View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
                     int id = childAt.getId();
                     if (id == R$id.obfuscated) {
-                        view = childAt;
-                    } else if (id == R$id.obfuscated) {
                         view2 = childAt;
-                    } else if ((id != R$id.obfuscated && id != R$id.customPanel) || view3 != null) {
+                    } else if (id == R$id.obfuscated) {
+                        view3 = childAt;
+                    } else if ((id != R$id.obfuscated && id != R$id.customPanel) || view4 != null) {
                         return false;
                     } else {
-                        view3 = childAt;
+                        view4 = childAt;
                     }
                 }
             }
@@ -120,47 +120,47 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             int size = View.MeasureSpec.getSize(i2);
             int mode2 = View.MeasureSpec.getMode(i);
             int paddingTop = getPaddingTop() + getPaddingBottom();
-            if (view != null) {
-                view.measure(i, 0);
-                paddingTop += view.getMeasuredHeight();
-                i3 = View.combineMeasuredStates(0, view.getMeasuredState());
+            if (view2 != null) {
+                view2.measure(i, 0);
+                paddingTop += view2.getMeasuredHeight();
+                i3 = View.combineMeasuredStates(0, view2.getMeasuredState());
             } else {
                 i3 = 0;
             }
-            if (view2 != null) {
-                view2.measure(i, 0);
-                i4 = resolveMinimumHeight(view2);
-                i5 = view2.getMeasuredHeight() - i4;
+            if (view3 != null) {
+                view3.measure(i, 0);
+                i4 = resolveMinimumHeight(view3);
+                i5 = view3.getMeasuredHeight() - i4;
                 paddingTop += i4;
-                i3 = View.combineMeasuredStates(i3, view2.getMeasuredState());
+                i3 = View.combineMeasuredStates(i3, view3.getMeasuredState());
             } else {
                 i4 = 0;
                 i5 = 0;
             }
-            if (view3 != null) {
-                view3.measure(i, mode == 0 ? 0 : View.MeasureSpec.makeMeasureSpec(Math.max(0, size - paddingTop), mode));
-                i6 = view3.getMeasuredHeight();
+            if (view4 != null) {
+                view4.measure(i, mode == 0 ? 0 : View.MeasureSpec.makeMeasureSpec(Math.max(0, size - paddingTop), mode));
+                i6 = view4.getMeasuredHeight();
                 paddingTop += i6;
-                i3 = View.combineMeasuredStates(i3, view3.getMeasuredState());
+                i3 = View.combineMeasuredStates(i3, view4.getMeasuredState());
             } else {
                 i6 = 0;
             }
             int i8 = size - paddingTop;
-            if (view2 != null) {
+            if (view3 != null) {
                 int i9 = paddingTop - i4;
                 int min = Math.min(i8, i5);
                 if (min > 0) {
                     i8 -= min;
                     i4 += min;
                 }
-                view2.measure(i, View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
-                paddingTop = i9 + view2.getMeasuredHeight();
-                i3 = View.combineMeasuredStates(i3, view2.getMeasuredState());
-            }
-            if (view3 != null && i8 > 0) {
-                view3.measure(i, View.MeasureSpec.makeMeasureSpec(i6 + i8, mode));
-                paddingTop = (paddingTop - i6) + view3.getMeasuredHeight();
+                view3.measure(i, View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                paddingTop = i9 + view3.getMeasuredHeight();
                 i3 = View.combineMeasuredStates(i3, view3.getMeasuredState());
+            }
+            if (view4 != null && i8 > 0) {
+                view4.measure(i, View.MeasureSpec.makeMeasureSpec(i6 + i8, mode));
+                paddingTop = (paddingTop - i6) + view4.getMeasuredHeight();
+                i3 = View.combineMeasuredStates(i3, view4.getMeasuredState());
             }
             int i10 = 0;
             for (int i11 = 0; i11 < childCount; i11++) {

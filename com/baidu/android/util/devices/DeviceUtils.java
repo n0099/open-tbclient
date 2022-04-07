@@ -35,12 +35,12 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DeviceUtils implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -117,10 +117,10 @@ public class DeviceUtils implements IDevices {
                             } catch (Throwable th) {
                                 th = th;
                             }
-                        } catch (FileNotFoundException e2) {
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                        } catch (IOException e2) {
                             e = e2;
-                        } catch (IOException e3) {
-                            e = e3;
                         }
                         try {
                             randomAccessFile.readFully(bArr);
@@ -137,13 +137,13 @@ public class DeviceUtils implements IDevices {
                             }
                             try {
                                 randomAccessFile.close();
-                            } catch (IOException e4) {
-                                e = e4;
+                            } catch (IOException e3) {
+                                e = e3;
                                 e.printStackTrace();
                                 return sArch;
                             }
-                        } catch (FileNotFoundException e5) {
-                            e = e5;
+                        } catch (FileNotFoundException e4) {
+                            e = e4;
                             randomAccessFile2 = randomAccessFile;
                             e.printStackTrace();
                             randomAccessFile2 = randomAccessFile2;
@@ -151,15 +151,15 @@ public class DeviceUtils implements IDevices {
                                 try {
                                     randomAccessFile2.close();
                                     randomAccessFile2 = randomAccessFile2;
-                                } catch (IOException e6) {
-                                    e = e6;
+                                } catch (IOException e5) {
+                                    e = e5;
                                     e.printStackTrace();
                                     return sArch;
                                 }
                             }
                             return sArch;
-                        } catch (IOException e7) {
-                            e = e7;
+                        } catch (IOException e6) {
+                            e = e6;
                             randomAccessFile2 = randomAccessFile;
                             e.printStackTrace();
                             randomAccessFile2 = randomAccessFile2;
@@ -167,8 +167,8 @@ public class DeviceUtils implements IDevices {
                                 try {
                                     randomAccessFile2.close();
                                     randomAccessFile2 = randomAccessFile2;
-                                } catch (IOException e8) {
-                                    e = e8;
+                                } catch (IOException e7) {
+                                    e = e7;
                                     e.printStackTrace();
                                     return sArch;
                                 }
@@ -180,8 +180,8 @@ public class DeviceUtils implements IDevices {
                             if (randomAccessFile2 != null) {
                                 try {
                                     randomAccessFile2.close();
-                                } catch (IOException e9) {
-                                    e9.printStackTrace();
+                                } catch (IOException e8) {
+                                    e8.printStackTrace();
                                 }
                             }
                             throw th;
@@ -267,10 +267,10 @@ public class DeviceUtils implements IDevices {
                     }
                     bufferedReader.close();
                     fileReader.close();
-                } catch (FileNotFoundException e2) {
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e2) {
                     e2.printStackTrace();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
                 }
                 if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
                     cPUInfo2.processor = "x86";
@@ -335,7 +335,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -523,7 +523,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
@@ -560,22 +560,22 @@ public class DeviceUtils implements IDevices {
             }
         }
 
-        public static int dp2px(@Nullable Context context, float f2) {
+        public static int dp2px(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) {
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
                 if (context == null) {
                     return 0;
                 }
-                return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+                return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
             }
             return invokeLF.intValue;
         }
 
-        public static float dp2pxf(@Nullable Context context, float f2) {
+        public static float dp2pxf(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f2)) == null) ? f2 * getDensity(context) : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? f * getDensity(context) : invokeLF.floatValue;
         }
 
         public static float getDensity(@Nullable Context context) {
@@ -654,7 +654,7 @@ public class DeviceUtils implements IDevices {
                     return 0;
                 }
                 Resources resources = AppRuntime.getAppContext().getResources();
-                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android"));
+                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
             }
             return invokeV.intValue;
         }
@@ -707,8 +707,8 @@ public class DeviceUtils implements IDevices {
                 }
                 try {
                     originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 return originDensityDip;
             }
@@ -719,7 +719,7 @@ public class DeviceUtils implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-                int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+                int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
                 int i = 0;
                 if (identifier > 0) {
                     try {
@@ -766,22 +766,22 @@ public class DeviceUtils implements IDevices {
             return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? AppRuntime.getAppContext().getResources().getConfiguration().orientation == 1 : invokeV.booleanValue;
         }
 
-        public static int px2dp(@Nullable Context context, float f2) {
+        public static int px2dp(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f2)) == null) {
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
                 if (context == null) {
                     return 0;
                 }
-                return (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f);
+                return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
             }
             return invokeLF.intValue;
         }
 
-        public static float px2dpFloat(@Nullable Context context, float f2) {
+        public static float px2dpFloat(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65555, null, context, f2)) == null) ? f2 / getDensity(context) : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65555, null, context, f)) == null) ? f / getDensity(context) : invokeLF.floatValue;
         }
     }
 

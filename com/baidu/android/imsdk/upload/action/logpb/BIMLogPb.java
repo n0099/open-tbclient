@@ -22,19 +22,19 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BIMLogPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
@@ -57,7 +57,7 @@ public final class BIMLogPb {
         public Object sign_;
         public long version_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic = null;
             public static Parser<AuthInfo> PARSER = null;
@@ -70,7 +70,7 @@ public final class BIMLogPb {
             public int memoizedSerializedSize;
             public Object token_;
 
-            /* loaded from: classes3.dex */
+            /* loaded from: classes.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -287,10 +287,10 @@ public final class BIMLogPb {
                                     mergeFrom(parsePartialFrom);
                                 }
                                 return this;
-                            } catch (InvalidProtocolBufferException e2) {
-                                AuthInfo authInfo2 = (AuthInfo) e2.getUnfinishedMessage();
+                            } catch (InvalidProtocolBufferException e) {
+                                AuthInfo authInfo2 = (AuthInfo) e.getUnfinishedMessage();
                                 try {
-                                    throw e2;
+                                    throw e;
                                 } catch (Throwable th) {
                                     th = th;
                                     authInfo = authInfo2;
@@ -460,9 +460,9 @@ public final class BIMLogPb {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    byte b2 = this.memoizedIsInitialized;
-                    if (b2 != -1) {
-                        return b2 == 1;
+                    byte b = this.memoizedIsInitialized;
+                    if (b != -1) {
+                        return b == 1;
                     }
                     this.memoizedIsInitialized = (byte) 1;
                     return true;
@@ -645,11 +645,11 @@ public final class BIMLogPb {
                                     }
                                 }
                                 z = true;
-                            } catch (InvalidProtocolBufferException e2) {
-                                throw e2.setUnfinishedMessage(this);
+                            } catch (InvalidProtocolBufferException e) {
+                                throw e.setUnfinishedMessage(this);
                             }
-                        } catch (IOException e3) {
-                            throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                        } catch (IOException e2) {
+                            throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                         }
                     } finally {
                         makeExtensionsImmutable();
@@ -658,7 +658,7 @@ public final class BIMLogPb {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public interface AuthInfoOrBuilder extends MessageLiteOrBuilder {
             String getToken();
 
@@ -667,7 +667,7 @@ public final class BIMLogPb {
             boolean hasToken();
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1200,10 +1200,10 @@ public final class BIMLogPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            LogRequest logRequest2 = (LogRequest) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            LogRequest logRequest2 = (LogRequest) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 logRequest = logRequest2;
@@ -1491,9 +1491,9 @@ public final class BIMLogPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -1712,11 +1712,11 @@ public final class BIMLogPb {
                                 }
                             }
                             z = true;
-                        } catch (IOException e2) {
-                            throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e3) {
-                        throw e3.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -1725,7 +1725,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface LogRequestOrBuilder extends MessageLiteOrBuilder {
         LogRequest.AuthInfo getAuthInfo();
 
@@ -1756,7 +1756,7 @@ public final class BIMLogPb {
         boolean hasVersion();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
@@ -1773,7 +1773,7 @@ public final class BIMLogPb {
         public int memoizedSerializedSize;
         public long pingIntervalMs_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2088,10 +2088,10 @@ public final class BIMLogPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            LogResponse logResponse2 = (LogResponse) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            LogResponse logResponse2 = (LogResponse) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 logResponse = logResponse2;
@@ -2297,9 +2297,9 @@ public final class BIMLogPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -2493,10 +2493,10 @@ public final class BIMLogPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -2505,7 +2505,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface LogResponseOrBuilder extends MessageLiteOrBuilder {
         int getErrorCode();
 

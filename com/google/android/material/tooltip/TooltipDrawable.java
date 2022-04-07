@@ -37,15 +37,15 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     @StyleRes
 
     /* renamed from: DEFAULT_STYLE */
-    public static final int obfuscated_res_0x7f100391 = 2131755921;
+    public static final int obfuscated_res_0x7f100392 = 2131755922;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970199;
+    public static final int DEFAULT_THEME_ATTR = 2130970261;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
     @NonNull
@@ -126,10 +126,10 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
             }
 
             @Override // android.view.View.OnLayoutChangeListener
-            public void onLayoutChange(View view, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12) {
+            public void onLayoutChange(View view2, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12)}) == null) {
-                    this.this$0.updateLocationOnScreen(view);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12)}) == null) {
+                    this.this$0.updateLocationOnScreen(view2);
                 }
             }
         };
@@ -177,7 +177,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100391) : (TooltipDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100392) : (TooltipDrawable) invokeL.objValue;
     }
 
     @NonNull
@@ -234,12 +234,12 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842965, 16842998, 16843071, 16843072, 16843087, R.attr.backgroundTint}, i, i2, new int[0]);
-            this.arrowSize = this.context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070473);
+            this.arrowSize = this.context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07047d);
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
             setText(obtainStyledAttributes.getText(5));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
-            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f04015d, TooltipDrawable.class.getCanonicalName()), 153)))));
-            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f04016b, TooltipDrawable.class.getCanonicalName())));
+            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f040162, TooltipDrawable.class.getCanonicalName()), 153)))));
+            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f04016e, TooltipDrawable.class.getCanonicalName())));
             this.padding = obtainStyledAttributes.getDimensionPixelSize(1, 0);
             this.minWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.minHeight = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -249,22 +249,22 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateLocationOnScreen(@NonNull View view) {
+    public void updateLocationOnScreen(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, this, view2) == null) {
             int[] iArr = new int[2];
-            view.getLocationOnScreen(iArr);
+            view2.getLocationOnScreen(iArr);
             this.locationOnScreenX = iArr[0];
-            view.getWindowVisibleDisplayFrame(this.displayFrame);
+            view2.getWindowVisibleDisplayFrame(this.displayFrame);
         }
     }
 
-    public void detachView(@Nullable View view) {
+    public void detachView(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
             return;
         }
-        view.removeOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
+        view2.removeOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
@@ -379,13 +379,13 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    public void setRelativeToView(@Nullable View view) {
+    public void setRelativeToView(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || view2 == null) {
             return;
         }
-        updateLocationOnScreen(view);
-        view.addOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
+        updateLocationOnScreen(view2);
+        view2.addOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
     }
 
     public void setText(@Nullable CharSequence charSequence) {
@@ -431,6 +431,6 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100391) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100392) : (TooltipDrawable) invokeLL.objValue;
     }
 }

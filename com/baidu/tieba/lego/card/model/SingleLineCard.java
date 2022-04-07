@@ -2,8 +2,6 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b2.o.j.c;
-import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -13,17 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fd7;
+import com.repackage.hd7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SingleLineCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final c buttonInfo;
+    public final fd7 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -66,11 +66,11 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int b2 = b.b(optJSONObject.optString("tColor", ""));
-            int b3 = b.b(optJSONObject.optString("tColorN", ""));
-            if (!b.a(b2) && !b.a(b3)) {
-                this.iconTitleColor = b2;
-                this.iconTitleColorNight = b3;
+            int b = hd7.b(optJSONObject.optString("tColor", ""));
+            int b2 = hd7.b(optJSONObject.optString("tColorN", ""));
+            if (!hd7.a(b) && !hd7.a(b2)) {
+                this.iconTitleColor = b;
+                this.iconTitleColorNight = b2;
             } else {
                 this.iconTitleColor = SkinManager.getColor(R.color.CAM_X0302);
                 this.iconTitleColorNight = SkinManager.getColor(R.color.CAM_X0302_1);
@@ -89,13 +89,13 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             this.params.add(optJSONArray.optString(i3));
         }
-        this.paramColor = b.b(jSONObject.optString("pColor", ""));
-        this.paramColorNight = b.b(jSONObject.optString("pColorNight", ""));
-        this.titleColor = b.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = b.b(jSONObject.optString("tColorNight", ""));
-        this.bgColor = b.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = b.b(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = c.a(jSONObject.optJSONObject("moreButton"));
+        this.paramColor = hd7.b(jSONObject.optString("pColor", ""));
+        this.paramColorNight = hd7.b(jSONObject.optString("pColorNight", ""));
+        this.titleColor = hd7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = hd7.b(jSONObject.optString("tColorNight", ""));
+        this.bgColor = hd7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = hd7.b(jSONObject.optString("bgColorNight", ""));
+        this.buttonInfo = fd7.a(jSONObject.optJSONObject("moreButton"));
         this.showLeftLine = jSONObject.optInt("showLeftLine") == 1;
         this.showLeftIcon = jSONObject.optInt("showLeftIcon") == 1;
         this.maxLines = jSONObject.optInt("maxLines", 1);
@@ -116,10 +116,10 @@ public class SingleLineCard extends BaseCardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
     }
 
-    public c getButtonInfo() {
+    public fd7 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.buttonInfo : (fd7) invokeV.objValue;
     }
 
     public int getGravity() {

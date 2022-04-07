@@ -15,16 +15,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class Request {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHOD_GET = "GET";
     public static final String METHOD_POST = "POST";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f38613b;
+    public final boolean b;
     public String contentType;
     public String httpMethod;
     public byte[] requestBody;
@@ -70,7 +68,7 @@ public abstract class Request {
             throw new IllegalArgumentException("url is null");
         }
         this.a = str;
-        this.f38613b = z;
+        this.b = z;
         if (requestParams != null) {
             String str2 = "?";
             if (str.contains("?")) {
@@ -133,7 +131,7 @@ public abstract class Request {
         OutputStream outputStream2;
         Throwable th;
         OutputStream outputStream3;
-        Exception e2;
+        Exception e;
         String contentEncoding;
         byte[] bArr;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -153,7 +151,7 @@ public abstract class Request {
                 if (getContentType() != null) {
                     httpURLConnection.setRequestProperty("Content-Type", getContentType());
                 }
-                if (this.f38613b) {
+                if (this.b) {
                     httpURLConnection.setRequestProperty("Content-Encoding", "application/gzip");
                 }
                 httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
@@ -183,8 +181,8 @@ public abstract class Request {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             outputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
@@ -206,7 +204,7 @@ public abstract class Request {
                 if (outputStream3 != null) {
                     try {
                         byte[] requestBody = getRequestBody();
-                        if (this.f38613b) {
+                        if (this.b) {
                             ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream2);
                             gZIPOutputStream.write(requestBody);
@@ -219,11 +217,11 @@ public abstract class Request {
                         outputStream3.write(requestBody);
                         outputStream3.flush();
                         outputStream3.close();
-                    } catch (Exception e4) {
+                    } catch (Exception e3) {
                         outputStream2 = outputStream3;
-                        e = e4;
-                        e2 = e;
-                        throw new IOException(e2);
+                        e = e3;
+                        e = e;
+                        throw new IOException(e);
                     }
                 }
                 inputStream = httpURLConnection.getInputStream();
@@ -265,9 +263,9 @@ public abstract class Request {
             if (outputStream3 != null) {
             }
             return response2;
-        } catch (Exception e5) {
-            e2 = e5;
-            throw new IOException(e2);
+        } catch (Exception e4) {
+            e = e4;
+            throw new IOException(e);
         } catch (Throwable th4) {
             th = th4;
             if (httpURLConnection != null) {

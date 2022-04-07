@@ -11,15 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WriteLocationView extends LocationInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocationModel d;
 
-    /* renamed from: d  reason: collision with root package name */
-    public LocationModel f37355d;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +51,12 @@ public class WriteLocationView extends LocationInfoView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.a.f37355d.P(false);
-                    this.a.f37355d.O(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.a.d.P(false);
+                    this.a.d.O(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     this.a.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.a.f37355d.P(true);
+                this.a.d.P(true);
                 this.a.e(0, true, null);
             }
         }

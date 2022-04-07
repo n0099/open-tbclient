@@ -20,32 +20,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BubbleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f34428b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34429c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f34430d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f34431e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f34432f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f34433g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f34434h;
+    public ViewGroup b;
+    public TbImageView c;
+    public ImageView d;
+    public ImageView e;
+    public ImageView f;
+    public ImageView g;
+    public ImageView h;
     public ImageView i;
     public View j;
     public ViewGroup k;
@@ -90,49 +76,49 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(getXmlLayoutResId(), this);
-            this.f34428b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090452);
-            this.f34429c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090450);
-            this.f34430d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09044f);
-            this.f34431e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.f34432f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090767);
-            this.f34433g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090454);
-            this.f34434h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090458);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090457);
-            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f09044d);
-            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09044b);
-            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d17);
-            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e19);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090453);
-            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091592);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09045a);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090458);
+            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090457);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ab3);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090770);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09045c);
+            this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090460);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09045f);
+            this.j = inflate.findViewById(R.id.obfuscated_res_0x7f090455);
+            this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090453);
+            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090d1e);
+            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e17);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09045b);
+            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09158d);
         }
     }
 
     public int getXmlLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d016a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d016e : invokeV.intValue;
     }
 
     public void setCurrentNotUse() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f34428b.setVisibility(8);
-            this.f34433g.setVisibility(0);
-            this.f34431e.setVisibility(8);
+            this.b.setVisibility(8);
+            this.g.setVisibility(0);
+            this.e.setVisibility(8);
             if (!this.p) {
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
-                this.f34434h.setVisibility(8);
+                this.h.setVisibility(8);
                 this.i.setVisibility(0);
                 return;
             }
             this.j.setVisibility(0);
             this.k.setVisibility(0);
-            this.f34434h.setVisibility(0);
+            this.h.setVisibility(0);
             this.i.setVisibility(8);
             this.l.setVisibility(8);
             this.o.setVisibility(0);
-            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0340));
+            this.o.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0342));
         }
     }
 
@@ -143,45 +129,45 @@ public class BubbleView extends RelativeLayout {
         }
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
-            this.f34432f.setVisibility(z ? 0 : 8);
-            this.f34430d.setVisibility(z ? 0 : 8);
+            this.f.setVisibility(z ? 0 : 8);
+            this.d.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f34428b.setVisibility(0);
-        this.f34433g.setVisibility(8);
+        this.b.setVisibility(0);
+        this.g.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f34430d.setVisibility(0);
-            this.f34432f.setVisibility(0);
+            this.d.setVisibility(0);
+            this.f.setVisibility(0);
         } else {
-            this.f34430d.setVisibility(8);
-            this.f34432f.setVisibility(8);
+            this.d.setVisibility(8);
+            this.f.setVisibility(8);
         }
         if (bubbleData.isFree()) {
-            this.f34431e.setVisibility(0);
+            this.e.setVisibility(0);
         } else {
-            this.f34431e.setVisibility(8);
+            this.e.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f34429c.setTag(bubbleData.getB_url());
-            this.f34429c.J(bubbleData.getB_url(), 10, false);
+            this.c.setTag(bubbleData.getB_url());
+            this.c.K(bubbleData.getB_url(), 10, false);
         }
         if (!this.p) {
             this.j.setVisibility(8);
             this.k.setVisibility(8);
-            this.f34434h.setVisibility(8);
+            this.h.setVisibility(8);
             this.i.setVisibility(0);
             return;
         }
         this.j.setVisibility(0);
         this.k.setVisibility(0);
-        this.f34434h.setVisibility(0);
+        this.h.setVisibility(0);
         this.i.setVisibility(8);
         if (!TextUtils.isEmpty(bubbleData.getIcon_url())) {
             this.l.setVisibility(0);
             this.o.setVisibility(8);
             this.n.setText(bubbleData.getBname());
             this.m.setTag(bubbleData.getIcon_url());
-            this.m.J(bubbleData.getIcon_url(), 10, false);
+            this.m.K(bubbleData.getIcon_url(), 10, false);
             return;
         }
         this.l.setVisibility(8);

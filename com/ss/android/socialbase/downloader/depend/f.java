@@ -16,14 +16,12 @@ public interface f extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2061a implements f {
+        public static class C0605a implements f {
             public static f a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43221b;
-
-            public C2061a(IBinder iBinder) {
-                this.f43221b = iBinder;
+            public C0605a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.f
@@ -45,7 +43,7 @@ public interface f extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(i);
-                    if (!this.f43221b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo, baseException, i);
                     } else {
                         obtain2.readException();
@@ -58,7 +56,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43221b;
+                return this.b;
             }
         }
 
@@ -74,7 +72,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C2061a(iBinder);
+            return new C0605a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -98,7 +96,7 @@ public interface f extends IInterface {
         }
 
         public static f a() {
-            return C2061a.a;
+            return C0605a.a;
         }
     }
 }

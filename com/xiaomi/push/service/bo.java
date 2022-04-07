@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class bo implements Runnable {
                 try {
                     try {
                         File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                        com.xiaomi.push.y.m685a(file);
+                        com.xiaomi.push.y.m681a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
@@ -95,15 +95,15 @@ public final class bo implements Runnable {
                                         fileLock2.release();
                                         fileLock = fileLock2;
                                         r3 = randomAccessFile;
-                                    } catch (IOException e2) {
-                                        com.xiaomi.channel.commonutils.logger.b.a((Throwable) e2);
-                                        fileLock = e2;
+                                    } catch (IOException e) {
+                                        com.xiaomi.channel.commonutils.logger.b.a((Throwable) e);
+                                        fileLock = e;
                                         r3 = randomAccessFile;
                                     }
                                 }
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
                             fileLock = fileLock2;
                             r3 = randomAccessFile;
@@ -116,9 +116,9 @@ public final class bo implements Runnable {
                                         fileLock2.release();
                                         fileLock = fileLock2;
                                         r3 = randomAccessFile;
-                                    } catch (IOException e4) {
-                                        com.xiaomi.channel.commonutils.logger.b.a((Throwable) e4);
-                                        fileLock = e4;
+                                    } catch (IOException e3) {
+                                        com.xiaomi.channel.commonutils.logger.b.a((Throwable) e3);
+                                        fileLock = e3;
                                         r3 = randomAccessFile;
                                     }
                                 }
@@ -130,15 +130,15 @@ public final class bo implements Runnable {
                         if (fileLock != null && fileLock.isValid()) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e5) {
-                                com.xiaomi.channel.commonutils.logger.b.a(e5);
+                            } catch (IOException e4) {
+                                com.xiaomi.channel.commonutils.logger.b.a(e4);
                             }
                         }
                         com.xiaomi.push.y.a((Closeable) r3);
                         throw th;
                     }
-                } catch (Exception e6) {
-                    e = e6;
+                } catch (Exception e5) {
+                    e = e5;
                     randomAccessFile = null;
                 } catch (Throwable th2) {
                     th = th2;

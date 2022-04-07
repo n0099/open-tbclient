@@ -11,26 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SwitchImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36980b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36981c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f36982d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AbsSvgType f36983e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public AbsSvgType f36984f;
+    public int b;
+    public int c;
+    public boolean d;
+    public AbsSvgType e;
+    public AbsSvgType f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchImageView(Context context) {
@@ -50,7 +40,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f36982d = false;
+        this.d = false;
         f();
     }
 
@@ -58,8 +48,8 @@ public class SwitchImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            this.f36980b = 0;
-            this.f36981c = 0;
+            this.b = 0;
+            this.c = 0;
         }
     }
 
@@ -87,17 +77,17 @@ public class SwitchImageView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 0) {
                 this.a = 0;
-                if (this.f36982d) {
-                    setImageDrawable(this.f36983e.getDrawable());
+                if (this.d) {
+                    setImageDrawable(this.e.getDrawable());
                 } else {
-                    setImageResource(this.f36980b);
+                    setImageResource(this.b);
                 }
             } else if (i == 1) {
                 this.a = 1;
-                if (this.f36982d) {
-                    setImageDrawable(this.f36984f.getDrawable());
+                if (this.d) {
+                    setImageDrawable(this.f.getDrawable());
                 } else {
-                    setImageResource(this.f36981c);
+                    setImageResource(this.c);
                 }
             }
         }
@@ -106,17 +96,17 @@ public class SwitchImageView extends AppCompatImageView {
     public void setStateImage(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.f36980b = i;
-            this.f36981c = i2;
+            this.b = i;
+            this.c = i2;
         }
     }
 
     public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, absSvgType, absSvgType2) == null) {
-            this.f36983e = absSvgType;
-            this.f36984f = absSvgType2;
-            this.f36982d = true;
+            this.e = absSvgType;
+            this.f = absSvgType2;
+            this.d = true;
         }
     }
 
@@ -139,7 +129,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f36982d = false;
+        this.d = false;
         f();
     }
 
@@ -162,7 +152,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f36982d = false;
+        this.d = false;
         f();
     }
 }

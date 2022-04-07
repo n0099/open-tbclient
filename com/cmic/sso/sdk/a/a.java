@@ -7,52 +7,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f38370b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38371c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f38372d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f38373e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f38374f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f38375g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f38376h;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
     public boolean i;
     public boolean j;
     public int k;
     public int l;
 
     /* renamed from: com.cmic.sso.sdk.a.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1926a {
+    /* loaded from: classes4.dex */
+    public static class C0266a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a a;
 
-        public C1926a() {
+        public C0266a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,124 +54,124 @@ public class a implements Cloneable {
             this.a = new a(null);
         }
 
-        public C1926a a(String str) {
+        public C0266a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.a.a = str;
                 return this;
             }
-            return (C1926a) invokeL.objValue;
+            return (C0266a) invokeL.objValue;
         }
 
-        public C1926a b(String str) {
+        public C0266a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f38370b = str;
+                this.a.b = str;
                 return this;
             }
-            return (C1926a) invokeL.objValue;
+            return (C0266a) invokeL.objValue;
         }
 
-        public C1926a c(String str) {
+        public C0266a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.a.f38371c = str;
+                this.a.c = str;
                 return this;
             }
-            return (C1926a) invokeL.objValue;
+            return (C0266a) invokeL.objValue;
         }
 
-        public C1926a d(String str) {
+        public C0266a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.a.f38372d = str;
+                this.a.d = str;
                 return this;
             }
-            return (C1926a) invokeL.objValue;
+            return (C0266a) invokeL.objValue;
         }
 
-        public C1926a e(boolean z) {
+        public C0266a e(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.a.i = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a f(boolean z) {
+        public C0266a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
                 this.a.j = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a a(boolean z) {
+        public C0266a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.f38373e = z;
+                this.a.e = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a b(boolean z) {
+        public C0266a b(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.a.f38374f = z;
+                this.a.f = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a c(boolean z) {
+        public C0266a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.a.f38375g = z;
+                this.a.g = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a d(boolean z) {
+        public C0266a d(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.a.f38376h = z;
+                this.a.h = z;
                 return this;
             }
-            return (C1926a) invokeZ.objValue;
+            return (C0266a) invokeZ.objValue;
         }
 
-        public C1926a a(int i) {
+        public C0266a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 this.a.k = i;
                 return this;
             }
-            return (C1926a) invokeI.objValue;
+            return (C0266a) invokeI.objValue;
         }
 
-        public C1926a b(int i) {
+        public C0266a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 this.a.l = i;
                 return this;
             }
-            return (C1926a) invokeI.objValue;
+            return (C0266a) invokeI.objValue;
         }
 
         public a a() {
@@ -202,13 +188,13 @@ public class a implements Cloneable {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38375g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38376h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.booleanValue;
     }
 
     public boolean i() {
@@ -247,7 +233,7 @@ public class a implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "UmcConfigBean{mHttpsGetTokenHost='" + this.a + "', mHttpsGetPhoneScripHost='" + this.f38370b + "', mConfigHost='" + this.f38371c + "', mLogHost='" + this.f38372d + "', mCloseCtccWork=" + this.f38373e + ", mCloseCuccWort=" + this.f38374f + ", mCloseM008Business=" + this.f38375g + ", mCloseGetPhoneIpv4=" + this.f38376h + ", mCloseGetPhoneIpv6=" + this.i + ", mCloseLog=" + this.j + ", mMaxFailedLogTimes=" + this.k + ", mLogSuspendTime=" + this.l + '}';
+            return "UmcConfigBean{mHttpsGetTokenHost='" + this.a + "', mHttpsGetPhoneScripHost='" + this.b + "', mConfigHost='" + this.c + "', mLogHost='" + this.d + "', mCloseCtccWork=" + this.e + ", mCloseCuccWort=" + this.f + ", mCloseM008Business=" + this.g + ", mCloseGetPhoneIpv4=" + this.h + ", mCloseGetPhoneIpv6=" + this.i + ", mCloseLog=" + this.j + ", mMaxFailedLogTimes=" + this.k + ", mLogSuspendTime=" + this.l + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -266,13 +252,13 @@ public class a implements Cloneable {
             }
         }
         this.a = "rcs.cmpassport.com";
-        this.f38370b = "rcs.cmpassport.com";
-        this.f38371c = "config2.cmpassport.com";
-        this.f38372d = "log2.cmpassport.com:9443";
-        this.f38373e = false;
-        this.f38374f = false;
-        this.f38375g = false;
-        this.f38376h = false;
+        this.b = "rcs.cmpassport.com";
+        this.c = "config2.cmpassport.com";
+        this.d = "log2.cmpassport.com:9443";
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
         this.i = false;
         this.j = false;
         this.k = 3;
@@ -282,25 +268,25 @@ public class a implements Cloneable {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38373e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38374f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38371c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38372d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public String a() {
@@ -312,6 +298,6 @@ public class a implements Cloneable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38370b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

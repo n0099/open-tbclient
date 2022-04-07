@@ -1,6 +1,5 @@
 package com.baidu.tieba.face;
 
-import c.a.p0.z0.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
@@ -9,16 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.t86;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mData;
+    public t86 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchEmotionResponseMessage(int i) {
@@ -58,8 +58,8 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
                     emotionImageData.setHeight(jSONObject.optInt("height"));
                     emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                     arrayList.add(emotionImageData);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return arrayList;
@@ -74,7 +74,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mData = new a();
+                this.mData = new t86();
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
                 if (optJSONObject != null) {
                     this.mData.f(optJSONObject.optInt("current_pn"));
@@ -85,9 +85,9 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public a getData() {
+    public t86 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (t86) invokeV.objValue;
     }
 }

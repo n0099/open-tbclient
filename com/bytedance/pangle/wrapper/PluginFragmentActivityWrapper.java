@@ -15,7 +15,7 @@ import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,13 +78,13 @@ public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapp
         }
         try {
             FieldUtils.writeField(this, "mBase", pluginContext);
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
         try {
             FieldUtils.writeField(this, "mApplication", activity.getApplication());
-        } catch (IllegalAccessException e3) {
-            e3.printStackTrace();
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
         }
         com.bytedance.pangle.util.a.a(this, activity);
     }

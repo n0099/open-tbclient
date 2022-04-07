@@ -5,11 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.n.a;
-import c.a.o0.r.l0.n.c;
-import c.a.p0.n4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
@@ -26,20 +21,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.lu4;
+import com.repackage.mi;
+import com.repackage.nu4;
+import com.repackage.oi;
+import com.repackage.ts8;
+import com.repackage.vl4;
+/* loaded from: classes3.dex */
 public class OperableVideoNetworkStateTipView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBSpecificationBtn a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TBSpecificationBtn f35576b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f35577c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f35578d;
+    public TBSpecificationBtn b;
+    public View.OnClickListener c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OperableVideoNetworkStateTipView(Context context) {
@@ -65,7 +60,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f35576b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
             if (z && !z2) {
                 setOrientation(1);
                 layoutParams.leftMargin = 0;
@@ -75,7 +70,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
                 layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
                 layoutParams.topMargin = 0;
             }
-            this.f35576b.setLayoutParams(layoutParams);
+            this.b.setLayoutParams(layoutParams);
         }
     }
 
@@ -89,21 +84,21 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091853);
-            this.f35576b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090ab0);
-            c cVar = new c();
-            cVar.s();
-            cVar.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            cVar.g(n.f(getContext(), R.dimen.tbds32));
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14cd));
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09184e);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090ab2);
+            nu4 nu4Var = new nu4();
+            nu4Var.s();
+            nu4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            nu4Var.g(oi.f(getContext(), R.dimen.tbds32));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14d5));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(cVar);
-            a aVar = new a();
-            this.f35576b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14e0));
-            this.f35576b.setTextSize(R.dimen.tbds36);
-            this.f35576b.setConfig(aVar);
+            this.a.setConfig(nu4Var);
+            lu4 lu4Var = new lu4();
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14e8));
+            this.b.setTextSize(R.dimen.tbds36);
+            this.b.setConfig(lu4Var);
             this.a.setOnClickListener(this);
-            this.f35576b.setOnClickListener(this);
+            this.b.setOnClickListener(this);
             setOnClickListener(this);
         }
     }
@@ -111,29 +106,34 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (b() || h.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !l.x()) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (b() || ts8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || mi.x()) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0650 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d064c : invokeV.intValue;
     }
 
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view.getId() == R.id.obfuscated_res_0x7f090ab0) {
-            c.a.o0.l.a.x(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06ae), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view.getId() == R.id.obfuscated_res_0x7f091853) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090ab2) {
+            vl4.x(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06b3), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09184e) {
             setHasAgreeToPlay(true);
-            View.OnClickListener onClickListener = this.f35577c;
+            View.OnClickListener onClickListener = this.c;
             if (onClickListener != null) {
-                onClickListener.onClick(view);
+                onClickListener.onClick(view2);
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.f35578d));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.d));
         }
     }
 
@@ -147,14 +147,14 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f35577c = onClickListener;
+            this.c = onClickListener;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f35578d = str;
+            this.d = str;
         }
     }
 
@@ -169,7 +169,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || j <= 0) {
             return;
         }
-        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14ca), StringHelper.getFormatSize(j)));
+        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14d2), StringHelper.getFormatSize(j)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

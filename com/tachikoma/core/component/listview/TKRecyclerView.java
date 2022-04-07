@@ -37,7 +37,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKRecyclerView extends TKBase<b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_GRID = "grid";
@@ -218,15 +218,15 @@ public class TKRecyclerView extends TKBase<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.mHeaderFooterAdapter != null && (list2 = this.mHeaderViewList) != null && !list2.isEmpty()) {
-                for (View view : this.mHeaderViewList) {
-                    this.mHeaderFooterAdapter.addHeaderView(view);
+                for (View view2 : this.mHeaderViewList) {
+                    this.mHeaderFooterAdapter.addHeaderView(view2);
                 }
             }
             if (this.mHeaderFooterAdapter == null || (list = this.mFooterViewList) == null || list.isEmpty()) {
                 return;
             }
-            for (View view2 : this.mFooterViewList) {
-                this.mHeaderFooterAdapter.addFooterView(view2);
+            for (View view3 : this.mFooterViewList) {
+                this.mHeaderFooterAdapter.addFooterView(view3);
             }
         }
     }

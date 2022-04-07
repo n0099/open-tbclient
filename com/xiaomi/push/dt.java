@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class dt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,27 +26,17 @@ public final class dt {
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f226a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f44156b;
+        public int b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f227b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f44157c;
+        public int c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f228c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public boolean f44158d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public boolean f44159e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f44160f;
+        public boolean d;
+        public boolean e;
+        public boolean f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,10 +53,10 @@ public final class dt {
             }
             this.a = 0;
             this.f228c = false;
-            this.f44156b = 0;
-            this.f44160f = false;
+            this.b = 0;
+            this.f = false;
             this.f225a = Collections.emptyList();
-            this.f44157c = -1;
+            this.c = -1;
         }
 
         public static a a(byte[] bArr) {
@@ -86,10 +76,10 @@ public final class dt {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f44157c < 0) {
+                if (this.c < 0) {
                     b();
                 }
-                return this.f44157c;
+                return this.c;
             }
             return invokeV.intValue;
         }
@@ -114,21 +104,21 @@ public final class dt {
                 return (a) invokeL.objValue;
             }
             while (true) {
-                int m199a = bVar.m199a();
-                if (m199a == 0) {
+                int m195a = bVar.m195a();
+                if (m195a == 0) {
                     return this;
                 }
-                if (m199a == 8) {
+                if (m195a == 8) {
                     a(bVar.c());
-                } else if (m199a == 16) {
-                    a(bVar.m205a());
-                } else if (m199a == 24) {
-                    b(bVar.m208b());
-                } else if (m199a == 32) {
-                    b(bVar.m205a());
-                } else if (m199a == 42) {
-                    a(bVar.m202a());
-                } else if (!a(bVar, m199a)) {
+                } else if (m195a == 16) {
+                    a(bVar.m201a());
+                } else if (m195a == 24) {
+                    b(bVar.m204b());
+                } else if (m195a == 32) {
+                    b(bVar.m201a());
+                } else if (m195a == 42) {
+                    a(bVar.m198a());
+                } else if (!a(bVar, m195a)) {
                     return this;
                 }
             }
@@ -173,19 +163,19 @@ public final class dt {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
                 if (a()) {
-                    cVar.m250b(1, c());
+                    cVar.m246b(1, c());
                 }
-                if (m293c()) {
-                    cVar.m242a(2, b());
+                if (m289c()) {
+                    cVar.m238a(2, b());
                 }
-                if (m294d()) {
-                    cVar.m237a(3, d());
+                if (m290d()) {
+                    cVar.m233a(3, d());
                 }
                 if (f()) {
-                    cVar.m242a(4, m295e());
+                    cVar.m238a(4, m291e());
                 }
                 for (String str : a()) {
-                    cVar.m241a(5, str);
+                    cVar.m237a(5, str);
                 }
             }
         }
@@ -203,21 +193,21 @@ public final class dt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 int i = 0;
-                int b2 = a() ? c.b(1, c()) + 0 : 0;
-                if (m293c()) {
-                    b2 += c.a(2, b());
+                int b = a() ? c.b(1, c()) + 0 : 0;
+                if (m289c()) {
+                    b += c.a(2, b());
                 }
-                if (m294d()) {
-                    b2 += c.a(3, d());
+                if (m290d()) {
+                    b += c.a(3, d());
                 }
                 if (f()) {
-                    b2 += c.a(4, m295e());
+                    b += c.a(4, m291e());
                 }
                 for (String str : a()) {
                     i += c.a(str);
                 }
-                int size = b2 + i + (a().size() * 1);
-                this.f44157c = size;
+                int size = b + i + (a().size() * 1);
+                this.c = size;
                 return size;
             }
             return invokeV.intValue;
@@ -227,8 +217,8 @@ public final class dt {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-                this.f44158d = true;
-                this.f44156b = i;
+                this.d = true;
+                this.b = i;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -238,8 +228,8 @@ public final class dt {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.f44159e = true;
-                this.f44160f = z;
+                this.e = true;
+                this.f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -259,7 +249,7 @@ public final class dt {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m293c() {
+        public boolean m289c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f227b : invokeV.booleanValue;
@@ -268,14 +258,14 @@ public final class dt {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f44156b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.b : invokeV.intValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m294d() {
+        public boolean m290d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f44158d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.d : invokeV.booleanValue;
         }
 
         public int e() {
@@ -285,16 +275,16 @@ public final class dt {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m295e() {
+        public boolean m291e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f44160f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f : invokeV.booleanValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44159e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.e : invokeV.booleanValue;
         }
     }
 }

@@ -8,9 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.r;
-import c.a.v0.r.u;
-import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -27,6 +24,9 @@ import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
+import com.repackage.ic9;
+import com.repackage.lc9;
+import com.repackage.pf0;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GLMediaPreviewView extends MediaPreviewView implements EffectChangeObserver, MediaTrackChangeObserver, OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     public MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface ScaleType {
         public static final int FILL_PARENT = 0;
         public static final int FIT_PARENT = 1;
@@ -158,17 +158,17 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
         if (this.mAdjustToFill) {
             this.mAdjustToFill = getVideoScaleType(this.mVideoWidth, this.mVideoHeight) == 0;
         }
-        double d2 = (this.mVideoHeight * 1.0f) / this.mVideoWidth;
+        double d = (this.mVideoHeight * 1.0f) / this.mVideoWidth;
         int i = this.mSurfaceHeight;
         int i2 = this.mSurfaceWidth;
-        int i3 = (d2 > ((i * 1.0f) / i2) ? 1 : (d2 == ((i * 1.0f) / i2) ? 0 : -1));
+        int i3 = (d > ((i * 1.0f) / i2) ? 1 : (d == ((i * 1.0f) / i2) ? 0 : -1));
         boolean z2 = this.mAdjustToFill;
         if (i3 <= 0 ? !z2 : z2) {
             layoutParams.width = i2;
-            layoutParams.height = (int) (i2 * d2);
+            layoutParams.height = (int) (i2 * d);
         } else {
             layoutParams.height = i;
-            layoutParams.width = (int) (i / d2);
+            layoutParams.width = (int) (i / d);
         }
         if (z) {
             int i4 = layoutParams.width;
@@ -206,31 +206,31 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
             }
 
             @Override // android.view.View.OnLayoutChangeListener
-            public void onLayoutChange(View view, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15) {
+            public void onLayoutChange(View view2, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), Integer.valueOf(i14), Integer.valueOf(i15)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), Integer.valueOf(i14), Integer.valueOf(i15)}) == null) {
                     this.this$0.removeOnLayoutChangeListener(this);
                 }
             }
         });
     }
 
-    private float getRealX(float f2) {
+    private float getRealX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) {
-            float f3 = this.mScaleX;
-            return f3 != 0.0f ? ((f2 - ((((1.0f - f3) * getWidth()) * 1.0f) / 2.0f)) - (((getWidth() * this.mTx) * 1.0f) / 2.0f)) / this.mScaleX : f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f)) == null) {
+            float f2 = this.mScaleX;
+            return f2 != 0.0f ? ((f - ((((1.0f - f2) * getWidth()) * 1.0f) / 2.0f)) - (((getWidth() * this.mTx) * 1.0f) / 2.0f)) / this.mScaleX : f;
         }
         return invokeF.floatValue;
     }
 
-    private float getRealY(float f2) {
+    private float getRealY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f2)) == null) {
-            float f3 = this.mScaleY;
-            return f3 != 0.0f ? ((f2 - ((((1.0f - f3) * getHeight()) * 1.0f) / 2.0f)) + (((getHeight() * this.mTy) * 1.0f) / 2.0f)) / this.mScaleY : f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65546, this, f)) == null) {
+            float f2 = this.mScaleY;
+            return f2 != 0.0f ? ((f - ((((1.0f - f2) * getHeight()) * 1.0f) / 2.0f)) + (((getHeight() * this.mTy) * 1.0f) / 2.0f)) / this.mScaleY : f;
         }
         return invokeF.floatValue;
     }
@@ -239,8 +239,8 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i, i2)) == null) {
-            double d2 = (i2 * 1.0f) / i;
-            return (d2 < 1.7647058823529411d || d2 > 2.162962962962963d) ? 1 : 0;
+            double d = (i2 * 1.0f) / i;
+            return (d < 1.7647058823529411d || d > 2.162962962962963d) ? 1 : 0;
         }
         return invokeII.intValue;
     }
@@ -285,10 +285,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public e getVlogCore() {
+    public pf0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRenderer.getVlogEdit() : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRenderer.getVlogEdit() : (pf0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver
@@ -395,13 +395,13 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                 if (this.mAdjustToFill) {
                     this.mAdjustToFill = getVideoScaleType(this.mVideoWidth, this.mVideoHeight) == 0;
                 }
-                double d2 = (this.mVideoHeight * 1.0f) / this.mVideoWidth;
-                int i3 = (d2 > ((size2 * 1.0f) / size) ? 1 : (d2 == ((size2 * 1.0f) / size) ? 0 : -1));
+                double d = (this.mVideoHeight * 1.0f) / this.mVideoWidth;
+                int i3 = (d > ((size2 * 1.0f) / size) ? 1 : (d == ((size2 * 1.0f) / size) ? 0 : -1));
                 boolean z = this.mAdjustToFill;
                 if (i3 <= 0 ? !z : z) {
-                    size2 = (int) (this.mSurfaceWidth * d2);
+                    size2 = (int) (this.mSurfaceWidth * d);
                 } else {
-                    size = (int) (this.mSurfaceHeight / d2);
+                    size = (int) (this.mSurfaceHeight / d);
                 }
                 i = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
                 i2 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
@@ -516,14 +516,14 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         PointF pointF2 = new PointF(this.mLastDownX1, this.mLastDownY1);
                         PointF pointF3 = new PointF(realX, realY);
                         PointF pointF4 = new PointF(realX2, realY2);
-                        if (r.c(pointF, pointF3) + r.c(pointF2, pointF4) >= 5.0f) {
-                            PointF d2 = r.d(pointF2, pointF);
-                            PointF d3 = r.d(pointF4, pointF3);
-                            float a = r.a(d2, d3);
-                            float e2 = r.e(d2, d3);
+                        if (ic9.c(pointF, pointF3) + ic9.c(pointF2, pointF4) >= 5.0f) {
+                            PointF d = ic9.d(pointF2, pointF);
+                            PointF d2 = ic9.d(pointF4, pointF3);
+                            float a = ic9.a(d, d2);
+                            float e = ic9.e(d, d2);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter != null) {
-                                multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e2, a);
+                                multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e, a);
                             }
                         }
                         this.mLastDownX1 = realX2;
@@ -534,13 +534,13 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         if (stickerCenterPoint != null) {
                             PointF pointF5 = new PointF(this.mLastDownX, this.mLastDownY);
                             PointF pointF6 = new PointF(realX, realY);
-                            PointF d4 = r.d(stickerCenterPoint, pointF5);
-                            PointF d5 = r.d(stickerCenterPoint, pointF6);
-                            float a2 = r.a(d4, d5);
-                            float e3 = r.e(d4, d5);
+                            PointF d3 = ic9.d(stickerCenterPoint, pointF5);
+                            PointF d4 = ic9.d(stickerCenterPoint, pointF6);
+                            float a2 = ic9.a(d3, d4);
+                            float e2 = ic9.e(d3, d4);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter3 = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter3 != null) {
-                                multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e3, a2);
+                                multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e2, a2);
                             }
                         } else {
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter4 = this.multiMediaDataSourceViewAdapter;
@@ -626,7 +626,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                     iEffectProcessor.setPreviewSize(i, i2);
                 }
             }
-            u.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
+            lc9.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GLMediaPreviewView this$0;
@@ -725,10 +725,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVideoRatio(float f2) {
+    public void setVideoRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.mRenderer.setVideoRatio(f2);
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.mRenderer.setVideoRatio(f);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundedCornerTreatment extends CornerTreatment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,22 +28,22 @@ public class RoundedCornerTreatment extends CornerTreatment {
     }
 
     @Override // com.google.android.material.shape.CornerTreatment
-    public void getCornerPath(@NonNull ShapePath shapePath, float f2, float f3, float f4) {
+    public void getCornerPath(@NonNull ShapePath shapePath, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapePath, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            shapePath.reset(0.0f, f4 * f3, 180.0f, 180.0f - f2);
-            float f5 = f4 * 2.0f * f3;
-            shapePath.addArc(0.0f, 0.0f, f5, f5, 180.0f, f2);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapePath, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            shapePath.reset(0.0f, f3 * f2, 180.0f, 180.0f - f);
+            float f4 = f3 * 2.0f * f2;
+            shapePath.addArc(0.0f, 0.0f, f4, f4, 180.0f, f);
         }
     }
 
     @Deprecated
-    public RoundedCornerTreatment(float f2) {
+    public RoundedCornerTreatment(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2)};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,6 +54,6 @@ public class RoundedCornerTreatment extends CornerTreatment {
             }
         }
         this.radius = -1.0f;
-        this.radius = f2;
+        this.radius = f;
     }
 }

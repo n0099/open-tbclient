@@ -7,23 +7,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f35347b;
+    public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterIntervalHolder(View view) {
-        super(view);
+    public PersonCenterIntervalHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,6 +33,6 @@ public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = -1;
-        this.f35347b = view.findViewById(R.id.obfuscated_res_0x7f091786);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091783);
     }
 }

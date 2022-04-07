@@ -15,7 +15,7 @@ import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class V8Proxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class V8Proxy {
                     makeV8Array.push(i);
                 }
                 return v8Object.executeIntegerFunction(str, makeV8Array);
-            } catch (Exception e2) {
-                TKExceptionDispatcher.dispatchJSException(e2, "executeIntegerFunction: name is " + str, tKJSContext.hashCode());
+            } catch (Exception e) {
+                TKExceptionDispatcher.dispatchJSException(e, "executeIntegerFunction: name is " + str, tKJSContext.hashCode());
                 return -1;
             }
         }
@@ -95,8 +95,8 @@ public class V8Proxy {
                 Object obj = associateReference.nativeObject;
                 associateReference.close();
                 return new Pair<>(v8Object2, obj);
-            } catch (Exception e2) {
-                TKExceptionDispatcher.dispatchJSException(e2, "executeJsFunction: name is " + str, tKJSContext.hashCode());
+            } catch (Exception e) {
+                TKExceptionDispatcher.dispatchJSException(e, "executeJsFunction: name is " + str, tKJSContext.hashCode());
                 return null;
             }
         }

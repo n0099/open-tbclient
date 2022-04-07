@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class jk extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,9 +14,7 @@ public final class jk extends jl {
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f799a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f44525b;
+    public int b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -44,9 +42,9 @@ public final class jk extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            int b2 = b();
-            if (i2 > b2) {
-                i2 = b2;
+            int b = b();
+            if (i2 > b) {
+                i2 = b;
             }
             if (i2 > 0) {
                 System.arraycopy(this.f799a, this.a, bArr, i, i2);
@@ -91,7 +89,7 @@ public final class jk extends jl {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44525b - this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b - this.a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -100,7 +98,7 @@ public final class jk extends jl {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
             this.f799a = bArr;
             this.a = i;
-            this.f44525b = i + i2;
+            this.b = i + i2;
         }
     }
 }

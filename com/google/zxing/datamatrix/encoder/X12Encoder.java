@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class X12Encoder extends C40Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,24 +51,24 @@ public final class X12Encoder extends C40Encoder {
     }
 
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder
-    public int encodeChar(char c2, StringBuilder sb) {
+    public int encodeChar(char c, StringBuilder sb) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c2), sb})) == null) {
-            if (c2 == '\r') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c), sb})) == null) {
+            if (c == '\r') {
                 sb.append((char) 0);
-            } else if (c2 == '*') {
+            } else if (c == '*') {
                 sb.append((char) 1);
-            } else if (c2 == '>') {
+            } else if (c == '>') {
                 sb.append((char) 2);
-            } else if (c2 == ' ') {
+            } else if (c == ' ') {
                 sb.append((char) 3);
-            } else if (c2 >= '0' && c2 <= '9') {
-                sb.append((char) ((c2 - '0') + 4));
-            } else if (c2 >= 'A' && c2 <= 'Z') {
-                sb.append((char) ((c2 - 'A') + 14));
+            } else if (c >= '0' && c <= '9') {
+                sb.append((char) ((c - '0') + 4));
+            } else if (c >= 'A' && c <= 'Z') {
+                sb.append((char) ((c - 'A') + 14));
             } else {
-                HighLevelEncoder.illegalCharacter(c2);
+                HighLevelEncoder.illegalCharacter(c);
             }
             return 1;
         }

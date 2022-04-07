@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<a> a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final bi a;
@@ -89,7 +89,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m219a() {
+    private void m215a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m220a() {
+    public synchronized int m216a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m221a() {
+    public synchronized LinkedList<a> m217a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class bi {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m219a();
+                m215a();
             }
         }
     }

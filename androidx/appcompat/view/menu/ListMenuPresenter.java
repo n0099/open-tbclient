@@ -105,16 +105,16 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view, viewGroup)) == null) {
-                if (view == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
                     ListMenuPresenter listMenuPresenter = this.this$0;
-                    view = listMenuPresenter.mInflater.inflate(listMenuPresenter.mItemLayoutRes, viewGroup, false);
+                    view2 = listMenuPresenter.mInflater.inflate(listMenuPresenter.mItemLayoutRes, viewGroup, false);
                 }
-                ((MenuView.ItemView) view).initialize(getItem(i), 0);
-                return view;
+                ((MenuView.ItemView) view2).initialize(getItem(i), 0);
+                return view2;
             }
             return (View) invokeILL.objValue;
         }
@@ -275,9 +275,9 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.mMenu.performItemAction(this.mAdapter.getItem(i), this, 0);
         }
     }

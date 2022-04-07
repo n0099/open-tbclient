@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
@@ -30,7 +30,7 @@ public class RequestParams {
     public ConcurrentHashMap<String, String> urlParams;
     public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

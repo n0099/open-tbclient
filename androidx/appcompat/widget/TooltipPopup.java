@@ -74,27 +74,27 @@ public class TooltipPopup {
         layoutParams.flags = 24;
     }
 
-    private void computePosition(View view, int i, int i2, boolean z, WindowManager.LayoutParams layoutParams) {
+    private void computePosition(View view2, int i, int i2, boolean z, WindowManager.LayoutParams layoutParams) {
         int height;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), layoutParams}) == null) {
-            layoutParams.token = view.getApplicationWindowToken();
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), layoutParams}) == null) {
+            layoutParams.token = view2.getApplicationWindowToken();
             int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_threshold);
-            if (view.getWidth() < dimensionPixelOffset) {
-                i = view.getWidth() / 2;
+            if (view2.getWidth() < dimensionPixelOffset) {
+                i = view2.getWidth() / 2;
             }
-            if (view.getHeight() >= dimensionPixelOffset) {
+            if (view2.getHeight() >= dimensionPixelOffset) {
                 int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_extra_offset);
                 height = i2 + dimensionPixelOffset2;
                 i3 = i2 - dimensionPixelOffset2;
             } else {
-                height = view.getHeight();
+                height = view2.getHeight();
                 i3 = 0;
             }
             layoutParams.gravity = 49;
             int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R$dimen.tooltip_y_offset_touch : R$dimen.tooltip_y_offset_non_touch);
-            View appRootView = getAppRootView(view);
+            View appRootView = getAppRootView(view2);
             if (appRootView == null) {
                 Log.e(TAG, "Cannot find app view");
                 return;
@@ -103,13 +103,13 @@ public class TooltipPopup {
             Rect rect = this.mTmpDisplayFrame;
             if (rect.left < 0 && rect.top < 0) {
                 Resources resources = this.mContext.getResources();
-                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
                 int dimensionPixelSize = identifier != 0 ? resources.getDimensionPixelSize(identifier) : 0;
                 DisplayMetrics displayMetrics = resources.getDisplayMetrics();
                 this.mTmpDisplayFrame.set(0, dimensionPixelSize, displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
             appRootView.getLocationOnScreen(this.mTmpAppPos);
-            view.getLocationOnScreen(this.mTmpAnchorPos);
+            view2.getLocationOnScreen(this.mTmpAnchorPos);
             int[] iArr = this.mTmpAnchorPos;
             int i4 = iArr[0];
             int[] iArr2 = this.mTmpAppPos;
@@ -136,16 +136,16 @@ public class TooltipPopup {
         }
     }
 
-    public static View getAppRootView(View view) {
+    public static View getAppRootView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
-            View rootView = view.getRootView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            View rootView = view2.getRootView();
             ViewGroup.LayoutParams layoutParams = rootView.getLayoutParams();
             if ((layoutParams instanceof WindowManager.LayoutParams) && ((WindowManager.LayoutParams) layoutParams).type == 2) {
                 return rootView;
             }
-            for (Context context = view.getContext(); context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {
+            for (Context context = view2.getContext(); context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {
                 if (context instanceof Activity) {
                     return ((Activity) context).getWindow().getDecorView();
                 }
@@ -168,14 +168,14 @@ public class TooltipPopup {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContentView.getParent() != null : invokeV.booleanValue;
     }
 
-    public void show(View view, int i, int i2, boolean z, CharSequence charSequence) {
+    public void show(View view2, int i, int i2, boolean z, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), charSequence}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), charSequence}) == null) {
             if (isShowing()) {
                 hide();
             }
             this.mMessageView.setText(charSequence);
-            computePosition(view, i, i2, z, this.mLayoutParams);
+            computePosition(view2, i, i2, z, this.mLayoutParams);
             ((WindowManager) this.mContext.getSystemService("window")).addView(this.mContentView, this.mLayoutParams);
         }
     }

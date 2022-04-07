@@ -8,22 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PanoStateError {
     public static /* synthetic */ Interceptable $ic;
     public static final PanoStateError a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final PanoStateError f28190b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final PanoStateError f28191c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final PanoStateError f28192d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ PanoStateError[] f28193e;
+    public static final PanoStateError b;
+    public static final PanoStateError c;
+    public static final PanoStateError d;
+    public static final /* synthetic */ PanoStateError[] e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +32,11 @@ public final class PanoStateError {
             }
         }
         a = new PanoStateError("PANO_NO_ERROR", 0);
-        f28190b = new PanoStateError("PANO_UID_ERROR", 1);
-        f28191c = new PanoStateError("PANO_NOT_FOUND", 2);
+        b = new PanoStateError("PANO_UID_ERROR", 1);
+        c = new PanoStateError("PANO_NOT_FOUND", 2);
         PanoStateError panoStateError = new PanoStateError("PANO_NO_TOKEN", 3);
-        f28192d = panoStateError;
-        f28193e = new PanoStateError[]{a, f28190b, f28191c, panoStateError};
+        d = panoStateError;
+        e = new PanoStateError[]{a, b, c, panoStateError};
     }
 
     public PanoStateError(String str, int i) {
@@ -75,6 +67,6 @@ public final class PanoStateError {
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f28193e.clone() : (PanoStateError[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) e.clone() : (PanoStateError[]) invokeV.objValue;
     }
 }

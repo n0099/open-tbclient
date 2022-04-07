@@ -12,16 +12,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public ImageView b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f33411b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
     }
 
@@ -57,7 +55,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f33411b, R.drawable.icon_home_card_delete);
+            SkinManager.setImageResource(this.b, R.drawable.icon_home_card_delete);
         }
     }
 

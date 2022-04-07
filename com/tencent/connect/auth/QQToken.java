@@ -17,32 +17,20 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.open.web.security.JniInterface;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QQToken {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_QQ = 2;
     public static final int AUTH_QZONE = 3;
     public static final int AUTH_WEB = 1;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences f43593g;
+    public static SharedPreferences g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43594b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f43595c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f43596d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f43597e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.tencent.open.utils.a f43598f;
+    public String b;
+    public String c;
+    public int d;
+    public long e;
+    public com.tencent.open.utils.a f;
 
     public QQToken(String str) {
         Interceptable interceptable = $ic;
@@ -59,8 +47,8 @@ public class QQToken {
                 return;
             }
         }
-        this.f43596d = 1;
-        this.f43597e = -1L;
+        this.d = 1;
+        this.e = -1L;
         this.a = str;
     }
 
@@ -71,10 +59,10 @@ public class QQToken {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (QQToken.class) {
-                if (f43593g == null) {
-                    f43593g = f.a().getSharedPreferences("token_info_file", 0);
+                if (g == null) {
+                    g = f.a().getSharedPreferences("token_info_file", 0);
                 }
-                sharedPreferences = f43593g;
+                sharedPreferences = g;
             }
             return sharedPreferences;
         }
@@ -101,7 +89,7 @@ public class QQToken {
     public String getAccessToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43594b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public String getAppId() {
@@ -113,19 +101,19 @@ public class QQToken {
     public int getAuthSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43596d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public long getExpireTimeInSecond() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43597e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.longValue;
     }
 
     public String getOpenId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43595c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public String getOpenIdWithCache() {
@@ -146,8 +134,8 @@ public class QQToken {
                 } else {
                     SLog.i("QQToken", "getOpenId from field openId = " + openId + " appId = " + this.a);
                 }
-            } catch (Exception e2) {
-                SLog.i("QQToken", "getLocalOpenIdByAppId " + e2.toString());
+            } catch (Exception e) {
+                SLog.i("QQToken", "getLocalOpenIdByAppId " + e.toString());
             }
             return openId;
         }
@@ -157,7 +145,7 @@ public class QQToken {
     public boolean isSessionValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43594b != null && System.currentTimeMillis() < this.f43597e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b != null && System.currentTimeMillis() < this.e : invokeV.booleanValue;
     }
 
     public JSONObject loadSession(String str) {
@@ -165,12 +153,12 @@ public class QQToken {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             try {
-                if (this.f43598f == null) {
-                    this.f43598f = new com.tencent.open.utils.a(f.a());
+                if (this.f == null) {
+                    this.f = new com.tencent.open.utils.a(f.a());
                 }
-                return a(str, this.f43598f);
-            } catch (Exception e2) {
-                SLog.i("QQToken", "login loadSession" + e2.toString());
+                return a(str, this.f);
+            } catch (Exception e) {
+                SLog.i("QQToken", "login loadSession" + e.toString());
                 return null;
             }
         }
@@ -194,12 +182,12 @@ public class QQToken {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) {
             try {
-                if (this.f43598f == null) {
-                    this.f43598f = new com.tencent.open.utils.a(f.a());
+                if (this.f == null) {
+                    this.f = new com.tencent.open.utils.a(f.a());
                 }
-                return a(this.a, jSONObject, this.f43598f);
-            } catch (Exception e2) {
-                SLog.i("QQToken", "login saveSession" + e2.toString());
+                return a(this.a, jSONObject, this.f);
+            } catch (Exception e) {
+                SLog.i("QQToken", "login saveSession" + e.toString());
                 return false;
             }
         }
@@ -209,10 +197,10 @@ public class QQToken {
     public void setAccessToken(String str, String str2) throws NumberFormatException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            this.f43594b = str;
-            this.f43597e = 0L;
+            this.b = str;
+            this.e = 0L;
             if (str2 != null) {
-                this.f43597e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
+                this.e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
             }
         }
     }
@@ -227,20 +215,20 @@ public class QQToken {
     public void setAuthSource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f43596d = i;
+            this.d = i;
         }
     }
 
     public void setOpenId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f43595c = str;
+            this.c = str;
         }
     }
 
     public static synchronized JSONObject a(String str, com.tencent.open.utils.a aVar) {
         InterceptResult invokeLL;
-        String b2;
+        String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, aVar)) == null) {
             synchronized (QQToken.class) {
@@ -261,49 +249,49 @@ public class QQToken {
                             SLog.i("QQToken", "loadJsonPreference jni load fail SECURE_LIB_VERSION=5");
                             return null;
                         }
-                        String c2 = c(str);
-                        String string2 = a().getString(c2, "");
+                        String c = c(str);
+                        String string2 = a().getString(c, "");
                         if (TextUtils.isEmpty(string2)) {
-                            String b3 = b(str);
-                            String string3 = a().getString(b3, "");
+                            String b2 = b(str);
+                            String string3 = a().getString(b2, "");
                             if (TextUtils.isEmpty(string3)) {
                                 SLog.i("QQToken", "loadJsonPreference oldDesValue null");
                                 return null;
                             }
                             try {
-                                b2 = JniInterface.d1(string3);
-                                if (TextUtils.isEmpty(b2)) {
+                                b = JniInterface.d1(string3);
+                                if (TextUtils.isEmpty(b)) {
                                     SLog.i("QQToken", "loadJsonPreference decodeResult d1 empty");
-                                    a().edit().remove(b3).apply();
+                                    a().edit().remove(b2).apply();
                                     return null;
                                 }
-                                a(str, new JSONObject(b2), aVar);
-                                a().edit().remove(b3).apply();
-                            } catch (Exception e2) {
-                                SLog.e("QQToken", "Catch Exception", e2);
-                                a().edit().remove(b3).apply();
+                                a(str, new JSONObject(b), aVar);
+                                a().edit().remove(b2).apply();
+                            } catch (Exception e) {
+                                SLog.e("QQToken", "Catch Exception", e);
+                                a().edit().remove(b2).apply();
                                 return null;
                             }
                         } else {
                             try {
-                                b2 = JniInterface.d2(string2);
-                                a(str, new JSONObject(b2), aVar);
-                                a().edit().remove(c2).apply();
-                            } catch (Exception e3) {
-                                SLog.e("QQToken", "Catch Exception", e3);
-                                a().edit().remove(c2).apply();
+                                b = JniInterface.d2(string2);
+                                a(str, new JSONObject(b), aVar);
+                                a().edit().remove(c).apply();
+                            } catch (Exception e2) {
+                                SLog.e("QQToken", "Catch Exception", e2);
+                                a().edit().remove(c).apply();
                                 return null;
                             }
                         }
                     } else {
-                        b2 = aVar.b(string);
+                        b = aVar.b(string);
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(b2);
+                        JSONObject jSONObject = new JSONObject(b);
                         SLog.i("QQToken", "loadJsonPreference sucess");
                         return jSONObject;
-                    } catch (Exception e4) {
-                        SLog.i("QQToken", "loadJsonPreference decode " + e4.toString());
+                    } catch (Exception e3) {
+                        SLog.i("QQToken", "loadJsonPreference decode " + e3.toString());
                         return null;
                     }
                 }
@@ -337,8 +325,8 @@ public class QQToken {
                         }
                         SLog.i("QQToken", "expires is null");
                         return false;
-                    } catch (Exception e2) {
-                        SLog.e("QQToken", "saveJsonPreference exception:" + e2.toString());
+                    } catch (Exception e) {
+                        SLog.e("QQToken", "saveJsonPreference exception:" + e.toString());
                         return false;
                     }
                 } else {

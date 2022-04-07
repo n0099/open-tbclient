@@ -96,13 +96,13 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         resetState();
     }
 
-    private void dispatchScrolled(int i, float f2, int i2) {
+    private void dispatchScrolled(int i, float f, int i2) {
         ViewPager2.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageScrolled(i, f2, i2);
+        onPageChangeCallback.onPageScrolled(i, f, i2);
     }
 
     private void dispatchSelected(int i) {

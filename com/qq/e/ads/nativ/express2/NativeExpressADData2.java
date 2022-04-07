@@ -4,7 +4,7 @@ import android.view.View;
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
     void destroy();
 

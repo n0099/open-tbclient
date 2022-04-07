@@ -1,15 +1,15 @@
 package com.baidu.tieba.card.holder;
 
 import android.view.View;
-import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
+import com.repackage.rw5;
+/* loaded from: classes3.dex */
+public class CardViewHolder<T extends rw5> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;

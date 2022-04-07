@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DialogSyncMsg> CREATOR;
@@ -144,8 +144,8 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
                 this.operatedMaxMsgid = jSONObject.optLong("msgid", -1L);
                 this.paid = jSONObject.optLong("pa_uid", -1L);
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }

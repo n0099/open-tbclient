@@ -12,7 +12,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.component.TKBase;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKRefreshAnimatableView extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public class TKRefreshAnimatableView extends TKBase<View> {
         }
     }
 
-    public void updateKeyFrameWithProgress(double d2) {
+    public void updateKeyFrameWithProgress(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
         }
     }
 }

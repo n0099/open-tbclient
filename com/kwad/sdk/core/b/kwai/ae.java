@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ae implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

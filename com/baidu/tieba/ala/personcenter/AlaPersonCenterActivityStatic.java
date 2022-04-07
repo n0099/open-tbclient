@@ -1,6 +1,5 @@
 package com.baidu.tieba.ala.personcenter;
 
-import c.a.p0.f1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,12 +20,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.he6;
+import com.repackage.lt5;
+/* loaded from: classes3.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,14 +60,14 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof j0) {
-                j0 j0Var = (j0) data;
-                c.a.p0.c0.l.a aVar = new c.a.p0.c0.l.a();
-                aVar.i(j0Var.c());
-                aVar.j(j0Var.d());
-                aVar.h(j0Var.b());
-                aVar.k(j0Var.e());
-                aVar.g(j0Var);
+            if (data instanceof he6) {
+                he6 he6Var = (he6) data;
+                lt5 lt5Var = new lt5();
+                lt5Var.i(he6Var.c());
+                lt5Var.j(he6Var.d());
+                lt5Var.h(he6Var.b());
+                lt5Var.k(he6Var.e());
+                lt5Var.g(he6Var);
             }
         }
     }

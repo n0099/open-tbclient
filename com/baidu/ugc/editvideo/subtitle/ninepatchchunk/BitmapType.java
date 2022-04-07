@@ -18,7 +18,7 @@ import com.baidu.ugc.editvideo.data.Div;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapType {
     public static final /* synthetic */ BitmapType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -98,14 +98,14 @@ public class BitmapType {
                 }
             }
 
-            private void recalculateDivs(float f2, ArrayList<Div> arrayList) {
+            private void recalculateDivs(float f, ArrayList<Div> arrayList) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), arrayList}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(65537, this, new Object[]{Float.valueOf(f), arrayList}) == null) {
                     Iterator<Div> it = arrayList.iterator();
                     while (it.hasNext()) {
                         Div next = it.next();
-                        next.start = Math.round(next.start * f2);
-                        next.stop = Math.round(next.stop * f2);
+                        next.start = Math.round(next.start * f);
+                        next.stop = Math.round(next.stop * f);
                     }
                 }
             }

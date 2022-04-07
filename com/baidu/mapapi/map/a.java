@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements Overlay.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class a implements Overlay.a {
                     boolean z = false;
                     if (overlay instanceof Marker) {
                         Marker marker = (Marker) overlay;
-                        if (marker.f26234b != null) {
+                        if (marker.b != null) {
                             ArrayList<BitmapDescriptor> arrayList = marker.o;
                             if (arrayList != null && arrayList.size() > 1) {
                                 Bundle bundle = new Bundle();

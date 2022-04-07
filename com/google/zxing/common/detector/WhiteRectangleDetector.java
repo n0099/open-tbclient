@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class WhiteRectangleDetector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORR = 1;
@@ -85,18 +85,18 @@ public final class WhiteRectangleDetector {
         return invokeCommon.booleanValue;
     }
 
-    private ResultPoint getBlackPointOnSegment(float f2, float f3, float f4, float f5) {
+    private ResultPoint getBlackPointOnSegment(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            int round = MathUtils.round(MathUtils.distance(f2, f3, f4, f5));
-            float f6 = round;
-            float f7 = (f4 - f2) / f6;
-            float f8 = (f5 - f3) / f6;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            int round = MathUtils.round(MathUtils.distance(f, f2, f3, f4));
+            float f5 = round;
+            float f6 = (f3 - f) / f5;
+            float f7 = (f4 - f2) / f5;
             for (int i = 0; i < round; i++) {
-                float f9 = i;
-                int round2 = MathUtils.round((f9 * f7) + f2);
-                int round3 = MathUtils.round((f9 * f8) + f3);
+                float f8 = i;
+                int round2 = MathUtils.round((f8 * f6) + f);
+                int round3 = MathUtils.round((f8 * f7) + f2);
                 if (this.image.get(round2, round3)) {
                     return new ResultPoint(round2, round3);
                 }

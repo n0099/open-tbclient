@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebViewDataDirectorySuffixTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,12 +42,12 @@ public class WebViewDataDirectorySuffixTask extends LaunchTask {
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(null, ProcessUtils.getCurProcessName());
             }
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
-        } catch (NoSuchMethodException e3) {
+        } catch (InvocationTargetException e3) {
             e3.printStackTrace();
-        } catch (InvocationTargetException e4) {
-            e4.printStackTrace();
         }
     }
 

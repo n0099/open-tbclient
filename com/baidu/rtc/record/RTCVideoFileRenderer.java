@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.i0;
+import com.repackage.my9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ import org.webrtc.GlRectDrawer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrameDrawer;
 import org.webrtc.VideoSink;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRE_PREIOD_AUDIO_BUFFER_SIZE = 3840;
@@ -114,7 +114,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if (!(interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: c.a.h0.e.c
+        this.audioThreadHandler.post(new Runnable() { // from class: com.repackage.oc1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,8 +179,8 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                         if ((this.audioBufferInfo.flags & 4) != 0) {
                             return;
                         }
-                    } catch (Exception e2) {
-                        Log.e(TAG, e2.getMessage());
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getMessage());
                         return;
                     }
                 }
@@ -241,8 +241,8 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     if ((this.videoBufferInfo.flags & 4) != 0) {
                         return;
                     }
-                } catch (Exception e2) {
-                    Log.wtf(TAG, e2);
+                } catch (Exception e) {
+                    Log.wtf(TAG, e);
                     return;
                 }
             }
@@ -266,8 +266,8 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 this.audioEncoder.start();
                 this.audioInputBuffers = this.audioEncoder.getInputBuffers();
                 this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
-            } catch (IOException e2) {
-                Log.e(TAG, e2.getMessage());
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
             }
         }
     }
@@ -284,7 +284,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: c.a.h0.e.b
+                this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.nc1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -296,8 +296,8 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                         }
                     }
                 });
-            } catch (Exception e2) {
-                Log.wtf(TAG, e2);
+            } catch (Exception e) {
+                Log.wtf(TAG, e);
             }
         }
     }
@@ -335,7 +335,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void b() {
-        this.eglBase = i0.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
+        this.eglBase = my9.c(this.sharedContext, EglBase.CONFIG_RECORDABLE);
         Surface createInputSurface = this.videoEncoder.createInputSurface();
         this.surface = createInputSurface;
         this.eglBase.createSurface(createInputSurface);
@@ -362,11 +362,11 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             } else if (this.mCallback != null) {
                 this.mCallback.onRecordCompleted(false, "Record is not started!");
             }
-        } catch (IllegalStateException e2) {
-            Log.e(TAG, "Stop media muxer exception : " + e2.getLocalizedMessage());
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "Stop media muxer exception : " + e.getLocalizedMessage());
             RecorderCallback recorderCallback = this.mCallback;
             if (recorderCallback != null) {
-                recorderCallback.onRecordCompleted(false, e2.getLocalizedMessage());
+                recorderCallback.onRecordCompleted(false, e.getLocalizedMessage());
             }
         }
         this.audioThread.quit();
@@ -396,7 +396,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             if (this.videoEncoder == null) {
                 initVideoEncoder();
             }
-            this.renderThreadHandler.post(new Runnable() { // from class: c.a.h0.e.e
+            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.qc1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -431,7 +431,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: c.a.h0.e.a
+                handler.post(new Runnable() { // from class: com.repackage.mc1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -446,7 +446,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: c.a.h0.e.d
+                handler2.post(new Runnable() { // from class: com.repackage.pc1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

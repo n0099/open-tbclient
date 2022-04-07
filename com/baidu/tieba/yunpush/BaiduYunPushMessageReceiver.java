@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushMessageReceiver;
@@ -17,11 +16,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.wt4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
@@ -48,7 +49,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
-                b.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                wt4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -92,11 +93,11 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int e2 = c.a.d.f.m.b.e(str4, 2500);
-            if (e2 < 2500) {
-                e2 += 2500;
+            int e = mg.e(str4, 2500);
+            if (e < 2500) {
+                e += 2500;
             }
-            int i2 = e2;
+            int i2 = e;
             Intent parseUri = Intent.parseUri(str3, 1);
             parseUri.setFlags(276824064);
             NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
@@ -129,10 +130,10 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             if (string.contains("unidispatch/hotuserrank")) {
                 TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
-        } catch (URISyntaxException e2) {
+        } catch (URISyntaxException e) {
+            BdLog.detailException(e);
+        } catch (JSONException e2) {
             BdLog.detailException(e2);
-        } catch (JSONException e3) {
-            BdLog.detailException(e3);
         }
     }
 

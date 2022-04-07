@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
-
-    /* renamed from: b  reason: collision with root package name */
-    public static j f38489b;
+    public static j b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -41,7 +39,7 @@ public class j {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f38489b = new j(context);
+            b = new j(context);
         }
     }
 
@@ -52,8 +50,8 @@ public class j {
             try {
                 int a = com.cmic.sso.sdk.b.a.a().b().a();
                 return a >= 0 ? Integer.toString(a) : "";
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -78,7 +76,7 @@ public class j {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f38489b : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (j) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -96,84 +94,84 @@ public class j {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private String b(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode == 49679479) {
                 if (str.equals("46009")) {
-                    c2 = 6;
+                    c = 6;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 49679502) {
                 switch (hashCode) {
                     case 49679470:
                         if (str.equals("46000")) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679471:
                         if (str.equals("46001")) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679472:
                         if (str.equals("46002")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679473:
                         if (str.equals("46003")) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679474:
                         if (str.equals("46004")) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679475:
                         if (str.equals("46005")) {
-                            c2 = '\b';
+                            c = '\b';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679476:
                         if (str.equals("46006")) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 49679477:
                         if (str.equals("46007")) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
             } else {
                 if (str.equals("46011")) {
-                    c2 = '\t';
+                    c = '\t';
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                 case 1:
                 case 2:

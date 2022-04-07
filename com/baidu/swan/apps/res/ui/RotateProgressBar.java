@@ -12,20 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RotateProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Drawable f29117b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f29118c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f29119d;
+    public Drawable b;
+    public long c;
+    public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateProgressBar(Context context, AttributeSet attributeSet, int i) {
@@ -53,15 +47,15 @@ public class RotateProgressBar extends ProgressBar {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29119d = 200;
+            this.d = 200;
             try {
                 Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f29119d = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                    this.d = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -78,21 +72,21 @@ public class RotateProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f29117b;
+                Drawable drawable = this.b;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    long uptimeMillis = SystemClock.uptimeMillis() - this.f29118c;
-                    if (uptimeMillis < this.f29119d) {
-                        postInvalidateDelayed(this.f29119d - uptimeMillis);
+                    long uptimeMillis = SystemClock.uptimeMillis() - this.c;
+                    if (uptimeMillis < this.d) {
+                        postInvalidateDelayed(this.d - uptimeMillis);
                     } else {
-                        this.f29118c = SystemClock.uptimeMillis();
+                        this.c = SystemClock.uptimeMillis();
                         int i = this.a + 30;
                         this.a = i;
                         if (i >= 360) {
                             this.a = 0;
                         }
                         drawable.setLevel((int) ((this.a * 10000) / 360.0f));
-                        postInvalidateDelayed(this.f29119d);
+                        postInvalidateDelayed(this.d);
                     }
                 }
             }
@@ -106,7 +100,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminate(z);
                 if (z) {
-                    this.f29117b = getIndeterminateDrawable();
+                    this.b = getIndeterminateDrawable();
                 }
             }
         }
@@ -119,7 +113,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminateDrawable(drawable);
                 if (isIndeterminate()) {
-                    this.f29117b = drawable;
+                    this.b = drawable;
                 }
             }
         }

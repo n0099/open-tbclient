@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class LogPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FunAdSdk";
@@ -74,8 +74,8 @@ public final class LogPrinter {
                 }
                 objArr2[2] = str2;
                 Log.println(i, TAG, String.format("[%s] %s%s", objArr2));
-            } catch (Exception e2) {
-                e(e2);
+            } catch (Exception e) {
+                e(e);
             }
         }
     }

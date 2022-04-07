@@ -24,7 +24,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -112,8 +112,8 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 jSONObject2.put("action", str2);
                 jSONObject.put("ext", jSONObject2);
                 jSONObject.put("type", z ? 0 : 1);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             SchemeRuntime.getSchemeIoc().doStatistic(UBC_SCHEME_USAGE_TAYGET_ID, jSONObject.toString());
         }
@@ -138,8 +138,8 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                     jSONObject.put("from", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
                 }
                 jSONObject.put("type", "scheme");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             SchemeRuntime.getSchemeIoc().doStatistic(UBC_INSIDE_INVOKE_TO_TAYGET_ID, jSONObject.toString());
         }
@@ -151,8 +151,8 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         try {
             jSONObject3.put("scheme", unitedSchemeEntity.getUri().toString());
             jSONObject3.put("errorcode", i);
-        } catch (JSONException e3) {
-            e3.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         SchemeRuntime.getSchemeIoc().doStatistic(UBC_OUTER_INVOKE_TO_TAYGET_ID, jSONObject3.toString());
     }
@@ -297,9 +297,9 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                     }
                     sLastInvokeSchemeQueue.offer(new InvokeSchemeInfo(unitedSchemeEntity.getUri().toString(), System.currentTimeMillis()));
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                 }
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MethodInvokeUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,14 +33,14 @@ public class MethodInvokeUtil {
             try {
                 method.invoke(cls, objArr);
                 return null;
-            } catch (IllegalAccessException e2) {
-                LogUtils.e(LogUtils.TAG, "IllegalAccessException ", e2);
+            } catch (IllegalAccessException e) {
+                LogUtils.e(LogUtils.TAG, "IllegalAccessException ", e);
                 return null;
-            } catch (IllegalArgumentException e3) {
-                LogUtils.e(LogUtils.TAG, "IllegalArgumentException ", e3);
+            } catch (IllegalArgumentException e2) {
+                LogUtils.e(LogUtils.TAG, "IllegalArgumentException ", e2);
                 return null;
-            } catch (InvocationTargetException e4) {
-                LogUtils.e(LogUtils.TAG, "InvocationTargetException ", e4);
+            } catch (InvocationTargetException e3) {
+                LogUtils.e(LogUtils.TAG, "InvocationTargetException ", e3);
                 return null;
             }
         }

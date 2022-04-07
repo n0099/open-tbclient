@@ -43,7 +43,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestOptions implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISK_CACHE_STRATEGY = 4;
@@ -385,10 +385,10 @@ public class RequestOptions implements Cloneable {
 
     @NonNull
     @CheckResult
-    public static RequestOptions sizeMultiplierOf(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static RequestOptions sizeMultiplierOf(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65566, null, f2)) == null) ? new RequestOptions().sizeMultiplier(f2) : (RequestOptions) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65566, null, f)) == null) ? new RequestOptions().sizeMultiplier(f) : (RequestOptions) invokeF.objValue;
     }
 
     @NonNull
@@ -426,7 +426,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestOptions)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().apply(requestOptions);
+                return m99clone().apply(requestOptions);
             }
             if (isSet(requestOptions.fields, 2)) {
                 this.sizeMultiplier = requestOptions.sizeMultiplier;
@@ -562,7 +562,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().decode(cls);
+                return m99clone().decode(cls);
             }
             this.resourceClass = (Class) Preconditions.checkNotNull(cls);
             this.fields |= 4096;
@@ -586,7 +586,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, diskCacheStrategy)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().diskCacheStrategy(diskCacheStrategy);
+                return m99clone().diskCacheStrategy(diskCacheStrategy);
             }
             this.diskCacheStrategy = (DiskCacheStrategy) Preconditions.checkNotNull(diskCacheStrategy);
             this.fields |= 4;
@@ -610,7 +610,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().dontTransform();
+                return m99clone().dontTransform();
             }
             this.transformations.clear();
             int i = this.fields & (-2049);
@@ -670,7 +670,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().error(drawable);
+                return m99clone().error(drawable);
             }
             this.errorPlaceholder = drawable;
             int i = this.fields | 16;
@@ -689,7 +689,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().fallback(drawable);
+                return m99clone().fallback(drawable);
             }
             this.fallbackDrawable = drawable;
             int i = this.fields | 8192;
@@ -943,7 +943,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048631, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().onlyRetrieveFromCache(z);
+                return m99clone().onlyRetrieveFromCache(z);
             }
             this.onlyRetrieveFromCache = z;
             this.fields |= 524288;
@@ -990,7 +990,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().optionalTransform(downsampleStrategy, transformation);
+                return m99clone().optionalTransform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation, false);
@@ -1005,7 +1005,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048640, this, i, i2)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().override(i, i2);
+                return m99clone().override(i, i2);
             }
             this.overrideWidth = i;
             this.overrideHeight = i2;
@@ -1022,7 +1022,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().placeholder(drawable);
+                return m99clone().placeholder(drawable);
             }
             this.placeholderDrawable = drawable;
             int i = this.fields | 64;
@@ -1041,7 +1041,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, priority)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().priority(priority);
+                return m99clone().priority(priority);
             }
             this.priority = (Priority) Preconditions.checkNotNull(priority);
             this.fields |= 8;
@@ -1057,7 +1057,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, option, t)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().set(option, t);
+                return m99clone().set(option, t);
             }
             Preconditions.checkNotNull(option);
             Preconditions.checkNotNull(t);
@@ -1074,7 +1074,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, key)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().signature(key);
+                return m99clone().signature(key);
             }
             this.signature = (Key) Preconditions.checkNotNull(key);
             this.fields |= 1024;
@@ -1085,15 +1085,15 @@ public class RequestOptions implements Cloneable {
 
     @NonNull
     @CheckResult
-    public RequestOptions sizeMultiplier(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public RequestOptions sizeMultiplier(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().sizeMultiplier(f2);
+                return m99clone().sizeMultiplier(f);
             }
-            if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.sizeMultiplier = f2;
+            if (f >= 0.0f && f <= 1.0f) {
+                this.sizeMultiplier = f;
                 this.fields |= 2;
                 return selfOrThrowIfLocked();
             }
@@ -1109,7 +1109,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048647, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().skipMemoryCache(true);
+                return m99clone().skipMemoryCache(true);
             }
             this.isCacheable = !z;
             this.fields |= 256;
@@ -1125,7 +1125,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, theme)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().theme(theme);
+                return m99clone().theme(theme);
             }
             this.theme = theme;
             this.fields |= 32768;
@@ -1149,7 +1149,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048651, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().transform(downsampleStrategy, transformation);
+                return m99clone().transform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation);
@@ -1172,7 +1172,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048654, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().useAnimationPool(z);
+                return m99clone().useAnimationPool(z);
             }
             this.useAnimationPool = z;
             this.fields |= 1048576;
@@ -1188,7 +1188,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048655, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().useUnlimitedSourceGeneratorsPool(z);
+                return m99clone().useUnlimitedSourceGeneratorsPool(z);
             }
             this.useUnlimitedSourceGeneratorsPool = z;
             this.fields |= 262144;
@@ -1236,7 +1236,7 @@ public class RequestOptions implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @CheckResult
     /* renamed from: clone */
-    public RequestOptions m103clone() {
+    public RequestOptions m99clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -1251,8 +1251,8 @@ public class RequestOptions implements Cloneable {
                 requestOptions.isLocked = false;
                 requestOptions.isAutoCloneEnabled = false;
                 return requestOptions;
-            } catch (CloneNotSupportedException e2) {
-                throw new RuntimeException(e2);
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
             }
         }
         return (RequestOptions) invokeV.objValue;
@@ -1280,7 +1280,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65569, this, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().transform(transformation, z);
+                return m99clone().transform(transformation, z);
             }
             DrawableTransformation drawableTransformation = new DrawableTransformation(transformation, z);
             transform(Bitmap.class, transformation, z);
@@ -1315,7 +1315,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().error(i);
+                return m99clone().error(i);
             }
             this.errorId = i;
             int i2 = this.fields | 32;
@@ -1334,7 +1334,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().fallback(i);
+                return m99clone().fallback(i);
             }
             this.fallbackId = i;
             int i2 = this.fields | 16384;
@@ -1353,7 +1353,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().placeholder(i);
+                return m99clone().placeholder(i);
             }
             this.placeholderId = i;
             int i2 = this.fields | 128;
@@ -1371,7 +1371,7 @@ public class RequestOptions implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65570, this, cls, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m103clone().transform(cls, transformation, z);
+                return m99clone().transform(cls, transformation, z);
             }
             Preconditions.checkNotNull(cls);
             Preconditions.checkNotNull(transformation);

@@ -2,7 +2,6 @@ package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.a0.j.f.i;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,15 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.hk0;
+/* loaded from: classes2.dex */
 public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f27538b = new a();
+    public static final IDownloadViewCreator b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ViewType {
         public static final /* synthetic */ ViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +81,7 @@ public interface IDownloadViewCreator {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements IDownloadViewCreator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +101,7 @@ public interface IDownloadViewCreator {
         }
 
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public i<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
+        public hk0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, viewType)) == null) {
@@ -120,11 +118,11 @@ public interface IDownloadViewCreator {
                     return null;
                 }
             }
-            return (i) invokeLL.objValue;
+            return (hk0) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -164,5 +162,5 @@ public interface IDownloadViewCreator {
         }
     }
 
-    i<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
+    hk0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 }

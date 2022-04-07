@@ -21,9 +21,9 @@ public final class NaturalOrderComparator implements Comparator<Comparable<? sup
     }
 
     /* renamed from: compare  reason: avoid collision after fix types in other method */
-    public int compare2(Comparable<Object> a, Comparable<Object> b2) {
+    public int compare2(Comparable<Object> a, Comparable<Object> b) {
         Intrinsics.checkNotNullParameter(a, "a");
-        Intrinsics.checkNotNullParameter(b2, "b");
-        return a.compareTo(b2);
+        Intrinsics.checkNotNullParameter(b, "b");
+        return a.compareTo(b);
     }
 }

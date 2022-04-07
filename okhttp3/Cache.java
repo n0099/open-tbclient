@@ -321,8 +321,8 @@ public final class Cache implements Closeable, Flushable {
                     throw new IOException("expected an int but was \"" + readDecimalLong + readUtf8LineStrict + "\"");
                 }
                 return (int) readDecimalLong;
-            } catch (NumberFormatException e2) {
-                throw new IOException(e2.getMessage());
+            } catch (NumberFormatException e) {
+                throw new IOException(e.getMessage());
             }
         }
         return invokeL.intValue;
@@ -868,8 +868,8 @@ public final class Cache implements Closeable, Flushable {
                         arrayList.add(certificateFactory.generateCertificate(buffer.inputStream()));
                     }
                     return arrayList;
-                } catch (CertificateException e2) {
-                    throw new IOException(e2.getMessage());
+                } catch (CertificateException e) {
+                    throw new IOException(e.getMessage());
                 }
             }
             return (List) invokeL.objValue;
@@ -884,8 +884,8 @@ public final class Cache implements Closeable, Flushable {
                     for (int i = 0; i < size; i++) {
                         bufferedSink.writeUtf8(ByteString.of(list.get(i).getEncoded()).base64()).writeByte(10);
                     }
-                } catch (CertificateEncodingException e2) {
-                    throw new IOException(e2.getMessage());
+                } catch (CertificateEncodingException e) {
+                    throw new IOException(e.getMessage());
                 }
             }
         }

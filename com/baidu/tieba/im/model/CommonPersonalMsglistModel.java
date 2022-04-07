@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.model;
 
-import c.a.p0.u1.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -15,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.x87;
+/* loaded from: classes3.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(x87.m(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }
@@ -199,7 +199,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(x87.m(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }

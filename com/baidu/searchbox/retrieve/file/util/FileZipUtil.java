@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileZipUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -115,9 +115,9 @@ public class FileZipUtil {
                 th = th2;
                 fileChannel = null;
             }
-        } catch (IOException e2) {
+        } catch (IOException e) {
             if (DEBUG) {
-                e2.printStackTrace();
+                e.printStackTrace();
                 return false;
             }
             return false;
@@ -239,9 +239,9 @@ public class FileZipUtil {
                 zipOutputStream.close();
                 fileOutputStream.close();
                 return true;
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 return false;
             }
@@ -272,9 +272,9 @@ public class FileZipUtil {
                 if (DEBUG) {
                     Log.d(TAG, file.getCanonicalPath() + " is zipped to " + str);
                 }
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }

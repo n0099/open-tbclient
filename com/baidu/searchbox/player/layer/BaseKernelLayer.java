@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaseKernelLayer extends AbsLayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_POSITION = 2;
@@ -43,13 +43,13 @@ public class BaseKernelLayer extends AbsLayer {
     public AbsVideoKernel mVideoKernel;
 
     /* renamed from: com.baidu.searchbox.player.layer.BaseKernelLayer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class Dispatcher implements InternalEventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,65 +306,65 @@ public class BaseKernelLayer extends AbsLayer {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, videoEvent) == null) {
             String action = videoEvent.getAction();
             switch (action.hashCode()) {
                 case -1929694922:
                     if (action.equals(InternalSyncControlEvent.INTERNAL_ACTION_RESUME)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1106918114:
                     if (action.equals(InternalSyncControlEvent.INTERNAL_ACTION_PREPARE)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1076076346:
                     if (action.equals(ControlEvent.ACTION_SEEK_MS)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -502522037:
                     if (action.equals(InternalSyncControlEvent.INTERNAL_ACTION_STOP)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 745698331:
                     if (action.equals(InternalSyncControlEvent.INTERNAL_ACTION_START)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1547340063:
                     if (action.equals(ControlEvent.ACTION_SEEK)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1598355405:
                     if (action.equals(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     seekToMs(videoEvent.getIntExtra(5) * 1000, videoEvent.getIntExtra(12, 3));
                     return;
@@ -414,34 +414,34 @@ public class BaseKernelLayer extends AbsLayer {
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, videoEvent) == null) {
             String action = videoEvent.getAction();
             int hashCode = action.hashCode();
             if (hashCode == -150198673) {
                 if (action.equals(LayerEvent.ACTION_CLICK_NET_TIP)) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != -103262037) {
                 if (hashCode == 1939755256 && action.equals(LayerEvent.ACTION_CHANGE_CLARITY)) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (action.equals(LayerEvent.ACTION_SEEK)) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 getBindPlayer().doPlay();
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 seekTo(videoEvent.getIntExtra(1));
                 requestAudioFocus();
                 this.mVideoKernel.resume();
-            } else if (c2 != 2) {
+            } else if (c != 2) {
             } else {
                 int intExtra = videoEvent.getIntExtra(19);
                 Object extra = videoEvent.getExtra(31);
@@ -460,58 +460,58 @@ public class BaseKernelLayer extends AbsLayer {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
     public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, videoEvent) == null) {
             String action = videoEvent.getAction();
             switch (action.hashCode()) {
                 case -882902390:
                     if (action.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -525235558:
                     if (action.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -461848373:
                     if (action.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 154871702:
                     if (action.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1370689931:
                     if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 this.mVideoKernel.onComplete();
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 this.mVideoKernel.onPrepared();
-            } else if (c2 == 2) {
+            } else if (c == 2) {
                 this.mVideoKernel.onError();
-            } else if (c2 != 3) {
-                if (c2 == 4 && (videoEvent.getExtra(3) instanceof VideoUrlModel)) {
+            } else if (c != 3) {
+                if (c == 4 && (videoEvent.getExtra(3) instanceof VideoUrlModel)) {
                     VideoUrlModel videoUrlModel = (VideoUrlModel) videoEvent.getExtra(3);
                     getBindPlayer().getVideoTask().videoUrl = videoUrlModel.videoUrl;
                     setVideoUrl((BaseKernelLayer) videoUrlModel);
@@ -685,10 +685,10 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod(version = "11.26.0.0")
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048624, this, f2) == null) {
-            this.mVideoKernel.setRadius(f2);
+        if (interceptable == null || interceptable.invokeF(1048624, this, f) == null) {
+            this.mVideoKernel.setRadius(f);
         }
     }
 
@@ -701,10 +701,10 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void setSpeed(float f2) {
+    public void setSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048626, this, f2) == null) {
-            this.mVideoKernel.setSpeed(f2);
+        if (interceptable == null || interceptable.invokeF(1048626, this, f) == null) {
+            this.mVideoKernel.setSpeed(f);
         }
     }
 
@@ -804,10 +804,10 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f2) {
+    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048641, this, onSnapShotFrameListener, f2)) == null) ? this.mVideoKernel.takeSnapshotAsync(onSnapShotFrameListener, f2) : invokeLF.booleanValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048641, this, onSnapShotFrameListener, f)) == null) ? this.mVideoKernel.takeSnapshotAsync(onSnapShotFrameListener, f) : invokeLF.booleanValue;
     }
 
     @PublicMethod

@@ -63,8 +63,8 @@ public class CircleImageView extends ImageView {
         private void updateRadialGradient(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
-                float f2 = i / 2;
-                RadialGradient radialGradient = new RadialGradient(f2, f2, this.this$0.mShadowRadius, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+                float f = i / 2;
+                RadialGradient radialGradient = new RadialGradient(f, f, this.this$0.mShadowRadius, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
                 this.mRadialGradient = radialGradient;
                 this.mShadowPaint.setShader(radialGradient);
             }
@@ -83,11 +83,11 @@ public class CircleImageView extends ImageView {
         }
 
         @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
-        public void onResize(float f2, float f3) {
+        public void onResize(float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                super.onResize(f2, f3);
-                updateRadialGradient((int) f2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                super.onResize(f, f2);
+                updateRadialGradient((int) f);
             }
         }
     }
@@ -111,13 +111,13 @@ public class CircleImageView extends ImageView {
                 return;
             }
         }
-        float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i4 = (int) (1.75f * f2);
-        int i5 = (int) (0.0f * f2);
-        this.mShadowRadius = (int) (3.5f * f2);
+        float f = getContext().getResources().getDisplayMetrics().density;
+        int i4 = (int) (1.75f * f);
+        int i5 = (int) (0.0f * f);
+        this.mShadowRadius = (int) (3.5f * f);
         if (elevationSupported()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
-            ViewCompat.setElevation(this, f2 * 4.0f);
+            ViewCompat.setElevation(this, f * 4.0f);
         } else {
             ShapeDrawable shapeDrawable2 = new ShapeDrawable(new OvalShadow(this, this.mShadowRadius));
             setLayerType(1, shapeDrawable2.getPaint());

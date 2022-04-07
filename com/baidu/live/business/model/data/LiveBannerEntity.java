@@ -2,7 +2,6 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.v.f.g.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -13,8 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
@@ -38,7 +38,7 @@ public class LiveBannerEntity implements Parcelable {
     public long startTime;
     public LiveStatInfo statInfo;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Parcelable.Creator<LiveBannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class LiveBannerEntity implements Parcelable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class LiveBannerEntity implements Parcelable {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !j.a(this.pic) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ub0.a(this.pic) : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {

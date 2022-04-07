@@ -10,7 +10,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RestartableNonResettableInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
                     return;
                 }
                 this.length += read;
-            } catch (IOException e2) {
-                throw new BceClientException("Fail to read data from input.", e2);
+            } catch (IOException e) {
+                throw new BceClientException("Fail to read data from input.", e);
             }
         }
     }

@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS;
@@ -70,7 +70,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public final DiskStorage mStorage;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CacheStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Params {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,12 +334,12 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 }
                 this.mCacheStats.increment(-j3, -i);
                 this.mStorage.purgeUnexpectedResources();
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                 CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
                 Class<?> cls = TAG;
-                cacheErrorLogger.logError(cacheErrorCategory, cls, "evictAboveSize: " + e2.getMessage(), e2);
-                throw e2;
+                cacheErrorLogger.logError(cacheErrorCategory, cls, "evictAboveSize: " + e.getMessage(), e);
+                throw e;
             }
         }
     }
@@ -452,8 +452,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 }
                 this.mCacheSizeLastUpdateTime = now;
                 return true;
-            } catch (IOException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, TAG, "calcFileCacheSize: " + e2.getMessage(), e2);
+            } catch (IOException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, TAG, "calcFileCacheSize: " + e.getMessage(), e);
                 return false;
             }
         }
@@ -470,20 +470,20 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         return (DiskStorage.Inserter) invokeLL.objValue;
     }
 
-    private void trimBy(double d2) {
+    private void trimBy(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Double.valueOf(d)}) == null) {
             synchronized (this.mLock) {
                 try {
                     this.mCacheStats.reset();
                     maybeUpdateFileCacheSize();
                     long size = this.mCacheStats.getSize();
-                    evictAboveSize(size - ((long) (d2 * size)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
-                } catch (IOException e2) {
+                    evictAboveSize(size - ((long) (d * size)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
+                } catch (IOException e) {
                     CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
                     Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "trimBy: " + e2.getMessage(), e2);
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "trimBy: " + e.getMessage(), e);
                 }
             }
         }
@@ -522,11 +522,11 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     this.mStorage.clearAll();
                     this.mResourceIndex.clear();
                     this.mCacheEventListener.onCleared();
-                } catch (IOException | NullPointerException e2) {
+                } catch (IOException | NullPointerException e) {
                     CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
                     Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "clearAll: " + e2.getMessage(), e2);
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "clearAll: " + e.getMessage(), e);
                 }
                 this.mCacheStats.reset();
             }
@@ -566,8 +566,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                                 j3 = Math.max(j3, max);
                             }
                             now = j5;
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             j2 = j3;
                             this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.EVICTION, TAG, "clearOldEntries: " + e.getMessage(), e);
                             j3 = j2;
@@ -579,8 +579,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                         maybeUpdateFileCacheSize();
                         this.mCacheStats.increment(-j4, -i);
                     }
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     j2 = 0;
                 }
             }
@@ -633,9 +633,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     }
                 }
                 return binaryResource;
-            } catch (IOException e2) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, TAG, "getResource", e2);
-                cacheKey2.setException(e2);
+            } catch (IOException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, TAG, "getResource", e);
+                cacheKey2.setException(e);
                 this.mCacheEventListener.onReadException(cacheKey2);
                 return null;
             } finally {
@@ -723,11 +723,11 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                             FLog.e(TAG, "Failed to delete temp file");
                         }
                     }
-                } catch (IOException e2) {
-                    cacheKey2.setException(e2);
+                } catch (IOException e) {
+                    cacheKey2.setException(e);
                     this.mCacheEventListener.onWriteException(cacheKey2);
-                    FLog.e(TAG, "Failed inserting a file into the cache", e2);
-                    throw e2;
+                    FLog.e(TAG, "Failed inserting a file into the cache", e);
+                    throw e;
                 }
             } finally {
                 cacheKey2.recycle();
@@ -753,7 +753,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public boolean probe(CacheKey cacheKey) {
         InterceptResult invokeL;
         String str;
-        IOException e2;
+        IOException e;
         Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048588, this, cacheKey)) != null) {
@@ -778,9 +778,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                             th = th2;
                             try {
                                 throw th;
-                            } catch (IOException e3) {
-                                e2 = e3;
-                                SettableCacheEvent exception = SettableCacheEvent.obtain().setCacheKey(cacheKey).setResourceId(str).setException(e2);
+                            } catch (IOException e2) {
+                                e = e2;
+                                SettableCacheEvent exception = SettableCacheEvent.obtain().setCacheKey(cacheKey).setResourceId(str).setException(e);
                                 this.mCacheEventListener.onReadException(exception);
                                 exception.recycle();
                                 return false;
@@ -793,9 +793,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     th = th3;
                 }
             }
-        } catch (IOException e4) {
+        } catch (IOException e3) {
             str = null;
-            e2 = e4;
+            e = e3;
         }
     }
 
@@ -811,11 +811,11 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                         this.mStorage.remove(str);
                         this.mResourceIndex.remove(str);
                     }
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.DELETE_FILE;
                     Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "delete: " + e2.getMessage(), e2);
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "delete: " + e.getMessage(), e);
                 }
             }
         }
@@ -829,9 +829,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 maybeUpdateFileCacheSize();
                 long size = this.mCacheStats.getSize();
                 if (this.mCacheSizeLimitMinimum > 0 && size > 0 && size >= this.mCacheSizeLimitMinimum) {
-                    double d2 = 1.0d - (this.mCacheSizeLimitMinimum / size);
-                    if (d2 > 0.02d) {
-                        trimBy(d2);
+                    double d = 1.0d - (this.mCacheSizeLimitMinimum / size);
+                    if (d > 0.02d) {
+                        trimBy(d);
                     }
                 }
             }

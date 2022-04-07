@@ -65,8 +65,8 @@ public class CanvasUtils {
                     }
                 } catch (IllegalAccessException unused2) {
                     return;
-                } catch (InvocationTargetException e2) {
-                    throw new RuntimeException(e2.getCause());
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e.getCause());
                 }
             }
             if (z || sInorderBarrierMethod == null) {

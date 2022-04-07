@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PublishProgressEntity implements Jsonable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,13 +19,13 @@ public class PublishProgressEntity implements Jsonable {
     public int showWhere;
     public int type;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ShowWhere {
         public static final int SHOW_FOLLOW = 2;
         public static final int SHOW_HOME_INDEX = 1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Type {
         public static final int PUBLISH_FAIL = 2;
         public static final int PUBLISH_PROGRESS = 4;
@@ -121,8 +121,8 @@ public class PublishProgressEntity implements Jsonable {
                 jSONObject.put("mProgress", this.mProgress);
                 jSONObject.put("type", this.type);
                 jSONObject.put("showWhere", this.showWhere);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

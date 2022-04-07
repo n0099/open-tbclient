@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,8 +97,8 @@ public class h implements Runnable {
                         try {
                             iVar.a(context, list2);
                             i2 += list2.size();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             this.wC++;
                             e.printStackTrace(System.out);
                             if (i2 > 0) {
@@ -108,8 +108,8 @@ public class h implements Runnable {
                         }
                     }
                     this.wC = 0;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     i2 = 0;
                 }
                 if (i2 > 0) {
@@ -127,8 +127,8 @@ public class h implements Runnable {
                         }
                         Thread.currentThread();
                         Thread.sleep(i4);
-                    } catch (InterruptedException e4) {
-                        e4.printStackTrace();
+                    } catch (InterruptedException e3) {
+                        e3.printStackTrace();
                         Thread.currentThread().interrupt();
                     }
                 }
@@ -141,8 +141,8 @@ public class h implements Runnable {
                 synchronized (this.mLock) {
                     try {
                         this.mLock.wait();
-                    } catch (InterruptedException e5) {
-                        e5.printStackTrace();
+                    } catch (InterruptedException e4) {
+                        e4.printStackTrace();
                         Thread.currentThread().interrupt();
                     }
                 }

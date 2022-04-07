@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoRequest";
@@ -209,14 +209,14 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                     if (!TextUtils.isEmpty(optString)) {
                                         try {
                                             paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                        } catch (JSONException e2) {
-                                            LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+                                        } catch (JSONException e) {
+                                            LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                         }
                                     }
                                     arrayList2.add(paInfo);
                                 }
-                            } catch (JSONException e3) {
-                                e = e3;
+                            } catch (JSONException e2) {
+                                e = e2;
                                 arrayList = arrayList2;
                                 LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                                 i2 = 1010;
@@ -232,8 +232,8 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                     str = "query from local db";
                     arrayList = PaInfoDBManager.getInstance(this.mContext).querySubscribedPaList();
                 }
-            } catch (JSONException e4) {
-                e = e4;
+            } catch (JSONException e3) {
+                e = e3;
             }
             PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
         }

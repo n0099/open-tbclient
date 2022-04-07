@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.p0.b2.m.b;
-import c.a.p0.b2.o.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,20 +16,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.dd7;
+import com.repackage.nc7;
+/* loaded from: classes3.dex */
 public class CommonImageButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34300b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f34301c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f34302d;
+    public View b;
+    public TextView c;
+    public TbImageView d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CommonImageButton(Context context) {
@@ -57,48 +51,48 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04f3, (ViewGroup) this, true);
-            this.f34300b = inflate;
-            this.f34301c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e76);
-            this.f34302d = (TbImageView) this.f34300b.findViewById(R.id.obfuscated_res_0x7f090e79);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) this, true);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e74);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e77);
         }
     }
 
-    public void b(a aVar) {
+    public void b(dd7 dd7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dd7Var) == null) || dd7Var == null) {
             return;
         }
-        if (!aVar.j()) {
-            b.a().d(aVar, aVar.h());
+        if (!dd7Var.j()) {
+            nc7.a().d(dd7Var, dd7Var.h());
         }
-        if (aVar.a()) {
-            c(aVar);
+        if (dd7Var.a()) {
+            c(dd7Var);
         } else {
-            d(aVar);
+            d(dd7Var);
         }
     }
 
-    public final void c(a aVar) {
+    public final void c(dd7 dd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f34302d.setVisibility(8);
-            int f2 = aVar.f();
-            if (f2 != 0) {
-                this.f34301c.setVisibility(0);
-                SkinManager.setBackgroundResource(this.f34301c, f2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dd7Var) == null) {
+            this.d.setVisibility(8);
+            int f = dd7Var.f();
+            if (f != 0) {
+                this.c.setVisibility(0);
+                SkinManager.setBackgroundResource(this.c, f);
                 return;
             }
-            this.f34301c.setVisibility(8);
+            this.c.setVisibility(8);
         }
     }
 
-    public final void d(a aVar) {
+    public final void d(dd7 dd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f34301c.setVisibility(8);
-            this.f34302d.setVisibility(0);
-            this.f34302d.J(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, dd7Var) == null) {
+            this.c.setVisibility(8);
+            this.d.setVisibility(0);
+            this.d.K(1 == TbadkCoreApplication.getInst().getSkinType() ? dd7Var.e() : dd7Var.d(), 10, false);
         }
     }
 

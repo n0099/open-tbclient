@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,10 +46,10 @@ public class RotateLoadingLayout extends LoadingLayout {
             }
         }
         this.q = typedArray.getBoolean(15, true);
-        this.f30904b.setScaleType(ImageView.ScaleType.MATRIX);
+        this.b.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         this.n = matrix;
-        this.f30904b.setImageMatrix(matrix);
+        this.b.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.m = rotateAnimation;
         rotateAnimation.setInterpolator(LoadingLayout.l);
@@ -69,11 +69,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void c(float f2) {
+    public void c(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.n.setRotate(this.q ? f2 * 90.0f : Math.max(0.0f, Math.min(180.0f, (f2 * 360.0f) - 180.0f)), this.o, this.p);
-            this.f30904b.setImageMatrix(this.n);
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.n.setRotate(this.q ? f * 90.0f : Math.max(0.0f, Math.min(180.0f, (f * 360.0f) - 180.0f)), this.o, this.p);
+            this.b.setImageMatrix(this.n);
         }
     }
 
@@ -88,7 +88,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30904b.startAnimation(this.m);
+            this.b.startAnimation(this.m);
         }
     }
 
@@ -110,7 +110,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30904b.clearAnimation();
+            this.b.clearAnimation();
             l();
         }
     }
@@ -122,6 +122,6 @@ public class RotateLoadingLayout extends LoadingLayout {
             return;
         }
         matrix.reset();
-        this.f30904b.setImageMatrix(this.n);
+        this.b.setImageMatrix(this.n);
     }
 }

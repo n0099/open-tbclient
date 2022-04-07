@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTDislikeController {
     void onDislikeEvent(Context context, boolean z);
 

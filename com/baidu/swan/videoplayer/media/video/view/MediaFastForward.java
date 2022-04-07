@@ -20,32 +20,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MediaFastForward extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f29730b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f29731c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f29732d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f29733e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f29734f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f29735g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f29736h;
+    public ImageView b;
+    public TextView c;
+    public ProgressBar d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaFastForward(@NonNull Context context) {
@@ -71,33 +57,33 @@ public final class MediaFastForward extends FrameLayout {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29735g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29734f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29736h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
     }
 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             Resources resources = getResources();
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e9, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e0, (ViewGroup) this, true);
             this.a = inflate;
-            this.f29730b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e22);
-            this.f29731c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911a3);
-            this.f29732d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09193a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070695), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070694));
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e20);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091199);
+            this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09192d);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706a2), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706a1));
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811ab);
             this.a.setLayoutParams(layoutParams);
         }
     }
@@ -105,18 +91,18 @@ public final class MediaFastForward extends FrameLayout {
     public void e(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.f29734f = i;
-            this.f29736h = i2;
+            this.f = i;
+            this.h = i2;
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29730b.setImageResource(this.f29733e);
-            this.f29731c.setText(String.format("%s / %s", MediaController.j(this.f29735g), MediaController.j(this.f29736h)));
-            this.f29732d.setProgress(this.f29735g);
-            this.f29732d.setMax(this.f29736h);
+            this.b.setImageResource(this.e);
+            this.c.setText(String.format("%s / %s", MediaController.j(this.g), MediaController.j(this.h)));
+            this.d.setProgress(this.g);
+            this.d.setMax(this.h);
             setVisibility(0);
         }
     }
@@ -124,20 +110,20 @@ public final class MediaFastForward extends FrameLayout {
     public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f29733e = i;
+            this.e = i;
         }
     }
 
     public void h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int i2 = this.f29736h;
+            int i2 = this.h;
             if (i > i2) {
                 i = i2;
             } else if (i < 0) {
                 i = 0;
             }
-            this.f29735g = i;
+            this.g = i;
         }
     }
 

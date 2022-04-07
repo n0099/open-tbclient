@@ -12,9 +12,7 @@ import com.sdk.base.framework.f.c.a;
 public class AInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42553c;
+    public int c;
     public String md5;
     public String n;
     public String pk;
@@ -37,7 +35,7 @@ public class AInfo {
     public int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42553c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public String getMd5() {
@@ -67,7 +65,7 @@ public class AInfo {
     public void setC(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f42553c = i;
+            this.c = i;
         }
     }
 

@@ -11,32 +11,18 @@ import com.kwad.sdk.utils.ac;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f39981b;
+    public AdBaseFrameLayout b;
     @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public JSONObject f39982c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f39983d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public WebView f39984e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f39985f;
+    public JSONObject c;
+    public ViewGroup d;
+    public WebView e;
+    public b f;
     @Nullable
-
-    /* renamed from: g  reason: collision with root package name */
-    public ac f39986g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f39987h = true;
+    public ac g;
+    public boolean h = true;
     public boolean i = true;
     public List<AdTemplate> j = null;
 

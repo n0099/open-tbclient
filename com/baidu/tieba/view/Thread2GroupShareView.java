@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
@@ -18,26 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.ni;
+/* loaded from: classes4.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditText f36999b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f37000c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f37001d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f37002e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ShareFromPBMsgData f37003f;
+    public EditText b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public ShareFromPBMsgData f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
@@ -73,18 +63,18 @@ public final class Thread2GroupShareView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0838, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb8);
-            this.f37002e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
-            this.f36999b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905fc);
-            this.f37000c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
-            this.f37001d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f5);
-            SkinManager.setViewTextColor(this.f37002e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f36999b, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f37001d, R.color.CAM_X0106, 1);
-            this.f36999b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f36999b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cce);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090605);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ff);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fe);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
+            this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
             a();
         }
     }
@@ -92,34 +82,34 @@ public final class Thread2GroupShareView extends LinearLayout {
     public void c(String str, boolean z) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.f37000c) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.c) == null) {
             return;
         }
-        tbImageView.J(str, z ? 17 : 18, false);
+        tbImageView.K(str, z ? 17 : 18, false);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f37002e.setText(this.f37003f.getTitle());
-            this.f37000c.setTag(this.f37003f.getImageUrl());
-            this.f37001d.setText(this.f37003f.getContent());
+            this.e.setText(this.f.getTitle());
+            this.c.setTag(this.f.getImageUrl());
+            this.d.setText(this.f.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36999b : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            EditText editText = this.f36999b;
+            EditText editText = this.b;
             if (editText != null) {
-                return m.charSequence2String(editText.getText(), null);
+                return ni.charSequence2String(editText.getText(), null);
             }
             return null;
         }
@@ -129,7 +119,7 @@ public final class Thread2GroupShareView extends LinearLayout {
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
-            this.f37003f = shareFromPBMsgData;
+            this.f = shareFromPBMsgData;
             d();
         }
     }

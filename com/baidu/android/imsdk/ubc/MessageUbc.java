@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageUbc {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_TYPE = "0";
@@ -84,8 +84,8 @@ public class MessageUbc {
                     if (generateExt != null) {
                         jSONObject.put("ext", generateExt);
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;
@@ -102,8 +102,8 @@ public class MessageUbc {
             if (chatMsg != null) {
                 try {
                     jSONObject.put("sendmsg", chatMsg.toJsonString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;
@@ -132,8 +132,8 @@ public class MessageUbc {
                     if (!"0".equals(str)) {
                         jSONObject.put("debug_info", generateDebugInfo(str, str2));
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;
@@ -159,8 +159,8 @@ public class MessageUbc {
                         return null;
                     }
                     jSONObject.put("content", generateContent);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             String str3 = TAG;

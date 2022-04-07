@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BridgeActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLAG_RESTART = "isRestart";
@@ -50,7 +50,7 @@ public final class BridgeActivity extends Activity {
     */
     public void onCreate(Bundle bundle) {
         Intent intent;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             requestWindowFeature(1);
@@ -70,17 +70,17 @@ public final class BridgeActivity extends Activity {
                     if (intent != null) {
                         try {
                             i = intent.getIntExtra("request_code", 0);
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            Log.e("YYOpenSdk", "resultCode getIntExtra exception " + e2);
+                        } catch (Exception e2) {
+                            e = e2;
+                            Log.e("YYOpenSdk", "resultCode getIntExtra exception " + e);
                             if (intent == null) {
                             }
                             LogUtil.logActivity(this, "onCreate");
                         }
                     }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                     intent = null;
-                    e2 = e4;
+                    e = e3;
                 }
                 if (intent == null) {
                     startActivityForResult(intent, i);

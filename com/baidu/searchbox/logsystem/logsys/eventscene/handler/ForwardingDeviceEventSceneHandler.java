@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingCrash";
@@ -86,9 +86,9 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                             }
                             hashSet.addAll(customizedSnapshots);
                         }
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.d("ForwardingCrash", Log.getStackTraceString(e));
                         }
                     }
                 }
@@ -115,9 +115,9 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                             }
                             hashSet.addAll(requireGeneralSnapshots);
                         }
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.d("ForwardingCrash", Log.getStackTraceString(e));
                         }
                     }
                 }
@@ -141,9 +141,9 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                             if (z || saveFragmentSnapshot) {
                                 z = true;
                             }
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             if (LLog.sDebug) {
-                                Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                                Log.d("ForwardingCrash", Log.getStackTraceString(e));
                             }
                         }
                     }

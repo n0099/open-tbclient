@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
             DataOutputStream dataOutputStream2 = 0;
             try {
                 try {
-                    z = Runtime.getRuntime().exec(z != 0 ? j0.f38847b : "sh");
+                    z = Runtime.getRuntime().exec(z != 0 ? j0.b : "sh");
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -137,8 +137,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                                 }
                                 throw th;
                             }
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             str = null;
                             bufferedReader = null;
                             bufferedReader2 = null;
@@ -153,8 +153,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                             }
                             if (bufferedReader2 != null) {
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             str = null;
                             bufferedReader = null;
                             bufferedReader2 = null;
@@ -178,17 +178,17 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                         sb = new StringBuilder();
                         sb2 = new StringBuilder();
                         bufferedReader = new BufferedReader(new InputStreamReader(z.getInputStream()));
-                    } catch (IOException e4) {
+                    } catch (IOException e3) {
+                        e = e3;
+                        bufferedReader = null;
+                        bufferedReader2 = null;
+                    } catch (Exception e4) {
                         e = e4;
                         bufferedReader = null;
                         bufferedReader2 = null;
-                    } catch (Exception e5) {
-                        e = e5;
-                        bufferedReader = null;
-                        bufferedReader2 = null;
                     }
-                } catch (IOException e6) {
-                    e = e6;
+                } catch (IOException e5) {
+                    e = e5;
                     str2 = null;
                     obj2 = z;
                     String str5 = str2;
@@ -205,8 +205,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                     }
                     if (bufferedReader2 != null) {
                     }
-                } catch (Exception e7) {
-                    e = e7;
+                } catch (Exception e6) {
+                    e = e6;
                     str = null;
                     obj = z;
                     bufferedReader3 = str;
@@ -253,8 +253,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                                 if (dataOutputStream2 != null) {
                                     try {
                                         dataOutputStream2.close();
-                                    } catch (IOException e8) {
-                                        e8.printStackTrace();
+                                    } catch (IOException e7) {
+                                        e7.printStackTrace();
                                         if (z != 0) {
                                             z.destroy();
                                         }
@@ -271,8 +271,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                                 }
                                 throw th;
                             }
-                        } catch (IOException e9) {
-                            e = e9;
+                        } catch (IOException e8) {
+                            e = e8;
                             i = i2;
                             bufferedReader4 = null;
                             dataOutputStream2 = dataOutputStream;
@@ -286,8 +286,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                             }
                             if (bufferedReader2 != null) {
                             }
-                        } catch (Exception e10) {
-                            e = e10;
+                        } catch (Exception e9) {
+                            e = e9;
                             i = i2;
                             str = null;
                             dataOutputStream2 = dataOutputStream;
@@ -325,15 +325,15 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                             dataOutputStream.close();
                             bufferedReader.close();
                             bufferedReader2.close();
-                        } catch (IOException e11) {
-                            e11.printStackTrace();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
                         }
                         if (z != null) {
                             z.destroy();
                         }
-                    } catch (IOException e12) {
+                    } catch (IOException e11) {
                         str = str3;
-                        e = e12;
+                        e = e11;
                         i = i2;
                         bufferedReader3 = null;
                         dataOutputStream2 = dataOutputStream;
@@ -342,8 +342,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                         if (dataOutputStream2 != null) {
                             try {
                                 dataOutputStream2.close();
-                            } catch (IOException e13) {
-                                e13.printStackTrace();
+                            } catch (IOException e12) {
+                                e12.printStackTrace();
                             }
                         }
                         if (bufferedReader != null) {
@@ -352,9 +352,9 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                         if (bufferedReader2 != null) {
                             bufferedReader2.close();
                         }
-                    } catch (Exception e14) {
+                    } catch (Exception e13) {
                         str = str3;
-                        e = e14;
+                        e = e13;
                         i = i2;
                         bufferedReader3 = null;
                         dataOutputStream2 = dataOutputStream;
@@ -363,8 +363,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                         if (dataOutputStream2 != null) {
                             try {
                                 dataOutputStream2.close();
-                            } catch (IOException e15) {
-                                e15.printStackTrace();
+                            } catch (IOException e14) {
+                                e14.printStackTrace();
                             }
                         }
                         if (bufferedReader != null) {
@@ -374,8 +374,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                             bufferedReader2.close();
                         }
                     }
-                } catch (IOException e16) {
-                    e = e16;
+                } catch (IOException e15) {
+                    e = e15;
                     bufferedReader2 = null;
                     i = i2;
                     bufferedReader4 = bufferedReader2;
@@ -390,8 +390,8 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                     }
                     if (bufferedReader2 != null) {
                     }
-                } catch (Exception e17) {
-                    e = e17;
+                } catch (Exception e16) {
+                    e = e16;
                     bufferedReader2 = null;
                     i = i2;
                     str = bufferedReader2;
@@ -409,12 +409,12 @@ public class c implements com.yxcorp.kuaishou.addfp.a.b.a {
                     th = th5;
                     bufferedReader2 = null;
                 }
-            } catch (IOException e18) {
-                e = e18;
+            } catch (IOException e17) {
+                e = e17;
                 obj2 = null;
                 str2 = null;
-            } catch (Exception e19) {
-                e = e19;
+            } catch (Exception e18) {
+                e = e18;
                 obj = null;
                 str = null;
             } catch (Throwable th6) {

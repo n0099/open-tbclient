@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NetWorkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -34,7 +34,7 @@ public class NetWorkUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,53 +217,53 @@ public class NetWorkUtils {
 
     public static NetType getNetworkType(Context context) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             String networkTypeString = getNetworkTypeString(context);
             int hashCode = networkTypeString.hashCode();
             if (hashCode == -284840886) {
                 if (networkTypeString.equals("unknown")) {
-                    c2 = 6;
+                    c = 6;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1653) {
                 if (networkTypeString.equals("2g")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1684) {
                 if (networkTypeString.equals("3g")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1715) {
                 if (networkTypeString.equals("4g")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1746) {
                 if (networkTypeString.equals("5g")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 3521) {
                 if (hashCode == 3649301 && networkTypeString.equals("wifi")) {
-                    c2 = 4;
+                    c = 4;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (networkTypeString.equals("no")) {
-                    c2 = 5;
+                    c = 5;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3) {
-                            if (c2 != 4) {
-                                if (c2 != 5) {
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c != 5) {
                                     return NetType.UNKOWN;
                                 }
                                 return NetType.NONE;

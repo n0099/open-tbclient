@@ -1,7 +1,7 @@
 package com.fun.ad.sdk;
 
 import android.app.Activity;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface FunSplashAd {
     void removeMiniWindow();
 

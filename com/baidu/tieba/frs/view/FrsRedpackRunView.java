@@ -17,22 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsRedpackRunView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AutoScrollTextView a;
+    public TBLottieAnimationView b;
+    public View c;
+    public Context d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TBLottieAnimationView f32973b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f32974c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f32975d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +59,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +94,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.a.a(((Activity) this.a.f32975d).getWindowManager());
+                this.a.a.a(((Activity) this.a.d).getWindowManager());
                 this.a.a.c();
             }
         }
@@ -138,7 +132,7 @@ public class FrsRedpackRunView extends RelativeLayout {
                 return;
             }
         }
-        this.f32975d = context;
+        this.d = context;
         d(context);
     }
 
@@ -151,29 +145,29 @@ public class FrsRedpackRunView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f32974c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033c, this);
-            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f092201);
-            this.f32973b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090be5);
+            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033d, this);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f0921e5);
+            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090bf1);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setLottieAnimation(this.f32973b, R.raw.obfuscated_res_0x7f110031);
-            this.f32973b.setImageAssetsFolder("lottie_redpack_runscoll");
-            this.f32973b.addAnimatorUpdateListener(new a(this));
-            this.f32973b.addAnimatorListener(new b(this));
-            this.f32973b.playAnimation();
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11003e);
+            this.b.setImageAssetsFolder("lottie_redpack_runscoll");
+            this.b.addAnimatorUpdateListener(new a(this));
+            this.b.addAnimatorListener(new b(this));
+            this.b.playAnimation();
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            View view = this.f32974c;
-            if (view != null) {
-                view.setOnClickListener(onClickListener);
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.setOnClickListener(onClickListener);
             }
             AutoScrollTextView autoScrollTextView = this.a;
             if (autoScrollTextView != null) {
@@ -189,7 +183,7 @@ public class FrsRedpackRunView extends RelativeLayout {
             return;
         }
         autoScrollTextView.setText(str);
-        this.a.a(((Activity) this.f32975d).getWindowManager());
+        this.a.a(((Activity) this.d).getWindowManager());
         e();
     }
 
@@ -212,7 +206,7 @@ public class FrsRedpackRunView extends RelativeLayout {
                 return;
             }
         }
-        this.f32975d = context;
+        this.d = context;
         d(context);
     }
 }

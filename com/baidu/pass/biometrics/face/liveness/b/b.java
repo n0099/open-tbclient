@@ -4,12 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f27987h = 0;
+    public static final int h = 0;
     public static final int i = 1;
     public static final int j = 2;
     public static final int k = 3;
@@ -29,24 +27,12 @@ public class b {
     public static final int y = 20000;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f27988b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f27989c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f27990d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f27991e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f27992f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f27993g;
+    public boolean b;
+    public boolean c;
+    public long d;
+    public long e;
+    public boolean f;
+    public boolean g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -62,10 +48,10 @@ public class b {
             }
         }
         this.a = 0;
-        this.f27988b = false;
-        this.f27989c = false;
-        this.f27991e = 20000L;
-        this.f27992f = false;
-        this.f27993g = false;
+        this.b = false;
+        this.c = false;
+        this.e = 20000L;
+        this.f = false;
+        this.g = false;
     }
 }

@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DvbParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_TYPE_24_TABLE_DATA = 32;
@@ -56,7 +56,7 @@ public final class DvbParser {
     public final Paint fillRegionPaint;
     public final SubtitleService subtitleService;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ClutDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DisplayDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ObjectData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PageComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PageRegion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class RegionComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class RegionObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public final class DvbParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SubtitleService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -827,10 +827,10 @@ public final class DvbParser {
                     readBits = 0;
                     readBits2 = 255;
                 }
-                double d2 = readBits3;
-                double d3 = i3 - 128;
-                double d4 = readBits - 128;
-                iArr[readBits5] = getColor((byte) (255 - (readBits2 & 255)), Util.constrainValue((int) (d2 + (1.402d * d3)), 0, 255), Util.constrainValue((int) ((d2 - (0.34414d * d4)) - (d3 * 0.71414d)), 0, 255), Util.constrainValue((int) (d2 + (d4 * 1.772d)), 0, 255));
+                double d = readBits3;
+                double d2 = i3 - 128;
+                double d3 = readBits - 128;
+                iArr[readBits5] = getColor((byte) (255 - (readBits2 & 255)), Util.constrainValue((int) (d + (1.402d * d2)), 0, 255), Util.constrainValue((int) ((d - (0.34414d * d3)) - (d2 * 0.71414d)), 0, 255), Util.constrainValue((int) (d + (d3 * 1.772d)), 0, 255));
                 i6 = i2;
                 readBits4 = readBits4;
                 i4 = 8;
@@ -1082,9 +1082,9 @@ public final class DvbParser {
                 RegionComposition regionComposition = this.subtitleService.regions.get(sparseArray2.keyAt(i4));
                 int i5 = valueAt.horizontalAddress + displayDefinition.horizontalPositionMinimum;
                 int i6 = valueAt.verticalAddress + displayDefinition.verticalPositionMinimum;
-                float f2 = i5;
-                float f3 = i6;
-                this.canvas.clipRect(f2, f3, Math.min(regionComposition.width + i5, displayDefinition.horizontalPositionMaximum), Math.min(regionComposition.height + i6, displayDefinition.verticalPositionMaximum), Region.Op.REPLACE);
+                float f = i5;
+                float f2 = i6;
+                this.canvas.clipRect(f, f2, Math.min(regionComposition.width + i5, displayDefinition.horizontalPositionMaximum), Math.min(regionComposition.height + i6, displayDefinition.verticalPositionMaximum), Region.Op.REPLACE);
                 ClutDefinition clutDefinition = this.subtitleService.cluts.get(regionComposition.clutId);
                 if (clutDefinition == null && (clutDefinition = this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
                     clutDefinition = this.defaultClutDefinition;
@@ -1117,12 +1117,12 @@ public final class DvbParser {
                         i2 = clutDefinition.clutEntries2Bit[regionComposition.pixelCode2Bit];
                     }
                     this.fillRegionPaint.setColor(i2);
-                    this.canvas.drawRect(f2, f3, regionComposition.width + i5, regionComposition.height + i6, this.fillRegionPaint);
+                    this.canvas.drawRect(f, f2, regionComposition.width + i5, regionComposition.height + i6, this.fillRegionPaint);
                 }
                 Bitmap createBitmap2 = Bitmap.createBitmap(this.bitmap, i5, i6, regionComposition.width, regionComposition.height);
                 int i9 = displayDefinition.width;
                 int i10 = displayDefinition.height;
-                arrayList.add(new Cue(createBitmap2, f2 / i9, 0, f3 / i10, 0, regionComposition.width / i9, regionComposition.height / i10));
+                arrayList.add(new Cue(createBitmap2, f / i9, 0, f2 / i10, 0, regionComposition.width / i9, regionComposition.height / i10));
                 this.canvas.drawColor(0, PorterDuff.Mode.CLEAR);
             }
             return arrayList;

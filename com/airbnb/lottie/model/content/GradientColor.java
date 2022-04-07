@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import com.airbnb.lottie.utils.GammaEvaluator;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientColor {
     public final int[] colors;
     public final float[] positions;
@@ -25,11 +25,11 @@ public class GradientColor {
         return this.colors.length;
     }
 
-    public void lerp(GradientColor gradientColor, GradientColor gradientColor2, float f2) {
+    public void lerp(GradientColor gradientColor, GradientColor gradientColor2, float f) {
         if (gradientColor.colors.length == gradientColor2.colors.length) {
             for (int i = 0; i < gradientColor.colors.length; i++) {
-                this.positions[i] = MiscUtils.lerp(gradientColor.positions[i], gradientColor2.positions[i], f2);
-                this.colors[i] = GammaEvaluator.evaluate(f2, gradientColor.colors[i], gradientColor2.colors[i]);
+                this.positions[i] = MiscUtils.lerp(gradientColor.positions[i], gradientColor2.positions[i], f);
+                this.colors[i] = GammaEvaluator.evaluate(f, gradientColor.colors[i], gradientColor2.colors[i]);
             }
             return;
         }

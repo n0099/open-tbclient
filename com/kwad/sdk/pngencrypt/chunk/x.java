@@ -1,11 +1,9 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class x extends s {
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f40664h;
+    public String h;
     public int i;
     public int[] j;
 
@@ -23,7 +21,7 @@ public class x extends s {
         int i6 = 0;
         int i7 = 0;
         while (true) {
-            byte[] bArr = dVar.f40643d;
+            byte[] bArr = dVar.d;
             if (i7 >= bArr.length) {
                 i7 = -1;
                 break;
@@ -34,41 +32,41 @@ public class x extends s {
             }
         }
         if (i7 > 0) {
-            byte[] bArr2 = dVar.f40643d;
+            byte[] bArr2 = dVar.d;
             if (i7 <= bArr2.length - 2) {
-                this.f40664h = b.a(bArr2, 0, i7);
-                int a = com.kwad.sdk.pngencrypt.n.a(dVar.f40643d, i7 + 1);
+                this.h = b.a(bArr2, 0, i7);
+                int a = com.kwad.sdk.pngencrypt.n.a(dVar.d, i7 + 1);
                 this.i = a;
                 int i8 = i7 + 2;
-                int length = (dVar.f40643d.length - i8) / (a == 8 ? 6 : 10);
+                int length = (dVar.d.length - i8) / (a == 8 ? 6 : 10);
                 this.j = new int[length * 5];
                 int i9 = i8;
                 int i10 = 0;
                 while (i6 < length) {
                     if (this.i == 8) {
                         int i11 = i9 + 1;
-                        i2 = com.kwad.sdk.pngencrypt.n.a(dVar.f40643d, i9);
+                        i2 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i9);
                         int i12 = i11 + 1;
-                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f40643d, i11);
+                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i11);
                         int i13 = i12 + 1;
-                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f40643d, i12);
+                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i12);
                         i = i13 + 1;
-                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f40643d, i13);
+                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i13);
                     } else {
-                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f40643d, i9);
+                        int b = com.kwad.sdk.pngencrypt.n.b(dVar.d, i9);
                         int i14 = i9 + 2;
-                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f40643d, i14);
+                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i14);
                         int i15 = i14 + 2;
-                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f40643d, i15);
+                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i15);
                         int i16 = i15 + 2;
-                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f40643d, i16);
+                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i16);
                         i = i16 + 2;
-                        i2 = b2;
-                        i3 = b3;
-                        i4 = b4;
-                        i5 = b5;
+                        i2 = b;
+                        i3 = b2;
+                        i4 = b3;
+                        i5 = b4;
                     }
-                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f40643d, i);
+                    int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i);
                     int[] iArr = this.j;
                     int i17 = i10 + 1;
                     iArr[i10] = i2;
@@ -78,7 +76,7 @@ public class x extends s {
                     iArr[i18] = i4;
                     int i20 = i19 + 1;
                     iArr[i19] = i5;
-                    iArr[i20] = b6;
+                    iArr[i20] = b5;
                     i6++;
                     i10 = i20 + 1;
                     i9 = i + 2;
@@ -90,6 +88,6 @@ public class x extends s {
     }
 
     public String c() {
-        return this.f40664h;
+        return this.h;
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetNickNameRequest";
@@ -35,7 +35,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mNickName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,10 +85,10 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
                             LogUtils.d(str3, "updateMemberNickName successful " + updateMemberNickName);
                         }
                     }
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

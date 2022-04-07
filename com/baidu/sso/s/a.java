@@ -13,31 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kuaishou.weapon.un.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final a f28708b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final a f28709c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final a f28710d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final a f28711e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final a f28712f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final a f28713g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final a f28714h;
+    public static final a b;
+    public static final a c;
+    public static final a d;
+    public static final a e;
+    public static final a f;
+    public static final a g;
+    public static final a h;
     public static final a i;
     public static final a j;
     public static final a k;
@@ -60,19 +46,19 @@ public final class a {
             }
         }
         a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f28708b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f28709c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f28710d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f28711e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f28712f = new a("MOTO", 5, 4, "motorola");
-        f28713g = new a("LENOVO", 6, 5, "lenovo");
-        f28714h = new a("ASUS", 7, 6, "asus");
+        b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        c = new a("XIAOMI", 2, 1, "Xiaomi");
+        d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f = new a("MOTO", 5, 4, "motorola");
+        g = new a("LENOVO", 6, 5, "lenovo");
+        h = new a("ASUS", 7, 6, "asus");
         i = new a(g.j, 8, 7, ManufacturerUtils.SAMSUNG);
         j = new a("MEIZU", 9, 8, "meizu");
         k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, RomUtils.MANUFACTURER_NUBIA);
         l = aVar;
-        m = new a[]{a, f28708b, f28709c, f28710d, f28711e, f28712f, f28713g, f28714h, i, j, k, aVar};
+        m = new a[]{a, b, c, d, e, f, g, h, i, j, k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {

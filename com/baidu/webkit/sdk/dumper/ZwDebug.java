@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZwDebug {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debugModel;
@@ -59,8 +59,8 @@ public class ZwDebug {
                     if (applicationInfo != null) {
                         debugModel = (applicationInfo.flags & 2) != 0;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

@@ -9,7 +9,7 @@ import io.reactivex.FlowableOperator;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableLift<R, T> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public final class FlowableLift<R, T> extends AbstractFlowableWithUpstream<T, R>
                     return;
                 }
                 throw new NullPointerException("Operator " + this.operator + " returned a null Subscriber");
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

@@ -97,14 +97,14 @@ public class Camera1Enumerator implements CameraEnumerator {
                         for (Camera.Size size : parameters.getSupportedPreviewSizes()) {
                             arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, i3, i2));
                         }
-                    } catch (Exception e2) {
-                        Logging.e(TAG, "getSupportedFormats() failed on camera index " + i, e2);
+                    } catch (Exception e) {
+                        Logging.e(TAG, "getSupportedFormats() failed on camera index " + i, e);
                     }
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
                     Logging.d(TAG, "Get supported formats for camera index " + i + " done. Time spent: " + (elapsedRealtime2 - elapsedRealtime) + " ms.");
                     return arrayList;
-                } catch (RuntimeException e3) {
-                    Logging.e(TAG, "Open camera failed on camera index " + i, e3);
+                } catch (RuntimeException e2) {
+                    Logging.e(TAG, "Open camera failed on camera index " + i, e2);
                     ArrayList arrayList2 = new ArrayList();
                     if (camera != null) {
                         camera.release();
@@ -145,8 +145,8 @@ public class Camera1Enumerator implements CameraEnumerator {
             try {
                 Camera.getCameraInfo(i, cameraInfo);
                 return cameraInfo;
-            } catch (Exception e2) {
-                Logging.e(TAG, "getCameraInfo failed on index " + i, e2);
+            } catch (Exception e) {
+                Logging.e(TAG, "getCameraInfo failed on index " + i, e);
                 return null;
             }
         }

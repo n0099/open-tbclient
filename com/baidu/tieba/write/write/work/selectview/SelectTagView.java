@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.v.c;
-import c.a.p0.s4.u.p.z.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,36 +25,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o29;
+import com.repackage.wr4;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u001e\u0010>\u001a\u00020?2\u0016\u0010@\u001a\u0012\u0012\u0004\u0012\u00020\f06j\b\u0012\u0004\u0012\u00020\f`7J\u0006\u0010A\u001a\u00020?J\b\u0010B\u001a\u00020?H\u0016J\u0016\u0010C\u001a\u00020?2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010;\u001a\u00020\fR\u001c\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R \u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\f0\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001a\u0010\u0017\u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001cR\u001a\u0010\u001d\u001a\u00020\u001eX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010 \"\u0004\b!\u0010\"R\u001a\u0010#\u001a\u00020$X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\u001a\u0010)\u001a\u00020$X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010&\"\u0004\b+\u0010(R\u001a\u0010,\u001a\u00020-X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u001a\u00102\u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b3\u0010\u001a\"\u0004\b4\u0010\u001cR\u001e\u00105\u001a\u0012\u0012\u0004\u0012\u00020\f06j\b\u0012\u0004\u0012\u00020\f`7X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u00108\u001a\u00020-X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b9\u0010/\"\u0004\b:\u00101R\u001c\u0010;\u001a\u0004\u0018\u00010\fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b<\u0010\u000e\"\u0004\b=\u0010\u0010¨\u0006D"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "firstClass", "", "getFirstClass", "()Ljava/lang/String;", "setFirstClass", "(Ljava/lang/String;)V", "labelTextProvider", "Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "getLabelTextProvider", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "setLabelTextProvider", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;)V", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "mCenterContent", "Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "getMCenterContent", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "setMCenterContent", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView;)V", "mCenterContentTips", "Landroid/widget/TextView;", "getMCenterContentTips", "()Landroid/widget/TextView;", "setMCenterContentTips", "(Landroid/widget/TextView;)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "mRightArrow", "Landroid/widget/ImageView;", "getMRightArrow", "()Landroid/widget/ImageView;", "setMRightArrow", "(Landroid/widget/ImageView;)V", "mRootView", "getMRootView", "setMRootView", "mTagList", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "mTagTitleRightSign", "getMTagTitleRightSign", "setMTagTitleRightSign", "secondClass", "getSecondClass", "setSecondClass", "bindData", "", "bean", "initView", "onChangeSkin", "setClassData", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SelectTagView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f37541b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AutoChangeLineView f37542c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f37543d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f37544e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f37545f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f37546g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f37547h;
+    public TextView b;
+    public AutoChangeLineView c;
+    public ImageView d;
+    public View e;
+    public View f;
+    public ImageView g;
+    public ArrayList<String> h;
     public String i;
     public String j;
     public AutoChangeLineView.b<String> k;
@@ -79,14 +65,14 @@ public final class SelectTagView extends RelativeLayout {
                 return;
             }
         }
-        this.f37547h = new ArrayList<>();
-        this.k = a.a;
+        this.h = new ArrayList<>();
+        this.k = o29.a;
         b();
     }
 
-    public static final void c(SelectTagView this$0, View view) {
+    public static final void c(SelectTagView this$0, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view) == null) {
+        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             String firstClass = this$0.getFirstClass();
             boolean z = false;
@@ -94,7 +80,7 @@ public final class SelectTagView extends RelativeLayout {
                 String secondClass = this$0.getSecondClass();
                 if (!((secondClass == null || secondClass.length() == 0) ? true : true)) {
                     SelectTagActivityConfig selectTagActivityConfig = new SelectTagActivityConfig(this$0.getContext());
-                    selectTagActivityConfig.setTagList(this$0.f37547h);
+                    selectTagActivityConfig.setTagList(this$0.h);
                     selectTagActivityConfig.setFirstClass(this$0.getFirstClass());
                     selectTagActivityConfig.setSecondClass(this$0.getSecondClass());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectTagActivityConfig));
@@ -111,11 +97,11 @@ public final class SelectTagView extends RelativeLayout {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, i, str)) == null) {
             textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             textView.setCompoundDrawables(null, null, null, null);
-            c d2 = c.d(textView);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X09);
-            d2.n(R.string.J_X01);
-            d2.f(R.color.CAM_X0204);
+            wr4 d = wr4.d(textView);
+            d.v(R.color.CAM_X0105);
+            d.z(R.dimen.T_X09);
+            d.n(R.string.J_X01);
+            d.f(R.color.CAM_X0204);
             return str;
         }
         return (CharSequence) invokeLIL.objValue;
@@ -125,7 +111,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
             Intrinsics.checkNotNullParameter(bean, "bean");
-            this.f37547h = bean;
+            this.h = bean;
             if (bean.isEmpty()) {
                 getMCenterContent().setVisibility(8);
                 getMCenterContentTips().setVisibility(0);
@@ -140,35 +126,35 @@ public final class SelectTagView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a2, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092496);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0898, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092471);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_tag_sign)");
             setMTagTitleRightSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09164a);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091644);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.part_name)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0902f5);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0902ff);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.background_show_text)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905d0);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905da);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_card_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091aa6);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091a95);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow_view)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0906de);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0906e7);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.content_bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.p0.s4.u.p.z.d
+            setOnClickListener(new View.OnClickListener() { // from class: com.repackage.r29
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
+                public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        SelectTagView.c(SelectTagView.this, view);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        SelectTagView.c(SelectTagView.this, view2);
                     }
                 }
             });
@@ -179,15 +165,15 @@ public final class SelectTagView extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            getMCenterContent().setLabels(this.f37547h, this.k);
+            getMCenterContent().setLabels(this.h, this.k);
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807a0, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            c d2 = c.d(getMCenterContent());
-            d2.A(R.string.F_X01);
-            d2.z(R.dimen.T_X07);
-            d2.v(R.color.CAM_X0105);
+            wr4 d = wr4.d(getMCenterContent());
+            d.A(R.string.F_X01);
+            d.z(R.dimen.T_X07);
+            d.v(R.color.CAM_X0105);
         }
     }
 
@@ -207,9 +193,9 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View view = this.f37544e;
-            if (view != null) {
-                return view;
+            View view2 = this.e;
+            if (view2 != null) {
+                return view2;
             }
             Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
             return null;
@@ -221,7 +207,7 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AutoChangeLineView autoChangeLineView = this.f37542c;
+            AutoChangeLineView autoChangeLineView = this.c;
             if (autoChangeLineView != null) {
                 return autoChangeLineView;
             }
@@ -235,7 +221,7 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TextView textView = this.f37541b;
+            TextView textView = this.b;
             if (textView != null) {
                 return textView;
             }
@@ -263,7 +249,7 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ImageView imageView = this.f37543d;
+            ImageView imageView = this.d;
             if (imageView != null) {
                 return imageView;
             }
@@ -277,9 +263,9 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            View view = this.f37545f;
-            if (view != null) {
-                return view;
+            View view2 = this.f;
+            if (view2 != null) {
+                return view2;
             }
             Intrinsics.throwUninitializedPropertyAccessException("mRootView");
             return null;
@@ -291,7 +277,7 @@ public final class SelectTagView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ImageView imageView = this.f37546g;
+            ImageView imageView = this.g;
             if (imageView != null) {
                 return imageView;
             }
@@ -332,11 +318,11 @@ public final class SelectTagView extends RelativeLayout {
         }
     }
 
-    public final void setMBottomLine(View view) {
+    public final void setMBottomLine(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
-            Intrinsics.checkNotNullParameter(view, "<set-?>");
-            this.f37544e = view;
+        if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<set-?>");
+            this.e = view2;
         }
     }
 
@@ -344,7 +330,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, autoChangeLineView) == null) {
             Intrinsics.checkNotNullParameter(autoChangeLineView, "<set-?>");
-            this.f37542c = autoChangeLineView;
+            this.c = autoChangeLineView;
         }
     }
 
@@ -352,7 +338,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.f37541b = textView;
+            this.b = textView;
         }
     }
 
@@ -368,15 +354,15 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.f37543d = imageView;
+            this.d = imageView;
         }
     }
 
-    public final void setMRootView(View view) {
+    public final void setMRootView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, view) == null) {
-            Intrinsics.checkNotNullParameter(view, "<set-?>");
-            this.f37545f = view;
+        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<set-?>");
+            this.f = view2;
         }
     }
 
@@ -384,7 +370,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.f37546g = imageView;
+            this.g = imageView;
         }
     }
 
@@ -414,8 +400,8 @@ public final class SelectTagView extends RelativeLayout {
                 return;
             }
         }
-        this.f37547h = new ArrayList<>();
-        this.k = a.a;
+        this.h = new ArrayList<>();
+        this.k = o29.a;
         b();
     }
 
@@ -438,8 +424,8 @@ public final class SelectTagView extends RelativeLayout {
                 return;
             }
         }
-        this.f37547h = new ArrayList<>();
-        this.k = a.a;
+        this.h = new ArrayList<>();
+        this.k = o29.a;
         b();
     }
 }

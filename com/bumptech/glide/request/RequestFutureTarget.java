@@ -24,7 +24,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Waiter DEFAULT_WAITER;
@@ -45,7 +45,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public final int width;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,8 +195,8 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
                 return doGet(null);
-            } catch (TimeoutException e2) {
-                throw new AssertionError(e2);
+            } catch (TimeoutException e) {
+                throw new AssertionError(e);
             }
         }
         return (R) invokeV.objValue;

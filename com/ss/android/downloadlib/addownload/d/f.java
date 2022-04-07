@@ -7,17 +7,15 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class f {
     public static f a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<d> f42839b;
+    public List<d> b;
 
     public f() {
         ArrayList arrayList = new ArrayList();
-        this.f42839b = arrayList;
+        this.b = arrayList;
         arrayList.add(new e());
-        this.f42839b.add(new g());
-        this.f42839b.add(new b());
-        this.f42839b.add(new a());
+        this.b.add(new g());
+        this.b.add(new b());
+        this.b.add(new a());
     }
 
     public static f a() {
@@ -32,12 +30,12 @@ public class f {
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar, int i, c cVar) {
-        List<d> list = this.f42839b;
+        List<d> list = this.b;
         if (list != null && list.size() != 0 && bVar != null) {
             DownloadInfo a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a());
             if (a2 != null && "application/vnd.android.package-archive".equals(a2.getMimeType())) {
                 boolean z = com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("pause_optimise_switch", 0) == 1;
-                for (d dVar : this.f42839b) {
+                for (d dVar : this.b) {
                     if (z || (dVar instanceof g)) {
                         if (dVar.a(bVar, i, cVar)) {
                             return;

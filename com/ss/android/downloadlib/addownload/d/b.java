@@ -33,8 +33,8 @@ public class b implements d {
                         try {
                             jSONObject.putOpt("pause_optimise_type", "download_percent");
                             jSONObject.putOpt("pause_optimise_action", "confirm");
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, bVar);
                     }
@@ -46,8 +46,8 @@ public class b implements d {
                         try {
                             jSONObject.putOpt("pause_optimise_type", "download_percent");
                             jSONObject.putOpt("pause_optimise_action", "cancel");
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, bVar);
                         cVar.a(bVar);

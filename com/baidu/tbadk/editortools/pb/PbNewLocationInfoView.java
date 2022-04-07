@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,17 +51,17 @@ public class PbNewLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a42);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
                 }
                 setText(str);
             } else if (i == 2) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a3f);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a41);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a3f);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a41);
                 }
                 setText(str);
             }
@@ -90,7 +90,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, n.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+        setTextSize(0, oi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
         setState(0, null);
     }
 }

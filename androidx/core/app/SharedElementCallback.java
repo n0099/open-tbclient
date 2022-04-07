@@ -79,13 +79,13 @@ public abstract class SharedElementCallback {
         return (Bitmap) invokeL.objValue;
     }
 
-    public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
+    public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
         InterceptResult invokeLLL;
         Bitmap createDrawableBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) {
-            if (view instanceof ImageView) {
-                ImageView imageView = (ImageView) view;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view2, matrix, rectF)) == null) {
+            if (view2 instanceof ImageView) {
+                ImageView imageView = (ImageView) view2;
                 Drawable drawable = imageView.getDrawable();
                 Drawable background = imageView.getBackground();
                 if (drawable != null && background == null && (createDrawableBitmap = createDrawableBitmap(drawable)) != null) {
@@ -117,7 +117,7 @@ public abstract class SharedElementCallback {
             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             canvas.concat(this.mTempMatrix);
-            view.draw(canvas);
+            view2.draw(canvas);
             return createBitmap;
         }
         return (Parcelable) invokeLLL.objValue;

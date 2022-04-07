@@ -3,7 +3,7 @@ package com.airbnb.lottie.animation.keyframe;
 import android.graphics.PointF;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<PointF, PointF> {
     public final PointF point;
     public final BaseKeyframeAnimation<Float, Float> xAnimation;
@@ -18,9 +18,9 @@ public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<P
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public void setProgress(float f2) {
-        this.xAnimation.setProgress(f2);
-        this.yAnimation.setProgress(f2);
+    public void setProgress(float f) {
+        this.xAnimation.setProgress(f);
+        this.yAnimation.setProgress(f);
         this.point.set(this.xAnimation.getValue().floatValue(), this.yAnimation.getValue().floatValue());
         for (int i = 0; i < this.listeners.size(); i++) {
             this.listeners.get(i).onValueChanged();
@@ -37,7 +37,7 @@ public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<P
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public PointF getValue(Keyframe<PointF> keyframe, float f2) {
+    public PointF getValue(Keyframe<PointF> keyframe, float f) {
         return this.point;
     }
 }

@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKSpringAnimation extends TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,18 +51,18 @@ public class TKSpringAnimation extends TKBasicAnimation {
         this.damping = 20.0f;
     }
 
-    private float calculateDampingRatio(float f2, float f3) {
+    private float calculateDampingRatio(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (float) (f2 / (Math.sqrt(f3) * 2.0d)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (float) (f / (Math.sqrt(f2) * 2.0d)) : invokeCommon.floatValue;
     }
 
-    private void createAndStartAnimation(View view, FloatPropertyCompat<View> floatPropertyCompat, float f2, float f3, float f4) {
+    private void createAndStartAnimation(View view2, FloatPropertyCompat<View> floatPropertyCompat, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{view, floatPropertyCompat, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            SpringAnimation springAnimation = new SpringAnimation(view, floatPropertyCompat, f2);
-            springAnimation.getSpring().setStiffness(f4);
-            springAnimation.getSpring().setDampingRatio(f3);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{view2, floatPropertyCompat, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            SpringAnimation springAnimation = new SpringAnimation(view2, floatPropertyCompat, f);
+            springAnimation.getSpring().setStiffness(f3);
+            springAnimation.getSpring().setDampingRatio(f2);
             springAnimation.start();
         }
     }
@@ -91,13 +91,13 @@ public class TKSpringAnimation extends TKBasicAnimation {
                 return;
             }
             float calculateDampingRatio = calculateDampingRatio(this.damping, this.stiffness);
-            View view = tKBase.getView();
+            View view2 = tKBase.getView();
             Iterator<String> it = animationPropertyList.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 HashMap<Float, Object> hashMap = diffAnimationProperty.get(next);
                 if (hashMap != null) {
-                    char c2 = 1;
+                    char c = 1;
                     if (1 < hashMap.size()) {
                         Object obj = hashMap.get(Float.valueOf(0.0f));
                         Object obj2 = hashMap.get(Float.valueOf(1.0f));
@@ -106,97 +106,97 @@ public class TKSpringAnimation extends TKBasicAnimation {
                             switch (next.hashCode()) {
                                 case -1249320806:
                                     if (next.equals(AnimationProperty.ROTATE_X)) {
-                                        c2 = 4;
+                                        c = 4;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case -1249320805:
                                     if (next.equals(AnimationProperty.ROTATE_Y)) {
-                                        c2 = 5;
+                                        c = 5;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case -1225497657:
                                     if (next.equals(AnimationProperty.TRANSLATE_X)) {
-                                        c2 = 0;
+                                        c = 0;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case -1225497656:
                                     break;
                                 case -908189618:
                                     if (next.equals(AnimationProperty.SCALE_X)) {
-                                        c2 = 2;
+                                        c = 2;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case -908189617:
                                     if (next.equals(AnimationProperty.SCALE_Y)) {
-                                        c2 = 3;
+                                        c = 3;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case -40300674:
                                     if (next.equals("rotation")) {
-                                        c2 = 6;
+                                        c = 6;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 case 92909918:
                                     if (next.equals(AnimationProperty.OPACITY)) {
-                                        c2 = 7;
+                                        c = 7;
                                         break;
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                                 default:
-                                    c2 = 65535;
+                                    c = 65535;
                                     break;
                             }
-                            switch (c2) {
+                            switch (c) {
                                 case 0:
-                                    view.setTranslationX(floatValue);
+                                    view2.setTranslationX(floatValue);
                                     floatPropertyCompat = DynamicAnimation.TRANSLATION_X;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 1:
-                                    view.setTranslationY(floatValue);
+                                    view2.setTranslationY(floatValue);
                                     floatPropertyCompat = DynamicAnimation.TRANSLATION_Y;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 2:
-                                    view.setScaleX(floatValue);
+                                    view2.setScaleX(floatValue);
                                     floatPropertyCompat = DynamicAnimation.SCALE_X;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 3:
-                                    view.setScaleY(floatValue);
+                                    view2.setScaleY(floatValue);
                                     floatPropertyCompat = DynamicAnimation.SCALE_Y;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 4:
-                                    view.setRotationX(floatValue);
+                                    view2.setRotationX(floatValue);
                                     floatPropertyCompat = DynamicAnimation.ROTATION_X;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 5:
-                                    view.setRotationY(floatValue);
+                                    view2.setRotationY(floatValue);
                                     floatPropertyCompat = DynamicAnimation.ROTATION_Y;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 6:
-                                    view.setRotation(floatValue);
+                                    view2.setRotation(floatValue);
                                     floatPropertyCompat = DynamicAnimation.ROTATION;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
                                 case 7:
-                                    view.setAlpha(floatValue);
+                                    view2.setAlpha(floatValue);
                                     floatPropertyCompat = DynamicAnimation.ALPHA;
                                     floatPropertyCompat2 = floatPropertyCompat;
                                     break;
@@ -206,7 +206,7 @@ public class TKSpringAnimation extends TKBasicAnimation {
                                     break;
                             }
                             if (floatPropertyCompat2 != null) {
-                                createAndStartAnimation(view, floatPropertyCompat2, ((Number) obj2).floatValue(), calculateDampingRatio, this.stiffness);
+                                createAndStartAnimation(view2, floatPropertyCompat2, ((Number) obj2).floatValue(), calculateDampingRatio, this.stiffness);
                             }
                         }
                     }
@@ -215,51 +215,51 @@ public class TKSpringAnimation extends TKBasicAnimation {
         }
     }
 
-    private void startAnimationOld(View view) {
+    private void startAnimationOld(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) || this.animValue == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) || this.animValue == null) {
             return;
         }
         float calculateDampingRatio = calculateDampingRatio(this.damping, this.stiffness);
-        startPositionAnim(view, calculateDampingRatio, this.stiffness);
-        startScaleAnim(view, calculateDampingRatio, this.stiffness);
+        startPositionAnim(view2, calculateDampingRatio, this.stiffness);
+        startScaleAnim(view2, calculateDampingRatio, this.stiffness);
     }
 
-    private void startPositionAnim(View view, float f2, float f3) {
+    private void startPositionAnim(View view2, float f, float f2) {
         String[] trans2StringArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) && ((Map) this.animValue).containsKey("position") && (trans2StringArray = trans2StringArray(((Map) this.animValue).get("position"))) != null && trans2StringArray.length == 2) {
+        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) && ((Map) this.animValue).containsKey("position") && (trans2StringArray = trans2StringArray(((Map) this.animValue).get("position"))) != null && trans2StringArray.length == 2) {
             float[] fArr = {0.0f, 0.0f};
             fArr[0] = parsePxValue(trans2StringArray[0]);
             fArr[1] = parsePxValue(trans2StringArray[1]);
-            createAndStartAnimation(view, DynamicAnimation.TRANSLATION_X, fArr[0], f2, f3);
-            createAndStartAnimation(view, DynamicAnimation.TRANSLATION_Y, fArr[1], f2, f3);
+            createAndStartAnimation(view2, DynamicAnimation.TRANSLATION_X, fArr[0], f, f2);
+            createAndStartAnimation(view2, DynamicAnimation.TRANSLATION_Y, fArr[1], f, f2);
         }
     }
 
-    private void startScaleAnim(View view, float f2, float f3) {
+    private void startScaleAnim(View view2, float f, float f2) {
         String[] trans2StringArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) && ((Map) this.animValue).containsKey(AnimationProperty.SCALE) && (trans2StringArray = trans2StringArray(((Map) this.animValue).get(AnimationProperty.SCALE))) != null && trans2StringArray.length == 2) {
+        if ((interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) && ((Map) this.animValue).containsKey(AnimationProperty.SCALE) && (trans2StringArray = trans2StringArray(((Map) this.animValue).get(AnimationProperty.SCALE))) != null && trans2StringArray.length == 2) {
             float[] fArr = {0.0f, 0.0f};
             fArr[0] = parseFloatValue(trans2StringArray[0]);
             fArr[1] = parseFloatValue(trans2StringArray[1]);
-            createAndStartAnimation(view, DynamicAnimation.SCALE_X, fArr[0], f2, f3);
-            createAndStartAnimation(view, DynamicAnimation.SCALE_Y, fArr[1], f2, f3);
+            createAndStartAnimation(view2, DynamicAnimation.SCALE_X, fArr[0], f, f2);
+            createAndStartAnimation(view2, DynamicAnimation.SCALE_Y, fArr[1], f, f2);
         }
     }
 
-    public void setDamping(float f2) {
+    public void setDamping(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.damping = f2;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.damping = f;
         }
     }
 
-    public void setStiffness(float f2) {
+    public void setStiffness(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.stiffness = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.stiffness = f;
         }
     }
 

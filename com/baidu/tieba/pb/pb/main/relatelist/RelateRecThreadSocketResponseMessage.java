@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.RelateRecThread.DataRes;
 import tbclient.RelateRecThread.RelateRecThreadResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RelateRecThreadSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class RelateRecThreadSocketResponseMessage extends SocketResponsedMessage
                 if (relateRecThreadResIdl != null) {
                     this.mData = relateRecThreadResIdl.data;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 setError(-2);
             }
         }

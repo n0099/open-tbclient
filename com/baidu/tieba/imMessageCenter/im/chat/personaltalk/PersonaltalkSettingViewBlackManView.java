@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0654, this);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0650, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090381);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09038c);
         }
     }
 
@@ -52,11 +52,11 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0818);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0819);
             } else if (i != 2) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f1316);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f131e);
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f1150);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f1158);
             }
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f08ca, string));
         }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ObjDetectDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ObjDetectDetector";
@@ -127,7 +127,7 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                     if (strArr == null || strArr.length == 0) {
                         return -1;
                     }
-                    return aVar.f24836tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
+                    return aVar.f986tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
                 }
                 return invokeL2.intValue;
             }
@@ -248,11 +248,11 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, framePixels2)) == null) {
-                    int d2 = this.tz.d(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
+                    int d = this.tz.d(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
                     long timestamp = framePixels2.getTimestamp();
                     float[] fArr = new float[36];
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    ARMdlInterfaceJNI.predictObjDetect(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), d2, framePixels2.isFrontCamera(), fArr);
+                    ARMdlInterfaceJNI.predictObjDetect(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), d, framePixels2.isFrontCamera(), fArr);
                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("obj_detect", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                     return new a(this.tz.getName(), fArr, timestamp);
                 }

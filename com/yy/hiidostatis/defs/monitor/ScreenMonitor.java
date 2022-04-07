@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ScreenMonitor {
     public static final /* synthetic */ ScreenMonitor[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -126,17 +126,17 @@ public final class ScreenMonitor {
                 this.x2 = motionEvent.getX();
                 float y = motionEvent.getY();
                 this.y2 = y;
-                float f2 = this.y1;
-                if (f2 - y > 50.0f) {
+                float f = this.y1;
+                if (f - y > 50.0f) {
                     slideCount();
-                } else if (y - f2 > 50.0f) {
+                } else if (y - f > 50.0f) {
                     slideCount();
                 } else {
-                    float f3 = this.x1;
-                    float f4 = this.x2;
-                    if (f3 - f4 > 50.0f) {
+                    float f2 = this.x1;
+                    float f3 = this.x2;
+                    if (f2 - f3 > 50.0f) {
                         slideCount();
-                    } else if (f4 - f3 > 50.0f) {
+                    } else if (f3 - f2 > 50.0f) {
                         slideCount();
                     }
                 }

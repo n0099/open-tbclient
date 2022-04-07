@@ -10,7 +10,6 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -32,9 +31,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean r = true;
@@ -45,7 +45,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     public XiubaTbJsBridge p;
     public final CustomMessageListener q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,11 +73,11 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.I(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.J(str2, jsPromptResult) : invokeLLLLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,12 +102,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (!this.a.m && !WebViewCardView.r) {
-                    ((WebView) view).requestDisallowInterceptTouchEvent(true);
+                    ((WebView) view2).requestDisallowInterceptTouchEvent(true);
                 }
                 return false;
             }
@@ -115,7 +115,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +239,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public final void G() {
+    public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.o = new BaseWebView(TbadkCoreApplication.getInst());
@@ -258,14 +258,14 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: H */
-    public void t(WebViewCard webViewCard, int i) {
+    /* renamed from: I */
+    public void u(WebViewCard webViewCard, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewCard, i) != null) || TextUtils.isEmpty(webViewCard.getPageUrl()) || this.o == null) {
         }
     }
 
-    public final boolean I(String str, JsPromptResult jsPromptResult) {
+    public final boolean J(String str, JsPromptResult jsPromptResult) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jsPromptResult)) == null) {
@@ -278,8 +278,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
                     return this.p.dealJsInterface(optString, optString2, optString3, jsPromptResult);
                 }
                 return false;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -288,8 +288,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: J */
-    public void u(WebViewCard webViewCard) {
+    /* renamed from: K */
+    public void v(WebViewCard webViewCard) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, webViewCard) == null) || this.o == null) {
             return;
@@ -298,12 +298,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int i = n.i(getContext());
+            int i = oi.i(getContext());
             int container = webViewCard.getContainer();
             if (container == 1) {
-                setWebviewHeight(i - n.f(getContext(), R.dimen.obfuscated_res_0x7f070279));
+                setWebviewHeight(i - oi.f(getContext(), R.dimen.obfuscated_res_0x7f070285));
             } else if (container == 2) {
-                setWebviewHeight(i - n.f(getContext(), R.dimen.obfuscated_res_0x7f070297));
+                setWebviewHeight(i - oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702a1));
             }
         }
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
@@ -312,7 +312,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.p0.b2.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.pd7
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
@@ -323,12 +323,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cc, (ViewGroup) null);
-            G();
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cd, (ViewGroup) null);
+            H();
             return this.n;
         }
         return (View) invokeV.objValue;

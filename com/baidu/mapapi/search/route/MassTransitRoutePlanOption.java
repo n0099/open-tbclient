@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MassTransitRoutePlanOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class MassTransitRoutePlanOption {
     public TransTypeIntercity mTransTypeIntercity;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TacticsIncity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIncity ETRANS_LEAST_TIME;
@@ -31,9 +31,7 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIncity ETRANS_NO_SUBWAY;
         public static final TacticsIncity ETRANS_SUBWAY_FIRST;
         public static final TacticsIncity ETRANS_SUGGEST;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIncity[] f26481b;
+        public static final /* synthetic */ TacticsIncity[] b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -57,7 +55,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_LEAST_TIME = new TacticsIncity("ETRANS_LEAST_TIME", 4, 4);
             TacticsIncity tacticsIncity = new TacticsIncity("ETRANS_SUBWAY_FIRST", 5, 5);
             ETRANS_SUBWAY_FIRST = tacticsIncity;
-            f26481b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
+            b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
         }
 
         public TacticsIncity(String str, int i, int i2) {
@@ -91,7 +89,7 @@ public class MassTransitRoutePlanOption {
         public static TacticsIncity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f26481b.clone() : (TacticsIncity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) b.clone() : (TacticsIncity[]) invokeV.objValue;
         }
 
         public int getInt() {
@@ -102,15 +100,13 @@ public class MassTransitRoutePlanOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TacticsIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIntercity ETRANS_LEAST_PRICE;
         public static final TacticsIntercity ETRANS_LEAST_TIME;
         public static final TacticsIntercity ETRANS_START_EARLY;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIntercity[] f26482b;
+        public static final /* synthetic */ TacticsIntercity[] b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -131,7 +127,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_START_EARLY = new TacticsIntercity("ETRANS_START_EARLY", 1, 1);
             TacticsIntercity tacticsIntercity = new TacticsIntercity("ETRANS_LEAST_PRICE", 2, 2);
             ETRANS_LEAST_PRICE = tacticsIntercity;
-            f26482b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
+            b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
         }
 
         public TacticsIntercity(String str, int i, int i2) {
@@ -165,7 +161,7 @@ public class MassTransitRoutePlanOption {
         public static TacticsIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f26482b.clone() : (TacticsIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) b.clone() : (TacticsIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
@@ -176,15 +172,13 @@ public class MassTransitRoutePlanOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TransTypeIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TransTypeIntercity ETRANS_COACH_FIRST;
         public static final TransTypeIntercity ETRANS_PLANE_FIRST;
         public static final TransTypeIntercity ETRANS_TRAIN_FIRST;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransTypeIntercity[] f26483b;
+        public static final /* synthetic */ TransTypeIntercity[] b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -205,7 +199,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_PLANE_FIRST = new TransTypeIntercity("ETRANS_PLANE_FIRST", 1, 1);
             TransTypeIntercity transTypeIntercity = new TransTypeIntercity("ETRANS_COACH_FIRST", 2, 2);
             ETRANS_COACH_FIRST = transTypeIntercity;
-            f26483b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
+            b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
         }
 
         public TransTypeIntercity(String str, int i, int i2) {
@@ -239,7 +233,7 @@ public class MassTransitRoutePlanOption {
         public static TransTypeIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f26483b.clone() : (TransTypeIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) b.clone() : (TransTypeIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {

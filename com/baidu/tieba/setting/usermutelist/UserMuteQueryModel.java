@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dk8;
+import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.UserMuteQuery.MuteUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserMuteQueryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public wa b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.g.a f35931b;
-
-    /* loaded from: classes5.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteQueryModel a;
@@ -54,7 +54,7 @@ public class UserMuteQueryModel extends BdBaseModel {
             this.a = userMuteQueryModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -88,7 +88,7 @@ public class UserMuteQueryModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(ArrayList<MuteUser> arrayList, int i, String str);
     }
@@ -124,11 +124,11 @@ public class UserMuteQueryModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
-        this.f35931b = aVar;
+        this.b = aVar;
         this.a = bVar;
         registerListener(aVar);
-        c.a.p0.a4.g0.a.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
-        c.a.p0.a4.g0.a.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
+        dk8.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
+        dk8.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
 
     public void A(long j, int i, int i2) {
@@ -166,7 +166,7 @@ public class UserMuteQueryModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f35931b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 

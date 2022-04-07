@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,10 +114,10 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         };
     }
 
-    private void a(float f2, d dVar) {
+    private void a(float f, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), dVar}) == null) {
-            a(dVar, new com.baidu.ar.d.e(this, f2, dVar) { // from class: com.baidu.ar.child.ChildAR.3
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), dVar}) == null) {
+            a(dVar, new com.baidu.ar.d.e(this, f, dVar) { // from class: com.baidu.ar.child.ChildAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -129,7 +129,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f2), dVar};
+                        Object[] objArr = {this, Float.valueOf(f), dVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -140,7 +140,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                         }
                     }
                     this.lF = this;
-                    this.lI = f2;
+                    this.lI = f;
                     this.lJ = dVar;
                 }
 
@@ -185,14 +185,14 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         }
     }
 
-    private void a(String str, float f2) {
+    private void a(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65542, this, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(65542, this, str, f) == null) {
             d dVar = new d();
             dVar.v(str);
             cO();
-            b(f2);
-            a(f2, dVar);
+            b(f);
+            a(f, dVar);
         }
     }
 
@@ -213,12 +213,12 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         algoHandleController.sendHandleToRenderer(j, r, "ability_face_child");
     }
 
-    private void b(float f2) {
+    private void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65544, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65544, this, f) == null) {
             com.baidu.ar.child.a.b bVar = new com.baidu.ar.child.a.b();
             this.lA = bVar;
-            a(bVar, new com.baidu.ar.d.e(this, f2) { // from class: com.baidu.ar.child.ChildAR.4
+            a(bVar, new com.baidu.ar.d.e(this, f) { // from class: com.baidu.ar.child.ChildAR.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -229,7 +229,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f2)};
+                        Object[] objArr = {this, Float.valueOf(f)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -240,7 +240,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                         }
                     }
                     this.lF = this;
-                    this.lI = f2;
+                    this.lI = f;
                 }
 
                 @Override // com.baidu.ar.d.e
@@ -415,7 +415,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             }
             a aVar = this.lz;
             if (aVar != null && !this.lC) {
-                aVar.a((a.InterfaceC1715a) null);
+                aVar.a((a.InterfaceC0055a) null);
                 this.lz.cQ();
                 this.lz = null;
             }
@@ -444,7 +444,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.bD = (String) hashMap.get("ability_name");
             this.lz = new a(this.mInputWidth, this.mInputHeight);
             this.lB = new com.baidu.ar.child.b.b();
-            this.lz.a(new a.InterfaceC1715a(this) { // from class: com.baidu.ar.child.ChildAR.2
+            this.lz.a(new a.InterfaceC0055a(this) { // from class: com.baidu.ar.child.ChildAR.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -467,7 +467,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     this.lF = this;
                 }
 
-                @Override // com.baidu.ar.child.a.InterfaceC1715a
+                @Override // com.baidu.ar.child.a.InterfaceC0055a
                 public void a(long j, byte[] bArr, int i) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)}) == null) || bArr == null || bArr.length <= 0) {

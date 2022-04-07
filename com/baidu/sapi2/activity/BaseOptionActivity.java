@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaseOptionActivity extends AppCompatActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMG_RESULT_OK_CODE = 10000;
@@ -43,24 +43,12 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
     public static final String NO_CAMERA_PERM_MSG = "请开启相机和存储权限";
     public static final int NO_STORAGE_PERM_CODE = 10002;
     public static final String NO_STORAGE_PERM_MSG = "请开启存储权限";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28412b = "camera_temp_image.jpg";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f28413c = 1001;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f28414d = 1002;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f28415e = 1003;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f28416f = 1;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f28417g = 512;
+    public static final String b = "camera_temp_image.jpg";
+    public static final int c = 1001;
+    public static final int d = 1002;
+    public static final int e = 1003;
+    public static final int f = 1;
+    public static final int g = 512;
     public static long lastClickTime;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageCropCallback.ImageCropResult a;
@@ -238,9 +226,9 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 
@@ -372,7 +360,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f105c, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1064, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

@@ -25,7 +25,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import okio.Okio;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieCompositionFactory {
     public static final Map<String, LottieTask<LottieComposition>> taskCache = new HashMap();
 
@@ -147,8 +147,8 @@ public class LottieCompositionFactory {
                     Utils.closeQuietly(jsonReader);
                 }
                 return lottieResult;
-            } catch (Exception e2) {
-                LottieResult<LottieComposition> lottieResult2 = new LottieResult<>(e2);
+            } catch (Exception e) {
+                LottieResult<LottieComposition> lottieResult2 = new LottieResult<>(e);
                 if (z) {
                     Utils.closeQuietly(jsonReader);
                 }
@@ -261,8 +261,8 @@ public class LottieCompositionFactory {
                 LottieCompositionCache.getInstance().put(str, lottieComposition);
             }
             return new LottieResult<>(lottieComposition);
-        } catch (IOException e2) {
-            return new LottieResult<>(e2);
+        } catch (IOException e) {
+            return new LottieResult<>(e);
         }
     }
 
@@ -314,8 +314,8 @@ public class LottieCompositionFactory {
     public static LottieResult<LottieComposition> fromRawResSync(Context context, @RawRes int i, @Nullable String str) {
         try {
             return fromJsonInputStreamSync(context.getResources().openRawResource(i), str);
-        } catch (Resources.NotFoundException e2) {
-            return new LottieResult<>(e2);
+        } catch (Resources.NotFoundException e) {
+            return new LottieResult<>(e);
         }
     }
 
@@ -354,8 +354,8 @@ public class LottieCompositionFactory {
                 return fromZipStreamSync(new ZipInputStream(context.getAssets().open(str)), str2);
             }
             return fromJsonInputStreamSync(context.getAssets().open(str), str2);
-        } catch (IOException e2) {
-            return new LottieResult<>(e2);
+        } catch (IOException e) {
+            return new LottieResult<>(e);
         }
     }
 }

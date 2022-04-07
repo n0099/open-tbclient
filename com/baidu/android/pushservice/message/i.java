@@ -13,32 +13,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f24782b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f24783c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f24784d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f24785e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f24786f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f24787g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f24788h;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
     public String i;
     public String j;
     public int k;
@@ -68,22 +54,22 @@ public class i {
             try {
                 publicMsg.mMsgId = this.j;
                 publicMsg.mAppId = this.i;
-                if (TextUtils.isEmpty(this.f24787g) && TextUtils.isEmpty(this.f24788h)) {
-                    publicMsg.mTitle = this.f24785e;
-                    publicMsg.mDescription = this.f24786f;
+                if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
+                    publicMsg.mTitle = this.e;
+                    publicMsg.mDescription = this.f;
                     publicMsg.mUrl = this.a;
-                    str = this.f24783c;
+                    str = this.c;
                 } else {
-                    publicMsg.mTitle = this.f24787g;
-                    publicMsg.mDescription = this.f24788h;
-                    publicMsg.mUrl = this.f24782b;
-                    str = this.f24784d;
+                    publicMsg.mTitle = this.g;
+                    publicMsg.mDescription = this.h;
+                    publicMsg.mUrl = this.b;
+                    str = this.d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.f.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e2.getMessage(), context.getApplicationContext());
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e.getMessage(), context.getApplicationContext());
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }
@@ -113,8 +99,8 @@ public class i {
                     this.m = jSONObject2.getString("hwprisigninfo");
                 }
                 return string;
-            } catch (JSONException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (JSONException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }
@@ -139,8 +125,8 @@ public class i {
                     if (!jSONObject.isNull("msgBody")) {
                         this.l = jSONObject.getString("msgBody");
                     }
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                     return;
                 }
             }
@@ -169,8 +155,8 @@ public class i {
                     return null;
                 }
                 return jSONObject2.getString("custom_content");
-            } catch (JSONException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (JSONException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }
@@ -200,8 +186,8 @@ public class i {
                     this.m = jSONObject2.getString("mzpri_signinfo");
                 }
                 return string;
-            } catch (JSONException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (JSONException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }

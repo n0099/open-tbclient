@@ -133,14 +133,14 @@ public class Base64 extends BaseNCodec {
         return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, bArr)) == null) ? isBase64(bArr) : invokeL.booleanValue;
     }
 
-    public static boolean isBase64(byte b2) {
+    public static boolean isBase64(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65555, null, b2)) == null) {
-            if (b2 != 61) {
-                if (b2 >= 0) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(65555, null, b)) == null) {
+            if (b != 61) {
+                if (b >= 0) {
                     byte[] bArr = DECODE_TABLE;
-                    if (b2 >= bArr.length || bArr[b2] == -1) {
+                    if (b >= bArr.length || bArr[b] == -1) {
                     }
                 }
                 return false;
@@ -177,7 +177,7 @@ public class Base64 extends BaseNCodec {
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
     public void decode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
-        byte b2;
+        byte b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context}) == null) || context.eof) {
             return;
@@ -192,17 +192,17 @@ public class Base64 extends BaseNCodec {
             }
             byte[] ensureBufferSize = ensureBufferSize(this.decodeSize, context);
             int i4 = i + 1;
-            byte b3 = bArr[i];
-            if (b3 == this.pad) {
+            byte b2 = bArr[i];
+            if (b2 == this.pad) {
                 context.eof = true;
                 break;
             }
-            if (b3 >= 0) {
+            if (b2 >= 0) {
                 byte[] bArr2 = DECODE_TABLE;
-                if (b3 < bArr2.length && (b2 = bArr2[b3]) >= 0) {
+                if (b2 < bArr2.length && (b = bArr2[b2]) >= 0) {
                     int i5 = (context.modulus + 1) % 4;
                     context.modulus = i5;
-                    int i6 = (context.ibitWorkArea << 6) + b2;
+                    int i6 = (context.ibitWorkArea << 6) + b;
                     context.ibitWorkArea = i6;
                     if (i5 == 0) {
                         int i7 = context.pos;
@@ -315,10 +315,10 @@ public class Base64 extends BaseNCodec {
                 if (bArr4 == STANDARD_ENCODE_TABLE) {
                     int i19 = i18 + 1;
                     context.pos = i19;
-                    byte b2 = this.pad;
-                    ensureBufferSize2[i18] = b2;
+                    byte b = this.pad;
+                    ensureBufferSize2[i18] = b;
                     context.pos = i19 + 1;
-                    ensureBufferSize2[i19] = b2;
+                    ensureBufferSize2[i19] = b;
                 }
             } else if (i15 == 2) {
                 int i20 = i14 + 1;
@@ -353,13 +353,13 @@ public class Base64 extends BaseNCodec {
     }
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
-    public boolean isInAlphabet(byte b2) {
+    public boolean isInAlphabet(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2)) == null) {
-            if (b2 >= 0) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+            if (b >= 0) {
                 byte[] bArr = this.decodeTable;
-                if (b2 < bArr.length && bArr[b2] != -1) {
+                if (b < bArr.length && bArr[b] != -1) {
                     return true;
                 }
             }

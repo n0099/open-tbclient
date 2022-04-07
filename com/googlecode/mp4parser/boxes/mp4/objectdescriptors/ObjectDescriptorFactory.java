@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ObjectDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry;
@@ -92,11 +92,11 @@ public class ObjectDescriptorFactory {
             if (cls != null && !cls.isInterface() && !Modifier.isAbstract(cls.getModifiers())) {
                 try {
                     unknownDescriptor = cls.newInstance();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     Logger logger = log;
                     Level level = Level.SEVERE;
-                    logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i + " and tag " + readUInt8, (Throwable) e2);
-                    throw new RuntimeException(e2);
+                    logger.log(level, "Couldn't instantiate BaseDescriptor class " + cls + " for objectTypeIndication " + i + " and tag " + readUInt8, (Throwable) e);
+                    throw new RuntimeException(e);
                 }
             } else {
                 Logger logger2 = log;

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DataMatrixSymbolInfo144() {
-        super(false, 1558, PassBiometricUtil.f27932f, 22, 22, 36, -1, 62);
+        super(false, 1558, PassBiometricUtil.f, 22, 22, 36, -1, 62);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

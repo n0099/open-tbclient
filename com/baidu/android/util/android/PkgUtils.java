@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PkgUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -58,9 +58,9 @@ public class PkgUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 64);
-            } catch (PackageManager.NameNotFoundException e2) {
+            } catch (PackageManager.NameNotFoundException e) {
                 if (DEBUG) {
-                    Log.w(TAG, e2.getMessage());
+                    Log.w(TAG, e.getMessage());
                     return null;
                 }
                 return null;
@@ -76,9 +76,9 @@ public class PkgUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-            } catch (PackageManager.NameNotFoundException e2) {
+            } catch (PackageManager.NameNotFoundException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 applicationInfo = null;
             }
@@ -111,9 +111,9 @@ public class PkgUtils {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
                 return (packageInfo == null || packageInfo.signatures.length <= 0) ? "" : packageInfo.signatures[0].toCharsString();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.e(TAG, "get sign error!!!", e2);
+                    Log.e(TAG, "get sign error!!!", e);
                     return "";
                 }
                 return "";
@@ -129,9 +129,9 @@ public class PkgUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             try {
                 str2 = context.getPackageManager().getPermissionInfo(str, 128).packageName;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.e(TAG, "get packageName error!!!", e2);
+                    Log.e(TAG, "get packageName error!!!", e);
                 }
                 str2 = "";
             }

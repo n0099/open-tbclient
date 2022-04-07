@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.push;
 
-import c.a.o0.r.r.x0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -11,17 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.op4;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMessage.PushMsg;
 import protobuf.PushMsgInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PushResponseMessage extends ResponsePullMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x0 notificationData;
+    public op4 notificationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushResponseMessage() {
@@ -41,10 +41,10 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public x0 getNotificationData() {
+    public op4 getNotificationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (x0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (op4) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage

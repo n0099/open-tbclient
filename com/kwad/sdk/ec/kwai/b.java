@@ -1,7 +1,7 @@
 package com.kwad.sdk.ec.kwai;
 
 import com.kwad.sdk.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
     @Override // com.kwad.sdk.ec.kwai.a
     public String k() {

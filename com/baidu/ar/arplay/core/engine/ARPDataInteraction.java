@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPDataInteraction implements ARPContent.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,17 +23,17 @@ public class ARPDataInteraction implements ARPContent.a {
     public ByteBuffer mMaskBuffer;
     public c mVideoCallback;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         boolean c(int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface b {
-        void a(float f2, float f3, float f4);
+        void a(float f, float f2, float f3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void a(String str, int i, String str2, String str3);
     }
@@ -65,13 +65,13 @@ public class ARPDataInteraction implements ARPContent.a {
         return (String) invokeLIL.objValue;
     }
 
-    public static void onInteractionFinish(Object obj, float f2, float f3, float f4) {
+    public static void onInteractionFinish(Object obj, float f, float f2, float f3) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
             return;
         }
-        aRPDataInteraction.onInteractionFinish(f2, f3, f4);
+        aRPDataInteraction.onInteractionFinish(f, f2, f3);
     }
 
     public static void setValue(Object obj, int i, String str, String str2) {
@@ -203,39 +203,39 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public void onGestureUpdate(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10) {
+    public void onGestureUpdate(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10)}) == null) {
-            onGestureUpdateNative(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, false);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9)}) == null) {
+            onGestureUpdateNative(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9, false);
         }
     }
 
-    public native void onGestureUpdateNative(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z);
+    public native void onGestureUpdateNative(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9, boolean z);
 
-    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z) {
+    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10), Boolean.valueOf(z)}) == null) {
-            onGestureUpdateNative(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, z);
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9), Boolean.valueOf(z)}) == null) {
+            onGestureUpdateNative(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9, z);
         }
     }
 
-    public void onInteractionFinish(float f2, float f3, float f4) {
+    public void onInteractionFinish(float f, float f2, float f3) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || (bVar = this.mInteraction) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) || (bVar = this.mInteraction) == null) {
             return;
         }
-        bVar.a(f2, f3, f4);
+        bVar.a(f, f2, f3);
     }
 
-    public void onTouchUpdate(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6) {
+    public void onTouchUpdate(int i, float f, float f2, float f3, float f4, long j, int i2, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f6)}) == null) {
-            onTouchUpdateNative(i, f2, f3, f4, f5, j, i2, f6);
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f5)}) == null) {
+            onTouchUpdateNative(i, f, f2, f3, f4, j, i2, f5);
         }
     }
 
-    public native void onTouchUpdateNative(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6);
+    public native void onTouchUpdateNative(int i, float f, float f2, float f3, float f4, long j, int i2, float f5);
 
     public void removeAlgoType(int[] iArr) {
         Interceptable interceptable = $ic;

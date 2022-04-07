@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusPerformanceTiming {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "startup_timing_log";
@@ -132,7 +132,7 @@ public class ZeusPerformanceTiming {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -244,8 +244,8 @@ public class ZeusPerformanceTiming {
                 sb = new StringBuilder();
                 sb.append(WebKitFactory.getContext().getExternalFilesDir("").getAbsolutePath());
                 sb.append("/startup_timing_log");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return new File(sb.toString()).exists();
         }
@@ -486,8 +486,8 @@ public class ZeusPerformanceTiming {
                 jSONObject.putOpt(KEY_WEBKIT_INIT_STATISTICS, mWebkitInitStatistics);
                 UMALogger.getInstance().record(jSONObject, sExcludedKeysStartup, UMA_METRIC_PREFIX);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                Log.printStackTrace(e2);
+            } catch (JSONException e) {
+                Log.printStackTrace(e);
                 return null;
             }
         }
@@ -570,15 +570,15 @@ public class ZeusPerformanceTiming {
         if (!(interceptable == null || interceptable.invokeLL(65562, null, stage, str) == null) || str == null) {
             return;
         }
-        char c2 = 65535;
+        char c = 65535;
         if (Stage.Start != stage) {
             if (Stage.End == stage) {
                 if (!sEndTimeStamps.containsKey(str)) {
                     sEndTimeStamps.put(str, Long.valueOf(System.currentTimeMillis()));
                     if (str.hashCode() == -2077939610 && str.equals(KEY_NEW_WEBVIEW_METHOD)) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    if (c2 == 0) {
+                    if (c == 0) {
                         sWebViewInitTimingList.add(Long.valueOf(System.currentTimeMillis() - sWebViewInitTiming));
                     }
                 }
@@ -595,19 +595,19 @@ public class ZeusPerformanceTiming {
             int hashCode = str.hashCode();
             if (hashCode != -2077939610) {
                 if (hashCode == 1384417466 && str.equals(KEY_GET_PROVIDER)) {
-                    c2 = 0;
+                    c = 0;
                 }
             } else if (str.equals(KEY_NEW_WEBVIEW_METHOD)) {
-                c2 = 1;
+                c = 1;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 boolean z = Looper.getMainLooper() == Looper.myLooper();
                 mIsMainThread = z;
                 if (z) {
                     mMainThreadStack = android.util.Log.getStackTraceString(new NullPointerException());
                     android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit on MainThread  : " + mMainThreadStack);
                 }
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 sWebViewInitTiming = System.currentTimeMillis();
             }
         }
@@ -758,8 +758,8 @@ public class ZeusPerformanceTiming {
                 if (zeusPerformanceTiming != null) {
                     SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, zeusPerformanceTiming);
                 }
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
+            } catch (Exception e) {
+                Log.printStackTrace(e);
             }
         }
     }
@@ -780,8 +780,8 @@ public class ZeusPerformanceTiming {
                 String jSONObject2 = jSONObject.toString();
                 Log.i("ZeusPerformanceTiming", "cr_Ime uploadDownloadAndLazyInit : ".concat(String.valueOf(jSONObject2)));
                 SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, jSONObject2);
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
+            } catch (Exception e) {
+                Log.printStackTrace(e);
             }
         }
     }

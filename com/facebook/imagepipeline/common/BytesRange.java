@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;
@@ -76,8 +76,8 @@ public class BytesRange {
                     return new BytesRange(parseInt, parseInt2);
                 }
                 return new BytesRange(parseInt, Integer.MAX_VALUE);
-            } catch (IllegalArgumentException e2) {
-                throw new IllegalArgumentException(String.format(null, "Invalid Content-Range header value: \"%s\"", str), e2);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException(String.format(null, "Invalid Content-Range header value: \"%s\"", str), e);
             }
         }
         return (BytesRange) invokeL.objValue;

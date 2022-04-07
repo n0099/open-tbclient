@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtil";
@@ -56,7 +56,7 @@ public class FileUtil {
 
     public static String readFromFileInputStream(FileInputStream fileInputStream) {
         InterceptResult invokeL;
-        IOException e2;
+        IOException e;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
@@ -71,9 +71,9 @@ public class FileUtil {
                                 sb.append(readLine);
                             }
                             bufferedReader2 = bufferedReader;
-                        } catch (IOException e3) {
-                            e2 = e3;
-                            Log.e(TAG, e2.getMessage(), e2);
+                        } catch (IOException e2) {
+                            e = e2;
+                            Log.e(TAG, e.getMessage(), e);
                             Closeables.closeSafely(bufferedReader);
                             return sb.toString();
                         }
@@ -83,8 +83,8 @@ public class FileUtil {
                         Closeables.closeSafely(bufferedReader2);
                         throw th;
                     }
-                } catch (IOException e4) {
-                    e2 = e4;
+                } catch (IOException e3) {
+                    e = e3;
                     bufferedReader = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -109,14 +109,14 @@ public class FileUtil {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (FileNotFoundException e2) {
-                e = e2;
+            } catch (FileNotFoundException e) {
+                e = e;
             }
             try {
                 writeDataToFile(fileOutputStream, str);
                 Closeables.closeSafely(fileOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
+            } catch (FileNotFoundException e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 Log.e(TAG, e.getMessage(), e);
                 Closeables.closeSafely(fileOutputStream2);
@@ -137,8 +137,8 @@ public class FileUtil {
             try {
                 try {
                     bufferedWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -147,8 +147,8 @@ public class FileUtil {
                 bufferedWriter.write(str);
                 bufferedWriter.flush();
                 Closeables.closeSafely(bufferedWriter);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedWriter2 = bufferedWriter;
                 Log.e(TAG, e.getMessage(), e);
                 Closeables.closeSafely(bufferedWriter2);

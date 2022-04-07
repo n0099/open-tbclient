@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class NetworkType {
     public static /* synthetic */ Interceptable $ic;
     public static final NetworkType NET_2G;
@@ -19,17 +19,11 @@ public final class NetworkType {
     public static final NetworkType NET_4G;
     public static final NetworkType UNKNOWN;
     public static final NetworkType WIFI;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ NetworkType[] f42456d;
+    public static final /* synthetic */ NetworkType[] d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42457b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42458c;
+    public int b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +44,7 @@ public final class NetworkType {
         NET_3G = new NetworkType("NET_3G", 3, 3, 8, "3g");
         NetworkType networkType = new NetworkType("NET_4G", 4, 4, 16, "4g");
         NET_4G = networkType;
-        f42456d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
+        d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
     }
 
     public NetworkType(String str, int i, int i2, int i3, String str2) {
@@ -72,8 +66,8 @@ public final class NetworkType {
             }
         }
         this.a = i2;
-        this.f42457b = i3;
-        this.f42458c = str2;
+        this.b = i3;
+        this.c = str2;
     }
 
     public static NetworkType valueOf(String str) {
@@ -85,7 +79,7 @@ public final class NetworkType {
     public static NetworkType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) f42456d.clone() : (NetworkType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) d.clone() : (NetworkType[]) invokeV.objValue;
     }
 
     public int getConnValue() {
@@ -97,12 +91,12 @@ public final class NetworkType {
     public String getNameValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42458c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public int getPermValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42457b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 }

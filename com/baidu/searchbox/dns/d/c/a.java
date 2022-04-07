@@ -24,7 +24,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,8 +78,8 @@ public abstract class a<T> {
                             b(httpURLConnection2);
                             c(httpURLConnection2);
                             return m(d(httpURLConnection2));
-                        } catch (Exception e2) {
-                            throw new com.baidu.searchbox.dns.d.c.a.a(e2.getMessage());
+                        } catch (Exception e) {
+                            throw new com.baidu.searchbox.dns.d.c.a.a(e.getMessage());
                         }
                     }
                     throw new com.baidu.searchbox.dns.d.c.a.b("url is empty");
@@ -158,10 +158,10 @@ public abstract class a<T> {
 
     public abstract void c(int i);
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005c */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0081 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.net.HttpURLConnection, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r6v10 */
     /* JADX WARN: Type inference failed for: r6v11 */
@@ -192,8 +192,8 @@ public abstract class a<T> {
                         }
                     }
                     bufferedReader = new BufferedReader(new InputStreamReader((InputStream) httpURLConnection, IMAudioTransRequest.CHARSET));
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -212,18 +212,18 @@ public abstract class a<T> {
                 if (httpURLConnection != 0) {
                     try {
                         httpURLConnection.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 try {
                     bufferedReader.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
                 }
                 return stringBuffer2;
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 throw new com.baidu.searchbox.dns.d.c.a.b(e.getMessage());
             } catch (Throwable th2) {
                 th = th2;
@@ -231,21 +231,21 @@ public abstract class a<T> {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e8) {
-            e = e8;
+        } catch (Exception e7) {
+            e = e7;
         } catch (Throwable th3) {
             th = th3;
             bufferedReader = null;
@@ -296,15 +296,15 @@ public abstract class a<T> {
                 try {
                     try {
                         return Q();
-                    } catch (com.baidu.searchbox.dns.d.c.a.a e2) {
-                        a(e2);
+                    } catch (com.baidu.searchbox.dns.d.c.a.a e) {
+                        a(e);
                     }
-                } catch (com.baidu.searchbox.dns.d.c.a.b e3) {
-                    if (e3.R() == 10001) {
-                        c(e3.S());
+                } catch (com.baidu.searchbox.dns.d.c.a.b e2) {
+                    if (e2.R() == 10001) {
+                        c(e2.S());
                         return null;
                     }
-                    a(e3);
+                    a(e2);
                     return null;
                 }
             }
@@ -340,8 +340,8 @@ public abstract class a<T> {
                     }
                     throw new com.baidu.searchbox.dns.d.c.a.a(10001, responseCode, str);
                 }
-            } catch (IOException e2) {
-                throw new com.baidu.searchbox.dns.d.c.a.a(e2.getMessage());
+            } catch (IOException e) {
+                throw new com.baidu.searchbox.dns.d.c.a.a(e.getMessage());
             }
         }
     }

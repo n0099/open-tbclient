@@ -15,17 +15,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static long f42517c = 60000;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f42518d;
+    public static long c = 60000;
+    public static final ConcurrentHashMap<String, Boolean> d;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.sdk.base.framework.a.a.c<String, String> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42519b;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +35,7 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f42518d = concurrentHashMap;
+        d = concurrentHashMap;
         concurrentHashMap.put(j.a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
@@ -80,16 +74,16 @@ public final class d {
                 return;
             }
         }
-        this.f42519b = 102400;
-        this.f42519b = 102400;
-        f42517c = 60000L;
+        this.b = 102400;
+        this.b = 102400;
+        c = 60000L;
         this.a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f42517c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -98,7 +92,7 @@ public final class d {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f42518d.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();

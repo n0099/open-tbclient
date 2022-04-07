@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.p0.u;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -21,7 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ki5;
+/* loaded from: classes4.dex */
 public class AsInstallService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -33,7 +33,7 @@ public class AsInstallService extends BdBaseService {
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class AsInstallService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class AsInstallService extends BdBaseService {
                 if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || this.this$0.mVersionData == null) {
                     return;
                 }
-                u.b(context, this.this$0.mVersionData);
+                ki5.b(context, this.this$0.mVersionData);
                 TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
         }

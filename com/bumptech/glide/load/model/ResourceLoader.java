@@ -17,7 +17,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResourceLoader";
@@ -25,7 +25,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public final Resources resources;
     public final ModelLoader<Uri, Data> uriLoader;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,9 +210,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, num)) == null) {
             try {
                 return Uri.parse("android.resource://" + this.resources.getResourcePackageName(num.intValue()) + WebvttCueParser.CHAR_SLASH + this.resources.getResourceTypeName(num.intValue()) + WebvttCueParser.CHAR_SLASH + this.resources.getResourceEntryName(num.intValue()));
-            } catch (Resources.NotFoundException e2) {
+            } catch (Resources.NotFoundException e) {
                 if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Received invalid resource id: " + num, e2);
+                    Log.w(TAG, "Received invalid resource id: " + num, e);
                     return null;
                 }
                 return null;

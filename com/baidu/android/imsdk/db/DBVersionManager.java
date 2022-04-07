@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DBVersionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.android.imsdk.db.DBVersionManager";
@@ -30,7 +30,7 @@ public class DBVersionManager {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class DefaultHandler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version21And22Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,15 +116,15 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL("ALTER TABLE userinfo ADD COLUMN blacklist INTEGER DEFAULT 0");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN detail TEXT DEFAULT ''");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN tpl LONG DEFAULT -1");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:21->22", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:21->22", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version22And223Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,15 +161,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN disturb INTEGER DEFAULT 0");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:22->23", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:22->23", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version22And23Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,15 +206,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN disturb INTEGER DEFAULT 0");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:22->23", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:22->23", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version23And24Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version24And25Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -290,15 +290,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN pasubtype INTEGER DEFAULT -1 ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:24->25", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:24->25", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version25And26Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -338,7 +338,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version26And27Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -382,15 +382,15 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN classshow INTEGER DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN classtitle TEXT DEFAULT '' ");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN classavatar TEXT DEFAULT '' ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:26->27", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:26->27", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version28And29Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,15 +429,15 @@ public class DBVersionManager {
                     LogUtils.d(DBVersionManager.TAG, "---Version28And29Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN status INTEGER DEFAULT 0");
                     PaManager.delPaLocalInfosByPaType(this.this$0.mContext, 5);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:28->29", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:28->29", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version29And30Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -478,15 +478,15 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN marktoptime LONG ");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN marktop INTEGER DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN marktoptime LONG ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:29->30", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:29->30", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version30And31Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -524,15 +524,15 @@ public class DBVersionManager {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version30And31Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN nickname TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:30->31", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:30->31", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version31And32Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -571,15 +571,15 @@ public class DBVersionManager {
                     LogUtils.d(DBVersionManager.TAG, "---Version31And32Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN replies TEXT ");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN refreshtime LONG DEFAULT 0 ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:31->32", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:31->32", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version32And33Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -616,15 +616,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version32And33Handler---");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:32->33", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:32->33", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version33And34Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -663,15 +663,15 @@ public class DBVersionManager {
                     LogUtils.d(DBVersionManager.TAG, "---Version33And34Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN subset_type  INTEGER DEFAULT 0  ");
                     PaManager.delPaLocalInfosByPaType(this.this$0.mContext, 16);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:33->34", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:33->34", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version34And35Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -710,15 +710,15 @@ public class DBVersionManager {
                     LogUtils.d(DBVersionManager.TAG, "---Version34And35Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN expires_time  LONG DEFAULT 0  ");
                     ChatMessageDBManager.getInstance(this.this$0.mContext).delChatRecordForChatType(6);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:34->35", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:34->35", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version35And36Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -756,15 +756,15 @@ public class DBVersionManager {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version35And36Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_RELIABLE_MESSAGE);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:35->36", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:35->36", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version36And37Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -802,15 +802,15 @@ public class DBVersionManager {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version36And37Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN extra TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:36->37", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:36->37", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version37And38Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -848,15 +848,15 @@ public class DBVersionManager {
                 try {
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_INDEX);
                     LogUtils.d(DBVersionManager.TAG, "Version37And38Handler create msg index ok");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:37->38", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:37->38", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version38And39Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -895,15 +895,15 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
                     LogUtils.d(DBVersionManager.TAG, "Version38And39Handler create msg index ok");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:38->39", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:38->39", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version39And40Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -941,15 +941,15 @@ public class DBVersionManager {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN pa_ext  TEXT ");
                     LogUtils.d(DBVersionManager.TAG, "Version39And40Handler add pa_ext");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:39->40", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:39->40", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version40And41Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -987,15 +987,15 @@ public class DBVersionManager {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version40And41Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_DUPLICATE_MESSAGE);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:40->41", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:40->41", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version41And42Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1073,9 +1073,9 @@ public class DBVersionManager {
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield  INTEGER DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield_time  LONG DEFAULT 0 ");
                     sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:41->42", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:41->42", e);
                 }
             } catch (Throwable th) {
                 if (sQLiteDatabase != null) {
@@ -1086,7 +1086,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version42And43Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1123,15 +1123,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN service_type TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:42->43", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:42->43", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version43And44Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1169,15 +1169,15 @@ public class DBVersionManager {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN tips_code INTEGER ");
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN tips TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:43->44", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:43->44", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version44And45Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1214,15 +1214,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE userinfo ADD COLUMN user_ext TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:44->45", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:44->45", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version45And46Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1276,15 +1276,15 @@ public class DBVersionManager {
                         sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592186059247L)});
                         sQLiteDatabase.update(TableDefine.DB_TABLE_CHAT_SESSION, contentValues2, "paid = ?", new String[]{Long.toString(17592186061416L)});
                     }
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:45->46", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:45->46", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version46And47Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1322,15 +1322,15 @@ public class DBVersionManager {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version46And47Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:46->47", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:46->47", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version48And49Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1367,15 +1367,15 @@ public class DBVersionManager {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_reject_menu INTEGER DEFAULT 0 ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version49And50Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1413,15 +1413,15 @@ public class DBVersionManager {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_bduid LONG DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_name TEXT ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
@@ -1513,9 +1513,9 @@ public class DBVersionManager {
                 i = 0;
                 sQLiteDatabase.setTransactionSuccessful();
                 LogUtils.d(TAG, "create table ok");
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(LogUtils.TAG, "createTable:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "createTable:", e);
             }
         } finally {
             if (sQLiteDatabase != null) {
@@ -1566,9 +1566,9 @@ public class DBVersionManager {
                 i = 0;
                 sQLiteDatabase.setTransactionSuccessful();
                 LogUtils.d(TAG, "drop table ok");
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(LogUtils.TAG, "dropTable:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "dropTable:", e);
             }
         } finally {
             if (sQLiteDatabase != null) {
@@ -1738,8 +1738,8 @@ public class DBVersionManager {
                         try {
                             cursor.close();
                             return;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "close curse exception");
@@ -1747,15 +1747,15 @@ public class DBVersionManager {
                         }
                     }
                     return;
-                } catch (Exception e3) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(TAG, "database exception, check table dialog_record exist");
                     if (cursor != null) {
                         try {
                             cursor.close();
                             return;
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "close curse exception");
@@ -1768,8 +1768,8 @@ public class DBVersionManager {
                 if (cursor != null) {
                     try {
                         cursor.close();
-                    } catch (Exception e5) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
                         LogUtils.e(TAG, "close curse exception");
                     }
                 }

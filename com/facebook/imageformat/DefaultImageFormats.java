@@ -1,6 +1,7 @@
 package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultImageFormats {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat BMP;
@@ -43,7 +44,7 @@ public final class DefaultImageFormats {
         }
         JPEG = new ImageFormat("JPEG", "jpeg");
         PNG = new ImageFormat("PNG", "png");
-        GIF = new ImageFormat("GIF", "gif");
+        GIF = new ImageFormat("GIF", NativeConstants.TYPE_GIF);
         BMP = new ImageFormat("BMP", "bmp");
         ICO = new ImageFormat("ICO", "ico");
         WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", "webp");

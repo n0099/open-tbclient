@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface IOpenID extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements IOpenID {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,14 +53,14 @@ public interface IOpenID extends IInterface {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IOpenID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.heytap.openid.IOpenID";
         public static final int TRANSACTION_getSerID = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class Proxy implements IOpenID {
             public static /* synthetic */ Interceptable $ic;
             public static IOpenID sDefaultImpl;

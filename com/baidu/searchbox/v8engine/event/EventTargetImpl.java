@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EventTargetImpl implements EventTarget {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -143,8 +143,8 @@ public class EventTargetImpl implements EventTarget {
                                             jsFunction.call(this.this$0, this.val$jsEvent.data, false);
                                         }
                                     }
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
                             } finally {
                                 this.this$0.mLock.unlock();
@@ -290,8 +290,8 @@ public class EventTargetImpl implements EventTarget {
                                     }
                                 }
                                 this.val$event.release();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         } finally {
                             this.this$0.mLock.unlock();

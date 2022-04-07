@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PortraitCategory {
     public static /* synthetic */ Interceptable $ic;
     public static final PortraitCategory NEW;
     public static final PortraitCategory NORMAL;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ PortraitCategory[] f28510b;
+    public static final /* synthetic */ PortraitCategory[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -35,7 +33,7 @@ public final class PortraitCategory {
         NORMAL = new PortraitCategory("NORMAL", 0, "");
         PortraitCategory portraitCategory = new PortraitCategory("NEW", 1, "new");
         NEW = portraitCategory;
-        f28510b = new PortraitCategory[]{NORMAL, portraitCategory};
+        b = new PortraitCategory[]{NORMAL, portraitCategory};
     }
 
     public PortraitCategory(String str, int i, String str2) {
@@ -68,7 +66,7 @@ public final class PortraitCategory {
     public static PortraitCategory[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) f28510b.clone() : (PortraitCategory[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) b.clone() : (PortraitCategory[]) invokeV.objValue;
     }
 
     public String getValue() {

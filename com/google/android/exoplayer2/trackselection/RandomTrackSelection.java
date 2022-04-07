@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class RandomTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Random random;
     public int selectedIndex;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaiduLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL = -1;
@@ -88,8 +88,8 @@ public class BaiduLog {
                 String stringWriter3 = stringWriter2.toString();
                 try {
                     stringWriter2.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return stringWriter3;
             } catch (Throwable th4) {
@@ -98,8 +98,8 @@ public class BaiduLog {
                 if (stringWriter != null) {
                     try {
                         stringWriter.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 throw th;

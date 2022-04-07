@@ -125,13 +125,13 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
     }
 
     @Override // org.webrtc.EglRenderer
-    public void setFpsReduction(float f2) {
+    public void setFpsReduction(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             synchronized (this.layoutLock) {
-                this.isRenderingPaused = f2 == 0.0f;
+                this.isRenderingPaused = f == 0.0f;
             }
-            super.setFpsReduction(f2);
+            super.setFpsReduction(f);
         }
     }
 
@@ -160,7 +160,7 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
             ThreadUtils.checkIsOnMainThread();
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             countDownLatch.getClass();
-            releaseEglSurface(new Runnable() { // from class: f.c.a
+            releaseEglSurface(new Runnable() { // from class: com.repackage.ex9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

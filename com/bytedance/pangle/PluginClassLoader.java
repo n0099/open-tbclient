@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.util.List;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginClassLoader";
@@ -69,24 +69,24 @@ public class PluginClassLoader extends DexClassLoader {
             try {
                 e = null;
                 cls = super.findClass(str);
-            } catch (ClassNotFoundException e2) {
-                e = e2;
+            } catch (ClassNotFoundException e) {
+                e = e;
             }
             StringBuilder sb = new StringBuilder("loadClass from :\n");
             if (cls == null && (list = this.otherPluginClassLoader) != null) {
                 for (ClassLoader classLoader : list) {
                     try {
                         cls = classLoader.loadClass(str);
-                    } catch (ClassNotFoundException e3) {
-                        e = handleException(sb, e, e3);
+                    } catch (ClassNotFoundException e2) {
+                        e = handleException(sb, e, e2);
                     }
                 }
             }
             if (cls == null) {
                 try {
                     cls = this.hostClassLoader.loadClass(str);
-                } catch (ClassNotFoundException e4) {
-                    e = handleException(sb, e, e4);
+                } catch (ClassNotFoundException e3) {
+                    e = handleException(sb, e, e3);
                 }
             }
             if (cls == null) {

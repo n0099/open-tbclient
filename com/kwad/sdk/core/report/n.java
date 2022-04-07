@@ -4,25 +4,21 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static String a = f();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f39726b = 0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Context f39727c;
+    public static long b = 0;
+    public static Context c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        String f2 = f();
-        a = f2;
-        return f2;
+        String f = f();
+        a = f;
+        return f;
     }
 
     public static void a(Context context) {
-        f39727c = context;
+        c = context;
     }
 
     @WorkerThread
@@ -60,8 +56,8 @@ public class n {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f39727c);
-        a(f39727c, 1 + b2);
+        long b2 = b(c);
+        a(c, 1 + b2);
         return b2;
     }
 
@@ -78,14 +74,14 @@ public class n {
     public static synchronized long d() {
         long c2;
         synchronized (n.class) {
-            c2 = c(f39727c);
-            b(f39727c, 1 + c2);
+            c2 = c(c);
+            b(c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        return f39726b;
+        return b;
     }
 
     public static String f() {

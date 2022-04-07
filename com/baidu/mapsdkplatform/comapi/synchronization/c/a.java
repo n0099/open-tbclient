@@ -11,25 +11,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f26794b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f26795c;
+    public int b;
+    public ExecutorService c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractRunnableC1768a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static abstract class AbstractRunnableC0108a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC1768a() {
+        public AbstractRunnableC0108a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +39,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ AbstractRunnableC1768a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0108a(b bVar) {
             this();
         }
 
@@ -90,8 +86,8 @@ public class a {
             }
         }
         this.a = 4000;
-        this.f26794b = 4000;
-        this.f26795c = Executors.newCachedThreadPool();
+        this.b = 4000;
+        this.c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -100,7 +96,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f26795c.submit(new b(this, eVar, str));
+            this.c.submit(new b(this, eVar, str));
         }
     }
 }

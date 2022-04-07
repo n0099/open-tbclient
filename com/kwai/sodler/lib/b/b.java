@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public final class b {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                for (byte b2 : messageDigest.digest()) {
-                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                for (byte b : messageDigest.digest()) {
+                    sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
                 }
                 return sb.toString();
             } catch (Exception unused) {
@@ -98,8 +98,8 @@ public final class b {
             InputStream open = context.getAssets().open(str);
             try {
                 fileOutputStream2 = new FileOutputStream(file);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 FileOutputStream fileOutputStream3 = r0;
                 inputStream = open;
                 fileOutputStream = fileOutputStream3;
@@ -117,10 +117,10 @@ public final class b {
                 fd.sync();
                 a((Object) open);
                 a((Object) r0);
-            } catch (IOException e3) {
+            } catch (IOException e2) {
                 inputStream = open;
                 fileOutputStream = fileOutputStream2;
-                e = e3;
+                e = e2;
                 try {
                     com.kwai.sodler.lib.a.a("plugin.files", e);
                     a((Object) inputStream);
@@ -139,8 +139,8 @@ public final class b {
                 a(fileOutputStream);
                 throw th;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             fileOutputStream = null;
         } catch (Throwable th4) {
             th = th4;
@@ -173,8 +173,8 @@ public final class b {
             ?? fileInputStream = new FileInputStream(file);
             try {
                 fileOutputStream = new FileOutputStream(file2);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 bufferedOutputStream = bufferedOutputStream2;
                 bufferedOutputStream2 = fileInputStream;
             } catch (Throwable th) {
@@ -190,10 +190,10 @@ public final class b {
                 fd.sync();
                 a((Object) fileInputStream);
                 a(bufferedOutputStream2);
-            } catch (IOException e3) {
+            } catch (IOException e2) {
                 bufferedOutputStream2 = fileInputStream;
                 bufferedOutputStream = fileOutputStream;
-                e = e3;
+                e = e2;
                 try {
                     com.kwai.sodler.lib.a.a("plugin.files", e);
                     a(bufferedOutputStream2);
@@ -212,8 +212,8 @@ public final class b {
                 a(bufferedOutputStream);
                 throw th;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             bufferedOutputStream = null;
         } catch (Throwable th4) {
             th = th4;

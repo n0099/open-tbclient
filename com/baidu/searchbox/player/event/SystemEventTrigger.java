@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver.VideoReceiverListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,8 +104,8 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
                 this.mVideoReceiver.registerReceiver();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -115,8 +115,8 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
                 this.mVideoReceiver.unregisterReceiver();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

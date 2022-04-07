@@ -88,14 +88,14 @@ public class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f2, float f3, float f4) {
+    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f2));
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f));
             View cardView = cardViewDelegate.getCardView();
             cardView.setClipToOutline(true);
-            cardView.setElevation(f3);
-            setMaxElevation(cardViewDelegate, f4);
+            cardView.setElevation(f2);
+            setMaxElevation(cardViewDelegate, f3);
         }
     }
 
@@ -124,27 +124,27 @@ public class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setElevation(CardViewDelegate cardViewDelegate, float f2) {
+    public void setElevation(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048587, this, cardViewDelegate, f2) == null) {
-            cardViewDelegate.getCardView().setElevation(f2);
+        if (interceptable == null || interceptable.invokeLF(1048587, this, cardViewDelegate, f) == null) {
+            cardViewDelegate.getCardView().setElevation(f);
         }
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f2) {
+    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048588, this, cardViewDelegate, f2) == null) {
-            getCardBackground(cardViewDelegate).setPadding(f2, cardViewDelegate.getUseCompatPadding(), cardViewDelegate.getPreventCornerOverlap());
+        if (interceptable == null || interceptable.invokeLF(1048588, this, cardViewDelegate, f) == null) {
+            getCardBackground(cardViewDelegate).setPadding(f, cardViewDelegate.getUseCompatPadding(), cardViewDelegate.getPreventCornerOverlap());
             updatePadding(cardViewDelegate);
         }
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setRadius(CardViewDelegate cardViewDelegate, float f2) {
+    public void setRadius(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048589, this, cardViewDelegate, f2) == null) {
-            getCardBackground(cardViewDelegate).setRadius(f2);
+        if (interceptable == null || interceptable.invokeLF(1048589, this, cardViewDelegate, f) == null) {
+            getCardBackground(cardViewDelegate).setRadius(f);
         }
     }
 

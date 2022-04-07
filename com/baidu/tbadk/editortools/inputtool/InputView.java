@@ -10,10 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.c.u;
-import c.a.o0.w.n;
-import c.a.p0.s4.i;
-import c.a.p0.z0.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
@@ -27,30 +23,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ax4;
+import com.repackage.dz8;
+import com.repackage.i05;
+import com.repackage.r86;
+import com.repackage.s86;
+import com.repackage.v05;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
-/* loaded from: classes5.dex */
-public class InputView extends EditText implements n {
+/* loaded from: classes3.dex */
+public class InputView extends EditText implements v05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public int f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f30509b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f30510c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f30511d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f30512e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30513f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +73,7 @@ public class InputView extends EditText implements n {
                 return;
             }
             InputView inputView = this.a;
-            inputView.d(new c.a.o0.w.a(4, -1, inputView.getText().toString()));
+            inputView.d(new i05(4, -1, inputView.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -94,19 +86,19 @@ public class InputView extends EditText implements n {
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) || this.a.f30512e) {
+            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) || this.a.e) {
                 return;
             }
-            this.a.f30512e = true;
-            if (this.a.f30513f != -1) {
+            this.a.e = true;
+            if (this.a.f != -1) {
                 InputView inputView = this.a;
-                inputView.setSelection(inputView.f30513f);
-                this.a.f30513f = -1;
+                inputView.setSelection(inputView.f);
+                this.a.f = -1;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,12 +123,12 @@ public class InputView extends EditText implements n {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.d(new c.a.o0.w.a(5, -1, null));
+                    this.a.d(new i05(5, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -145,8 +137,8 @@ public class InputView extends EditText implements n {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements b.g {
+    /* loaded from: classes3.dex */
+    public class c implements s86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -169,14 +161,14 @@ public class InputView extends EditText implements n {
             this.a = inputView;
         }
 
-        @Override // c.a.p0.z0.b.g
+        @Override // com.repackage.s86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.d(new c.a.o0.w.a(5, -1, null));
+                this.a.d(new i05(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -200,21 +192,21 @@ public class InputView extends EditText implements n {
                 return;
             }
         }
-        this.f30509b = 0;
-        this.f30510c = false;
-        this.f30511d = true;
-        this.f30512e = true;
-        this.f30513f = -1;
+        this.b = 0;
+        this.c = false;
+        this.d = true;
+        this.e = true;
+        this.f = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258));
         setMaxLines(4);
         if (z) {
-            setHint(context.getString(R.string.obfuscated_res_0x7f0f106c));
+            setHint(context.getString(R.string.obfuscated_res_0x7f0f1074));
         }
         setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
         setTextColor(getResources().getColor(R.color.CAM_X0106));
         setHintTextColor(getResources().getColor(R.color.CAM_X0110));
         setBackgroundResource(R.color.common_color_10022);
-        i.l(this, R.drawable.obfuscated_res_0x7f0804b8);
+        dz8.l(this, R.drawable.obfuscated_res_0x7f0804b6);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
         setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -222,7 +214,7 @@ public class InputView extends EditText implements n {
         setOnTouchListener(new b(this));
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -230,21 +222,21 @@ public class InputView extends EditText implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
-    public void d(c.a.o0.w.a aVar) {
+    @Override // com.repackage.v05
+    public void d(i05 i05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(aVar);
+        editorTools.A(i05Var);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30509b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public final void h(ArrayList<String> arrayList) {
@@ -262,7 +254,7 @@ public class InputView extends EditText implements n {
         getText().insert(getSelectionStart(), sb2);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -278,66 +270,66 @@ public class InputView extends EditText implements n {
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public final void j(c.a.o0.w.a aVar) {
+    public final void j(i05 i05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar == null || (obj = aVar.f11499c) == null || !(obj instanceof u)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof ax4)) {
             return;
         }
-        u uVar = (u) obj;
-        if (uVar.getType() == EmotionGroupType.NET_SUG) {
-            l(uVar);
+        ax4 ax4Var = (ax4) obj;
+        if (ax4Var.getType() == EmotionGroupType.NET_SUG) {
+            l(ax4Var);
         } else {
-            k(uVar);
+            k(ax4Var);
         }
     }
 
-    public final void k(u uVar) {
+    public final void k(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uVar) == null) {
-            if (!this.f30510c || uVar.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ax4Var) == null) {
+            if (!this.c || ax4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = getText().toString();
-                if (this.f30511d && c.a.p0.z0.a.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13fc);
+                if (this.d && r86.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
                 } else {
-                    c.a.p0.z0.b.b(getContext(), uVar, this);
+                    s86.b(getContext(), ax4Var, this);
                 }
             }
         }
     }
 
-    public final void l(u uVar) {
+    public final void l(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, uVar) == null) || uVar == null || TextUtils.isEmpty(uVar.c()) || TextUtils.isEmpty(uVar.f())) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, ax4Var) == null) || ax4Var == null || TextUtils.isEmpty(ax4Var.c()) || TextUtils.isEmpty(ax4Var.f())) {
             return;
         }
         String obj = getText().toString();
-        if (this.f30511d && c.a.p0.z0.a.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13fc);
+        if (this.d && r86.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
         } else {
-            c.a.p0.z0.b.c(getContext(), uVar, this);
+            s86.c(getContext(), ax4Var, this);
         }
     }
 
-    @Override // c.a.o0.w.b
-    public void onAction(c.a.o0.w.a aVar) {
+    @Override // com.repackage.j05
+    public void onAction(i05 i05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, i05Var) == null) || i05Var == null) {
             return;
         }
-        int i = aVar.a;
+        int i = i05Var.a;
         if (i == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = c.a.p0.z0.a.f20857b.matcher(substring);
+                Matcher matcher = r86.b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -345,49 +337,49 @@ public class InputView extends EditText implements n {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = aVar.f11499c;
+            Object obj2 = i05Var.c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    c.a.p0.z0.b.e(getContext(), (String) aVar.f11499c, new c(this));
+                    s86.e(getContext(), (String) i05Var.c, new c(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) aVar.f11499c).booleanValue()) {
+            if (((Boolean) i05Var.c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i == 17) {
-            Object obj3 = aVar.f11499c;
+            Object obj3 = i05Var.c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
             h((ArrayList) obj3);
         } else if (i == 24) {
-            j(aVar);
-        } else if (i == 44 && (obj = aVar.f11499c) != null && (obj instanceof String)) {
+            j(i05Var);
+        } else if (i == 44 && (obj = i05Var.c) != null && (obj instanceof String)) {
             i((String) obj);
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                i.l(this, R.drawable.obfuscated_res_0x7f0804b8);
+                dz8.l(this, R.drawable.obfuscated_res_0x7f0804b6);
                 setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
                 return;
             }
-            i.l(this, R.drawable.obfuscated_res_0x7f0804b9);
+            dz8.l(this, R.drawable.obfuscated_res_0x7f0804b7);
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, editorTools) == null) {
@@ -398,22 +390,22 @@ public class InputView extends EditText implements n {
     public void setIsOnlyLocalEmotion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f30510c = z;
+            this.c = z;
         }
     }
 
     public void setNeedFaceMaxCount(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f30511d = z;
+            this.d = z;
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f30509b = i;
+            this.b = i;
         }
     }
 }

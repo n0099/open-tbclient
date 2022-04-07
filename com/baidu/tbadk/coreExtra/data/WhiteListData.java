@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WhiteListData extends LinkedList<String> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTPS_PREFIX = "https://";
@@ -40,7 +40,7 @@ public class WhiteListData extends LinkedList<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             WhiteListData whiteListData = new WhiteListData();
-            String q = b.k().q("key_white_list", null);
+            String q = wt4.k().q("key_white_list", null);
             if (!TextUtils.isEmpty(q)) {
                 whiteListData.parserJson(q);
             }
@@ -61,8 +61,8 @@ public class WhiteListData extends LinkedList<String> {
                         add(optString);
                     }
                 }
-            } catch (JSONException e2) {
-                BdLog.e(e2);
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
         }
     }
@@ -70,7 +70,7 @@ public class WhiteListData extends LinkedList<String> {
     private void save(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            b.k().y("key_white_list", str);
+            wt4.k().y("key_white_list", str);
         }
     }
 

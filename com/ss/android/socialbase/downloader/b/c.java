@@ -96,11 +96,11 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C2055a(iBinder);
+            return new C0599a(iBinder);
         }
 
         public static c f() {
-            return C2055a.a;
+            return C0599a.a;
         }
 
         @Override // android.os.IInterface
@@ -125,11 +125,11 @@ public interface c extends IInterface {
                         return true;
                     case 3:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo b2 = b(parcel.readInt());
+                        DownloadInfo b = b(parcel.readInt());
                         parcel2.writeNoException();
-                        if (b2 != null) {
+                        if (b != null) {
                             parcel2.writeInt(1);
-                            b2.writeToParcel(parcel2, 1);
+                            b.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
@@ -142,33 +142,33 @@ public interface c extends IInterface {
                         return true;
                     case 5:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List<DownloadInfo> b3 = b(parcel.readString());
+                        List<DownloadInfo> b2 = b(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(b3);
+                        parcel2.writeTypedList(b2);
                         return true;
                     case 6:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List<DownloadInfo> c2 = c(parcel.readString());
+                        List<DownloadInfo> c = c(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(c2);
+                        parcel2.writeTypedList(c);
                         return true;
                     case 7:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List<DownloadInfo> d2 = d(parcel.readString());
+                        List<DownloadInfo> d = d(parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(d2);
+                        parcel2.writeTypedList(d);
                         return true;
                     case 8:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List<DownloadInfo> b4 = b();
+                        List<DownloadInfo> b3 = b();
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(b4);
+                        parcel2.writeTypedList(b3);
                         return true;
                     case 9:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List<com.ss.android.socialbase.downloader.model.b> c3 = c(parcel.readInt());
+                        List<com.ss.android.socialbase.downloader.model.b> c2 = c(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeTypedList(c3);
+                        parcel2.writeTypedList(c2);
                         return true;
                     case 10:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -219,15 +219,15 @@ public interface c extends IInterface {
                         return true;
                     case 18:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        boolean e2 = e(parcel.readInt());
+                        boolean e = e(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeInt(e2 ? 1 : 0);
+                        parcel2.writeInt(e ? 1 : 0);
                         return true;
                     case 19:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        boolean f2 = f(parcel.readInt());
+                        boolean f = f(parcel.readInt());
                         parcel2.writeNoException();
-                        parcel2.writeInt(f2 ? 1 : 0);
+                        parcel2.writeInt(f ? 1 : 0);
                         return true;
                     case 20:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -236,11 +236,11 @@ public interface c extends IInterface {
                         return true;
                     case 21:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo g2 = g(parcel.readInt());
+                        DownloadInfo g = g(parcel.readInt());
                         parcel2.writeNoException();
-                        if (g2 != null) {
+                        if (g != null) {
                             parcel2.writeInt(1);
-                            g2.writeToParcel(parcel2, 1);
+                            g.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
@@ -269,55 +269,55 @@ public interface c extends IInterface {
                         return true;
                     case 24:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo b5 = b(parcel.readInt(), parcel.readLong());
+                        DownloadInfo b4 = b(parcel.readInt(), parcel.readLong());
                         parcel2.writeNoException();
-                        if (b5 != null) {
+                        if (b4 != null) {
                             parcel2.writeInt(1);
-                            b5.writeToParcel(parcel2, 1);
+                            b4.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 25:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo h2 = h(parcel.readInt());
+                        DownloadInfo h = h(parcel.readInt());
                         parcel2.writeNoException();
-                        if (h2 != null) {
+                        if (h != null) {
                             parcel2.writeInt(1);
-                            h2.writeToParcel(parcel2, 1);
+                            h.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 26:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo c4 = c(parcel.readInt(), parcel.readLong());
+                        DownloadInfo c3 = c(parcel.readInt(), parcel.readLong());
                         parcel2.writeNoException();
-                        if (c4 != null) {
+                        if (c3 != null) {
                             parcel2.writeInt(1);
-                            c4.writeToParcel(parcel2, 1);
+                            c3.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 27:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo d3 = d(parcel.readInt(), parcel.readLong());
+                        DownloadInfo d2 = d(parcel.readInt(), parcel.readLong());
                         parcel2.writeNoException();
-                        if (d3 != null) {
+                        if (d2 != null) {
                             parcel2.writeInt(1);
-                            d3.writeToParcel(parcel2, 1);
+                            d2.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 28:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo e3 = e(parcel.readInt(), parcel.readLong());
+                        DownloadInfo e2 = e(parcel.readInt(), parcel.readLong());
                         parcel2.writeNoException();
-                        if (e3 != null) {
+                        if (e2 != null) {
                             parcel2.writeInt(1);
-                            e3.writeToParcel(parcel2, 1);
+                            e2.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
@@ -346,15 +346,15 @@ public interface c extends IInterface {
                         return true;
                     case 31:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        boolean d4 = d();
+                        boolean d3 = d();
                         parcel2.writeNoException();
-                        parcel2.writeInt(d4 ? 1 : 0);
+                        parcel2.writeInt(d3 ? 1 : 0);
                         return true;
                     case 32:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        boolean e4 = e();
+                        boolean e3 = e();
                         parcel2.writeNoException();
-                        parcel2.writeInt(e4 ? 1 : 0);
+                        parcel2.writeInt(e3 ? 1 : 0);
                         return true;
                     case 33:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -386,14 +386,12 @@ public interface c extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2055a implements c {
+        public static class C0599a implements c {
             public static c a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43133b;
-
-            public C2055a(IBinder iBinder) {
-                this.f43133b = iBinder;
+            public C0599a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
@@ -402,7 +400,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f43133b.transact(1, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a();
                     } else {
                         obtain2.readException();
@@ -415,7 +413,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43133b;
+                return this.b;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
@@ -425,7 +423,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(3, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(3, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b(i);
                     }
                     obtain2.readException();
@@ -443,7 +441,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f43133b.transact(6, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(6, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().c(str);
                     }
                     obtain2.readException();
@@ -461,7 +459,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f43133b.transact(7, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(7, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().d(str);
                     }
                     obtain2.readException();
@@ -479,7 +477,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(18, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(18, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().e(i);
                     }
                     obtain2.readException();
@@ -497,7 +495,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(19, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(19, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().f(i);
                     }
                     obtain2.readException();
@@ -515,7 +513,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(21, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(21, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().g(i);
                     }
                     obtain2.readException();
@@ -533,7 +531,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(25, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(25, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().h(i);
                     }
                     obtain2.readException();
@@ -551,7 +549,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(29, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(29, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().i(i);
                     }
                     obtain2.readException();
@@ -569,7 +567,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(30, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(30, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().j(i);
                     }
                     obtain2.readException();
@@ -587,7 +585,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(2, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(2, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(i);
                     }
                     obtain2.readException();
@@ -605,7 +603,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(9, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(9, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().c(i);
                     }
                     obtain2.readException();
@@ -623,7 +621,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
-                    if (!this.f43133b.transact(10, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(10, obtain, obtain2, 0) && a.f() != null) {
                         a.f().d(i);
                     } else {
                         obtain2.readException();
@@ -642,7 +640,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(28, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(28, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().e(i, j);
                     }
                     obtain2.readException();
@@ -660,7 +658,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f43133b.transact(5, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(5, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b(str);
                     }
                     obtain2.readException();
@@ -678,7 +676,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f43133b.transact(4, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(4, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(str);
                     }
                     obtain2.readException();
@@ -697,7 +695,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(27, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(27, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().d(i, j);
                     }
                     obtain2.readException();
@@ -714,7 +712,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f43133b.transact(20, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(20, obtain, obtain2, 0) && a.f() != null) {
                         a.f().c();
                     } else {
                         obtain2.readException();
@@ -731,7 +729,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f43133b.transact(8, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(8, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b();
                     }
                     obtain2.readException();
@@ -748,7 +746,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f43133b.transact(32, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(32, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().e();
                     }
                     obtain2.readException();
@@ -771,7 +769,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43133b.transact(11, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(11, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(bVar);
                     } else {
                         obtain2.readException();
@@ -790,7 +788,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(26, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(26, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().c(i, j);
                     }
                     obtain2.readException();
@@ -813,7 +811,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43133b.transact(12, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(12, obtain, obtain2, 0) && a.f() != null) {
                         a.f().b(bVar);
                     } else {
                         obtain2.readException();
@@ -830,7 +828,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f43133b.transact(31, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(31, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().d();
                     }
                     obtain2.readException();
@@ -850,7 +848,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(13, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(13, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(i, i2, j);
                     } else {
                         obtain2.readException();
@@ -869,7 +867,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(24, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(24, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b(i, j);
                     }
                     obtain2.readException();
@@ -890,7 +888,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(14, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(14, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(i, i2, i3, j);
                     } else {
                         obtain2.readException();
@@ -913,7 +911,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43133b.transact(33, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(33, obtain, obtain2, 0) && a.f() != null) {
                         a.f().b(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -934,7 +932,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
-                    if (!this.f43133b.transact(15, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(15, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(i, i2, i3, i4);
                     } else {
                         obtain2.readException();
@@ -953,7 +951,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f43133b.transact(35, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(35, obtain, obtain2, 0) && a.f() != null) {
                         a.f().b(i, list);
                     } else {
                         obtain2.readException();
@@ -972,7 +970,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f43133b.transact(16, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(16, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(i, i2);
                     }
                     obtain2.readException();
@@ -995,7 +993,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43133b.transact(17, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(17, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -1016,7 +1014,7 @@ public interface c extends IInterface {
                     obtain.writeLong(j);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f43133b.transact(22, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(22, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(i, j, str, str2);
                     }
                     obtain2.readException();
@@ -1035,7 +1033,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeLong(j);
-                    if (!this.f43133b.transact(23, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(23, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(i, j);
                     }
                     obtain2.readException();
@@ -1054,7 +1052,7 @@ public interface c extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f43133b.transact(34, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(34, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(i, list);
                     } else {
                         obtain2.readException();
@@ -1072,7 +1070,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                    if (!this.f43133b.transact(36, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.b.transact(36, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(bVar);
                     } else {
                         obtain2.readException();

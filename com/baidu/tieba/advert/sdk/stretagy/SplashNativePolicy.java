@@ -1,17 +1,18 @@
 package com.baidu.tieba.advert.sdk.stretagy;
 
-import c.a.d.f.m.e;
-import c.a.d.f.p.j;
-import c.a.d.f.p.n;
-import c.a.o0.r.b0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bt4;
+import com.repackage.ki;
+import com.repackage.ll5;
+import com.repackage.oi;
+import com.repackage.pg;
 import java.io.PrintStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SplashNativePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SPLASH_BEAR_CHANNEL_FAIL = 82;
@@ -39,7 +40,7 @@ public class SplashNativePolicy {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loadResult;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,15 +70,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        c.a.p0.a0.a.g.a.e().p(true);
+                        ll5.e().p(true);
                         return;
                     case 129:
-                        c.a.p0.a0.a.g.a.e().p(false);
+                        ll5.e().p(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        c.a.p0.a0.a.g.a.e().c();
+                        ll5.e().c();
                         return;
                     case 131:
                     default:
@@ -100,51 +101,51 @@ public class SplashNativePolicy {
                 return;
             }
         }
-        this.loadResult = j.d().h("splash_policy", 1);
+        this.loadResult = ki.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @o
+    @bt4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @o
+    @bt4
     private native void nativeReleaseSplash();
 
-    @o
+    @bt4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @o
+    @bt4
     private native void onNativeSplashEvent(int i, int i2);
 
-    @o
+    @bt4
     public void eventCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             PrintStream printStream = System.out;
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i == 128 || i == 129) {
-                c.a.p0.a0.a.g.a.e().k();
+                ll5.e().k();
             }
-            if (n.B()) {
+            if (oi.B()) {
                 switch (i) {
                     case 128:
-                        c.a.p0.a0.a.g.a.e().p(true);
+                        ll5.e().p(true);
                         return;
                     case 129:
-                        c.a.p0.a0.a.g.a.e().p(false);
+                        ll5.e().p(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        c.a.p0.a0.a.g.a.e().c();
+                        ll5.e().c();
                         return;
                     case 131:
                     default:
                         return;
                 }
             }
-            e.a().postAtFrontOfQueue(new a(this, i));
+            pg.a().postAtFrontOfQueue(new a(this, i));
         }
     }
 

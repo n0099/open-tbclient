@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,12 +23,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c05;
+import com.repackage.kl8;
+import com.repackage.mg;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
+/* loaded from: classes3.dex */
+public class XiubaTbJsBridge implements kl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -44,7 +46,7 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
     public final CustomMessageListener installListener;
     public final TbPageContext<?> mTbPageContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,14 +84,12 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f31112b;
+        public final /* synthetic */ XiubaTbJsBridge b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i) {
@@ -109,7 +109,7 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                     return;
                 }
             }
-            this.f31112b = xiubaTbJsBridge;
+            this.b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,13 +126,13 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                         if (downloadData.getStatus() == 5) {
                             if (!this.a) {
                                 this.a = true;
-                                this.f31112b.callDownloadListener(1);
+                                this.b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f31112b.callDownloadListener(2);
+                            this.b.callDownloadListener(2);
                             this.a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f31112b.callDownloadListener(0);
+                            this.b.callDownloadListener(0);
                             this.a = false;
                         }
                     }
@@ -284,11 +284,11 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
             if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-                int e2 = c.a.d.f.m.b.e(split[0], 0);
-                if (e2 > 3) {
+                int e = mg.e(split[0], 0);
+                if (e > 3) {
                     return true;
                 }
-                if (split.length >= 2 && e2 == 3 && c.a.d.f.m.b.e(split[1], 0) >= 2) {
+                if (split.length >= 2 && e == 3 && mg.e(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -317,8 +317,8 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                     stringBuffer.append(Integer.toHexString(i2));
                 }
                 return stringBuffer.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -328,7 +328,7 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            c.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15ad), -1, -1);
+            c05.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15b4), -1, -1);
         }
     }
 
@@ -349,15 +349,15 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                     }
                 }
                 return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.p0.a4.o0.b
+    @Override // com.repackage.kl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -368,8 +368,8 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                         JSONObject jSONObject = new JSONObject(str3);
                         jsPromptResult.confirm(checkAPKInstall(jSONObject.optString("apkName"), jSONObject.optLong("tk"), jSONObject.optString("sign")).toString());
                         return true;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return false;
                     }
                 } else if ("downLoadAPK".equals(str2)) {
@@ -377,24 +377,24 @@ public class XiubaTbJsBridge implements c.a.p0.a4.o0.b {
                         JSONObject jSONObject2 = new JSONObject(str3);
                         jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString("sign")));
                         return true;
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         return false;
                     }
                 } else if ("touch_close".equals(str2)) {
                     try {
                         jsPromptResult.confirm(isEnableWebViewTouch(Boolean.FALSE));
                         return false;
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
                         return false;
                     }
                 } else if ("touch_open".equals(str2)) {
                     try {
                         jsPromptResult.confirm(isEnableWebViewTouch(Boolean.TRUE));
                         return false;
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                         return false;
                     }
                 } else {

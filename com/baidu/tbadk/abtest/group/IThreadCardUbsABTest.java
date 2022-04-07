@@ -2,7 +2,7 @@ package com.baidu.tbadk.abtest.group;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IThreadCardUbsABTest {
     void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch);
 

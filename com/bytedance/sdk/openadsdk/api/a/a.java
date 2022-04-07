@@ -14,12 +14,10 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a implements HostnameVerifier {
     public static final a a = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f38221b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     private boolean a(String str, X509Certificate x509Certificate) {
         if (a(str)) {
@@ -69,7 +67,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f38221b.matcher(str).matches();
+        return b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate, int i) {

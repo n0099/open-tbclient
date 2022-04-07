@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.SecureRandom;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -40,12 +40,12 @@ public class q {
             }
             char[] cArr = new char[bArr.length * 2];
             int i = 0;
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 int i2 = i + 1;
                 char[] cArr2 = a;
-                cArr[i] = cArr2[(b2 >>> 4) & 15];
+                cArr[i] = cArr2[(b >>> 4) & 15];
                 i = i2 + 1;
-                cArr[i2] = cArr2[b2 & 15];
+                cArr[i2] = cArr2[b & 15];
             }
             return new String(cArr);
         }

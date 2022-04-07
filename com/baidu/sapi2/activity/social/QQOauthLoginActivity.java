@@ -19,7 +19,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.baidu.sapi2.a.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p = "QQOauthLoginActivity";
@@ -28,17 +28,13 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
     public IUiListener n;
     public ThirdLoginCallback o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements IUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Tencent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.sapi2.a.a.a f28480b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f28481c;
+        public final /* synthetic */ com.baidu.sapi2.a.a.a b;
+        public final /* synthetic */ QQOauthLoginActivity c;
 
         public a(QQOauthLoginActivity qQOauthLoginActivity, Tencent tencent, com.baidu.sapi2.a.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -55,16 +51,16 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f28481c = qQOauthLoginActivity;
+            this.c = qQOauthLoginActivity;
             this.a = tencent;
-            this.f28480b = aVar;
+            this.b = aVar;
         }
 
         @Override // com.tencent.tauth.IUiListener
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28480b.a();
+                this.b.a();
             }
         }
 
@@ -80,10 +76,10 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
                         this.a.setAccessToken(optString, optString2);
                         this.a.setOpenId(optString3);
-                        this.f28481c.a(this.a, this.f28480b);
+                        this.c.a(this.a, this.b);
                         return;
                     }
-                    this.f28480b.a();
+                    this.b.a();
                 }
             }
         }
@@ -92,7 +88,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         public void onError(UiError uiError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
-                this.f28480b.a();
+                this.b.a();
             }
         }
 
@@ -105,17 +101,13 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements IUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sapi2.a.a.a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Tencent f28482b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QQOauthLoginActivity f28483c;
+        public final /* synthetic */ Tencent b;
+        public final /* synthetic */ QQOauthLoginActivity c;
 
         public b(QQOauthLoginActivity qQOauthLoginActivity, com.baidu.sapi2.a.a.a aVar, Tencent tencent) {
             Interceptable interceptable = $ic;
@@ -132,9 +124,9 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
                     return;
                 }
             }
-            this.f28483c = qQOauthLoginActivity;
+            this.c = qQOauthLoginActivity;
             this.a = aVar;
-            this.f28482b = tencent;
+            this.b = tencent;
         }
 
         @Override // com.tencent.tauth.IUiListener
@@ -150,7 +142,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 if (obj != null) {
-                    this.a.a(this.f28482b.getAccessToken(), this.f28482b.getOpenId(), ((JSONObject) obj).optString("unionid"));
+                    this.a.a(this.b.getAccessToken(), this.b.getOpenId(), ((JSONObject) obj).optString("unionid"));
                     return;
                 }
                 this.a.a();
@@ -217,8 +209,8 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             ThirdPartyService.releaseThirdLoginCallback();
             try {
                 a((com.baidu.sapi2.a.a.a) this);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 finish();
             }
         }

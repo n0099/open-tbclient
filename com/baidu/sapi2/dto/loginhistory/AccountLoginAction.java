@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AccountLoginAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,8 +45,8 @@ public class AccountLoginAction {
                 jSONObject.put("loginTimeSecond", accountLoginAction.loginTimeSecond);
                 jSONObject.put("sapiAccount", accountLoginAction.sapiAccount.toJSONObject());
                 return jSONObject;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -99,8 +99,8 @@ public class AccountLoginAction {
                     AccountLoginAction accountLoginAction = null;
                     try {
                         accountLoginAction = convertJson2Action(jSONArray.getJSONObject(i));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     if (accountLoginAction != null) {
                         arrayList.add(accountLoginAction);

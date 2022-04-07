@@ -1,13 +1,13 @@
 package com.baidu.searchbox.aideviceperformance.device;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IDevicePortraitResultHandler {
-    float getStaticPredictScore(float f2);
+    float getStaticPredictScore(float f);
 
-    float getStaticScorePercent(float f2);
+    float getStaticScorePercent(float f);
 
-    void putStaticPredictScore(float f2);
+    void putStaticPredictScore(float f);
 
-    void putStaticScorePercent(float f2);
+    void putStaticScorePercent(float f);
 
     void removeStaticPredictScore();
 

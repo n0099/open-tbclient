@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class t0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public class t0 {
                         if (j >= a) {
                             this.a.b();
                             if (TextUtils.isEmpty(dVar.e(d.R0))) {
-                                String h2 = l1.h();
-                                if (!TextUtils.isEmpty(h2)) {
-                                    dVar.g(h2);
+                                String h = l1.h();
+                                if (!TextUtils.isEmpty(h)) {
+                                    dVar.g(h);
                                 }
                             }
                             dVar.f(currentTimeMillis);

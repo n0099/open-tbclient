@@ -14,7 +14,7 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.ACTD;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ADActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,14 +100,14 @@ public class ADActivity extends Activity {
             } else {
                 try {
                     finish();
-                } catch (Exception e2) {
-                    GDTLogger.e("ADActivity onCreate 发生异常", e2);
+                } catch (Exception e) {
+                    GDTLogger.e("ADActivity onCreate 发生异常", e);
                 }
             }
             try {
                 super.onCreate(bundle);
-            } catch (Exception e3) {
-                GDTLogger.e("ADActivity onCreate 发生异常", e3);
+            } catch (Exception e2) {
+                GDTLogger.e("ADActivity onCreate 发生异常", e2);
             }
             ACTD actd2 = this.a;
             if (actd2 != null) {

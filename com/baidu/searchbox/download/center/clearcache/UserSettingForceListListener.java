@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = UserSettingForceListListener.FORCE_LIST_ACTION, module = "usersetting")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UserSettingForceListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -75,9 +75,9 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
             }
             try {
                 return new JSONObject(string).optJSONArray(str);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 return null;
             }

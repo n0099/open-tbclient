@@ -23,16 +23,16 @@ public class a extends Fragment {
     }
 
     private Intent f() {
-        Context e2 = e();
-        if (e2 == null) {
+        Context e = e();
+        if (e == null) {
             return null;
         }
         Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS");
-        String packageName = e2.getPackageName();
+        String packageName = e.getPackageName();
         intent.putExtra("package", packageName);
         intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
         intent.putExtra("app_package", packageName);
-        int i = e2.getApplicationInfo().uid;
+        int i = e.getApplicationInfo().uid;
         intent.putExtra("uid", i);
         intent.putExtra("app_uid", i);
         return intent;
@@ -55,14 +55,14 @@ public class a extends Fragment {
     }
 
     public Intent b() {
-        Context e2 = e();
-        if (e2 == null) {
+        Context e = e();
+        if (e == null) {
             return null;
         }
-        String packageName = e2.getPackageName();
+        String packageName = e.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(e.f43197c)) {
+            if (lowerCase.contains(e.c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -83,15 +83,15 @@ public class a extends Fragment {
                 return intent3;
             }
         }
-        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e2.getPackageName()));
+        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
     }
 
     public Intent c() {
-        Context e2 = e();
-        if (e2 == null) {
+        Context e = e();
+        if (e == null) {
             return null;
         }
-        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e2.getPackageName()));
+        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
     }
 
     @Override // android.app.Fragment

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k extends l implements IConnect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public class k extends l implements IConnect {
         try {
             try {
                 if (z) {
-                    this.f37986f = this.l.isSupported();
+                    this.f = this.l.isSupported();
                     String str3 = null;
-                    if (this.f37986f) {
+                    if (this.f) {
                         String aaid = this.l.getAAID(this.k);
                         String oaid = this.l.getOAID();
                         str2 = this.l.getVAID(this.k);
@@ -61,28 +61,28 @@ public class k extends l implements IConnect {
                     if (str3 == null) {
                         str3 = "";
                     }
-                    this.f37983c = str3;
+                    this.c = str3;
                     if (str2 == null) {
                         str2 = "";
                     }
-                    this.f37984d = str2;
+                    this.d = str2;
                     if (str == null) {
                         str = "";
                     }
-                    this.f37985e = str;
+                    this.e = str;
                 } else {
                     e0.b("FreemeProvider", "connectSuccess: false");
                     a();
                 }
-            } catch (Exception e2) {
-                e0.b("FreemeProvider", "connectSuccess: Exception: " + e2.getMessage());
+            } catch (Exception e) {
+                e0.b("FreemeProvider", "connectSuccess: Exception: " + e.getMessage());
                 a();
             }
             shutDown();
-            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+            a(this.c, this.d, this.e, this.f, this.g);
         } catch (Throwable th) {
             shutDown();
-            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+            a(this.c, this.d, this.e, this.f, this.g);
             throw th;
         }
     }
@@ -99,10 +99,10 @@ public class k extends l implements IConnect {
                 c();
                 this.l.connect(this);
                 b();
-            } catch (Exception e2) {
-                e0.b("FreemeProvider", "doStart: Exception: " + e2.getMessage());
+            } catch (Exception e) {
+                e0.b("FreemeProvider", "doStart: Exception: " + e.getMessage());
                 a();
-                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                a(this.c, this.d, this.e, this.f, this.g);
             }
         }
     }

@@ -112,7 +112,7 @@ public class Chain {
         ConstraintWidget constraintWidget4;
         SolverVariable solverVariable5;
         SolverVariable solverVariable6;
-        float f2;
+        float f;
         int size;
         int i5;
         ArrayList<ConstraintWidget> arrayList2;
@@ -130,7 +130,7 @@ public class Chain {
             ConstraintWidget constraintWidget8 = chainHead.mFirstVisibleWidget;
             ConstraintWidget constraintWidget9 = chainHead.mLastVisibleWidget;
             ConstraintWidget constraintWidget10 = chainHead.mHead;
-            float f3 = chainHead.mTotalWeight;
+            float f2 = chainHead.mTotalWeight;
             ConstraintWidget constraintWidget11 = chainHead.mFirstMatchConstraintWidget;
             ConstraintWidget constraintWidget12 = chainHead.mLastMatchConstraintWidget;
             boolean z7 = constraintWidgetContainer.mListDimensionBehaviors[i] == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT;
@@ -152,7 +152,7 @@ public class Chain {
                 ConstraintAnchor constraintAnchor6 = constraintWidget13.mListAnchors[i2];
                 int i9 = (z7 || z3) ? 1 : 4;
                 int margin = constraintAnchor6.getMargin();
-                float f4 = f3;
+                float f3 = f2;
                 ConstraintAnchor constraintAnchor7 = constraintAnchor6.mTarget;
                 if (constraintAnchor7 != null && constraintWidget13 != constraintWidget6) {
                     margin += constraintAnchor7.getMargin();
@@ -212,12 +212,12 @@ public class Chain {
                     z10 = true;
                 }
                 z8 = z5;
-                f3 = f4;
+                f2 = f3;
                 z9 = z6;
                 constraintWidget10 = constraintWidget5;
             }
             ConstraintWidget constraintWidget15 = constraintWidget10;
-            float f5 = f3;
+            float f4 = f2;
             boolean z11 = z9;
             boolean z12 = z8;
             if (constraintWidget9 != null) {
@@ -234,15 +234,15 @@ public class Chain {
                     }
                     arrayList = chainHead.mWeightedMatchConstraintsWidgets;
                     if (arrayList != null && (size = arrayList.size()) > 1) {
-                        float f6 = (chainHead.mHasUndefinedWeights || chainHead.mHasComplexMatchWeights) ? f5 : chainHead.mWidgetsMatchCount;
-                        float f7 = 0.0f;
+                        float f5 = (chainHead.mHasUndefinedWeights || chainHead.mHasComplexMatchWeights) ? f4 : chainHead.mWidgetsMatchCount;
+                        float f6 = 0.0f;
                         ConstraintWidget constraintWidget16 = null;
                         i5 = 0;
-                        float f8 = 0.0f;
+                        float f7 = 0.0f;
                         while (i5 < size) {
                             ConstraintWidget constraintWidget17 = arrayList.get(i5);
-                            float f9 = constraintWidget17.mWeight[i];
-                            if (f9 < f7) {
+                            float f8 = constraintWidget17.mWeight[i];
+                            if (f8 < f6) {
                                 if (chainHead.mHasComplexMatchWeights) {
                                     ConstraintAnchor[] constraintAnchorArr5 = constraintWidget17.mListAnchors;
                                     linearSystem.addEquality(constraintAnchorArr5[i2 + 1].mSolverVariable, constraintAnchorArr5[i2].mSolverVariable, 0, 4);
@@ -251,13 +251,13 @@ public class Chain {
                                     i5++;
                                     size = i6;
                                     arrayList = arrayList2;
-                                    f7 = 0.0f;
+                                    f6 = 0.0f;
                                 } else {
-                                    f9 = 1.0f;
-                                    f7 = 0.0f;
+                                    f8 = 1.0f;
+                                    f6 = 0.0f;
                                 }
                             }
-                            if (f9 == f7) {
+                            if (f8 == f6) {
                                 ConstraintAnchor[] constraintAnchorArr6 = constraintWidget17.mListAnchors;
                                 linearSystem.addEquality(constraintAnchorArr6[i2 + 1].mSolverVariable, constraintAnchorArr6[i2].mSolverVariable, 0, 6);
                                 arrayList2 = arrayList;
@@ -265,7 +265,7 @@ public class Chain {
                                 i5++;
                                 size = i6;
                                 arrayList = arrayList2;
-                                f7 = 0.0f;
+                                f6 = 0.0f;
                             } else {
                                 if (constraintWidget16 != null) {
                                     ConstraintAnchor[] constraintAnchorArr7 = constraintWidget16.mListAnchors;
@@ -278,18 +278,18 @@ public class Chain {
                                     SolverVariable solverVariable11 = constraintAnchorArr8[i13].mSolverVariable;
                                     i6 = size;
                                     ArrayRow createRow = linearSystem.createRow();
-                                    createRow.createRowEqualMatchDimensions(f8, f6, f9, solverVariable8, solverVariable9, solverVariable10, solverVariable11);
+                                    createRow.createRowEqualMatchDimensions(f7, f5, f8, solverVariable8, solverVariable9, solverVariable10, solverVariable11);
                                     linearSystem.addConstraint(createRow);
                                 } else {
                                     arrayList2 = arrayList;
                                     i6 = size;
                                 }
-                                f8 = f9;
+                                f7 = f8;
                                 constraintWidget16 = constraintWidget17;
                                 i5++;
                                 size = i6;
                                 arrayList = arrayList2;
-                                f7 = 0.0f;
+                                f6 = 0.0f;
                             }
                         }
                     }
@@ -308,11 +308,11 @@ public class Chain {
                         }
                         if (solverVariable12 != null && solverVariable13 != null) {
                             if (i == 0) {
-                                f2 = constraintWidget15.mHorizontalBiasPercent;
+                                f = constraintWidget15.mHorizontalBiasPercent;
                             } else {
-                                f2 = constraintWidget15.mVerticalBiasPercent;
+                                f = constraintWidget15.mVerticalBiasPercent;
                             }
-                            linearSystem.addCentering(constraintAnchor11.mSolverVariable, solverVariable12, constraintAnchor11.getMargin(), f2, solverVariable13, constraintAnchor12.mSolverVariable, constraintAnchor12.getMargin(), 5);
+                            linearSystem.addCentering(constraintAnchor11.mSolverVariable, solverVariable12, constraintAnchor11.getMargin(), f, solverVariable13, constraintAnchor12.mSolverVariable, constraintAnchor12.getMargin(), 5);
                         }
                     } else if (z11 || constraintWidget8 == null) {
                         int i15 = 8;
@@ -496,10 +496,10 @@ public class Chain {
             if (arrayList != null) {
                 if (chainHead.mHasUndefinedWeights) {
                 }
-                float f72 = 0.0f;
+                float f62 = 0.0f;
                 ConstraintWidget constraintWidget162 = null;
                 i5 = 0;
-                float f82 = 0.0f;
+                float f72 = 0.0f;
                 while (i5 < size) {
                 }
             }

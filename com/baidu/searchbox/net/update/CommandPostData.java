@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommandPostData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -26,13 +26,13 @@ public class CommandPostData {
     public JSONObject version;
 
     /* renamed from: com.baidu.searchbox.net.update.CommandPostData$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SubPostDataKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -51,25 +51,25 @@ public class ViewUtil {
         }
     }
 
-    public static View getSPSRootLayout(View view) {
+    public static View getSPSRootLayout(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
-            View view2 = null;
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            View view3 = null;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 for (int i = 0; i < viewGroup.getChildCount(); i++) {
                     View childAt = viewGroup.getChildAt(i);
                     if (childAt instanceof SPSwitchRootLinearLayout) {
-                        view2 = childAt;
+                        view3 = childAt;
                     }
-                    if (view2 != null) {
+                    if (view3 != null) {
                         break;
                     }
-                    view2 = getSPSRootLayout(childAt);
+                    view3 = getSPSRootLayout(childAt);
                 }
             }
-            return view2;
+            return view3;
         }
         return (View) invokeL.objValue;
     }
@@ -109,25 +109,25 @@ public class ViewUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) ? (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 : invokeL.booleanValue;
     }
 
-    public static boolean refreshHeight(View view, int i) {
+    public static boolean refreshHeight(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i)) == null) {
-            if (view.getHeight() == i) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) {
+            if (view2.getHeight() == i) {
                 return false;
             }
             if (DEBUG) {
-                Log.d(TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i);
+                Log.d(TAG, "refreshHeight, originalHeight: " + view2.getHeight() + ", aimHeight: " + i);
             }
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams == null) {
-                view.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
             } else {
                 layoutParams.height = i;
-                view.requestLayout();
+                view2.requestLayout();
             }
             if (DEBUG) {
-                Log.d(TAG, "refreshHeight, newHeight: " + view.getHeight());
+                Log.d(TAG, "refreshHeight, newHeight: " + view2.getHeight());
                 return true;
             }
             return true;

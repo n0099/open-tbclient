@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoadCircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ALPHA_VALUE = 255;
@@ -55,7 +55,7 @@ public class LoadCircleView extends View {
     public Timer mTimer;
     public int mWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +90,13 @@ public class LoadCircleView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoadCircleView(Context context, float f2, int i) {
+    public LoadCircleView(Context context, float f, int i) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i)};
+            Object[] objArr = {context, Float.valueOf(f), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -108,7 +108,7 @@ public class LoadCircleView extends View {
                 return;
             }
         }
-        this.mEndRadius = f2;
+        this.mEndRadius = f;
         this.mMaskColor = i;
         initialize();
     }
@@ -184,19 +184,19 @@ public class LoadCircleView extends View {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                     this.this$0.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609dc), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609db), Shader.TileMode.MIRROR));
-                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609de), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609dd), Shader.TileMode.MIRROR));
+                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609eb), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609ea), Shader.TileMode.MIRROR));
+                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609ed), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609ec), Shader.TileMode.MIRROR));
                 }
             }
         };
-        float f2 = this.mEndRadius;
-        float f3 = f2 / 3.0f;
-        float f4 = (f2 * 23.0f) / 21.0f;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(f3, f4);
+        float f = this.mEndRadius;
+        float f2 = f / 3.0f;
+        float f3 = (f * 23.0f) / 21.0f;
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, f3);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setDuration(this.mSizeIncreaseTime);
         ofFloat.addUpdateListener(animatorUpdateListener);
-        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f4, this.mEndRadius);
+        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f3, this.mEndRadius);
         ofFloat2.setInterpolator(new LinearInterpolator());
         ofFloat2.setDuration(this.mSizeDecreaseTime);
         ofFloat2.addUpdateListener(animatorUpdateListener);
@@ -346,9 +346,9 @@ public class LoadCircleView extends View {
                     this.mEndRadius = (Math.min(this.mWidth, this.mHeight) / 2) * 0.8f;
                 }
             }
-            float f2 = this.mDegree + 6.0f;
-            this.mDegree = f2;
-            if (f2 >= 360.0f) {
+            float f = this.mDegree + 6.0f;
+            this.mDegree = f;
+            if (f >= 360.0f) {
                 this.mDegree = 0.0f;
             }
             canvas.save();

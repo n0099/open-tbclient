@@ -15,19 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f38665b;
+        public final LinkedBlockingQueue<IBinder> b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,7 +41,7 @@ public class d implements f {
                 }
             }
             this.a = false;
-            this.f38665b = new LinkedBlockingQueue<>();
+            this.b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
@@ -54,7 +52,7 @@ public class d implements f {
                     throw new IllegalStateException();
                 }
                 this.a = true;
-                return this.f38665b.poll(5L, TimeUnit.SECONDS);
+                return this.b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -64,9 +62,9 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f38665b.put(iBinder);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                    this.b.put(iBinder);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -122,8 +120,8 @@ public class d implements f {
                         obtain.recycle();
                         throw th;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     aVar.a(true, null);
                 }
             } finally {

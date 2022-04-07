@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -76,7 +76,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,8 +103,8 @@ public class SoLoader {
                 if (classLoader instanceof BaseDexClassLoader) {
                     try {
                         return (String) BaseDexClassLoader.class.getMethod("getLdLibraryPath", new Class[0]).invoke((BaseDexClassLoader) classLoader, new Object[0]);
-                    } catch (Exception e2) {
-                        throw new RuntimeException("Cannot call getLdLibraryPath", e2);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Cannot call getLdLibraryPath", e);
                     }
                 }
                 throw new IllegalStateException("ClassLoader " + classLoader.getClass().getName() + " should be of type BaseDexClassLoader");
@@ -113,7 +113,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,8 +341,8 @@ public class SoLoader {
                     Method declaredMethod = Runtime.class.getDeclaredMethod("nativeLoad", String.class, ClassLoader.class, String.class);
                     declaredMethod.setAccessible(true);
                     return declaredMethod;
-                } catch (NoSuchMethodException | SecurityException e2) {
-                    Log.w("SoLoader", "Cannot get nativeLoad method", e2);
+                } catch (NoSuchMethodException | SecurityException e) {
+                    Log.w("SoLoader", "Cannot get nativeLoad method", e);
                 }
             }
             return null;
@@ -436,12 +436,12 @@ public class SoLoader {
                                     throw th2;
                                 }
                             }
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
+                            return e.toString();
+                        } catch (SecurityException e2) {
                             return e2.toString();
-                        } catch (SecurityException e3) {
+                        } catch (NoSuchAlgorithmException e3) {
                             return e3.toString();
-                        } catch (NoSuchAlgorithmException e4) {
-                            return e4.toString();
                         }
                     }
 
@@ -469,7 +469,7 @@ public class SoLoader {
                     */
                     public void load(String str, int i) {
                         Throwable th;
-                        Throwable e2;
+                        Throwable e;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
                             if (this.val$hasNativeLoadMethod) {
@@ -493,15 +493,15 @@ public class SoLoader {
                                         }
                                         try {
                                             throw th;
-                                        } catch (IllegalAccessException e3) {
-                                            e2 = e3;
-                                            throw new RuntimeException("Error: Cannot load " + str, e2);
-                                        } catch (IllegalArgumentException e4) {
-                                            e2 = e4;
-                                            throw new RuntimeException("Error: Cannot load " + str, e2);
-                                        } catch (InvocationTargetException e5) {
-                                            e2 = e5;
-                                            throw new RuntimeException("Error: Cannot load " + str, e2);
+                                        } catch (IllegalAccessException e2) {
+                                            e = e2;
+                                            throw new RuntimeException("Error: Cannot load " + str, e);
+                                        } catch (IllegalArgumentException e3) {
+                                            e = e3;
+                                            throw new RuntimeException("Error: Cannot load " + str, e);
+                                        } catch (InvocationTargetException e4) {
+                                            e = e4;
+                                            throw new RuntimeException("Error: Cannot load " + str, e);
                                         }
                                     } catch (Throwable th4) {
                                         th = th4;
@@ -510,18 +510,18 @@ public class SoLoader {
                                         }
                                         throw th;
                                     }
-                                } catch (IllegalAccessException e6) {
+                                } catch (IllegalAccessException e5) {
+                                    e = e5;
+                                    e = e;
+                                    throw new RuntimeException("Error: Cannot load " + str, e);
+                                } catch (IllegalArgumentException e6) {
                                     e = e6;
-                                    e2 = e;
-                                    throw new RuntimeException("Error: Cannot load " + str, e2);
-                                } catch (IllegalArgumentException e7) {
+                                    e = e;
+                                    throw new RuntimeException("Error: Cannot load " + str, e);
+                                } catch (InvocationTargetException e7) {
                                     e = e7;
-                                    e2 = e;
-                                    throw new RuntimeException("Error: Cannot load " + str, e2);
-                                } catch (InvocationTargetException e8) {
-                                    e = e8;
-                                    e2 = e;
-                                    throw new RuntimeException("Error: Cannot load " + str, e2);
+                                    e = e;
+                                    throw new RuntimeException("Error: Cannot load " + str, e);
                                 } catch (Throwable th5) {
                                     str2 = 0;
                                     th = th5;
@@ -768,8 +768,8 @@ public class SoLoader {
             assertInitialized();
             try {
                 return unpackLibraryBySoName(System.mapLibraryName(str));
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return (File) invokeL.objValue;
@@ -882,14 +882,14 @@ public class SoLoader {
                                             Log.d("SoLoader", "Loaded: " + str);
                                             sLoadedLibraries.add(str);
                                         }
-                                    } catch (IOException e2) {
-                                        throw new RuntimeException(e2);
-                                    } catch (UnsatisfiedLinkError e3) {
-                                        String message = e3.getMessage();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    } catch (UnsatisfiedLinkError e2) {
+                                        String message = e2.getMessage();
                                         if (message != null && message.contains("unexpected e_machine:")) {
-                                            throw new WrongAbiError(e3);
+                                            throw new WrongAbiError(e2);
                                         }
-                                        throw e3;
+                                        throw e2;
                                     }
                                 }
                             }
@@ -922,8 +922,8 @@ public class SoLoader {
         if (interceptable == null || interceptable.invokeLZ(65545, null, context, z) == null) {
             try {
                 init(context, z ? 1 : 0);
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }

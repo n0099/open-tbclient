@@ -27,15 +27,17 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TTIStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "TTIStats";
     public static final String UBC_DEVICE_SCORE_KEY = "device_score";
     public static final String UBC_FIRST_AVAILABLE_TIME = "first_available_time";
+    public static final String UBC_FIRST_AVAILABLE_TIME_NO_AD = "first_available_time_no_ad";
     public static final String UBC_LAUNCH_TYPE_KEY = "launch_type";
     public static final String UBC_PROCESS_AVAILABLE_TIME_KEY = "process_available_time";
+    public static final String UBC_PROCESS_AVAILABLE_TIME_KEY_NO_AD = "process_available_time_no_ad";
     public static final String UBC_STAGE_KEY = "stage";
     public static final String UBC_STARTTS_KEY = "startts";
     public static final String UBC_START_LAUNCH_ID = "3112";
@@ -44,7 +46,7 @@ public class TTIStats {
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +139,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x009f -> B:41:0x00a2). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x009e -> B:40:0x00a1). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;
@@ -155,11 +157,11 @@ public class TTIStats {
                                     } catch (Throwable th) {
                                         th = th;
                                     }
-                                } catch (IOException e2) {
-                                    e = e2;
+                                } catch (IOException e) {
+                                    e = e;
                                 }
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
                             try {
                                 bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");
@@ -171,8 +173,8 @@ public class TTIStats {
                                     Log.d(TTIStats.TAG, "write info to cold_start_tti.txt: " + this.val$jsonObject.toString());
                                 }
                                 bufferedWriter.close();
-                            } catch (IOException e4) {
-                                e = e4;
+                            } catch (IOException e3) {
+                                e = e3;
                                 bufferedWriter2 = bufferedWriter;
                                 e.printStackTrace();
                                 Log.e(TTIStats.TAG, e.toString());
@@ -185,8 +187,8 @@ public class TTIStats {
                                 if (bufferedWriter2 != null) {
                                     try {
                                         bufferedWriter2.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
+                                    } catch (IOException e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 throw th;
@@ -242,15 +244,17 @@ public class TTIStats {
                 jSONObject.put("stage", jSONObject2);
                 jSONObject.put(UBC_STARTTS_KEY, jSONObject3);
                 jSONObject.put("first_available_time", SmartLaunchStats.getFirstAvailableTime());
+                jSONObject.put(UBC_FIRST_AVAILABLE_TIME_NO_AD, SmartLaunchStats.getFirstAvailableTime() - SpeedStatsManager.getInstance().getAdShowDuration());
                 jSONObject.put("process_available_time", SmartLaunchStats.getProcessAvailableTime());
+                jSONObject.put(UBC_PROCESS_AVAILABLE_TIME_KEY_NO_AD, SmartLaunchStats.getProcessAvailableTime() - SpeedStatsManager.getInstance().getAdShowDuration());
                 this.mUbcManager.onEvent(UBC_START_LAUNCH_ID, jSONObject);
                 if (DEBUG) {
                     asyncWriteTtiInfoToSdcard(jSONObject);
                     Log.d(TAG, jSONObject.toString());
                 }
                 mRecordMap.clear();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

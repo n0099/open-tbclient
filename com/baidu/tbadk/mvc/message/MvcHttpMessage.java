@@ -1,7 +1,5 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.o0.k0.b.f;
-import c.a.o0.k0.b.h;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class MvcHttpMessage<T extends f, D extends h> extends HttpMessage {
+import com.repackage.n65;
+import com.repackage.p65;
+/* loaded from: classes3.dex */
+public class MvcHttpMessage<T extends n65, D extends p65> extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ScheduleStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_PRIVATE_STICKINESS = "{\"bdwindow\": {\"high_device_stickiness\": 0.0001,\"mid_device_stickiness\": 0.005,\"low_device_stickiness\": 0.01},\"swan\": {\"high_device_stickiness\": 0.0005,\"mid_device_stickiness\": 0.025,\"low_device_stickiness\": 0.05}}";
@@ -54,7 +54,7 @@ public class ScheduleStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +91,7 @@ public class ScheduleStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class DeviceType {
         public static final /* synthetic */ DeviceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -201,24 +201,24 @@ public class ScheduleStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            double d2 = deviceScore;
-            if (d2 >= 0.0d) {
-                return d2;
+            double d = deviceScore;
+            if (d >= 0.0d) {
+                return d;
             }
             staticScore = getStaticScore();
             double dynamicScore2 = getDynamicScore();
             dynamicScore = dynamicScore2;
-            double d3 = staticScore;
-            if (d3 >= 0.0d && dynamicScore2 >= 0.0d) {
-                deviceScore = (staticScoreWeight * d3) + (dynamicScoreWeight * dynamicScore2);
+            double d2 = staticScore;
+            if (d2 >= 0.0d && dynamicScore2 >= 0.0d) {
+                deviceScore = (staticScoreWeight * d2) + (dynamicScoreWeight * dynamicScore2);
             } else {
-                double d4 = staticScore;
-                if (d4 >= 0.0d && dynamicScore < 0.0d) {
-                    deviceScore = d4;
+                double d3 = staticScore;
+                if (d3 >= 0.0d && dynamicScore < 0.0d) {
+                    deviceScore = d3;
                 } else if (staticScore < 0.0d) {
-                    double d5 = dynamicScore;
-                    if (d5 >= 0.0d) {
-                        deviceScore = d5;
+                    double d4 = dynamicScore;
+                    if (d4 >= 0.0d) {
+                        deviceScore = d4;
                     }
                 }
             }
@@ -231,8 +231,8 @@ public class ScheduleStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            double d2 = dynamicScore;
-            return d2 >= 0.0d ? d2 : -1.0f;
+            double d = dynamicScore;
+            return d >= 0.0d ? d : -1.0f;
         }
         return invokeV.doubleValue;
     }
@@ -241,9 +241,9 @@ public class ScheduleStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            double d2 = staticScore;
-            if (d2 >= 0.0d) {
-                return d2;
+            double d = staticScore;
+            if (d >= 0.0d) {
+                return d;
             }
             return -1.0d;
         }
@@ -252,7 +252,7 @@ public class ScheduleStrategy {
 
     public static double getStickinessThreshold(String str) {
         InterceptResult invokeL;
-        Double d2;
+        Double d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!isLoadPrivateStickiness) {
@@ -262,11 +262,11 @@ public class ScheduleStrategy {
                 }
                 isLoadPrivateStickiness = true;
             }
-            if (businessPrivateThresholds.containsKey(str) && (d2 = businessPrivateThresholds.get(str)) != null && d2.doubleValue() >= 0.0d) {
+            if (businessPrivateThresholds.containsKey(str) && (d = businessPrivateThresholds.get(str)) != null && d.doubleValue() >= 0.0d) {
                 if (DEBUG) {
-                    Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d2);
+                    Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d);
                 }
-                return d2.doubleValue();
+                return d.doubleValue();
             } else if (commonStickinessThreshold >= 0.0d) {
                 if (DEBUG) {
                     Log.d(TAG, "stickiness(common) threshold for " + str + " is " + commonStickinessThreshold);
@@ -332,9 +332,9 @@ public class ScheduleStrategy {
                         }
                     }
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    Log.d(TAG, "business_private_stickiness JsonException" + e2.getStackTrace());
+                    Log.d(TAG, "business_private_stickiness JsonException" + e.getStackTrace());
                 }
             }
         }

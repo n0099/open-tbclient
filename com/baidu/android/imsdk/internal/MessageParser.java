@@ -3,8 +3,6 @@ package com.baidu.android.imsdk.internal;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.s.a;
-import c.a.t.a.b.d.b;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
@@ -36,19 +34,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.repackage.c80;
+import com.repackage.p70;
+import com.repackage.y70;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageParser";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class DuParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,8 +485,8 @@ public class MessageParser {
                     j2 = optLong6;
                     try {
                         i = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
-                    } catch (JSONException e2) {
-                        e = e2;
+                    } catch (JSONException e) {
+                        e = e;
                         LogUtils.e(TAG, "parserMessage template_type:", e);
                         i = 0;
                         if (optInt5 == 80) {
@@ -501,15 +502,15 @@ public class MessageParser {
                             invokeParse = new DuParser(context2, optString, optInt).invokeParse();
                             if (!invokeParse.isMsgNull()) {
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             LogUtils.e(TAG, "parserMessage:", e);
                             new IMTrack.CrashBuilder(context2).exception(Log.getStackTraceString(e)).build();
                             return null;
                         }
                     }
-                } catch (JSONException e4) {
-                    e = e4;
+                } catch (JSONException e3) {
+                    e = e3;
                     j2 = optLong6;
                 }
                 if (((optInt5 == 80 || optInt6 == 11) && !(optInt5 == 0 && optInt6 == 10)) || i != 0) {
@@ -549,8 +550,8 @@ public class MessageParser {
                                     newChatMsg3.setMsgContent(optString3);
                                 }
                                 LogUtils.w(TAG, "parserMessage studioPa msg :" + newChatMsg3.toString());
-                            } catch (Exception e5) {
-                                LogUtils.e(TAG, "IM_BUSINESS_TYPE_STUDIO_USE_PA Exception :", e5);
+                            } catch (Exception e4) {
+                                LogUtils.e(TAG, "IM_BUSINESS_TYPE_STUDIO_USE_PA Exception :", e4);
                             }
                         }
                         isJsonParseResult = msgContentFromServer2;
@@ -569,8 +570,8 @@ public class MessageParser {
                     msg.setContacter(optLong4);
                     msg.setFromUser(optLong2);
                     msg.setExpiresTime(j2);
-                } catch (Exception e6) {
-                    e = e6;
+                } catch (Exception e5) {
+                    e = e5;
                     context2 = context;
                     LogUtils.e(TAG, "parserMessage:", e);
                     new IMTrack.CrashBuilder(context2).exception(Log.getStackTraceString(e)).build();
@@ -616,8 +617,8 @@ public class MessageParser {
                 return msg;
             }
             return null;
-        } catch (Exception e7) {
-            e = e7;
+        } catch (Exception e6) {
+            e = e6;
             context2 = context;
         }
     }
@@ -632,13 +633,13 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f21228e) {
+                if (p70.e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
-                    bLCPRequest.f25611b = 95L;
-                    bLCPRequest.f25612c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f25613d = System.nanoTime();
-                    c.a.t.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    bLCPRequest.b = 95L;
+                    bLCPRequest.c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.d = System.nanoTime();
+                    y70.c(bLCPRequest, new c80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -663,7 +664,7 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // c.a.t.a.b.d.b
+                        @Override // com.repackage.c80
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
@@ -680,8 +681,8 @@ public class MessageParser {
                                                 AckHandlerThread.getInstance(this.val$context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, this.val$msg), 1000L);
                                             }
                                         }
-                                    } catch (JSONException e2) {
-                                        LogUtils.d(MessageParser.TAG, "handle sendNewAckToServer response：" + e2);
+                                    } catch (JSONException e) {
+                                        LogUtils.d(MessageParser.TAG, "handle sendNewAckToServer response：" + e);
                                     }
                                 }
                             }
@@ -1050,9 +1051,9 @@ public class MessageParser {
                             arrayList.add(parserMessage);
                         }
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(LogUtils.TAG, "parserMessage:", e2);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                } catch (Exception e) {
+                    LogUtils.e(LogUtils.TAG, "parserMessage:", e);
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
             }
             if (z2) {

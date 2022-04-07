@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c implements com.baidu.ar.lua.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public a.InterfaceC1716a wg;
+    public a.InterfaceC0056a wg;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -39,12 +39,12 @@ public class c implements com.baidu.ar.lua.c {
         this.mContext = context.getApplicationContext();
     }
 
-    public static void c(float f2, float f3, float f4, float f5) {
+    public static void c(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("id", 10000);
-            hashMap.put("max_acc", Float.valueOf(f5));
+            hashMap.put("max_acc", Float.valueOf(f4));
             ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
@@ -68,7 +68,7 @@ public class c implements com.baidu.ar.lua.c {
     public void b(com.baidu.ar.lua.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.wg = new a.InterfaceC1716a(this) { // from class: com.baidu.ar.f.c.1
+            this.wg = new a.InterfaceC0056a(this) { // from class: com.baidu.ar.f.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c wh;
@@ -91,17 +91,17 @@ public class c implements com.baidu.ar.lua.c {
                     this.wh = this;
                 }
 
-                @Override // com.baidu.ar.f.a.InterfaceC1716a
-                public void b(float f2, float f3, float f4, float f5) {
+                @Override // com.baidu.ar.f.a.InterfaceC0056a
+                public void b(float f, float f2, float f3, float f4) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                        com.baidu.ar.h.b.aS("acc  x " + f2 + " , y : " + f3 + " , z " + f4);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                        com.baidu.ar.h.b.aS("acc  x " + f + " , y : " + f2 + " , z " + f3);
                         StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
-                        c.c(f2, f3, f4, f5);
+                        c.c(f, f2, f3, f4);
                     }
                 }
 
-                @Override // com.baidu.ar.f.a.InterfaceC1716a
+                @Override // com.baidu.ar.f.a.InterfaceC0056a
                 public void destroy() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

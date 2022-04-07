@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f35389b;
+    public ArrayList<BaseFragment> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -39,21 +37,21 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f35389b = new ArrayList<>();
+        this.b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment b2 = b();
-        b2.setArguments(bundle);
-        this.f35389b.add(b2);
+        BaseFragment b = b();
+        b.setArguments(bundle);
+        this.b.add(b);
         if (z) {
             this.a = new int[]{0};
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
-        BaseFragment b3 = b();
-        b3.setArguments(bundle2);
-        this.f35389b.add(b3);
+        BaseFragment b2 = b();
+        b2.setArguments(bundle2);
+        this.b.add(b2);
         this.a = new int[]{0, 1};
     }
 
@@ -80,7 +78,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
             if (i >= this.a.length || i < 0) {
                 return null;
             }
-            return this.f35389b.get(i);
+            return this.b.get(i);
         }
         return (Fragment) invokeI.objValue;
     }

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TouchidLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_EXT = "ext";
@@ -101,8 +101,8 @@ public class TouchidLoginStat {
                 jSONObject2.put("page", VALUE_PAGE);
                 jSONObject2.put("ext", jSONObject);
                 jSONObject2.put("value", sValue);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             ubcUploadImplCallback.onEvent(UBC_ID, jSONObject2);
             resetData();

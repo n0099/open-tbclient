@@ -133,8 +133,8 @@ public final class DrawableCompat {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
                         sGetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve getLayoutDirection() method", e2);
+                    } catch (NoSuchMethodException e) {
+                        Log.i(TAG, "Failed to retrieve getLayoutDirection() method", e);
                     }
                     sGetLayoutDirectionMethodFetched = true;
                 }
@@ -142,8 +142,8 @@ public final class DrawableCompat {
                 if (method != null) {
                     try {
                         return ((Integer) method.invoke(drawable, new Object[0])).intValue();
-                    } catch (Exception e3) {
-                        Log.i(TAG, "Failed to invoke getLayoutDirection() via reflection", e3);
+                    } catch (Exception e2) {
+                        Log.i(TAG, "Failed to invoke getLayoutDirection() via reflection", e2);
                         sGetLayoutDirectionMethod = null;
                     }
                 }
@@ -192,12 +192,12 @@ public final class DrawableCompat {
         drawable.setAutoMirrored(z);
     }
 
-    public static void setHotspot(@NonNull Drawable drawable, float f2, float f3) {
+    public static void setHotspot(@NonNull Drawable drawable, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{drawable, Float.valueOf(f2), Float.valueOf(f3)}) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{drawable, Float.valueOf(f), Float.valueOf(f2)}) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        drawable.setHotspot(f2, f3);
+        drawable.setHotspot(f, f2);
     }
 
     public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
@@ -222,8 +222,8 @@ public final class DrawableCompat {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
                         sSetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve setLayoutDirection(int) method", e2);
+                    } catch (NoSuchMethodException e) {
+                        Log.i(TAG, "Failed to retrieve setLayoutDirection(int) method", e);
                     }
                     sSetLayoutDirectionMethodFetched = true;
                 }
@@ -232,8 +232,8 @@ public final class DrawableCompat {
                     try {
                         method.invoke(drawable, Integer.valueOf(i));
                         return true;
-                    } catch (Exception e3) {
-                        Log.i(TAG, "Failed to invoke setLayoutDirection(int) via reflection", e3);
+                    } catch (Exception e2) {
+                        Log.i(TAG, "Failed to invoke setLayoutDirection(int) via reflection", e2);
                         sSetLayoutDirectionMethod = null;
                     }
                 }

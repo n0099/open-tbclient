@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import c.a.d.f.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,9 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
 import protobuf.QueryUserPermission.DataReq;
 import protobuf.QueryUserPermission.QueryUserPermissionReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RequestUserPermissionMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class RequestUserPermissionMessage extends TbSocketMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.forumId = Integer.valueOf(b.e(String.valueOf(getForumId()), 0));
+                builder.forumId = Integer.valueOf(mg.e(String.valueOf(getForumId()), 0));
                 QueryUserPermissionReqIdl.Builder builder2 = new QueryUserPermissionReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

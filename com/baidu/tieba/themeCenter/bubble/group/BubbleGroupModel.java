@@ -1,7 +1,5 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import c.a.d.a.f;
-import c.a.p0.f4.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -20,33 +18,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.dk8;
+import com.repackage.fr8;
+import com.repackage.tq8;
+import com.repackage.wa;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
+    public fr8 b;
+    public List<tq8> c;
+    public c d;
+    public boolean e;
+    public wa f;
+    public final HttpMessageListener g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public e f36341b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<c.a.p0.f4.f.b.b> f36342c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c f36343d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f36344e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f36345f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f36346g;
-
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -73,7 +64,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             this.a = bubbleGroupModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -82,29 +73,29 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (this.a.f36343d != null) {
-                        this.a.f36343d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f36341b, this.a.f36342c);
+                    if (this.a.d != null) {
+                        this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                    this.a.f36341b = bubbleGroupHttpResponseMessage.getRecommand();
-                    this.a.f36342c = bubbleGroupHttpResponseMessage.getGroupList();
+                    this.a.b = bubbleGroupHttpResponseMessage.getRecommand();
+                    this.a.c = bubbleGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
                     BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                    this.a.f36341b = bubbleGroupSocketResponseMessage.getRecommand();
-                    this.a.f36342c = bubbleGroupSocketResponseMessage.getGroupList();
+                    this.a.b = bubbleGroupSocketResponseMessage.getRecommand();
+                    this.a.c = bubbleGroupSocketResponseMessage.getGroupList();
                 }
-                if (this.a.f36343d != null) {
-                    this.a.f36343d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f36341b, this.a.f36342c);
+                if (this.a.d != null) {
+                    this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,14 +133,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                     return;
                 }
                 this.a.J(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                this.a.f36343d.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f36341b, this.a.f36342c);
+                this.a.d.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.b, this.a.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, e eVar, List<c.a.p0.f4.f.b.b> list);
+        void a(int i, String str, fr8 fr8Var, List<tq8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -164,33 +155,33 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36345f = new a(this, CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
-        this.f36346g = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
+        this.f = new a(this, CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
+        this.g = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
         this.a = bubbleGroupActivity;
-        this.f36344e = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.e = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         G();
-        registerListener(this.f36345f);
+        registerListener(this.f);
         H();
-        registerListener(this.f36346g);
+        registerListener(this.g);
     }
 
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36344e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.p0.a4.g0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            c.a.p0.a4.g0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+            dk8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            dk8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -207,19 +198,19 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public void I(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f36343d = cVar;
+            this.d = cVar;
         }
     }
 
     public final void J(int i) {
-        List<c.a.p0.f4.f.b.b> list;
+        List<tq8> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (list = this.f36342c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        for (c.a.p0.f4.f.b.b bVar : this.f36342c) {
-            if (bVar != null && bVar.a() != null) {
-                for (DressItemData dressItemData : bVar.a()) {
+        for (tq8 tq8Var : this.c) {
+            if (tq8Var != null && tq8Var.a() != null) {
+                for (DressItemData dressItemData : tq8Var.a()) {
                     if (dressItemData != null) {
                         if (dressItemData.getPropsId() == i) {
                             dressItemData.setInUse(true);

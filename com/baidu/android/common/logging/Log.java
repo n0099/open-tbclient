@@ -20,7 +20,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_LIMETE = 10485760;
@@ -128,8 +128,8 @@ public final class Log {
                     bufferedReader = bufferedReader2;
                 }
                 bufferedReader.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return str3;
         }
@@ -177,10 +177,10 @@ public final class Log {
                     sFilelogger = logger;
                     logger.setLevel(Level.ALL);
                     sFilelogger.addHandler(fileHandler);
-                } catch (IOException e2) {
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (SecurityException e2) {
                     e2.printStackTrace();
-                } catch (SecurityException e3) {
-                    e3.printStackTrace();
                 }
             }
         }

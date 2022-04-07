@@ -12,18 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ExpandGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Scroller a;
+    public a b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f36404b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void a(float f2);
+        void a(float f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,7 +51,7 @@ public class ExpandGridView extends GridView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a.computeScrollOffset()) {
                 int currY = this.a.getCurrY();
-                a aVar = this.f36404b;
+                a aVar = this.b;
                 if (aVar != null) {
                     aVar.a(currY);
                 }
@@ -90,7 +88,7 @@ public class ExpandGridView extends GridView {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f36404b = aVar;
+            this.b = aVar;
         }
     }
 

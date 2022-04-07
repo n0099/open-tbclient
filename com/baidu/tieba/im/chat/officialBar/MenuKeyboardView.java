@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.w.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
@@ -14,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class MenuKeyboardView extends LinearLayout implements n {
+import com.repackage.i05;
+import com.repackage.v05;
+/* loaded from: classes3.dex */
+public class MenuKeyboardView extends LinearLayout implements v05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
+    public int b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f33683b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +47,10 @@ public class MenuKeyboardView extends LinearLayout implements n {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.a.d(new c.a.o0.w.a(30, 0, null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d(new i05(30, 0, null));
             }
         }
     }
@@ -74,13 +73,13 @@ public class MenuKeyboardView extends LinearLayout implements n {
                 return;
             }
         }
-        this.f33683b = 0;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d063f, this);
+        this.b = 0;
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d063b, this);
         setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a), -2));
         setOnClickListener(new a(this));
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -88,24 +87,24 @@ public class MenuKeyboardView extends LinearLayout implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
-    public void d(c.a.o0.w.a aVar) {
+    @Override // com.repackage.v05
+    public void d(i05 i05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(aVar);
+        editorTools.A(i05Var);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33683b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -113,28 +112,28 @@ public class MenuKeyboardView extends LinearLayout implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // c.a.o0.w.b
-    public void onAction(c.a.o0.w.a aVar) {
+    @Override // com.repackage.j05
+    public void onAction(i05 i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, i05Var) == null) {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -142,11 +141,11 @@ public class MenuKeyboardView extends LinearLayout implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.f33683b = i;
+            this.b = i;
         }
     }
 }

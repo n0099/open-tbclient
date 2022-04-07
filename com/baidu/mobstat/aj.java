@@ -18,19 +18,15 @@ import java.util.Map;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class aj {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f27174c;
+    public static final ByteBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public b b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f27175b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 
@@ -41,7 +37,7 @@ public class aj {
         void b();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +78,7 @@ public class aj {
                 return;
             }
         }
-        f27174c = ByteBuffer.allocate(0);
+        c = ByteBuffer.allocate(0);
     }
 
     public aj(URI uri, a aVar) throws c {
@@ -103,10 +99,10 @@ public class aj {
         this.a = aVar;
         try {
             b bVar = new b(this, uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f27175b = bVar;
+            this.b = bVar;
             bVar.c();
-        } catch (InterruptedException e2) {
-            throw new c(this, e2);
+        } catch (InterruptedException e) {
+            throw new c(this, e);
         }
     }
 
@@ -137,19 +133,19 @@ public class aj {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f27175b.f() || this.f27175b.g() || this.f27175b.e()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.f() || this.b.g() || this.b.e()) ? false : true : invokeV.booleanValue;
     }
 
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f27175b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.b) == null) {
             return;
         }
         bVar.d();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends cc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,11 +257,11 @@ public class aj {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 if (bd.c().b()) {
-                    bd c2 = bd.c();
-                    c2.a("onClose,  reason:" + str + ", remote:" + z);
+                    bd c = bd.c();
+                    c.a("onClose,  reason:" + str + ", remote:" + z);
                 }
-                bc c3 = bc.c();
-                c3.a("autotrace: connect closed, server:" + z + " reason:" + str);
+                bc c2 = bc.c();
+                c2.a("autotrace: connect closed, server:" + z + " reason:" + str);
                 am a = am.a();
                 a.a(5, "remote:" + z + "|reason:" + str);
                 if (this.a.a != null) {
@@ -285,9 +281,9 @@ public class aj {
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f27175b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.b == null) {
             return;
         }
-        this.f27175b.a(jSONObject.toString().getBytes());
+        this.b.a(jSONObject.toString().getBytes());
     }
 }

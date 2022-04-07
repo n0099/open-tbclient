@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static final /* synthetic */ FieldNamingPolicy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -251,14 +251,14 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
         }
     }
 
-    public static String modifyString(char c2, String str, int i) {
+    public static String modifyString(char c, String str, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2), str, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c), str, Integer.valueOf(i)})) == null) {
             if (i < str.length()) {
-                return c2 + str.substring(i);
+                return c + str.substring(i);
             }
-            return String.valueOf(c2);
+            return String.valueOf(c);
         }
         return (String) invokeCommon.objValue;
     }

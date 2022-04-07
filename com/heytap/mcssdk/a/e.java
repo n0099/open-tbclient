@@ -13,7 +13,7 @@ import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.mode.SptDataMessage;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class e extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public final class e extends c {
                 sptDataMessage.setAppID(CryptoUtil.desDecrypt(intent.getStringExtra(Message.APP_ID)));
                 sptDataMessage.setGlobalID(CryptoUtil.desDecrypt(intent.getStringExtra("globalID")));
                 return sptDataMessage;
-            } catch (Exception e2) {
-                LogUtil.d("OnHandleIntent--" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.d("OnHandleIntent--" + e.getMessage());
                 return null;
             }
         }

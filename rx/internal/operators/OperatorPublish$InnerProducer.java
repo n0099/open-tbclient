@@ -7,27 +7,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.k;
-import g.o.a.p;
+import com.repackage.az9;
+import com.repackage.bz9;
+import com.repackage.e0a;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements f, k {
+public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements wy9, bz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> child;
-    public final p<T> parent;
+    public final az9<? super T> child;
+    public final e0a<T> parent;
 
-    public OperatorPublish$InnerProducer(p<T> pVar, j<? super T> jVar) {
+    public OperatorPublish$InnerProducer(e0a<T> e0aVar, az9<? super T> az9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pVar, jVar};
+            Object[] objArr = {e0aVar, az9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,12 +37,12 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
                 return;
             }
         }
-        this.parent = pVar;
-        this.child = jVar;
+        this.parent = e0aVar;
+        this.child = az9Var;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         return invokeJ.longValue;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         int i;
         long j2;
@@ -105,7 +105,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         this.parent.g();
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || get() == Long.MIN_VALUE || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {

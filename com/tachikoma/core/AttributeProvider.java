@@ -1,6 +1,8 @@
 package com.tachikoma.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +31,7 @@ import com.tachikoma.core.component.text.TKText;
 import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AttributeProvider implements IProvider<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +59,7 @@ public class AttributeProvider implements IProvider<Object> {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.tachikoma.core.manager.IProvider
     public void apply(String str, Object obj, HashMap<String, Object> hashMap) {
-        char c2;
+        char c;
         Object obj2;
         Object obj3;
         TKMarqueeText tKMarqueeText;
@@ -67,135 +69,135 @@ public class AttributeProvider implements IProvider<Object> {
             switch (str.hashCode()) {
                 case -1815682644:
                     if (str.equals("com.tachikoma.core.component.listview.TKWaterListView")) {
-                        c2 = '\f';
+                        c = '\f';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1568538173:
                     if (str.equals("com.tachikoma.core.component.recyclerview.export.TKRefreshAnimatableView")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1490734452:
                     if (str.equals("com.tachikoma.core.component.switchview.TKSwitch")) {
-                        c2 = 15;
+                        c = 15;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1414476437:
                     if (str.equals("com.tachikoma.core.component.text.TKMarqueeText")) {
-                        c2 = 14;
+                        c = 14;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1289269710:
                     if (str.equals("com.tachikoma.core.component.listview.TKRecyclerView")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1114153406:
                     if (str.equals("com.tachikoma.core.component.imageview.TKImage")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -698705626:
                     if (str.equals("com.tachikoma.core.component.progressbar.KTProgressBarView")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -665940655:
                     if (str.equals("com.tachikoma.core.component.button.TKButton")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -324017669:
                     if (str.equals("com.tachikoma.core.component.input.TKInput")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 58022346:
                     if (str.equals("com.tachikoma.core.component.text.SpanItem")) {
-                        c2 = 11;
+                        c = 11;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 100018365:
                     if (str.equals("com.tachikoma.core.component.recyclerview.export.TKRefreshControl")) {
-                        c2 = '\n';
+                        c = '\n';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 591158801:
                     if (str.equals("com.tachikoma.core.component.listview.TKListView")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 753880526:
                     if (str.equals("com.tachikoma.core.component.text.TKSpan")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 753900465:
                     if (str.equals("com.tachikoma.core.component.text.TKText")) {
-                        c2 = 16;
+                        c = 16;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 791338032:
                     if (str.equals("com.tachikoma.core.component.listview.TKViewPager")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 801286025:
                     if (str.equals("com.tachikoma.core.component.input.TKTextArea")) {
-                        c2 = '\t';
+                        c = '\t';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1584334001:
                     if (str.equals("com.tachikoma.core.component.view.TKView")) {
-                        c2 = 17;
+                        c = 17;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1666774561:
                     if (str.equals("com.tachikoma.core.component.listview.TKIndicator")) {
-                        c2 = '\r';
+                        c = '\r';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     TKButton tKButton = (TKButton) obj;
                     if (hashMap.get("backgroundColor") != null) {
@@ -225,8 +227,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("color") != null) {
                         tKButton.setColor((String) hashMap.get("color"));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKButton.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKButton.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("fontFamily") != null) {
                         tKButton.setFontFamily((String) hashMap.get("fontFamily"));
@@ -240,8 +242,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("gradientBgColor") != null) {
                         tKButton.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKButton.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKButton.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKButton.setShadow((String) hashMap.get("shadow"));
@@ -292,14 +294,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKImage.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKImage.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKImage.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKImage.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKImage.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKImage.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("resize") != null) {
                         tKImage.setContentMode((String) hashMap.get("resize"));
@@ -346,14 +348,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase.setShadow((String) hashMap.get("shadow"));
@@ -397,14 +399,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase2.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase2.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase2.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase2.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase2.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase2.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase2.setShadow((String) hashMap.get("shadow"));
@@ -448,14 +450,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase3.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase3.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase3.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase3.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase3.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase3.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase3.setShadow((String) hashMap.get("shadow"));
@@ -505,8 +507,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("cursorColor") != null) {
                         tKInput.setCursorColor((String) hashMap.get("cursorColor"));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKInput.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKInput.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("fontFamily") != null) {
                         tKInput.setFontFamily((String) hashMap.get("fontFamily"));
@@ -520,8 +522,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("maxLength") != null) {
                         tKInput.setMaxLength((int) trans((Number) hashMap.get("maxLength")));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKInput.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKInput.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("placeholderColor") != null) {
                         tKInput.setPlaceholderColor((String) hashMap.get("placeholderColor"));
@@ -580,14 +582,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase4.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase4.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase4.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase4.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase4.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase4.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase4.setShadow((String) hashMap.get("shadow"));
@@ -634,8 +636,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("cornerRadius") != null) {
                         kTProgressBarView.setCornerRadius((float) trans((Number) hashMap.get("cornerRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        kTProgressBarView.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        kTProgressBarView.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         kTProgressBarView.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -643,8 +645,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("indeterminate") != null) {
                         kTProgressBarView.setIndeterminate(((Boolean) hashMap.get("indeterminate")).booleanValue());
                     }
-                    if (hashMap.get("opacity") != null) {
-                        kTProgressBarView.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        kTProgressBarView.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         kTProgressBarView.setShadow((String) hashMap.get("shadow"));
@@ -688,14 +690,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase5.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase5.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase5.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase5.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase5.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase5.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase5.setShadow((String) hashMap.get("shadow"));
@@ -745,8 +747,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("cursorColor") != null) {
                         tKTextArea.setCursorColor((String) hashMap.get("cursorColor"));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKTextArea.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKTextArea.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("fontFamily") != null) {
                         tKTextArea.setFontFamily((String) hashMap.get("fontFamily"));
@@ -760,8 +762,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("maxLength") != null) {
                         tKTextArea.setMaxLength((int) trans((Number) hashMap.get("maxLength")));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKTextArea.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKTextArea.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("placeholderColor") != null) {
                         tKTextArea.setPlaceholderColor((String) hashMap.get("placeholderColor"));
@@ -823,14 +825,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase6.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase6.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase6.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase6.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase6.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase6.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase6.setShadow((String) hashMap.get("shadow"));
@@ -874,14 +876,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase7.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase7.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase7.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase7.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase7.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase7.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase7.setShadow((String) hashMap.get("shadow"));
@@ -925,14 +927,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase8.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase8.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase8.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase8.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase8.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase8.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase8.setShadow((String) hashMap.get("shadow"));
@@ -979,8 +981,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKIndicator.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKIndicator.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKIndicator.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKIndicator.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -991,11 +993,11 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get(AnimationProperty.MARGIN_TOP) != null) {
                         tKIndicator.setMarginTop((int) trans((Number) hashMap.get(AnimationProperty.MARGIN_TOP)));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKIndicator.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKIndicator.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
-                    if (hashMap.get("padding") != null) {
-                        tKIndicator.setPadding((int) trans((Number) hashMap.get("padding")));
+                    if (hashMap.get(CriusAttrConstants.PADDING) != null) {
+                        tKIndicator.setPadding((int) trans((Number) hashMap.get(CriusAttrConstants.PADDING)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKIndicator.setShadow((String) hashMap.get("shadow"));
@@ -1051,8 +1053,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("color") != null) {
                         tKMarqueeText2.setColor((String) hashMap.get("color"));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKMarqueeText2.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKMarqueeText2.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE) != null) {
                         tKMarqueeText2.setFontSize((int) trans((Number) hashMap.get(TtmlNode.ATTR_TTS_FONT_SIZE)));
@@ -1063,8 +1065,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("gradientBgColor") != null) {
                         tKMarqueeText2.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKMarqueeText2.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKMarqueeText2.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKMarqueeText2.setShadow((String) hashMap.get("shadow"));
@@ -1108,8 +1110,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKSwitch.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKSwitch.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKSwitch.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKSwitch.setGradientBgColor((String) hashMap.get("gradientBgColor"));
@@ -1120,8 +1122,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("onColor") != null) {
                         tKSwitch.setOnColor((int) trans((Number) hashMap.get("onColor")));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKSwitch.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKSwitch.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKSwitch.setShadow((String) hashMap.get("shadow"));
@@ -1171,8 +1173,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("color") != null) {
                         tKText2.setColor((String) hashMap.get("color"));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKText2.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKText2.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("fontFamily") != null) {
                         tKText2.setFontFamily((String) hashMap.get("fontFamily"));
@@ -1192,8 +1194,8 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("minimumTextScaleFactor") != null) {
                         tKText2.setMinimumScaleFactor((float) trans((Number) hashMap.get("minimumTextScaleFactor")));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKText2.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKText2.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKText2.setShadow((String) hashMap.get("shadow"));
@@ -1255,14 +1257,14 @@ public class AttributeProvider implements IProvider<Object> {
                     if (hashMap.get("bottomRightRadius") != null) {
                         tKBase9.setBottomRightRadius((int) trans((Number) hashMap.get("bottomRightRadius")));
                     }
-                    if (hashMap.get("display") != null) {
-                        tKBase9.setDisplay((String) hashMap.get("display"));
+                    if (hashMap.get(CriusAttrConstants.DISPLAY) != null) {
+                        tKBase9.setDisplay((String) hashMap.get(CriusAttrConstants.DISPLAY));
                     }
                     if (hashMap.get("gradientBgColor") != null) {
                         tKBase9.setGradientBgColor((String) hashMap.get("gradientBgColor"));
                     }
-                    if (hashMap.get("opacity") != null) {
-                        tKBase9.setOpacity(trans((Number) hashMap.get("opacity")));
+                    if (hashMap.get(NativeConstants.OPACITY) != null) {
+                        tKBase9.setOpacity(trans((Number) hashMap.get(NativeConstants.OPACITY)));
                     }
                     if (hashMap.get("shadow") != null) {
                         tKBase9.setShadow((String) hashMap.get("shadow"));

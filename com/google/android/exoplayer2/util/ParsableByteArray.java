@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ParsableByteArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -493,7 +493,7 @@ public final class ParsableByteArray {
         InterceptResult invokeV;
         int i;
         int i2;
-        byte b2;
+        byte b;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
@@ -518,7 +518,7 @@ public final class ParsableByteArray {
                     if ((this.data[this.position + i] & 192) != 128) {
                         throw new NumberFormatException("Invalid UTF-8 sequence continuation byte: " + j);
                     }
-                    j = (j << 6) | (b2 & 63);
+                    j = (j << 6) | (b & 63);
                 }
                 this.position += i2;
                 return j;

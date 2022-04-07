@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class DelegateDialogFragment extends DialogFragment implements IDelegateFragment {
     public IDialogFragmentLifecycle mBase;
 
@@ -107,9 +107,9 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
     }
 
     @Override // androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
-        this.mBase.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
+        this.mBase.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
     }
 
     @Override // androidx.fragment.app.DialogFragment
@@ -255,9 +255,9 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
-        super.onViewCreated(view, bundle);
-        this.mBase.onViewCreated(view, bundle);
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+        super.onViewCreated(view2, bundle);
+        this.mBase.onViewCreated(view2, bundle);
     }
 
     @Override // androidx.fragment.app.Fragment

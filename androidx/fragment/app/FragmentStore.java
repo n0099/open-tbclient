@@ -213,8 +213,8 @@ public class FragmentStore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fragment)) == null) {
             ViewGroup viewGroup = fragment.mContainer;
-            View view = fragment.mView;
-            if (viewGroup != null && view != null) {
+            View view2 = fragment.mView;
+            if (viewGroup != null && view2 != null) {
                 for (int indexOf = this.mAdded.indexOf(fragment) - 1; indexOf >= 0; indexOf--) {
                     Fragment fragment2 = this.mAdded.get(indexOf);
                     if (fragment2.mContainer == viewGroup && fragment2.mView != null) {

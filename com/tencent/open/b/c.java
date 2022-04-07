@@ -12,17 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
 import com.tencent.open.web.security.SecureJsInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KeyEvent f43735b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.tencent.open.web.security.a f43736c;
+    public KeyEvent b;
+    public com.tencent.open.web.security.a c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -64,12 +60,12 @@ public class c extends b {
                             }
                             if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                                 KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.f43735b = keyEvent2;
+                                this.b = keyEvent2;
                                 return super.dispatchKeyEvent(keyEvent2);
                             }
                             return super.dispatchKeyEvent(keyEvent);
                         }
-                        com.tencent.open.web.security.a.f43814b = true;
+                        com.tencent.open.web.security.a.b = true;
                         return super.dispatchKeyEvent(keyEvent);
                     }
                     return super.dispatchKeyEvent(keyEvent);
@@ -92,7 +88,7 @@ public class c extends b {
             if (onCreateInputConnection != null) {
                 a = true;
                 com.tencent.open.web.security.a aVar = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
-                this.f43736c = aVar;
+                this.c = aVar;
                 return aVar;
             }
             a = false;
@@ -121,12 +117,12 @@ public class c extends b {
                             }
                             if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                                 KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.f43735b = keyEvent2;
-                                return super.onKeyDown(keyEvent2.getKeyCode(), this.f43735b);
+                                this.b = keyEvent2;
+                                return super.onKeyDown(keyEvent2.getKeyCode(), this.b);
                             }
                             return super.onKeyDown(i, keyEvent);
                         }
-                        com.tencent.open.web.security.a.f43814b = true;
+                        com.tencent.open.web.security.a.b = true;
                         return super.onKeyDown(i, keyEvent);
                     }
                     return super.onKeyDown(i, keyEvent);

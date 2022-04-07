@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseContentUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVE_UPLOAD_URL_PATH = "/fetchlog/activeupload";

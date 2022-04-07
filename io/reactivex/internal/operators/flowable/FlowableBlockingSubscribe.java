@@ -17,7 +17,7 @@ import io.reactivex.internal.util.NotificationLite;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableBlockingSubscribe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public final class FlowableBlockingSubscribe {
                     if (blockingSubscriber.isCancelled() || publisher == BlockingSubscriber.TERMINATED) {
                         return;
                     }
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     blockingSubscriber.cancel();
-                    subscriber.onError(e2);
+                    subscriber.onError(e);
                     return;
                 }
             } while (!NotificationLite.acceptFull(poll, subscriber));

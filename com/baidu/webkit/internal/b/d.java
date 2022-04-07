@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public final class d extends g {
                     intent.addCategory("android.intent.category.BROWSABLE");
                     intent.setComponent(null);
                     intent.setSelector(null);
-                } catch (URISyntaxException e2) {
-                    e = e2;
+                } catch (URISyntaxException e) {
+                    e = e;
                     e.printStackTrace();
                     if (intent != null) {
                     }
@@ -79,8 +79,8 @@ public final class d extends g {
                     if (!z) {
                     }
                 }
-            } catch (URISyntaxException e3) {
-                e = e3;
+            } catch (URISyntaxException e2) {
+                e = e2;
                 intent = null;
             }
         }
@@ -91,8 +91,8 @@ public final class d extends g {
                 if (str2 != null && intExtra > 0) {
                     try {
                         packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
-                    } catch (PackageManager.NameNotFoundException e4) {
-                        e4.printStackTrace();
+                    } catch (PackageManager.NameNotFoundException e3) {
+                        e3.printStackTrace();
                     }
                     if (packageInfo != null) {
                     }
@@ -115,11 +115,11 @@ public final class d extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             if (str != null && !TextUtils.isEmpty(str) && str.startsWith("bds://") && "openurl".equals(Uri.parse(str).getHost())) {
-                String b2 = b(context, str);
-                if (TextUtils.isEmpty(b2)) {
+                String b = b(context, str);
+                if (TextUtils.isEmpty(b)) {
                     return true;
                 }
-                return new e().a(context, b2);
+                return new e().a(context, b);
             }
             return false;
         }

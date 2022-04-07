@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlgoHandleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class AlgoHandleController {
     public HandlerThread mo;
     public a mp;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,9 @@ public class AlgoHandleController {
                             AlgoHandleAdapter.destroyHandle(longValue);
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    b.aS("release Exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    b.aS("release Exception:" + e.getMessage());
                 }
             }
             if (this.mp != null) {
@@ -165,9 +165,9 @@ public class AlgoHandleController {
                     }
                     b.aS("removeHandle cant find:" + j);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                b.aS("removeHandle Exception:" + e2.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+                b.aS("removeHandle Exception:" + e.getMessage());
             }
         }
     }
@@ -413,10 +413,10 @@ public class AlgoHandleController {
         return invokeCommon.intValue;
     }
 
-    public int setHandleMaskThreshold(long j, float f2) {
+    public int setHandleMaskThreshold(long j, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)})) == null) ? AlgoHandleAdapter.setHandleMaskThreshold(j, f2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Float.valueOf(f)})) == null) ? AlgoHandleAdapter.setHandleMaskThreshold(j, f) : invokeCommon.intValue;
     }
 
     public void setUsingHandle(long j) {

@@ -16,7 +16,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ITFReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] DEFAULT_ALLOWED_LENGTHS;
@@ -70,13 +70,13 @@ public final class ITFReader extends OneDReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
             int length = PATTERNS.length;
-            float f2 = 0.38f;
+            float f = 0.38f;
             int i = -1;
             for (int i2 = 0; i2 < length; i2++) {
                 float patternMatchVariance = OneDReader.patternMatchVariance(iArr, PATTERNS[i2], 0.78f);
-                if (patternMatchVariance < f2) {
+                if (patternMatchVariance < f) {
                     i = i2;
-                    f2 = patternMatchVariance;
+                    f = patternMatchVariance;
                 }
             }
             if (i >= 0) {
@@ -249,8 +249,8 @@ public final class ITFReader extends OneDReader {
                 z = true;
             }
             if (z) {
-                float f2 = i;
-                return new Result(sb2, null, new ResultPoint[]{new ResultPoint(decodeStart[1], f2), new ResultPoint(decodeEnd[0], f2)}, BarcodeFormat.ITF);
+                float f = i;
+                return new Result(sb2, null, new ResultPoint[]{new ResultPoint(decodeStart[1], f), new ResultPoint(decodeEnd[0], f)}, BarcodeFormat.ITF);
             }
             throw FormatException.getFormatInstance();
         }

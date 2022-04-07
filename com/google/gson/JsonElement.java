@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class JsonElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -233,8 +233,8 @@ public abstract class JsonElement {
                 jsonWriter.setLenient(true);
                 Streams.write(this, jsonWriter);
                 return stringWriter.toString();
-            } catch (IOException e2) {
-                throw new AssertionError(e2);
+            } catch (IOException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeV.objValue;

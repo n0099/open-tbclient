@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.w.h;
-import c.a.o0.w.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,17 +17,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i05;
+import com.repackage.mg;
+import com.repackage.p05;
+import com.repackage.q05;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<h> m;
+    public LinkedList<p05> m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +69,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +131,7 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.v05
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -137,27 +139,27 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.v05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            i iVar = new i();
-            iVar.E(this.m);
-            k(iVar);
+            q05 q05Var = new q05();
+            q05Var.E(this.m);
+            k(q05Var);
             u();
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.b
-    public void onAction(c.a.o0.w.a aVar) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.j05
+    public void onAction(i05 i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            super.onAction(aVar);
-            if (aVar == null || aVar.a != 2 || aVar.f11498b == 5) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i05Var) == null) {
+            super.onAction(i05Var);
+            if (i05Var == null || i05Var.a != 2 || i05Var.b == 5) {
                 return;
             }
-            t(aVar);
+            t(i05Var);
             r();
         }
     }
@@ -183,7 +185,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    public void q(LinkedList<h> linkedList) {
+    public void q(LinkedList<p05> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
             this.m = linkedList;
@@ -198,9 +200,9 @@ public class MoreDeskView extends CommonTabHost {
                 i += this.n.valueAt(i2);
             }
             if (i > 0) {
-                d(new c.a.o0.w.a(2, 2, " "));
+                d(new i05(2, 2, " "));
             } else {
-                d(new c.a.o0.w.a(2, 2, null));
+                d(new i05(2, 2, null));
             }
         }
     }
@@ -218,23 +220,23 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void t(c.a.o0.w.a aVar) {
+    public final void t(i05 i05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(aVar.f11498b));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i05Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(i05Var.b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f11499c;
+            Object obj = i05Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
                     if (!TextUtils.isEmpty(str)) {
-                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : c.a.d.f.m.b.e(str, 1);
+                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : mg.e(str, 1);
                     }
                 }
-                this.n.put(aVar.f11498b, intValue >= 0 ? intValue : 0);
+                this.n.put(i05Var.b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.n.put(aVar.f11498b, intValue >= 0 ? intValue : 0);
+            this.n.put(i05Var.b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -249,14 +251,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                d(new c.a.o0.w.a(2, 2, " "));
-                d(new c.a.o0.w.a(2, 16, " "));
+                d(new i05(2, 2, " "));
+                d(new i05(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    d(new c.a.o0.w.a(2, 12, " "));
-                    d(new c.a.o0.w.a(2, 2, " "));
+                    d(new i05(2, 12, " "));
+                    d(new i05(2, 2, " "));
                 } else {
-                    d(new c.a.o0.w.a(2, 2, null));
+                    d(new i05(2, 2, null));
                 }
                 z = false;
             }

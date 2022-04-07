@@ -7,10 +7,10 @@ import kotlinx.coroutines.BuildersKt;
 public final /* synthetic */ class ChannelsKt__ChannelsKt {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: E */
     /* JADX WARN: Multi-variable type inference failed */
-    public static final <E> void sendBlocking(SendChannel<? super E> sendChannel, E e2) {
-        if (sendChannel.offer(e2)) {
+    public static final <E> void sendBlocking(SendChannel<? super E> sendChannel, E e) {
+        if (sendChannel.offer(e)) {
             return;
         }
-        BuildersKt.runBlocking$default(null, new ChannelsKt__ChannelsKt$sendBlocking$1(sendChannel, e2, null), 1, null);
+        BuildersKt.runBlocking$default(null, new ChannelsKt__ChannelsKt$sendBlocking$1(sendChannel, e, null), 1, null);
     }
 }

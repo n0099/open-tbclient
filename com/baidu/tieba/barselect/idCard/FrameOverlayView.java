@@ -19,38 +19,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ew5;
+/* loaded from: classes3.dex */
 public class FrameOverlayView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureDetector.SimpleOnGestureListener a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f31543b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f31544c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f31545d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f31546e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f31547f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f31548g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Paint f31549h;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public Paint g;
+    public Paint h;
     public GestureDetector i;
     public RectF j;
     public RectF k;
     public int l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,18 +62,18 @@ public class FrameOverlayView extends View {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                this.a.i(f2, f3);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                this.a.i(f, f2);
                 return true;
             }
             return invokeCommon.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
     }
 
@@ -109,20 +96,20 @@ public class FrameOverlayView extends View {
             }
         }
         this.a = new a(this);
-        this.f31543b = -1;
-        this.f31544c = 20;
-        this.f31545d = 100;
-        this.f31546e = 6;
-        this.f31547f = Color.argb(180, 0, 0, 0);
-        this.f31548g = new Paint(1);
-        this.f31549h = new Paint(1);
+        this.b = -1;
+        this.c = 20;
+        this.d = 100;
+        this.e = 6;
+        this.f = Color.argb(180, 0, 0, 0);
+        this.g = new Paint(1);
+        this.h = new Paint(1);
         this.j = new RectF();
         this.k = new RectF();
         setLayerType(1, null);
-        this.f31548g.setColor(-1);
-        this.f31548g.setStyle(Paint.Style.STROKE);
-        this.f31548g.setStrokeWidth(6.0f);
-        this.f31549h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.g.setColor(-1);
+        this.g.setStyle(Paint.Style.STROKE);
+        this.g.setStrokeWidth(6.0f);
+        this.h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.l = 0;
         f();
     }
@@ -130,42 +117,42 @@ public class FrameOverlayView extends View {
     private float getMinimumFrameHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f31545d * 2.4f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.d * 2.4f : invokeV.floatValue;
     }
 
     private float getMinimumFrameWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.f31545d * 2.4f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.d * 2.4f : invokeV.floatValue;
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f31548g.setStrokeWidth(this.f31546e);
+            this.g.setStrokeWidth(this.e);
             RectF rectF = this.k;
-            c(canvas, rectF.left - (this.f31546e / 2), rectF.top, this.f31545d, 0);
+            c(canvas, rectF.left - (this.e / 2), rectF.top, this.d, 0);
             RectF rectF2 = this.k;
-            c(canvas, rectF2.left, rectF2.top, 0, this.f31545d);
+            c(canvas, rectF2.left, rectF2.top, 0, this.d);
             RectF rectF3 = this.k;
-            c(canvas, rectF3.right + (this.f31546e / 2), rectF3.top, -this.f31545d, 0);
+            c(canvas, rectF3.right + (this.e / 2), rectF3.top, -this.d, 0);
             RectF rectF4 = this.k;
-            c(canvas, rectF4.right, rectF4.top, 0, this.f31545d);
+            c(canvas, rectF4.right, rectF4.top, 0, this.d);
             RectF rectF5 = this.k;
-            c(canvas, rectF5.right, rectF5.bottom, 0, -this.f31545d);
+            c(canvas, rectF5.right, rectF5.bottom, 0, -this.d);
             RectF rectF6 = this.k;
-            c(canvas, rectF6.right + (this.f31546e / 2), rectF6.bottom, -this.f31545d, 0);
+            c(canvas, rectF6.right + (this.e / 2), rectF6.bottom, -this.d, 0);
             RectF rectF7 = this.k;
-            c(canvas, rectF7.left - (this.f31546e / 2), rectF7.bottom, this.f31545d, 0);
+            c(canvas, rectF7.left - (this.e / 2), rectF7.bottom, this.d, 0);
             RectF rectF8 = this.k;
-            c(canvas, rectF8.left, rectF8.bottom, 0, -this.f31545d);
+            c(canvas, rectF8.left, rectF8.bottom, 0, -this.d);
         }
     }
 
-    public final void c(Canvas canvas, float f2, float f3, int i, int i2) {
+    public final void c(Canvas canvas, float f, float f2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            canvas.drawLine(f2, f3, f2 + i, f3 + i2, this.f31548g);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            canvas.drawLine(f, f2, f + i, f2 + i2, this.g);
         }
     }
 
@@ -186,33 +173,33 @@ public class FrameOverlayView extends View {
                         return e(motionEvent);
                     }
                 }
-                this.f31543b = -1;
+                this.b = -1;
                 return false;
             }
-            float f2 = this.f31545d;
-            this.j.set(motionEvent.getX() - f2, motionEvent.getY() - f2, motionEvent.getX() + f2, motionEvent.getY() + f2);
+            float f = this.d;
+            this.j.set(motionEvent.getX() - f, motionEvent.getY() - f, motionEvent.getX() + f, motionEvent.getY() + f);
             RectF rectF = this.j;
             RectF rectF2 = this.k;
             if (rectF.contains(rectF2.left, rectF2.top)) {
-                this.f31543b = 1;
+                this.b = 1;
                 return true;
             }
             RectF rectF3 = this.j;
             RectF rectF4 = this.k;
             if (rectF3.contains(rectF4.right, rectF4.top)) {
-                this.f31543b = 2;
+                this.b = 2;
                 return true;
             }
             RectF rectF5 = this.j;
             RectF rectF6 = this.k;
             if (rectF5.contains(rectF6.right, rectF6.bottom)) {
-                this.f31543b = 3;
+                this.b = 3;
                 return true;
             }
             RectF rectF7 = this.j;
             RectF rectF8 = this.k;
             if (rectF7.contains(rectF8.left, rectF8.bottom)) {
-                this.f31543b = 4;
+                this.b = 4;
                 return true;
             }
             return false;
@@ -224,7 +211,7 @@ public class FrameOverlayView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            int i = this.f31543b;
+            int i = this.b;
             if (i == 1) {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
@@ -254,8 +241,8 @@ public class FrameOverlayView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.i = new GestureDetector(getContext(), this.a);
-            this.f31545d = c.a.p0.e0.e.b.a(18);
-            this.f31546e = c.a.p0.e0.e.b.a(3);
+            this.d = ew5.a(18);
+            this.e = ew5.a(3);
         }
     }
 
@@ -292,48 +279,48 @@ public class FrameOverlayView extends View {
         return (Rect) invokeV.objValue;
     }
 
-    public final void h(float f2, float f3, float f4, float f5) {
+    public final void h(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            if (f5 - f3 < getMinimumFrameHeight()) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            if (f4 - f2 < getMinimumFrameHeight()) {
                 RectF rectF = this.k;
-                float f6 = rectF.top;
-                f5 = rectF.bottom;
-                f3 = f6;
+                float f5 = rectF.top;
+                f4 = rectF.bottom;
+                f2 = f5;
             }
-            if (f4 - f2 < getMinimumFrameWidth()) {
+            if (f3 - f < getMinimumFrameWidth()) {
                 RectF rectF2 = this.k;
-                float f7 = rectF2.left;
-                f4 = rectF2.right;
-                f2 = f7;
+                float f6 = rectF2.left;
+                f3 = rectF2.right;
+                f = f6;
             }
-            this.k.set(Math.max(this.f31544c, f2), Math.max(this.f31544c, f3), Math.min(getWidth() - this.f31544c, f4), Math.min(getHeight() - this.f31544c, f5));
+            this.k.set(Math.max(this.c, f), Math.max(this.c, f2), Math.min(getWidth() - this.c, f3), Math.min(getHeight() - this.c, f4));
             invalidate();
         }
     }
 
-    public final void i(float f2, float f3) {
+    public final void i(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (f > 0.0f) {
+                float f3 = this.k.left;
+                int i = this.c;
+                if (f3 - f < i) {
+                    f = f3 - i;
+                }
+            } else if (this.k.right - f > getWidth() - this.c) {
+                f = (this.k.right - getWidth()) + this.c;
+            }
             if (f2 > 0.0f) {
-                float f4 = this.k.left;
-                int i = this.f31544c;
-                if (f4 - f2 < i) {
-                    f2 = f4 - i;
+                float f4 = this.k.top;
+                int i2 = this.c;
+                if (f4 - f2 < i2) {
+                    f2 = f4 - i2;
                 }
-            } else if (this.k.right - f2 > getWidth() - this.f31544c) {
-                f2 = (this.k.right - getWidth()) + this.f31544c;
+            } else if (this.k.bottom - f2 > getHeight() - this.c) {
+                f2 = (this.k.bottom - getHeight()) + this.c;
             }
-            if (f3 > 0.0f) {
-                float f5 = this.k.top;
-                int i2 = this.f31544c;
-                if (f5 - f3 < i2) {
-                    f3 = f5 - i2;
-                }
-            } else if (this.k.bottom - f3 > getHeight() - this.f31544c) {
-                f3 = (this.k.bottom - getHeight()) + this.f31544c;
-            }
-            this.k.offset(-f2, -f3);
+            this.k.offset(-f, -f2);
             invalidate();
         }
     }
@@ -343,10 +330,10 @@ public class FrameOverlayView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawColor(this.f31547f);
-            this.f31548g.setStrokeWidth(c.a.p0.e0.e.b.a(1));
-            canvas.drawRect(this.k, this.f31548g);
-            canvas.drawRect(this.k, this.f31549h);
+            canvas.drawColor(this.f);
+            this.g.setStrokeWidth(ew5.a(1));
+            canvas.drawRect(this.k, this.g);
+            canvas.drawRect(this.k, this.h);
             b(canvas);
         }
     }
@@ -365,11 +352,11 @@ public class FrameOverlayView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            boolean d2 = d(motionEvent);
+            boolean d = d(motionEvent);
             RectF rectF = this.k;
             RectF rectF2 = new RectF(rectF.left - 60.0f, rectF.top - 60.0f, rectF.right + 60.0f, rectF.bottom + 60.0f);
-            if (d2 || !rectF2.contains(motionEvent.getX(), motionEvent.getY())) {
-                return d2;
+            if (d || !rectF2.contains(motionEvent.getX(), motionEvent.getY())) {
+                return d;
             }
             this.i.onTouchEvent(motionEvent);
             return true;
@@ -410,20 +397,20 @@ public class FrameOverlayView extends View {
             }
         }
         this.a = new a(this);
-        this.f31543b = -1;
-        this.f31544c = 20;
-        this.f31545d = 100;
-        this.f31546e = 6;
-        this.f31547f = Color.argb(180, 0, 0, 0);
-        this.f31548g = new Paint(1);
-        this.f31549h = new Paint(1);
+        this.b = -1;
+        this.c = 20;
+        this.d = 100;
+        this.e = 6;
+        this.f = Color.argb(180, 0, 0, 0);
+        this.g = new Paint(1);
+        this.h = new Paint(1);
         this.j = new RectF();
         this.k = new RectF();
         setLayerType(1, null);
-        this.f31548g.setColor(-1);
-        this.f31548g.setStyle(Paint.Style.STROKE);
-        this.f31548g.setStrokeWidth(6.0f);
-        this.f31549h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.g.setColor(-1);
+        this.g.setStyle(Paint.Style.STROKE);
+        this.g.setStrokeWidth(6.0f);
+        this.h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.l = 0;
         f();
     }
@@ -448,20 +435,20 @@ public class FrameOverlayView extends View {
             }
         }
         this.a = new a(this);
-        this.f31543b = -1;
-        this.f31544c = 20;
-        this.f31545d = 100;
-        this.f31546e = 6;
-        this.f31547f = Color.argb(180, 0, 0, 0);
-        this.f31548g = new Paint(1);
-        this.f31549h = new Paint(1);
+        this.b = -1;
+        this.c = 20;
+        this.d = 100;
+        this.e = 6;
+        this.f = Color.argb(180, 0, 0, 0);
+        this.g = new Paint(1);
+        this.h = new Paint(1);
         this.j = new RectF();
         this.k = new RectF();
         setLayerType(1, null);
-        this.f31548g.setColor(-1);
-        this.f31548g.setStyle(Paint.Style.STROKE);
-        this.f31548g.setStrokeWidth(6.0f);
-        this.f31549h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.g.setColor(-1);
+        this.g.setStyle(Paint.Style.STROKE);
+        this.g.setStrokeWidth(6.0f);
+        this.h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.l = 0;
         f();
     }

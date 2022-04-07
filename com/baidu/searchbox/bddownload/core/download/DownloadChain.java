@@ -35,7 +35,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadChain implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;

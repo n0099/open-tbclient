@@ -26,33 +26,19 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String n;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f37884b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f37885c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f37886d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f37887e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f37888f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f37889g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f37890h;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
     public String i;
     public String j;
     public String k;
@@ -94,9 +80,9 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f37889g)) {
-                int e2 = e(context);
-                int f2 = f(context);
+            if (TextUtils.isEmpty(this.g)) {
+                int e = e(context);
+                int f = f(context);
                 String str = Build.MANUFACTURER;
                 if (TextUtils.isEmpty(str)) {
                     str = "NULL";
@@ -107,25 +93,25 @@ public final class a {
                 if (TextUtils.isEmpty(str4)) {
                     str4 = "0.0";
                 }
-                String h2 = h(context);
+                String h = h(context);
                 String str5 = TextUtils.isEmpty(null) ? "j2" : null;
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("bd_");
-                stringBuffer.append(e2);
+                stringBuffer.append(e);
                 stringBuffer.append("_");
-                stringBuffer.append(f2);
+                stringBuffer.append(f);
                 stringBuffer.append("_");
                 stringBuffer.append(str.replace("_", "-") + "*@*" + str3.replace("_", "-") + "*@*" + str4.replace("_", "-"));
                 stringBuffer.append("_");
-                stringBuffer.append(h2);
+                stringBuffer.append(h);
                 stringBuffer.append("_");
                 stringBuffer.append(str5);
-                this.f37889g = bVar.a(stringBuffer.toString().replace(".", "-"));
+                this.g = bVar.a(stringBuffer.toString().replace(".", "-"));
             }
-            if (TextUtils.isEmpty(this.f37889g)) {
+            if (TextUtils.isEmpty(this.g)) {
                 throw new RuntimeException("BdLogBase: get ua null!");
             }
-            return this.f37889g;
+            return this.g;
         }
         return (String) invokeLL.objValue;
     }
@@ -199,8 +185,8 @@ public final class a {
                     return "5g";
                 }
                 return "unknown";
-            } catch (Exception e2) {
-                c.a(e2);
+            } catch (Exception e) {
+                c.a(e);
                 return "exception";
             }
         }
@@ -211,13 +197,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f37890h)) {
-                this.f37890h = bVar.c();
+            if (TextUtils.isEmpty(this.h)) {
+                this.h = bVar.c();
             }
-            if (TextUtils.isEmpty(this.f37890h)) {
+            if (TextUtils.isEmpty(this.h)) {
                 throw new RuntimeException("BdLogBase: get from null!");
             }
-            return this.f37890h;
+            return this.h;
         }
         return (String) invokeL.objValue;
     }
@@ -254,8 +240,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             b.a().g();
-            String b2 = b(context);
-            return b2.equals("2g") || b2.equals("3g") || b2.equals("4g") || b2.equals("5g");
+            String b = b(context);
+            return b.equals("2g") || b.equals("3g") || b.equals("4g") || b.equals("5g");
         }
         return invokeL.booleanValue;
     }
@@ -283,11 +269,11 @@ public final class a {
         if (interceptable == null || interceptable.invokeL(65547, this, context) == null) {
             try {
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                this.f37884b = displayMetrics.widthPixels;
-                this.f37885c = displayMetrics.heightPixels;
-                this.f37886d = displayMetrics.densityDpi;
-            } catch (Exception e2) {
-                c.a(e2);
+                this.b = displayMetrics.widthPixels;
+                this.c = displayMetrics.heightPixels;
+                this.d = displayMetrics.densityDpi;
+            } catch (Exception e) {
+                c.a(e);
             }
         }
     }
@@ -296,10 +282,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, context)) == null) {
-            if (this.f37884b == 0) {
+            if (this.b == 0) {
                 d(context);
             }
-            return this.f37884b;
+            return this.b;
         }
         return invokeL.intValue;
     }
@@ -328,10 +314,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, context)) == null) {
-            if (this.f37885c == 0) {
+            if (this.c == 0) {
                 d(context);
             }
-            return this.f37885c;
+            return this.c;
         }
         return invokeL.intValue;
     }
@@ -349,10 +335,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
-            if (this.f37886d == 0) {
+            if (this.d == 0) {
                 d(context);
             }
-            return this.f37886d;
+            return this.d;
         }
         return invokeL.intValue;
     }
@@ -362,16 +348,16 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, context)) == null) {
             try {
-                if (TextUtils.isEmpty(this.f37887e)) {
+                if (TextUtils.isEmpty(this.e)) {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    this.f37887e = packageInfo.versionName;
-                    this.f37887e = this.f37887e.substring(0, this.f37887e.length() - 1) + "1";
-                    this.f37888f = packageInfo.versionCode;
-                    c.e("BdLogSDK", "mVersionName = " + this.f37887e);
+                    this.e = packageInfo.versionName;
+                    this.e = this.e.substring(0, this.e.length() - 1) + "1";
+                    this.f = packageInfo.versionCode;
+                    c.e("BdLogSDK", "mVersionName = " + this.e);
                 }
-                return this.f37887e;
-            } catch (Exception e2) {
-                c.a(e2);
+                return this.e;
+            } catch (Exception e) {
+                c.a(e);
                 return "1.0.0.0";
             }
         }
@@ -383,17 +369,17 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, context)) == null) {
             try {
-                if (this.f37888f <= 0) {
+                if (this.f <= 0) {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    this.f37887e = packageInfo.versionName;
-                    this.f37887e = this.f37887e.substring(0, this.f37887e.length() - 1) + "1";
-                    this.f37888f = packageInfo.versionCode;
-                    c.e("BdLogSDK", "mVersionName = " + this.f37887e);
+                    this.e = packageInfo.versionName;
+                    this.e = this.e.substring(0, this.e.length() - 1) + "1";
+                    this.f = packageInfo.versionCode;
+                    c.e("BdLogSDK", "mVersionName = " + this.e);
                 }
-            } catch (Exception e2) {
-                c.a(e2);
+            } catch (Exception e) {
+                c.a(e);
             }
-            return this.f37888f;
+            return this.f;
         }
         return invokeL.intValue;
     }
@@ -424,29 +410,29 @@ public final class a {
 
     public final int a(String str, Context context) {
         InterceptResult invokeLL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, context)) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -1643810197) {
                 if (str.equals("display_density")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != -102985484) {
                 if (hashCode == -19457365 && str.equals("network_type")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("version_code")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
                         return -1;
                     }
                     return ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
@@ -471,17 +457,17 @@ public final class a {
                 jSONObject.put("network_type", ((TelephonyManager) context.getSystemService("phone")).getNetworkType());
                 jSONObject.put("operator", j(context));
                 jSONObject.put("build_display", Build.DISPLAY);
-                String e2 = e();
-                if (!TextUtils.isEmpty(e2)) {
-                    jSONObject.put("kernel_version", e2);
+                String e = e();
+                if (!TextUtils.isEmpty(e)) {
+                    jSONObject.put("kernel_version", e);
                 }
                 if (b.a().c() != null) {
                     jSONObject.put("net_type", (Object) null);
                     jSONObject.put("sessionId", (Object) null);
                     jSONObject.put("zeusVersion", (Object) null);
                 }
-            } catch (Exception e3) {
-                c.a(e3);
+            } catch (Exception e2) {
+                c.a(e2);
             }
             return jSONObject.toString();
         }
@@ -576,9 +562,9 @@ public final class a {
         InterceptResult invokeLL;
         String str2;
         String str3;
-        String b2;
+        String b;
         String packageName;
-        String c2;
+        String c;
         String encode;
         String encode2;
         String encode3;
@@ -595,11 +581,11 @@ public final class a {
             } else {
                 sb.append("&");
             }
-            com.baidu.webkit.logsdk.b c3 = b.a().c();
+            com.baidu.webkit.logsdk.b c2 = b.a().c();
             try {
-                str2 = a(context, c3);
-            } catch (Exception e2) {
-                e = e2;
+                str2 = a(context, c2);
+            } catch (Exception e) {
+                e = e;
                 str2 = "";
             }
             try {
@@ -607,16 +593,16 @@ public final class a {
                     sb.append("ua=");
                     sb.append(str2);
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 c.a(e);
-                str3 = a(c3);
+                str3 = a(c2);
                 if (!TextUtils.isEmpty(str3)) {
                 }
-                encode4 = URLEncoder.encode(c(c3), "UTF-8");
+                encode4 = URLEncoder.encode(c(c2), "UTF-8");
                 if (!TextUtils.isEmpty(encode4)) {
                 }
-                encode3 = URLEncoder.encode(b(c3), "UTF-8");
+                encode3 = URLEncoder.encode(b(c2), "UTF-8");
                 if (!TextUtils.isEmpty(encode3)) {
                 }
                 encode2 = URLEncoder.encode(a(), "UTF-8");
@@ -626,14 +612,14 @@ public final class a {
                 if (!TextUtils.isEmpty(encode)) {
                 }
                 sb.append("ctv=2");
-                c2 = c();
-                if (!TextUtils.isEmpty(c2)) {
+                c = c();
+                if (!TextUtils.isEmpty(c)) {
                 }
-                String f2 = f();
+                String f = f();
                 sb.append("&st=");
-                sb.append(f2);
-                b2 = b(context);
-                if (!TextUtils.isEmpty(b2)) {
+                sb.append(f);
+                b = b(context);
+                if (!TextUtils.isEmpty(b)) {
                 }
                 if (!TextUtils.isEmpty(null)) {
                 }
@@ -652,17 +638,17 @@ public final class a {
                 }
                 return sb.toString();
             }
-            str3 = a(c3);
+            str3 = a(c2);
             if (!TextUtils.isEmpty(str3)) {
                 sb.append("&cuid=");
                 sb.append(str3);
             }
-            encode4 = URLEncoder.encode(c(c3), "UTF-8");
+            encode4 = URLEncoder.encode(c(c2), "UTF-8");
             if (!TextUtils.isEmpty(encode4)) {
                 sb.append("&cfrom=");
                 sb.append(encode4);
             }
-            encode3 = URLEncoder.encode(b(c3), "UTF-8");
+            encode3 = URLEncoder.encode(b(c2), "UTF-8");
             if (!TextUtils.isEmpty(encode3)) {
                 sb.append("&from=");
                 sb.append(encode3);
@@ -678,18 +664,18 @@ public final class a {
                 sb.append(encode);
             }
             sb.append("ctv=2");
-            c2 = c();
-            if (!TextUtils.isEmpty(c2)) {
+            c = c();
+            if (!TextUtils.isEmpty(c)) {
                 sb.append("&seid=");
-                sb.append(c2);
+                sb.append(c);
             }
-            String f22 = f();
+            String f2 = f();
             sb.append("&st=");
-            sb.append(f22);
-            b2 = b(context);
-            if (!TextUtils.isEmpty(b2)) {
+            sb.append(f2);
+            b = b(context);
+            if (!TextUtils.isEmpty(b)) {
                 sb.append("&nw=");
-                sb.append(b2);
+                sb.append(b);
             }
             if (!TextUtils.isEmpty(null)) {
                 sb.append("&uid=");
@@ -726,190 +712,190 @@ public final class a {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public final String a(String str, Context context, com.baidu.webkit.logsdk.b bVar) {
         InterceptResult invokeLLL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, context, bVar)) == null) {
             switch (str.hashCode()) {
                 case -1643810197:
                     if (str.equals("display_density")) {
-                        c2 = 23;
+                        c = 23;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -837666831:
                     if (str.equals("build_display")) {
-                        c2 = 16;
+                        c = 16;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -807062458:
                     if (str.equals("package")) {
-                        c2 = '\r';
+                        c = '\r';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -516987305:
                     if (str.equals("pkgname")) {
-                        c2 = '\f';
+                        c = '\f';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -500553564:
                     if (str.equals("operator")) {
-                        c2 = 15;
+                        c = 15;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -102985484:
                     if (str.equals("version_code")) {
-                        c2 = 24;
+                        c = 24;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -19457365:
                     if (str.equals("network_type")) {
-                        c2 = 22;
+                        c = 22;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3371:
                     if (str.equals(AdvanceSetting.NETWORK_TYPE)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3529:
                     if (str.equals("nw")) {
-                        c2 = '\t';
+                        c = '\t';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3681:
                     if (str.equals("st")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3724:
                     if (str.equals("ua")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 98785:
                     if (str.equals("crp")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 98853:
                     if (str.equals("ctv")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 115792:
                     if (str.equals("uid")) {
-                        c2 = '\n';
+                        c = '\n';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3053931:
                     if (str.equals("city")) {
-                        c2 = 11;
+                        c = 11;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3065101:
                     if (str.equals("cuid")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3151786:
                     if (str.equals("from")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3236474:
                     if (str.equals(BaseStatisContent.IMSI)) {
-                        c2 = 14;
+                        c = 14;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3526381:
                     if (str.equals("seid")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 94580365:
                     if (str.equals("cfrom")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 607796817:
                     if (str.equals("sessionId")) {
-                        c2 = 19;
+                        c = 19;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 999451023:
                     if (str.equals("zeusVersion")) {
-                        c2 = 21;
+                        c = 21;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1291458716:
                     if (str.equals("net_type")) {
-                        c2 = 18;
+                        c = 18;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1683336973:
                     if (str.equals("framework_sid")) {
-                        c2 = 20;
+                        c = 20;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2015527638:
                     if (str.equals("kernel_version")) {
-                        c2 = 17;
+                        c = 17;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     return a(bVar);
                 case 1:
@@ -961,19 +947,19 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
-            com.baidu.webkit.logsdk.b.c d2 = b.a().e().d(str);
-            if ("full".equals(d2.a)) {
+            com.baidu.webkit.logsdk.b.c d = b.a().e().d(str);
+            if ("full".equals(d.a)) {
                 return a(context);
             }
-            HashSet<String> hashSet = d2.f37916c;
+            HashSet<String> hashSet = d.c;
             JSONObject jSONObject = new JSONObject();
             if (hashSet != null) {
                 try {
-                    com.baidu.webkit.logsdk.b c2 = b.a().c();
+                    com.baidu.webkit.logsdk.b c = b.a().c();
                     Iterator<String> it = hashSet.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
-                        String a = a(next, context, c2);
+                        String a = a(next, context, c);
                         if (TextUtils.isEmpty(a)) {
                             int a2 = a(next, context);
                             if (a2 > 0) {
@@ -983,8 +969,8 @@ public final class a {
                             jSONObject.put(next, a);
                         }
                     }
-                } catch (Exception e2) {
-                    c.a(e2);
+                } catch (Exception e) {
+                    c.a(e);
                 }
             }
             return jSONObject.toString();

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PayFailMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FAILED_CALL_THIRD_PARTY_SDK = "调起支付失败";

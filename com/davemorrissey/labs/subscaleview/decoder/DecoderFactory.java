@@ -1,5 +1,5 @@
 package com.davemorrissey.labs.subscaleview.decoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface DecoderFactory<T> {
     T make() throws IllegalAccessException, InstantiationException;
 }

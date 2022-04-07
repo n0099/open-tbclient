@@ -309,9 +309,9 @@ public final class ActivityRecreator {
                                     } else {
                                         ActivityRecreator.performStopActivity2ParamsMethod.invoke(this.val$activityThread, this.val$token, Boolean.FALSE);
                                     }
-                                } catch (RuntimeException e2) {
-                                    if (e2.getClass() == RuntimeException.class && e2.getMessage() != null && e2.getMessage().startsWith("Unable to stop")) {
-                                        throw e2;
+                                } catch (RuntimeException e) {
+                                    if (e.getClass() == RuntimeException.class && e.getMessage() != null && e.getMessage().startsWith("Unable to stop")) {
+                                        throw e;
                                     }
                                 } catch (Throwable th) {
                                     Log.e(ActivityRecreator.LOG_TAG, "Exception while invoking performStopActivity", th);

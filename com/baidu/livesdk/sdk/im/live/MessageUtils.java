@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MessageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class MessageUtils {
             int i = -1;
             try {
                 i = Integer.parseInt(liveMessageBean.message_type);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return i == 0 || i == 2 || i == 3;
         }
@@ -57,8 +57,8 @@ public class MessageUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, liveMessageBean)) == null) {
             try {
                 i = Integer.parseInt(liveMessageBean.message_type);
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
                 i = -1;
             }
             String str = "";

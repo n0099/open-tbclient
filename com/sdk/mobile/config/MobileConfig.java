@@ -14,9 +14,7 @@ public class MobileConfig implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String apk;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42620c;
+    public int c;
     public String cm;
     public String n;
     public long r;
@@ -37,7 +35,7 @@ public class MobileConfig implements e {
         }
         this.apk = BaseConfig.apk;
         this.cm = BaseConfig.cm;
-        this.f42620c = 1;
+        this.c = 1;
         this.v = "1.0";
         this.n = "ZzxOAuth";
         this.r = System.currentTimeMillis();

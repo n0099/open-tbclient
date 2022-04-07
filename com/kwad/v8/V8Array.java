@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8Array extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Undefined extends V8Array {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Object
-        public V8Object add(String str, double d2) {
+        public V8Object add(String str, double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Object) invokeCommon.objValue;
@@ -523,10 +523,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public V8Array push(double d2) {
+        public V8Array push(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Double.valueOf(d2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Double.valueOf(d)})) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Array) invokeCommon.objValue;
@@ -1006,14 +1006,14 @@ public class V8Array extends V8Object {
         return invokeV.intValue;
     }
 
-    public V8Array push(double d2) {
+    public V8Array push(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Double.valueOf(d)})) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            v8.addArrayDoubleItem(v8.getV8RuntimePtr(), getHandle(), d2);
+            v8.addArrayDoubleItem(v8.getV8RuntimePtr(), getHandle(), d);
             return this;
         }
         return (V8Array) invokeCommon.objValue;

@@ -101,23 +101,23 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) {
-            if (view == null) {
-                view = this.mInflater.inflate(this.mItemLayoutRes, viewGroup, false);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.mInflater.inflate(this.mItemLayoutRes, viewGroup, false);
             }
             int groupId = getItem(i).getGroupId();
             int i2 = i - 1;
-            ListMenuItemView listMenuItemView = (ListMenuItemView) view;
+            ListMenuItemView listMenuItemView = (ListMenuItemView) view2;
             listMenuItemView.setGroupDividerEnabled(this.mAdapterMenu.isGroupDividerEnabled() && groupId != (i2 >= 0 ? getItem(i2).getGroupId() : groupId));
-            MenuView.ItemView itemView = (MenuView.ItemView) view;
+            MenuView.ItemView itemView = (MenuView.ItemView) view2;
             if (this.mForceShowIcon) {
                 listMenuItemView.setForceShowIcon(true);
             }
             itemView.initialize(getItem(i), 0);
-            return view;
+            return view2;
         }
         return (View) invokeILL.objValue;
     }

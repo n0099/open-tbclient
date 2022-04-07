@@ -35,6 +35,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +68,7 @@ import java.net.URLDecoder;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AuthAgent extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORCE_QR_LOGIN = "KEY_FORCE_QR_LOGIN";
@@ -80,21 +81,15 @@ public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_X86_FILE_NAME = "libwbsafeedit_x86";
     public transient /* synthetic */ FieldHolder $fh;
     public IUiListener a;
+    public String d;
+    public WeakReference<Activity> e;
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f43572d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f43573e;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IUiListener a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AuthAgent f43577b;
+        public final /* synthetic */ AuthAgent b;
 
         public a(AuthAgent authAgent, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
@@ -111,7 +106,7 @@ public class AuthAgent extends BaseApi {
                     return;
                 }
             }
-            this.f43577b = authAgent;
+            this.b = authAgent;
             this.a = iUiListener;
         }
 
@@ -140,8 +135,8 @@ public class AuthAgent extends BaseApi {
                     if (this.a != null) {
                         this.a.onComplete(new JSONObject().put(Constants.KEYS.RET, i).put("msg", string));
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     SLog.e("openSDK_LOG.AuthAgent", "CheckLoginListener response data format error");
                 }
             }
@@ -158,20 +153,14 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AuthAgent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final IUiListener f43590b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final boolean f43591c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final Context f43592d;
+        public final IUiListener b;
+        public final boolean c;
+        public final Context d;
 
         public c(AuthAgent authAgent, Context context, IUiListener iUiListener, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -189,9 +178,9 @@ public class AuthAgent extends BaseApi {
                 }
             }
             this.a = authAgent;
-            this.f43592d = context;
-            this.f43590b = iUiListener;
-            this.f43591c = z;
+            this.d = context;
+            this.b = iUiListener;
+            this.c = z;
             SLog.d("openSDK_LOG.AuthAgent", "OpenUi, TokenListener()");
         }
 
@@ -200,7 +189,7 @@ public class AuthAgent extends BaseApi {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SLog.d("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onCancel");
-                this.f43590b.onCancel();
+                this.b.onCancel();
                 SLog.release();
             }
         }
@@ -215,28 +204,28 @@ public class AuthAgent extends BaseApi {
                     String string = jSONObject.getString("access_token");
                     String string2 = jSONObject.getString("expires_in");
                     String string3 = jSONObject.getString("openid");
-                    if (string != null && this.a.f43645c != null && string3 != null) {
-                        this.a.f43645c.setAccessToken(string, string2);
-                        this.a.f43645c.setOpenId(string3);
-                        com.tencent.connect.a.a.d(this.f43592d, this.a.f43645c);
+                    if (string != null && this.a.c != null && string3 != null) {
+                        this.a.c.setAccessToken(string, string2);
+                        this.a.c.setOpenId(string3);
+                        com.tencent.connect.a.a.d(this.d, this.a.c);
                     }
                     String string4 = jSONObject.getString("pf");
                     if (string4 != null) {
                         try {
-                            this.f43592d.getSharedPreferences(com.tencent.connect.common.Constants.PREFERENCE_PF, 0).edit().putString("pf", string4).commit();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            SLog.e("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e2);
+                            this.d.getSharedPreferences(com.tencent.connect.common.Constants.PREFERENCE_PF, 0).edit().putString("pf", string4).commit();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            SLog.e("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e);
                         }
                     }
-                    if (this.f43591c) {
+                    if (this.c) {
                         CookieSyncManager.getInstance().sync();
                     }
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                    SLog.e("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e3);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    SLog.e("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onComplete error", e2);
                 }
-                this.f43590b.onComplete(jSONObject);
+                this.b.onComplete(jSONObject);
                 this.a.releaseResource();
                 SLog.release();
             }
@@ -247,7 +236,7 @@ public class AuthAgent extends BaseApi {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                 SLog.d("openSDK_LOG.AuthAgent", "OpenUi, TokenListener() onError");
-                this.f43590b.onError(uiError);
+                this.b.onError(uiError);
                 SLog.release();
             }
         }
@@ -326,16 +315,16 @@ public class AuthAgent extends BaseApi {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2), map})) == null) {
-            this.f43572d = str;
-            this.f43573e = new WeakReference<>(activity);
+            this.d = str;
+            this.e = new WeakReference<>(activity);
             this.a = iUiListener;
             Object[] objArr = new Object[2];
-            if (!activity.getIntent().getBooleanExtra(KEY_FORCE_QR_LOGIN, false) && !g.a(activity, this.f43645c.getAppId()).b("C_LoginWeb") && a(activity, fragment, map, z, objArr)) {
+            if (!activity.getIntent().getBooleanExtra(KEY_FORCE_QR_LOGIN, false) && !g.a(activity, this.c.getAppId()).b("C_LoginWeb") && a(activity, fragment, map, z, objArr)) {
                 SLog.i("openSDK_LOG.AuthAgent", "OpenUi, showUi, return Constants.UI_ACTIVITY");
-                d.a().a(this.f43645c.getOpenId(), this.f43645c.getAppId(), "2", "1", "5", (String) objArr[0], "0", "0");
+                d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", (String) objArr[0], "0", "0");
                 return ((Integer) objArr[1]).intValue();
             }
-            d.a().a(this.f43645c.getOpenId(), this.f43645c.getAppId(), "2", "1", "5", "1", "0", "0");
+            d.a().a(this.c.getOpenId(), this.c.getAppId(), "2", "1", "5", "1", "0", "0");
             SLog.w("openSDK_LOG.AuthAgent", "doLogin startActivity fail show dialog.");
             b bVar = new b(this, this.a);
             this.a = bVar;
@@ -357,7 +346,7 @@ public class AuthAgent extends BaseApi {
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, iUiListener) == null) {
             Bundle a2 = a();
             a2.putString("reqType", "checkLogin");
-            HttpUtils.requestAsync(this.f43645c, f.a(), "https://openmobile.qq.com/v3/user/get_info", a2, "GET", new BaseApi.TempRequestListener(this, new a(this, iUiListener)));
+            HttpUtils.requestAsync(this.c, f.a(), "https://openmobile.qq.com/v3/user/get_info", a2, "GET", new BaseApi.TempRequestListener(this, new a(this, iUiListener)));
         }
     }
 
@@ -377,8 +366,8 @@ public class AuthAgent extends BaseApi {
             if (z) {
                 a2.putString("isadd", "1");
             }
-            a2.putString("scope", this.f43572d);
-            a2.putString("client_id", this.f43645c.getAppId());
+            a2.putString("scope", this.d);
+            a2.putString("client_id", this.c.getAppId());
             if (BaseApi.isOEM) {
                 a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
             } else {
@@ -387,7 +376,7 @@ public class AuthAgent extends BaseApi {
             String str = (System.currentTimeMillis() / 1000) + "";
             a2.putString("sign", i.b(f.a(), str));
             a2.putString("time", str);
-            a2.putString("display", "mobile");
+            a2.putString(CriusAttrConstants.DISPLAY, "mobile");
             a2.putString("response_type", "token");
             a2.putString("redirect_uri", "auth://tauth.qq.com/");
             a2.putString("cancel_display", "1");
@@ -402,12 +391,8 @@ public class AuthAgent extends BaseApi {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IUiListener f43574b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ AuthAgent f43575c;
+                public final /* synthetic */ IUiListener b;
+                public final /* synthetic */ AuthAgent c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -424,9 +409,9 @@ public class AuthAgent extends BaseApi {
                             return;
                         }
                     }
-                    this.f43575c = this;
+                    this.c = this;
                     this.a = r7;
-                    this.f43574b = cVar;
+                    this.b = cVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -436,16 +421,14 @@ public class AuthAgent extends BaseApi {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         i.a(AuthAgent.SECURE_LIB_FILE_NAME, AuthAgent.SECURE_LIB_NAME, 5);
                         JniInterface.loadSo();
-                        if (this.f43575c.f43573e == null || (activity = (Activity) this.f43575c.f43573e.get()) == null) {
+                        if (this.c.e == null || (activity = (Activity) this.c.e.get()) == null) {
                             return;
                         }
                         activity.runOnUiThread(new Runnable(this, activity) { // from class: com.tencent.connect.auth.AuthAgent.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Activity a;
-
-                            /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f43576b;
+                            public final /* synthetic */ AnonymousClass1 b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -462,7 +445,7 @@ public class AuthAgent extends BaseApi {
                                         return;
                                     }
                                 }
-                                this.f43576b = this;
+                                this.b = this;
                                 this.a = activity;
                             }
 
@@ -472,8 +455,8 @@ public class AuthAgent extends BaseApi {
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     if (JniInterface.isJniOk) {
                                         Activity activity2 = this.a;
-                                        AnonymousClass1 anonymousClass1 = this.f43576b;
-                                        com.tencent.connect.auth.a aVar = new com.tencent.connect.auth.a(activity2, "action_login", anonymousClass1.a, anonymousClass1.f43574b, anonymousClass1.f43575c.f43645c);
+                                        AnonymousClass1 anonymousClass1 = this.b;
+                                        com.tencent.connect.auth.a aVar = new com.tencent.connect.auth.a(activity2, "action_login", anonymousClass1.a, anonymousClass1.b, anonymousClass1.c.c);
                                         if (this.a.isFinishing()) {
                                             return;
                                         }
@@ -482,9 +465,9 @@ public class AuthAgent extends BaseApi {
                                     }
                                     SLog.w("openSDK_LOG.AuthAgent", "OpenUi, secure so load failed, goto download QQ.");
                                     Activity activity3 = this.a;
-                                    String a3 = this.f43576b.f43575c.a("");
-                                    AnonymousClass1 anonymousClass12 = this.f43576b;
-                                    TDialog tDialog = new TDialog(activity3, "", a3, anonymousClass12.f43574b, anonymousClass12.f43575c.f43645c);
+                                    String a3 = this.b.c.a("");
+                                    AnonymousClass1 anonymousClass12 = this.b;
+                                    TDialog tDialog = new TDialog(activity3, "", a3, anonymousClass12.b, anonymousClass12.c.c);
                                     if (this.a.isFinishing()) {
                                         return;
                                     }
@@ -501,34 +484,22 @@ public class AuthAgent extends BaseApi {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<IUiListener> a;
+        public final /* synthetic */ AuthAgent b;
+        public final String c;
+        public final String d;
+        public final String e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AuthAgent f43578b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final String f43579c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final String f43580d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final String f43581e;
-
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public abstract class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: d  reason: collision with root package name */
-            public Dialog f43588d;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f43589e;
+            public Dialog d;
+            public final /* synthetic */ b e;
 
             public a(b bVar, Dialog dialog) {
                 Interceptable interceptable = $ic;
@@ -545,8 +516,8 @@ public class AuthAgent extends BaseApi {
                         return;
                     }
                 }
-                this.f43589e = bVar;
-                this.f43588d = dialog;
+                this.e = bVar;
+                this.d = dialog;
             }
         }
 
@@ -565,10 +536,10 @@ public class AuthAgent extends BaseApi {
                     return;
                 }
             }
-            this.f43578b = authAgent;
-            this.f43579c = "sendinstall";
-            this.f43580d = "installwording";
-            this.f43581e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
+            this.b = authAgent;
+            this.c = "sendinstall";
+            this.d = "installwording";
+            this.e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
             this.a = new WeakReference<>(iUiListener);
         }
 
@@ -576,8 +547,8 @@ public class AuthAgent extends BaseApi {
             PackageInfo packageInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65539, this, str, iUiListener, obj) == null) {
-                if (this.f43578b.f43573e != null) {
-                    Activity activity = (Activity) this.f43578b.f43573e.get();
+                if (this.b.e != null) {
+                    Activity activity = (Activity) this.b.e.get();
                     if (activity == null) {
                         SLog.i("openSDK_LOG.AuthAgent", "showFeedConfrimDialog mActivity.get() null and return");
                         return;
@@ -587,8 +558,8 @@ public class AuthAgent extends BaseApi {
                     PackageManager packageManager = activity.getPackageManager();
                     try {
                         packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
-                    } catch (PackageManager.NameNotFoundException e2) {
-                        SLog.e("openSDK_LOG.AuthAgent", "showFeedConfrimDialog exception:" + e2.getStackTrace().toString());
+                    } catch (PackageManager.NameNotFoundException e) {
+                        SLog.e("openSDK_LOG.AuthAgent", "showFeedConfrimDialog exception:" + e.getStackTrace().toString());
                         packageInfo = null;
                     }
                     Drawable loadIcon = packageInfo != null ? packageInfo.applicationInfo.loadIcon(packageManager) : null;
@@ -596,12 +567,8 @@ public class AuthAgent extends BaseApi {
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ IUiListener a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Object f43582b;
-
-                        /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ b f43583c;
+                        public final /* synthetic */ Object b;
+                        public final /* synthetic */ b c;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -622,23 +589,23 @@ public class AuthAgent extends BaseApi {
                                     return;
                                 }
                             }
-                            this.f43583c = this;
+                            this.c = this;
                             this.a = iUiListener;
-                            this.f43582b = obj;
+                            this.b = obj;
                         }
 
                         @Override // android.view.View.OnClickListener
-                        public void onClick(View view) {
+                        public void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f43583c.a();
-                                Dialog dialog2 = this.f43588d;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                                this.c.a();
+                                Dialog dialog2 = this.d;
                                 if (dialog2 != null && dialog2.isShowing()) {
-                                    this.f43588d.dismiss();
+                                    this.d.dismiss();
                                 }
                                 IUiListener iUiListener2 = this.a;
                                 if (iUiListener2 != null) {
-                                    iUiListener2.onComplete(this.f43582b);
+                                    iUiListener2.onComplete(this.b);
                                 }
                             }
                         }
@@ -647,12 +614,8 @@ public class AuthAgent extends BaseApi {
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ IUiListener a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Object f43584b;
-
-                        /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ b f43585c;
+                        public final /* synthetic */ Object b;
+                        public final /* synthetic */ b c;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -673,22 +636,22 @@ public class AuthAgent extends BaseApi {
                                     return;
                                 }
                             }
-                            this.f43585c = this;
+                            this.c = this;
                             this.a = iUiListener;
-                            this.f43584b = obj;
+                            this.b = obj;
                         }
 
                         @Override // android.view.View.OnClickListener
-                        public void onClick(View view) {
+                        public void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                Dialog dialog2 = this.f43588d;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                                Dialog dialog2 = this.d;
                                 if (dialog2 != null && dialog2.isShowing()) {
-                                    this.f43588d.dismiss();
+                                    this.d.dismiss();
                                 }
                                 IUiListener iUiListener2 = this.a;
                                 if (iUiListener2 != null) {
-                                    iUiListener2.onComplete(this.f43584b);
+                                    iUiListener2.onComplete(this.b);
                                 }
                             }
                         }
@@ -701,12 +664,8 @@ public class AuthAgent extends BaseApi {
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ IUiListener a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Object f43586b;
-
-                        /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ b f43587c;
+                        public final /* synthetic */ Object b;
+                        public final /* synthetic */ b c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -723,9 +682,9 @@ public class AuthAgent extends BaseApi {
                                     return;
                                 }
                             }
-                            this.f43587c = this;
+                            this.c = this;
                             this.a = iUiListener;
-                            this.f43586b = obj;
+                            this.b = obj;
                         }
 
                         @Override // android.content.DialogInterface.OnCancelListener
@@ -735,7 +694,7 @@ public class AuthAgent extends BaseApi {
                             if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (iUiListener2 = this.a) == null) {
                                 return;
                             }
-                            iUiListener2.onComplete(this.f43586b);
+                            iUiListener2.onComplete(this.b);
                         }
                     });
                     if (activity == null || activity.isFinishing()) {
@@ -800,8 +759,8 @@ public class AuthAgent extends BaseApi {
             }
             iUiListener = this.a.get();
             if (iUiListener == null) {
-                if (this.f43578b.f43645c != null) {
-                    z2 = this.f43578b.f43645c.saveSession(jSONObject);
+                if (this.b.c != null) {
+                    z2 = this.b.c.saveSession(jSONObject);
                     SLog.i("openSDK_LOG.AuthAgent", " saveSession saveSuccess=" + z2);
                 }
                 if (z2) {
@@ -833,8 +792,8 @@ public class AuthAgent extends BaseApi {
                 Drawable drawable = null;
                 try {
                     open = context.getApplicationContext().getAssets().open(str);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 if (open == null) {
                     return null;
@@ -842,8 +801,8 @@ public class AuthAgent extends BaseApi {
                 if (str.endsWith(".9.png")) {
                     try {
                         bitmap = BitmapFactory.decodeStream(open);
-                    } catch (OutOfMemoryError e3) {
-                        e3.printStackTrace();
+                    } catch (OutOfMemoryError e2) {
+                        e2.printStackTrace();
                         bitmap = null;
                     }
                     if (bitmap != null) {
@@ -866,18 +825,18 @@ public class AuthAgent extends BaseApi {
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, this, context, drawable, str, onClickListener, onClickListener2)) == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-                float f2 = displayMetrics.density;
+                float f = displayMetrics.density;
                 RelativeLayout relativeLayout = new RelativeLayout(context);
                 ImageView imageView = new ImageView(context);
                 imageView.setImageDrawable(drawable);
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 imageView.setId(1);
-                int i = (int) (60.0f * f2);
-                int i2 = (int) (f2 * 14.0f);
-                int i3 = (int) (18.0f * f2);
+                int i = (int) (60.0f * f);
+                int i2 = (int) (f * 14.0f);
+                int i3 = (int) (18.0f * f);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
                 layoutParams.addRule(9);
-                layoutParams.setMargins(0, i3, (int) (6.0f * f2), i3);
+                layoutParams.setMargins(0, i3, (int) (6.0f * f), i3);
                 relativeLayout.addView(imageView, layoutParams);
                 TextView textView = new TextView(context);
                 textView.setText(str);
@@ -887,23 +846,23 @@ public class AuthAgent extends BaseApi {
                 textView.setPadding(0, 0, 0, 0);
                 textView.setLines(2);
                 textView.setId(5);
-                textView.setMinWidth((int) (185.0f * f2));
+                textView.setMinWidth((int) (185.0f * f));
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams2.addRule(1, 1);
                 layoutParams2.addRule(6, 1);
-                float f3 = 5.0f * f2;
-                layoutParams2.setMargins(0, 0, (int) f3, 0);
+                float f2 = 5.0f * f;
+                layoutParams2.setMargins(0, 0, (int) f2, 0);
                 relativeLayout.addView(textView, layoutParams2);
-                View view = new View(context);
-                view.setBackgroundColor(Color.rgb((int) w0.c0, (int) w0.c0, (int) w0.c0));
-                view.setId(3);
+                View view2 = new View(context);
+                view2.setBackgroundColor(Color.rgb((int) w0.c0, (int) w0.c0, (int) w0.c0));
+                view2.setId(3);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, 2);
                 layoutParams3.addRule(3, 1);
                 layoutParams3.addRule(5, 1);
                 layoutParams3.addRule(7, 5);
-                int i4 = (int) (12.0f * f2);
+                int i4 = (int) (12.0f * f);
                 layoutParams3.setMargins(0, 0, 0, i4);
-                relativeLayout.addView(view, layoutParams3);
+                relativeLayout.addView(view2, layoutParams3);
                 LinearLayout linearLayout = new LinearLayout(context);
                 RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams4.addRule(5, 1);
@@ -916,10 +875,10 @@ public class AuthAgent extends BaseApi {
                 button.setTextSize(20.0f);
                 button.setOnClickListener(onClickListener2);
                 button.setId(4);
-                int i5 = (int) (45.0f * f2);
+                int i5 = (int) (45.0f * f);
                 LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, i5);
                 layoutParams5.rightMargin = i2;
-                int i6 = (int) (4.0f * f2);
+                int i6 = (int) (4.0f * f);
                 layoutParams5.leftMargin = i6;
                 layoutParams5.weight = 1.0f;
                 linearLayout.addView(button, layoutParams5);
@@ -934,12 +893,12 @@ public class AuthAgent extends BaseApi {
                 layoutParams6.rightMargin = i6;
                 linearLayout.addView(button2, layoutParams6);
                 relativeLayout.addView(linearLayout, layoutParams4);
-                ViewGroup.LayoutParams layoutParams7 = new FrameLayout.LayoutParams((int) (279.0f * f2), (int) (f2 * 163.0f));
+                ViewGroup.LayoutParams layoutParams7 = new FrameLayout.LayoutParams((int) (279.0f * f), (int) (f * 163.0f));
                 relativeLayout.setPadding(i2, 0, i4, i4);
                 relativeLayout.setLayoutParams(layoutParams7);
                 relativeLayout.setBackgroundColor(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
                 PaintDrawable paintDrawable = new PaintDrawable(Color.rgb((int) GDiffPatcher.DATA_USHORT, 251, (int) GDiffPatcher.DATA_USHORT));
-                paintDrawable.setCornerRadius(f3);
+                paintDrawable.setCornerRadius(f2);
                 relativeLayout.setBackgroundDrawable(paintDrawable);
                 return relativeLayout;
             }
@@ -950,11 +909,11 @@ public class AuthAgent extends BaseApi {
             Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b2 = this.f43578b.b();
-                if (this.f43578b.f43573e == null || (activity = (Activity) this.f43578b.f43573e.get()) == null) {
+                Bundle b = this.b.b();
+                if (this.b.e == null || (activity = (Activity) this.b.e.get()) == null) {
                     return;
                 }
-                HttpUtils.requestAsync(this.f43578b.f43645c, activity, "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi", b2, "POST", null);
+                HttpUtils.requestAsync(this.b.c, activity, "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi", b, "POST", null);
             }
         }
     }
@@ -970,8 +929,8 @@ public class AuthAgent extends BaseApi {
                 if (z) {
                     a2.putString("isadd", "1");
                 }
-                a2.putString("scope", this.f43572d);
-                a2.putString("client_id", this.f43645c.getAppId());
+                a2.putString("scope", this.d);
+                a2.putString("client_id", this.c.getAppId());
                 if (BaseApi.isOEM) {
                     a2.putString("pf", "desktop_m_qq-" + BaseApi.installChannel + "-android-" + BaseApi.registerChannel + "-" + BaseApi.businessId);
                 } else {
@@ -982,7 +941,7 @@ public class AuthAgent extends BaseApi {
                 a2.putString(com.tencent.connect.common.Constants.KEY_APP_NAME, i.a(f.a()));
                 b2.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, "action_login");
                 b2.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, a2);
-                b2.putExtra("appid", this.f43645c.getAppId());
+                b2.putExtra("appid", this.c.getAppId());
                 a2.putString(com.tencent.connect.common.Constants.KEY_PPSTS, i.a(activity, a(a2)));
                 if (a(b2)) {
                     this.a = new b(this, this.a);
@@ -995,13 +954,13 @@ public class AuthAgent extends BaseApi {
                         a(activity, b2, com.tencent.connect.common.Constants.REQUEST_LOGIN, map);
                     }
                     SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, found activity for loginIntent");
-                    d.a().a(0, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.f43645c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+                    d.a().a(0, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
                     objArr[0] = "0";
                     objArr[1] = 1;
                     return true;
                 }
             }
-            d.a().a(1, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.f43645c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
+            d.a().a(1, "LOGIN_CHECK_SDK", com.tencent.connect.common.Constants.DEFAULT_UIN, this.c.getAppId(), "", Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "startActionActivity fail");
             SLog.i("openSDK_LOG.AuthAgent", "startActionActivity() -- end, no target activity for loginIntent");
             return false;
         }
@@ -1059,9 +1018,9 @@ public class AuthAgent extends BaseApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
             SLog.i("openSDK_LOG.AuthAgent", "reportDAU() -- start");
-            String accessToken = this.f43645c.getAccessToken();
-            String openId = this.f43645c.getOpenId();
-            String appId = this.f43645c.getAppId();
+            String accessToken = this.c.getAccessToken();
+            String openId = this.c.getOpenId();
+            String appId = this.c.getAppId();
             if (TextUtils.isEmpty(accessToken) || TextUtils.isEmpty(openId) || TextUtils.isEmpty(appId)) {
                 str = "";
             } else {
@@ -1073,7 +1032,7 @@ public class AuthAgent extends BaseApi {
             }
             Bundle a2 = a();
             a2.putString("encrytoken", str);
-            HttpUtils.requestAsync(this.f43645c, f.a(), "https://openmobile.qq.com/user/user_login_statis", a2, "POST", null);
+            HttpUtils.requestAsync(this.c, f.a(), "https://openmobile.qq.com/user/user_login_statis", a2, "POST", null);
             SLog.i("openSDK_LOG.AuthAgent", "reportDAU() -- end");
         }
     }

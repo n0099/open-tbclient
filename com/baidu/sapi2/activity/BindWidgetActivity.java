@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -140,7 +140,7 @@ public class BindWidgetActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 this.t = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
                 String stringExtra = getIntent().getStringExtra("EXTRA_BDUSS");
                 this.u = stringExtra;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public class YouthStyleLoginActivity extends LoginActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04e5);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e0);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091bf3);
-            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fee);
+            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091be2);
+            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe7);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
             if (sapiWebView instanceof RoundWebview) {
-                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cf), getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cf), 0.0f, 0.0f);
+                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.obfuscated_res_0x7f0705d9), getResources().getDimension(R.dimen.obfuscated_res_0x7f0705d9), 0.0f, 0.0f);
             }
             this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;
@@ -71,9 +71,9 @@ public class YouthStyleLoginActivity extends LoginActivity {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.a.onClose();
                     }
                 }

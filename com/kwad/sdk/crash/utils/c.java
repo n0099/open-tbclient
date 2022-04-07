@@ -9,7 +9,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static Process a(String[] strArr) {
         return Runtime.getRuntime().exec(strArr);
@@ -62,8 +62,8 @@ public class c {
         InputStream inputStream2 = null;
         try {
             process3 = a(strArr);
-        } catch (InterruptedException e2) {
-            e = e2;
+        } catch (InterruptedException e) {
+            e = e;
             inputStream = null;
             outputStream = null;
             outputStream2 = 0;
@@ -88,8 +88,8 @@ public class c {
                                     break;
                                 }
                                 arrayList.add(readLine);
-                            } catch (InterruptedException e3) {
-                                e = e3;
+                            } catch (InterruptedException e2) {
+                                e = e2;
                                 inputStream2 = process3;
                                 outputStream2 = outputStream2;
                                 try {
@@ -138,15 +138,15 @@ public class c {
                             process3.destroy();
                         }
                         return arrayList;
-                    } catch (InterruptedException e4) {
-                        e = e4;
+                    } catch (InterruptedException e3) {
+                        e = e3;
                         r6 = null;
                     } catch (Throwable th4) {
                         th = th4;
                         r6 = null;
                     }
-                } catch (InterruptedException e5) {
-                    e = e5;
+                } catch (InterruptedException e4) {
+                    e = e4;
                     outputStream2 = 0;
                     r6 = outputStream2;
                     inputStream2 = process3;
@@ -167,8 +167,8 @@ public class c {
                     }
                     throw th;
                 }
-            } catch (InterruptedException e6) {
-                e = e6;
+            } catch (InterruptedException e5) {
+                e = e5;
                 outputStream = null;
                 outputStream2 = outputStream;
                 r6 = outputStream2;
@@ -180,8 +180,8 @@ public class c {
                 outputStream = null;
                 outputStream2 = 0;
             }
-        } catch (InterruptedException e7) {
-            e = e7;
+        } catch (InterruptedException e6) {
+            e = e6;
             inputStream = null;
             outputStream = null;
         } catch (Throwable th7) {

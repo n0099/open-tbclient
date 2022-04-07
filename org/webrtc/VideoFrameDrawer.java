@@ -218,10 +218,10 @@ public class VideoFrameDrawer {
         }
     }
 
-    public static int distance(float f2, float f3, float f4, float f5) {
+    public static int distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (int) Math.round(Math.hypot(f4 - f2, f5 - f3)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (int) Math.round(Math.hypot(f3 - f, f4 - f2)) : invokeCommon.intValue;
     }
 
     public static void drawTexture(RendererCommon.GlDrawer glDrawer, VideoFrame.TextureBuffer textureBuffer, Matrix matrix, int i, int i2, int i3, int i4, int i5, int i6) {

@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.text.tx3g.Tx3gDecoder;
 import com.google.android.exoplayer2.text.webvtt.Mp4WebvttDecoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface SubtitleDecoderFactory {
     public static final SubtitleDecoderFactory DEFAULT = new SubtitleDecoderFactory() { // from class: com.google.android.exoplayer2.text.SubtitleDecoderFactory.1
         public static /* synthetic */ Interceptable $ic;
@@ -41,86 +41,86 @@ public interface SubtitleDecoderFactory {
         @Override // com.google.android.exoplayer2.text.SubtitleDecoderFactory
         public SubtitleDecoder createDecoder(Format format) {
             InterceptResult invokeL;
-            char c2;
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, format)) == null) {
                 String str = format.sampleMimeType;
                 switch (str.hashCode()) {
                     case -1351681404:
                         if (str.equals(MimeTypes.APPLICATION_DVBSUBS)) {
-                            c2 = '\t';
+                            c = '\t';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1026075066:
                         if (str.equals(MimeTypes.APPLICATION_MP4VTT)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1004728940:
                         if (str.equals(MimeTypes.TEXT_VTT)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 691401887:
                         if (str.equals(MimeTypes.APPLICATION_TX3G)) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 822864842:
                         if (str.equals(MimeTypes.TEXT_SSA)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 930165504:
                         if (str.equals(MimeTypes.APPLICATION_MP4CEA608)) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1566015601:
                         if (str.equals(MimeTypes.APPLICATION_CEA608)) {
-                            c2 = 6;
+                            c = 6;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1566016562:
                         if (str.equals(MimeTypes.APPLICATION_CEA708)) {
-                            c2 = '\b';
+                            c = '\b';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1668750253:
                         if (str.equals(MimeTypes.APPLICATION_SUBRIP)) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1693976202:
                         if (str.equals(MimeTypes.APPLICATION_TTML)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                switch (c2) {
+                switch (c) {
                     case 0:
                         return new WebvttDecoder();
                     case 1:

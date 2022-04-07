@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ea {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ea a;
@@ -32,9 +32,7 @@ public final class ea {
 
     /* renamed from: a  reason: collision with other field name */
     public HashMap<ec, ed> f296a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f44204b;
+    public String b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -54,10 +52,10 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f296a = hashMap;
         this.f293a = context;
-        hashMap.put(ec.f44207b, new eg());
-        this.f296a.put(ec.f44208c, new eh());
+        hashMap.put(ec.b, new eg());
+        this.f296a.put(ec.c, new eh());
         this.f296a.put(ec.a, new dy());
-        this.f296a.put(ec.f44209d, new ef());
+        this.f296a.put(ec.d, new ef());
     }
 
     public static ea a(Context context) {
@@ -85,10 +83,10 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m324a(Context context) {
+    public static boolean m320a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m616a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m612a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
@@ -98,14 +96,14 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m325a() {
+    public ee m321a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f294a : (ee) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m326a() {
+    public String m322a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f295a : (String) invokeV.objValue;
@@ -168,13 +166,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44204b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f44204b = str;
+            this.b = str;
         }
     }
 }

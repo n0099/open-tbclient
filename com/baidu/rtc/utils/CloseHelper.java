@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CloseHelper";
@@ -47,8 +47,8 @@ public class CloseHelper {
         }
         try {
             cursor.close();
-        } catch (Exception e2) {
-            Log.e(TAG, e2.getMessage());
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
         }
     }
 
@@ -59,8 +59,8 @@ public class CloseHelper {
         }
         try {
             mediaMetadataRetriever.release();
-        } catch (Exception e2) {
-            Log.e(TAG, e2.getMessage());
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
         }
     }
 }

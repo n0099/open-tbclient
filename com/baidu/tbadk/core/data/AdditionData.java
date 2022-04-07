@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdditionData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6760087984237848132L;
@@ -101,8 +101,8 @@ public class AdditionData extends OrmObject implements Serializable {
             this.lastAdditionTime = jSONObject.optLong("last_addition_time", 0L);
             this.alreadyCount = jSONObject.optInt("already_count", 0);
             this.warnMsg = jSONObject.optString("warn_msg");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -119,8 +119,8 @@ public class AdditionData extends OrmObject implements Serializable {
             this.lastAdditionTime = addPost.last_addition_time.intValue();
             this.alreadyCount = addPost.already_count.intValue();
             this.warnMsg = addPost.warn_msg;
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 

@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,11 +62,11 @@ public class NetworkErrorView extends CommonEmptyView {
         b();
     }
 
-    public static void c(View view) {
+    public static void c(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
             a aVar = new a(1);
-            aVar.a = view;
+            aVar.a = view2;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -74,30 +74,30 @@ public class NetworkErrorView extends CommonEmptyView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29083e.setVisibility(0);
-            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f12dd));
-            setIcon(R.drawable.obfuscated_res_0x7f081163);
+            this.e.setVisibility(0);
+            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f12e5));
+            setIcon(R.drawable.obfuscated_res_0x7f08116a);
         }
     }
 
-    public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
+    public void setBottomLayout(View.OnClickListener onClickListener, View view2, RelativeLayout.LayoutParams layoutParams) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener, view, layoutParams) == null) || (frameLayout = this.f29084f) == null || view == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener, view2, layoutParams) == null) || (frameLayout = this.f) == null || view2 == null) {
             return;
         }
         frameLayout.setVisibility(0);
-        this.f29084f.addView(view);
+        this.f.addView(view2);
         if (layoutParams != null) {
-            this.f29084f.setLayoutParams(layoutParams);
+            this.f.setLayoutParams(layoutParams);
         }
-        this.f29084f.setOnClickListener(onClickListener);
+        this.f.setOnClickListener(onClickListener);
     }
 
     public void setEmptyButtonVisiblity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f29083e.setVisibility(i);
+            this.e.setVisibility(i);
         }
     }
 
@@ -111,7 +111,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public void setNetworkButtonShow(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.f29082d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.d) == null) {
             return;
         }
         textView.setVisibility(z ? 0 : 4);

@@ -15,7 +15,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.core.download.DownloadParams;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

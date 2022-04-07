@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKSpan extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DP;
@@ -66,7 +66,7 @@ public class TKSpan extends TKBase<View> {
     public final List<SpanItem> mSpanItems;
     public List<SpanItemData> mSpans;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SpanItemData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,21 +287,21 @@ public class TKSpan extends TKBase<View> {
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
-                                } catch (Exception e2) {
-                                    Logger.logE("fetchSpanBitmap", e2);
+                                } catch (Exception e) {
+                                    Logger.logE("fetchSpanBitmap", e);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
                                 }
-                            } catch (IOException e3) {
-                                Logger.logE("fetchSpanBitmap close io", e3);
+                            } catch (IOException e2) {
+                                Logger.logE("fetchSpanBitmap close io", e2);
                             }
                         } catch (Throwable th) {
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (IOException e4) {
-                                    Logger.logE("fetchSpanBitmap close io", e4);
+                                } catch (IOException e3) {
+                                    Logger.logE("fetchSpanBitmap close io", e3);
                                 }
                             }
                             throw th;
@@ -329,16 +329,16 @@ public class TKSpan extends TKBase<View> {
                 try {
                     bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), bitmapDrawable2.getIntrinsicHeight());
                     return bitmapDrawable2;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     bitmapDrawable = bitmapDrawable2;
                     Logger.logE("getSpanDrawable", e);
                     return bitmapDrawable;
                 }
             }
             return null;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 
@@ -416,70 +416,70 @@ public class TKSpan extends TKBase<View> {
             SpannableString spannableString = new SpannableString(str);
             for (SpanItem spanItem : this.mSpanItems) {
                 String str2 = spanItem.spanType;
-                char c2 = 65535;
+                char c = 65535;
                 switch (str2.hashCode()) {
                     case -1224696685:
                         if (str2.equals("fontFamily")) {
-                            c2 = '\b';
+                            c = '\b';
                             break;
                         }
                         break;
                     case -1134113256:
                         if (str2.equals(SpanItem.TYPE_ABSOLUTE_SIZE)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
                         break;
                     case -1048634236:
                         if (str2.equals(SpanItem.TYPE_TEXT_STYLE)) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
                         break;
                     case -1027917076:
                         if (str2.equals(SpanItem.TYPE_UNDERLINE)) {
-                            c2 = 6;
+                            c = 6;
                             break;
                         }
                         break;
                     case -641062944:
                         if (str2.equals(SpanItem.TYPE_FOREGROUND_COLOR)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
                         break;
                     case 116079:
                         if (str2.equals("url")) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                     case 94750088:
                         if (str2.equals("click")) {
-                            c2 = '\t';
+                            c = '\t';
                             break;
                         }
                         break;
                     case 100313435:
                         if (str2.equals("image")) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
                         break;
                     case 692131507:
                         if (str2.equals(SpanItem.TYPE_STRIKE_THROUGH)) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
                         break;
                     case 1287124693:
                         if (str2.equals("backgroundColor")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
                         break;
                 }
-                switch (c2) {
+                switch (c) {
                     case 0:
                         URLSpan uRLSpan = new URLSpan(spanItem.url);
                         spannableString.setSpan(uRLSpan, spanItem.start, spanItem.end, 17);
@@ -581,9 +581,9 @@ public class TKSpan extends TKBase<View> {
                                 }
 
                                 @Override // android.text.style.ClickableSpan
-                                public void onClick(@NonNull View view) {
+                                public void onClick(@NonNull View view2) {
                                     Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                                         V8Function v8Function3 = (V8Function) this.this$0.mItemFunctions.get(this.val$item);
                                         if (V8Proxy.isV8Valid(v8Function3)) {
                                             try {

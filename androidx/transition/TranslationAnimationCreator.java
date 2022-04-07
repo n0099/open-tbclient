@@ -34,12 +34,12 @@ public class TranslationAnimationCreator {
         public int[] mTransitionPosition;
         public final View mViewInHierarchy;
 
-        public TransitionPositionListener(View view, View view2, int i, int i2, float f2, float f3) {
+        public TransitionPositionListener(View view2, View view3, int i, int i2, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, view2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
+                Object[] objArr = {view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -49,12 +49,12 @@ public class TranslationAnimationCreator {
                     return;
                 }
             }
-            this.mMovingView = view;
-            this.mViewInHierarchy = view2;
-            this.mStartX = i - Math.round(view.getTranslationX());
+            this.mMovingView = view2;
+            this.mViewInHierarchy = view3;
+            this.mStartX = i - Math.round(view2.getTranslationX());
             this.mStartY = i2 - Math.round(this.mMovingView.getTranslationY());
-            this.mTerminalX = f2;
-            this.mTerminalY = f3;
+            this.mTerminalX = f;
+            this.mTerminalY = f2;
             int[] iArr = (int[]) this.mViewInHierarchy.getTag(R$id.transition_position);
             this.mTransitionPosition = iArr;
             if (iArr != null) {
@@ -149,31 +149,31 @@ public class TranslationAnimationCreator {
     }
 
     @Nullable
-    public static Animator createAnimation(@NonNull View view, @NonNull TransitionValues transitionValues, int i, int i2, float f2, float f3, float f4, float f5, @Nullable TimeInterpolator timeInterpolator, @NonNull Transition transition) {
+    public static Animator createAnimation(@NonNull View view2, @NonNull TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, @Nullable TimeInterpolator timeInterpolator, @NonNull Transition transition) {
         InterceptResult invokeCommon;
+        float f5;
         float f6;
-        float f7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), timeInterpolator, transition})) == null) {
-            float translationX = view.getTranslationX();
-            float translationY = view.getTranslationY();
-            int[] iArr = (int[]) transitionValues.view.getTag(R$id.transition_position);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), timeInterpolator, transition})) == null) {
+            float translationX = view2.getTranslationX();
+            float translationY = view2.getTranslationY();
+            int[] iArr = (int[]) transitionValues.f980view.getTag(R$id.transition_position);
             if (iArr != null) {
-                f6 = (iArr[0] - i) + translationX;
-                f7 = (iArr[1] - i2) + translationY;
+                f5 = (iArr[0] - i) + translationX;
+                f6 = (iArr[1] - i2) + translationY;
             } else {
+                f5 = f;
                 f6 = f2;
-                f7 = f3;
             }
-            int round = i + Math.round(f6 - translationX);
-            int round2 = i2 + Math.round(f7 - translationY);
-            view.setTranslationX(f6);
-            view.setTranslationY(f7);
-            if (f6 == f4 && f7 == f5) {
+            int round = i + Math.round(f5 - translationX);
+            int round2 = i2 + Math.round(f6 - translationY);
+            view2.setTranslationX(f5);
+            view2.setTranslationY(f6);
+            if (f5 == f3 && f6 == f4) {
                 return null;
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f6, f4), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f7, f5));
-            TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view, transitionValues.view, round, round2, translationX, translationY);
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(View.TRANSLATION_X, f5, f3), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f6, f4));
+            TransitionPositionListener transitionPositionListener = new TransitionPositionListener(view2, transitionValues.f980view, round, round2, translationX, translationY);
             transition.addListener(transitionPositionListener);
             ofPropertyValuesHolder.addListener(transitionPositionListener);
             AnimatorUtils.addPauseListener(ofPropertyValuesHolder, transitionPositionListener);

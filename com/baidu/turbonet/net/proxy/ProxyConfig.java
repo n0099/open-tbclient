@@ -9,17 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ProxyConfig {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f37801b;
+    public static final ProxyConfig b;
     public transient /* synthetic */ FieldHolder $fh;
     public LibType a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class LibType {
         public static final /* synthetic */ LibType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +89,7 @@ public class ProxyConfig {
                 return;
             }
         }
-        f37801b = new ProxyConfig();
+        b = new ProxyConfig();
     }
 
     public ProxyConfig() {

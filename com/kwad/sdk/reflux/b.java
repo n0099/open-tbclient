@@ -6,29 +6,15 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends c {
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f40727b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f40728c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f40729d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f40730e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f40731f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f40732g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f40733h;
+    public int b;
+    public AdTemplate c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
     public String i;
     public String j;
     public boolean k = false;
@@ -38,37 +24,37 @@ public class b extends c {
     public int o;
     public a p;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(b bVar);
     }
 
     public static b a(AdTemplate adTemplate) {
-        String h2;
+        String h;
         AdInfo j = d.j(adTemplate);
         b bVar = new b();
         bVar.b(0);
         bVar.k = com.kwad.sdk.core.response.a.a.B(j);
-        bVar.f40729d = adTemplate.type;
-        bVar.f40728c = adTemplate;
-        bVar.f40730e = com.kwad.sdk.core.response.a.a.s(j);
+        bVar.d = adTemplate.type;
+        bVar.c = adTemplate;
+        bVar.e = com.kwad.sdk.core.response.a.a.s(j);
         List<String> O = com.kwad.sdk.core.response.a.a.O(j);
         if (O.size() <= 0) {
             if (com.kwad.sdk.core.response.a.a.P(j)) {
-                h2 = com.kwad.sdk.core.response.a.a.h(j);
+                h = com.kwad.sdk.core.response.a.a.h(j);
             }
             bVar.j = com.kwad.sdk.core.response.a.a.A(j);
             bVar.i = com.kwad.sdk.core.response.a.a.s(j);
-            bVar.f40733h = com.kwad.sdk.core.response.a.a.at(j);
-            bVar.f40731f = com.kwad.sdk.core.response.a.a.au(j);
+            bVar.h = com.kwad.sdk.core.response.a.a.at(j);
+            bVar.f = com.kwad.sdk.core.response.a.a.au(j);
             return bVar;
         }
-        h2 = O.get(0);
-        bVar.f40732g = h2;
+        h = O.get(0);
+        bVar.g = h;
         bVar.j = com.kwad.sdk.core.response.a.a.A(j);
         bVar.i = com.kwad.sdk.core.response.a.a.s(j);
-        bVar.f40733h = com.kwad.sdk.core.response.a.a.at(j);
-        bVar.f40731f = com.kwad.sdk.core.response.a.a.au(j);
+        bVar.h = com.kwad.sdk.core.response.a.a.at(j);
+        bVar.f = com.kwad.sdk.core.response.a.a.au(j);
         return bVar;
     }
 
@@ -115,23 +101,23 @@ public class b extends c {
     }
 
     public void b(int i) {
-        this.f40727b = i;
+        this.b = i;
     }
 
     public AdTemplate c() {
-        return this.f40728c;
+        return this.c;
     }
 
     public String d() {
-        return this.f40730e;
+        return this.e;
     }
 
     public String e() {
-        return this.f40731f;
+        return this.f;
     }
 
     public String f() {
-        return this.f40733h;
+        return this.h;
     }
 
     public String g() {
@@ -139,7 +125,7 @@ public class b extends c {
     }
 
     public String h() {
-        return this.f40732g;
+        return this.g;
     }
 
     public boolean i() {
@@ -151,8 +137,8 @@ public class b extends c {
     }
 
     public int k() {
-        int i = this.f40727b;
-        return i == 0 ? this.f40729d : i;
+        int i = this.b;
+        return i == 0 ? this.d : i;
     }
 
     public int l() {

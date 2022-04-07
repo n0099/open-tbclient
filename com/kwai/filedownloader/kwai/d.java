@@ -10,7 +10,7 @@ import com.kwai.filedownloader.e.f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,22 +33,22 @@ public class d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, map, bVar, list)) == null) {
-            int e2 = bVar.e();
+            int e = bVar.e();
             String a = bVar.a(Headers.LOCATION);
             ArrayList arrayList = new ArrayList();
             int i = 0;
-            while (a(e2)) {
+            while (a(e)) {
                 if (a == null) {
-                    throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e2), bVar.c()));
+                    throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e), bVar.c()));
                 }
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(d.class, "redirect to %s with %d, %s", a, Integer.valueOf(e2), arrayList);
+                    com.kwai.filedownloader.e.d.c(d.class, "redirect to %s with %d, %s", a, Integer.valueOf(e), arrayList);
                 }
                 bVar.f();
                 bVar = a(map, a);
                 arrayList.add(a);
                 bVar.d();
-                e2 = bVar.e();
+                e = bVar.e();
                 a = bVar.a(Headers.LOCATION);
                 i++;
                 if (i >= 10) {

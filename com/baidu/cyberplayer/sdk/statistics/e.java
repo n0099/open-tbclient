@@ -6,17 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f25469b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f25470c;
+    public String b;
+    public String c;
 
     public e(int i, String str, long j) {
         Interceptable interceptable = $ic;
@@ -34,8 +30,8 @@ public class e {
             }
         }
         this.a = i;
-        this.f25469b = str;
-        this.f25470c = Long.toString(j);
+        this.b = str;
+        this.c = Long.toString(j);
     }
 
     public e(int i, String str, String str2) {
@@ -54,19 +50,19 @@ public class e {
             }
         }
         this.a = i;
-        this.f25469b = str;
-        this.f25470c = str2;
+        this.b = str;
+        this.c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25469b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25470c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 }

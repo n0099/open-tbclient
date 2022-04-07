@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-import h.a.a.e.h.p;
+import com.repackage.p6a;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UrlPageParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class UrlPageParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UrlPageParams{title='" + this.title + "', url='" + p.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + p.a(this.rightUrl) + "', pageType='" + this.pageType + "'}";
+            return "UrlPageParams{title='" + this.title + "', url='" + p6a.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + p6a.a(this.rightUrl) + "', pageType='" + this.pageType + "'}";
         }
         return (String) invokeV.objValue;
     }

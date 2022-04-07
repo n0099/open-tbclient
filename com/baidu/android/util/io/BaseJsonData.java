@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BaseJsonData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -186,8 +186,8 @@ public class BaseJsonData {
                 if (jSONObject.has("timestamp") && !jSONObject.isNull("timestamp")) {
                     try {
                         baseJsonData2.setTimestamp(Long.valueOf(jSONObject.getString("timestamp")).longValue());
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                         baseJsonData2.setTimestamp(0L);
                     }
                 }

@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface ImageTranscoder {
     boolean canResize(EncodedImage encodedImage, @Nullable RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions);
 

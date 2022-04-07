@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.p0.q2.d.a;
-import c.a.p0.q2.d.b;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -13,8 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dn7;
+import com.repackage.en7;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,8 +46,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new a(tbPageContext));
-            arrayList.add(new b(tbPageContext));
+            arrayList.add(new dn7(tbPageContext));
+            arrayList.add(new en7(tbPageContext));
             a(arrayList);
         }
     }

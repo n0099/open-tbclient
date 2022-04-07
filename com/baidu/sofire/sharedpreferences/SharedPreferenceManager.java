@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SharedPreferenceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "MzAyMTIxMDJkaWN1ZGlhYg==";
@@ -348,8 +348,8 @@ public class SharedPreferenceManager {
                 for (String str : split) {
                     try {
                         arrayList.add(Integer.valueOf(Integer.parseInt(str)));
-                    } catch (NumberFormatException e2) {
-                        BaiduLog.logE(e2.getMessage(), e2);
+                    } catch (NumberFormatException e) {
+                        BaiduLog.logE(e.getMessage(), e);
                     }
                 }
             }
@@ -431,8 +431,8 @@ public class SharedPreferenceManager {
                 for (String str : split) {
                     try {
                         arrayList.add(Integer.valueOf(Integer.parseInt(str)));
-                    } catch (NumberFormatException e2) {
-                        BaiduLog.logE(e2.getMessage(), e2);
+                    } catch (NumberFormatException e) {
+                        BaiduLog.logE(e.getMessage(), e);
                     }
                 }
             }
@@ -819,7 +819,7 @@ public class SharedPreferenceManager {
                 return null;
             }
             SharedPreferences chooseTargetPreferences = chooseTargetPreferences(string2);
-            char c2 = 0;
+            char c = 0;
             if (string.startsWith(OPERATION_GET_PERFIX)) {
                 String string4 = bundle.getString(PROVIDER_CALL_PREFERENCE_BUNDLE_DEFULT_VALUE);
                 if ((OPERATION_GET_STRING.equals(string) || !TextUtils.isEmpty(string4)) && chooseTargetPreferences != null) {
@@ -827,51 +827,51 @@ public class SharedPreferenceManager {
                     switch (string.hashCode()) {
                         case -1249359687:
                             if (string.equals(OPERATION_GET_INT)) {
-                                c2 = 1;
+                                c = 1;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -75354382:
                             if (string.equals(OPERATION_GET_LONG)) {
-                                c2 = 2;
+                                c = 2;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 804029191:
                             if (string.equals(OPERATION_GET_STRING)) {
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1101572082:
                             if (string.equals(OPERATION_GET_BOOLEAN)) {
-                                c2 = 4;
+                                c = 4;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1953351846:
                             if (string.equals(OPERATION_GET_FLOAT)) {
-                                c2 = 3;
+                                c = 3;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         default:
-                            c2 = 65535;
+                            c = 65535;
                             break;
                     }
-                    if (c2 == 0) {
+                    if (c == 0) {
                         bundle3.putString("result", chooseTargetPreferences.getString(string3, string4));
-                    } else if (c2 == 1) {
+                    } else if (c == 1) {
                         bundle3.putInt("result", chooseTargetPreferences.getInt(string3, Integer.parseInt(string4)));
-                    } else if (c2 == 2) {
+                    } else if (c == 2) {
                         bundle3.putLong("result", chooseTargetPreferences.getLong(string3, Long.parseLong(string4)));
-                    } else if (c2 == 3) {
+                    } else if (c == 3) {
                         bundle3.putFloat("result", chooseTargetPreferences.getFloat(string3, Float.parseFloat(string4)));
-                    } else if (c2 == 4) {
+                    } else if (c == 4) {
                         bundle3.putBoolean("result", chooseTargetPreferences.getBoolean(string3, Boolean.parseBoolean(string4)));
                     }
                     return bundle3;
@@ -883,51 +883,51 @@ public class SharedPreferenceManager {
                 switch (string.hashCode()) {
                     case -976920992:
                         if (string.equals(OPERATION_PUT_INT)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -462997504:
                         if (string.equals(OPERATION_PUT_STRING)) {
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -219689429:
                         if (string.equals(OPERATION_PUT_LONG)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 478450201:
                         if (string.equals(OPERATION_PUT_BOOLEAN)) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1773932685:
                         if (string.equals(OPERATION_PUT_FLOAT)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     edit.putString(string3, bundle.getString("value"));
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     edit.putInt(string3, bundle.getInt("value"));
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     edit.putLong(string3, bundle.getLong("value"));
-                } else if (c2 == 3) {
+                } else if (c == 3) {
                     edit.putFloat(string3, bundle.getFloat("value"));
-                } else if (c2 == 4) {
+                } else if (c == 4) {
                     edit.putBoolean(string3, bundle.getBoolean("value"));
                 }
                 edit.apply();

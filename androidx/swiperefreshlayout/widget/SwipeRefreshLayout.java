@@ -105,7 +105,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
     /* loaded from: classes.dex */
     public interface OnChildScrollUpCallback {
-        boolean canChildScrollUp(@NonNull SwipeRefreshLayout swipeRefreshLayout, @Nullable View view);
+        boolean canChildScrollUp(@NonNull SwipeRefreshLayout swipeRefreshLayout, @Nullable View view2);
     }
 
     /* loaded from: classes.dex */
@@ -211,10 +211,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    private void finishSpinner(float f2) {
+    private void finishSpinner(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65543, this, f2) == null) {
-            if (f2 > this.mTotalDragDistance) {
+        if (interceptable == null || interceptable.invokeF(65543, this, f) == null) {
+            if (f > this.mTotalDragDistance) {
                 setRefreshing(true, true);
                 return;
             }
@@ -279,21 +279,21 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, animation)) == null) ? (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true : invokeL.booleanValue;
     }
 
-    private void moveSpinner(float f2) {
+    private void moveSpinner(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65545, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65545, this, f) == null) {
             this.mProgress.setArrowEnabled(true);
-            float min = Math.min(1.0f, Math.abs(f2 / this.mTotalDragDistance));
+            float min = Math.min(1.0f, Math.abs(f / this.mTotalDragDistance));
             float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
-            float abs = Math.abs(f2) - this.mTotalDragDistance;
+            float abs = Math.abs(f) - this.mTotalDragDistance;
             int i = this.mCustomSlingshotDistance;
             if (i <= 0) {
                 i = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
             }
-            float f3 = i;
-            double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
+            float f2 = i;
+            double max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2) / 4.0f;
             float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
-            int i2 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
+            int i2 = this.mOriginalOffsetTop + ((int) ((f2 * min) + (f2 * pow * 2.0f)));
             if (this.mCircleView.getVisibility() != 0) {
                 this.mCircleView.setVisibility(0);
             }
@@ -302,9 +302,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 this.mCircleView.setScaleY(1.0f);
             }
             if (this.mScale) {
-                setAnimationProgress(Math.min(1.0f, f2 / this.mTotalDragDistance));
+                setAnimationProgress(Math.min(1.0f, f / this.mTotalDragDistance));
             }
-            if (f2 < this.mTotalDragDistance) {
+            if (f < this.mTotalDragDistance) {
                 if (this.mProgress.getAlpha() > 76 && !isAnimationRunning(this.mAlphaStartAnimation)) {
                     startProgressAlphaStartAnimation();
                 }
@@ -368,12 +368,12 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 }
 
                 @Override // android.view.animation.Animation
-                public void applyTransformation(float f2, Transformation transformation) {
+                public void applyTransformation(float f, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
                         CircularProgressDrawable circularProgressDrawable = this.this$0.mProgress;
                         int i3 = this.val$startingAlpha;
-                        circularProgressDrawable.setAlpha((int) (i3 + ((this.val$endingAlpha - i3) * f2)));
+                        circularProgressDrawable.setAlpha((int) (i3 + ((this.val$endingAlpha - i3) * f)));
                     }
                 }
             };
@@ -386,15 +386,15 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         return (Animation) invokeII.objValue;
     }
 
-    private void startDragging(float f2) {
+    private void startDragging(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65550, this, f2) == null) {
-            float f3 = this.mInitialDownY;
+        if (interceptable == null || interceptable.invokeF(65550, this, f) == null) {
+            float f2 = this.mInitialDownY;
             int i = this.mTouchSlop;
-            if (f2 - f3 <= i || this.mIsBeingDragged) {
+            if (f - f2 <= i || this.mIsBeingDragged) {
                 return;
             }
-            this.mInitialMotionY = f3 + i;
+            this.mInitialMotionY = f2 + i;
             this.mIsBeingDragged = true;
             this.mProgress.setAlpha(76);
         }
@@ -443,13 +443,13 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 }
 
                 @Override // android.view.animation.Animation
-                public void applyTransformation(float f2, Transformation transformation) {
+                public void applyTransformation(float f, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
                         SwipeRefreshLayout swipeRefreshLayout = this.this$0;
-                        float f3 = swipeRefreshLayout.mStartingScale;
-                        swipeRefreshLayout.setAnimationProgress(f3 + ((-f3) * f2));
-                        this.this$0.moveToStart(f2);
+                        float f2 = swipeRefreshLayout.mStartingScale;
+                        swipeRefreshLayout.setAnimationProgress(f2 + ((-f2) * f));
+                        this.this$0.moveToStart(f);
                     }
                 }
             };
@@ -492,10 +492,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 }
 
                 @Override // android.view.animation.Animation
-                public void applyTransformation(float f2, Transformation transformation) {
+                public void applyTransformation(float f, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                        this.this$0.setAnimationProgress(f2);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                        this.this$0.setAnimationProgress(f);
                     }
                 }
             };
@@ -517,27 +517,27 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             if (onChildScrollUpCallback != null) {
                 return onChildScrollUpCallback.canChildScrollUp(this, this.mTarget);
             }
-            View view = this.mTarget;
-            if (view instanceof ListView) {
-                return ListViewCompat.canScrollList((ListView) view, -1);
+            View view2 = this.mTarget;
+            if (view2 instanceof ListView) {
+                return ListViewCompat.canScrollList((ListView) view2, -1);
             }
-            return view.canScrollVertically(-1);
+            return view2.canScrollVertically(-1);
         }
         return invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedFling(float f2, float f3, boolean z) {
+    public boolean dispatchNestedFling(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedFling(f, f2, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreFling(float f2, float f3) {
+    public boolean dispatchNestedPreFling(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreFling(f, f2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
@@ -610,11 +610,11 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRefreshing : invokeV.booleanValue;
     }
 
-    public void moveToStart(float f2) {
+    public void moveToStart(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
             int i = this.mFrom;
-            setTargetOffsetTopAndBottom((i + ((int) ((this.mOriginalOffsetTop - i) * f2))) - this.mCircleView.getTop());
+            setTargetOffsetTopAndBottom((i + ((int) ((this.mOriginalOffsetTop - i) * f))) - this.mCircleView.getTop());
         }
     }
 
@@ -689,13 +689,13 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             if (this.mTarget == null) {
                 ensureTarget();
             }
-            View view = this.mTarget;
-            if (view == null) {
+            View view2 = this.mTarget;
+            if (view2 == null) {
                 return;
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
+            view2.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
             int measuredWidth2 = this.mCircleView.getMeasuredWidth();
             int measuredHeight2 = this.mCircleView.getMeasuredHeight();
             int i5 = measuredWidth / 2;
@@ -713,11 +713,11 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             if (this.mTarget == null) {
                 ensureTarget();
             }
-            View view = this.mTarget;
-            if (view == null) {
+            View view2 = this.mTarget;
+            if (view2 == null) {
                 return;
             }
-            view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+            view2.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
             this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
             this.mCircleViewIndex = -1;
             for (int i3 = 0; i3 < getChildCount(); i3++) {
@@ -730,32 +730,32 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
+    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) ? dispatchNestedFling(f, f2, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f2, float f3) {
+    public boolean onNestedPreFling(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? dispatchNestedPreFling(f, f2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view2, int i, int i2, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
             if (i2 > 0) {
-                float f2 = this.mTotalUnconsumed;
-                if (f2 > 0.0f) {
-                    float f3 = i2;
-                    if (f3 > f2) {
-                        iArr[1] = i2 - ((int) f2);
+                float f = this.mTotalUnconsumed;
+                if (f > 0.0f) {
+                    float f2 = i2;
+                    if (f2 > f) {
+                        iArr[1] = i2 - ((int) f);
                         this.mTotalUnconsumed = 0.0f;
                     } else {
-                        this.mTotalUnconsumed = f2 - f3;
+                        this.mTotalUnconsumed = f - f2;
                         iArr[1] = i2;
                     }
                     moveSpinner(this.mTotalUnconsumed);
@@ -773,9 +773,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             dispatchNestedScroll(i, i2, i3, i4, this.mParentOffsetInWindow);
             int i5 = i4 + this.mParentOffsetInWindow[1];
             if (i5 >= 0 || canChildScrollUp()) {
@@ -788,10 +788,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
+    public void onNestedScrollAccepted(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048598, this, view, view2, i) == null) {
-            this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i);
+        if (interceptable == null || interceptable.invokeLLI(1048598, this, view2, view3, i) == null) {
+            this.mNestedScrollingParentHelper.onNestedScrollAccepted(view2, view3, i);
             startNestedScroll(i & 2);
             this.mTotalUnconsumed = 0.0f;
             this.mNestedScrollInProgress = true;
@@ -799,21 +799,21 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
+    public boolean onStartNestedScroll(View view2, View view3, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, view, view2, i)) == null) ? (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i & 2) == 0) ? false : true : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, view2, view3, i)) == null) ? (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i & 2) == 0) ? false : true : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
+    public void onStopNestedScroll(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, view) == null) {
-            this.mNestedScrollingParentHelper.onStopNestedScroll(view);
+        if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
+            this.mNestedScrollingParentHelper.onStopNestedScroll(view2);
             this.mNestedScrollInProgress = false;
-            float f2 = this.mTotalUnconsumed;
-            if (f2 > 0.0f) {
-                finishSpinner(f2);
+            float f = this.mTotalUnconsumed;
+            if (f > 0.0f) {
+                finishSpinner(f);
                 this.mTotalUnconsumed = 0.0f;
             }
             stopNestedScroll();
@@ -856,11 +856,11 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 float y = motionEvent.getY(findPointerIndex2);
                 startDragging(y);
                 if (this.mIsBeingDragged) {
-                    float f2 = (y - this.mInitialMotionY) * 0.5f;
-                    if (f2 <= 0.0f) {
+                    float f = (y - this.mInitialMotionY) * 0.5f;
+                    if (f <= 0.0f) {
                         return false;
                     }
-                    moveSpinner(f2);
+                    moveSpinner(f);
                 }
             } else if (actionMasked == 3) {
                 return false;
@@ -886,8 +886,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             if (Build.VERSION.SDK_INT >= 21 || !(this.mTarget instanceof AbsListView)) {
-                View view = this.mTarget;
-                if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
+                View view2 = this.mTarget;
+                if (view2 == null || ViewCompat.isNestedScrollingEnabled(view2)) {
                     super.requestDisallowInterceptTouchEvent(z);
                 }
             }
@@ -910,11 +910,11 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    public void setAnimationProgress(float f2) {
+    public void setAnimationProgress(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.mCircleView.setScaleX(f2);
-            this.mCircleView.setScaleY(f2);
+        if (interceptable == null || interceptable.invokeF(1048604, this, f) == null) {
+            this.mCircleView.setScaleX(f);
+            this.mCircleView.setScaleY(f);
         }
     }
 
@@ -1117,10 +1117,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 }
 
                 @Override // android.view.animation.Animation
-                public void applyTransformation(float f2, Transformation transformation) {
+                public void applyTransformation(float f, Transformation transformation) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                        this.this$0.setAnimationProgress(1.0f - f2);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                        this.this$0.setAnimationProgress(1.0f - f);
                     }
                 }
             };
@@ -1247,10 +1247,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             }
 
             @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
+            public void applyTransformation(float f, Transformation transformation) {
                 int i3;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
                     SwipeRefreshLayout swipeRefreshLayout = this.this$0;
                     if (!swipeRefreshLayout.mUsingCustomStart) {
                         i3 = swipeRefreshLayout.mSpinnerOffsetEnd - Math.abs(swipeRefreshLayout.mOriginalOffsetTop);
@@ -1259,8 +1259,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     }
                     SwipeRefreshLayout swipeRefreshLayout2 = this.this$0;
                     int i4 = swipeRefreshLayout2.mFrom;
-                    this.this$0.setTargetOffsetTopAndBottom((i4 + ((int) ((i3 - i4) * f2))) - swipeRefreshLayout2.mCircleView.getTop());
-                    this.this$0.mProgress.setArrowScale(1.0f - f2);
+                    this.this$0.setTargetOffsetTopAndBottom((i4 + ((int) ((i3 - i4) * f))) - swipeRefreshLayout2.mCircleView.getTop());
+                    this.this$0.mProgress.setArrowScale(1.0f - f);
                 }
             }
         };
@@ -1288,10 +1288,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             }
 
             @Override // android.view.animation.Animation
-            public void applyTransformation(float f2, Transformation transformation) {
+            public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                    this.this$0.moveToStart(f2);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                    this.this$0.moveToStart(f);
                 }
             }
         };

@@ -81,9 +81,9 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(B b2) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2) == null) || this.done) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) || this.done) {
                 return;
             }
             this.done = true;

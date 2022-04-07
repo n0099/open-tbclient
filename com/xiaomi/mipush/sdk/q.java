@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ea;
 import com.xiaomi.push.hk;
 import com.xiaomi.push.service.aq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class q extends aq.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

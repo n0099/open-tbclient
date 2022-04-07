@@ -1,6 +1,6 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface i extends Closeable {
 }

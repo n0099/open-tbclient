@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CalendarItemStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public final class CalendarItemStyle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             Preconditions.checkArgument(i != 0, "Cannot create a CalendarItemStyle with a styleResId of 0");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16843191, 16843192, 16843193, 16843194, R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402eb, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402f0});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16843191, 16843192, 16843193, 16843194, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f04031f, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f04032c});
             Rect rect = new Rect(obtainStyledAttributes.getDimensionPixelOffset(0, 0), obtainStyledAttributes.getDimensionPixelOffset(2, 0), obtainStyledAttributes.getDimensionPixelOffset(1, 0), obtainStyledAttributes.getDimensionPixelOffset(3, 0));
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 9);

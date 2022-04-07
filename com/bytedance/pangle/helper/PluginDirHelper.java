@@ -18,7 +18,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import java.io.File;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VERSION_PREFIX = "version-";
@@ -156,8 +156,8 @@ public class PluginDirHelper {
                     return null;
                 }
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

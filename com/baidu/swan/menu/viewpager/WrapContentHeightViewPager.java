@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WrapContentHeightViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,16 +35,16 @@ public class WrapContentHeightViewPager extends ViewPager {
         }
     }
 
-    public final int a(int i, View view) {
+    public final int a(int i, View view2) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
             if (mode == 1073741824) {
                 return size;
             }
-            int measuredHeight = view != null ? view.getMeasuredHeight() : 0;
+            int measuredHeight = view2 != null ? view2.getMeasuredHeight() : 0;
             return mode == Integer.MIN_VALUE ? Math.min(measuredHeight, size) : measuredHeight;
         }
         return invokeIL.intValue;
@@ -57,7 +57,7 @@ public class WrapContentHeightViewPager extends ViewPager {
             super.onMeasure(i, i2);
             if (getChildCount() > 0) {
                 int childCount = getChildCount();
-                View view = null;
+                View view2 = null;
                 int i3 = -1;
                 for (int i4 = 0; i4 < childCount; i4++) {
                     View childAt = getChildAt(i4);
@@ -65,18 +65,18 @@ public class WrapContentHeightViewPager extends ViewPager {
                         childAt.measure(i, i2);
                         int measuredHeight = childAt.getMeasuredHeight();
                         if (measuredHeight > i3) {
-                            view = childAt;
+                            view2 = childAt;
                             i3 = measuredHeight;
                         }
                     }
                 }
-                if (view == null) {
-                    view = getChildAt(0);
+                if (view2 == null) {
+                    view2 = getChildAt(0);
                 }
-                if (view != null) {
-                    view.measure(i, i2);
+                if (view2 != null) {
+                    view2.measure(i, i2);
                 }
-                setMeasuredDimension(getMeasuredWidth(), a(i2, view));
+                setMeasuredDimension(getMeasuredWidth(), a(i2, view2));
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Matrixf4x4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] MAT_IND_COL_IN16_WITH3X3;
@@ -130,10 +130,10 @@ public class Matrixf4x4 {
             for (int i3 = 0; i3 < 4; i3++) {
                 for (int i4 = 0; i4 < 4; i4++) {
                     int i5 = i2 + 0 + i4;
-                    float f2 = fArr2[i5];
+                    float f = fArr2[i5];
                     float[] fArr3 = this.matrix;
                     int i6 = (i3 * 4) + i4;
-                    fArr2[i5] = f2 + (fArr3[i6] * fArr[i + 0 + i3]);
+                    fArr2[i5] = f + (fArr3[i6] * fArr[i + 0 + i3]);
                     int i7 = i2 + 4 + i4;
                     fArr2[i7] = fArr2[i7] + (fArr3[i6] * fArr[i + 4 + i3]);
                     int i8 = i2 + 8 + i4;
@@ -161,8 +161,8 @@ public class Matrixf4x4 {
 
     @Deprecated
     public void multiplyVector3fByMatrix(Vector3f vector3f) {
+        float f;
         float f2;
-        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, vector3f) == null) {
             if (!this.matrixValid || this.matrix.length != 9) {
@@ -171,37 +171,37 @@ public class Matrixf4x4 {
                 return;
             }
             float[] array = vector3f.toArray();
-            float f4 = 0.0f;
+            float f3 = 0.0f;
             if (this.colMaj) {
+                f = 0.0f;
                 f2 = 0.0f;
-                f3 = 0.0f;
                 for (int i = 0; i < 3; i++) {
                     float[] fArr = this.matrix;
-                    f4 += fArr[i + 0] * array[i];
-                    f2 += fArr[i + 3] * array[i];
-                    f3 += fArr[i + 6] * array[i];
+                    f3 += fArr[i + 0] * array[i];
+                    f += fArr[i + 3] * array[i];
+                    f2 += fArr[i + 6] * array[i];
                 }
             } else {
+                f = 0.0f;
                 f2 = 0.0f;
-                f3 = 0.0f;
                 for (int i2 = 0; i2 < 3; i2++) {
                     int i3 = i2 * 3;
                     float[] fArr2 = this.matrix;
-                    f4 += fArr2[i3 + 0] * array[i2];
-                    f2 += fArr2[i3 + 1] * array[i2];
-                    f3 += fArr2[i3 + 2] * array[i2];
+                    f3 += fArr2[i3 + 0] * array[i2];
+                    f += fArr2[i3 + 1] * array[i2];
+                    f2 += fArr2[i3 + 2] * array[i2];
                 }
             }
-            vector3f.setX(f4);
-            vector3f.setY(f2);
-            vector3f.setZ(f3);
+            vector3f.setX(f3);
+            vector3f.setY(f);
+            vector3f.setZ(f2);
         }
     }
 
     public void multiplyVector4fByMatrix(Vector4f vector4f) {
+        float f;
         float f2;
         float f3;
-        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vector4f) == null) {
             if (!this.matrixValid || this.matrix.length != 16) {
@@ -211,37 +211,37 @@ public class Matrixf4x4 {
             }
             float[] array = vector4f.toArray();
             int i = 0;
-            float f5 = 0.0f;
+            float f4 = 0.0f;
             if (this.colMaj) {
+                f = 0.0f;
                 f2 = 0.0f;
                 f3 = 0.0f;
-                f4 = 0.0f;
                 while (i < 4) {
                     int i2 = i * 4;
                     float[] fArr = this.matrix;
-                    f5 += fArr[i2 + 0] * array[i];
-                    f2 += fArr[i2 + 1] * array[i];
-                    f3 += fArr[i2 + 2] * array[i];
-                    f4 += fArr[i2 + 3] * array[i];
+                    f4 += fArr[i2 + 0] * array[i];
+                    f += fArr[i2 + 1] * array[i];
+                    f2 += fArr[i2 + 2] * array[i];
+                    f3 += fArr[i2 + 3] * array[i];
                     i++;
                 }
             } else {
+                f = 0.0f;
                 f2 = 0.0f;
                 f3 = 0.0f;
-                f4 = 0.0f;
                 while (i < 4) {
                     float[] fArr2 = this.matrix;
-                    f5 += fArr2[i + 0] * array[i];
-                    f2 += fArr2[i + 4] * array[i];
-                    f3 += fArr2[i + 8] * array[i];
-                    f4 += fArr2[i + 12] * array[i];
+                    f4 += fArr2[i + 0] * array[i];
+                    f += fArr2[i + 4] * array[i];
+                    f2 += fArr2[i + 8] * array[i];
+                    f3 += fArr2[i + 12] * array[i];
                     i++;
                 }
             }
-            vector4f.setX(f5);
-            vector4f.setY(f2);
-            vector4f.setZ(f3);
-            vector4f.setW(f4);
+            vector4f.setX(f4);
+            vector4f.setY(f);
+            vector4f.setZ(f2);
+            vector4f.setW(f3);
         }
     }
 
@@ -279,261 +279,261 @@ public class Matrixf4x4 {
         }
     }
 
-    public void setW0(float f2) {
+    public void setW0(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048587, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048587, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[12]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[12]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[12]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[12]] = f;
                 }
             }
         }
     }
 
-    public void setW1(float f2) {
+    public void setW1(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048588, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048588, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[13]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[13]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[13]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[13]] = f;
                 }
             }
         }
     }
 
-    public void setW2(float f2) {
+    public void setW2(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048589, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048589, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[14]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[14]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[14]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[14]] = f;
                 }
             }
         }
     }
 
-    public void setW3(float f2) {
+    public void setW3(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048590, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048590, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[15]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[15]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[15]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[15]] = f;
                 }
             }
         }
     }
 
-    public void setX0(float f2) {
+    public void setX0(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048591, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048591, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[0]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[0]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[0]] = f2;
-                }
-            } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[0]] = f2;
-            } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[0]] = f2;
-            }
-        }
-    }
-
-    public void setX1(float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048592, this, f2) == null) && this.matrixValid) {
-            float[] fArr = this.matrix;
-            if (fArr.length == 16) {
-                if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[1]] = f2;
-                } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[1]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[0]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[1]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[0]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[1]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[0]] = f;
             }
         }
     }
 
-    public void setX2(float f2) {
+    public void setX1(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048593, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048592, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[2]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[1]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[2]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[1]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[2]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[1]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[2]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[1]] = f;
             }
         }
     }
 
-    public void setX3(float f2) {
+    public void setX2(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048594, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048593, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[3]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[2]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[3]] = f2;
-                }
-            }
-        }
-    }
-
-    public void setY0(float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048595, this, f2) == null) && this.matrixValid) {
-            float[] fArr = this.matrix;
-            if (fArr.length == 16) {
-                if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[3]] = f2;
-                } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[3]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[2]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[3]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[2]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[3]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[2]] = f;
             }
         }
     }
 
-    public void setY1(float f2) {
+    public void setX3(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048596, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048594, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[4]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[3]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[4]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[3]] = f;
+                }
+            }
+        }
+    }
+
+    public void setY0(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048595, this, f) == null) && this.matrixValid) {
+            float[] fArr = this.matrix;
+            if (fArr.length == 16) {
+                if (this.colMaj) {
+                    fArr[MAT_IND_COL_IN16_WITH3X3[3]] = f;
+                } else {
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[3]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[4]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[3]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[4]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[3]] = f;
             }
         }
     }
 
-    public void setY2(float f2) {
+    public void setY1(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048597, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048596, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[5]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[4]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[5]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[4]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[5]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[4]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[5]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[4]] = f;
             }
         }
     }
 
-    public void setY3(float f2) {
+    public void setY2(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048598, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048597, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[7]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[5]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[7]] = f2;
-                }
-            }
-        }
-    }
-
-    public void setZ0(float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048599, this, f2) == null) && this.matrixValid) {
-            float[] fArr = this.matrix;
-            if (fArr.length == 16) {
-                if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[6]] = f2;
-                } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[6]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[5]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[6]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[5]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[6]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[5]] = f;
             }
         }
     }
 
-    public void setZ1(float f2) {
+    public void setY3(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048600, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048598, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[7]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH4X4[7]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[7]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[7]] = f;
+                }
+            }
+        }
+    }
+
+    public void setZ0(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048599, this, f) == null) && this.matrixValid) {
+            float[] fArr = this.matrix;
+            if (fArr.length == 16) {
+                if (this.colMaj) {
+                    fArr[MAT_IND_COL_IN16_WITH3X3[6]] = f;
+                } else {
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[6]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[7]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[6]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[7]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[6]] = f;
             }
         }
     }
 
-    public void setZ2(float f2) {
+    public void setZ1(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048601, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048600, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH3X3[8]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[7]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH3X3[8]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[7]] = f;
                 }
             } else if (this.colMaj) {
-                fArr[MAT_IND_COL_IN9_WITH3X3[8]] = f2;
+                fArr[MAT_IND_COL_IN9_WITH3X3[7]] = f;
             } else {
-                fArr[MAT_IND_ROW_IN9_WITH3X3[8]] = f2;
+                fArr[MAT_IND_ROW_IN9_WITH3X3[7]] = f;
             }
         }
     }
 
-    public void setZ3(float f2) {
+    public void setZ2(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048602, this, f2) == null) && this.matrixValid) {
+        if ((interceptable == null || interceptable.invokeF(1048601, this, f) == null) && this.matrixValid) {
             float[] fArr = this.matrix;
             if (fArr.length == 16) {
                 if (this.colMaj) {
-                    fArr[MAT_IND_COL_IN16_WITH4X4[11]] = f2;
+                    fArr[MAT_IND_COL_IN16_WITH3X3[8]] = f;
                 } else {
-                    fArr[MAT_IND_ROW_IN16_WITH4X4[11]] = f2;
+                    fArr[MAT_IND_ROW_IN16_WITH3X3[8]] = f;
+                }
+            } else if (this.colMaj) {
+                fArr[MAT_IND_COL_IN9_WITH3X3[8]] = f;
+            } else {
+                fArr[MAT_IND_ROW_IN9_WITH3X3[8]] = f;
+            }
+        }
+    }
+
+    public void setZ3(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048602, this, f) == null) && this.matrixValid) {
+            float[] fArr = this.matrix;
+            if (fArr.length == 16) {
+                if (this.colMaj) {
+                    fArr[MAT_IND_COL_IN16_WITH4X4[11]] = f;
+                } else {
+                    fArr[MAT_IND_ROW_IN16_WITH4X4[11]] = f;
                 }
             }
         }

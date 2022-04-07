@@ -10,20 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DisableScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public double f29984b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public double f29985c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f29986d;
+    public double b;
+    public double c;
+    public boolean d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DisableScrollLayout(Context context) {
@@ -43,9 +37,9 @@ public class DisableScrollLayout extends FrameLayout {
                 return;
             }
         }
-        this.f29984b = 0.0d;
-        this.f29985c = 0.0d;
-        this.f29986d = true;
+        this.b = 0.0d;
+        this.c = 0.0d;
+        this.d = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -54,13 +48,13 @@ public class DisableScrollLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f29984b = motionEvent.getX();
-                this.f29985c = motionEvent.getY();
+                this.b = motionEvent.getX();
+                this.c = motionEvent.getY();
             }
             if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.a) {
                 double y = motionEvent.getY();
-                if (Math.abs(motionEvent.getX() - this.f29984b) <= Math.abs(y - this.f29985c)) {
-                    if (y <= this.f29985c || this.f29986d) {
+                if (Math.abs(motionEvent.getX() - this.b) <= Math.abs(y - this.c)) {
+                    if (y <= this.c || this.d) {
                         return super.dispatchTouchEvent(motionEvent);
                     }
                     return true;
@@ -98,8 +92,8 @@ public class DisableScrollLayout extends FrameLayout {
                 return;
             }
         }
-        this.f29984b = 0.0d;
-        this.f29985c = 0.0d;
-        this.f29986d = true;
+        this.b = 0.0d;
+        this.c = 0.0d;
+        this.d = true;
     }
 }

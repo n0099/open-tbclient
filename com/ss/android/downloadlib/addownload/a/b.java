@@ -23,8 +23,8 @@ public class b {
                     }
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return copyOnWriteArrayList;
     }
@@ -46,11 +46,11 @@ public class b {
             while (it.hasNext()) {
                 com.ss.android.downloadlib.addownload.b.a next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f42746b), next.a());
+                    jSONObject.put(String.valueOf(next.b), next.a());
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         j.getContext().getSharedPreferences(str, 0).edit().putString(str2, jSONObject.toString()).apply();
     }

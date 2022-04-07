@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ByteArrayInfoMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -76,8 +76,8 @@ public class ByteArrayInfoMng {
                     if (this.mCurDataCount >= mMaxByteSize * 2) {
                         try {
                             Thread.sleep(200L);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                         return getByteArray();
                     }

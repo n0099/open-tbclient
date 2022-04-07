@@ -13,7 +13,7 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCESS_TEST = 7;
@@ -93,34 +93,34 @@ public class MemberUtils {
             if (cls2.isPrimitive()) {
                 return getPrimitivePromotionCost(cls, cls2);
             }
-            float f2 = 0.0f;
+            float f = 0.0f;
             while (true) {
                 if (cls != null && !cls2.equals(cls)) {
                     if (cls2.isInterface() && isAssignable(cls, cls2)) {
-                        f2 += 0.25f;
+                        f += 0.25f;
                         break;
                     }
-                    f2 += 1.0f;
+                    f += 1.0f;
                     cls = cls.getSuperclass();
                 } else {
                     break;
                 }
             }
-            return cls == null ? f2 + 1.5f : f2;
+            return cls == null ? f + 1.5f : f;
         }
         return invokeLL.floatValue;
     }
 
     public static float getPrimitivePromotionCost(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2)) == null) {
             if (cls.isPrimitive()) {
-                f2 = 0.0f;
+                f = 0.0f;
             } else {
                 cls = wrapperToPrimitive(cls);
-                f2 = 0.1f;
+                f = 0.1f;
             }
             int i = 0;
             while (cls != cls2) {
@@ -129,14 +129,14 @@ public class MemberUtils {
                     break;
                 }
                 if (cls == clsArr[i]) {
-                    f2 += 0.1f;
+                    f += 0.1f;
                     if (i < clsArr.length - 1) {
                         cls = clsArr[i + 1];
                     }
                 }
                 i++;
             }
-            return f2;
+            return f;
         }
         return invokeLL.floatValue;
     }
@@ -145,11 +145,11 @@ public class MemberUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, clsArr, clsArr2)) == null) {
-            float f2 = 0.0f;
+            float f = 0.0f;
             for (int i = 0; i < clsArr.length; i++) {
-                f2 += getObjectTransformationCost(clsArr[i], clsArr2[i]);
+                f += getObjectTransformationCost(clsArr[i], clsArr2[i]);
             }
-            return f2;
+            return f;
         }
         return invokeLL.floatValue;
     }

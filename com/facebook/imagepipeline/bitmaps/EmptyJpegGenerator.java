@@ -17,7 +17,7 @@ import com.facebook.common.references.CloseableReference;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EmptyJpegGenerator {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_JPEG_PREFIX;
@@ -75,8 +75,8 @@ public class EmptyJpegGenerator {
                     pooledByteBufferOutputStream.write((byte) (s & 255));
                     pooledByteBufferOutputStream.write(EMPTY_JPEG_SUFFIX);
                     return CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
-                } catch (IOException e2) {
-                    throw new RuntimeException(e2);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             } finally {
                 if (pooledByteBufferOutputStream != null) {

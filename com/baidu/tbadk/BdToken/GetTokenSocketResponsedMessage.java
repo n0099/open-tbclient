@@ -1,6 +1,5 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.o0.a.a0;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mj4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a0 mData;
+    public mj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenSocketResponsedMessage() {
@@ -35,10 +35,10 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public a0 getData() {
+    public mj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (mj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,9 +55,9 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            a0 a0Var = new a0();
-            this.mData = a0Var;
-            a0Var.d(getTokenResIdl.data);
+            mj4 mj4Var = new mj4();
+            this.mData = mj4Var;
+            mj4Var.d(getTokenResIdl.data);
         }
     }
 }

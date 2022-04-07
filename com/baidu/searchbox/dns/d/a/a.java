@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public class a {
                 jSONObject.put("ip", jSONArray);
                 jSONObject.put(HttpDnsCacheForHost.JSON_KEY_IPV6, jSONArray2);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -174,8 +174,8 @@ public class a {
             for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                 this.R.add(optJSONArray2.getString(i4));
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

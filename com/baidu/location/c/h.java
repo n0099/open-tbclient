@@ -19,23 +19,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ScanResult> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f26020b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f26021c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f26022d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f26023e;
+    public long b;
+    public long c;
+    public boolean d;
+    public boolean e;
 
     public h(List<ScanResult> list, long j) {
         Interceptable interceptable = $ic;
@@ -53,16 +45,16 @@ public class h {
             }
         }
         this.a = null;
-        this.f26020b = 0L;
-        this.f26021c = 0L;
-        this.f26022d = false;
-        this.f26020b = j;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = false;
+        this.b = j;
         this.a = list;
-        this.f26021c = System.currentTimeMillis();
+        this.c = System.currentTimeMillis();
         try {
             n();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -188,19 +180,19 @@ public class h {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? a(i, false, false) : (String) invokeI.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x01e1  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x01f5  */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0217 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x0313 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x01e0  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x01f4  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0216 A[Catch: Exception -> 0x0060, Error -> 0x0314, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x0312 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0070  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0095 A[Catch: Exception -> 0x0060, Error -> 0x0315, TRY_ENTER, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00d4  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00f1 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00fe A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0106 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0115 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0167  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0094 A[Catch: Exception -> 0x0060, Error -> 0x0314, TRY_ENTER, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00f0 A[Catch: Exception -> 0x0060, Error -> 0x0314, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00fd A[Catch: Exception -> 0x0060, Error -> 0x0314, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0105 A[Catch: Exception -> 0x0060, Error -> 0x0314, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0114 A[Catch: Exception -> 0x0060, Error -> 0x0314, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0094, B:42:0x009c, B:52:0x00c8, B:56:0x00da, B:58:0x00e0, B:61:0x00f0, B:62:0x00f5, B:64:0x00fd, B:66:0x0108, B:68:0x0114, B:71:0x0128, B:73:0x0145, B:75:0x014d, B:105:0x0207, B:101:0x01e2, B:65:0x0105, B:108:0x0216, B:110:0x022e, B:114:0x023f, B:117:0x0259, B:119:0x025f, B:121:0x0270, B:122:0x0288, B:124:0x028e, B:126:0x0296, B:130:0x02c2, B:127:0x02a1, B:129:0x02b0, B:131:0x02c6, B:133:0x02cf, B:135:0x02ef, B:139:0x02fe, B:141:0x0303, B:142:0x030d), top: B:157:0x0057 }] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0166  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -218,7 +210,7 @@ public class h {
         String str3;
         String str4;
         long j2;
-        char c2;
+        char c;
         String str5;
         long j3;
         String str6;
@@ -274,13 +266,13 @@ public class h {
                         z4 = true;
                         int i4 = 0;
                         int i5 = 0;
-                        char c3 = 0;
+                        char c2 = 0;
                         while (i3 < size) {
                             if (this.a.get(i3) == null || this.a.get(i3).level == 0) {
                                 str3 = str7;
                                 str4 = str2;
                                 j2 = j;
-                                c2 = c3;
+                                c = c2;
                             } else {
                                 if (z3) {
                                     try {
@@ -349,25 +341,25 @@ public class h {
                                     if (str5 != null) {
                                         str = str5;
                                         if (str.equals(replace)) {
-                                            this.f26023e = a(this.a.get(i3).capabilities);
+                                            this.e = a(this.a.get(i3).capabilities);
                                             i4 = i5;
                                             z5 = true;
                                             if (z5) {
-                                                c2 = c3;
-                                                if (c2 == 0) {
+                                                c = c2;
+                                                if (c == 0) {
                                                     try {
                                                         if (random.nextInt(10) == 2 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
                                                             stringBuffer.append(b(this.a.get(i3).SSID));
-                                                            c3 = 1;
+                                                            c2 = 1;
                                                         }
                                                     } catch (Exception unused5) {
                                                     }
-                                                } else if (c2 == 1 && random.nextInt(20) == 1 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
+                                                } else if (c == 1 && random.nextInt(20) == 1 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
                                                     stringBuffer.append(b(this.a.get(i3).SSID));
-                                                    c3 = 2;
+                                                    c2 = 2;
                                                 }
                                             } else {
-                                                c2 = c3;
+                                                c = c2;
                                                 stringBuffer.append(b(this.a.get(i3).SSID));
                                             }
                                         }
@@ -387,7 +379,7 @@ public class h {
                                 str7 = str3;
                                 j = j2;
                             }
-                            c3 = c2;
+                            c2 = c;
                             i3++;
                             str2 = str4;
                             str7 = str3;
@@ -427,15 +419,15 @@ public class h {
                                 stringBuffer.append(stringBuffer3.toString());
                             }
                             stringBuffer.append("&wf_st=");
-                            stringBuffer.append(this.f26020b);
+                            stringBuffer.append(this.b);
                             stringBuffer.append("&wf_et=");
-                            stringBuffer.append(this.f26021c);
+                            stringBuffer.append(this.c);
                             stringBuffer.append("&wf_vt=");
                             stringBuffer.append(i.a);
                             if (i7 > 0) {
-                                this.f26022d = true;
+                                this.d = true;
                                 stringBuffer.append("&wf_en=");
-                                stringBuffer.append(this.f26023e ? 1 : 0);
+                                stringBuffer.append(this.e ? 1 : 0);
                             }
                             if (str8 != null) {
                                 stringBuffer.append("&wf_gw=");
@@ -457,7 +449,7 @@ public class h {
                 z4 = true;
                 int i42 = 0;
                 int i52 = 0;
-                char c32 = 0;
+                char c22 = 0;
                 while (i3 < size) {
                 }
                 String str82 = str2;
@@ -815,24 +807,24 @@ public class h {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f26022d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.f26021c > 0 && System.currentTimeMillis() - this.f26021c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < 5000 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.f26021c > 0 && System.currentTimeMillis() - this.f26021c < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < 5000 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.f26021c > 0 && System.currentTimeMillis() - this.f26020b < 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.b < 5000 : invokeV.booleanValue;
     }
 }

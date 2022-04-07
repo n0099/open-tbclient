@@ -1,7 +1,5 @@
 package com.baidu.tieba.homepage.gamevideo;
 
-import c.a.o0.z0.b;
-import c.a.p0.a4.g0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -15,7 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.dk8;
+import com.repackage.l95;
+/* loaded from: classes3.dex */
 public class GameVideoStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class GameVideoStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            b bVar = new b(309646);
-            bVar.setResponsedClass(GameVideoSocketResMessage.class);
-            bVar.g(true);
-            MessageManager.getInstance().registerTask(bVar);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, a.a(TbConfig.URL_GAME_VIDEO, 309646));
+            l95 l95Var = new l95(309646);
+            l95Var.setResponsedClass(GameVideoSocketResMessage.class);
+            l95Var.g(true);
+            MessageManager.getInstance().registerTask(l95Var);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, dk8.a(TbConfig.URL_GAME_VIDEO, 309646));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

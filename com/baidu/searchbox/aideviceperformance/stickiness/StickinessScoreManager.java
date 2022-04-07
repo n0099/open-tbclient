@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StickinessScoreManager implements IStickinessScoreManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -68,13 +68,13 @@ public class StickinessScoreManager implements IStickinessScoreManager {
             if (i <= 0 || j <= 0) {
                 return 0.0f;
             }
-            float f2 = i * 0.2f;
-            if (f2 > 1.0f) {
-                f2 = 1.0f;
+            float f = i * 0.2f;
+            if (f > 1.0f) {
+                f = 1.0f;
             }
-            float f3 = 1.5f - (((float) j) / 60000.0f);
-            float f4 = f3 <= 1.0f ? f3 : 1.0f;
-            return Math.max(f4 >= 0.0f ? f4 : 0.0f, f2);
+            float f2 = 1.5f - (((float) j) / 60000.0f);
+            float f3 = f2 <= 1.0f ? f2 : 1.0f;
+            return Math.max(f3 >= 0.0f ? f3 : 0.0f, f);
         }
         return invokeCommon.floatValue;
     }
@@ -133,11 +133,11 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                         DBItemModel.UserStickinessItemModel.ItemDetailModel value = entry.getValue();
                         if (key != null && value != null) {
                             float singleUserStickinessScore = getSingleUserStickinessScore(value.count, value.firstTime);
-                            Float f2 = (Float) hashMap.get(key);
-                            if (f2 == null) {
+                            Float f = (Float) hashMap.get(key);
+                            if (f == null) {
                                 hashMap.put(key, Float.valueOf(singleUserStickinessScore));
                             } else {
-                                hashMap.put(key, Float.valueOf(singleUserStickinessScore + f2.floatValue()));
+                                hashMap.put(key, Float.valueOf(singleUserStickinessScore + f.floatValue()));
                             }
                         } else {
                             if (DEBUG) {

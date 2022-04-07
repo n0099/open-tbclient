@@ -21,7 +21,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActiveRefreshController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActiveRefreshController";
@@ -102,8 +102,8 @@ public class ActiveRefreshController {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
         }
         if (arrayList.isEmpty()) {

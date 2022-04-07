@@ -4,9 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UsbAbTestConst {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_ENTER_FRS_ANIM_A = "12_23_homepage_enter_frs_animation_a";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
     public static final String KEY_FORUM_REC_REASON_COLOR_TEST_A = "12_19_rec_a";
     public static final String KEY_FRS_LIKE_SHARE_GUIDE_DIALOG = "12_19_focusbar_a";
@@ -21,6 +22,7 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_FUN_AD_SDK_SPLASH_CLICK_EYE = "12_8_0_splash_bear_a";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
+    public static final String KEY_LIKE_MODIFY_TEST_A = "12_23_like_modify_a";
     public static final String KEY_LIVE_AUTO_PLAY = "12_9_live_autoplay_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
     public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";
@@ -39,7 +41,9 @@ public class UsbAbTestConst {
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
     public static final String KEY_RED_PACKAGE_SHOW_SECOND_TIME = "12_15_red_package_popup_view_a";
     public static final String KEY_REQUEST_INSERT_AD = "frontpage_popup_a";
-    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_B = "12_22_android_scheme_b";
+    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_B = "12_23_android_scheme_b";
+    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_C = "12_23_android_scheme_c";
+    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_D = "12_23_android_scheme_d";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
     public static final String KEY_SHOW_WRITE_TITLE_TEST_A = "11_9_post_thread_title_out_a";
     public static final String KEY_SIGN_POP_STAMP_DIALOG = "12_18_medal_b";

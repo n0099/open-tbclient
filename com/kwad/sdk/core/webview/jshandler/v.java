@@ -1,14 +1,12 @@
 package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class v implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c a;
+    public a b = new a();
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f40105b = new a();
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public int a;
     }
@@ -22,7 +20,7 @@ public class v implements com.kwad.sdk.core.webview.kwai.a {
     public void a(int i) {
         com.kwad.sdk.core.webview.kwai.c cVar = this.a;
         if (cVar != null) {
-            a aVar = this.f40105b;
+            a aVar = this.b;
             aVar.a = i;
             cVar.a(aVar);
         }

@@ -24,7 +24,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpCetificateUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpCetificateUtil:";

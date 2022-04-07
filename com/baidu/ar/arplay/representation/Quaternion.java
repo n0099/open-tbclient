@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Quaternion extends Vector4f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7148812599404359073L;
@@ -38,30 +38,30 @@ public class Quaternion extends Vector4f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             float[] fArr = this.points;
-            float f2 = fArr[0];
-            float f3 = fArr[1];
-            float f4 = fArr[2];
-            float f5 = fArr[3];
+            float f = fArr[0];
+            float f2 = fArr[1];
+            float f3 = fArr[2];
+            float f4 = fArr[3];
+            float f5 = f2 * f2 * 2.0f;
             float f6 = f3 * f3 * 2.0f;
-            float f7 = f4 * f4 * 2.0f;
-            this.matrix.setX0((1.0f - f6) - f7);
-            float f8 = f2 * f3 * 2.0f;
-            float f9 = f5 * f4 * 2.0f;
-            this.matrix.setX1(f8 + f9);
-            float f10 = f2 * f4 * 2.0f;
-            float f11 = f5 * f3 * 2.0f;
-            this.matrix.setX2(f10 - f11);
+            this.matrix.setX0((1.0f - f5) - f6);
+            float f7 = f * f2 * 2.0f;
+            float f8 = f4 * f3 * 2.0f;
+            this.matrix.setX1(f7 + f8);
+            float f9 = f * f3 * 2.0f;
+            float f10 = f4 * f2 * 2.0f;
+            this.matrix.setX2(f9 - f10);
             this.matrix.setX3(0.0f);
-            this.matrix.setY0(f8 - f9);
-            float f12 = 1.0f - ((f2 * f2) * 2.0f);
-            this.matrix.setY1(f12 - f7);
-            float f13 = f3 * f4 * 2.0f;
-            float f14 = f5 * f2 * 2.0f;
-            this.matrix.setY2(f13 + f14);
+            this.matrix.setY0(f7 - f8);
+            float f11 = 1.0f - ((f * f) * 2.0f);
+            this.matrix.setY1(f11 - f6);
+            float f12 = f2 * f3 * 2.0f;
+            float f13 = f4 * f * 2.0f;
+            this.matrix.setY2(f12 + f13);
             this.matrix.setY3(0.0f);
-            this.matrix.setZ0(f10 + f11);
-            this.matrix.setZ1(f13 - f14);
-            this.matrix.setZ2(f12 - f6);
+            this.matrix.setZ0(f9 + f10);
+            this.matrix.setZ1(f12 - f13);
+            this.matrix.setZ2(f11 - f5);
             this.matrix.setZ3(0.0f);
             this.matrix.setW0(0.0f);
             this.matrix.setW1(0.0f);
@@ -71,10 +71,10 @@ public class Quaternion extends Vector4f {
     }
 
     private void generateQuaternionFromMatrix() {
+        float f;
         float f2;
         float f3;
         float f4;
-        float f5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             float[] matrix = this.matrix.getMatrix();
@@ -89,36 +89,36 @@ public class Quaternion extends Vector4f {
             int i8 = iArr[7];
             int i9 = iArr[8];
             if (this.matrix.size() >= 9) {
-                float f6 = matrix[i] + matrix[i5] + matrix[i9];
-                if (f6 > 0.0f) {
-                    float sqrt = ((float) Math.sqrt(f6 + 1.0d)) * 2.0f;
-                    f2 = 0.25f * sqrt;
-                    f3 = (matrix[i8] - matrix[i6]) / sqrt;
-                    f4 = (matrix[i3] - matrix[i7]) / sqrt;
-                    f5 = (matrix[i4] - matrix[i2]) / sqrt;
+                float f5 = matrix[i] + matrix[i5] + matrix[i9];
+                if (f5 > 0.0f) {
+                    float sqrt = ((float) Math.sqrt(f5 + 1.0d)) * 2.0f;
+                    f = 0.25f * sqrt;
+                    f2 = (matrix[i8] - matrix[i6]) / sqrt;
+                    f3 = (matrix[i3] - matrix[i7]) / sqrt;
+                    f4 = (matrix[i4] - matrix[i2]) / sqrt;
                 } else if (matrix[i] > matrix[i5] && matrix[i] > matrix[i9]) {
                     float sqrt2 = ((float) Math.sqrt(((matrix[i] + 1.0d) - matrix[i5]) - matrix[i9])) * 2.0f;
-                    f2 = (matrix[i8] - matrix[i6]) / sqrt2;
-                    f3 = 0.25f * sqrt2;
-                    f5 = (matrix[i3] + matrix[i7]) / sqrt2;
-                    f4 = (matrix[i2] + matrix[i4]) / sqrt2;
+                    f = (matrix[i8] - matrix[i6]) / sqrt2;
+                    f2 = 0.25f * sqrt2;
+                    f4 = (matrix[i3] + matrix[i7]) / sqrt2;
+                    f3 = (matrix[i2] + matrix[i4]) / sqrt2;
                 } else if (matrix[i5] > matrix[i9]) {
                     float sqrt3 = ((float) Math.sqrt(((matrix[i5] + 1.0d) - matrix[i]) - matrix[i9])) * 2.0f;
-                    f2 = (matrix[i3] - matrix[i7]) / sqrt3;
-                    f3 = (matrix[i2] + matrix[i4]) / sqrt3;
-                    f4 = sqrt3 * 0.25f;
-                    f5 = (matrix[i6] + matrix[i8]) / sqrt3;
+                    f = (matrix[i3] - matrix[i7]) / sqrt3;
+                    f2 = (matrix[i2] + matrix[i4]) / sqrt3;
+                    f3 = sqrt3 * 0.25f;
+                    f4 = (matrix[i6] + matrix[i8]) / sqrt3;
                 } else {
                     float sqrt4 = ((float) Math.sqrt(((matrix[i9] + 1.0d) - matrix[i]) - matrix[i5])) * 2.0f;
-                    f2 = (matrix[i4] - matrix[i2]) / sqrt4;
-                    f3 = (matrix[i3] + matrix[i7]) / sqrt4;
-                    f4 = (matrix[i6] + matrix[i8]) / sqrt4;
-                    f5 = sqrt4 * 0.25f;
+                    f = (matrix[i4] - matrix[i2]) / sqrt4;
+                    f2 = (matrix[i3] + matrix[i7]) / sqrt4;
+                    f3 = (matrix[i6] + matrix[i8]) / sqrt4;
+                    f4 = sqrt4 * 0.25f;
                 }
-                setX(f3);
-                setY(f4);
-                setZ(f5);
-                setW(f2);
+                setX(f2);
+                setY(f3);
+                setZ(f4);
+                setW(f);
             }
         }
     }
@@ -154,10 +154,10 @@ public class Quaternion extends Vector4f {
         return (Quaternion) invokeV.objValue;
     }
 
-    public void copyFromVec3(Vector3f vector3f, float f2) {
+    public void copyFromVec3(Vector3f vector3f, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048580, this, vector3f, f2) == null) {
-            copyFromV3f(vector3f, f2);
+        if (interceptable == null || interceptable.invokeLF(1048580, this, vector3f, f) == null) {
+            copyFromV3f(vector3f, f);
         }
     }
 
@@ -205,9 +205,9 @@ public class Quaternion extends Vector4f {
             if (quaternion != quaternion2) {
                 float[] fArr = quaternion2.points;
                 float[] fArr2 = this.points;
-                float f2 = fArr2[3];
+                float f = fArr2[3];
                 float[] fArr3 = quaternion.points;
-                fArr[3] = (((f2 * fArr3[3]) - (fArr2[0] * fArr3[0])) - (fArr2[1] * fArr3[1])) - (fArr2[2] * fArr3[2]);
+                fArr[3] = (((f * fArr3[3]) - (fArr2[0] * fArr3[0])) - (fArr2[1] * fArr3[1])) - (fArr2[2] * fArr3[2]);
                 fArr[0] = (((fArr2[3] * fArr3[0]) + (fArr2[0] * fArr3[3])) + (fArr2[1] * fArr3[2])) - (fArr2[2] * fArr3[1]);
                 fArr[1] = (((fArr2[3] * fArr3[1]) + (fArr2[1] * fArr3[3])) + (fArr2[2] * fArr3[0])) - (fArr2[0] * fArr3[2]);
                 fArr[2] = (((fArr2[3] * fArr3[2]) + (fArr2[2] * fArr3[3])) + (fArr2[0] * fArr3[1])) - (fArr2[1] * fArr3[0]);
@@ -258,23 +258,23 @@ public class Quaternion extends Vector4f {
         }
     }
 
-    public void setAxisAngle(Vector3f vector3f, float f2) {
+    public void setAxisAngle(Vector3f vector3f, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048588, this, vector3f, f2) == null) {
-            double d2 = f2 / 2.0f;
-            float sin = (float) Math.sin(Math.toRadians(d2));
+        if (interceptable == null || interceptable.invokeLF(1048588, this, vector3f, f) == null) {
+            double d = f / 2.0f;
+            float sin = (float) Math.sin(Math.toRadians(d));
             setX(vector3f.getX() * sin);
             setY(vector3f.getY() * sin);
             setZ(vector3f.getZ() * sin);
-            setW((float) Math.cos(Math.toRadians(d2)));
+            setW((float) Math.cos(Math.toRadians(d)));
             this.dirty = true;
         }
     }
 
-    public void setAxisAngleRad(Vector3f vector3f, double d2) {
+    public void setAxisAngleRad(Vector3f vector3f, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{vector3f, Double.valueOf(d2)}) == null) {
-            setAxisAngle(vector3f, (float) Math.toDegrees(d2));
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{vector3f, Double.valueOf(d)}) == null) {
+            setAxisAngle(vector3f, (float) Math.toDegrees(d));
         }
     }
 
@@ -287,29 +287,29 @@ public class Quaternion extends Vector4f {
         }
     }
 
-    public void setEulerAngle(float f2, float f3, float f4) {
+    public void setEulerAngle(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            double radians = Math.toRadians(f4);
-            double radians2 = Math.toRadians(f3);
-            double radians3 = Math.toRadians(f2);
-            double d2 = radians / 2.0d;
-            double cos = Math.cos(d2);
-            double sin = Math.sin(d2);
-            double d3 = radians2 / 2.0d;
-            double cos2 = Math.cos(d3);
-            double sin2 = Math.sin(d3);
-            double d4 = radians3 / 2.0d;
-            double cos3 = Math.cos(d4);
-            double sin3 = Math.sin(d4);
-            double d5 = cos * cos2;
-            double d6 = sin * sin2;
-            setW((float) ((d5 * cos3) - (d6 * sin3)));
-            setX((float) ((d5 * sin3) + (d6 * cos3)));
-            double d7 = sin * cos2;
-            double d8 = cos * sin2;
-            setY((float) ((d7 * cos3) + (d8 * sin3)));
-            setZ((float) ((d8 * cos3) - (d7 * sin3)));
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            double radians = Math.toRadians(f3);
+            double radians2 = Math.toRadians(f2);
+            double radians3 = Math.toRadians(f);
+            double d = radians / 2.0d;
+            double cos = Math.cos(d);
+            double sin = Math.sin(d);
+            double d2 = radians2 / 2.0d;
+            double cos2 = Math.cos(d2);
+            double sin2 = Math.sin(d2);
+            double d3 = radians3 / 2.0d;
+            double cos3 = Math.cos(d3);
+            double sin3 = Math.sin(d3);
+            double d4 = cos * cos2;
+            double d5 = sin * sin2;
+            setW((float) ((d4 * cos3) - (d5 * sin3)));
+            setX((float) ((d4 * sin3) + (d5 * cos3)));
+            double d6 = sin * cos2;
+            double d7 = cos * sin2;
+            setY((float) ((d6 * cos3) + (d7 * sin3)));
+            setZ((float) ((d7 * cos3) - (d6 * sin3)));
             this.dirty = true;
         }
     }
@@ -323,10 +323,10 @@ public class Quaternion extends Vector4f {
         }
     }
 
-    public void slerp(Quaternion quaternion, Quaternion quaternion2, float f2) {
+    public void slerp(Quaternion quaternion, Quaternion quaternion2, float f) {
         Quaternion quaternion3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{quaternion, quaternion2, Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{quaternion, quaternion2, Float.valueOf(f)}) == null) {
             float dotProduct = dotProduct(quaternion);
             if (dotProduct < 0.0f) {
                 quaternion3 = new Quaternion();
@@ -351,8 +351,8 @@ public class Quaternion extends Vector4f {
             }
             double sqrt = Math.sqrt(1.0d - (dotProduct * dotProduct));
             double acos = Math.acos(dotProduct);
-            double sin = Math.sin((1.0f - f2) * acos) / sqrt;
-            double sin2 = Math.sin(f2 * acos) / sqrt;
+            double sin = Math.sin((1.0f - f) * acos) / sqrt;
+            double sin2 = Math.sin(f * acos) / sqrt;
             float[] fArr5 = quaternion2.points;
             float[] fArr6 = this.points;
             float[] fArr7 = quaternion3.points;
@@ -382,9 +382,9 @@ public class Quaternion extends Vector4f {
     }
 
     public void toAxisAngle(Vector4f vector4f) {
+        float f;
         float f2;
         float f3;
-        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, vector4f) == null) {
             if (getW() > 1.0f) {
@@ -394,21 +394,21 @@ public class Quaternion extends Vector4f {
             float sqrt = (float) Math.sqrt(1.0f - (getW() * getW()));
             if (sqrt < 0.001d) {
                 float[] fArr = this.points;
-                f3 = fArr[0];
-                f4 = fArr[1];
-                f2 = fArr[2];
+                f2 = fArr[0];
+                f3 = fArr[1];
+                f = fArr[2];
             } else {
                 float[] fArr2 = this.points;
-                float f5 = fArr2[0] / sqrt;
-                float f6 = fArr2[1] / sqrt;
-                f2 = fArr2[2] / sqrt;
+                float f4 = fArr2[0] / sqrt;
+                float f5 = fArr2[1] / sqrt;
+                f = fArr2[2] / sqrt;
+                f2 = f4;
                 f3 = f5;
-                f4 = f6;
             }
             float[] fArr3 = vector4f.points;
-            fArr3[0] = f3;
-            fArr3[1] = f4;
-            fArr3[2] = f2;
+            fArr3[0] = f2;
+            fArr3[1] = f3;
+            fArr3[2] = f;
             fArr3[3] = degrees;
         }
     }

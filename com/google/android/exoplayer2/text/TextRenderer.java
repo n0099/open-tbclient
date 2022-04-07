@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TextRenderer extends BaseRenderer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_UPDATE_OUTPUT = 0;
@@ -41,7 +41,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     public SubtitleOutputBuffer subtitle;
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Output extends TextOutput {
     }
 
@@ -223,8 +223,8 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
             this.decoder.setPositionUs(j);
             try {
                 this.nextSubtitle = this.decoder.dequeueOutputBuffer();
-            } catch (SubtitleDecoderException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, getIndex());
+            } catch (SubtitleDecoderException e) {
+                throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
         }
         if (getState() != 2) {
@@ -299,8 +299,8 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
                 } else if (readSource == -3) {
                     return;
                 }
-            } catch (SubtitleDecoderException e3) {
-                throw ExoPlaybackException.createForRenderer(e3, getIndex());
+            } catch (SubtitleDecoderException e2) {
+                throw ExoPlaybackException.createForRenderer(e2, getIndex());
             }
         }
     }

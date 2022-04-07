@@ -12,14 +12,14 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1770a {
+    /* loaded from: classes2.dex */
+    public static class C0110a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,15 +61,15 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
                 str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray())));
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 str2 = "";
                 StringBuffer stringBuffer = new StringBuffer();
                 while (r0 < str2.length()) {
                 }
                 return stringBuffer.toString();
-            } catch (CertificateException e3) {
-                e3.printStackTrace();
+            } catch (CertificateException e2) {
+                e2.printStackTrace();
                 str2 = "";
                 StringBuffer stringBuffer2 = new StringBuffer();
                 while (r0 < str2.length()) {
@@ -93,7 +93,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C1770a.a(a(x509Certificate.getEncoded()));
+                return C0110a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

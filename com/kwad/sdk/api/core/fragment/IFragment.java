@@ -19,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface IFragment {
     @KsAdSdkDynamicApi
     @Keep
@@ -149,7 +149,7 @@ public interface IFragment {
 
     @KsAdSdkDynamicApi
     @Keep
-    void registerForContextMenu(View view);
+    void registerForContextMenu(View view2);
 
     void requestPermissions(@NonNull String[] strArr, int i);
 
@@ -237,5 +237,5 @@ public interface IFragment {
 
     @KsAdSdkDynamicApi
     @Keep
-    void unregisterForContextMenu(View view);
+    void unregisterForContextMenu(View view2);
 }

@@ -1,7 +1,5 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import c.a.d.o.e.n;
-import c.a.p0.f1.c1;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -10,19 +8,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.af6;
+import com.repackage.uo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<n> mAltList;
-    public ArrayList<n> mThreadList;
-    public c1 pageInfo;
+    public ArrayList<uo> mAltList;
+    public ArrayList<uo> mThreadList;
+    public af6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -57,14 +57,14 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            c1 c1Var = new c1();
-            this.pageInfo = c1Var;
-            c1Var.f13866g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f14893c = optJSONObject.optInt(Config.PACKAGE_NAME);
+            af6 af6Var = new af6();
+            this.pageInfo = af6Var;
+            af6Var.g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.c = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
                 this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f14892b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {

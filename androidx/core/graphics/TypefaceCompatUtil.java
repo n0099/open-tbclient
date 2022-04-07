@@ -96,8 +96,8 @@ public class TypefaceCompatUtil {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
         }
         try {
             byte[] bArr = new byte[1024];
@@ -111,8 +111,8 @@ public class TypefaceCompatUtil {
                     return true;
                 }
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             fileOutputStream2 = fileOutputStream;
             Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
             closeQuietly(fileOutputStream2);

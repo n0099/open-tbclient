@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static void a(File file) {
         if (file.isFile()) {
@@ -42,21 +42,21 @@ public class b {
     }
 
     public static boolean a(Context context, String str, String str2) {
-        String b2 = g.b(context, str2);
-        a(new File(b2));
-        String d2 = g.d(context, str2);
-        String e2 = g.e(context, str2);
-        String f2 = g.f(context, str2);
+        String b = g.b(context, str2);
+        a(new File(b));
+        String d = g.d(context, str2);
+        String e = g.e(context, str2);
+        String f = g.f(context, str2);
         try {
-            a(str, d2);
-            b(context, str, f2);
-            return j.a(context, d2, e2, f2).c() != null;
-        } catch (Exception e3) {
-            a(new File(d2));
-            a(new File(e2));
-            a(new File(f2));
-            a(new File(b2));
-            throw e3;
+            a(str, d);
+            b(context, str, f);
+            return j.a(context, d, e, f).c() != null;
+        } catch (Exception e2) {
+            a(new File(d));
+            a(new File(e));
+            a(new File(f));
+            a(new File(b));
+            throw e2;
         }
     }
 

@@ -10,16 +10,13 @@ import com.meizu.cloud.pushsdk.c.e.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
+import com.repackage.rm9;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f42062b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f42063c = new AtomicBoolean(false);
+    public static BroadcastReceiver b;
+    public static AtomicBoolean c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
@@ -31,7 +28,7 @@ public class a {
                 if (a == null) {
                     a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f42063c.compareAndSet(false, true)) {
+                if (c.compareAndSet(false, true)) {
                     a(context, a);
                 }
             }
@@ -51,7 +48,7 @@ public class a {
                 }
             }
         }
-        c.h.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
+        rm9.d("PushAndroidTracker", "can upload subject " + z);
         if (z) {
             a.a(a(context));
         }
@@ -66,7 +63,7 @@ public class a {
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
             return "push-statics.in.meizu.com";
         }
-        c.h.a.a.a.b("QuickTracker", "current statics domain is push-statics.meizu.com");
+        rm9.b("QuickTracker", "current statics domain is push-statics.meizu.com");
         return "push-statics.meizu.com";
     }
 
@@ -81,7 +78,7 @@ public class a {
                 }
             }
         };
-        f42062b = broadcastReceiver;
+        b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

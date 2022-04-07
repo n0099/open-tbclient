@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -377,10 +377,10 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setOriginMusicVolume(float f2) {
+    public void setOriginMusicVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
-            this.mOriginMusicVolume = f2;
+        if (interceptable == null || interceptable.invokeF(1048619, this, f) == null) {
+            this.mOriginMusicVolume = f;
         }
     }
 
@@ -480,8 +480,8 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
                 jSONObject.put("mPreProcessVideoPath", this.mPreProcessVideoPath);
                 jSONObject.put("mFollowData", this.mFollowData);
                 jSONObject.put("mOriginMusicVolume", this.mOriginMusicVolume);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -496,8 +496,8 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return (VideoDraftBean) super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return null;
             }
         }

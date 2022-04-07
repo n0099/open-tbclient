@@ -34,7 +34,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     /* loaded from: classes.dex */
     public interface ViewBinder {
-        boolean setViewValue(View view, Cursor cursor, int i);
+        boolean setViewValue(View view2, Cursor cursor, int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,15 +82,15 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void bindView(View view2, Context context, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, view, context, cursor) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, context, cursor) == null) {
             ViewBinder viewBinder = this.mViewBinder;
             int[] iArr = this.mTo;
             int length = iArr.length;
             int[] iArr2 = this.mFrom;
             for (int i = 0; i < length; i++) {
-                View findViewById = view.findViewById(iArr[i]);
+                View findViewById = view2.findViewById(iArr[i]);
                 if (findViewById != null) {
                     if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i]) : false) {
                         continue;

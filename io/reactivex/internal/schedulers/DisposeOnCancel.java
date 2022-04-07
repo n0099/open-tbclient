@@ -15,9 +15,7 @@ import java.util.concurrent.TimeoutException;
 public final class DisposeOnCancel implements Future<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Disposable f45360d;
+    public final Disposable d;
 
     public DisposeOnCancel(Disposable disposable) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public final class DisposeOnCancel implements Future<Object> {
                 return;
             }
         }
-        this.f45360d = disposable;
+        this.d = disposable;
     }
 
     @Override // java.util.concurrent.Future
@@ -42,7 +40,7 @@ public final class DisposeOnCancel implements Future<Object> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f45360d.dispose();
+            this.d.dispose();
             return false;
         }
         return invokeZ.booleanValue;

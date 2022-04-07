@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ax implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ax a;
@@ -38,7 +38,7 @@ public class ax implements ar {
         }
         this.f119a = aw.a(context);
         this.f118a = aw.a;
-        com.xiaomi.channel.commonutils.logger.b.m112a("create id manager is: " + this.f118a);
+        com.xiaomi.channel.commonutils.logger.b.m108a("create id manager is: " + this.f118a);
     }
 
     public static ax a(Context context) {
@@ -85,17 +85,17 @@ public class ax implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo191b = mo191b();
-        if (!TextUtils.isEmpty(mo191b)) {
-            map.put("oaid", mo191b);
+        String mo187b = mo187b();
+        if (!TextUtils.isEmpty(mo187b)) {
+            map.put("oaid", mo187b);
         }
-        String c2 = c();
-        if (!TextUtils.isEmpty(c2)) {
-            map.put("vaid", c2);
+        String c = c();
+        if (!TextUtils.isEmpty(c)) {
+            map.put("vaid", c);
         }
-        String d2 = d();
-        if (!TextUtils.isEmpty(d2)) {
-            map.put("aaid", d2);
+        String d = d();
+        if (!TextUtils.isEmpty(d)) {
+            map.put("aaid", d);
         }
         map.put("oaid_type", String.valueOf(this.f118a));
     }
@@ -104,15 +104,15 @@ public class ax implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f119a.m193a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f119a.m189a() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo191b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f119a.mo191b()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f119a.mo187b()) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -133,7 +133,7 @@ public class ax implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "t:" + this.f118a + " s:" + a() + " d:" + b(a()) + " | " + b(mo191b()) + " | " + b(c()) + " | " + b(d());
+            return "t:" + this.f118a + " s:" + a() + " d:" + b(a()) + " | " + b(mo187b()) + " | " + b(c()) + " | " + b(d());
         }
         return (String) invokeV.objValue;
     }

@@ -15,31 +15,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.WeaponS;
 import com.kuaishou.weapon.fingerprinter.WeaponHW;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class j1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long a = 60000;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final long f38849b = 3600000;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final long f38850c = 86400000;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final long f38851d = 604800000;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f38852e = 0;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f38853f = 1;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f38854g = 2;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f38855h = 3;
+    public static final long b = 3600000;
+    public static final long c = 86400000;
+    public static final long d = 604800000;
+    public static final int e = 0;
+    public static final int f = 1;
+    public static final int g = 2;
+    public static final int h = 3;
     public static final int i = 10000;
     public static final int j = 10001;
     public static final int k = 10002;
@@ -63,8 +49,8 @@ public class j1 {
             }
         }
         l = Integer.valueOf(q0.a).intValue();
-        m = Integer.valueOf(q0.f38949b).intValue();
-        n = Integer.valueOf(q0.f38950c).intValue();
+        m = Integer.valueOf(q0.b).intValue();
+        n = Integer.valueOf(q0.c).intValue();
     }
 
     public j1() {

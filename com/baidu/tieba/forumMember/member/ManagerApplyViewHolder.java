@@ -10,32 +10,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32217b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f32218c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f32219d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f32220e;
+    public TextView b;
+    public RelativeLayout c;
+    public LinearLayout d;
+    public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ManagerApplyViewHolder(View view) {
-        super(view);
+    public ManagerApplyViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,10 +38,10 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f32220e = 3;
-        this.f32219d = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f091ae9);
-        this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0902ad);
-        this.f32217b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0902ae);
-        this.f32218c = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f0902ac);
+        this.e = 3;
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ad8);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902b7);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902b8);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902b6);
     }
 }

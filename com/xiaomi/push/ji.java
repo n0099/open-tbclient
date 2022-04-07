@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ji extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class ji extends jl {
                         return read;
                     }
                     throw new jm(4);
-                } catch (IOException e2) {
-                    throw new jm(0, e2);
+                } catch (IOException e) {
+                    throw new jm(0, e);
                 }
             }
             throw new jm(1, "Cannot read from null inputStream");
@@ -87,8 +87,8 @@ public class ji extends jl {
             }
             try {
                 outputStream.write(bArr, i, i2);
-            } catch (IOException e2) {
-                throw new jm(0, e2);
+            } catch (IOException e) {
+                throw new jm(0, e);
             }
         }
     }

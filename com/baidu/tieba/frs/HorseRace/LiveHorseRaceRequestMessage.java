@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -10,16 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f32333common;
+    public CommonReq f996common;
     public Long forum_id;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,10 +47,10 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f45607common = this.f32333common;
+            builder.f1145common = this.f996common;
             builder.forum_id = this.forum_id;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -62,7 +62,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f32333common = commonReq;
+            this.f996common = commonReq;
         }
     }
 

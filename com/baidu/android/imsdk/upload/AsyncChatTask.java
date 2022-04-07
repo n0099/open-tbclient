@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORMAT_AAC = 2;
@@ -137,7 +137,7 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                             public void onResult(int i2, String str3, Object obj) {
                                 FileOutputStream fileOutputStream;
                                 Throwable th;
-                                Exception e2;
+                                Exception e;
                                 IMTrack.CrashBuilder crashBuilder;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, obj) == null) {
@@ -153,16 +153,16 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                                                         fileOutputStream.write(decode);
                                                         fileOutputStream.flush();
                                                         fileOutputStream2 = fileOutputStream;
-                                                    } catch (Exception e3) {
-                                                        e2 = e3;
-                                                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                                                    } catch (Exception e2) {
+                                                        e = e2;
+                                                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                                                         this.this$0.onGenBosObjectUrlListener(1023, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
-                                                        LogUtils.e(AsyncChatTask.TAG, e2.getMessage());
+                                                        LogUtils.e(AsyncChatTask.TAG, e.getMessage());
                                                         if (fileOutputStream != null) {
                                                             try {
                                                                 fileOutputStream.close();
-                                                            } catch (Exception e4) {
-                                                                e = e4;
+                                                            } catch (Exception e3) {
+                                                                e = e3;
                                                                 crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
                                                                 crashBuilder.exception(Log.getStackTraceString(e)).build();
                                                                 LogUtils.e(AsyncChatTask.TAG, e.getMessage());
@@ -178,9 +178,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                                                     if (fileOutputStream != null) {
                                                         try {
                                                             fileOutputStream.close();
-                                                        } catch (Exception e5) {
-                                                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e5)).build();
-                                                            LogUtils.e(AsyncChatTask.TAG, e5.getMessage());
+                                                        } catch (Exception e4) {
+                                                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e4)).build();
+                                                            LogUtils.e(AsyncChatTask.TAG, e4.getMessage());
                                                         }
                                                     }
                                                     throw th;
@@ -191,8 +191,8 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                                             if (fileOutputStream2 != null) {
                                                 try {
                                                     fileOutputStream2.close();
-                                                } catch (Exception e6) {
-                                                    e = e6;
+                                                } catch (Exception e5) {
+                                                    e = e5;
                                                     crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
                                                     crashBuilder.exception(Log.getStackTraceString(e)).build();
                                                     LogUtils.e(AsyncChatTask.TAG, e.getMessage());
@@ -200,9 +200,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                                                     return;
                                                 }
                                             }
-                                        } catch (Exception e7) {
+                                        } catch (Exception e6) {
                                             fileOutputStream = null;
-                                            e2 = e7;
+                                            e = e6;
                                         } catch (Throwable th3) {
                                             fileOutputStream = null;
                                             th = th3;
@@ -224,9 +224,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                 this.mContentType = "image/jpeg";
                 try {
                     str = this.mFilePath.substring(this.mFilePath.lastIndexOf(".") + 1);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, e2.getMessage());
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, e.getMessage());
                     str = "";
                 }
                 ChatMsgManager.genBosObjectUrl(this.mContext, this.mFilePath, this.mContentType, str, DuzhanUpMsgCreator.getReqType(chatType), 0, 0, this);

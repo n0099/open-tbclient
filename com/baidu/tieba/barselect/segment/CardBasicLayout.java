@@ -3,28 +3,24 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.p0.e0.b.d;
-import c.a.p0.e0.b.e;
-import c.a.p0.e0.b.f;
-import c.a.p0.e0.e.a;
-import c.a.p0.e0.e.c;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dw5;
+import com.repackage.fw5;
+import com.repackage.uv5;
+import com.repackage.vv5;
+import com.repackage.wv5;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public f f31572b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public d f31573c;
+    public wv5 b;
+    public uv5 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -47,51 +43,51 @@ public class CardBasicLayout extends LinearLayout {
         }
     }
 
-    public void setData(int i, f fVar) {
-        e a;
+    public void setData(int i, wv5 wv5Var) {
+        vv5 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fVar) == null) {
-            this.f31572b = fVar;
-            if (fVar == null || fVar.a() == null || (a = this.f31572b.a()) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, wv5Var) == null) {
+            this.b = wv5Var;
+            if (wv5Var == null || wv5Var.a() == null || (a = this.b.a()) == null) {
                 return;
             }
-            int g2 = a.g();
-            if (g2 == c.f13760b) {
+            int g = a.g();
+            if (g == fw5.b) {
                 if (i == VoteCandidateCard.A) {
-                    this.a = a.f13759d;
-                    this.f31573c = this.f31572b.f();
+                    this.a = dw5.d;
+                    this.c = this.b.f();
                     return;
                 }
-                this.a = a.a;
-                List<d> b2 = this.f31572b.b();
-                if (b2 == null || b2.size() <= i) {
+                this.a = dw5.a;
+                List<uv5> b = this.b.b();
+                if (b == null || b.size() <= i) {
                     return;
                 }
-                this.f31573c = b2.get(i);
-            } else if (g2 == c.f13761c) {
+                this.c = b.get(i);
+            } else if (g == fw5.c) {
                 if (i == VoteCandidateCard.A) {
-                    this.a = a.f13758c;
-                    List<d> b3 = this.f31572b.b();
-                    if (b3 == null || b3.size() <= 0) {
+                    this.a = dw5.c;
+                    List<uv5> b2 = this.b.b();
+                    if (b2 == null || b2.size() <= 0) {
                         return;
                     }
-                    for (d dVar : b3) {
-                        if (dVar.i() == 1) {
-                            this.f31573c = dVar;
+                    for (uv5 uv5Var : b2) {
+                        if (uv5Var.i() == 1) {
+                            this.c = uv5Var;
                             return;
                         }
                     }
                     return;
                 }
-                this.a = a.f13757b;
-                List<d> b4 = this.f31572b.b();
-                if (b4 == null || b4.size() <= i) {
+                this.a = dw5.b;
+                List<uv5> b3 = this.b.b();
+                if (b3 == null || b3.size() <= i) {
                     return;
                 }
-                d dVar2 = b4.get(i);
-                this.f31573c = dVar2;
-                if (dVar2.i() == 1 && i == 0) {
-                    this.a = a.f13758c;
+                uv5 uv5Var2 = b3.get(i);
+                this.c = uv5Var2;
+                if (uv5Var2.i() == 1 && i == 0) {
+                    this.a = dw5.c;
                 }
             }
         }

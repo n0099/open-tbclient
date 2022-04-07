@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdViewOpUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DELAY_MILLIS = 300;
@@ -41,17 +41,17 @@ public class BdViewOpUtils {
         }
     }
 
-    public static boolean attachDecor(Activity activity, View view) {
+    public static boolean attachDecor(Activity activity, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, view)) == null) {
-            if (activity == null || view == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, view2)) == null) {
+            if (activity == null || view2 == null) {
                 return false;
             }
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-            removeView(view);
-            viewGroup.removeView(view);
-            viewGroup.addView(view);
+            removeView(view2);
+            viewGroup.removeView(view2);
+            viewGroup.addView(view2);
             if (hasPermanentMenuKey(activity)) {
                 saveSystemUiVisibility(activity);
                 setSystemUiVisibility(viewGroup, true);
@@ -61,17 +61,17 @@ public class BdViewOpUtils {
         return invokeLL.booleanValue;
     }
 
-    public static boolean attachView(View view, ViewGroup viewGroup) {
+    public static boolean attachView(View view2, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view, viewGroup)) == null) {
-            if (view != null && viewGroup != null && viewGroup.getParent() != null) {
-                BdVideoLog.d(TAG, "attachView " + view.hashCode() + " " + viewGroup.hashCode());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, viewGroup)) == null) {
+            if (view2 != null && viewGroup != null && viewGroup.getParent() != null) {
+                BdVideoLog.d(TAG, "attachView " + view2.hashCode() + " " + viewGroup.hashCode());
                 try {
-                    viewGroup.addView(view);
+                    viewGroup.addView(view2);
                     return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return false;
@@ -144,10 +144,10 @@ public class BdViewOpUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, viewGroup)) == null) ? viewGroup != null && viewGroup.getChildCount() > 0 : invokeL.booleanValue;
     }
 
-    public static boolean hasParent(View view) {
+    public static boolean hasParent(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view)) == null) ? (view == null || view.getParent() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (view2 == null || view2.getParent() == null) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean hasPermanentMenuKey(Context context) {
@@ -162,28 +162,28 @@ public class BdViewOpUtils {
         return invokeL.booleanValue;
     }
 
-    public static boolean isAttachDecor(Activity activity, View view) {
+    public static boolean isAttachDecor(Activity activity, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, activity, view)) == null) ? (activity == null || view == null || ((ViewGroup) activity.getWindow().getDecorView()).indexOfChild(view) == -1) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, activity, view2)) == null) ? (activity == null || view2 == null || ((ViewGroup) activity.getWindow().getDecorView()).indexOfChild(view2) == -1) ? false : true : invokeLL.booleanValue;
     }
 
-    public static boolean isParent(View view) {
+    public static boolean isParent(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view)) == null) ? (view == null || view.getParent() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view2)) == null) ? (view2 == null || view2.getParent() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public static boolean isParentView(View view, ViewGroup viewGroup) {
+    public static boolean isParentView(View view2, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, view, viewGroup)) == null) ? (view == null || viewGroup == null || viewGroup != ((ViewGroup) view.getParent())) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, view2, viewGroup)) == null) ? (view2 == null || viewGroup == null || viewGroup != ((ViewGroup) view2.getParent())) ? false : true : invokeLL.booleanValue;
     }
 
-    public static boolean isZeroSize(View view) {
+    public static boolean isZeroSize(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, view)) == null) ? view == null || view.getWidth() == 0 || view.getHeight() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, view2)) == null) ? view2 == null || view2.getWidth() == 0 || view2.getHeight() == 0 : invokeL.booleanValue;
     }
 
     public static boolean removeChilds(ViewGroup viewGroup) {
@@ -200,21 +200,21 @@ public class BdViewOpUtils {
         return invokeL.booleanValue;
     }
 
-    public static boolean removeView(View view) {
+    public static boolean removeView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, view)) == null) {
-            if (view == null || view.getParent() == null || !(view.getParent() instanceof ViewGroup)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, view2)) == null) {
+            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
                 return false;
             }
-            ViewGroup viewGroup = (ViewGroup) view.getParent();
-            if (viewGroup.indexOfChild(view) != -1) {
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
+            if (viewGroup.indexOfChild(view2) != -1) {
                 try {
-                    BdVideoLog.d(TAG, "removeView " + view.hashCode());
-                    viewGroup.removeView(view);
+                    BdVideoLog.d(TAG, "removeView " + view2.hashCode());
+                    viewGroup.removeView(view2);
                     return true;
-                } catch (Exception e2) {
-                    BdVideoLog.e("removeView(" + System.identityHashCode(view) + SmallTailInfo.EMOTION_SUFFIX, e2);
+                } catch (Exception e) {
+                    BdVideoLog.e("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
                     return true;
                 }
             }
@@ -292,27 +292,27 @@ public class BdViewOpUtils {
         activity.getIntent().putExtra(KEY_SYSTEM_UI_VISIBILITY, decorView.getSystemUiVisibility());
     }
 
-    public static void setSystemUiVisibility(View view, boolean z) {
+    public static void setSystemUiVisibility(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65558, null, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65558, null, view2, z) == null) {
             BdVideoLog.d(TAG, "setSystemUiVisibility immersive: " + z);
-            if (view == null) {
+            if (view2 == null) {
                 return;
             }
             if (z) {
-                view.setSystemUiVisibility(getImmersiveSystemUiVisibility());
+                view2.setSystemUiVisibility(getImmersiveSystemUiVisibility());
             } else {
-                view.setSystemUiVisibility(0);
+                view2.setSystemUiVisibility(0);
             }
         }
     }
 
-    public static void showSystemUi(View view) {
+    public static void showSystemUi(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65559, null, view2) == null) || view2 == null) {
             return;
         }
-        view.setSystemUiVisibility(0);
+        view2.setSystemUiVisibility(0);
     }
 
     public static void fixFullScreen4Notch(Dialog dialog, boolean z) {

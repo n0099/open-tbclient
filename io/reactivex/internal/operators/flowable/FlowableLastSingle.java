@@ -14,14 +14,14 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.NoSuchElementException;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableLastSingle<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T defaultItem;
     public final Publisher<T> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class LastSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

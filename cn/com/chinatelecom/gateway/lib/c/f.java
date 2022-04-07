@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,8 +115,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            int h2 = h(context);
-            return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            int h = h(context);
+            return h != -101 ? (h == -1 || h == 0) ? StringUtil.NULL_STRING : h != 1 ? h != 2 ? h != 3 ? Integer.toString(h) : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         return (String) invokeL.objValue;
     }
@@ -125,8 +125,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String e2 = e(context);
-            return (e2 != null && e2.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) && d(context)) ? "BOTH" : e2;
+            String e = e(context);
+            return (e != null && e.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) && d(context)) ? "BOTH" : e;
         }
         return (String) invokeL.objValue;
     }
@@ -135,21 +135,21 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            String f2 = f(context);
-            if (!TextUtils.isEmpty(f2) && !f2.equals(StringUtil.NULL_STRING)) {
-                if (f2.equals("2G")) {
+            String f = f(context);
+            if (!TextUtils.isEmpty(f) && !f.equals(StringUtil.NULL_STRING)) {
+                if (f.equals("2G")) {
                     return "10";
                 }
-                if (f2.equals("3G")) {
+                if (f.equals("3G")) {
                     return "11";
                 }
-                if (f2.equals("4G")) {
+                if (f.equals("4G")) {
                     return "12";
                 }
-                if (f2.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                if (f.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
                     return "13";
                 }
-                if (f2.equals("BOTH")) {
+                if (f.equals("BOTH")) {
                     return "14";
                 }
             }
@@ -172,8 +172,8 @@ public class f {
                     } else if (type == 0) {
                         try {
                             i = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         if (i == 0) {
                             i = a.getSubtype();
@@ -182,10 +182,10 @@ public class f {
                 } else {
                     i = -1;
                 }
-            } catch (NullPointerException e3) {
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
+            } catch (Exception e3) {
                 e3.printStackTrace();
-            } catch (Exception e4) {
-                e4.printStackTrace();
             }
             return a(i);
         }

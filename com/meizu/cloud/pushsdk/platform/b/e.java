@@ -6,16 +6,13 @@ import android.text.TextUtils;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
+import com.repackage.rm9;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends c<SubTagsStatus> {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42226b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42227c;
+    public int b;
+    public String c;
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -28,7 +25,7 @@ public class e extends c<SubTagsStatus> {
 
     public e(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f42226b = 3;
+        this.b = 3;
     }
 
     public e(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -37,34 +34,34 @@ public class e extends c<SubTagsStatus> {
     }
 
     public void a(int i) {
-        this.f42226b = i;
+        this.b = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(SubTagsStatus subTagsStatus) {
-        PlatformMessageSender.a(this.f42220e, !TextUtils.isEmpty(this.f42223h) ? this.f42223h : this.f42220e.getPackageName(), subTagsStatus);
+        PlatformMessageSender.a(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), subTagsStatus);
     }
 
     public void a(String str) {
-        this.f42227c = str;
+        this.c = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f42221f) || TextUtils.isEmpty(this.f42222g) || TextUtils.isEmpty(this.a)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f42221f);
-        intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.f42222g);
-        intent.putExtra("strategy_package_name", this.f42220e.getPackageName());
+        intent.putExtra("app_id", this.f);
+        intent.putExtra(GameGuideConfigInfo.KEY_APP_KEY, this.g);
+        intent.putExtra("strategy_package_name", this.e.getPackageName());
         intent.putExtra("push_id", this.a);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f42226b);
-        intent.putExtra("strategy_params", this.f42227c);
+        intent.putExtra("strategy_child_type", this.b);
+        intent.putExtra("strategy_params", this.c);
         return intent;
     }
 
@@ -84,9 +81,9 @@ public class e extends c<SubTagsStatus> {
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
         subTagsStatus.setCode("20001");
-        if (TextUtils.isEmpty(this.f42221f)) {
+        if (TextUtils.isEmpty(this.f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f42222g)) {
+        } else if (!TextUtils.isEmpty(this.g)) {
             if (TextUtils.isEmpty(this.a)) {
                 str = "pushId not empty";
             }
@@ -105,25 +102,25 @@ public class e extends c<SubTagsStatus> {
         StringBuilder sb;
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
-        int i = this.f42226b;
-        com.meizu.cloud.pushsdk.b.a.c e2 = i != 0 ? i != 1 ? i != 2 ? i != 3 ? null : this.j.e(this.f42221f, this.f42222g, this.a) : this.j.d(this.f42221f, this.f42222g, this.a) : this.j.b(this.f42221f, this.f42222g, this.a, this.f42227c) : this.j.a(this.f42221f, this.f42222g, this.a, this.f42227c);
-        if (e2.b()) {
-            subTagsStatus = new SubTagsStatus((String) e2.a());
+        int i = this.b;
+        com.meizu.cloud.pushsdk.b.a.c e = i != 0 ? i != 1 ? i != 2 ? i != 3 ? null : this.j.e(this.f, this.g, this.a) : this.j.d(this.f, this.g, this.a) : this.j.b(this.f, this.g, this.a, this.c) : this.j.a(this.f, this.g, this.a, this.c);
+        if (e.b()) {
+            subTagsStatus = new SubTagsStatus((String) e.a());
             sb = new StringBuilder();
             str = "network subTagsStatus ";
         } else {
-            com.meizu.cloud.pushsdk.b.b.a c2 = e2.c();
-            if (c2.a() != null) {
-                c.h.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+            com.meizu.cloud.pushsdk.b.b.a c = e.c();
+            if (c.a() != null) {
+                rm9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
             }
-            subTagsStatus.setCode(String.valueOf(c2.b()));
-            subTagsStatus.setMessage(c2.c());
+            subTagsStatus.setCode(String.valueOf(c.b()));
+            subTagsStatus.setMessage(c.c());
             sb = new StringBuilder();
             str = "subTagsStatus ";
         }
         sb.append(str);
         sb.append(subTagsStatus);
-        c.h.a.a.a.b("Strategy", sb.toString());
+        rm9.b("Strategy", sb.toString());
         return subTagsStatus;
     }
 

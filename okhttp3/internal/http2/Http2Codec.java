@@ -117,9 +117,9 @@ public final class Http2Codec implements HttpCodec {
                         this.bytesRead += read;
                     }
                     return read;
-                } catch (IOException e2) {
-                    endOfInput(e2);
-                    throw e2;
+                } catch (IOException e) {
+                    endOfInput(e);
+                    throw e;
                 }
             }
             return invokeLJ.longValue;

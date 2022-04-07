@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR;
@@ -23,7 +23,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     public int mCheckHisAndFavor;
     public int mPurgerScenes;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SwanAppDeleteInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

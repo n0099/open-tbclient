@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "text";
@@ -329,10 +329,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setReserved2(byte b2) {
+    public void setReserved2(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048608, this, b2) == null) {
-            this.reserved2 = b2;
+        if (interceptable == null || interceptable.invokeB(1048608, this, b) == null) {
+            this.reserved2 = b;
         }
     }
 

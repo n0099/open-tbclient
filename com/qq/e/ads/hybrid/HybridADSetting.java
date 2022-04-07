@@ -11,34 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class HybridADSetting implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<HybridADSetting> CREATOR;
     public static final int TYPE_REWARD_VIDEO = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42341b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42342c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f42343d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f42344e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f42345f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f42346g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f42347h;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public String h;
     public int i;
     public int j;
 
@@ -107,10 +93,10 @@ public class HybridADSetting implements Parcelable {
             }
         }
         this.a = 1;
-        this.f42341b = 44;
-        this.f42342c = -1;
-        this.f42343d = -14013133;
-        this.f42344e = 16;
+        this.b = 44;
+        this.c = -1;
+        this.d = -14013133;
+        this.e = 16;
         this.i = -1776153;
         this.j = 16;
     }
@@ -131,20 +117,20 @@ public class HybridADSetting implements Parcelable {
             }
         }
         this.a = 1;
-        this.f42341b = 44;
-        this.f42342c = -1;
-        this.f42343d = -14013133;
-        this.f42344e = 16;
+        this.b = 44;
+        this.c = -1;
+        this.d = -14013133;
+        this.e = 16;
         this.i = -1776153;
         this.j = 16;
         this.a = parcel.readInt();
-        this.f42341b = parcel.readInt();
-        this.f42342c = parcel.readInt();
-        this.f42343d = parcel.readInt();
-        this.f42344e = parcel.readInt();
-        this.f42345f = parcel.readString();
-        this.f42346g = parcel.readString();
-        this.f42347h = parcel.readString();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
+        this.d = parcel.readInt();
+        this.e = parcel.readInt();
+        this.f = parcel.readString();
+        this.g = parcel.readString();
+        this.h = parcel.readString();
         this.i = parcel.readInt();
         this.j = parcel.readInt();
     }
@@ -153,7 +139,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f42346g = str;
+            this.g = str;
             return this;
         }
         return (HybridADSetting) invokeL.objValue;
@@ -173,7 +159,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f42347h = str;
+            this.h = str;
             return this;
         }
         return (HybridADSetting) invokeL.objValue;
@@ -192,7 +178,7 @@ public class HybridADSetting implements Parcelable {
     public String getBackButtonImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42346g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
     public int getBackSeparatorLength() {
@@ -204,7 +190,7 @@ public class HybridADSetting implements Parcelable {
     public String getCloseButtonImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42347h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
     public int getSeparatorColor() {
@@ -216,31 +202,31 @@ public class HybridADSetting implements Parcelable {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f42345f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     public int getTitleBarColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42342c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public int getTitleBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42341b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getTitleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42343d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public int getTitleSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42344e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : invokeV.intValue;
     }
 
     public int getType() {
@@ -263,7 +249,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.f42345f = str;
+            this.f = str;
             return this;
         }
         return (HybridADSetting) invokeL.objValue;
@@ -273,7 +259,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            this.f42342c = i;
+            this.c = i;
             return this;
         }
         return (HybridADSetting) invokeI.objValue;
@@ -283,7 +269,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.f42341b = i;
+            this.b = i;
             return this;
         }
         return (HybridADSetting) invokeI.objValue;
@@ -293,7 +279,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.f42343d = i;
+            this.d = i;
             return this;
         }
         return (HybridADSetting) invokeI.objValue;
@@ -303,7 +289,7 @@ public class HybridADSetting implements Parcelable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.f42344e = i;
+            this.e = i;
             return this;
         }
         return (HybridADSetting) invokeI.objValue;
@@ -324,13 +310,13 @@ public class HybridADSetting implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048597, this, parcel, i) == null) {
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f42341b);
-            parcel.writeInt(this.f42342c);
-            parcel.writeInt(this.f42343d);
-            parcel.writeInt(this.f42344e);
-            parcel.writeString(this.f42345f);
-            parcel.writeString(this.f42346g);
-            parcel.writeString(this.f42347h);
+            parcel.writeInt(this.b);
+            parcel.writeInt(this.c);
+            parcel.writeInt(this.d);
+            parcel.writeInt(this.e);
+            parcel.writeString(this.f);
+            parcel.writeString(this.g);
+            parcel.writeString(this.h);
             parcel.writeInt(this.i);
             parcel.writeInt(this.j);
         }

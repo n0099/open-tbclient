@@ -54,34 +54,34 @@ public class ViewGroupUtils {
         }
     }
 
-    public static void getDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+    public static void getDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewGroup, view, rect) == null) {
-            rect.set(0, 0, view.getWidth(), view.getHeight());
-            offsetDescendantRect(viewGroup, view, rect);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, viewGroup, view2, rect) == null) {
+            rect.set(0, 0, view2.getWidth(), view2.getHeight());
+            offsetDescendantRect(viewGroup, view2, rect);
         }
     }
 
-    public static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix) {
+    public static void offsetDescendantMatrix(ViewParent viewParent, View view2, Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewParent, view, matrix) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLLL(65539, null, viewParent, view2, matrix) == null) {
+            ViewParent parent = view2.getParent();
             if ((parent instanceof View) && parent != viewParent) {
-                View view2 = (View) parent;
-                offsetDescendantMatrix(viewParent, view2, matrix);
-                matrix.preTranslate(-view2.getScrollX(), -view2.getScrollY());
+                View view3 = (View) parent;
+                offsetDescendantMatrix(viewParent, view3, matrix);
+                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
             }
-            matrix.preTranslate(view.getLeft(), view.getTop());
-            if (view.getMatrix().isIdentity()) {
+            matrix.preTranslate(view2.getLeft(), view2.getTop());
+            if (view2.getMatrix().isIdentity()) {
                 return;
             }
-            matrix.preConcat(view.getMatrix());
+            matrix.preConcat(view2.getMatrix());
         }
     }
 
-    public static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+    public static void offsetDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, rect) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view2, rect) == null) {
             Matrix matrix = sMatrix.get();
             if (matrix == null) {
                 matrix = new Matrix();
@@ -89,7 +89,7 @@ public class ViewGroupUtils {
             } else {
                 matrix.reset();
             }
-            offsetDescendantMatrix(viewGroup, view, matrix);
+            offsetDescendantMatrix(viewGroup, view2, matrix);
             RectF rectF = sRectF.get();
             if (rectF == null) {
                 rectF = new RectF();

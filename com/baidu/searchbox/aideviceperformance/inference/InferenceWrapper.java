@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InferenceWrapper implements AutoCloseable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InferenceWrapper";
@@ -23,7 +23,7 @@ public class InferenceWrapper implements AutoCloseable {
     public Inference mInference;
     public DevicePerformanceModelInfo mModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface InitCallback {
         void onInitResult(boolean z, String str);
     }
@@ -75,9 +75,9 @@ public class InferenceWrapper implements AutoCloseable {
                     this.mInference.close();
                     this.mInference = null;
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (InferenceConfig.DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         } catch (Throwable th) {
@@ -137,65 +137,65 @@ public class InferenceWrapper implements AutoCloseable {
         return invokeLL.booleanValue;
     }
 
-    public <T> T[] predictForClassArray(Tensor tensor, float f2, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
+    public <T> T[] predictForClassArray(Tensor tensor, float f, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f2), cls})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return (T[]) inference.predictForClassArray(tensor, f2, cls);
+                return (T[]) inference.predictForClassArray(tensor, f, cls);
             }
             throw new IllegalStateException("not init!!!");
         }
         return (T[]) ((Object[]) invokeCommon.objValue);
     }
 
-    public int predictForClassId(Tensor tensor, float f2) {
+    public int predictForClassId(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, tensor, f)) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return inference.predictForClassId(tensor, f2);
+                return inference.predictForClassId(tensor, f);
             }
             throw new IllegalStateException("not init!!!");
         }
         return invokeLF.intValue;
     }
 
-    public String predictForClassName(Tensor tensor, float f2) {
+    public String predictForClassName(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048582, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048582, this, tensor, f)) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return inference.predictForClassName(tensor, f2);
+                return inference.predictForClassName(tensor, f);
             }
             throw new IllegalStateException("not init!!!");
         }
         return (String) invokeLF.objValue;
     }
 
-    public <T> T predictForRegressorTarget(Tensor tensor, float f2, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
+    public <T> T predictForRegressorTarget(Tensor tensor, float f, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{tensor, Float.valueOf(f2), cls})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return (T) inference.predictForRegressorTarget(tensor, f2, cls);
+                return (T) inference.predictForRegressorTarget(tensor, f, cls);
             }
             throw new IllegalStateException("not init!!!");
         }
         return (T) invokeCommon.objValue;
     }
 
-    public <T> T[] predictForRegressorTargetArray(Tensor tensor, float f2) {
+    public <T> T[] predictForRegressorTargetArray(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, tensor, f)) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return (T[]) inference.predictForRegressorTargetArray(tensor, f2);
+                return (T[]) inference.predictForRegressorTargetArray(tensor, f);
             }
             throw new IllegalStateException("not init!!!");
         }

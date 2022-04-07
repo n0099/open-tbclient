@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f30842h;
+    public boolean h;
     public int i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -35,7 +33,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f30842h = false;
+        this.h = false;
         this.i = -1;
     }
 
@@ -48,7 +46,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 super.setAnimation(i);
                 this.i = -1;
             }
-            this.f30842h = true;
+            this.h = true;
             super.onDraw(canvas);
         }
     }
@@ -57,7 +55,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
     public void setAnimation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.f30842h) {
+            if (this.h) {
                 super.setAnimation(i);
             } else {
                 this.i = i;
@@ -84,7 +82,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f30842h = false;
+        this.h = false;
         this.i = -1;
     }
 
@@ -107,7 +105,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.f30842h = false;
+        this.h = false;
         this.i = -1;
     }
 }

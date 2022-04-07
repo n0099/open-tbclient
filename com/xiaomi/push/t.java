@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -52,7 +52,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m678a() {
+    public static Context m674a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -74,16 +74,16 @@ public class t {
             }
             try {
                 return Class.forName(str);
-            } catch (ClassNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
-                throw new ClassNotFoundException("loadClass fail ", e2);
+            } catch (ClassNotFoundException e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e.getLocalizedMessage()));
+                throw new ClassNotFoundException("loadClass fail ", e);
             }
         }
         return (Class) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m679a() {
+    public static synchronized String m675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -93,17 +93,17 @@ public class t {
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
-                    String b2 = b();
-                    if (TextUtils.isEmpty(b2)) {
-                        b2 = c();
-                        if (TextUtils.isEmpty(b2)) {
-                            b2 = d();
-                            if (TextUtils.isEmpty(b2)) {
+                    String b = b();
+                    if (TextUtils.isEmpty(b)) {
+                        b = c();
+                        if (TextUtils.isEmpty(b)) {
+                            b = d();
+                            if (TextUtils.isEmpty(b)) {
                                 str = String.valueOf(s.a("ro.product.brand", "Android") + "_" + str);
                             }
                         }
                     }
-                    str = b2;
+                    str = b;
                 }
                 f966a = str;
                 return str;
@@ -116,7 +116,7 @@ public class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (l.m580b()) {
+            if (l.m576b()) {
                 return "";
             }
             String str = (String) bh.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -126,7 +126,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m680a(Context context) {
+    public static void m676a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             a = context.getApplicationContext();
@@ -134,21 +134,21 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m681a() {
+    public static boolean m677a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals((String) bh.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m682a(Context context) {
+    public static boolean m678a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 return (context.getApplicationInfo().flags & 2) != 0;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return false;
             }
         }
@@ -167,7 +167,7 @@ public class t {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m683b() {
+    public static boolean m679b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
@@ -176,8 +176,8 @@ public class t {
             } catch (ClassNotFoundException unused) {
                 com.xiaomi.channel.commonutils.logger.b.d("miui.os.Build ClassNotFound");
                 return false;
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return false;
             }
         }

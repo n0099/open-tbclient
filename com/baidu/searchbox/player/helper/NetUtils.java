@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -43,7 +43,7 @@ public class NetUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -262,42 +262,42 @@ public class NetUtils {
 
     public static int getNetTypeParams() {
         InterceptResult invokeV;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             String networkClass = getNetworkClass();
             int hashCode = networkClass.hashCode();
             if (hashCode == 1653) {
                 if (networkClass.equals("2g")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1684) {
                 if (networkClass.equals("3g")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 1715) {
                 if (networkClass.equals("4g")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 1746) {
                 if (hashCode == 3649301 && networkClass.equals("wifi")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (networkClass.equals("5g")) {
-                    c2 = 4;
+                    c = 4;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3) {
-                            return c2 != 4 ? 4 : 5;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return c != 4 ? 4 : 5;
                         }
                         return 3;
                     }

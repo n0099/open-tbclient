@@ -1,11 +1,6 @@
 package com.fun;
 
 import androidx.core.app.NotificationCompat;
-import c.d.j;
-import c.d.l;
-import c.d.n;
-import c.d.o;
-import c.d.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,33 +8,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.repackage.kf9;
+import com.repackage.mf9;
+import com.repackage.of9;
+import com.repackage.pf9;
+import com.repackage.tf9;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Reporter a;
+    public final String b;
+    public final int c;
+    public final String d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final String f38654b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f38655c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final String f38656d;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends HashMap<String, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Object[] a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f38657b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ o0 f38658c;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ o0 c;
 
         public a(o0 o0Var, Object[] objArr, String str) {
             Interceptable interceptable = $ic;
@@ -56,9 +46,9 @@ public abstract class o0 {
                     return;
                 }
             }
-            this.f38658c = o0Var;
+            this.c = o0Var;
             this.a = objArr;
-            this.f38657b = str;
+            this.b = str;
             if (objArr != null && objArr.length > 0) {
                 if (objArr.length % 2 != 0) {
                     throw new IllegalArgumentException("Length of argument 'appends' must be even.");
@@ -73,22 +63,22 @@ public abstract class o0 {
                     i3 += 2;
                 }
             }
-            put("st", this.f38657b);
-            put("sid", this.f38658c.f38654b);
-            put("sidv", Integer.valueOf(this.f38658c.f38655c));
-            put("ldr_i", Integer.valueOf(o.b(this.f38658c.f38654b)));
-            put("type", this.f38658c.f38656d);
+            put("st", this.b);
+            put("sid", this.c.b);
+            put("sidv", Integer.valueOf(this.c.c));
+            put("ldr_i", Integer.valueOf(pf9.b(this.c.b)));
+            put("type", this.c.d);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b extends o0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, Ssp.Pid pid) {
-            super(str, j.a(str, pid), "n");
+            super(str, kf9.a(str, pid), "n");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,19 +98,19 @@ public abstract class o0 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class c extends o0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(n nVar) {
-            super(nVar.a, nVar.f23216d, "p");
+        public c(of9 of9Var) {
+            super(of9Var.a, of9Var.d, "p");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nVar};
+                Object[] objArr = {of9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -135,22 +125,20 @@ public abstract class o0 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class d extends o0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f38659e;
+        public long e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(l lVar) {
-            super(lVar.a, lVar.f23183c, "s");
+        public d(mf9 mf9Var) {
+            super(mf9Var.a, mf9Var.c, "s");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lVar};
+                Object[] objArr = {mf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -170,7 +158,7 @@ public abstract class o0 {
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, objArr) == null) {
                 Object[] objArr2 = new Object[objArr.length + 2];
                 objArr2[0] = "lid";
-                objArr2[1] = Long.valueOf(this.f38659e);
+                objArr2[1] = Long.valueOf(this.e);
                 System.arraycopy(objArr, 0, objArr2, 2, objArr.length);
                 super.c(str, objArr2);
             }
@@ -201,7 +189,7 @@ public abstract class o0 {
         public void h(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.f38659e = System.currentTimeMillis();
+                this.e = System.currentTimeMillis();
                 b();
                 c("ldr_ld_start", "irpt", Integer.valueOf(z ? 1 : 0));
             }
@@ -223,20 +211,20 @@ public abstract class o0 {
                 return;
             }
         }
-        this.a = s.a();
-        this.f38654b = str;
-        this.f38656d = str2;
-        this.f38655c = i;
+        this.a = tf9.a();
+        this.b = str;
+        this.d = str2;
+        this.c = i;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f38654b;
-            Object obj = o.a;
-            int i = o.f23222b.getInt("key_sid_c_pre_" + str, 0);
-            String str2 = this.f38654b;
-            o.e("key_sid_c_pre_" + str2, i + 1);
+            String str = this.b;
+            Object obj = pf9.a;
+            int i = pf9.b.getInt("key_sid_c_pre_" + str, 0);
+            String str2 = this.b;
+            pf9.e("key_sid_c_pre_" + str2, i + 1);
         }
     }
 

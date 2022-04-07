@@ -21,14 +21,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;

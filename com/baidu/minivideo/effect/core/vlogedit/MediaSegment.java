@@ -12,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
+import com.repackage.f99;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MediaSegment implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaSegment> CREATOR;
@@ -41,7 +42,7 @@ public class MediaSegment implements Parcelable, Cloneable {
     public String type;
     public float[] vertexMtx;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<MediaSegment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +80,7 @@ public class MediaSegment implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b extends TypeToken<List<MediaSegment>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +139,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new c.a.v0.j.b().c(str, new b().getType());
+                return (List) new f99().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }
@@ -218,8 +219,8 @@ public class MediaSegment implements Parcelable, Cloneable {
                     mediaSegment.mediaAEffect = this.mediaAEffect.m33clone();
                 }
                 return mediaSegment;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return new MediaSegment();
             }
         }

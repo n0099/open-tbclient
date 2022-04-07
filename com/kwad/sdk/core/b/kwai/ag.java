@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,8 +10,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
             return;
         }
         cVar.a = jSONObject.optInt("cellId");
-        cVar.f39817b = jSONObject.optInt("lac");
-        cVar.f39818c = jSONObject.optInt("bsss");
+        cVar.b = jSONObject.optInt("lac");
+        cVar.c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "cellId", cVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.f39817b);
-        com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.f39818c);
+        com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.c);
         return jSONObject;
     }
 }

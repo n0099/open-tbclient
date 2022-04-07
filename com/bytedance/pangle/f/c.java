@@ -36,25 +36,23 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final List<X509Certificate> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f38111b;
+        public final List<Integer> b;
 
         public b(List<X509Certificate> list, List<Integer> list2) {
             Interceptable interceptable = $ic;
@@ -72,24 +70,20 @@ public final class c {
                 }
             }
             this.a = list;
-            this.f38111b = list2;
+            this.b = list2;
         }
     }
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1920c {
+    /* loaded from: classes4.dex */
+    public static class C0260c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[] a;
+        public final b b;
+        public byte[] c;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final b f38112b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public byte[] f38113c;
-
-        public C1920c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C0260c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,28 +99,28 @@ public final class c {
                 }
             }
             this.a = x509CertificateArr;
-            this.f38112b = bVar;
+            this.b = bVar;
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static C1920c a(String str) {
+    public static C0260c a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (C1920c) invokeL.objValue;
+            return (C0260c) invokeL.objValue;
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(str, "r");
         try {
-            C1920c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
+            C0260c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
             randomAccessFile.close();
             return a2;
         } finally {
         }
     }
 
-    public static C1920c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C0260c a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, mVar)) == null) {
@@ -136,52 +130,52 @@ public final class c {
                 try {
                     ByteBuffer a2 = f.a(mVar.a);
                     int i = 0;
-                    C1920c c1920c = null;
+                    C0260c c0260c = null;
                     while (a2.hasRemaining()) {
                         try {
-                            c1920c = a(f.a(a2), arrayMap, certificateFactory);
+                            c0260c = a(f.a(a2), arrayMap, certificateFactory);
                             i++;
                         } catch (a unused) {
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
+                            e = e;
+                            throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
+                        } catch (SecurityException e2) {
                             e = e2;
                             throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
-                        } catch (SecurityException e3) {
+                        } catch (BufferUnderflowException e3) {
                             e = e3;
-                            throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
-                        } catch (BufferUnderflowException e4) {
-                            e = e4;
                             throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                         }
                     }
-                    if (i <= 0 || c1920c == null) {
+                    if (i <= 0 || c0260c == null) {
                         throw new SecurityException("No signers found");
                     }
                     if (i == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c1920c.f38113c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c0260c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c1920c;
+                            return c0260c;
                         }
                         throw new SecurityException("No content digests found");
                     }
                     throw new SecurityException("APK Signature Scheme V3 only supports one signer: multiple signers found.");
-                } catch (IOException e5) {
-                    throw new SecurityException("Failed to read list of signers", e5);
+                } catch (IOException e4) {
+                    throw new SecurityException("Failed to read list of signers", e4);
                 }
-            } catch (CertificateException e6) {
-                throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e6);
+            } catch (CertificateException e5) {
+                throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e5);
             }
         }
-        return (C1920c) invokeLL.objValue;
+        return (C0260c) invokeLL.objValue;
     }
 
-    public static C1920c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C0260c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, map, certificateFactory)) != null) {
-            return (C1920c) invokeLLL.objValue;
+            return (C0260c) invokeLLL.objValue;
         }
         ByteBuffer a2 = f.a(byteBuffer);
         int i = byteBuffer.getInt();
@@ -202,12 +196,12 @@ public final class c {
                     }
                     throw new SecurityException("No supported signatures found");
                 }
-                String c2 = f.c(i3);
-                Pair<String, ? extends AlgorithmParameterSpec> d2 = f.d(i3);
-                String str = (String) d2.first;
-                AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d2.second;
+                String c = f.c(i3);
+                Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i3);
+                String str = (String) d.first;
+                AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d.second;
                 try {
-                    PublicKey generatePublic = KeyFactory.getInstance(c2).generatePublic(new X509EncodedKeySpec(b2));
+                    PublicKey generatePublic = KeyFactory.getInstance(c).generatePublic(new X509EncodedKeySpec(b2));
                     Signature signature = Signature.getInstance(str);
                     signature.initVerify(generatePublic);
                     if (algorithmParameterSpec != null) {
@@ -234,8 +228,8 @@ public final class c {
                                 } else {
                                     throw new IOException("Record too short");
                                 }
-                            } catch (IOException | BufferUnderflowException e2) {
-                                throw new IOException("Failed to parse digest record #".concat(String.valueOf(i6)), e2);
+                            } catch (IOException | BufferUnderflowException e) {
+                                throw new IOException("Failed to parse digest record #".concat(String.valueOf(i6)), e);
                             }
                         }
                         if (arrayList.equals(arrayList2)) {
@@ -252,8 +246,8 @@ public final class c {
                                 byte[] b3 = f.b(a7);
                                 try {
                                     arrayList3.add(new p((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(b3)), b3));
-                                } catch (CertificateException e3) {
-                                    throw new SecurityException("Failed to decode certificate #".concat(String.valueOf(i8)), e3);
+                                } catch (CertificateException e2) {
+                                    throw new SecurityException("Failed to decode certificate #".concat(String.valueOf(i8)), e2);
                                 }
                             }
                             if (!arrayList3.isEmpty()) {
@@ -273,8 +267,8 @@ public final class c {
                         throw new SecurityException("Signature algorithms don't match between digests and signatures records");
                     }
                     throw new SecurityException(str + " signature did not verify");
-                } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e4) {
-                    throw new SecurityException("Failed to verify " + str + " signature", e4);
+                } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e3) {
+                    throw new SecurityException("Failed to verify " + str + " signature", e3);
                 }
             }
             i4++;
@@ -302,13 +296,13 @@ public final class c {
                 } else {
                     throw new SecurityException("Signature record too short");
                 }
-            } catch (IOException | BufferUnderflowException e5) {
-                throw new SecurityException("Failed to parse signature record #".concat(String.valueOf(i4)), e5);
+            } catch (IOException | BufferUnderflowException e4) {
+                throw new SecurityException("Failed to parse signature record #".concat(String.valueOf(i4)), e4);
             }
         }
     }
 
-    public static C1920c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C0260c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, list, certificateFactory)) == null) {
@@ -324,8 +318,8 @@ public final class c {
                                 if (bVar.a.size() > 0 && !Arrays.equals(bVar.a.get(bVar.a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
                                     throw new SecurityException("Terminal certificate in Proof-of-rotation record does not match APK signing certificate");
                                 }
-                            } catch (CertificateEncodingException e2) {
-                                throw new SecurityException("Failed to encode certificate when comparing Proof-of-rotation record and signing certificate", e2);
+                            } catch (CertificateEncodingException e) {
+                                throw new SecurityException("Failed to encode certificate when comparing Proof-of-rotation record and signing certificate", e);
                             }
                         } else {
                             throw new SecurityException("Encountered multiple Proof-of-rotation records when verifying APK Signature Scheme v3 signature");
@@ -335,9 +329,9 @@ public final class c {
                     throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
                 }
             }
-            return new C1920c(x509CertificateArr, bVar);
+            return new C0260c(x509CertificateArr, bVar);
         }
-        return (C1920c) invokeLLL.objValue;
+        return (C0260c) invokeLLL.objValue;
     }
 
     public static b a(ByteBuffer byteBuffer, CertificateFactory certificateFactory) {
@@ -360,16 +354,16 @@ public final class c {
                     int i4 = a2.getInt();
                     byte[] b2 = f.b(a2);
                     if (pVar != null) {
-                        Pair<String, ? extends AlgorithmParameterSpec> d2 = f.d(i2);
+                        Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i2);
                         PublicKey publicKey = pVar.getPublicKey();
-                        Signature signature = Signature.getInstance((String) d2.first);
+                        Signature signature = Signature.getInstance((String) d.first);
                         signature.initVerify(publicKey);
-                        if (d2.second != null) {
-                            signature.setParameter((AlgorithmParameterSpec) d2.second);
+                        if (d.second != null) {
+                            signature.setParameter((AlgorithmParameterSpec) d.second);
                         }
                         signature.update(a3);
                         if (!signature.verify(b2)) {
-                            throw new SecurityException("Unable to verify signature of certificate #" + i + " using " + ((String) d2.first) + " when verifying Proof-of-rotation record");
+                            throw new SecurityException("Unable to verify signature of certificate #" + i + " using " + ((String) d.first) + " when verifying Proof-of-rotation record");
                         }
                     }
                     a3.rewind();
@@ -389,26 +383,26 @@ public final class c {
                     }
                 }
                 return new b(arrayList, arrayList2);
-            } catch (IOException e2) {
+            } catch (IOException e) {
+                e = e;
+                throw new IOException("Failed to parse Proof-of-rotation record", e);
+            } catch (BufferUnderflowException e2) {
                 e = e2;
                 throw new IOException("Failed to parse Proof-of-rotation record", e);
-            } catch (BufferUnderflowException e3) {
+            } catch (InvalidAlgorithmParameterException e3) {
                 e = e3;
-                throw new IOException("Failed to parse Proof-of-rotation record", e);
-            } catch (InvalidAlgorithmParameterException e4) {
+                throw new SecurityException("Failed to verify signature over signed data for certificate #0 when verifying Proof-of-rotation record", e);
+            } catch (InvalidKeyException e4) {
                 e = e4;
                 throw new SecurityException("Failed to verify signature over signed data for certificate #0 when verifying Proof-of-rotation record", e);
-            } catch (InvalidKeyException e5) {
+            } catch (NoSuchAlgorithmException e5) {
                 e = e5;
                 throw new SecurityException("Failed to verify signature over signed data for certificate #0 when verifying Proof-of-rotation record", e);
-            } catch (NoSuchAlgorithmException e6) {
+            } catch (SignatureException e6) {
                 e = e6;
                 throw new SecurityException("Failed to verify signature over signed data for certificate #0 when verifying Proof-of-rotation record", e);
-            } catch (SignatureException e7) {
-                e = e7;
-                throw new SecurityException("Failed to verify signature over signed data for certificate #0 when verifying Proof-of-rotation record", e);
-            } catch (CertificateException e8) {
-                throw new SecurityException("Failed to decode certificate #0 when verifying Proof-of-rotation record", e8);
+            } catch (CertificateException e7) {
+                throw new SecurityException("Failed to decode certificate #0 when verifying Proof-of-rotation record", e7);
             }
         }
         return (b) invokeLL.objValue;

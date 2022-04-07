@@ -7,21 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b implements Closeable {
     public final InputStream a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Charset f39390b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public byte[] f39391c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f39392d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f39393e;
+    public final Charset b;
+    public byte[] c;
+    public int d;
+    public int e;
 
     public b(InputStream inputStream, int i, Charset charset) {
         if (inputStream == null || charset == null) {
@@ -34,8 +26,8 @@ public class b implements Closeable {
             throw new IllegalArgumentException("Unsupported encoding");
         }
         this.a = inputStream;
-        this.f39390b = charset;
-        this.f39391c = new byte[i];
+        this.b = charset;
+        this.c = new byte[i];
     }
 
     public b(InputStream inputStream, Charset charset) {
@@ -44,66 +36,66 @@ public class b implements Closeable {
 
     private void c() {
         InputStream inputStream = this.a;
-        byte[] bArr = this.f39391c;
+        byte[] bArr = this.c;
         int read = inputStream.read(bArr, 0, bArr.length);
         if (read == -1) {
             throw new EOFException();
         }
-        this.f39392d = 0;
-        this.f39393e = read;
+        this.d = 0;
+        this.e = read;
     }
 
     public String a() {
         int i;
         int i2;
         synchronized (this.a) {
-            if (this.f39391c != null) {
-                if (this.f39392d >= this.f39393e) {
+            if (this.c != null) {
+                if (this.d >= this.e) {
                     c();
                 }
-                for (int i3 = this.f39392d; i3 != this.f39393e; i3++) {
-                    if (this.f39391c[i3] == 10) {
-                        if (i3 != this.f39392d) {
+                for (int i3 = this.d; i3 != this.e; i3++) {
+                    if (this.c[i3] == 10) {
+                        if (i3 != this.d) {
                             i2 = i3 - 1;
-                            if (this.f39391c[i2] == 13) {
-                                String str = new String(this.f39391c, this.f39392d, i2 - this.f39392d, this.f39390b.name());
-                                this.f39392d = i3 + 1;
+                            if (this.c[i2] == 13) {
+                                String str = new String(this.c, this.d, i2 - this.d, this.b.name());
+                                this.d = i3 + 1;
                                 return str;
                             }
                         }
                         i2 = i3;
-                        String str2 = new String(this.f39391c, this.f39392d, i2 - this.f39392d, this.f39390b.name());
-                        this.f39392d = i3 + 1;
+                        String str2 = new String(this.c, this.d, i2 - this.d, this.b.name());
+                        this.d = i3 + 1;
                         return str2;
                     }
                 }
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.f39393e - this.f39392d) + 80) { // from class: com.kwad.sdk.core.diskcache.kwai.b.1
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.e - this.d) + 80) { // from class: com.kwad.sdk.core.diskcache.kwai.b.1
                     @Override // java.io.ByteArrayOutputStream
                     public String toString() {
                         int i4 = ((ByteArrayOutputStream) this).count;
                         try {
-                            return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, b.this.f39390b.name());
-                        } catch (UnsupportedEncodingException e2) {
-                            throw new AssertionError(e2);
+                            return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, b.this.b.name());
+                        } catch (UnsupportedEncodingException e) {
+                            throw new AssertionError(e);
                         }
                     }
                 };
                 loop1: while (true) {
-                    byteArrayOutputStream.write(this.f39391c, this.f39392d, this.f39393e - this.f39392d);
-                    this.f39393e = -1;
+                    byteArrayOutputStream.write(this.c, this.d, this.e - this.d);
+                    this.e = -1;
                     c();
-                    i = this.f39392d;
-                    while (i != this.f39393e) {
-                        if (this.f39391c[i] == 10) {
+                    i = this.d;
+                    while (i != this.e) {
+                        if (this.c[i] == 10) {
                             break loop1;
                         }
                         i++;
                     }
                 }
-                if (i != this.f39392d) {
-                    byteArrayOutputStream.write(this.f39391c, this.f39392d, i - this.f39392d);
+                if (i != this.d) {
+                    byteArrayOutputStream.write(this.c, this.d, i - this.d);
                 }
-                this.f39392d = i + 1;
+                this.d = i + 1;
                 return byteArrayOutputStream.toString();
             }
             throw new IOException("LineReader is closed");
@@ -111,14 +103,14 @@ public class b implements Closeable {
     }
 
     public boolean b() {
-        return this.f39393e == -1;
+        return this.e == -1;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this.a) {
-            if (this.f39391c != null) {
-                this.f39391c = null;
+            if (this.c != null) {
+                this.c = null;
                 this.a.close();
             }
         }

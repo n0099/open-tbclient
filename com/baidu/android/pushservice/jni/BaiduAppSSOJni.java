@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BaiduAppSSOJni {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class BaiduAppSSOJni {
             }
             try {
                 key = getKey(str);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 cVar = new b.c(context);
                 cVar.a(Log.getStackTraceString(e)).a();
                 return null;
-            } catch (UnsatisfiedLinkError e3) {
-                e = e3;
+            } catch (UnsatisfiedLinkError e2) {
+                e = e2;
                 cVar = new b.c(context);
                 cVar.a(Log.getStackTraceString(e)).a();
                 return null;

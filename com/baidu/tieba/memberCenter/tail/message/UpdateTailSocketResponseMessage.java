@@ -1,6 +1,5 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.p0.j2.h.a.g;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kk7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UpdateTail.UpdateTailResIdl;
-/* loaded from: classes5.dex */
-public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<g> {
+/* loaded from: classes3.dex */
+public class UpdateTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<kk7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g resultData;
+    public kk7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UpdateTailSocketResponseMessage() {
@@ -37,7 +37,7 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
         }
     }
 
-    public static g getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static kk7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -53,11 +53,11 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
             if (updateTailResIdl.data == null) {
                 return null;
             }
-            g gVar = new g();
-            gVar.b(updateTailResIdl.data);
-            return gVar;
+            kk7 kk7Var = new kk7();
+            kk7Var.b(updateTailResIdl.data);
+            return kk7Var;
         }
-        return (g) invokeLIL.objValue;
+        return (kk7) invokeLIL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,9 +72,9 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage impl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public g getResultData() {
+    public kk7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (kk7) invokeV.objValue;
     }
 }

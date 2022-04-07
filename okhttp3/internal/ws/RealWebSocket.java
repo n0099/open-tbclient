@@ -294,8 +294,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         do {
                             try {
-                            } catch (IOException e2) {
-                                this.this$0.failWebSocket(e2, null);
+                            } catch (IOException e) {
+                                this.this$0.failWebSocket(e, null);
                                 return;
                             }
                         } while (this.this$0.writeOneFrame());
@@ -415,11 +415,11 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                                 this.this$0.initReaderAndWriter("OkHttp WebSocket " + this.val$request.url().redact(), newWebSocketStreams);
                                 streamAllocation.connection().socket().setSoTimeout(0);
                                 this.this$0.loopReader();
-                            } catch (Exception e2) {
-                                this.this$0.failWebSocket(e2, null);
+                            } catch (Exception e) {
+                                this.this$0.failWebSocket(e, null);
                             }
-                        } catch (ProtocolException e3) {
-                            this.this$0.failWebSocket(e3, response);
+                        } catch (ProtocolException e2) {
+                            this.this$0.failWebSocket(e2, response);
                             Util.closeQuietly(response);
                         }
                     }
@@ -575,8 +575,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             try {
                 this.reader.processNextFrame();
                 return this.receivedCloseCode == -1;
-            } catch (Exception e2) {
-                failWebSocket(e2, null);
+            } catch (Exception e) {
+                failWebSocket(e, null);
                 return false;
             }
         }
@@ -756,8 +756,8 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 }
                 try {
                     webSocketWriter.writePing(ByteString.EMPTY);
-                } catch (IOException e2) {
-                    failWebSocket(e2, null);
+                } catch (IOException e) {
+                    failWebSocket(e, null);
                 }
             }
         }

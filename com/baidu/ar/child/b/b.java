@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void e(byte[] bArr);
     }
@@ -126,11 +126,11 @@ public class b {
                             }
                             try {
                                 this.mi.a(new JSONObject(content), this.mh);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }

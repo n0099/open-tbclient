@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SdkConfig {
     public static final String DEF_NIGHT_THEME_STYLE_FILE_NAME = "ks_adsdk_night_styles.xml";
     @KsAdSdkApi
@@ -63,7 +63,7 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         @Nullable
         public String appId;
@@ -196,8 +196,8 @@ public class SdkConfig {
             builder.canReadNearbyWifiList = jSONObject.optBoolean("canReadNearbyWifiList");
             builder.canReadICCID = jSONObject.optBoolean("canReadICCID");
             builder.nightThemeStyleAssetsFileName = jSONObject.optString("nightThemeStyleAssetsFileName");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return builder.build();
     }
@@ -233,8 +233,8 @@ public class SdkConfig {
             jSONObject.put("canReadNearbyWifiList", this.canReadNearbyWifiList);
             jSONObject.put("canReadICCID", this.canReadICCID);
             jSONObject.put("nightThemeStyleAssetsFileName", this.nightThemeStyleAssetsFileName);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return jSONObject.toString();
     }

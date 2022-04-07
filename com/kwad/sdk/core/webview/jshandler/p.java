@@ -6,25 +6,19 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p implements com.kwad.sdk.core.webview.kwai.a {
     public b a;
+    public Handler b = new Handler(Looper.getMainLooper());
+    public com.kwad.sdk.core.webview.kwai.c c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f40071b = new Handler(Looper.getMainLooper());
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f40072c;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f40074b;
+        public String b;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         @MainThread
         void a(a aVar);
@@ -50,29 +44,29 @@ public class p implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f40072c = cVar;
+        this.c = cVar;
         try {
             final a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            this.f40071b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.p.1
                 @Override // java.lang.Runnable
                 public void run() {
                     p.this.a(aVar);
-                    if (p.this.f40072c != null) {
-                        p.this.f40072c.a(null);
+                    if (p.this.c != null) {
+                        p.this.c.a(null);
                     }
                 }
             });
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.e("WebCardPageStatusHandler", "handleJsCall error: " + e2);
-            cVar.a(-1, e2.getMessage());
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.e("WebCardPageStatusHandler", "handleJsCall error: " + e);
+            cVar.a(-1, e.getMessage());
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         this.a = null;
-        this.f40072c = null;
-        this.f40071b.removeCallbacksAndMessages(null);
+        this.c = null;
+        this.b.removeCallbacksAndMessages(null);
     }
 }

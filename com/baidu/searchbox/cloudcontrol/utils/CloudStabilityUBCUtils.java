@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudStabilityUBCUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CSS_CODE_ERROR = 2;
@@ -81,10 +81,10 @@ public class CloudStabilityUBCUtils {
                 if (AppConfig.isDebug()) {
                     Log.d(TAG, "doRequestStatistics 1929:" + jSONObject.toString());
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "doRequestStatistics error" + e2.toString());
-                    e2.printStackTrace();
+                    Log.d(TAG, "doRequestStatistics error" + e.toString());
+                    e.printStackTrace();
                 }
             }
         }
@@ -126,10 +126,10 @@ public class CloudStabilityUBCUtils {
                 if (AppConfig.isDebug()) {
                     Log.d(TAG, "doResponseStatistics 1928:" + jSONObject.toString());
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "doResponseStatistics error" + e2.toString());
-                    e2.printStackTrace();
+                    Log.d(TAG, "doResponseStatistics error" + e.toString());
+                    e.printStackTrace();
                 }
             }
         }

@@ -1,16 +1,16 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import c.a.o0.s.f.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jy4;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
-public class ContactComparator implements Comparator<a>, Serializable {
+/* loaded from: classes3.dex */
+public class ContactComparator implements Comparator<jy4>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 5856247139420779621L;
@@ -32,18 +32,18 @@ public class ContactComparator implements Comparator<a>, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(a aVar, a aVar2) {
+    public int compare(jy4 jy4Var, jy4 jy4Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-            if (aVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jy4Var, jy4Var2)) == null) {
+            if (jy4Var == null) {
                 return -1;
             }
-            if (aVar2 == null) {
+            if (jy4Var2 == null) {
                 return 1;
             }
-            String a = aVar.a();
-            String a2 = aVar2.a();
+            String a = jy4Var.a();
+            String a2 = jy4Var2.a();
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
                 if ("#".equals(a)) {
                     return 1;
@@ -53,20 +53,20 @@ public class ContactComparator implements Comparator<a>, Serializable {
                 }
                 return a.compareToIgnoreCase(a2);
             }
-            String f2 = aVar.f();
-            String f3 = aVar2.f();
-            if (TextUtils.isEmpty(f2)) {
+            String f = jy4Var.f();
+            String f2 = jy4Var2.f();
+            if (TextUtils.isEmpty(f)) {
                 return -1;
             }
-            if (TextUtils.isEmpty(f3)) {
+            if (TextUtils.isEmpty(f2)) {
                 return 1;
             }
-            String d2 = aVar.d();
-            String d3 = aVar2.d();
-            if (TextUtils.isEmpty(d2) || TextUtils.isEmpty(d3)) {
+            String d = jy4Var.d();
+            String d2 = jy4Var2.d();
+            if (TextUtils.isEmpty(d) || TextUtils.isEmpty(d2)) {
                 return 0;
             }
-            return d2.compareToIgnoreCase(d3);
+            return d.compareToIgnoreCase(d2);
         }
         return invokeLL.intValue;
     }

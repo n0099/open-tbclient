@@ -1,6 +1,5 @@
 package com.baidu.tieba.majorsearch.model;
 
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -17,17 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f34381b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +65,7 @@ public class SearchMajorModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);
@@ -81,7 +79,7 @@ public class SearchMajorModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onError(ErrorData errorData);
 
@@ -89,27 +87,27 @@ public class SearchMajorModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchMajorModel(f fVar, b bVar) {
-        super(fVar);
+    public SearchMajorModel(b9 b9Var, b bVar) {
+        super(b9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, bVar};
+            Object[] objArr = {b9Var, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f34381b = aVar;
+        this.b = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f34381b);
+        registerListener(this.b);
         this.a = bVar;
     }
 

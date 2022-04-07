@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MessageSupplierProxy implements MessageSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK_LIST_CAPACITY = 200;
@@ -103,8 +103,8 @@ public class MessageSupplierProxy implements MessageSupplier {
                     format = String.format(Locale.CHINA, "%s&%s=%d&%s=%d&%s=%d&hd_stime=%d", taskData.getContent(), BaseStatisContent.PACKID, Integer.valueOf(taskData.getPackId()), BaseStatisContent.CURPID, Integer.valueOf(this.monitor.getProcessId()), BaseStatisContent.REMAIN, Integer.valueOf(taskData.getRemain()), Long.valueOf(Util.wallTimeMillis()));
                 }
                 return new Message(taskData.getAct() + "_" + taskData.getDataId(), 1, format2, format.getBytes("UTF-8"), format.length());
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -205,8 +205,8 @@ public class MessageSupplierProxy implements MessageSupplier {
                 sb.append(PreferencesUtil.RIGHT_MOUNT);
                 sb2.setLength(sb2.length() - 1);
                 return new Message(sb2.toString(), list.size(), "act=mbsdkdata", sb.toString().getBytes("UTF-8"), sb.length());
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return null;
             }
         }

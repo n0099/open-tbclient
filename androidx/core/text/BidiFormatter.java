@@ -87,10 +87,10 @@ public final class BidiFormatter {
             this.length = charSequence.length();
         }
 
-        public static byte getCachedDirectionality(char c2) {
+        public static byte getCachedDirectionality(char c) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 1792 ? DIR_TYPE_CACHE[c2] : Character.getDirectionality(c2) : invokeCommon.byteValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) ? c < 1792 ? DIR_TYPE_CACHE[c] : Character.getDirectionality(c) : invokeCommon.byteValue;
         }
 
         private byte skipEntityBackward() {
@@ -162,7 +162,7 @@ public final class BidiFormatter {
                     if (charAt2 == '>') {
                         break;
                     } else if (charAt2 == '\"' || charAt2 == '\'') {
-                        char c2 = this.lastChar;
+                        char c = this.lastChar;
                         do {
                             int i4 = this.charIndex;
                             if (i4 > 0) {
@@ -172,7 +172,7 @@ public final class BidiFormatter {
                                 charAt = charSequence2.charAt(i5);
                                 this.lastChar = charAt;
                             }
-                        } while (charAt != c2);
+                        } while (charAt != c);
                     }
                 }
                 this.charIndex = i;
@@ -201,7 +201,7 @@ public final class BidiFormatter {
                         return (byte) 12;
                     }
                     if (charAt2 == '\"' || charAt2 == '\'') {
-                        char c2 = this.lastChar;
+                        char c = this.lastChar;
                         do {
                             int i3 = this.charIndex;
                             if (i3 < this.length) {
@@ -210,7 +210,7 @@ public final class BidiFormatter {
                                 charAt = charSequence2.charAt(i3);
                                 this.lastChar = charAt;
                             }
-                        } while (charAt != c2);
+                        } while (charAt != c);
                     }
                 } else {
                     this.charIndex = i;
@@ -234,11 +234,11 @@ public final class BidiFormatter {
                 this.charIndex--;
                 byte cachedDirectionality = getCachedDirectionality(this.lastChar);
                 if (this.isHtml) {
-                    char c2 = this.lastChar;
-                    if (c2 == '>') {
+                    char c = this.lastChar;
+                    if (c == '>') {
                         return skipTagBackward();
                     }
-                    return c2 == ';' ? skipEntityBackward() : cachedDirectionality;
+                    return c == ';' ? skipEntityBackward() : cachedDirectionality;
                 }
                 return cachedDirectionality;
             }
@@ -259,11 +259,11 @@ public final class BidiFormatter {
                 this.charIndex++;
                 byte cachedDirectionality = getCachedDirectionality(this.lastChar);
                 if (this.isHtml) {
-                    char c2 = this.lastChar;
-                    if (c2 == '<') {
+                    char c = this.lastChar;
+                    if (c == '<') {
                         return skipTagForward();
                     }
-                    return c2 == '&' ? skipEntityForward() : cachedDirectionality;
+                    return c == '&' ? skipEntityForward() : cachedDirectionality;
                 }
                 return cachedDirectionality;
             }

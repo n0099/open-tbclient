@@ -17,7 +17,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LinkProxyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class LinkProxyActivity extends Activity {
                             aa.a(this, intent2);
                         }
                     }
-                } catch (Exception e2) {
-                    p.a("LinkProxyActivity", e2.toString(), e2);
+                } catch (Exception e) {
+                    p.a("LinkProxyActivity", e.toString(), e);
                 }
             } else {
                 try {
@@ -103,8 +103,8 @@ public class LinkProxyActivity extends Activity {
                         if (!z) {
                         }
                     }
-                } catch (Exception e3) {
-                    p.a("LinkProxyActivity", e3.toString(), e3);
+                } catch (Exception e2) {
+                    p.a("LinkProxyActivity", e2.toString(), e2);
                 }
             }
             finish();

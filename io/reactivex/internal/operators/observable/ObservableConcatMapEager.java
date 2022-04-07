@@ -42,9 +42,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public final Observer<? super R> actual;
         public volatile boolean cancelled;
         public InnerQueuedObserver<R> current;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45329d;
+        public Disposable d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final ErrorMode errorMode;
@@ -147,7 +145,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                             i2++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f45329d.dispose();
+                            this.d.dispose();
                             simpleQueue.clear();
                             disposeAll();
                             this.error.addThrowable(th);
@@ -246,7 +244,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             if (interceptable == null || interceptable.invokeLL(1048580, this, innerQueuedObserver, th) == null) {
                 if (this.error.addThrowable(th)) {
                     if (this.errorMode == ErrorMode.IMMEDIATE) {
-                        this.f45329d.dispose();
+                        this.d.dispose();
                     }
                     innerQueuedObserver.setDone();
                     drain();
@@ -308,8 +306,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f45329d, disposable)) {
-                this.f45329d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);

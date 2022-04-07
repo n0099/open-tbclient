@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class j implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public abstract class j implements Closeable {
             synchronized (this) {
                 try {
                     this.a.close();
-                } catch (Exception e2) {
-                    bb.c().b(e2);
+                } catch (Exception e) {
+                    bb.c().b(e);
                 }
             }
         }
@@ -83,8 +83,8 @@ public abstract class j implements Closeable {
             synchronized (this) {
                 try {
                     a = this.a.a();
-                } catch (Exception e2) {
-                    bb.c().b(e2);
+                } catch (Exception e) {
+                    bb.c().b(e);
                     return false;
                 }
             }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UniqueId implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<UniqueId> CREATOR;
@@ -22,7 +22,7 @@ public class UniqueId implements Parcelable {
     public final String alias;
     public final int id;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a implements Parcelable.Creator<UniqueId> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

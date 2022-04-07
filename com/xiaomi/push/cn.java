@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,8 @@ public class cn {
 
     /* renamed from: a  reason: collision with other field name */
     public String f171a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f44133b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f44134c;
+    public long b;
+    public long c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cn() {
@@ -62,8 +58,8 @@ public class cn {
         }
         this.a = i;
         this.f170a = j;
-        this.f44134c = j2;
-        this.f44133b = System.currentTimeMillis();
+        this.c = j2;
+        this.b = System.currentTimeMillis();
         if (exc != null) {
             this.f171a = exc.getClass().getSimpleName();
         }
@@ -80,8 +76,8 @@ public class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             this.f170a = jSONObject.getLong("cost");
-            this.f44134c = jSONObject.getLong("size");
-            this.f44133b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.c = jSONObject.getLong("size");
+            this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.a = jSONObject.getInt("wt");
             this.f171a = jSONObject.optString("expt");
             return this;
@@ -90,14 +86,14 @@ public class cn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m260a() {
+    public JSONObject m256a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cost", this.f170a);
-            jSONObject.put("size", this.f44134c);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f44133b);
+            jSONObject.put("size", this.c);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
             jSONObject.put("wt", this.a);
             jSONObject.put("expt", this.f171a);
             return jSONObject;

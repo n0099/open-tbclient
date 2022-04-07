@@ -5,15 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.a0.j.i.a;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pk0;
+import com.repackage.yj0;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH = "key_download_path";
@@ -54,18 +55,18 @@ public class NotificationReceiver extends BroadcastReceiver {
                     method = systemService.getClass().getMethod("collapsePanels", new Class[0]);
                 }
                 method.invoke(systemService, new Object[0]);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
     private void installApk(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || a.b(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || pk0.b(str2)) {
             return;
         }
-        a.c(new File(str));
+        pk0.c(new File(str));
     }
 
     private void onNotificationClick(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -76,18 +77,18 @@ public class NotificationReceiver extends BroadcastReceiver {
                 installApk(str3, str2);
                 str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
             } else {
-                a.g(str2);
+                pk0.g(str2);
                 str6 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);
-            c.a.a0.j.e.a.f().g(str6, str5, str4, str);
+            yj0.f().g(str6, str5, str4, str);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             String action = intent.getAction();
@@ -102,49 +103,49 @@ public class NotificationReceiver extends BroadcastReceiver {
             switch (action.hashCode()) {
                 case -1188361885:
                     if (action.equals(RECEIVER_ACTION_CLICK_BUTTON)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 271595908:
                     if (action.equals(RECEIVER_ACTION_CLICK_ITEM)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1267922740:
                     if (action.equals(RECEIVER_ACTION_REMOVE_ITEM)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1894906278:
                     if (action.equals(RECEIVER_ACTION_DOWNLOAD_SUCCESS)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 installApk(stringExtra2, stringExtra);
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_ITEM_CLICK.type);
-            } else if (c2 != 2) {
-                if (c2 != 3) {
+            } else if (c != 2) {
+                if (c != 3) {
                     return;
                 }
-                c.a.a0.j.e.a.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                yj0.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
             } else {
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    c.a.a0.j.e.a.f().a(intExtra);
+                    yj0.f().a(intExtra);
                 }
             }
         }

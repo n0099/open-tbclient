@@ -17,7 +17,7 @@ import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKDomNode<T extends View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,10 +85,10 @@ public class TKDomNode<T extends View> {
         return (String) invokeV.objValue;
     }
 
-    public static <T extends View> TKDomNode nodeForView(View view, String[] strArr) {
+    public static <T extends View> TKDomNode nodeForView(View view2, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, strArr)) == null) {
             return new TKDomNode(null, strArr.length > 0 ? strArr[0] : null);
         }
         return (TKDomNode) invokeLL.objValue;
@@ -120,14 +120,14 @@ public class TKDomNode<T extends View> {
         return (YogaLayout) invokeV.objValue;
     }
 
-    public void addSubview(View view, YogaNode yogaNode) {
+    public void addSubview(View view2, YogaNode yogaNode) {
         YogaLayout superview;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, yogaNode) == null) || view == null || yogaNode == null || (superview = superview()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, yogaNode) == null) || view2 == null || yogaNode == null || (superview = superview()) == null) {
             return;
         }
         int childCount = this.yogaNode.getChildCount();
-        superview.addView(view, yogaNode);
+        superview.addView(view2, yogaNode);
         this.yogaNode.addChildAt(yogaNode, childCount);
     }
 

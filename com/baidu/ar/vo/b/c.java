@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c implements a, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -84,11 +84,11 @@ public class c implements a, b {
             fArr[9] = fArr3[9];
             fArr[10] = fArr3[10];
             float scale = this.yK.getScale();
-            float f2 = fArr[12];
-            float f3 = this.yP;
-            fArr[12] = f2 * f3 * scale;
-            fArr[13] = fArr[13] * f3 * scale;
-            fArr[14] = fArr[14] * f3 * scale;
+            float f = fArr[12];
+            float f2 = this.yP;
+            fArr[12] = f * f2 * scale;
+            fArr[13] = fArr[13] * f2 * scale;
+            fArr[14] = fArr[14] * f2 * scale;
             Matrix.rotateM(fArr, 0, this.yN - 90.0f, 0.0f, 0.0f, 1.0f);
         }
     }
@@ -136,13 +136,13 @@ public class c implements a, b {
     }
 
     @Override // com.baidu.ar.vo.b.a
-    public float[] a(float f2, float[] fArr) {
+    public float[] a(float f, float[] fArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), fArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), fArr})) == null) {
             if (this.yL) {
                 float[] fArr2 = new float[2];
-                return new float[]{ARVOJniClient.calModelPosition(this.yK.aj(), f2, p(fArr), fArr2), fArr2[0], fArr2[1]};
+                return new float[]{ARVOJniClient.calModelPosition(this.yK.aj(), f, p(fArr), fArr2), fArr2[0], fArr2[1]};
             }
             return null;
         }
@@ -169,20 +169,20 @@ public class c implements a, b {
                 com.baidu.ar.libloader.a.require("module_basic");
                 com.baidu.ar.libloader.a.require("module_vo");
                 this.yL = ARVOJniClient.start(this.yK.width, this.yK.height, this.yK.aj(), this.yK.ak());
-            } catch (UnsatisfiedLinkError e2) {
+            } catch (UnsatisfiedLinkError e) {
                 String str = TAG;
-                com.baidu.ar.h.b.b(str, "slam algo UnsatisfiedLinkError " + e2.getMessage());
+                com.baidu.ar.h.b.b(str, "slam algo UnsatisfiedLinkError " + e.getMessage());
             }
         }
     }
 
     @Override // com.baidu.ar.vo.b.a
-    public int insertModel(String str, int i, int i2, float[] fArr, float f2) {
+    public int insertModel(String str, int i, int i2, float[] fArr, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f)})) == null) {
             if (this.yL) {
-                this.yP = f2;
+                this.yP = f;
                 if (fArr == null) {
                     fArr = yI;
                 }

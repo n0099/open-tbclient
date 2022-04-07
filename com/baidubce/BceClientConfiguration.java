@@ -17,7 +17,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.net.InetAddress;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ACCPET_ENCODING = null;

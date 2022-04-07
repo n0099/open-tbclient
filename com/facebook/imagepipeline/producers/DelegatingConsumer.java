@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
     }
 
     @Override // com.facebook.imagepipeline.producers.BaseConsumer
-    public void onProgressUpdateImpl(float f2) {
+    public void onProgressUpdateImpl(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.mConsumer.onProgressUpdate(f2);
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.mConsumer.onProgressUpdate(f);
         }
     }
 }

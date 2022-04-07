@@ -29,7 +29,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VodClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
@@ -110,8 +110,8 @@ public class VodClient extends AbstractBceClient {
                 internalRequest.addHeader("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
                 internalRequest.setContent(RestartableInputStream.wrap(bytes));
                 return internalRequest;
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Unsupported encode.", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Unsupported encode.", e);
             }
         }
         return (InternalRequest) invokeLL.objValue;

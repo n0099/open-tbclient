@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,41 +25,21 @@ public class gg {
 
     /* renamed from: a  reason: collision with other field name */
     public List<fz> f417a;
+    public String b;
+    public String c;
+    public String d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f44299b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f44300c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f44301d;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f44302b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f44303c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final a f44304d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final a f44305e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final a f44306f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final a f44307g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public static final a f44308h;
+        public static final a b;
+        public static final a c;
+        public static final a d;
+        public static final a e;
+        public static final a f;
+        public static final a g;
+        public static final a h;
         public static final a i;
         public static final a j;
         public static final a k;
@@ -95,13 +75,13 @@ public class gg {
                 }
             }
             a = new a("internal-server-error");
-            f44302b = new a("forbidden");
-            f44303c = new a("bad-request");
-            f44304d = new a("conflict");
-            f44305e = new a("feature-not-implemented");
-            f44306f = new a("gone");
-            f44307g = new a("item-not-found");
-            f44308h = new a("jid-malformed");
+            b = new a("forbidden");
+            c = new a("bad-request");
+            d = new a("conflict");
+            e = new a("feature-not-implemented");
+            f = new a("gone");
+            g = new a("item-not-found");
+            h = new a("jid-malformed");
             i = new a("not-acceptable");
             j = new a("not-allowed");
             k = new a("not-authorized");
@@ -163,9 +143,9 @@ public class gg {
         this.f417a = null;
         this.a = i;
         this.f416a = str;
-        this.f44300c = str2;
-        this.f44299b = str3;
-        this.f44301d = str4;
+        this.c = str2;
+        this.b = str3;
+        this.d = str4;
         this.f417a = list;
     }
 
@@ -189,9 +169,9 @@ public class gg {
         if (bundle.containsKey("ext_err_type")) {
             this.f416a = bundle.getString("ext_err_type");
         }
-        this.f44299b = bundle.getString("ext_err_cond");
-        this.f44300c = bundle.getString("ext_err_reason");
-        this.f44301d = bundle.getString("ext_err_msg");
+        this.b = bundle.getString("ext_err_cond");
+        this.c = bundle.getString("ext_err_reason");
+        this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f417a = new ArrayList(parcelableArray.length);
@@ -221,13 +201,13 @@ public class gg {
         }
         this.f417a = null;
         a(aVar);
-        this.f44301d = null;
+        this.d = null;
     }
 
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            this.f44299b = aVar.f418a;
+            this.b = aVar.f418a;
         }
     }
 
@@ -241,15 +221,15 @@ public class gg {
                 bundle.putString("ext_err_type", str);
             }
             bundle.putInt("ext_err_code", this.a);
-            String str2 = this.f44300c;
+            String str2 = this.c;
             if (str2 != null) {
                 bundle.putString("ext_err_reason", str2);
             }
-            String str3 = this.f44299b;
+            String str3 = this.b;
             if (str3 != null) {
                 bundle.putString("ext_err_cond", str3);
             }
-            String str4 = this.f44301d;
+            String str4 = this.d;
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
@@ -272,7 +252,7 @@ public class gg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m389a() {
+    public String m385a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -285,23 +265,23 @@ public class gg {
                 sb.append(this.f416a);
                 sb.append("\"");
             }
-            if (this.f44300c != null) {
+            if (this.c != null) {
                 sb.append(" reason=\"");
-                sb.append(this.f44300c);
+                sb.append(this.c);
                 sb.append("\"");
             }
             sb.append(">");
-            if (this.f44299b != null) {
+            if (this.b != null) {
                 sb.append("<");
-                sb.append(this.f44299b);
+                sb.append(this.b);
                 sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
             }
-            if (this.f44301d != null) {
+            if (this.d != null) {
                 sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-                sb.append(this.f44301d);
+                sb.append(this.d);
                 sb.append("</text>");
             }
-            for (fz fzVar : m390a()) {
+            for (fz fzVar : m386a()) {
                 sb.append(fzVar.d());
             }
             sb.append("</error>");
@@ -311,7 +291,7 @@ public class gg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<fz> m390a() {
+    public synchronized List<fz> m386a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -327,16 +307,16 @@ public class gg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            String str = this.f44299b;
+            String str = this.b;
             if (str != null) {
                 sb.append(str);
             }
             sb.append("(");
             sb.append(this.a);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            if (this.f44301d != null) {
+            if (this.d != null) {
                 sb.append(" ");
-                sb.append(this.f44301d);
+                sb.append(this.d);
             }
             return sb.toString();
         }

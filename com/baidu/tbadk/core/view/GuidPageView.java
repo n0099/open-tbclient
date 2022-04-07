@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GuidPageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,17 +41,17 @@ public class GuidPageView extends ImageView {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getBackground() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getBackground() == null) {
                 return;
             }
-            Bitmap bitmap = ((BitmapDrawable) view.getBackground()).getBitmap();
-            view.setBackgroundDrawable(null);
+            Bitmap bitmap = ((BitmapDrawable) view2.getBackground()).getBitmap();
+            view2.setBackgroundDrawable(null);
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
             }
-            view.setVisibility(8);
+            view2.setVisibility(8);
         }
     }
 

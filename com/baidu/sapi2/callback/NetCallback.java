@@ -1,5 +1,5 @@
 package com.baidu.sapi2.callback;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface NetCallback {
     void onFailure(Throwable th, int i, String str);
 

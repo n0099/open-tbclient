@@ -4,7 +4,7 @@ import android.view.View;
 import com.kwad.sdk.core.imageloader.core.assist.FailReason;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SimpleImageLoadingListener implements ImageLoadingListener {
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
     public boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {
@@ -12,18 +12,18 @@ public class SimpleImageLoadingListener implements ImageLoadingListener {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-    public void onLoadingCancelled(String str, View view) {
+    public void onLoadingCancelled(String str, View view2) {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-    public void onLoadingComplete(String str, View view, DecodedResult decodedResult) {
+    public void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-    public void onLoadingFailed(String str, View view, FailReason failReason) {
+    public void onLoadingFailed(String str, View view2, FailReason failReason) {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-    public void onLoadingStarted(String str, View view) {
+    public void onLoadingStarted(String str, View view2) {
     }
 }

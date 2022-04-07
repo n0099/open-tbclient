@@ -189,11 +189,11 @@ public final class Http2Reader implements Closeable {
         this.hpackReader = new Hpack.Reader(4096, continuationSource);
     }
 
-    public static int lengthWithoutPadding(int i, byte b2, short s) throws IOException {
+    public static int lengthWithoutPadding(int i, byte b, short s) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Byte.valueOf(b2), Short.valueOf(s)})) == null) {
-            if ((b2 & 8) != 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Byte.valueOf(b), Short.valueOf(s)})) == null) {
+            if ((b & 8) != 0) {
                 i--;
             }
             if (s <= i) {
@@ -204,16 +204,16 @@ public final class Http2Reader implements Closeable {
         return invokeCommon.intValue;
     }
 
-    private void readData(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readData(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i2 == 0) {
                 throw Http2.ioException("PROTOCOL_ERROR: TYPE_DATA streamId == 0", new Object[0]);
             }
-            boolean z = (b2 & 1) != 0;
-            if (!((b2 & 32) != 0)) {
-                short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-                handler.data(z, i2, this.source, lengthWithoutPadding(i, b2, readByte));
+            boolean z = (b & 1) != 0;
+            if (!((b & 32) != 0)) {
+                short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+                handler.data(z, i2, this.source, lengthWithoutPadding(i, b, readByte));
                 this.source.skip(readByte);
                 return;
             }
@@ -221,9 +221,9 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readGoAway(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readGoAway(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i < 8) {
                 throw Http2.ioException("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i));
             }
@@ -246,15 +246,15 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private List<Header> readHeaderBlock(int i, short s, byte b2, int i2) throws IOException {
+    private List<Header> readHeaderBlock(int i, short s, byte b, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Short.valueOf(s), Byte.valueOf(b), Integer.valueOf(i2)})) == null) {
             ContinuationSource continuationSource = this.continuation;
             continuationSource.left = i;
             continuationSource.length = i;
             continuationSource.padding = s;
-            continuationSource.flags = b2;
+            continuationSource.flags = b;
             continuationSource.streamId = i2;
             this.hpackReader.readHeaders();
             return this.hpackReader.getAndResetHeaderList();
@@ -262,17 +262,17 @@ public final class Http2Reader implements Closeable {
         return (List) invokeCommon.objValue;
     }
 
-    private void readHeaders(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readHeaders(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i2 != 0) {
-                boolean z = (b2 & 1) != 0;
-                short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-                if ((b2 & 32) != 0) {
+                boolean z = (b & 1) != 0;
+                short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+                if ((b & 32) != 0) {
                     readPriority(handler, i2);
                     i -= 5;
                 }
-                handler.headers(z, i2, -1, readHeaderBlock(lengthWithoutPadding(i, b2, readByte), readByte, b2, i2));
+                handler.headers(z, i2, -1, readHeaderBlock(lengthWithoutPadding(i, b, readByte), readByte, b, i2));
                 return;
             }
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_HEADERS streamId == 0", new Object[0]);
@@ -285,23 +285,23 @@ public final class Http2Reader implements Closeable {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bufferedSource)) == null) ? (bufferedSource.readByte() & 255) | ((bufferedSource.readByte() & 255) << 16) | ((bufferedSource.readByte() & 255) << 8) : invokeL.intValue;
     }
 
-    private void readPing(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readPing(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i != 8) {
                 throw Http2.ioException("TYPE_PING length != 8: %s", Integer.valueOf(i));
             }
             if (i2 == 0) {
-                handler.ping((b2 & 1) != 0, this.source.readInt(), this.source.readInt());
+                handler.ping((b & 1) != 0, this.source.readInt(), this.source.readInt());
                 return;
             }
             throw Http2.ioException("TYPE_PING streamId != 0", new Object[0]);
         }
     }
 
-    private void readPriority(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readPriority(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i != 5) {
                 throw Http2.ioException("TYPE_PRIORITY length: %d != 5", Integer.valueOf(i));
             }
@@ -313,21 +313,21 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readPushPromise(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readPushPromise(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i2 != 0) {
-                short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
-                handler.pushPromise(i2, this.source.readInt() & Integer.MAX_VALUE, readHeaderBlock(lengthWithoutPadding(i - 4, b2, readByte), readByte, b2, i2));
+                short readByte = (b & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;
+                handler.pushPromise(i2, this.source.readInt() & Integer.MAX_VALUE, readHeaderBlock(lengthWithoutPadding(i - 4, b, readByte), readByte, b, i2));
                 return;
             }
             throw Http2.ioException("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
     }
 
-    private void readRstStream(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readRstStream(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i != 4) {
                 throw Http2.ioException("TYPE_RST_STREAM length: %d != 4", Integer.valueOf(i));
             }
@@ -344,13 +344,13 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readSettings(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readSettings(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i2 != 0) {
                 throw Http2.ioException("TYPE_SETTINGS streamId != 0", new Object[0]);
             }
-            if ((b2 & 1) != 0) {
+            if ((b & 1) != 0) {
                 if (i == 0) {
                     handler.ackSettings();
                     return;
@@ -384,9 +384,9 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    private void readWindowUpdate(Handler handler, int i, byte b2, int i2) throws IOException {
+    private void readWindowUpdate(Handler handler, int i, byte b, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{handler, Integer.valueOf(i), Byte.valueOf(b), Integer.valueOf(i2)}) == null) {
             if (i != 4) {
                 throw Http2.ioException("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i));
             }

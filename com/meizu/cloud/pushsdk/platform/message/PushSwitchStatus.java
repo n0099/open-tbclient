@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.platform.message;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PushSwitchStatus extends BasicPushStatus {
     public String pushId;
     public boolean switchNotificationMessage;

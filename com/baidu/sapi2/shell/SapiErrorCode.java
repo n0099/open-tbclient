@@ -1,7 +1,7 @@
 package com.baidu.sapi2.shell;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface SapiErrorCode extends NoProguard {
     public static final int ACCESS_CODE_EMPTY = -101101;
     public static final int CANNOT_LOGIN = 16;

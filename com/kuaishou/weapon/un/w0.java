@@ -19,7 +19,7 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class w0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A = 211;
@@ -286,9 +286,7 @@ public class w0 {
     public static final int a6 = 5000;
     public static final int a7 = 9059;
     public static final int a8 = 9007;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f39018b = 24;
+    public static final int b = 24;
     public static final int b0 = 65;
     public static final int b1 = 199;
     public static final int b2 = 16002;
@@ -298,9 +296,7 @@ public class w0 {
     public static final int b6 = 5001;
     public static final int b7 = 9060;
     public static final int b8 = 9008;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f39019c = 22;
+    public static final int c = 22;
     public static final int c0 = 214;
     public static final int c1 = 232;
     public static final int c2 = 1001;
@@ -310,9 +306,7 @@ public class w0 {
     public static final int c6 = 5002;
     public static final int c7 = 9061;
     public static final int c8 = 9009;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f39020d = 2;
+    public static final int d = 2;
     public static final int d0 = 168;
     public static final int d1 = 240;
     public static final int d2 = 45;
@@ -322,9 +316,7 @@ public class w0 {
     public static final int d6 = 5003;
     public static final int d7 = 9062;
     public static final int d8 = 9010;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f39021e = 130;
+    public static final int e = 130;
     public static final int e0 = 186;
     public static final int e1 = 62;
     public static final int e2 = 15001;
@@ -334,9 +326,7 @@ public class w0 {
     public static final int e6 = 5004;
     public static final int e7 = 9063;
     public static final int e8 = 9011;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f39022f = 218;
+    public static final int f = 218;
     public static final int f0 = 85;
     public static final String f1 = "Actions";
     public static final int f2 = 15002;
@@ -346,9 +336,7 @@ public class w0 {
     public static final int f6 = 5005;
     public static final int f7 = 9064;
     public static final int f8 = 9012;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f39023g = 193;
+    public static final int g = 193;
     public static final int g0 = 267;
     public static final String g1 = "Allwinner";
     public static final int g2 = 46;
@@ -358,9 +346,7 @@ public class w0 {
     public static final int g6 = 5006;
     public static final int g7 = 9065;
     public static final int g8 = 9013;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f39024h = 212;
+    public static final int h = 212;
     public static final int h0 = 221;
     public static final String h1 = "AMD";
     public static final int h2 = 47;

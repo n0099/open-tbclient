@@ -9,7 +9,7 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.fp;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bw extends fm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,16 +39,16 @@ public class bw extends fm {
 
     @Override // com.xiaomi.push.fm
     /* renamed from: a */
-    public byte[] mo370a() {
+    public byte[] mo366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 du.b bVar = new du.b();
-                bVar.a(bi.a().m657a());
-                return bVar.m323a();
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("getOBBString err: " + e2.toString());
+                bVar.a(bi.a().m653a());
+                return bVar.m319a();
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("getOBBString err: " + e.toString());
                 return null;
             }
         }

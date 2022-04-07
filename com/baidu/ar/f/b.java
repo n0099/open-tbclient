@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static b wd;
@@ -60,21 +60,21 @@ public class b {
         aVar.S(z);
     }
 
-    public void b(a.InterfaceC1716a interfaceC1716a) {
+    public void b(a.InterfaceC0056a interfaceC0056a) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1716a) == null) || (aVar = this.we) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0056a) == null) || (aVar = this.we) == null) {
             return;
         }
-        aVar.a(interfaceC1716a);
+        aVar.a(interfaceC0056a);
         if (this.wf) {
             return;
         }
         try {
             this.we.start();
             this.wf = true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

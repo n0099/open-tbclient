@@ -13,23 +13,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ThumbView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Drawable f37149b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f37150c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f37151d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f37152e;
+    public Drawable b;
+    public boolean c;
+    public int d;
+    public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThumbView(Context context, int i, int i2, Drawable drawable) {
@@ -49,11 +41,11 @@ public class ThumbView extends View {
                 return;
             }
         }
-        this.f37151d = i;
-        this.f37152e = i2;
-        this.f37149b = drawable;
+        this.d = i;
+        this.e = i2;
+        this.b = drawable;
         this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundDrawable(this.f37149b);
+        setBackgroundDrawable(this.b);
     }
 
     public boolean a(int i, int i2) {
@@ -77,14 +69,14 @@ public class ThumbView extends View {
     public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37150c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f37151d, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f37152e, 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.d, 1073741824), View.MeasureSpec.makeMeasureSpec(this.e, 1073741824));
         }
     }
 
@@ -92,28 +84,28 @@ public class ThumbView extends View {
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37150c = z;
+            this.c = z;
         }
     }
 
     public void setThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f37149b = drawable;
+            this.b = drawable;
         }
     }
 
     public void setThumbHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f37152e = i;
+            this.e = i;
         }
     }
 
     public void setThumbWidth(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f37151d = i;
+            this.d = i;
         }
     }
 }

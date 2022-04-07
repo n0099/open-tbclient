@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
     public static MessageDigest md5;
@@ -29,8 +29,8 @@ public class Md5Util {
         }
         try {
             md5 = MessageDigest.getInstance("MD5");
-        } catch (Exception e2) {
-            System.out.println(e2.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -54,8 +54,8 @@ public class Md5Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             byte[] digest = md5.digest(str.getBytes());
             StringBuilder sb = new StringBuilder(40);
-            for (byte b2 : digest) {
-                int i = b2 & 255;
+            for (byte b : digest) {
+                int i = b & 255;
                 if ((i >> 4) == 0) {
                     sb.append("0");
                     sb.append(Integer.toHexString(i));

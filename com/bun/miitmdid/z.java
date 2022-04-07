@@ -17,29 +17,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f38003d = "MsaClient";
+    public static String d = "MsaClient";
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection a;
+    public Context b;
+    public MsaIdInterface c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Context f38004b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public MsaIdInterface f38005c;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a0 a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ z f38006b;
+        public final /* synthetic */ z b;
 
         public a(z zVar, a0 a0Var) {
             Interceptable interceptable = $ic;
@@ -56,7 +48,7 @@ public class z {
                     return;
                 }
             }
-            this.f38006b = zVar;
+            this.b = zVar;
             this.a = a0Var;
         }
 
@@ -65,9 +57,9 @@ public class z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 synchronized (this) {
-                    this.f38006b.f38005c = MsaIdInterface.Stub.asInterface(iBinder);
-                    new y(this.f38006b.f38005c, this.a).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-                    String str = z.f38003d;
+                    this.b.c = MsaIdInterface.Stub.asInterface(iBinder);
+                    new y(this.b.c, this.a).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+                    String str = z.d;
                 }
             }
         }
@@ -76,7 +68,7 @@ public class z {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f38006b.f38005c = null;
+                this.b.c = null;
             }
         }
     }
@@ -114,7 +106,7 @@ public class z {
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f38004b = context;
+        this.b = context;
         this.a = new a(this, a0Var);
     }
 
@@ -136,7 +128,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f38005c;
+                MsaIdInterface msaIdInterface = this.c;
                 return msaIdInterface != null ? msaIdInterface.getAAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -152,7 +144,7 @@ public class z {
             intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
             intent.setAction("com.bun.msa.action.bindto.service");
             intent.putExtra("com.bun.msa.param.pkgname", str);
-            if (!this.f38004b.bindService(intent, this.a, 1)) {
+            if (!this.b.bindService(intent, this.a, 1)) {
                 throw new NullPointerException("BindService failed.");
             }
         }
@@ -163,7 +155,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f38005c;
+                MsaIdInterface msaIdInterface = this.c;
                 return msaIdInterface != null ? msaIdInterface.getOAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -177,7 +169,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f38005c;
+                MsaIdInterface msaIdInterface = this.c;
                 return msaIdInterface != null ? msaIdInterface.getVAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -191,7 +183,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f38005c;
+                MsaIdInterface msaIdInterface = this.c;
                 if (msaIdInterface != null) {
                     return msaIdInterface.isSupported();
                 }
@@ -206,16 +198,16 @@ public class z {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MsaIdInterface msaIdInterface = this.f38005c;
+            MsaIdInterface msaIdInterface = this.c;
             if (msaIdInterface != null) {
                 try {
                     msaIdInterface.shutDown();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
             try {
-                this.f38004b.unbindService(this.a);
+                this.b.unbindService(this.a);
             } catch (IllegalArgumentException unused) {
             }
         }

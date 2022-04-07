@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import c.a.d.f.p.n;
-import c.a.p0.l4.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,7 +26,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.bs8;
+import com.repackage.oi;
+/* loaded from: classes2.dex */
 public class KuangFloatingWindowController {
     public static /* synthetic */ Interceptable $ic;
     public static boolean currentStatus;
@@ -196,7 +196,7 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return n.f(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds800);
             }
             WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -227,8 +227,8 @@ public class KuangFloatingWindowController {
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
-            View view = this.mFloatingView;
-            if (view == null || view.getParent() == null) {
+            View view2 = this.mFloatingView;
+            if (view2 == null || view2.getParent() == null) {
                 return;
             }
             try {
@@ -250,11 +250,11 @@ public class KuangFloatingWindowController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.mFloatingView;
-            if (view != null) {
-                return view.getParent() == null;
+            View view2 = this.mFloatingView;
+            if (view2 != null) {
+                return view2.getParent() == null;
             }
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null);
             this.mFloatingView = inflate;
             inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingWindowController.4
                 public static /* synthetic */ Interceptable $ic;
@@ -280,9 +280,9 @@ public class KuangFloatingWindowController {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         TbSingleton.getInstance().isShowBackLabel = false;
                         this.this$0.hideFloatingView();
                         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -306,13 +306,13 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = e.a(2002);
+            layoutParams.type = bs8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");

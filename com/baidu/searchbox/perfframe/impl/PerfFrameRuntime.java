@@ -1,7 +1,5 @@
 package com.baidu.searchbox.perfframe.impl;
 
-import c.a.g0.a.b.b;
-import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
@@ -11,13 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.rb1;
+import com.repackage.tb1;
+/* loaded from: classes2.dex */
 public class PerfFrameRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static PerfFrameRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public d<IPerfFrameRegister> mIPerfFrameMonitorList;
+    public tb1<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public PerfFrameRuntime() {
         Interceptable interceptable = $ic;
@@ -51,18 +51,18 @@ public class PerfFrameRuntime {
         return (PerfFrameRuntime) invokeV.objValue;
     }
 
-    public d<IPerfFrameRegister> getPerfFrameRegister() {
+    public tb1<IPerfFrameRegister> getPerfFrameRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIPerfFrameMonitorList : (tb1) invokeV.objValue;
     }
 
     public void initmIPerfFrameMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b b2 = b.b();
-            this.mIPerfFrameMonitorList = b2;
-            b2.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
+            rb1 b = rb1.b();
+            this.mIPerfFrameMonitorList = b;
+            b.a(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
         }
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                     arrayList2.add(optJSONArray2.getString(i2));
                 }
                 getMediaResourceResponse.setThumbnailList(arrayList2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.subtitle;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.h;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
+import com.repackage.yb9;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SubtitleLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -69,7 +69,7 @@ public final class SubtitleLog {
     public static <T extends RichStickerBaseUnit> void d(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            if (h.e(list)) {
+            if (yb9.e(list)) {
                 d("list empty");
                 return;
             }

@@ -153,10 +153,10 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public void dataFrame(int i, byte b2, Buffer buffer, int i2) throws IOException {
+    public void dataFrame(int i, byte b, Buffer buffer, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b2), buffer, Integer.valueOf(i2)}) == null) {
-            frameHeader(i, i2, (byte) 0, b2);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b), buffer, Integer.valueOf(i2)}) == null) {
+            frameHeader(i, i2, (byte) 0, b);
             if (i2 > 0) {
                 this.sink.write(buffer, i2);
             }
@@ -176,11 +176,11 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public void frameHeader(int i, int i2, byte b2, byte b3) throws IOException {
+    public void frameHeader(int i, int i2, byte b, byte b2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2), Byte.valueOf(b3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b), Byte.valueOf(b2)}) == null) {
             if (logger.isLoggable(Level.FINE)) {
-                logger.fine(Http2.frameLog(false, i, i2, b2, b3));
+                logger.fine(Http2.frameLog(false, i, i2, b, b2));
             }
             int i3 = this.maxFrameSize;
             if (i2 > i3) {
@@ -190,8 +190,8 @@ public final class Http2Writer implements Closeable {
                 throw Http2.illegalArgument("reserved bit set: %s", Integer.valueOf(i));
             }
             writeMedium(this.sink, i2);
+            this.sink.writeByte(b & 255);
             this.sink.writeByte(b2 & 255);
-            this.sink.writeByte(b3 & 255);
             this.sink.writeInt(i & Integer.MAX_VALUE);
         }
     }
@@ -371,11 +371,11 @@ public final class Http2Writer implements Closeable {
                 int min = (int) Math.min(this.maxFrameSize, size);
                 long j = min;
                 int i2 = (size > j ? 1 : (size == j ? 0 : -1));
-                byte b2 = i2 == 0 ? (byte) 4 : (byte) 0;
+                byte b = i2 == 0 ? (byte) 4 : (byte) 0;
                 if (z) {
-                    b2 = (byte) (b2 | 1);
+                    b = (byte) (b | 1);
                 }
-                frameHeader(i, min, (byte) 1, b2);
+                frameHeader(i, min, (byte) 1, b);
                 this.sink.write(this.hpackBuffer, j);
                 if (i2 > 0) {
                     writeContinuationFrames(i, size - j);

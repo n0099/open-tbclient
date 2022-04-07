@@ -1,7 +1,6 @@
 package com.baidu.afd.videopaster.data;
 
 import android.text.TextUtils;
-import c.a.e.m.e.a;
 import com.baidu.afd.ParseError;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -14,16 +13,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
+import com.repackage.xp;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
     public static final String TPL_VIDEO_TYPE = "ad_video_attach_video";
     public static final int VIDEO_PASTER_DEFAULT_DURATION = 15;
     public transient /* synthetic */ FieldHolder $fh;
-    public a pasterData;
+    public xp pasterData;
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -43,7 +43,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
             }
         }
         this.type = 3;
-        this.pasterData = new a();
+        this.pasterData = new xp();
     }
 
     private void parserJson(JSONObject jSONObject) throws ParseError {
@@ -152,18 +152,18 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                 String optString4 = optJSONObject3.optString("title");
                                 String optString5 = optJSONObject3.optString(BigdayActivityConfig.JUMP_URL);
                                 if (TextUtils.isEmpty(optString4)) {
-                                    a aVar = this.pasterData;
-                                    aVar.n = true;
-                                    aVar.o = 10;
-                                    aVar.p = 2;
-                                    aVar.e(3);
+                                    xp xpVar = this.pasterData;
+                                    xpVar.n = true;
+                                    xpVar.o = 10;
+                                    xpVar.p = 2;
+                                    xpVar.e(3);
                                     return;
                                 } else if (TextUtils.isEmpty(optString5)) {
-                                    a aVar2 = this.pasterData;
-                                    aVar2.n = true;
-                                    aVar2.o = 10;
-                                    aVar2.p = 1;
-                                    aVar2.e(3);
+                                    xp xpVar2 = this.pasterData;
+                                    xpVar2.n = true;
+                                    xpVar2.o = 10;
+                                    xpVar2.p = 1;
+                                    xpVar2.e(3);
                                     return;
                                 } else {
                                     JSONArray optJSONArray2 = optJSONObject3.optJSONArray("image_list");
@@ -174,10 +174,10 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                         if (optJSONObject5 != null) {
                                             str = optJSONObject5.optString("image");
                                             if (TextUtils.isEmpty(str)) {
-                                                a aVar3 = this.pasterData;
-                                                aVar3.n = true;
-                                                aVar3.o = 10;
-                                                aVar3.p = 3;
+                                                xp xpVar3 = this.pasterData;
+                                                xpVar3.n = true;
+                                                xpVar3.o = 10;
+                                                xpVar3.p = 3;
                                                 throw new ParseError(2, "image has no data");
                                             }
                                         } else {
@@ -199,10 +199,10 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             str3 = optJSONObject7.optString("url");
                                             str2 = optJSONObject7.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                                             if (TextUtils.isEmpty(str3)) {
-                                                a aVar4 = this.pasterData;
-                                                aVar4.n = true;
-                                                aVar4.o = 10;
-                                                aVar4.p = 4;
+                                                xp xpVar4 = this.pasterData;
+                                                xpVar4.n = true;
+                                                xpVar4.o = 10;
+                                                xpVar4.p = 4;
                                                 throw new ParseError(2, "video url or cover has no data");
                                             }
                                         } else {
@@ -211,25 +211,25 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                         JSONObject optJSONObject8 = optJSONObject2.optJSONObject("attach");
                                         int optInt = optJSONObject8 != null ? optJSONObject8.optInt("time") : 15;
                                         if (this.type == 3) {
-                                            a aVar5 = this.pasterData;
-                                            aVar5.n = true;
-                                            aVar5.o = 10;
-                                            aVar5.p = 24;
+                                            xp xpVar5 = this.pasterData;
+                                            xpVar5.n = true;
+                                            xpVar5.o = 10;
+                                            xpVar5.p = 24;
                                         }
-                                        a aVar6 = this.pasterData;
-                                        aVar6.f2692c = optString3;
-                                        aVar6.e(this.type);
-                                        a aVar7 = this.pasterData;
-                                        aVar7.f2691b = optString2;
-                                        aVar7.f2695f = optInt;
-                                        aVar7.f2694e = optString5;
-                                        aVar7.f2693d = optString4;
-                                        aVar7.k = optString7;
-                                        aVar7.j = optString6;
-                                        aVar7.l = optString8;
-                                        aVar7.i = str2;
-                                        aVar7.f2697h = str3;
-                                        aVar7.f2696g = str;
+                                        xp xpVar6 = this.pasterData;
+                                        xpVar6.c = optString3;
+                                        xpVar6.e(this.type);
+                                        xp xpVar7 = this.pasterData;
+                                        xpVar7.b = optString2;
+                                        xpVar7.f = optInt;
+                                        xpVar7.e = optString5;
+                                        xpVar7.d = optString4;
+                                        xpVar7.k = optString7;
+                                        xpVar7.j = optString6;
+                                        xpVar7.l = optString8;
+                                        xpVar7.i = str2;
+                                        xpVar7.h = str3;
+                                        xpVar7.g = str;
                                         return;
                                     }
                                     throw new ParseError(1, "operate_info has no element");
@@ -257,9 +257,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                 try {
                     parserJson(jSONObject);
                     return;
-                } catch (ParseError e2) {
+                } catch (ParseError e) {
                     this.pasterData.e(3);
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return;
                 }
             }
@@ -267,9 +267,9 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
         }
     }
 
-    public a getPasterData() {
+    public xp getPasterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pasterData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pasterData : (xp) invokeV.objValue;
     }
 }

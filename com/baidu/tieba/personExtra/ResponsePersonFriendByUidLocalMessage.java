@@ -1,6 +1,5 @@
 package com.baidu.tieba.personExtra;
 
-import c.a.o0.r.r.f1;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.wp4;
+/* loaded from: classes3.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f1 mData;
+    public wp4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonFriendByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         }
     }
 
-    public f1 getPersonFriendData() {
+    public wp4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (f1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (wp4) invokeV.objValue;
     }
 
-    public void setPersonFriendData(f1 f1Var) {
+    public void setPersonFriendData(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f1Var) == null) {
-            this.mData = f1Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wp4Var) == null) {
+            this.mData = wp4Var;
         }
     }
 
@@ -72,8 +72,8 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || str == null) {
             return;
         }
-        f1 f1Var = new f1();
-        this.mData = f1Var;
-        f1Var.f(str);
+        wp4 wp4Var = new wp4();
+        this.mData = wp4Var;
+        wp4Var.f(str);
     }
 }

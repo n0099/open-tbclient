@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableBuffer<T, C extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
     public final int size;
     public final int skip;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublisherBufferExactSubscriber<T, C extends Collection<? super T>> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             this.done = true;
-            C c2 = this.buffer;
-            if (c2 != null && !c2.isEmpty()) {
-                this.actual.onNext(c2);
+            C c = this.buffer;
+            if (c != null && !c.isEmpty()) {
+                this.actual.onNext(c);
             }
             this.actual.onComplete();
         }
@@ -105,11 +105,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
             if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
                 return;
             }
-            C c2 = this.buffer;
-            if (c2 == null) {
+            C c = this.buffer;
+            if (c == null) {
                 try {
-                    c2 = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
-                    this.buffer = c2;
+                    c = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                    this.buffer = c;
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -117,12 +117,12 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                     return;
                 }
             }
-            c2.add(t);
+            c.add(t);
             int i = this.index + 1;
             if (i == this.size) {
                 this.index = 0;
                 this.buffer = null;
-                this.actual.onNext(c2);
+                this.actual.onNext(c);
                 return;
             }
             this.index = i;
@@ -146,7 +146,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements FlowableSubscriber<T>, Subscription, BooleanSupplier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7370244972039324525L;
@@ -290,7 +290,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5616169793639412593L;
@@ -340,10 +340,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             this.done = true;
-            C c2 = this.buffer;
+            C c = this.buffer;
             this.buffer = null;
-            if (c2 != null) {
-                this.actual.onNext(c2);
+            if (c != null) {
+                this.actual.onNext(c);
             }
             this.actual.onComplete();
         }
@@ -368,13 +368,13 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
             if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
                 return;
             }
-            C c2 = this.buffer;
+            C c = this.buffer;
             int i = this.index;
             int i2 = i + 1;
             if (i == 0) {
                 try {
-                    c2 = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
-                    this.buffer = c2;
+                    c = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                    this.buffer = c;
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -382,11 +382,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                     return;
                 }
             }
-            if (c2 != null) {
-                c2.add(t);
-                if (c2.size() == this.size) {
+            if (c != null) {
+                c.add(t);
+                if (c.size() == this.size) {
                     this.buffer = null;
-                    this.actual.onNext(c2);
+                    this.actual.onNext(c);
                 }
             }
             if (i2 == this.skip) {

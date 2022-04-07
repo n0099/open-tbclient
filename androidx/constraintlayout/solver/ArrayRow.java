@@ -94,17 +94,17 @@ public class ArrayRow implements LinearSystem.Row {
         }
     }
 
-    public ArrayRow createRowCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f2, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2) {
+    public ArrayRow createRowCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f2), solverVariable3, solverVariable4, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{solverVariable, solverVariable2, Integer.valueOf(i), Float.valueOf(f), solverVariable3, solverVariable4, Integer.valueOf(i2)})) == null) {
             if (solverVariable2 == solverVariable3) {
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable4, 1.0f);
                 this.variables.put(solverVariable2, -2.0f);
                 return this;
             }
-            if (f2 == 0.5f) {
+            if (f == 0.5f) {
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable2, -1.0f);
                 this.variables.put(solverVariable3, -1.0f);
@@ -112,22 +112,22 @@ public class ArrayRow implements LinearSystem.Row {
                 if (i > 0 || i2 > 0) {
                     this.constantValue = (-i) + i2;
                 }
-            } else if (f2 <= 0.0f) {
+            } else if (f <= 0.0f) {
                 this.variables.put(solverVariable, -1.0f);
                 this.variables.put(solverVariable2, 1.0f);
                 this.constantValue = i;
-            } else if (f2 >= 1.0f) {
+            } else if (f >= 1.0f) {
                 this.variables.put(solverVariable3, -1.0f);
                 this.variables.put(solverVariable4, 1.0f);
                 this.constantValue = i2;
             } else {
-                float f3 = 1.0f - f2;
-                this.variables.put(solverVariable, f3 * 1.0f);
-                this.variables.put(solverVariable2, f3 * (-1.0f));
-                this.variables.put(solverVariable3, (-1.0f) * f2);
-                this.variables.put(solverVariable4, 1.0f * f2);
+                float f2 = 1.0f - f;
+                this.variables.put(solverVariable, f2 * 1.0f);
+                this.variables.put(solverVariable2, f2 * (-1.0f));
+                this.variables.put(solverVariable3, (-1.0f) * f);
+                this.variables.put(solverVariable4, 1.0f * f);
                 if (i > 0 || i2 > 0) {
-                    this.constantValue = ((-i) * f3) + (i2 * f2);
+                    this.constantValue = ((-i) * f2) + (i2 * f);
                 }
             }
             return this;
@@ -140,51 +140,51 @@ public class ArrayRow implements LinearSystem.Row {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, solverVariable, i)) == null) {
             this.variable = solverVariable;
-            float f2 = i;
-            solverVariable.computedValue = f2;
-            this.constantValue = f2;
+            float f = i;
+            solverVariable.computedValue = f;
+            this.constantValue = f;
             this.isSimpleDefinition = true;
             return this;
         }
         return (ArrayRow) invokeLI.objValue;
     }
 
-    public ArrayRow createRowDimensionPercent(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, float f2) {
+    public ArrayRow createRowDimensionPercent(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{solverVariable, solverVariable2, solverVariable3, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{solverVariable, solverVariable2, solverVariable3, Float.valueOf(f)})) == null) {
             this.variables.put(solverVariable, -1.0f);
-            this.variables.put(solverVariable2, 1.0f - f2);
-            this.variables.put(solverVariable3, f2);
+            this.variables.put(solverVariable2, 1.0f - f);
+            this.variables.put(solverVariable3, f);
             return this;
         }
         return (ArrayRow) invokeCommon.objValue;
     }
 
-    public ArrayRow createRowDimensionRatio(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f2) {
+    public ArrayRow createRowDimensionRatio(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f)})) == null) {
             this.variables.put(solverVariable, -1.0f);
             this.variables.put(solverVariable2, 1.0f);
-            this.variables.put(solverVariable3, f2);
-            this.variables.put(solverVariable4, -f2);
+            this.variables.put(solverVariable3, f);
+            this.variables.put(solverVariable4, -f);
             return this;
         }
         return (ArrayRow) invokeCommon.objValue;
     }
 
-    public ArrayRow createRowEqualDimension(float f2, float f3, float f4, SolverVariable solverVariable, int i, SolverVariable solverVariable2, int i2, SolverVariable solverVariable3, int i3, SolverVariable solverVariable4, int i4) {
+    public ArrayRow createRowEqualDimension(float f, float f2, float f3, SolverVariable solverVariable, int i, SolverVariable solverVariable2, int i2, SolverVariable solverVariable3, int i3, SolverVariable solverVariable4, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), solverVariable, Integer.valueOf(i), solverVariable2, Integer.valueOf(i2), solverVariable3, Integer.valueOf(i3), solverVariable4, Integer.valueOf(i4)})) == null) {
-            if (f3 != 0.0f && f2 != f4) {
-                float f5 = (f2 / f3) / (f4 / f3);
-                this.constantValue = ((-i) - i2) + (i3 * f5) + (i4 * f5);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), solverVariable, Integer.valueOf(i), solverVariable2, Integer.valueOf(i2), solverVariable3, Integer.valueOf(i3), solverVariable4, Integer.valueOf(i4)})) == null) {
+            if (f2 != 0.0f && f != f3) {
+                float f4 = (f / f2) / (f3 / f2);
+                this.constantValue = ((-i) - i2) + (i3 * f4) + (i4 * f4);
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable2, -1.0f);
-                this.variables.put(solverVariable4, f5);
-                this.variables.put(solverVariable3, -f5);
+                this.variables.put(solverVariable4, f4);
+                this.variables.put(solverVariable3, -f4);
             } else {
                 this.constantValue = ((-i) - i2) + i3 + i4;
                 this.variables.put(solverVariable, 1.0f);
@@ -197,28 +197,28 @@ public class ArrayRow implements LinearSystem.Row {
         return (ArrayRow) invokeCommon.objValue;
     }
 
-    public ArrayRow createRowEqualMatchDimensions(float f2, float f3, float f4, SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4) {
+    public ArrayRow createRowEqualMatchDimensions(float f, float f2, float f3, SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), solverVariable, solverVariable2, solverVariable3, solverVariable4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), solverVariable, solverVariable2, solverVariable3, solverVariable4})) == null) {
             this.constantValue = 0.0f;
-            if (f3 == 0.0f || f2 == f4) {
+            if (f2 == 0.0f || f == f3) {
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable2, -1.0f);
                 this.variables.put(solverVariable4, 1.0f);
                 this.variables.put(solverVariable3, -1.0f);
-            } else if (f2 == 0.0f) {
+            } else if (f == 0.0f) {
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable2, -1.0f);
-            } else if (f4 == 0.0f) {
+            } else if (f3 == 0.0f) {
                 this.variables.put(solverVariable3, 1.0f);
                 this.variables.put(solverVariable4, -1.0f);
             } else {
-                float f5 = (f2 / f3) / (f4 / f3);
+                float f4 = (f / f2) / (f3 / f2);
                 this.variables.put(solverVariable, 1.0f);
                 this.variables.put(solverVariable2, -1.0f);
-                this.variables.put(solverVariable4, f5);
-                this.variables.put(solverVariable3, -f5);
+                this.variables.put(solverVariable4, f4);
+                this.variables.put(solverVariable3, -f4);
             }
             return this;
         }
@@ -293,15 +293,15 @@ public class ArrayRow implements LinearSystem.Row {
         return (ArrayRow) invokeLLLI.objValue;
     }
 
-    public ArrayRow createRowWithAngle(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f2) {
+    public ArrayRow createRowWithAngle(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, SolverVariable solverVariable4, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{solverVariable, solverVariable2, solverVariable3, solverVariable4, Float.valueOf(f)})) == null) {
             this.variables.put(solverVariable3, 0.5f);
             this.variables.put(solverVariable4, 0.5f);
             this.variables.put(solverVariable, -0.5f);
             this.variables.put(solverVariable2, -0.5f);
-            this.constantValue = -f2;
+            this.constantValue = -f;
             return this;
         }
         return (ArrayRow) invokeCommon.objValue;
@@ -310,9 +310,9 @@ public class ArrayRow implements LinearSystem.Row {
     public void ensurePositiveConstant() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            float f2 = this.constantValue;
-            if (f2 < 0.0f) {
-                this.constantValue = f2 * (-1.0f);
+            float f = this.constantValue;
+            if (f < 0.0f) {
+                this.constantValue = f * (-1.0f);
                 this.variables.invert();
             }
         }
@@ -482,19 +482,19 @@ public class ArrayRow implements LinearSystem.Row {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, solverVariable) == null) {
             int i = solverVariable.strength;
-            float f2 = 1.0f;
+            float f = 1.0f;
             if (i != 1) {
                 if (i == 2) {
-                    f2 = 1000.0f;
+                    f = 1000.0f;
                 } else if (i == 3) {
-                    f2 = 1000000.0f;
+                    f = 1000000.0f;
                 } else if (i == 4) {
-                    f2 = 1.0E9f;
+                    f = 1.0E9f;
                 } else if (i == 5) {
-                    f2 = 1.0E12f;
+                    f = 1.0E12f;
                 }
             }
-            this.variables.put(solverVariable, f2);
+            this.variables.put(solverVariable, f);
         }
     }
 

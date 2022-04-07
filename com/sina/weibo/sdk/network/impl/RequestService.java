@@ -99,15 +99,15 @@ public class RequestService implements IRequestService {
                     }
                     iRequestParam.getPostBundle().putAll(bundle);
                     iRequestParam.getGetBundle().putAll(bundle);
-                } catch (InterceptException e2) {
-                    requestResult.setE(e2);
+                } catch (InterceptException e) {
+                    requestResult.setE(e);
                     return requestResult;
                 }
             }
             try {
                 requestResult.setResponse(String.valueOf(RequestEngine.request(iRequestParam).body().string()));
-            } catch (Exception e3) {
-                requestResult.setE(e3);
+            } catch (Exception e2) {
+                requestResult.setE(e2);
             }
             return requestResult;
         }

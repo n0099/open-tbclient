@@ -13,8 +13,8 @@ public class k implements r {
         try {
             jSONObject.putOpt("reserve_wifi_source", Integer.valueOf(i2));
             jSONObject.putOpt("reserve_wifi_status", Integer.valueOf(i));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         com.ss.android.downloadlib.d.a.a().a("pause_reserve_wifi", jSONObject, a);
     }

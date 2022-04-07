@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SignatureVerifierKITKAT extends SignatureVerifier {
     public static final String TAG = "SigVerifier";
     public Context mContext;
@@ -36,8 +36,8 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
         try {
             try {
                 zipFile = new ZipFile(this.mPatchFile);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
         } catch (Throwable th) {
             th = th;
@@ -91,8 +91,8 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
             }
             Closes.closeQuiet(zipFile);
             return 0;
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             zipFile2 = zipFile;
             e.printStackTrace();
             Closes.closeQuiet(zipFile2);

@@ -141,10 +141,10 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(B b2) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-                this.parent.open(b2);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+                this.parent.open(b);
             }
         }
     }
@@ -393,10 +393,10 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
             }
         }
 
-        public void open(B b2) {
+        public void open(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, b2) == null) {
-                this.queue.offer(new WindowOperation(null, b2));
+            if (interceptable == null || interceptable.invokeL(1048586, this, b) == null) {
+                this.queue.offer(new WindowOperation(null, b));
                 if (enter()) {
                     drainLoop();
                 }
@@ -419,12 +419,12 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
         public final B open;
         public final UnicastProcessor<T> w;
 
-        public WindowOperation(UnicastProcessor<T> unicastProcessor, B b2) {
+        public WindowOperation(UnicastProcessor<T> unicastProcessor, B b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {unicastProcessor, b2};
+                Object[] objArr = {unicastProcessor, b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -435,7 +435,7 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
                 }
             }
             this.w = unicastProcessor;
-            this.open = b2;
+            this.open = b;
         }
     }
 

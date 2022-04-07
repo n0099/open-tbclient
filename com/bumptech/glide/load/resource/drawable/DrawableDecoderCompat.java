@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DrawableDecoderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean shouldCallAppCompatResources = true;
@@ -91,11 +91,11 @@ public final class DrawableDecoderCompat {
                     return loadDrawableV7(context2, i, theme);
                 }
             } catch (Resources.NotFoundException unused) {
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 if (!context.getPackageName().equals(context2.getPackageName())) {
                     return ContextCompat.getDrawable(context2, i);
                 }
-                throw e2;
+                throw e;
             } catch (NoClassDefFoundError unused2) {
                 shouldCallAppCompatResources = false;
             }

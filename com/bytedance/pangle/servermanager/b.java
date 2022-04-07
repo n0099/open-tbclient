@@ -25,25 +25,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Object f38160b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Object f38161c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, Boolean> f38162d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, d> f38163e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static c f38164f;
+    public static final Object b;
+    public static final Object c;
+    public static final Map<String, Boolean> d;
+    public static final Map<String, d> e;
+    public static c f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,31 +50,31 @@ public final class b {
             }
         }
         a = new Object();
-        f38160b = new Object();
-        f38161c = new Object();
-        f38162d = new ConcurrentHashMap();
-        f38163e = new ConcurrentHashMap();
+        b = new Object();
+        c = new Object();
+        d = new ConcurrentHashMap();
+        e = new ConcurrentHashMap();
     }
 
     public static d a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Boolean bool = f38162d.get(str);
+            Boolean bool = d.get(str);
             if (bool == null || !bool.booleanValue()) {
-                f38163e.remove(str);
+                e.remove(str);
             }
-            if (f38163e.get(str) == null) {
-                synchronized (f38160b) {
+            if (e.get(str) == null) {
+                synchronized (b) {
                     d dVar = (d) a("service", str);
                     if (dVar == null) {
                         ZeusLogger.e(ZeusLogger.TAG_SERVER, "getServiceManager failed!!!");
                         return null;
                     }
-                    f38163e.put(str, dVar);
+                    e.put(str, dVar);
                 }
             }
-            return f38163e.get(str);
+            return e.get(str);
         }
         return (d) invokeL.objValue;
     }
@@ -93,21 +83,21 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Boolean bool = f38162d.get("main");
+            Boolean bool = d.get("main");
             if (bool == null || !bool.booleanValue()) {
-                f38164f = null;
+                f = null;
             }
-            if (f38164f == null) {
-                synchronized (f38161c) {
+            if (f == null) {
+                synchronized (c) {
                     c cVar = (c) a("package", "main");
                     if (cVar == null) {
                         ZeusLogger.e(ZeusLogger.TAG_SERVER, "getPackageManager failed!!!");
                         return null;
                     }
-                    f38164f = cVar;
+                    f = cVar;
                 }
             }
-            return f38164f;
+            return f;
         }
         return (c) invokeV.objValue;
     }
@@ -140,9 +130,7 @@ public final class b {
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ String a;
-
-                                    /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ IBinder f38165b;
+                                    public final /* synthetic */ IBinder b;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -160,16 +148,16 @@ public final class b {
                                             }
                                         }
                                         this.a = str2;
-                                        this.f38165b = iBinder;
+                                        this.b = iBinder;
                                     }
 
                                     @Override // android.os.IBinder.DeathRecipient
                                     public final void binderDied() {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            b.f38162d.put(this.a, Boolean.FALSE);
+                                            b.d.put(this.a, Boolean.FALSE);
                                             ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                            HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f38165b);
+                                            HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                             for (ServiceConnection serviceConnection : hashMap.keySet()) {
                                                 Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                                 while (it.hasNext()) {
@@ -179,7 +167,7 @@ public final class b {
                                         }
                                     }
                                 }, 0);
-                                f38162d.put(str2, Boolean.TRUE);
+                                d.put(str2, Boolean.TRUE);
                                 hashCode = str.hashCode();
                                 if (hashCode == -807062458) {
                                     if (hashCode == 1984153269 && str.equals("service")) {
@@ -217,9 +205,7 @@ public final class b {
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ String a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ IBinder f38165b;
+                        public final /* synthetic */ IBinder b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -237,16 +223,16 @@ public final class b {
                                 }
                             }
                             this.a = str2;
-                            this.f38165b = iBinder;
+                            this.b = iBinder;
                         }
 
                         @Override // android.os.IBinder.DeathRecipient
                         public final void binderDied() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                b.f38162d.put(this.a, Boolean.FALSE);
+                                b.d.put(this.a, Boolean.FALSE);
                                 ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f38165b);
+                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                 for (ServiceConnection serviceConnection : hashMap.keySet()) {
                                     Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                     while (it.hasNext()) {
@@ -256,7 +242,7 @@ public final class b {
                             }
                         }
                     }, 0);
-                    f38162d.put(str2, Boolean.TRUE);
+                    d.put(str2, Boolean.TRUE);
                     hashCode = str.hashCode();
                     if (hashCode == -807062458) {
                     }

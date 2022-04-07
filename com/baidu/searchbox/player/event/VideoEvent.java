@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoEvent implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOG_LEVEL_HIGH = 0;
@@ -45,17 +45,17 @@ public class VideoEvent implements IPoolItem {
     public int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public @interface LogLevel {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public @interface Type {
     }
 
@@ -393,12 +393,12 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod(version = "12.2.0")
-    public float getFloatExtra(int i, float f2) {
+    public float getFloatExtra(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             Object obj = this.eventBundle.get(i);
-            return obj instanceof Float ? ((Float) obj).floatValue() : f2;
+            return obj instanceof Float ? ((Float) obj).floatValue() : f;
         }
         return invokeCommon.floatValue;
     }

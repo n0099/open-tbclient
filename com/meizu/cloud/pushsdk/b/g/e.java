@@ -10,25 +10,17 @@ import java.lang.reflect.Field;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e implements Serializable, Comparable<e> {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final e f42004b = a(new byte[0]);
+    public static final e b = a(new byte[0]);
     public static final long serialVersionUID = 1;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final byte[] f42005c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public transient int f42006d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public transient String f42007e;
+    public final byte[] c;
+    public transient int d;
+    public transient String e;
 
     public e(byte[] bArr) {
-        this.f42005c = bArr;
+        this.c = bArr;
     }
 
     public static e a(InputStream inputStream, int i) throws IOException {
@@ -53,7 +45,7 @@ public class e implements Serializable, Comparable<e> {
     public static e a(String str) {
         if (str != null) {
             e eVar = new e(str.getBytes(o.a));
-            eVar.f42007e = str;
+            eVar.e = str;
             return eVar;
         }
         throw new IllegalArgumentException("s == null");
@@ -68,9 +60,9 @@ public class e implements Serializable, Comparable<e> {
 
     private e b(String str) {
         try {
-            return a(MessageDigest.getInstance(str).digest(this.f42005c));
-        } catch (NoSuchAlgorithmException e2) {
-            throw new AssertionError(e2);
+            return a(MessageDigest.getInstance(str).digest(this.c));
+        } catch (NoSuchAlgorithmException e) {
+            throw new AssertionError(e);
         }
     }
 
@@ -79,7 +71,7 @@ public class e implements Serializable, Comparable<e> {
         try {
             Field declaredField = e.class.getDeclaredField("c");
             declaredField.setAccessible(true);
-            declaredField.set(this, a2.f42005c);
+            declaredField.set(this, a2.c);
         } catch (IllegalAccessException unused) {
             throw new AssertionError();
         } catch (NoSuchFieldException unused2) {
@@ -88,21 +80,21 @@ public class e implements Serializable, Comparable<e> {
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        objectOutputStream.writeInt(this.f42005c.length);
-        objectOutputStream.write(this.f42005c);
+        objectOutputStream.writeInt(this.c.length);
+        objectOutputStream.write(this.c);
     }
 
     public byte a(int i) {
-        return this.f42005c[i];
+        return this.c[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(e eVar) {
-        int d2 = d();
-        int d3 = eVar.d();
-        int min = Math.min(d2, d3);
+        int d = d();
+        int d2 = eVar.d();
+        int min = Math.min(d, d2);
         for (int i = 0; i < min; i++) {
             int a2 = a(i) & 255;
             int a3 = eVar.a(i) & 255;
@@ -110,29 +102,29 @@ public class e implements Serializable, Comparable<e> {
                 return a2 < a3 ? -1 : 1;
             }
         }
-        if (d2 == d3) {
+        if (d == d2) {
             return 0;
         }
-        return d2 < d3 ? -1 : 1;
+        return d < d2 ? -1 : 1;
     }
 
     public String a() {
-        String str = this.f42007e;
+        String str = this.e;
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.f42005c, o.a);
-        this.f42007e = str2;
+        String str2 = new String(this.c, o.a);
+        this.e = str2;
         return str2;
     }
 
     public void a(b bVar) {
-        byte[] bArr = this.f42005c;
+        byte[] bArr = this.c;
         bVar.c(bArr, 0, bArr.length);
     }
 
     public boolean a(int i, byte[] bArr, int i2, int i3) {
-        byte[] bArr2 = this.f42005c;
+        byte[] bArr2 = this.c;
         return i <= bArr2.length - i3 && i2 <= bArr.length - i3 && o.a(bArr2, i, bArr, i2, i3);
     }
 
@@ -141,7 +133,7 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public String c() {
-        byte[] bArr = this.f42005c;
+        byte[] bArr = this.c;
         char[] cArr = new char[bArr.length * 2];
         int i = 0;
         for (byte b2 : bArr) {
@@ -155,7 +147,7 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public int d() {
-        return this.f42005c.length;
+        return this.c.length;
     }
 
     public boolean equals(Object obj) {
@@ -164,9 +156,9 @@ public class e implements Serializable, Comparable<e> {
         }
         if (obj instanceof e) {
             e eVar = (e) obj;
-            int d2 = eVar.d();
-            byte[] bArr = this.f42005c;
-            if (d2 == bArr.length && eVar.a(0, bArr, 0, bArr.length)) {
+            int d = eVar.d();
+            byte[] bArr = this.c;
+            if (d == bArr.length && eVar.a(0, bArr, 0, bArr.length)) {
                 return true;
             }
         }
@@ -174,17 +166,17 @@ public class e implements Serializable, Comparable<e> {
     }
 
     public int hashCode() {
-        int i = this.f42006d;
+        int i = this.d;
         if (i != 0) {
             return i;
         }
-        int hashCode = Arrays.hashCode(this.f42005c);
-        this.f42006d = hashCode;
+        int hashCode = Arrays.hashCode(this.c);
+        this.d = hashCode;
         return hashCode;
     }
 
     public String toString() {
-        byte[] bArr = this.f42005c;
+        byte[] bArr = this.c;
         return bArr.length == 0 ? "ByteString[size=0]" : bArr.length <= 16 ? String.format("ByteString[size=%s data=%s]", Integer.valueOf(bArr.length), c()) : String.format("ByteString[size=%s md5=%s]", Integer.valueOf(bArr.length), b().c());
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class a implements v {
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener = this.a.f26343c;
+                            mKOfflineMapListener = this.a.c;
                             mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -54,21 +54,21 @@ public class a implements v {
             }
             int i3 = 6;
             if (i == 6) {
-                mKOfflineMapListener2 = this.a.f26343c;
+                mKOfflineMapListener2 = this.a.c;
             } else if (i == 8) {
                 int i4 = i2 >> 8;
-                mKOfflineMapListener3 = this.a.f26343c;
+                mKOfflineMapListener3 = this.a.c;
                 mKOfflineMapListener3.onGetOfflineMapState(0, i4);
                 return;
             } else if (i != 10) {
                 if (i != 12) {
                     return;
                 }
-                rVar = this.a.f26342b;
+                rVar = this.a.b;
                 rVar.a(true, false);
                 return;
             } else {
-                mKOfflineMapListener2 = this.a.f26343c;
+                mKOfflineMapListener2 = this.a.c;
                 i3 = 2;
             }
             mKOfflineMapListener2.onGetOfflineMapState(i3, i2);

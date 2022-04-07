@@ -26,9 +26,9 @@ public final class ArrayDoubleIterator extends DoubleIterator {
             int i = this.index;
             this.index = i + 1;
             return dArr[i];
-        } catch (ArrayIndexOutOfBoundsException e2) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             this.index--;
-            throw new NoSuchElementException(e2.getMessage());
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 }

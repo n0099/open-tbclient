@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.e;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vm4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -54,7 +54,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = e.e();
+        DEBUG = vm4.e();
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -136,27 +136,27 @@ public final class SoLoader {
                     if (!file2.exists()) {
                         try {
                             file2.createNewFile();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     try {
                         fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
                         fileChannel2 = null;
                     }
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
                 }
                 try {
                     try {
                         fileLock = fileChannel2.lock();
-                    } catch (IOException e5) {
+                    } catch (IOException e4) {
                         try {
-                            e5.printStackTrace();
-                        } catch (FileNotFoundException e6) {
-                            e = e6;
+                            e4.printStackTrace();
+                        } catch (FileNotFoundException e5) {
+                            e = e5;
                             e.printStackTrace();
                             if (fileLock != null) {
                                 z = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
@@ -174,20 +174,20 @@ public final class SoLoader {
                     if (fileLock != null) {
                         try {
                             fileLock.release();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
                         }
                     }
-                } catch (Exception e8) {
+                } catch (Exception e7) {
                     fileChannel = fileChannel2;
-                    e = e8;
+                    e = e7;
                     try {
                         e.printStackTrace();
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e9) {
-                                e9.printStackTrace();
+                            } catch (IOException e8) {
+                                e8.printStackTrace();
                             }
                         }
                         if (fileChannel != null) {
@@ -199,15 +199,15 @@ public final class SoLoader {
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e10) {
-                                e10.printStackTrace();
+                            } catch (IOException e9) {
+                                e9.printStackTrace();
                             }
                         }
                         if (fileChannel != null) {
                             try {
                                 fileChannel.close();
-                            } catch (IOException e11) {
-                                e11.printStackTrace();
+                            } catch (IOException e10) {
+                                e10.printStackTrace();
                             }
                         }
                         throw th;
@@ -221,8 +221,8 @@ public final class SoLoader {
                     }
                     throw th;
                 }
-            } catch (Exception e12) {
-                e = e12;
+            } catch (Exception e11) {
+                e = e11;
                 fileChannel = null;
             } catch (Throwable th3) {
                 th = th3;
@@ -247,8 +247,8 @@ public final class SoLoader {
                     return packageInfo.applicationInfo.nativeLibraryDir;
                 }
                 return new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -272,9 +272,9 @@ public final class SoLoader {
                         return entry.getSize();
                     }
                     return 0L;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e("SoLoader", "SoLoader getSoSize exception.", e2);
+                        Log.e("SoLoader", "SoLoader getSoSize exception.", e);
                         return 0L;
                     }
                     return 0L;
@@ -335,12 +335,12 @@ public final class SoLoader {
             try {
                 try {
                     zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-                } catch (ZipException e2) {
+                } catch (ZipException e) {
+                    this.sb.append(Log.getStackTraceString(e));
+                    e.printStackTrace();
+                } catch (IOException e2) {
                     this.sb.append(Log.getStackTraceString(e2));
                     e2.printStackTrace();
-                } catch (IOException e3) {
-                    this.sb.append(Log.getStackTraceString(e3));
-                    e3.printStackTrace();
                 }
                 if (zipFile == null) {
                     SoUtils.sendLog(this.sb.toString());
@@ -354,8 +354,8 @@ public final class SoLoader {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         return true;
@@ -367,8 +367,8 @@ public final class SoLoader {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
                             }
                         }
                         return true;
@@ -379,8 +379,8 @@ public final class SoLoader {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
                             }
                         }
                         return true;
@@ -391,8 +391,8 @@ public final class SoLoader {
                 if (zipFile != null) {
                     try {
                         zipFile.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                 }
                 return false;
@@ -400,8 +400,8 @@ public final class SoLoader {
                 if (0 != 0) {
                     try {
                         zipFile.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
                 }
             }
@@ -453,20 +453,20 @@ public final class SoLoader {
                                     if (inputStream2 != null) {
                                         try {
                                             inputStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                     try {
                                         fileOutputStream.close();
-                                    } catch (Exception e3) {
-                                        e3.printStackTrace();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
                                     }
                                     return renameTo;
                                 }
                                 inputStream = inputStream2;
-                            } catch (Exception e4) {
-                                e = e4;
+                            } catch (Exception e3) {
+                                e = e3;
                                 inputStream = inputStream2;
                                 try {
                                     if (DEBUG) {
@@ -475,8 +475,8 @@ public final class SoLoader {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e5) {
-                                            e5.printStackTrace();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
@@ -489,15 +489,15 @@ public final class SoLoader {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e6) {
-                                            e6.printStackTrace();
+                                        } catch (Exception e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
                                         try {
                                             fileOutputStream.close();
-                                        } catch (Exception e7) {
-                                            e7.printStackTrace();
+                                        } catch (Exception e6) {
+                                            e6.printStackTrace();
                                         }
                                     }
                                     throw th;
@@ -511,15 +511,15 @@ public final class SoLoader {
                                 }
                                 throw th;
                             }
-                        } catch (Exception e8) {
-                            e = e8;
+                        } catch (Exception e7) {
+                            e = e7;
                             fileOutputStream = null;
                         } catch (Throwable th3) {
                             th = th3;
                             fileOutputStream = null;
                         }
-                    } catch (Exception e9) {
-                        e = e9;
+                    } catch (Exception e8) {
+                        e = e8;
                         fileOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
@@ -531,8 +531,8 @@ public final class SoLoader {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
+                    } catch (Exception e9) {
+                        e9.printStackTrace();
                     }
                 }
                 if (fileOutputStream != null) {
@@ -540,8 +540,8 @@ public final class SoLoader {
                     return false;
                 }
                 return false;
-            } catch (Exception e11) {
-                e11.printStackTrace();
+            } catch (Exception e10) {
+                e10.printStackTrace();
                 return false;
             }
         }
@@ -565,8 +565,8 @@ public final class SoLoader {
                     Log.d("SoLoader", "unpackLibDep soFile path is: " + file.getAbsolutePath());
                 }
                 return file;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

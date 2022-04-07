@@ -2,7 +2,7 @@ package com.qq.e.ads.interstitial3;
 
 import com.qq.e.comm.util.AdError;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface ExpressInterstitialAdListener {
     void onAdLoaded();
 

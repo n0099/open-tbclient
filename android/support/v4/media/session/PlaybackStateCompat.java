@@ -200,10 +200,10 @@ public final class PlaybackStateCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setState(int i, long j, float f2) {
+        public Builder setState(int i, long j, float f) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f2)})) == null) ? setState(i, j, f2, SystemClock.elapsedRealtime()) : (Builder) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f)})) == null) ? setState(i, j, f, SystemClock.elapsedRealtime()) : (Builder) invokeCommon.objValue;
         }
 
         public Builder addCustomAction(CustomAction customAction) {
@@ -230,14 +230,14 @@ public final class PlaybackStateCompat implements Parcelable {
             return (Builder) invokeIL.objValue;
         }
 
-        public Builder setState(int i, long j, float f2, long j2) {
+        public Builder setState(int i, long j, float f, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f2), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f), Long.valueOf(j2)})) == null) {
                 this.mState = i;
                 this.mPosition = j;
                 this.mUpdateTime = j2;
-                this.mRate = f2;
+                this.mRate = f;
                 return this;
             }
             return (Builder) invokeCommon.objValue;
@@ -359,12 +359,12 @@ public final class PlaybackStateCompat implements Parcelable {
         };
     }
 
-    public PlaybackStateCompat(int i, long j, long j2, float f2, long j3, int i2, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
+    public PlaybackStateCompat(int i, long j, long j2, float f, long j3, int i2, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), Integer.valueOf(i2), charSequence, Long.valueOf(j4), list, Long.valueOf(j5), bundle};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f), Long.valueOf(j3), Integer.valueOf(i2), charSequence, Long.valueOf(j4), list, Long.valueOf(j5), bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -377,7 +377,7 @@ public final class PlaybackStateCompat implements Parcelable {
         this.mState = i;
         this.mPosition = j;
         this.mBufferedPosition = j2;
-        this.mSpeed = f2;
+        this.mSpeed = f;
         this.mActions = j3;
         this.mErrorCode = i2;
         this.mErrorMessage = charSequence;

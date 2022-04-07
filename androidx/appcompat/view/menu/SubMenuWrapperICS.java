@@ -82,11 +82,11 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderView(View view) {
+    public SubMenu setHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view)) == null) {
-            this.mSubMenu.setHeaderView(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            this.mSubMenu.setHeaderView(view2);
             return this;
         }
         return (SubMenu) invokeL.objValue;

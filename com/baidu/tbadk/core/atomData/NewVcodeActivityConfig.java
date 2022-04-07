@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import c.a.d.f.m.b;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
@@ -9,7 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.mg;
+/* loaded from: classes3.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_AD = "is_ad";
@@ -43,7 +43,7 @@ public class NewVcodeActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("model", writeData);
         getIntent().putExtra("is_ad", z);
-        getIntent().putExtra("page_type", b.e(str, 0));
+        getIntent().putExtra("page_type", mg.e(str, 0));
     }
 
     public void setHideFeedBackButton() {

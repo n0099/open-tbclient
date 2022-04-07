@@ -35,9 +35,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public static final long serialVersionUID = 8443155186132538303L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Observer<? super T> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45332d;
+        public Disposable d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
@@ -144,7 +142,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.disposed = true;
-                this.f45332d.dispose();
+                this.d.dispose();
                 this.set.dispose();
             }
         }
@@ -169,7 +167,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45332d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -232,7 +230,7 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
                     completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f45332d.dispose();
+                    this.d.dispose();
                     onError(th);
                 }
             }
@@ -241,8 +239,8 @@ public final class ObservableFlatMapCompletable<T> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.f45332d, disposable)) {
-                this.f45332d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

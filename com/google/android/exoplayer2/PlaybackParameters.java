@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PlaybackParameters {
     public static /* synthetic */ Interceptable $ic;
     public static final PlaybackParameters DEFAULT;
@@ -33,12 +33,12 @@ public final class PlaybackParameters {
         DEFAULT = new PlaybackParameters(1.0f, 1.0f);
     }
 
-    public PlaybackParameters(float f2, float f3) {
+    public PlaybackParameters(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,9 +48,9 @@ public final class PlaybackParameters {
                 return;
             }
         }
-        this.speed = f2;
-        this.pitch = f3;
-        this.scaledUsPerMs = Math.round(f2 * 1000.0f);
+        this.speed = f;
+        this.pitch = f2;
+        this.scaledUsPerMs = Math.round(f * 1000.0f);
     }
 
     public boolean equals(Object obj) {

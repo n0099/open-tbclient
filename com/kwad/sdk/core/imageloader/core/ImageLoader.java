@@ -22,7 +22,7 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ImageLoader {
     public static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
     public static final String ERROR_NOT_INIT = "ImageLoader must be init with configuration before using";
@@ -37,7 +37,7 @@ public class ImageLoader {
     public ImageLoadingListener defaultListener = new SimpleImageLoadingListener();
     public ImageLoaderEngine engine;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class SyncImageLoadingListener extends SimpleImageLoadingListener {
         public Bitmap loadedImage;
 
@@ -49,7 +49,7 @@ public class ImageLoader {
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-        public void onLoadingComplete(String str, View view, DecodedResult decodedResult) {
+        public void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
             this.loadedImage = decodedResult.mBitmap;
         }
     }

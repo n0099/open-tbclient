@@ -1,8 +1,5 @@
 package com.badlogic.gdx.graphics;
 
-import c.b.b.n.f;
-import c.b.b.n.m.b;
-import c.b.b.n.m.g;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,11 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.h3;
+import com.repackage.n3;
+import com.repackage.n5;
+import com.repackage.o5;
+import com.repackage.t5;
+/* loaded from: classes.dex */
 public interface TextureData {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class TextureDataType {
         public static final /* synthetic */ TextureDataType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,28 +76,28 @@ public interface TextureData {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static TextureData a(c.b.b.m.a aVar, Pixmap.Format format, boolean z) {
+        public static TextureData a(h3 h3Var, Pixmap.Format format, boolean z) {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, aVar, format, z)) == null) {
-                if (aVar == null) {
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, h3Var, format, z)) == null) {
+                if (h3Var == null) {
                     return null;
                 }
-                if (aVar.g().endsWith(".cim")) {
-                    return new b(aVar, f.a(aVar), format, z);
+                if (h3Var.g().endsWith(".cim")) {
+                    return new o5(h3Var, n3.a(h3Var), format, z);
                 }
-                if (aVar.g().endsWith(".etc1")) {
-                    return new c.b.b.n.m.a(aVar, z);
+                if (h3Var.g().endsWith(".etc1")) {
+                    return new n5(h3Var, z);
                 }
-                if (!aVar.g().endsWith(".ktx") && !aVar.g().endsWith(".zktx")) {
-                    return new b(aVar, new Pixmap(aVar), format, z);
+                if (!h3Var.g().endsWith(".ktx") && !h3Var.g().endsWith(".zktx")) {
+                    return new o5(h3Var, new Pixmap(h3Var), format, z);
                 }
-                return new g(aVar, z);
+                return new t5(h3Var, z);
             }
             return (TextureData) invokeLLZ.objValue;
         }

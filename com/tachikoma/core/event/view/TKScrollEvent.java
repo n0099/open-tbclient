@@ -10,7 +10,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.event.base.TKBaseEvent;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKScrollEvent extends TKBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TK_EVENT_LIST_SCROLL = "scroll";
@@ -43,31 +43,31 @@ public class TKScrollEvent extends TKBaseEvent {
         }
     }
 
-    public void setDx(float f2) {
+    public void setDx(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.dx = f2;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.dx = f;
         }
     }
 
-    public void setDy(float f2) {
+    public void setDy(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.dy = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.dy = f;
         }
     }
 
-    public void setScrollOffsetX(float f2) {
+    public void setScrollOffsetX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.scrollOffsetX = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.scrollOffsetX = f;
         }
     }
 
-    public void setScrollOffsetY(float f2) {
+    public void setScrollOffsetY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.scrollOffsetY = f2;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.scrollOffsetY = f;
         }
     }
 

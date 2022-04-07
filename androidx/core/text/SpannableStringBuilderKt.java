@@ -104,11 +104,11 @@ public final class SpannableStringBuilderKt {
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public static final SpannableStringBuilder scale(SpannableStringBuilder spannableStringBuilder, float f2, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder scale(SpannableStringBuilder spannableStringBuilder, float f, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{spannableStringBuilder, Float.valueOf(f2), function1})) == null) {
-            RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{spannableStringBuilder, Float.valueOf(f), function1})) == null) {
+            RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(f);
             int length = spannableStringBuilder.length();
             function1.invoke(spannableStringBuilder);
             spannableStringBuilder.setSpan(relativeSizeSpan, length, spannableStringBuilder.length(), 17);

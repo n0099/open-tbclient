@@ -1,6 +1,6 @@
 package com.baidu.searchbox.live.nps.yy;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface LiveYYNpsLoadingCallback {
     void onLoadingEnd(int i);
 

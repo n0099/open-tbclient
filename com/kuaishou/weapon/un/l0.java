@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class l0 {
                     return false;
                 } catch (IllegalAccessException unused2) {
                     return true;
-                } catch (InstantiationException e2) {
-                    x0.a(e2);
+                } catch (InstantiationException e) {
+                    x0.a(e);
                 }
             }
             return true;
@@ -55,8 +55,8 @@ public class l0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return Modifier.isNative(Throwable.class.getDeclaredMethod("getStackTrace", new Class[0]).getModifiers());
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -96,7 +96,7 @@ public class l0 {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.f38909c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.c) : invokeV.booleanValue;
     }
 
     public boolean e() {
@@ -105,9 +105,9 @@ public class l0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 throw new Exception("");
-            } catch (Exception e2) {
-                for (StackTraceElement stackTraceElement : e2.getStackTrace()) {
-                    if (stackTraceElement.getClassName().contains(m0.f38908b)) {
+            } catch (Exception e) {
+                for (StackTraceElement stackTraceElement : e.getStackTrace()) {
+                    if (stackTraceElement.getClassName().contains(m0.b)) {
                         return true;
                     }
                 }
@@ -129,22 +129,22 @@ public class l0 {
                     return false;
                 } catch (IllegalAccessException unused2) {
                     return true;
-                } catch (InstantiationException e2) {
-                    x0.a(e2);
+                } catch (InstantiationException e) {
+                    x0.a(e);
                     return true;
                 }
             }
             if (systemClassLoader != null) {
                 try {
-                    systemClassLoader.loadClass(m0.f38908b).newInstance();
-                } catch (ClassNotFoundException e3) {
-                    x0.a(e3);
+                    systemClassLoader.loadClass(m0.b).newInstance();
+                } catch (ClassNotFoundException e2) {
+                    x0.a(e2);
                     return false;
-                } catch (IllegalAccessException e4) {
-                    x0.a(e4);
+                } catch (IllegalAccessException e3) {
+                    x0.a(e3);
                     return true;
-                } catch (InstantiationException e5) {
-                    x0.a(e5);
+                } catch (InstantiationException e4) {
+                    x0.a(e4);
                 }
             }
             return true;
@@ -157,18 +157,18 @@ public class l0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.f38908b).getDeclaredField("disableHooks");
+                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.b).getDeclaredField("disableHooks");
                 declaredField.setAccessible(true);
                 declaredField.set(null, Boolean.TRUE);
                 return true;
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                x0.a(e);
+                return false;
+            } catch (IllegalAccessException e2) {
                 x0.a(e2);
                 return false;
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchFieldException e3) {
                 x0.a(e3);
-                return false;
-            } catch (NoSuchFieldException e4) {
-                x0.a(e4);
                 return false;
             }
         }

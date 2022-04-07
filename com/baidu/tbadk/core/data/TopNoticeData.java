@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.FrsPage.TopNotice;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TopNoticeData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public class TopNoticeData {
                 this.title_link = jSONObject.getString("title_link");
                 this.author = jSONObject.getString(NotificationCompat.CarExtender.KEY_AUTHOR);
                 this.id = jSONObject.getInt("id");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

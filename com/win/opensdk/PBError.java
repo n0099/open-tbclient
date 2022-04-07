@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
     public static final PBError LOAD_TIME_OUT;
@@ -25,9 +25,7 @@ public class PBError {
     public static final PBError UNKNOWN;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43991b;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +70,7 @@ public class PBError {
             }
         }
         this.a = i;
-        this.f43991b = str;
+        this.b = str;
     }
 
     public int getCode() {
@@ -84,7 +82,7 @@ public class PBError {
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43991b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public void setCode(int i) {
@@ -97,7 +95,7 @@ public class PBError {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f43991b = str;
+            this.b = str;
         }
     }
 
@@ -105,7 +103,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.a + ", msg='" + this.f43991b + "'}";
+            return "PBError{code=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

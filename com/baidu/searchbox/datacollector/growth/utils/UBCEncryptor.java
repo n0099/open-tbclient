@@ -28,7 +28,7 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UBCEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_ALGORITHM = "RSA/ECB/PKCS1Padding";
@@ -36,7 +36,7 @@ public class UBCEncryptor {
     public static byte[] mCertBytes;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MixedEncryptedResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,8 +98,8 @@ public class UBCEncryptor {
                 Cipher cipher = Cipher.getInstance(TRANSFORMATION);
                 cipher.init(2, secretKeySpec, new IvParameterSpec(bArr2));
                 return new String(cipher.doFinal(decode), IMAudioTransRequest.CHARSET);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -115,8 +115,8 @@ public class UBCEncryptor {
                 Cipher cipher = Cipher.getInstance(TRANSFORMATION);
                 cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
                 return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
-            } catch (Exception e2) {
-                throw new IllegalStateException(e2);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
             }
         }
         return (String) invokeLLL.objValue;
@@ -130,8 +130,8 @@ public class UBCEncryptor {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(1, getPublicKey());
                 return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
-            } catch (Exception e2) {
-                throw new IllegalStateException(e2);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -154,8 +154,8 @@ public class UBCEncryptor {
                     mixedEncryptedResult.encryptedAESKeys = encryptByRSA;
                     mixedEncryptedResult.encryptedInput = encryptByAES;
                     return mixedEncryptedResult;
-                } catch (JSONException e2) {
-                    throw new IllegalStateException(e2);
+                } catch (JSONException e) {
+                    throw new IllegalStateException(e);
                 }
             }
             throw new IllegalArgumentException();
@@ -171,8 +171,8 @@ public class UBCEncryptor {
                 byte[] bArr = new byte[16];
                 SecureRandom.getInstance("SHA1PRNG").nextBytes(bArr);
                 return bArr;
-            } catch (NoSuchAlgorithmException e2) {
-                throw new IllegalStateException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException(e);
             }
         }
         return (byte[]) invokeV.objValue;
@@ -186,8 +186,8 @@ public class UBCEncryptor {
                 KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
                 keyGenerator.init(i);
                 return keyGenerator.generateKey().getEncoded();
-            } catch (Exception e2) {
-                throw new IllegalStateException(e2);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
             }
         }
         return (byte[]) invokeI.objValue;
@@ -206,7 +206,7 @@ public class UBCEncryptor {
         ByteArrayInputStream byteArrayInputStream;
         InterceptResult invokeV;
         Throwable th;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = (byteArrayInputStream = interceptable).invokeV(65545, null)) != null) {
             return (PublicKey) invokeV.objValue;
@@ -218,27 +218,27 @@ public class UBCEncryptor {
                     PublicKey publicKey = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream2).getPublicKey();
                     try {
                         byteArrayInputStream2.close();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
                     return publicKey;
-                } catch (Exception e4) {
-                    e2 = e4;
-                    throw new IllegalStateException(e2);
+                } catch (Exception e3) {
+                    e = e3;
+                    throw new IllegalStateException(e);
                 }
             } catch (Throwable th2) {
                 th = th2;
                 if (byteArrayInputStream != 0) {
                     try {
                         byteArrayInputStream.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e2 = e6;
+        } catch (Exception e5) {
+            e = e5;
         } catch (Throwable th3) {
             byteArrayInputStream = 0;
             th = th3;
@@ -256,8 +256,8 @@ public class UBCEncryptor {
                 Cipher cipher = Cipher.getInstance(str);
                 cipher.init(1, getPublicKey());
                 return new String(android.util.Base64.encode(cipher.doFinal(bArr), 2), IMAudioTransRequest.CHARSET);
-            } catch (Exception e2) {
-                throw new IllegalStateException(e2);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
             }
         }
         return (String) invokeLL.objValue;

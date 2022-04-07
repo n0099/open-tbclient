@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AudioCapabilities {
     public static /* synthetic */ Interceptable $ic;
     public static final AudioCapabilities DEFAULT_AUDIO_CAPABILITIES;

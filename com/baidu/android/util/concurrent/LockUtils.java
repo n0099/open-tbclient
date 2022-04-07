@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.Lock;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class LockUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
     public static final String TAG = "LockUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface WorkInLock {
         Object work();
     }
@@ -76,33 +76,33 @@ public final class LockUtils {
                             obj = workInLock.work();
                             try {
                                 lock.unlock();
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                             }
                         } catch (Throwable th) {
                             try {
                                 lock.unlock();
-                            } catch (Exception e3) {
+                            } catch (Exception e2) {
                                 if (DEBUG) {
-                                    Log.d(TAG, "Utility.doWorkInLock [lock.unlock()] Exception.", e3);
+                                    Log.d(TAG, "Utility.doWorkInLock [lock.unlock()] Exception.", e2);
                                 }
                             }
                             throw th;
                         }
-                    } catch (Exception e4) {
+                    } catch (Exception e3) {
                         if (DEBUG) {
-                            Log.d(TAG, "Utility.doWorkInLock [work.work()] Exception.", e4);
+                            Log.d(TAG, "Utility.doWorkInLock [work.work()] Exception.", e3);
                         }
                         try {
                             lock.unlock();
-                        } catch (Exception e5) {
-                            e = e5;
+                        } catch (Exception e4) {
+                            e = e4;
                         }
                     }
                     return obj;
-                } catch (Exception e6) {
+                } catch (Exception e5) {
                     if (DEBUG) {
-                        Log.d(TAG, "Utility.doWorkInLock [lock.lock()] Exception.", e6);
+                        Log.d(TAG, "Utility.doWorkInLock [lock.lock()] Exception.", e5);
                     }
                     return null;
                 }

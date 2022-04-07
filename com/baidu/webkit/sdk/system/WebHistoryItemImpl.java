@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;
@@ -33,8 +33,8 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
         }
         try {
             cloneMethod = android.webkit.WebHistoryItem.class.getDeclaredMethod("clone", null);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -78,8 +78,8 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
                 if (cloneMethod != null && this.mItem != null) {
                     return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return null;
         }

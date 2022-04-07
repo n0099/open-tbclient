@@ -82,9 +82,9 @@ public class OptionalMethod<T> {
             if (method != null) {
                 try {
                     return method.invoke(t, objArr);
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
                     AssertionError assertionError = new AssertionError("Unexpectedly could not call: " + method);
-                    assertionError.initCause(e2);
+                    assertionError.initCause(e);
                     throw assertionError;
                 }
             }
@@ -116,8 +116,8 @@ public class OptionalMethod<T> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, objArr)) == null) {
             try {
                 return invokeOptional(t, objArr);
-            } catch (InvocationTargetException e2) {
-                Throwable targetException = e2.getTargetException();
+            } catch (InvocationTargetException e) {
+                Throwable targetException = e.getTargetException();
                 if (targetException instanceof RuntimeException) {
                     throw ((RuntimeException) targetException);
                 }
@@ -135,8 +135,8 @@ public class OptionalMethod<T> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, t, objArr)) == null) {
             try {
                 return invoke(t, objArr);
-            } catch (InvocationTargetException e2) {
-                Throwable targetException = e2.getTargetException();
+            } catch (InvocationTargetException e) {
+                Throwable targetException = e.getTargetException();
                 if (targetException instanceof RuntimeException) {
                     throw ((RuntimeException) targetException);
                 }

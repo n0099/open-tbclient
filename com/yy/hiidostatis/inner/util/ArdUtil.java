@@ -55,7 +55,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -275,8 +275,8 @@ public class ArdUtil {
                 mCpuAbi = str2;
                 try {
                     bufferedReader.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return str2;
             } catch (Throwable th) {
@@ -288,8 +288,8 @@ public class ArdUtil {
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }
@@ -317,8 +317,8 @@ public class ArdUtil {
                 mCpuName = str;
                 try {
                     bufferedReader.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return str;
             } catch (Throwable th) {
@@ -330,8 +330,8 @@ public class ArdUtil {
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }
@@ -571,7 +571,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.f39039b);
+                    fileInputStream = new FileInputStream(z.b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -592,8 +592,8 @@ public class ArdUtil {
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
                             }
                             throw th3;
@@ -603,8 +603,8 @@ public class ArdUtil {
                     fileInputStream = null;
                     th = th4;
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
             String trim2 = sb.toString().trim();
             mMaxpuFreq = trim2;
@@ -882,17 +882,17 @@ public class ArdUtil {
 
     public static String getTimeZone() {
         InterceptResult invokeV;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
             int rawOffset = TimeZone.getDefault().getRawOffset() / 60000;
             if (rawOffset < 0) {
-                c2 = SignatureImpl.SEP;
+                c = SignatureImpl.SEP;
                 rawOffset = -rawOffset;
             } else {
-                c2 = '+';
+                c = '+';
             }
-            return "GMT" + c2 + (rawOffset / 60);
+            return "GMT" + c + (rawOffset / 60);
         }
         return (String) invokeV.objValue;
     }

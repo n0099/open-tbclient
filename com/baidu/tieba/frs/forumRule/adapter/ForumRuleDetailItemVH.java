@@ -2,8 +2,6 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.o0.e1.n.a;
-import c.a.o0.r.v.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -15,32 +13,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.af5;
+import com.repackage.wr4;
+/* loaded from: classes3.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f32499b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public EMTextView f32500c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f32501d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f32502e;
+    public View b;
+    public EMTextView c;
+    public TbRichTextView d;
+    public boolean e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleDetailItemVH(Context context, View view) {
-        super(view);
+    public ForumRuleDetailItemVH(Context context, View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,20 +44,20 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.f32499b = view;
-        c(view);
+        this.b = view2;
+        c(view2);
     }
 
-    public final void c(View view) {
+    public final void c(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f32500c = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a70);
-            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.obfuscated_res_0x7f090a6f);
-            this.f32501d = tbRichTextView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a72);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a71);
+            this.d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            a layoutStrategy = this.f32501d.getLayoutStrategy();
+            af5 layoutStrategy = this.d.getLayoutStrategy();
             layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-            this.f32501d.setLayoutStrategy(layoutStrategy);
+            this.d.setLayoutStrategy(layoutStrategy);
             d();
         }
     }
@@ -73,24 +65,24 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f32502e) {
-                c d2 = c.d(this.f32500c);
-                d2.A(R.string.F_X02);
-                d2.v(R.color.CAM_X0301);
-                this.f32501d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+            if (this.e) {
+                wr4 d = wr4.d(this.c);
+                d.A(R.string.F_X02);
+                d.v(R.color.CAM_X0301);
+                this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            c d3 = c.d(this.f32500c);
-            d3.A(R.string.F_X02);
-            d3.v(R.color.CAM_X0105);
-            this.f32501d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            wr4 d2 = wr4.d(this.c);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f32502e = z;
+            this.e = z;
             d();
         }
     }

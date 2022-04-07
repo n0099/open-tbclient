@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
     public static gj a;
@@ -22,9 +22,7 @@ public class gj {
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f419a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f44309b;
+    public Map<String, Object> b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -40,8 +38,8 @@ public class gj {
             }
         }
         this.f419a = new ConcurrentHashMap();
-        this.f44309b = new ConcurrentHashMap();
-        m393a();
+        this.b = new ConcurrentHashMap();
+        m389a();
     }
 
     public static synchronized gj a() {
@@ -79,7 +77,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m391a() {
+    private ClassLoader[] m387a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -97,7 +95,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m392a(String str, String str2) {
+    public Object m388a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f419a.get(a(str, str2)) : invokeLL.objValue;
@@ -109,7 +107,7 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m393a() {
+    public void m389a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
@@ -117,7 +115,7 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                for (ClassLoader classLoader : m391a()) {
+                for (ClassLoader classLoader : m387a()) {
                     Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                     while (resources.hasMoreElements()) {
                         InputStream openStream = resources.nextElement().openStream();
@@ -138,19 +136,19 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f44309b.containsKey(a2)) {
+                                    if (!this.b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f44309b;
+                                                map2 = this.b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f44309b;
+                                                map2 = this.b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);
-                                        } catch (ClassNotFoundException e2) {
-                                            e = e2;
+                                        } catch (ClassNotFoundException e) {
+                                            e = e;
                                             e.printStackTrace();
                                             eventType = newPullParser.next();
                                             if (eventType == 1) {
@@ -179,8 +177,8 @@ public class gj {
                                                 obj = cls2;
                                             }
                                             map.put(a3, obj);
-                                        } catch (ClassNotFoundException e3) {
-                                            e = e3;
+                                        } catch (ClassNotFoundException e2) {
+                                            e = e2;
                                             e.printStackTrace();
                                             eventType = newPullParser.next();
                                             if (eventType == 1) {
@@ -198,8 +196,8 @@ public class gj {
                         }
                     }
                 }
-            } catch (Exception e4) {
-                e4.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
         }
     }

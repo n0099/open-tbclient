@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,14 +15,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.t56;
+import com.repackage.wr4;
+/* loaded from: classes3.dex */
 public class RecommendThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f31921b;
+    public TextView b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RecommendThreadView(Context context) {
@@ -60,22 +59,22 @@ public class RecommendThreadView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             setOrientation(1);
             setLayoutParams(layoutParams);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0727, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d071e, this);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a0c);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919fc);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706dc));
+            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e9));
             this.a.setBorderSurroundContent(true);
-            this.f31921b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fb);
             d();
         }
     }
@@ -85,22 +84,22 @@ public class RecommendThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setPlaceHolder(2);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            c d2 = c.d(this.f31921b);
-            d2.z(R.dimen.T_X07);
-            d2.v(R.color.CAM_X0105);
+            wr4 d = wr4.d(this.b);
+            d.z(R.dimen.T_X07);
+            d.v(R.color.CAM_X0105);
         }
     }
 
-    public void setData(c.a.p0.w0.l.b.c cVar) {
+    public void setData(t56 t56Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || cVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, t56Var) == null) || t56Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(cVar.b())) {
-            this.a.J(cVar.b(), 10, false);
+        if (!TextUtils.isEmpty(t56Var.b())) {
+            this.a.K(t56Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(cVar.f())) {
-            this.f31921b.setText(cVar.f());
+        if (!TextUtils.isEmpty(t56Var.f())) {
+            this.b.setText(t56Var.f());
         }
         d();
     }

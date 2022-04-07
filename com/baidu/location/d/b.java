@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WeakReference a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f26041b;
+    public final /* synthetic */ a b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f26041b = aVar;
+        this.b = aVar;
         this.a = weakReference;
     }
 
@@ -42,7 +40,7 @@ public class b implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.a.get()) == null) {
             return;
         }
-        i = aVar.f26040h;
+        i = aVar.h;
         if (i == 3) {
             Log.d("baidu_location_service", "baidu location service force stopped ...");
             aVar.b();

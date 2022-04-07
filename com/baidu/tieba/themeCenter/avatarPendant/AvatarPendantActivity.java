@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.f4.d.c;
-import c.a.p0.f4.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,9 +28,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bq8;
+import com.repackage.cq8;
+import com.repackage.dq8;
+import com.repackage.fq8;
+import com.repackage.fr8;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvatarPendantModel.b, View.OnClickListener {
+/* loaded from: classes4.dex */
+public class AvatarPendantActivity extends BaseActivity implements fq8.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AvatarPendantModel.b mCallback;
@@ -41,9 +44,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
     public AvatarPendantModel mModel;
     public NoNetworkView.b mNetListener;
     public SetAvatarPendantModel mSetAvatarPendantModel;
-    public c mView;
+    public fq8 mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements AvatarPendantModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,13 +71,13 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, e eVar, List<c.a.p0.f4.d.a> list) {
+        public void a(int i, String str, fr8 fr8Var, List<dq8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, eVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, fr8Var, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
                 if (i == 0) {
-                    this.a.mView.o(eVar, list);
+                    this.a.mView.o(fr8Var, list);
                 } else {
                     this.a.showToast(str);
                     this.a.mView.n();
@@ -84,7 +87,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +112,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void f(boolean z) {
+        public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 BdListViewHelper.c(this.a.mView.i(), BdListViewHelper.HeadType.DEFAULT, z);
@@ -157,7 +160,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             if (dressItemData == null) {
                 return "";
             }
-            List<c.a.p0.f4.d.a> D = this.mModel.D();
+            List<dq8> D = this.mModel.D();
             if (D != null && D.size() > 0) {
                 int size = D.size();
                 for (int i = 0; i < size; i++) {
@@ -198,9 +201,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            c cVar = new c(this);
-            this.mView = cVar;
-            cVar.c(this.mNetListener);
+            fq8 fq8Var = new fq8(this);
+            this.mView = fq8Var;
+            fq8Var.e(this.mNetListener);
             this.mView.m(this);
         }
     }
@@ -225,9 +228,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.mView.g().getButton() && checkLogin()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 == this.mView.g().getButton() && checkLogin()) {
             TiebaStatic.log("c11613");
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
@@ -257,7 +260,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
     }
 
-    @Override // c.a.p0.f4.d.c.a
+    @Override // com.repackage.fq8.a
     public void onItemClick(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, dressItemData) == null) && checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
@@ -269,12 +272,12 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        c cVar;
+        fq8 fq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (cVar = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (fq8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(cVar.h());
+        showLoadingView(fq8Var.h());
         this.mModel.loadData();
     }
 
@@ -286,7 +289,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                 showErrorDialog(i2, str, i);
                 return;
             }
-            List<c.a.p0.f4.d.a> D = this.mModel.D();
+            List<dq8> D = this.mModel.D();
             if (D == null || D.size() <= 0) {
                 return;
             }
@@ -326,10 +329,10 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == c.a.p0.f4.c.a) {
-                c.a.p0.f4.b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == c.a.p0.f4.c.f14994b) {
-                c.a.p0.f4.b.c(getPageContext(), 7, str, i3);
+            if (i == cq8.a) {
+                bq8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            } else if (i == cq8.b) {
+                bq8.c(getPageContext(), 7, str, i3);
             }
         }
     }

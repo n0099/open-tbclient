@@ -92,9 +92,9 @@ public class YuvConverter {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 GLES20.glUniform4fv(this.coeffsLoc, 1, this.coeffs, 0);
                 int i5 = this.xUnitLoc;
-                float f2 = this.stepSize;
-                float f3 = i;
-                GLES20.glUniform2f(i5, (fArr[0] * f2) / f3, (f2 * fArr[1]) / f3);
+                float f = this.stepSize;
+                float f2 = i;
+                GLES20.glUniform2f(i5, (fArr[0] * f) / f2, (f * fArr[1]) / f2);
             }
         }
 
@@ -188,7 +188,7 @@ public class YuvConverter {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i9);
-            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: f.c.e0
+            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: com.repackage.iy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

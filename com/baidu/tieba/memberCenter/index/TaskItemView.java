@@ -13,32 +13,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TaskItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34485b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34486c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f34487d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34488e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f34489f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f34490g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f34491h;
+    public View b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public View g;
+    public View h;
     public View.OnClickListener i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,17 +53,17 @@ public class TaskItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f2, this);
-            this.f34485b = inflate;
-            this.f34491h = inflate.findViewById(R.id.obfuscated_res_0x7f091362);
-            this.f34486c = (TbImageView) this.f34485b.findViewById(R.id.obfuscated_res_0x7f091ef4);
-            this.f34487d = (TextView) this.f34485b.findViewById(R.id.obfuscated_res_0x7f092244);
-            this.f34488e = (TextView) this.f34485b.findViewById(R.id.obfuscated_res_0x7f09223d);
-            TextView textView = (TextView) this.f34485b.findViewById(R.id.obfuscated_res_0x7f092243);
-            this.f34489f = textView;
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ef, this);
+            this.b = inflate;
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091357);
+            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee0);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092228);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092221);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092227);
+            this.f = textView;
             textView.setOnClickListener(this.i);
-            this.f34491h.setOnClickListener(this.i);
-            this.f34490g = this.f34485b.findViewById(R.id.obfuscated_res_0x7f0907f4);
+            this.h.setOnClickListener(this.i);
+            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0907fd);
         }
     }
 
@@ -85,8 +71,8 @@ public class TaskItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             this.i = onClickListener;
-            this.f34489f.setOnClickListener(onClickListener);
-            this.f34491h.setOnClickListener(this.i);
+            this.f.setOnClickListener(onClickListener);
+            this.h.setOnClickListener(this.i);
         }
     }
 

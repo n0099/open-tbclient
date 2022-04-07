@@ -1,12 +1,6 @@
 package com.baidu.tbadk.browser;
 
 import android.webkit.JsPromptResult;
-import c.a.d.f.p.c;
-import c.a.f.a.a;
-import c.a.o0.m0.e;
-import c.a.o0.s.c.l;
-import c.a.p0.a4.o0.b;
-import c.a.p0.h4.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -19,12 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cq;
+import com.repackage.di;
+import com.repackage.kl8;
+import com.repackage.l75;
+import com.repackage.nr8;
+import com.repackage.ol8;
+import com.repackage.rw4;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@a
-/* loaded from: classes4.dex */
-public class UegTbJsBridge implements b {
+@cq
+/* loaded from: classes2.dex */
+public class UegTbJsBridge implements kl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -58,40 +59,40 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                c.a(new JSONObject(str).optString("content"));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                di.a(new JSONObject(str).optString("content"));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public c.a.p0.a4.o0.d.c bindingMobileNumber() {
+    public ol8 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
+            ol8 ol8Var = new ol8();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, l.b()));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, rw4.b()));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return cVar;
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c callNativeSMS(String str, String str2) {
+    public ol8 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
+            ol8 ol8Var = new ol8();
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
-            return cVar;
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeLL.objValue;
+        return (ol8) invokeLL.objValue;
     }
 
-    @Override // c.a.p0.a4.o0.b
+    @Override // com.repackage.kl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -102,8 +103,8 @@ public class UegTbJsBridge implements b {
                         JSONObject jSONObject = new JSONObject(str3);
                         callNativeSMS(jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
                         jsPromptResult.confirm("1");
-                    } catch (JSONException e2) {
-                        BdLog.e(e2);
+                    } catch (JSONException e) {
+                        BdLog.e(e);
                     }
                     return true;
                 } else if (METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
@@ -115,8 +116,8 @@ public class UegTbJsBridge implements b {
                         JSONObject jSONObject2 = new JSONObject(str3);
                         setBlockPopInfo(jSONObject2.optInt("can_post"), jSONObject2.optString("block_info"), jSONObject2.optString("ahead_info"), jSONObject2.optString("ahead_url"), jSONObject2.optString("ok_info"), jSONObject2.optInt("ahead_type"));
                         jsPromptResult.confirm("1");
-                    } catch (JSONException e3) {
-                        BdLog.e(e3);
+                    } catch (JSONException e2) {
+                        BdLog.e(e2);
                     }
                     return true;
                 } else if ("bindMobileNumber".equals(str2)) {
@@ -127,8 +128,8 @@ public class UegTbJsBridge implements b {
                         JSONObject jSONObject3 = new JSONObject(str3);
                         recordNovelInfo(jSONObject3.optString("bookProgress"), jSONObject3.optString("gid"), jSONObject3.optString("lastReadChapterId"), jSONObject3.optString("lastReadChapterIndex"), jSONObject3.optString("lastReadChapterName"));
                         jsPromptResult.confirm("1");
-                    } catch (JSONException e4) {
-                        BdLog.e(e4);
+                    } catch (JSONException e3) {
+                        BdLog.e(e3);
                     }
                     return true;
                 } else {
@@ -140,22 +141,22 @@ public class UegTbJsBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.p0.a4.o0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public ol8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
-            e.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
-            return cVar;
+            ol8 ol8Var = new ol8();
+            l75.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeLLLLL.objValue;
+        return (ol8) invokeLLLLL.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public ol8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
+            ol8 ol8Var = new ol8();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -165,13 +166,13 @@ public class UegTbJsBridge implements b {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                d.g(build);
-                d.f(build);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                nr8.g(build);
+                nr8.f(build);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return cVar;
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeCommon.objValue;
+        return (ol8) invokeCommon.objValue;
     }
 }

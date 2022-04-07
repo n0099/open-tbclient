@@ -141,7 +141,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     }
 
     @Nullable
-    public abstract int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view);
+    public abstract int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2);
 
     public int[] calculateScrollDistance(int i, int i2) {
         InterceptResult invokeII;
@@ -201,14 +201,14 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
                     }
 
                     @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
-                    public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
+                    public void onTargetFound(View view2, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
                         SnapHelper snapHelper;
                         RecyclerView recyclerView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, state, action) == null) || (recyclerView = (snapHelper = this.this$0).mRecyclerView) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, state, action) == null) || (recyclerView = (snapHelper = this.this$0).mRecyclerView) == null) {
                             return;
                         }
-                        int[] calculateDistanceToFinalSnap = snapHelper.calculateDistanceToFinalSnap(recyclerView.getLayoutManager(), view);
+                        int[] calculateDistanceToFinalSnap = snapHelper.calculateDistanceToFinalSnap(recyclerView.getLayoutManager(), view2);
                         int i = calculateDistanceToFinalSnap[0];
                         int i2 = calculateDistanceToFinalSnap[1];
                         int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));

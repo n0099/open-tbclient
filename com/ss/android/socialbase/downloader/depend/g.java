@@ -15,14 +15,12 @@ public interface g extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2062a implements g {
+        public static class C0606a implements g {
             public static g a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43222b;
-
-            public C2062a(IBinder iBinder) {
-                this.f43222b = iBinder;
+            public C0606a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -33,7 +31,7 @@ public interface g extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f43222b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(str, str2);
                     }
                     obtain2.readException();
@@ -46,7 +44,7 @@ public interface g extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43222b;
+                return this.b;
             }
         }
 
@@ -62,7 +60,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C2062a(iBinder);
+            return new C0606a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -92,7 +90,7 @@ public interface g extends IInterface {
         }
 
         public static g a() {
-            return C2062a.a;
+            return C0606a.a;
         }
     }
 }

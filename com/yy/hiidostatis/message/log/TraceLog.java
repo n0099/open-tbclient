@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TraceLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INIT_FAILED = -1;
@@ -162,8 +162,8 @@ public class TraceLog {
             }
             objArr[5] = Integer.valueOf(i);
             addLog(String.format(locale, "A,%s,%s,%s,%s,%d,%d\n", objArr));
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

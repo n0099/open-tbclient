@@ -1,24 +1,25 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import c.a.d.f.d.l;
-import c.a.d.f.p.p;
-import c.a.o0.k0.b.d;
-import c.a.o0.k0.b.h;
-import c.a.o0.r.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.ei;
+import com.repackage.l65;
+import com.repackage.p65;
+import com.repackage.qe;
+import com.repackage.qi;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes5.dex */
-public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Message> extends MvcHttpResponsedMessage<D> {
+/* loaded from: classes3.dex */
+public abstract class MvcProtobufHttpResponsedMessage<D extends p65, M extends Message> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,7 +48,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        d dVar;
+        l65 l65Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -56,32 +57,32 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
             }
             if (getOrginalMessage() instanceof MvcSocketMessage) {
                 MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof d)) {
-                    dVar = (d) mvcSocketMessage.getData();
+                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof l65)) {
+                    l65Var = (l65) mvcSocketMessage.getData();
                 }
-                dVar = null;
+                l65Var = null;
             } else {
                 if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                     MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof d)) {
-                        dVar = (d) mvcNetMessage.getRequestData();
+                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof l65)) {
+                        l65Var = (l65) mvcNetMessage.getRequestData();
                     }
                 }
-                dVar = null;
+                l65Var = null;
             }
-            if (dVar != null) {
-                String cacheKey = dVar.getCacheKey();
-                String x = dVar.x();
-                String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+            if (l65Var != null) {
+                String cacheKey = l65Var.getCacheKey();
+                String x = l65Var.x();
+                String currentAccount = l65Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                 if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
                     return;
                 }
-                a.f();
-                l<byte[]> e2 = a.e(x, currentAccount);
-                if (e2 == null) {
+                cr4.f();
+                qe<byte[]> e = cr4.e(x, currentAccount);
+                if (e == null) {
                     return;
                 }
-                e2.g(cacheKey, bArr);
+                e.g(cacheKey, bArr);
             }
         }
     }
@@ -90,25 +91,25 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
-        List<Field> c2;
+        List<Field> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c3 = c.a.d.f.p.d.c(parseFrom, Error.class);
-            if (c3 == null || c3.size() <= 0) {
+            List<Field> c2 = ei.c(parseFrom, Error.class);
+            if (c2 == null || c2.size() <= 0) {
                 z = false;
             } else {
                 z = true;
-                Object a = p.a(parseFrom, c3.get(0));
+                Object a = qi.a(parseFrom, c2.get(0));
                 if (a instanceof Error) {
                     Error error = (Error) a;
                     setError(error.errorno.intValue());
                     setErrorString(error.usermsg);
                 }
             }
-            if (!z && (c2 = c.a.d.f.p.d.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
-                Object a2 = p.a(parseFrom, c2.get(0));
+            if (!z && (c = ei.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
+                Object a2 = qi.a(parseFrom, c.get(0));
                 if (a2 instanceof tbclient.Error) {
                     tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());
@@ -124,10 +125,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof h) {
-                D d2 = (D) obj;
-                this.data = d2;
-                d2.initByProtobuf(parseFrom);
+            if (obj instanceof p65) {
+                D d = (D) obj;
+                this.data = d;
+                d.initByProtobuf(parseFrom);
             }
         }
     }

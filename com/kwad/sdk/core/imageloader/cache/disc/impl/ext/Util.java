@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Util {
     public static final Charset US_ASCII = Charset.forName("US-ASCII");
     public static final Charset UTF_8 = Charset.forName("UTF-8");
@@ -15,8 +15,8 @@ public final class Util {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (RuntimeException e2) {
-                throw e2;
+            } catch (RuntimeException e) {
+                throw e;
             } catch (Exception unused) {
             }
         }

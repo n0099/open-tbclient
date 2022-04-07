@@ -2,9 +2,9 @@ package com.google.android.material.internal;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface ViewGroupOverlayImpl extends ViewOverlayImpl {
-    void add(@NonNull View view);
+    void add(@NonNull View view2);
 
-    void remove(@NonNull View view);
+    void remove(@NonNull View view2);
 }

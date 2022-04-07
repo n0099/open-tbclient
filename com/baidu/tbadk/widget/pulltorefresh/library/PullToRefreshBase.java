@@ -27,32 +27,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.we5;
+import com.repackage.xe5;
+import com.repackage.ye5;
+import com.repackage.ze5;
+/* loaded from: classes3.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f30887b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public float f30888c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f30889d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f30890e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f30891f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public State f30892g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Mode f30893h;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public boolean f;
+    public State g;
+    public Mode h;
     public Mode i;
     public T j;
     public FrameLayout k;
@@ -70,7 +60,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public PullToRefreshBase<T>.h w;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class AnimationStyle {
         public static final /* synthetic */ AnimationStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -150,7 +140,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, mode, orientation, typedArray)) == null) {
-                if (c.f30896d[ordinal()] != 2) {
+                if (c.d[ordinal()] != 2) {
                     return new RotateLoadingLayout(context, mode, orientation, typedArray);
                 }
                 return new FlipLoadingLayout(context, mode, orientation, typedArray);
@@ -160,7 +150,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -280,7 +270,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class Orientation {
         public static final /* synthetic */ Orientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -340,7 +330,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -431,7 +421,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -464,7 +454,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -497,19 +487,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30894b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30895c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30896d;
+        public static final /* synthetic */ int[] b;
+        public static final /* synthetic */ int[] c;
+        public static final /* synthetic */ int[] d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -526,57 +510,57 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 }
             }
             int[] iArr = new int[AnimationStyle.values().length];
-            f30896d = iArr;
+            d = iArr;
             try {
                 iArr[AnimationStyle.ROTATE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30896d[AnimationStyle.FLIP.ordinal()] = 2;
+                d[AnimationStyle.FLIP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[Mode.values().length];
-            f30895c = iArr2;
+            c = iArr2;
             try {
                 iArr2[Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f30895c[Mode.PULL_FROM_START.ordinal()] = 2;
+                c[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f30895c[Mode.MANUAL_REFRESH_ONLY.ordinal()] = 3;
+                c[Mode.MANUAL_REFRESH_ONLY.ordinal()] = 3;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f30895c[Mode.BOTH.ordinal()] = 4;
+                c[Mode.BOTH.ordinal()] = 4;
             } catch (NoSuchFieldError unused6) {
             }
             int[] iArr3 = new int[State.values().length];
-            f30894b = iArr3;
+            b = iArr3;
             try {
                 iArr3[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f30894b[State.PULL_TO_REFRESH.ordinal()] = 2;
+                b[State.PULL_TO_REFRESH.ordinal()] = 2;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f30894b[State.RELEASE_TO_REFRESH.ordinal()] = 3;
+                b[State.RELEASE_TO_REFRESH.ordinal()] = 3;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f30894b[State.REFRESHING.ordinal()] = 4;
+                b[State.REFRESHING.ordinal()] = 4;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f30894b[State.MANUAL_REFRESHING.ordinal()] = 5;
+                b[State.MANUAL_REFRESHING.ordinal()] = 5;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f30894b[State.OVERSCROLLING.ordinal()] = 6;
+                b[State.OVERSCROLLING.ordinal()] = 6;
             } catch (NoSuchFieldError unused12) {
             }
             int[] iArr4 = new int[Orientation.values().length];
@@ -592,54 +576,40 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase, State state, Mode mode);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface e<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
 
         void b(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface f<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         void a();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public final class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Interpolator a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f30897b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final int f30898c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final long f30899d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public g f30900e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f30901f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public long f30902g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f30903h;
+        public final int b;
+        public final int c;
+        public final long d;
+        public g e;
+        public boolean f;
+        public long g;
+        public int h;
         public final /* synthetic */ PullToRefreshBase i;
 
         public h(PullToRefreshBase pullToRefreshBase, int i, int i2, long j, g gVar) {
@@ -658,20 +628,20 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 }
             }
             this.i = pullToRefreshBase;
-            this.f30901f = true;
-            this.f30902g = -1L;
-            this.f30903h = -1;
-            this.f30898c = i;
-            this.f30897b = i2;
+            this.f = true;
+            this.g = -1L;
+            this.h = -1;
+            this.c = i;
+            this.b = i2;
             this.a = pullToRefreshBase.p;
-            this.f30899d = j;
-            this.f30900e = gVar;
+            this.d = j;
+            this.e = gVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30901f = false;
+                this.f = false;
                 this.i.removeCallbacks(this);
             }
         }
@@ -680,18 +650,18 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f30902g == -1) {
-                    this.f30902g = System.currentTimeMillis();
+                if (this.g == -1) {
+                    this.g = System.currentTimeMillis();
                 } else {
-                    int round = this.f30898c - Math.round((this.f30898c - this.f30897b) * this.a.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.f30902g) * 1000) / this.f30899d, 1000L), 0L)) / 1000.0f));
-                    this.f30903h = round;
+                    int round = this.c - Math.round((this.c - this.b) * this.a.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.g) * 1000) / this.d, 1000L), 0L)) / 1000.0f));
+                    this.h = round;
                     this.i.setHeaderScroll(round);
                 }
-                if (this.f30901f && this.f30897b != this.f30903h) {
-                    c.a.o0.e1.m.a.c.b.a(this.i, this);
+                if (this.f && this.b != this.h) {
+                    ze5.a(this.i, this);
                     return;
                 }
-                g gVar = this.f30900e;
+                g gVar = this.e;
                 if (gVar != null) {
                     gVar.a();
                 }
@@ -717,9 +687,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
         }
-        this.f30891f = false;
-        this.f30892g = State.RESET;
-        this.f30893h = Mode.getDefault();
+        this.f = false;
+        this.g = State.RESET;
+        this.h = Mode.getDefault();
         this.l = true;
         this.m = false;
         this.n = true;
@@ -755,8 +725,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public final void A(State state, boolean... zArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, state, zArr) == null) {
-            this.f30892g = state;
-            int i = c.f30894b[state.ordinal()];
+            this.g = state;
+            int i = c.b[state.ordinal()];
             if (i == 1) {
                 w();
             } else if (i == 2) {
@@ -768,7 +738,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             }
             d<T> dVar = this.v;
             if (dVar != null) {
-                dVar.a(this, this.f30892g, this.i);
+                dVar.a(this, this.g, this.i);
             }
         }
     }
@@ -830,17 +800,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             if (this == this.r.getParent()) {
                 removeView(this.r);
             }
-            if (this.f30893h.showHeaderLoadingLayout()) {
+            if (this.h.showHeaderLoadingLayout()) {
                 d(this.r, 0, loadingLayoutLayoutParams);
             }
             if (this == this.s.getParent()) {
                 removeView(this.s);
             }
-            if (this.f30893h.showFooterLoadingLayout()) {
+            if (this.h.showFooterLoadingLayout()) {
                 e(this.s, loadingLayoutLayoutParams);
             }
             y();
-            Mode mode = this.f30893h;
+            Mode mode = this.h;
             if (mode == Mode.BOTH) {
                 mode = Mode.PULL_FROM_START;
             }
@@ -849,12 +819,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, view, i, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, view2, i, layoutParams) == null) {
             T refreshableView = getRefreshableView();
             if (refreshableView instanceof ViewGroup) {
-                ((ViewGroup) refreshableView).addView(view, i, layoutParams);
+                ((ViewGroup) refreshableView).addView(view2, i, layoutParams);
                 return;
             }
             throw new UnsupportedOperationException("Refreshable View is not a ViewGroup so can't addView");
@@ -871,17 +841,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public final void d(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public final void d(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i, layoutParams) == null) {
-            super.addView(view, i, layoutParams);
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, layoutParams) == null) {
+            super.addView(view2, i, layoutParams);
         }
     }
 
-    public final void e(View view, ViewGroup.LayoutParams layoutParams) {
+    public final void e(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, view, layoutParams) == null) {
-            super.addView(view, -1, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, layoutParams) == null) {
+            super.addView(view2, -1, layoutParams);
         }
     }
 
@@ -952,16 +922,16 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.r.getContentSize() : invokeV.intValue;
     }
 
-    public final c.a.o0.e1.m.a.a getLoadingLayoutProxy() {
+    public final we5 getLoadingLayoutProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (c.a.o0.e1.m.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (we5) invokeV.objValue;
     }
 
     public final Mode getMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f30893h : (Mode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h : (Mode) invokeV.objValue;
     }
 
     public abstract Orientation getPullToRefreshScrollDirection();
@@ -1005,31 +975,31 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public final State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f30892g : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (State) invokeV.objValue;
     }
 
-    public c.a.o0.e1.m.a.b h(boolean z, boolean z2) {
+    public xe5 h(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            c.a.o0.e1.m.a.b bVar = new c.a.o0.e1.m.a.b();
-            if (z && this.f30893h.showHeaderLoadingLayout()) {
-                bVar.a(this.r);
+            xe5 xe5Var = new xe5();
+            if (z && this.h.showHeaderLoadingLayout()) {
+                xe5Var.a(this.r);
             }
-            if (z2 && this.f30893h.showFooterLoadingLayout()) {
-                bVar.a(this.s);
+            if (z2 && this.h.showFooterLoadingLayout()) {
+                xe5Var.a(this.s);
             }
-            return bVar;
+            return xe5Var;
         }
-        return (c.a.o0.e1.m.a.b) invokeCommon.objValue;
+        return (xe5) invokeCommon.objValue;
     }
 
     public abstract T i(Context context, AttributeSet attributeSet);
 
-    public final c.a.o0.e1.m.a.a j(boolean z, boolean z2) {
+    public final we5 j(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (c.a.o0.e1.m.a.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (we5) invokeCommon.objValue;
     }
 
     public void k(TypedArray typedArray) {
@@ -1048,9 +1018,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             }
             setGravity(17);
             this.a = ViewConfiguration.get(context).getScaledTouchSlop();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405df, R.attr.obfuscated_res_0x7f0405e0, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f0405e2, R.attr.obfuscated_res_0x7f0405e3, R.attr.obfuscated_res_0x7f0405e4, R.attr.obfuscated_res_0x7f0405e5, R.attr.obfuscated_res_0x7f0405e6, R.attr.obfuscated_res_0x7f0405e7, R.attr.obfuscated_res_0x7f0405e8, R.attr.obfuscated_res_0x7f0405e9, R.attr.obfuscated_res_0x7f0405ea, R.attr.obfuscated_res_0x7f0405eb, R.attr.obfuscated_res_0x7f0405ec, R.attr.obfuscated_res_0x7f0405ed, R.attr.obfuscated_res_0x7f0405ee, R.attr.obfuscated_res_0x7f0405ef, R.attr.obfuscated_res_0x7f0405f0, R.attr.obfuscated_res_0x7f0405f1});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04061d, R.attr.obfuscated_res_0x7f04061e, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f040621, R.attr.obfuscated_res_0x7f040622, R.attr.obfuscated_res_0x7f040623, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040626, R.attr.obfuscated_res_0x7f040627, R.attr.obfuscated_res_0x7f040628, R.attr.obfuscated_res_0x7f040629, R.attr.obfuscated_res_0x7f04062a, R.attr.obfuscated_res_0x7f04062b, R.attr.obfuscated_res_0x7f04062c, R.attr.obfuscated_res_0x7f04062d, R.attr.obfuscated_res_0x7f04062e, R.attr.obfuscated_res_0x7f04062f});
             if (obtainStyledAttributes.hasValue(12)) {
-                this.f30893h = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
+                this.h = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
             }
             if (obtainStyledAttributes.hasValue(1)) {
                 this.q = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(1, 0));
@@ -1066,7 +1036,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.j.setBackgroundDrawable(drawable);
                 }
             } else if (obtainStyledAttributes.hasValue(0)) {
-                c.a.o0.e1.m.a.c.a.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                ye5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
                 Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
                 if (drawable2 != null) {
                     this.j.setBackgroundDrawable(drawable2);
@@ -1087,14 +1057,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f30893h.permitsPullToRefresh() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.h.permitsPullToRefresh() : invokeV.booleanValue;
     }
 
     public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            int i = c.f30895c[this.f30893h.ordinal()];
+            int i = c.c[this.h.ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     if (i != 4) {
@@ -1121,7 +1091,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             if (m()) {
                 int action = motionEvent.getAction();
                 if (action != 3 && action != 1) {
-                    if (action == 0 || !this.f30891f) {
+                    if (action == 0 || !this.f) {
                         if (action != 0) {
                             if (action == 2) {
                                 if (!this.m && q()) {
@@ -1131,26 +1101,26 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                                     float y = motionEvent.getY();
                                     float x = motionEvent.getX();
                                     if (c.a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-                                        f2 = y - this.f30888c;
-                                        f3 = x - this.f30887b;
+                                        f2 = y - this.c;
+                                        f3 = x - this.b;
                                     } else {
-                                        f2 = x - this.f30887b;
-                                        f3 = y - this.f30888c;
+                                        f2 = x - this.b;
+                                        f3 = y - this.c;
                                     }
                                     float abs = Math.abs(f2);
                                     if (abs > this.a && (!this.n || abs > Math.abs(f3))) {
-                                        if (this.f30893h.showHeaderLoadingLayout() && f2 >= 1.0f && p()) {
-                                            this.f30888c = y;
-                                            this.f30887b = x;
-                                            this.f30891f = true;
-                                            if (this.f30893h == Mode.BOTH) {
+                                        if (this.h.showHeaderLoadingLayout() && f2 >= 1.0f && p()) {
+                                            this.c = y;
+                                            this.b = x;
+                                            this.f = true;
+                                            if (this.h == Mode.BOTH) {
                                                 this.i = Mode.PULL_FROM_START;
                                             }
-                                        } else if (this.f30893h.showFooterLoadingLayout() && f2 <= -1.0f && o()) {
-                                            this.f30888c = y;
-                                            this.f30887b = x;
-                                            this.f30891f = true;
-                                            if (this.f30893h == Mode.BOTH) {
+                                        } else if (this.h.showFooterLoadingLayout() && f2 <= -1.0f && o()) {
+                                            this.c = y;
+                                            this.b = x;
+                                            this.f = true;
+                                            if (this.h == Mode.BOTH) {
                                                 this.i = Mode.PULL_FROM_END;
                                             }
                                         }
@@ -1159,18 +1129,18 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                             }
                         } else if (n()) {
                             float y2 = motionEvent.getY();
-                            this.f30890e = y2;
-                            this.f30888c = y2;
+                            this.e = y2;
+                            this.c = y2;
                             float x2 = motionEvent.getX();
-                            this.f30889d = x2;
-                            this.f30887b = x2;
-                            this.f30891f = false;
+                            this.d = x2;
+                            this.b = x2;
+                            this.f = false;
                         }
-                        return this.f30891f;
+                        return this.f;
                     }
                     return true;
                 }
-                this.f30891f = false;
+                this.f = false;
                 return false;
             }
             return false;
@@ -1207,8 +1177,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             Bundle bundle = new Bundle();
             s(bundle);
-            bundle.putInt("ptr_state", this.f30892g.getIntValue());
-            bundle.putInt("ptr_mode", this.f30893h.getIntValue());
+            bundle.putInt("ptr_state", this.g.getIntValue());
+            bundle.putInt("ptr_mode", this.h.getIntValue());
             bundle.putInt("ptr_current_mode", this.i.getIntValue());
             bundle.putBoolean("ptr_disable_scrolling", this.m);
             bundle.putBoolean("ptr_show_refreshing_view", this.l);
@@ -1247,17 +1217,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                         if (action != 0) {
                             if (action != 1) {
                                 if (action == 2) {
-                                    if (this.f30891f) {
-                                        this.f30888c = motionEvent.getY();
-                                        this.f30887b = motionEvent.getX();
+                                    if (this.f) {
+                                        this.c = motionEvent.getY();
+                                        this.b = motionEvent.getX();
                                         x();
                                         return true;
                                     }
                                 }
                             }
-                            if (this.f30891f) {
-                                this.f30891f = false;
-                                if (this.f30892g == State.RELEASE_TO_REFRESH && (this.t != null || this.u != null)) {
+                            if (this.f) {
+                                this.f = false;
+                                if (this.g == State.RELEASE_TO_REFRESH && (this.t != null || this.u != null)) {
                                     A(State.REFRESHING, true);
                                     return true;
                                 } else if (q()) {
@@ -1270,11 +1240,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                             }
                         } else if (n()) {
                             float y = motionEvent.getY();
-                            this.f30890e = y;
-                            this.f30888c = y;
+                            this.e = y;
+                            this.c = y;
                             float x = motionEvent.getX();
-                            this.f30889d = x;
-                            this.f30887b = x;
+                            this.d = x;
+                            this.b = x;
                             return true;
                         }
                         return false;
@@ -1294,7 +1264,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            State state = this.f30892g;
+            State state = this.g;
             return state == State.REFRESHING || state == State.MANUAL_REFRESHING;
         }
         return invokeV.booleanValue;
@@ -1375,10 +1345,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 
     public final void setMode(Mode mode) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, mode) == null) || mode == this.f30893h) {
+        if (!(interceptable == null || interceptable.invokeL(1048627, this, mode) == null) || mode == this.h) {
             return;
         }
-        this.f30893h = mode;
+        this.h = mode;
         F();
     }
 
@@ -1462,7 +1432,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
-            int i = c.f30895c[this.i.ordinal()];
+            int i = c.c[this.i.ordinal()];
             if (i == 1) {
                 this.s.d();
             } else if (i != 2) {
@@ -1475,16 +1445,16 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
-            if (this.f30893h.showHeaderLoadingLayout()) {
+            if (this.h.showHeaderLoadingLayout()) {
                 this.r.f();
             }
-            if (this.f30893h.showFooterLoadingLayout()) {
+            if (this.h.showFooterLoadingLayout()) {
                 this.s.f();
             }
             if (z) {
                 if (this.l) {
                     a aVar = new a(this);
-                    int i = c.f30895c[this.i.ordinal()];
+                    int i = c.c[this.i.ordinal()];
                     if (i != 1 && i != 3) {
                         E(-getHeaderSize(), aVar);
                         return;
@@ -1503,7 +1473,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
-            int i = c.f30895c[this.i.ordinal()];
+            int i = c.c[this.i.ordinal()];
             if (i == 1) {
                 this.s.h();
             } else if (i != 2) {
@@ -1516,7 +1486,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
-            this.f30891f = false;
+            this.f = false;
             this.o = true;
             this.r.j();
             this.s.j();
@@ -1532,13 +1502,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
             if (c.a[getPullToRefreshScrollDirection().ordinal()] != 1) {
-                f2 = this.f30890e;
-                f3 = this.f30888c;
+                f2 = this.e;
+                f3 = this.c;
             } else {
-                f2 = this.f30889d;
-                f3 = this.f30887b;
+                f2 = this.d;
+                f3 = this.b;
             }
-            if (c.f30895c[this.i.ordinal()] != 1) {
+            if (c.c[this.i.ordinal()] != 1) {
                 round = Math.round(Math.min(f2 - f3, 0.0f) / 2.0f);
                 footerSize = getHeaderSize();
             } else {
@@ -1550,14 +1520,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
             float abs = Math.abs(round) / footerSize;
-            if (c.f30895c[this.i.ordinal()] != 1) {
+            if (c.c[this.i.ordinal()] != 1) {
                 this.r.b(abs);
             } else {
                 this.s.b(abs);
             }
-            if (this.f30892g != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
+            if (this.g != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
                 A(State.PULL_TO_REFRESH, new boolean[0]);
-            } else if (this.f30892g != State.PULL_TO_REFRESH || footerSize >= Math.abs(round)) {
+            } else if (this.g != State.PULL_TO_REFRESH || footerSize >= Math.abs(round)) {
             } else {
                 A(State.RELEASE_TO_REFRESH, new boolean[0]);
             }
@@ -1574,26 +1544,26 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             int paddingBottom = getPaddingBottom();
             int i = c.a[getPullToRefreshScrollDirection().ordinal()];
             if (i == 1) {
-                if (this.f30893h.showHeaderLoadingLayout()) {
+                if (this.h.showHeaderLoadingLayout()) {
                     this.r.setWidth(maximumPullScroll);
                     paddingLeft = -maximumPullScroll;
                 } else {
                     paddingLeft = 0;
                 }
-                if (this.f30893h.showFooterLoadingLayout()) {
+                if (this.h.showFooterLoadingLayout()) {
                     this.s.setWidth(maximumPullScroll);
                     paddingRight = -maximumPullScroll;
                 } else {
                     paddingRight = 0;
                 }
             } else if (i == 2) {
-                if (this.f30893h.showHeaderLoadingLayout()) {
+                if (this.h.showHeaderLoadingLayout()) {
                     this.r.setHeight(maximumPullScroll);
                     paddingTop = -maximumPullScroll;
                 } else {
                     paddingTop = 0;
                 }
-                if (this.f30893h.showFooterLoadingLayout()) {
+                if (this.h.showFooterLoadingLayout()) {
                     this.s.setHeight(maximumPullScroll);
                     paddingBottom = -maximumPullScroll;
                 } else {
@@ -1684,9 +1654,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
         }
-        this.f30891f = false;
-        this.f30892g = State.RESET;
-        this.f30893h = Mode.getDefault();
+        this.f = false;
+        this.g = State.RESET;
+        this.h = Mode.getDefault();
         this.l = true;
         this.m = false;
         this.n = true;

@@ -215,10 +215,10 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
     }
 
     @Override // android.view.ActionMode
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            this.mWrappedObject.setCustomView(view);
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            this.mWrappedObject.setCustomView(view2);
         }
     }
 

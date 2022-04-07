@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CpuInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -60,30 +60,30 @@ public class CpuInfoUtils {
 
     public static float getAveCpuFrequency() {
         InterceptResult invokeV;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             int numCores = getNumCores();
             int i = 0;
             if (numCores > 0) {
                 int i2 = 0;
-                f2 = 0.0f;
+                f = 0.0f;
                 while (i < numCores) {
                     float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i));
                     if (singleCpuFrequency > 0.0f) {
-                        f2 += singleCpuFrequency;
+                        f += singleCpuFrequency;
                         i2++;
                     }
                     i++;
                 }
                 i = i2;
             } else {
-                f2 = 0.0f;
+                f = 0.0f;
             }
-            if (i <= 0 || f2 <= 0.0f) {
+            if (i <= 0 || f <= 0.0f) {
                 return -1.0f;
             }
-            return f2 / i;
+            return f / i;
         }
         return invokeV.floatValue;
     }
@@ -99,23 +99,23 @@ public class CpuInfoUtils {
 
     public static float getMaxCpuFrequency() {
         InterceptResult invokeV;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int numCores = getNumCores();
             if (numCores > 0) {
-                f2 = 0.0f;
+                f = 0.0f;
                 for (int i = 0; i < numCores; i++) {
                     float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i));
-                    if (singleCpuFrequency > 0.0f && singleCpuFrequency > f2) {
-                        f2 = singleCpuFrequency;
+                    if (singleCpuFrequency > 0.0f && singleCpuFrequency > f) {
+                        f = singleCpuFrequency;
                     }
                 }
             } else {
-                f2 = 0.0f;
+                f = 0.0f;
             }
-            if (f2 > 0.0f) {
-                return f2;
+            if (f > 0.0f) {
+                return f;
             }
             return -1.0f;
         }
@@ -155,9 +155,9 @@ public class CpuInfoUtils {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
                     sCoreNum = listFiles == null ? -1 : listFiles.length;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e(TAG, "getNumCores exception occurred, e= ", e2);
+                        Log.e(TAG, "getNumCores exception occurred, e= ", e);
                     }
                     sCoreNum = -1;
                 }
@@ -177,16 +177,16 @@ public class CpuInfoUtils {
         FileInputStream fileInputStream;
         Throwable th;
         BufferedReader bufferedReader;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, str)) != null) {
             return invokeL.floatValue;
         }
         try {
             fileInputStream = new FileInputStream(new File(str));
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             fileInputStream = null;
-            e2 = e3;
+            e = e2;
             bufferedReader = null;
         } catch (Throwable th2) {
             fileInputStream = null;
@@ -207,10 +207,10 @@ public class CpuInfoUtils {
                     } catch (IOException unused2) {
                     }
                     return parseLong;
-                } catch (Exception e4) {
-                    e2 = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     if (DEBUG) {
-                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e2);
+                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
                     }
                     if (fileInputStream != null) {
                         try {
@@ -242,8 +242,8 @@ public class CpuInfoUtils {
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e2 = e5;
+        } catch (Exception e4) {
+            e = e4;
             bufferedReader = null;
         } catch (Throwable th4) {
             th = th4;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class t implements com.baidu.mapsdkplatform.comapi.map.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar4;
         ac acVar5;
         ac acVar6;
-        float f2;
+        float f;
         SparseArray sparseArray;
         ac acVar7;
         ImageView imageView;
@@ -58,30 +58,30 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            acVar = this.a.f26299b;
+            acVar = this.a.b;
             if (acVar != null) {
-                acVar2 = this.a.f26299b;
+                acVar2 = this.a.b;
                 if (acVar2.b() == null) {
                     return;
                 }
-                acVar3 = this.a.f26299b;
-                float f3 = acVar3.b().E().a;
-                acVar4 = this.a.f26299b;
-                if (f3 < acVar4.b().f26700b) {
-                    acVar8 = this.a.f26299b;
-                    f3 = acVar8.b().f26700b;
+                acVar3 = this.a.b;
+                float f2 = acVar3.b().E().a;
+                acVar4 = this.a.b;
+                if (f2 < acVar4.b().b) {
+                    acVar8 = this.a.b;
+                    f2 = acVar8.b().b;
                 } else {
-                    acVar5 = this.a.f26299b;
-                    if (f3 > acVar5.b().a) {
-                        acVar6 = this.a.f26299b;
-                        f3 = acVar6.b().a;
+                    acVar5 = this.a.b;
+                    if (f2 > acVar5.b().a) {
+                        acVar6 = this.a.b;
+                        f2 = acVar6.b().a;
                     }
                 }
-                f2 = this.a.r;
-                if (Math.abs(f2 - f3) > 0.0f) {
+                f = this.a.r;
+                if (Math.abs(f - f2) > 0.0f) {
                     sparseArray = TextureMapView.q;
-                    int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    acVar7 = this.a.f26299b;
+                    int intValue = ((Integer) sparseArray.get(Math.round(f2))).intValue();
+                    acVar7 = this.a.b;
                     imageView = this.a.o;
                     int i = ((int) (intValue / acVar7.b().E().m)) / 2;
                     imageView.setPadding(i, 0, i, 0);
@@ -97,7 +97,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                     textView.setText(format);
                     textView2 = this.a.n;
                     textView2.setText(format);
-                    this.a.r = f3;
+                    this.a.r = f2;
                 }
                 this.a.b();
                 this.a.requestLayout();

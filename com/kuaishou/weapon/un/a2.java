@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public class a2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionCode;
-            } catch (PackageManager.NameNotFoundException e2) {
-                l1.a(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                l1.a(e);
                 return 0;
             }
         }
@@ -46,8 +46,8 @@ public class a2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
-            } catch (PackageManager.NameNotFoundException e2) {
-                l1.a(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                l1.a(e);
                 return null;
             }
         }

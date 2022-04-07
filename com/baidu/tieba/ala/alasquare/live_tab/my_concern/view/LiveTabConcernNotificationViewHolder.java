@@ -1,26 +1,26 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
-import c.a.p0.c0.f.c.f.d.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.lp5;
+/* loaded from: classes3.dex */
 public class LiveTabConcernNotificationViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
+    public lp5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernNotificationViewHolder(e eVar) {
-        super(eVar.k());
+    public LiveTabConcernNotificationViewHolder(lp5 lp5Var) {
+        super(lp5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
+            Object[] objArr = {lp5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernNotificationViewHolder extends TypeAdapter.ViewHolder
                 return;
             }
         }
-        this.a = eVar;
+        this.a = lp5Var;
     }
 }

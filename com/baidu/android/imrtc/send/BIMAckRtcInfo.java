@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMAckRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMAckRtcInfo";
@@ -107,8 +107,8 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
                 bIMAckRtcInfo.setSyncAction(jSONObject.optInt("ack_action"));
                 bIMAckRtcInfo.setImUK(jSONObject.optLong("uk"));
                 bIMAckRtcInfo.setmAppState(jSONObject.optInt("app_stats"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMAckRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMAckRtcInfo toRtcInfo Exception ", e);
             }
             return bIMAckRtcInfo;
         }
@@ -128,8 +128,8 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
                 jSONObject.put("uk", this.mImUK);
                 jSONObject.put("app_stats", this.mAppState);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMAckRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMAckRtcInfo Exception ", e);
                 return "";
             }
         }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.circularreveal.CircularRevealWidget;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CircularRevealCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,15 +37,15 @@ public final class CircularRevealCompat {
     }
 
     @NonNull
-    public static Animator createCircularReveal(@NonNull CircularRevealWidget circularRevealWidget, float f2, float f3, float f4) {
+    public static Animator createCircularReveal(@NonNull CircularRevealWidget circularRevealWidget, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{circularRevealWidget, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            ObjectAnimator ofObject = ObjectAnimator.ofObject(circularRevealWidget, (Property<CircularRevealWidget, V>) CircularRevealWidget.CircularRevealProperty.CIRCULAR_REVEAL, (TypeEvaluator) CircularRevealWidget.CircularRevealEvaluator.CIRCULAR_REVEAL, (Object[]) new CircularRevealWidget.RevealInfo[]{new CircularRevealWidget.RevealInfo(f2, f3, f4)});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{circularRevealWidget, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            ObjectAnimator ofObject = ObjectAnimator.ofObject(circularRevealWidget, (Property<CircularRevealWidget, V>) CircularRevealWidget.CircularRevealProperty.CIRCULAR_REVEAL, (TypeEvaluator) CircularRevealWidget.CircularRevealEvaluator.CIRCULAR_REVEAL, (Object[]) new CircularRevealWidget.RevealInfo[]{new CircularRevealWidget.RevealInfo(f, f2, f3)});
             if (Build.VERSION.SDK_INT >= 21) {
                 CircularRevealWidget.RevealInfo revealInfo = circularRevealWidget.getRevealInfo();
                 if (revealInfo != null) {
-                    Animator createCircularReveal = ViewAnimationUtils.createCircularReveal((View) circularRevealWidget, (int) f2, (int) f3, revealInfo.radius, f4);
+                    Animator createCircularReveal = ViewAnimationUtils.createCircularReveal((View) circularRevealWidget, (int) f, (int) f2, revealInfo.radius, f3);
                     AnimatorSet animatorSet = new AnimatorSet();
                     animatorSet.playTogether(ofObject, createCircularReveal);
                     return animatorSet;
@@ -103,13 +103,13 @@ public final class CircularRevealCompat {
     }
 
     @NonNull
-    public static Animator createCircularReveal(CircularRevealWidget circularRevealWidget, float f2, float f3, float f4, float f5) {
+    public static Animator createCircularReveal(CircularRevealWidget circularRevealWidget, float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{circularRevealWidget, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            ObjectAnimator ofObject = ObjectAnimator.ofObject(circularRevealWidget, (Property<CircularRevealWidget, V>) CircularRevealWidget.CircularRevealProperty.CIRCULAR_REVEAL, (TypeEvaluator) CircularRevealWidget.CircularRevealEvaluator.CIRCULAR_REVEAL, (Object[]) new CircularRevealWidget.RevealInfo[]{new CircularRevealWidget.RevealInfo(f2, f3, f4), new CircularRevealWidget.RevealInfo(f2, f3, f5)});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{circularRevealWidget, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            ObjectAnimator ofObject = ObjectAnimator.ofObject(circularRevealWidget, (Property<CircularRevealWidget, V>) CircularRevealWidget.CircularRevealProperty.CIRCULAR_REVEAL, (TypeEvaluator) CircularRevealWidget.CircularRevealEvaluator.CIRCULAR_REVEAL, (Object[]) new CircularRevealWidget.RevealInfo[]{new CircularRevealWidget.RevealInfo(f, f2, f3), new CircularRevealWidget.RevealInfo(f, f2, f4)});
             if (Build.VERSION.SDK_INT >= 21) {
-                Animator createCircularReveal = ViewAnimationUtils.createCircularReveal((View) circularRevealWidget, (int) f2, (int) f3, f4, f5);
+                Animator createCircularReveal = ViewAnimationUtils.createCircularReveal((View) circularRevealWidget, (int) f, (int) f2, f3, f4);
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.playTogether(ofObject, createCircularReveal);
                 return animatorSet;

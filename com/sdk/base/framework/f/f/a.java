@@ -114,9 +114,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             try {
-                List<String> c2 = a.c().c();
-                c2.add(str);
-                a.c().b(c2);
+                List<String> c = a.c().c();
+                c.add(str);
+                a.c().b(c);
             } catch (Throwable unused) {
             }
         }
@@ -135,12 +135,12 @@ public class a {
                     }
                     a.a(queryParameter);
                 }
-                List<d> b2 = a.c().b();
+                List<d> b = a.c().b();
                 d dVar = new d();
                 dVar.a(str);
                 dVar.a(j);
-                b2.add(dVar);
-                a.c().a(b2);
+                b.add(dVar);
+                a.c().a(b);
             } catch (Throwable unused) {
             }
         }
@@ -162,9 +162,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
             try {
-                List<String> d2 = a.c().d();
-                d2.add(str);
-                a.c().c(d2);
+                List<String> d = a.c().d();
+                d.add(str);
+                a.c().c(d);
             } catch (Throwable unused) {
             }
         }

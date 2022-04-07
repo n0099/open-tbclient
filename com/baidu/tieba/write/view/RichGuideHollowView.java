@@ -12,7 +12,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,14 +20,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class RichGuideHollowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Paint f37383b;
+    public Paint b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RichGuideHollowView(@NonNull Context context) {
@@ -55,17 +53,17 @@ public class RichGuideHollowView extends View {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f37383b.setXfermode(null);
-            this.f37383b.setColor(SkinManager.getColor(R.color.CAM_X0607));
-            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f37383b);
+            this.b.setXfermode(null);
+            this.b.setColor(SkinManager.getColor(R.color.CAM_X0607));
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.b);
         }
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f37383b.setColor(-1);
-            this.f37383b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.b.setColor(-1);
+            this.b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             c(canvas);
         }
     }
@@ -86,19 +84,19 @@ public class RichGuideHollowView extends View {
         rect.right += i;
         rect.bottom += i2;
         RectF rectF = new RectF();
-        rectF.left = rect.left - n.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        rectF.right = rect.right + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        rectF.top = rect.top + n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        float f2 = rect.bottom - n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        rectF.bottom = f2;
-        float f3 = rectF.top;
-        canvas.drawRoundRect(rectF, f2 - f3, f2 - f3, this.f37383b);
+        rectF.left = rect.left - oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        rectF.right = rect.right + oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        rectF.top = rect.top + oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        float f = rect.bottom - oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        rectF.bottom = f;
+        float f2 = rectF.top;
+        canvas.drawRoundRect(rectF, f - f2, f - f2, this.b);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f37383b = new Paint(1);
+            this.b = new Paint(1);
         }
     }
 
@@ -119,10 +117,10 @@ public class RichGuideHollowView extends View {
         }
     }
 
-    public void setTargetView(@NonNull View view) {
+    public void setTargetView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.a = view;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.a = view2;
             postInvalidate();
         }
     }

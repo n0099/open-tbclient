@@ -3,7 +3,6 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.v0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.cc3;
+import com.repackage.gl2;
+/* loaded from: classes2.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR;
@@ -22,14 +23,14 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public c.a.n0.a.k2.a errCode;
+    public cc3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
     public String launchPath;
     public String launchSource;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,16 +88,16 @@ public class ForbiddenInfo implements Parcelable {
         this(parcel);
     }
 
-    private void convertToForbiddenModel(b bVar) {
+    private void convertToForbiddenModel(gl2 gl2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, gl2Var) == null) || gl2Var == null) {
             return;
         }
-        this.appId = bVar.H();
-        this.appKey = bVar.I();
-        this.appTitle = bVar.K();
-        this.launchPath = bVar.e0();
-        this.launchSource = bVar.T();
+        this.appId = gl2Var.H();
+        this.appKey = gl2Var.I();
+        this.appTitle = gl2Var.K();
+        this.launchPath = gl2Var.e0();
+        this.launchSource = gl2Var.T();
     }
 
     @Override // android.os.Parcelable
@@ -155,12 +156,12 @@ public class ForbiddenInfo implements Parcelable {
         this.enableSlidingFlag = 0;
     }
 
-    public ForbiddenInfo(b bVar, String str, String str2) {
+    public ForbiddenInfo(gl2 gl2Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, str, str2};
+            Object[] objArr = {gl2Var, str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,7 +172,7 @@ public class ForbiddenInfo implements Parcelable {
             }
         }
         this.enableSlidingFlag = 0;
-        convertToForbiddenModel(bVar);
+        convertToForbiddenModel(gl2Var);
         this.forbiddenReason = str;
         this.forbiddenDetail = str2;
     }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PoseDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PoseDetector";
@@ -93,16 +93,16 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr) == null) {
             for (int i = 0; i < 8; i++) {
                 int[] iArr = tP;
-                float f2 = fArr[iArr[i] * 3];
-                float f3 = fArr[(iArr[i] * 3) + 1];
-                float f4 = fArr[(iArr[i] * 3) + 2];
+                float f = fArr[iArr[i] * 3];
+                float f2 = fArr[(iArr[i] * 3) + 1];
+                float f3 = fArr[(iArr[i] * 3) + 2];
                 int[] iArr2 = tQ;
                 fArr[iArr[i] * 3] = fArr[iArr2[i] * 3];
                 fArr[(iArr[i] * 3) + 1] = fArr[(iArr2[i] * 3) + 1];
                 fArr[(iArr[i] * 3) + 2] = fArr[(iArr2[i] * 3) + 2];
-                fArr[iArr2[i] * 3] = f2;
-                fArr[(iArr2[i] * 3) + 1] = f3;
-                fArr[(iArr2[i] * 3) + 2] = f4;
+                fArr[iArr2[i] * 3] = f;
+                fArr[(iArr2[i] * 3) + 1] = f2;
+                fArr[(iArr2[i] * 3) + 2] = f3;
             }
         }
     }
@@ -155,9 +155,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     if (strArr == null || strArr.length == 0) {
                         return -1;
                     }
-                    float f2 = this.qr.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
+                    float f = this.qr.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
                     float[] floatArray = this.qr.getFloatArray(PoseAR.MDL_MAGIC_FILTER_MIN_CUTOFFFREQ);
-                    return aVar.f24836tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
+                    return aVar.f986tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray);
                 }
                 return invokeL2.intValue;
             }
@@ -281,11 +281,11 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, framePixels2)) == null) {
-                    int c2 = framePixels2.isCameraFrame() ? this.tR.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera()) : 180;
+                    int c = framePixels2.isCameraFrame() ? this.tR.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera()) : 180;
                     long timestamp = framePixels2.getTimestamp();
                     float[] fArr = new float[54];
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    ARMdlInterfaceJNI.predictPose(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c2, framePixels2.isFrontCamera(), fArr);
+                    ARMdlInterfaceJNI.predictPose(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c, framePixels2.isFrontCamera(), fArr);
                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("body_pose", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                     if (framePixels2.isFrontCamera()) {
                         PoseDetector.m(fArr);

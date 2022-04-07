@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GetChatObjectInfoForRecordManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RETRYTIMES = 2;
@@ -178,9 +178,9 @@ public class GetChatObjectInfoForRecordManager {
             }
             try {
                 return Class.forName(str).getConstructor(Context.class).newInstance(context);
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "Class.forName error", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "Class.forName error", e);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }

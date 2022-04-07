@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDFaceImageInstance {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,12 +81,12 @@ public class BDFaceImageInstance {
         this.imageType = BDFaceSDKCommon.BDFaceImageType.values()[i3];
     }
 
-    public BDFaceImageInstance(byte[] bArr, int i, int i2, BDFaceSDKCommon.BDFaceImageType bDFaceImageType, float f2, int i3) {
+    public BDFaceImageInstance(byte[] bArr, int i, int i2, BDFaceSDKCommon.BDFaceImageType bDFaceImageType, float f, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), bDFaceImageType, Float.valueOf(f2), Integer.valueOf(i3)};
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), bDFaceImageType, Float.valueOf(f), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -100,12 +100,12 @@ public class BDFaceImageInstance {
         if (bArr == null || i <= 0 || i2 <= 0) {
             return;
         }
-        create(bArr, i, i2, bDFaceImageType.ordinal(), f2, i3);
+        create(bArr, i, i2, bDFaceImageType.ordinal(), f, i3);
     }
 
-    private native int create(byte[] bArr, int i, int i2, int i3, float f2, int i4);
+    private native int create(byte[] bArr, int i, int i2, int i3, float f, int i4);
 
-    private native int createInt(int[] iArr, int i, int i2, int i3, float f2, int i4);
+    private native int createInt(int[] iArr, int i, int i2, int i3, float f, int i4);
 
     public native int destory();
 

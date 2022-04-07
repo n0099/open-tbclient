@@ -4,35 +4,29 @@ import android.net.Uri;
 import android.os.Handler;
 import java.net.InetAddress;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public final com.ss.android.socialbase.downloader.i.h<String, b> a;
+    public final Handler b;
+    public final Handler c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Handler f43515b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Handler f43516c;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(String str, List<InetAddress> list);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public List<InetAddress> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f43523b;
+        public long b;
 
         public b() {
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C2080c {
+    /* loaded from: classes8.dex */
+    public static class C0624c {
         public static final c a = new c();
     }
 
@@ -54,7 +48,7 @@ public class c {
                 bVar = this.a.get(host);
             }
             if (bVar != null) {
-                if (System.currentTimeMillis() - bVar.f43523b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
+                if (System.currentTimeMillis() - bVar.b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
                     if (aVar != null) {
                         aVar.a(str, bVar.a);
                         return;
@@ -73,7 +67,7 @@ public class c {
                     }
                 }
             };
-            this.f43516c.postDelayed(runnable, j);
+            this.c.postDelayed(runnable, j);
             List<InetAddress> list = null;
             if (com.ss.android.socialbase.downloader.g.a.c().a("use_host_dns", 1) == 1 && (u = com.ss.android.socialbase.downloader.downloader.c.u()) != null) {
                 list = u.a(host);
@@ -83,14 +77,14 @@ public class c {
             }
             if (list != null && !list.isEmpty()) {
                 a(host, list);
-                this.f43516c.removeCallbacks(runnable);
+                this.c.removeCallbacks(runnable);
                 if (aVar == null) {
                     aVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f43516c.removeCallbacks(runnable);
+            this.c.removeCallbacks(runnable);
             if (aVar == null) {
             }
         } catch (Throwable th) {
@@ -100,16 +94,16 @@ public class c {
 
     public c() {
         this.a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
-        this.f43515b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
-        this.f43516c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
+        this.b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
+        this.c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static c a() {
-        return C2080c.a;
+        return C0624c.a;
     }
 
     public void a(final String str, final a aVar, final long j) {
-        this.f43515b.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.c.1
+        this.b.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.c.1
             @Override // java.lang.Runnable
             public void run() {
                 c.this.b(str, aVar, j);
@@ -125,7 +119,7 @@ public class c {
                 this.a.put(str, bVar);
             }
             bVar.a = list;
-            bVar.f43523b = System.currentTimeMillis();
+            bVar.b = System.currentTimeMillis();
         }
     }
 }

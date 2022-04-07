@@ -11,13 +11,13 @@ import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeStrokeParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", "lc", "lj", "ml", "hd", "d");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 
     public static ShapeStroke parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        char c2;
+        char c;
         ArrayList arrayList = new ArrayList();
         String str = null;
         AnimatableFloatValue animatableFloatValue = null;
@@ -25,7 +25,7 @@ public class ShapeStrokeParser {
         AnimatableFloatValue animatableFloatValue2 = null;
         ShapeStroke.LineCapType lineCapType = null;
         ShapeStroke.LineJoinType lineJoinType = null;
-        float f2 = 0.0f;
+        float f = 0.0f;
         boolean z = false;
         AnimatableIntegerValue animatableIntegerValue = null;
         while (true) {
@@ -52,7 +52,7 @@ public class ShapeStrokeParser {
                         lineJoinType = ShapeStroke.LineJoinType.values()[jsonReader.nextInt() - 1];
                         break;
                     case 6:
-                        f2 = (float) jsonReader.nextDouble();
+                        f = (float) jsonReader.nextDouble();
                         break;
                     case 7:
                         z = jsonReader.nextBoolean();
@@ -78,23 +78,23 @@ public class ShapeStrokeParser {
                             int hashCode = str2.hashCode();
                             if (hashCode == i) {
                                 if (str2.equals("d")) {
-                                    c2 = 1;
+                                    c = 1;
                                 }
-                                c2 = 65535;
+                                c = 65535;
                             } else if (hashCode != 103) {
                                 if (hashCode == 111 && str2.equals("o")) {
-                                    c2 = 0;
+                                    c = 0;
                                 }
-                                c2 = 65535;
+                                c = 65535;
                             } else {
                                 if (str2.equals("g")) {
-                                    c2 = 2;
+                                    c = 2;
                                 }
-                                c2 = 65535;
+                                c = 65535;
                             }
-                            if (c2 == 0) {
+                            if (c == 0) {
                                 animatableFloatValue = animatableFloatValue3;
-                            } else if (c2 == 1 || c2 == 2) {
+                            } else if (c == 1 || c == 2) {
                                 lottieComposition.setHasDashPattern(true);
                                 arrayList.add(animatableFloatValue3);
                             }
@@ -116,7 +116,7 @@ public class ShapeStrokeParser {
                 if (animatableIntegerValue == null) {
                     animatableIntegerValue = new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100)));
                 }
-                return new ShapeStroke(str, animatableFloatValue, arrayList, animatableColorValue, animatableIntegerValue, animatableFloatValue2, lineCapType, lineJoinType, f2, z);
+                return new ShapeStroke(str, animatableFloatValue, arrayList, animatableColorValue, animatableIntegerValue, animatableFloatValue2, lineCapType, lineJoinType, f, z);
             }
         }
     }

@@ -26,7 +26,7 @@ public class b {
     }
 
     public void b(long j) {
-        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j).f42774b.getDownloadUrl());
+        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j).b.getDownloadUrl());
         if (a2 != null) {
             a2.a(true, true);
             return;
@@ -63,11 +63,11 @@ public class b {
     public boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         long j;
         long j2;
-        if (!TextUtils.isEmpty(eVar.f42774b.getLogExtra())) {
+        if (!TextUtils.isEmpty(eVar.b.getLogExtra())) {
             try {
-                j = l.a(new JSONObject(eVar.f42774b.getLogExtra()), "convert_id");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                j = l.a(new JSONObject(eVar.b.getLogExtra()), "convert_id");
+            } catch (Exception e) {
+                e.printStackTrace();
                 j = 0;
             }
             if (j <= 0) {
@@ -82,7 +82,7 @@ public class b {
         final long j3 = eVar.a;
         com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(j2, j3);
         if (a2 != null) {
-            d.a().a(a2.a(), j3, a2.f42755d);
+            d.a().a(a2.a(), j3, a2.d);
             a(a2.a());
             e.a("lp_app_dialog_try_show", eVar);
             return true;
@@ -92,12 +92,12 @@ public class b {
             sb.append("convert_id=");
             sb.append(j2);
         }
-        if (!TextUtils.isEmpty(eVar.f42774b.getPackageName())) {
+        if (!TextUtils.isEmpty(eVar.b.getPackageName())) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append("package_name=");
-            sb.append(eVar.f42774b.getPackageName());
+            sb.append(eVar.b.getPackageName());
         }
         if (sb.length() <= 0) {
             e.a(6, eVar);
@@ -148,28 +148,28 @@ public class b {
             if (optJSONObject != null && optJSONObject.length() != 0) {
                 com.ss.android.downloadlib.addownload.b.b bVar = new com.ss.android.downloadlib.addownload.b.b();
                 bVar.a = j;
-                bVar.f42753b = j2;
-                bVar.f42755d = optJSONObject.optString("icon_url");
-                bVar.f42756e = optJSONObject.optString("app_name");
-                bVar.f42754c = optJSONObject.optString("package_name");
-                bVar.f42757f = optJSONObject.optString("version_name");
-                bVar.f42758g = optJSONObject.optString("developer_name");
+                bVar.b = j2;
+                bVar.d = optJSONObject.optString("icon_url");
+                bVar.e = optJSONObject.optString("app_name");
+                bVar.c = optJSONObject.optString("package_name");
+                bVar.f = optJSONObject.optString("version_name");
+                bVar.g = optJSONObject.optString("developer_name");
                 bVar.i = optJSONObject.optString("policy_url");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject = (JSONObject) optJSONArray.get(i);
-                        bVar.f42759h.add(new Pair<>(jSONObject.optString("permission_name"), jSONObject.optString("permission_desc")));
+                        bVar.h.add(new Pair<>(jSONObject.optString("permission_name"), jSONObject.optString("permission_desc")));
                     }
                 }
                 c.a().a(bVar);
-                d.a().a(bVar.a(), j2, bVar.f42755d);
+                d.a().a(bVar.a(), j2, bVar.d);
                 return true;
             }
             e.a(7, j2);
             return false;
-        } catch (Exception e2) {
-            com.ss.android.downloadlib.e.c.a().a(e2, "AdLpComplianceManager parseResponse");
+        } catch (Exception e) {
+            com.ss.android.downloadlib.e.c.a().a(e, "AdLpComplianceManager parseResponse");
             e.a(7, j2);
             return false;
         }

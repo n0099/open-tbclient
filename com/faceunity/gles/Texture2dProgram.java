@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Texture2dProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";
@@ -39,7 +39,7 @@ public class Texture2dProgram {
     public int muTexOffsetLoc;
 
     /* renamed from: com.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$Texture2dProgram$ProgramType;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class Texture2dProgram {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ProgramType {
         public static final /* synthetic */ ProgramType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -281,12 +281,12 @@ public class Texture2dProgram {
         }
     }
 
-    public void setKernel(float[] fArr, float f2) {
+    public void setKernel(float[] fArr, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048580, this, fArr, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048580, this, fArr, f) == null) {
             if (fArr.length == 9) {
                 System.arraycopy(fArr, 0, this.mKernel, 0, 9);
-                this.mColorAdjust = f2;
+                this.mColorAdjust = f;
                 return;
             }
             throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
@@ -296,11 +296,11 @@ public class Texture2dProgram {
     public void setTexSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            float f2 = 1.0f / i;
-            float f3 = 1.0f / i2;
+            float f = 1.0f / i;
+            float f2 = 1.0f / i2;
+            float f3 = -f;
             float f4 = -f2;
-            float f5 = -f3;
-            this.mTexOffset = new float[]{f4, f5, 0.0f, f5, f2, f5, f4, 0.0f, 0.0f, 0.0f, f2, 0.0f, f4, f3, 0.0f, f3, f2, f3};
+            this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
         }
     }
 }

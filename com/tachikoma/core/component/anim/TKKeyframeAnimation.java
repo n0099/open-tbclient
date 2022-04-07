@@ -24,13 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKKeyframeAnimation extends TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<KeyFrame> keyframes;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class KeyFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,15 +80,15 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animAlpha(View view) {
+    public void animAlpha(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             for (int i = 0; i < this.keyframes.size(); i++) {
                 KeyFrame keyFrame = this.keyframes.get(i);
                 keyframeArr[i] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.OPACITY, keyframeArr));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(AnimationProperty.OPACITY, keyframeArr));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
@@ -101,15 +101,15 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animBackgroundColor(View view) {
+    public void animBackgroundColor(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             for (int i = 0; i < this.keyframes.size(); i++) {
                 KeyFrame keyFrame = this.keyframes.get(i);
                 keyframeArr[i] = Keyframe.ofInt(keyFrame.percent, parseColor(trans2String(keyFrame.value)));
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe("backgroundColor", keyframeArr));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe("backgroundColor", keyframeArr));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setEvaluator(new ArgbEvaluator());
@@ -123,16 +123,16 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animRotation(View view, int i) {
+    public void animRotation(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
             String str = i != 1 ? i != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X;
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
                 KeyFrame keyFrame = this.keyframes.get(i2);
                 keyframeArr[i2] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(str, keyframeArr));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(str, keyframeArr));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
@@ -145,15 +145,15 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animScale(View view, int i) {
+    public void animScale(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
                 KeyFrame keyFrame = this.keyframes.get(i2);
                 keyframeArr[i2] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
-            ObjectAnimator ofPropertyValuesHolder = i != 11 ? i != 12 ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr));
+            ObjectAnimator ofPropertyValuesHolder = i != 11 ? i != 12 ? ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
@@ -166,9 +166,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animTranslation(View view) {
+    public void animTranslation(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             Keyframe[] keyframeArr2 = new Keyframe[this.keyframes.size()];
             int i = 0;
@@ -184,7 +184,7 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
                 keyframeArr2[i] = ofFloat2;
                 i++;
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_Y, keyframeArr2));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_Y, keyframeArr2));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
@@ -238,10 +238,10 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void setDuration(float f2) {
+    public void setDuration(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.duration = f2;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.duration = f;
         }
     }
 
@@ -264,13 +264,13 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
                     keyFrame.easing = (String) map.get("easing");
                 }
                 if (keyFrame.percent == 0.0f) {
-                    float f2 = 1.0f;
+                    float f = 1.0f;
                     if (array.length != 1) {
                         if (i > 0) {
-                            f2 = (1.0f / (array.length - 1)) * i;
+                            f = (1.0f / (array.length - 1)) * i;
                         }
                     }
-                    keyFrame.percent = f2;
+                    keyFrame.percent = f;
                 }
                 this.keyframes.add(keyFrame);
             }

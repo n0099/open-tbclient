@@ -18,7 +18,7 @@ public final class Closed<E> extends Send implements ReceiveOrClosed<E> {
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveOrClosed
-    public void completeResumeReceive(E e2) {
+    public void completeResumeReceive(E e) {
     }
 
     @Override // kotlinx.coroutines.channels.Send
@@ -60,7 +60,7 @@ public final class Closed<E> extends Send implements ReceiveOrClosed<E> {
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveOrClosed
-    public Symbol tryResumeReceive(E e2, LockFreeLinkedListNode.PrepareOp prepareOp) {
+    public Symbol tryResumeReceive(E e, LockFreeLinkedListNode.PrepareOp prepareOp) {
         Symbol symbol = CancellableContinuationImplKt.RESUME_TOKEN;
         if (prepareOp != null) {
             prepareOp.finishPrepare();

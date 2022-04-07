@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PassSaveMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PassSaveMsg> CREATOR;
@@ -79,8 +79,8 @@ public class PassSaveMsg extends NormalMsg {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return new JSONObject(getJsonContent()).optString("text");
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "getRecommendDescription exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getRecommendDescription exception ", e);
                 return "";
             }
         }

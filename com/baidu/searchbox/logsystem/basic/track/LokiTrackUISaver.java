@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
@@ -18,12 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub1;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEPERATOR = "\t";
@@ -135,7 +135,7 @@ public class LokiTrackUISaver {
                 file.mkdirs();
             }
             if (mTempTraceFile == null) {
-                mTempTraceFile = new File(file, a.b() + ".tmp");
+                mTempTraceFile = new File(file, ub1.b() + ".tmp");
             }
             return mTempTraceFile;
         }

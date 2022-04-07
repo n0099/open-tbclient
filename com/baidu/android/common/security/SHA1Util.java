@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class SHA1Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public final class SHA1Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             try {
                 return MessageDigest.getInstance("SHA-1").digest(bArr);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return (byte[]) invokeL.objValue;

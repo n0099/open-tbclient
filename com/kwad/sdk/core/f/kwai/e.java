@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public Context a;
 
@@ -35,9 +35,9 @@ public class e {
                 String string = call.getString("message");
                 com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID oaid:" + str + "faledMsg:" + string);
             }
-        } catch (Exception e2) {
+        } catch (Exception e) {
             com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID fail");
-            com.kwad.sdk.core.d.a.b(e2);
+            com.kwad.sdk.core.d.a.b(e);
         }
         return str;
     }

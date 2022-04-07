@@ -1,12 +1,12 @@
 package com.baidu.adp.framework.client.socket.coder;
 
-import c.a.d.c.e.c.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.aa;
+/* loaded from: classes.dex */
 public class CoderException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4477017113691535623L;
@@ -15,7 +15,7 @@ public class CoderException extends Exception {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CoderException(int i) {
-        super(h.i(i));
+        super(aa.i(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

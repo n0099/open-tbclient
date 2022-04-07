@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ContentUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
@@ -84,8 +84,8 @@ public class ContentUtil {
                 jSONObject2.put("sign", createSign(jSONObject2));
                 jSONObject.put("req", jSONObject2);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -106,8 +106,8 @@ public class ContentUtil {
             }
             optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong("expire") * 1000));
             return createSTSInfo(optJSONObject);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -118,8 +118,8 @@ public class ContentUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return createSTSInfo(new JSONObject(str));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -141,8 +141,8 @@ public class ContentUtil {
                         if (!TextUtils.isEmpty(string)) {
                             hashMap.put(next, string);
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
@@ -180,8 +180,8 @@ public class ContentUtil {
                 stringBuffer.append(TOKEN);
                 try {
                     return MD5Util.toMd5(stringBuffer.toString().getBytes("UTF-8"), false);
-                } catch (UnsupportedEncodingException e3) {
-                    e3.printStackTrace();
+                } catch (UnsupportedEncodingException e2) {
+                    e2.printStackTrace();
                 }
             }
             return "";

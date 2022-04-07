@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int VERSION_CODE = 8;
@@ -107,8 +107,8 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             try {
                 return (PassBiometric) Class.forName(BiometricType.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return a();
             }
         }

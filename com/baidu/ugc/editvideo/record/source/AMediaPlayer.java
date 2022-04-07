@@ -16,7 +16,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AMediaPlayer implements IMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public static MediaInfo sMediaInfo;
@@ -264,16 +264,16 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         listener.onStateChanged(this.playbackState);
     }
 
-    public final void notifyOnVideoSizeChanged(int i, int i2, int i3, float f2) {
+    public final void notifyOnVideoSizeChanged(int i, int i2, int i3, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
             IMediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener = this.mOnVideoSizeChangedListener;
             if (onVideoSizeChangedListener != null) {
-                onVideoSizeChangedListener.onVideoSizeChanged(this, i, i2, i3, (int) f2);
+                onVideoSizeChangedListener.onVideoSizeChanged(this, i, i2, i3, (int) f);
             }
             IMediaPlayer.Listener listener = this.listener;
             if (listener != null) {
-                listener.onVideoSizeChanged(i, i2, i3, f2);
+                listener.onVideoSizeChanged(i, i2, i3, f);
             }
         }
     }
@@ -653,10 +653,10 @@ public abstract class AMediaPlayer implements IMediaPlayer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048623, this, f2) == null) {
-            setVolume(f2, f2);
+        if (interceptable == null || interceptable.invokeF(1048623, this, f) == null) {
+            setVolume(f, f);
         }
     }
 

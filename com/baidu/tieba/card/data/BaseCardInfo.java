@@ -1,9 +1,6 @@
 package com.baidu.tieba.card.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.e.n;
-import c.a.e.j;
-import c.a.e.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PolyActivity;
@@ -14,8 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class BaseCardInfo implements n, k {
+import com.repackage.sp;
+import com.repackage.uo;
+/* loaded from: classes3.dex */
+public abstract class BaseCardInfo implements uo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -23,10 +22,10 @@ public abstract class BaseCardInfo implements n, k {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public j trigger;
+    public sp trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,13 +110,13 @@ public abstract class BaseCardInfo implements n, k {
         this.mSupportType = SupportType.NONE;
     }
 
-    public j getTrigger() {
+    public sp getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (sp) invokeV.objValue;
     }
 
-    @Override // c.a.d.o.e.n
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -170,11 +169,10 @@ public abstract class BaseCardInfo implements n, k {
         }
     }
 
-    @Override // c.a.e.k
-    public void setTrigger(j jVar) {
+    public void setTrigger(sp spVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jVar) == null) {
-            this.trigger = jVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, spVar) == null) {
+            this.trigger = spVar;
         }
     }
 }

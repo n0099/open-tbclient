@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,14 +26,14 @@ public class ViewUtils {
         }
     }
 
-    public static void removeFromParent(View view) {
+    public static void removeFromParent(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, view2) == null) || view2 == null) {
             return;
         }
-        ViewParent parent = view.getParent();
+        ViewParent parent = view2.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(view);
+            ((ViewGroup) parent).removeView(view2);
         }
     }
 }

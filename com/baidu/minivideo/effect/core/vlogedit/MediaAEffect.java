@@ -3,7 +3,6 @@ package com.baidu.minivideo.effect.core.vlogedit;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xf0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MediaAEffect implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AE_ANIM_ONCE = "once";
@@ -36,7 +36,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
     public String sceneTransitionName;
     public String shaderConfigKey;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<MediaAEffect> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = c.f22276b;
+                    mediaAEffect.shaderConfigKey = xf0.b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();
@@ -176,8 +176,8 @@ public class MediaAEffect implements Parcelable, Cloneable {
                     mediaAEffect.mediaOneAEffects = arrayList;
                 }
                 return mediaAEffect;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return new MediaAEffect();
             }
         }

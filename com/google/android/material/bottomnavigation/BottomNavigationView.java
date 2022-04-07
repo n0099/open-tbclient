@@ -51,12 +51,12 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100323 = 2131755811;
+    public static final int obfuscated_res_0x7f100324 = 2131755812;
     public static final int MENU_PRESENTER_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -71,17 +71,17 @@ public class BottomNavigationView extends FrameLayout {
     public OnNavigationItemReselectedListener reselectedListener;
     public OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -248,10 +248,10 @@ public class BottomNavigationView extends FrameLayout {
     private void addCompatibilityTopDivider(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            View view = new View(context);
-            view.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606d0));
-            view.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb)));
-            addView(view);
+            View view2 = new View(context);
+            view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606d9));
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ff)));
+            addView(view2);
         }
     }
 
@@ -283,12 +283,12 @@ public class BottomNavigationView extends FrameLayout {
 
                 @Override // com.google.android.material.internal.ViewUtils.OnApplyWindowInsetsListener
                 @NonNull
-                public WindowInsetsCompat onApplyWindowInsets(View view, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull ViewUtils.RelativePadding relativePadding) {
+                public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull ViewUtils.RelativePadding relativePadding) {
                     InterceptResult invokeLLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, view, windowInsetsCompat, relativePadding)) == null) {
+                    if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, view2, windowInsetsCompat, relativePadding)) == null) {
                         relativePadding.bottom += windowInsetsCompat.getSystemWindowInsetBottom();
-                        relativePadding.applyToView(view);
+                        relativePadding.applyToView(view2);
                         return windowInsetsCompat;
                     }
                     return (WindowInsetsCompat) invokeLLL.objValue;
@@ -486,11 +486,11 @@ public class BottomNavigationView extends FrameLayout {
 
     @Override // android.view.View
     @RequiresApi(21)
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            super.setElevation(f2);
-            MaterialShapeUtils.setElevation(this, f2);
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            super.setElevation(f);
+            MaterialShapeUtils.setElevation(this, f);
         }
     }
 
@@ -644,7 +644,7 @@ public class BottomNavigationView extends FrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100323), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100324), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -673,14 +673,14 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e2, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f04037d, R.attr.obfuscated_res_0x7f040427}, i, R.style.obfuscated_res_0x7f100323, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040318, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031e, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032b, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f040467}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f6)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }

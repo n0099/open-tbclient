@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";

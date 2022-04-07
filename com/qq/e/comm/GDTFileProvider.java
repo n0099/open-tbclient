@@ -31,36 +31,28 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f42390b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final File f42391c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, a> f42392d;
+    public static final String[] b;
+    public static final File c;
+    public static HashMap<String, a> d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         Uri a(File file);
 
         File a(Uri uri);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f42393b;
+        public final HashMap<String, File> b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -77,7 +69,7 @@ public class GDTFileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.f42393b = new HashMap<>();
+            this.b = new HashMap<>();
             this.a = str;
         }
 
@@ -89,7 +81,7 @@ public class GDTFileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f42393b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -122,7 +114,7 @@ public class GDTFileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f42393b.get(decode);
+                File file = this.b.get(decode);
                 if (file == null) {
                     throw new IllegalArgumentException("Unable to find configured root for " + uri);
                 }
@@ -147,9 +139,9 @@ public class GDTFileProvider extends ContentProvider {
                     throw new IllegalArgumentException("Name must not be empty");
                 }
                 try {
-                    this.f42393b.put(str, file.getCanonicalFile());
-                } catch (IOException e2) {
-                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
+                    this.b.put(str, file.getCanonicalFile());
+                } catch (IOException e) {
+                    throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
                 }
             }
         }
@@ -168,9 +160,9 @@ public class GDTFileProvider extends ContentProvider {
                 return;
             }
         }
-        f42390b = new String[]{"_display_name", "_size"};
-        f42391c = new File("/");
-        f42392d = new HashMap<>();
+        b = new String[]{"_display_name", "_size"};
+        c = new File("/");
+        d = new HashMap<>();
     }
 
     public GDTFileProvider() {
@@ -192,16 +184,16 @@ public class GDTFileProvider extends ContentProvider {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            synchronized (f42392d) {
-                aVar = f42392d.get(str);
+            synchronized (d) {
+                aVar = d.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
-                        f42392d.put(str, aVar);
-                    } catch (IOException e2) {
+                        d.put(str, aVar);
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e);
+                    } catch (XmlPullParserException e2) {
                         throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
-                    } catch (XmlPullParserException e3) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
                     }
                 }
             }
@@ -232,7 +224,7 @@ public class GDTFileProvider extends ContentProvider {
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                 if ("root-path".equals(name)) {
-                    file = f42391c;
+                    file = c;
                 } else if ("files-path".equals(name)) {
                     file = context.getFilesDir();
                 } else if ("cache-path".equals(name)) {
@@ -380,7 +372,7 @@ public class GDTFileProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File a2 = this.a.a(uri);
             if (strArr == null) {
-                strArr = f42390b;
+                strArr = b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];

@@ -196,19 +196,19 @@ public final class MenuItemCompat {
     }
 
     @Deprecated
-    public static MenuItem setActionView(MenuItem menuItem, View view) {
+    public static MenuItem setActionView(MenuItem menuItem, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, menuItem, view)) == null) ? menuItem.setActionView(view) : (MenuItem) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, menuItem, view2)) == null) ? menuItem.setActionView(view2) : (MenuItem) invokeLL.objValue;
     }
 
-    public static void setAlphabeticShortcut(MenuItem menuItem, char c2, int i) {
+    public static void setAlphabeticShortcut(MenuItem menuItem, char c, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{menuItem, Character.valueOf(c), Integer.valueOf(i)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setAlphabeticShortcut(c2, i);
+                ((SupportMenuItem) menuItem).setAlphabeticShortcut(c, i);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setAlphabeticShortcut(c2, i);
+                menuItem.setAlphabeticShortcut(c, i);
             }
         }
     }
@@ -246,13 +246,13 @@ public final class MenuItemCompat {
         }
     }
 
-    public static void setNumericShortcut(MenuItem menuItem, char c2, int i) {
+    public static void setNumericShortcut(MenuItem menuItem, char c, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{menuItem, Character.valueOf(c), Integer.valueOf(i)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setNumericShortcut(c2, i);
+                ((SupportMenuItem) menuItem).setNumericShortcut(c, i);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setNumericShortcut(c2, i);
+                menuItem.setNumericShortcut(c, i);
             }
         }
     }
@@ -300,13 +300,13 @@ public final class MenuItemCompat {
         }) : (MenuItem) invokeLL.objValue;
     }
 
-    public static void setShortcut(MenuItem menuItem, char c2, char c3, int i, int i2) {
+    public static void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{menuItem, Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{menuItem, Character.valueOf(c), Character.valueOf(c2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setShortcut(c2, c3, i, i2);
+                ((SupportMenuItem) menuItem).setShortcut(c, c2, i, i2);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setShortcut(c2, c3, i, i2);
+                menuItem.setShortcut(c, c2, i, i2);
             }
         }
     }

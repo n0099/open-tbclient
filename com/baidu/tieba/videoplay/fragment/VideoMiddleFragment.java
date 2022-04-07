@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener H;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,12 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.f36692c.n(0, 0, false);
+                this.a.c.n(0, 0, false);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,12 +87,12 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.f36692c.n(0, 0, false);
+                this.a.c.n(0, 0, false);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,14 +131,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : true;
                 if ((this.a.getActivity() == null || !(this.a.getActivity() instanceof VideoPlayActivity)) ? false : false) {
                     if (booleanValue) {
-                        this.a.f36692c.setVisibility(0);
-                        this.a.f36694e.setVisibility(0);
-                        this.a.f36693d.setVisibility(0);
+                        this.a.c.setVisibility(0);
+                        this.a.e.setVisibility(0);
+                        this.a.d.setVisibility(0);
                         return;
                     }
-                    this.a.f36692c.setVisibility(8);
-                    this.a.f36694e.setVisibility(8);
-                    this.a.f36693d.setVisibility(8);
+                    this.a.c.setVisibility(8);
+                    this.a.e.setVisibility(8);
+                    this.a.d.setVisibility(8);
                 }
             }
         }
@@ -209,15 +209,15 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
             V0(onCreateView);
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                VideoChannelHeaderLayout videoChannelHeaderLayout = this.f36692c;
+                VideoChannelHeaderLayout videoChannelHeaderLayout = this.c;
                 if (videoChannelHeaderLayout != null) {
                     videoChannelHeaderLayout.setVisibility(8);
                 }
-                ImageView imageView = this.f36694e;
+                ImageView imageView = this.e;
                 if (imageView != null) {
                     imageView.setVisibility(8);
                 }
-                ImageView imageView2 = this.f36693d;
+                ImageView imageView2 = this.d;
                 if (imageView2 != null) {
                     imageView2.setVisibility(8);
                 }

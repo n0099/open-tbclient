@@ -299,12 +299,12 @@ public class DownloadTask {
 
     public int download() {
         this.downloadInfo = this.downloadInfoBuilder.a();
-        DownloadInfo b2 = com.ss.android.socialbase.downloader.downloader.c.x().b(this.downloadInfo.getId());
-        if (b2 == null) {
+        DownloadInfo b = com.ss.android.socialbase.downloader.downloader.c.x().b(this.downloadInfo.getId());
+        if (b == null) {
             this.downloadInfo.generateTaskId();
             com.ss.android.socialbase.downloader.d.a.a(this, (BaseException) null, 0);
         } else {
-            this.downloadInfo.copyTaskIdFromCacheData(b2);
+            this.downloadInfo.copyTaskIdFromCacheData(b);
         }
         setChunkCalculator();
         com.ss.android.socialbase.downloader.downloader.d.a().a(this);

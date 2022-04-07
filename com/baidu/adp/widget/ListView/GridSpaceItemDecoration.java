@@ -8,17 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f23982b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f23983c;
+    public int b;
+    public int c;
 
     public GridSpaceItemDecoration(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -36,23 +32,23 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i;
-        this.f23982b = i2;
-        this.f23983c = i3;
+        this.b = i2;
+        this.c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view2.getLayoutParams();
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
                     rect.left = this.a;
-                    rect.right = this.f23982b;
+                    rect.right = this.b;
                     return;
                 }
-                rect.left = this.f23982b;
-                rect.right = this.f23983c;
+                rect.left = this.b;
+                rect.right = this.c;
             }
         }
     }

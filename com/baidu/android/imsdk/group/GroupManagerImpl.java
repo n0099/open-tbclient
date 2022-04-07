@@ -62,7 +62,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GroupManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupManagerImpl";
@@ -256,10 +256,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {
@@ -286,10 +286,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, arrayList, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {
@@ -844,10 +844,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048599, this, str, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {
@@ -878,14 +878,14 @@ public class GroupManagerImpl {
             long j2 = -1;
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 j = -1;
             }
             try {
                 j2 = Long.valueOf(str2).longValue();
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 LogUtils.e(TAG, e.getMessage());
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 long j3 = j2;
@@ -917,9 +917,9 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, e2.getMessage());
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, e.getMessage());
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (j < 0 && bIMValueCallBack != null) {
@@ -943,10 +943,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {
@@ -971,10 +971,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048603, this, str, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {
@@ -999,10 +999,10 @@ public class GroupManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048604, this, str, bIMValueCallBack) == null) {
             try {
                 j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str2, "groupId : " + str, e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 j = -1;
             }
             if (0 > j) {

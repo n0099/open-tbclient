@@ -31,7 +31,7 @@ public class VideoDecoderWrapper {
     public static VideoDecoder.Callback createDecoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: f.c.y
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: com.repackage.cy9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

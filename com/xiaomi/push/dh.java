@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with other field name */
     public String f218a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f44154b;
+    public String b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -75,14 +73,14 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.f218a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f44154b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f44154b, localClassName)) {
+            this.b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.b, localClassName)) {
                 this.f218a = "";
                 return;
             }
             a(this.a.getPackageName() + "|" + localClassName + ":" + this.f218a + "," + String.valueOf(System.currentTimeMillis() / 1000));
             this.f218a = "";
-            this.f44154b = "";
+            this.b = "";
         }
     }
 
@@ -90,8 +88,8 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f44154b)) {
-                this.f44154b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = activity.getLocalClassName();
             }
             this.f218a = String.valueOf(System.currentTimeMillis() / 1000);
         }

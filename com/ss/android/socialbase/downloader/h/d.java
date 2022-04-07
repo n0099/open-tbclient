@@ -13,12 +13,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class d {
     public static ExecutorService a = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f43358c = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<c> f43357b = new SparseArray<>();
+    public int c = 0;
+    public volatile SparseArray<c> b = new SparseArray<>();
 
     public static void a(Runnable runnable) {
         a.execute(runnable);
@@ -27,16 +23,16 @@ public class d {
     private void b() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f43357b.size(); i++) {
-                int keyAt = this.f43357b.keyAt(i);
-                if (!this.f43357b.get(keyAt).d()) {
+            for (int i = 0; i < this.b.size(); i++) {
+                int keyAt = this.b.keyAt(i);
+                if (!this.b.get(keyAt).d()) {
                     arrayList.add(Integer.valueOf(keyAt));
                 }
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 Integer num = (Integer) arrayList.get(i2);
                 if (num != null) {
-                    this.f43357b.remove(num.intValue());
+                    this.b.remove(num.intValue());
                 }
             }
         } catch (Throwable th) {
@@ -47,11 +43,11 @@ public class d {
     public void c(int i) {
         synchronized (d.class) {
             b();
-            c cVar = this.f43357b.get(i);
+            c cVar = this.b.get(i);
             if (cVar != null) {
                 cVar.a();
                 c(cVar);
-                this.f43357b.remove(i);
+                this.b.remove(i);
             }
         }
     }
@@ -59,22 +55,22 @@ public class d {
     public void a(c cVar) {
         cVar.f();
         synchronized (d.class) {
-            if (this.f43358c >= 500) {
+            if (this.c >= 500) {
                 b();
-                this.f43358c = 0;
+                this.c = 0;
             } else {
-                this.f43358c++;
+                this.c++;
             }
-            this.f43357b.put(cVar.e(), cVar);
+            this.b.put(cVar.e(), cVar);
         }
-        DownloadTask c2 = cVar.c();
+        DownloadTask c = cVar.c();
         try {
             ExecutorService p = com.ss.android.socialbase.downloader.downloader.c.p();
-            if (c2 != null && c2.getDownloadInfo() != null) {
-                if ("mime_type_plg".equals(c2.getDownloadInfo().getMimeType()) && com.ss.android.socialbase.downloader.g.a.c().a("divide_plugin", 1) == 1) {
-                    c2.getDownloadInfo().safePutToDBJsonData("executor_group", 3);
+            if (c != null && c.getDownloadInfo() != null) {
+                if ("mime_type_plg".equals(c.getDownloadInfo().getMimeType()) && com.ss.android.socialbase.downloader.g.a.c().a("divide_plugin", 1) == 1) {
+                    c.getDownloadInfo().safePutToDBJsonData("executor_group", 3);
                 }
-                int executorGroup = c2.getDownloadInfo().getExecutorGroup();
+                int executorGroup = c.getDownloadInfo().getExecutorGroup();
                 if (executorGroup == 3) {
                     p = com.ss.android.socialbase.downloader.downloader.c.n();
                 } else if (executorGroup == 4) {
@@ -90,30 +86,30 @@ public class d {
                     return;
                 }
             }
-            com.ss.android.socialbase.downloader.d.a.a(c2.getMonitorDepend(), c2.getDownloadInfo(), new BaseException(1003, "execute failed cpu thread executor service is null"), c2.getDownloadInfo() != null ? c2.getDownloadInfo().getStatus() : 0);
-        } catch (Exception e2) {
-            if (c2 != null) {
-                com.ss.android.socialbase.downloader.d.a.a(c2.getMonitorDepend(), c2.getDownloadInfo(), new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(e2, "DownloadThreadPoolExecute")), c2.getDownloadInfo() != null ? c2.getDownloadInfo().getStatus() : 0);
+            com.ss.android.socialbase.downloader.d.a.a(c.getMonitorDepend(), c.getDownloadInfo(), new BaseException(1003, "execute failed cpu thread executor service is null"), c.getDownloadInfo() != null ? c.getDownloadInfo().getStatus() : 0);
+        } catch (Exception e) {
+            if (c != null) {
+                com.ss.android.socialbase.downloader.d.a.a(c.getMonitorDepend(), c.getDownloadInfo(), new BaseException(1003, com.ss.android.socialbase.downloader.i.f.b(e, "DownloadThreadPoolExecute")), c.getDownloadInfo() != null ? c.getDownloadInfo().getStatus() : 0);
+            }
+            e.printStackTrace();
+        } catch (OutOfMemoryError e2) {
+            if (c != null) {
+                com.ss.android.socialbase.downloader.d.a.a(c.getMonitorDepend(), c.getDownloadInfo(), new BaseException(1003, "execute OOM"), c.getDownloadInfo() != null ? c.getDownloadInfo().getStatus() : 0);
             }
             e2.printStackTrace();
-        } catch (OutOfMemoryError e3) {
-            if (c2 != null) {
-                com.ss.android.socialbase.downloader.d.a.a(c2.getMonitorDepend(), c2.getDownloadInfo(), new BaseException(1003, "execute OOM"), c2.getDownloadInfo() != null ? c2.getDownloadInfo().getStatus() : 0);
-            }
-            e3.printStackTrace();
         }
     }
 
     private void c(c cVar) {
-        Future g2;
+        Future g;
         if (cVar == null) {
             return;
         }
         try {
             ExecutorService p = com.ss.android.socialbase.downloader.downloader.c.p();
-            DownloadTask c2 = cVar.c();
-            if (c2 != null && c2.getDownloadInfo() != null) {
-                int executorGroup = c2.getDownloadInfo().getExecutorGroup();
+            DownloadTask c = cVar.c();
+            if (c != null && c.getDownloadInfo() != null) {
+                int executorGroup = c.getDownloadInfo().getExecutorGroup();
                 if (executorGroup == 3) {
                     p = com.ss.android.socialbase.downloader.downloader.c.n();
                 } else if (executorGroup == 4) {
@@ -124,12 +120,12 @@ public class d {
                 return;
             }
             ((ThreadPoolExecutor) p).remove(cVar);
-            if (!com.ss.android.socialbase.downloader.g.a.a(cVar.e()).b("pause_with_interrupt", false) || (g2 = cVar.g()) == null) {
+            if (!com.ss.android.socialbase.downloader.g.a.a(cVar.e()).b("pause_with_interrupt", false) || (g = cVar.g()) == null) {
                 return;
             }
-            g2.cancel(true);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            g.cancel(true);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -140,12 +136,12 @@ public class d {
         synchronized (d.class) {
             try {
                 if (com.ss.android.socialbase.downloader.i.a.a(524288)) {
-                    int indexOfValue = this.f43357b.indexOfValue(cVar);
+                    int indexOfValue = this.b.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f43357b.removeAt(indexOfValue);
+                        this.b.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f43357b.remove(cVar.e());
+                    this.b.remove(cVar.e());
                 }
             }
         }
@@ -154,11 +150,11 @@ public class d {
     public c b(int i) {
         synchronized (d.class) {
             b();
-            c cVar = this.f43357b.get(i);
+            c cVar = this.b.get(i);
             if (cVar != null) {
                 cVar.b();
                 c(cVar);
-                this.f43357b.remove(i);
+                this.b.remove(i);
                 return cVar;
             }
             return null;
@@ -168,8 +164,8 @@ public class d {
     public boolean a(int i) {
         synchronized (d.class) {
             boolean z = false;
-            if (this.f43357b != null && this.f43357b.size() > 0) {
-                c cVar = this.f43357b.get(i);
+            if (this.b != null && this.b.size() > 0) {
+                c cVar = this.b.get(i);
                 if (cVar != null && cVar.d()) {
                     z = true;
                 }
@@ -184,8 +180,8 @@ public class d {
         synchronized (d.class) {
             b();
             arrayList = new ArrayList();
-            for (int i = 0; i < this.f43357b.size(); i++) {
-                c cVar = this.f43357b.get(this.f43357b.keyAt(i));
+            for (int i = 0; i < this.b.size(); i++) {
+                c cVar = this.b.get(this.b.keyAt(i));
                 if (cVar != null) {
                     arrayList.add(Integer.valueOf(cVar.e()));
                 }
@@ -195,7 +191,7 @@ public class d {
     }
 
     public void a(int i, long j) {
-        c cVar = this.f43357b.get(i);
+        c cVar = this.b.get(i);
         if (cVar != null) {
             cVar.c(j);
         }

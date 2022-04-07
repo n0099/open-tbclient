@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class StatusLine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_CONTINUE = 100;

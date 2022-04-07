@@ -8,22 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class KeyboardLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public boolean b;
+    public int c;
+    public a d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f30681b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30682c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f30683d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
     }
@@ -57,28 +51,28 @@ public class KeyboardLayout extends RelativeLayout {
             super.onLayout(z, i, i2, i3, i4);
             if (!this.a) {
                 this.a = true;
-                this.f30682c = i4;
-                a aVar = this.f30683d;
+                this.c = i4;
+                a aVar = this.d;
                 if (aVar != null) {
                     aVar.a(-1);
                 }
             } else {
-                int i5 = this.f30682c;
+                int i5 = this.c;
                 if (i5 < i4) {
                     i5 = i4;
                 }
-                this.f30682c = i5;
+                this.c = i5;
             }
-            if (this.a && this.f30682c > i4) {
-                this.f30681b = true;
-                a aVar2 = this.f30683d;
+            if (this.a && this.c > i4) {
+                this.b = true;
+                a aVar2 = this.d;
                 if (aVar2 != null) {
                     aVar2.a(-3);
                 }
             }
-            if (this.a && this.f30681b && this.f30682c == i4) {
-                this.f30681b = false;
-                a aVar3 = this.f30683d;
+            if (this.a && this.b && this.c == i4) {
+                this.b = false;
+                a aVar3 = this.d;
                 if (aVar3 != null) {
                     aVar3.a(-2);
                 }
@@ -89,7 +83,7 @@ public class KeyboardLayout extends RelativeLayout {
     public void setOnkbdStateListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f30683d = aVar;
+            this.d = aVar;
         }
     }
 

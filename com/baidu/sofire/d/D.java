@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class D {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLUMN_PLUGIN_ACTIVITY_INFO_LIST = "ac";
@@ -60,20 +60,20 @@ public class D {
     public SQLiteDatabase mDb;
     public int version;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class DatabaseHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ D this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DatabaseHelper(D d2, Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, d2.version);
+        public DatabaseHelper(D d, Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, d.version);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d2, context};
+                Object[] objArr = {d, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class D {
                     return;
                 }
             }
-            this.this$0 = d2;
+            this.this$0 = d;
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -158,16 +158,16 @@ public class D {
 
     public static synchronized D getInstance(Context context) {
         InterceptResult invokeL;
-        D d2;
+        D d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (D.class) {
                 if (instance == null) {
                     instance = new D(context);
                 }
-                d2 = instance;
+                d = instance;
             }
-            return d2;
+            return d;
         }
         return (D) invokeL.objValue;
     }

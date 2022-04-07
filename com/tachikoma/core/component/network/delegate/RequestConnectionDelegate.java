@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestConnectionDelegate implements IRequestDelegateInner {
     public static /* synthetic */ Interceptable $ic = null;
     public static String METHOD_GET = "GET";
@@ -103,8 +103,8 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                     }
                     sb.append(readLine);
                     sb.append("\n");
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
             return sb.toString();
@@ -173,8 +173,8 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                 public void run() {
                     Throwable th;
                     HttpURLConnection httpURLConnection;
-                    IOException e2;
-                    MalformedURLException e3;
+                    IOException e;
+                    MalformedURLException e2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         HttpURLConnection httpURLConnection2 = null;
@@ -188,12 +188,12 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                 }
                                 throw th;
                             }
-                        } catch (MalformedURLException e4) {
+                        } catch (MalformedURLException e3) {
                             httpURLConnection = null;
-                            e3 = e4;
-                        } catch (IOException e5) {
+                            e2 = e3;
+                        } catch (IOException e4) {
                             httpURLConnection = null;
-                            e2 = e5;
+                            e = e4;
                         } catch (Throwable th3) {
                             th = th3;
                             if (0 != 0) {
@@ -291,56 +291,13 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                             if (httpURLConnection == null) {
                                 return;
                             }
-                        } catch (MalformedURLException e6) {
-                            e3 = e6;
-                            UIThreadUtil.runOnUiThread(new Runnable(this, e3) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1.3
+                        } catch (MalformedURLException e5) {
+                            e2 = e5;
+                            UIThreadUtil.runOnUiThread(new Runnable(this, e2) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass1 this$1;
                                 public final /* synthetic */ MalformedURLException val$e;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, e3};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                    this.val$e = e3;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.this$1.val$callback == null) {
-                                        return;
-                                    }
-                                    TKErrorInner tKErrorInner = new TKErrorInner();
-                                    tKErrorInner.name = "Exception";
-                                    tKErrorInner.msg = this.val$e.toString();
-                                    this.this$1.val$callback.onError(tKErrorInner);
-                                }
-                            });
-                            if (httpURLConnection == null) {
-                                return;
-                            }
-                            httpURLConnection.disconnect();
-                        } catch (IOException e7) {
-                            e2 = e7;
-                            UIThreadUtil.runOnUiThread(new Runnable(this, e2) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1.4
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 this$1;
-                                public final /* synthetic */ IOException val$e;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -359,6 +316,49 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                     }
                                     this.this$1 = this;
                                     this.val$e = e2;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.this$1.val$callback == null) {
+                                        return;
+                                    }
+                                    TKErrorInner tKErrorInner = new TKErrorInner();
+                                    tKErrorInner.name = "Exception";
+                                    tKErrorInner.msg = this.val$e.toString();
+                                    this.this$1.val$callback.onError(tKErrorInner);
+                                }
+                            });
+                            if (httpURLConnection == null) {
+                                return;
+                            }
+                            httpURLConnection.disconnect();
+                        } catch (IOException e6) {
+                            e = e6;
+                            UIThreadUtil.runOnUiThread(new Runnable(this, e) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1.4
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AnonymousClass1 this$1;
+                                public final /* synthetic */ IOException val$e;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, e};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                    this.val$e = e;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -428,8 +428,8 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                 public void run() {
                     Throwable th;
                     HttpURLConnection httpURLConnection;
-                    IOException e2;
-                    MalformedURLException e3;
+                    IOException e;
+                    MalformedURLException e2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         HttpURLConnection httpURLConnection2 = null;
@@ -534,56 +534,13 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                     if (httpURLConnection == null) {
                                         return;
                                     }
-                                } catch (MalformedURLException e4) {
-                                    e3 = e4;
-                                    UIThreadUtil.runOnUiThread(new Runnable(this, e3) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2.3
+                                } catch (MalformedURLException e3) {
+                                    e2 = e3;
+                                    UIThreadUtil.runOnUiThread(new Runnable(this, e2) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2.3
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass2 this$1;
                                         public final /* synthetic */ MalformedURLException val$e;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, e3};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$1 = this;
-                                            this.val$e = e3;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.this$1.val$callback == null) {
-                                                return;
-                                            }
-                                            TKErrorInner tKErrorInner = new TKErrorInner();
-                                            tKErrorInner.name = "MalformedURLException";
-                                            tKErrorInner.msg = this.val$e.toString();
-                                            this.this$1.val$callback.onError(tKErrorInner);
-                                        }
-                                    });
-                                    if (httpURLConnection == null) {
-                                        return;
-                                    }
-                                    httpURLConnection.disconnect();
-                                } catch (IOException e5) {
-                                    e2 = e5;
-                                    UIThreadUtil.runOnUiThread(new Runnable(this, e2) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2.4
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass2 this$1;
-                                        public final /* synthetic */ IOException val$e;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -611,6 +568,49 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                 return;
                                             }
                                             TKErrorInner tKErrorInner = new TKErrorInner();
+                                            tKErrorInner.name = "MalformedURLException";
+                                            tKErrorInner.msg = this.val$e.toString();
+                                            this.this$1.val$callback.onError(tKErrorInner);
+                                        }
+                                    });
+                                    if (httpURLConnection == null) {
+                                        return;
+                                    }
+                                    httpURLConnection.disconnect();
+                                } catch (IOException e4) {
+                                    e = e4;
+                                    UIThreadUtil.runOnUiThread(new Runnable(this, e) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2.4
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass2 this$1;
+                                        public final /* synthetic */ IOException val$e;
+
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, e};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$e = e;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable3 = $ic;
+                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.this$1.val$callback == null) {
+                                                return;
+                                            }
+                                            TKErrorInner tKErrorInner = new TKErrorInner();
                                             tKErrorInner.name = "IOException";
                                             tKErrorInner.msg = this.val$e.toString();
                                             this.this$1.val$callback.onError(tKErrorInner);
@@ -628,12 +628,12 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                 }
                                 throw th;
                             }
-                        } catch (MalformedURLException e6) {
+                        } catch (MalformedURLException e5) {
                             httpURLConnection = null;
-                            e3 = e6;
-                        } catch (IOException e7) {
+                            e2 = e5;
+                        } catch (IOException e6) {
                             httpURLConnection = null;
-                            e2 = e7;
+                            e = e6;
                         } catch (Throwable th3) {
                             th = th3;
                             if (0 != 0) {

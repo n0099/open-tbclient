@@ -4,10 +4,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.o0.c1.k0;
-import c.a.o0.c1.n0;
-import c.a.o0.c1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -22,14 +18,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
+import com.repackage.ad5;
+import com.repackage.cq;
+import com.repackage.dd5;
+import com.repackage.ic5;
+import com.repackage.kl8;
+import com.repackage.mi;
+import com.repackage.ol8;
+import com.repackage.vl8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@c.a.f.a.a
-/* loaded from: classes4.dex */
-public class SearchJsBridge implements c.a.p0.a4.o0.b {
+@cq
+/* loaded from: classes2.dex */
+public class SearchJsBridge implements kl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -59,8 +63,8 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mHistoryDatas;
 
-    /* loaded from: classes4.dex */
-    public class a extends k0<String> {
+    /* loaded from: classes2.dex */
+    public class a extends ad5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -84,21 +88,21 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.k0
+        @Override // com.repackage.ad5
         /* renamed from: a */
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.a4.q0.a.h(this.a);
+                vl8.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements s<String> {
+    /* loaded from: classes2.dex */
+    public class b implements ic5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +123,7 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -129,8 +133,8 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends k0 {
+    /* loaded from: classes2.dex */
+    public class c extends ad5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,20 +154,20 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
             }
         }
 
-        @Override // c.a.o0.c1.k0
+        @Override // com.repackage.ad5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.a4.q0.a.b();
+                vl8.b();
                 return null;
             }
             return invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements s {
+    /* loaded from: classes2.dex */
+    public class d implements ic5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchJsBridge a;
@@ -186,7 +190,7 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
             this.a = searchJsBridge;
         }
 
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -227,18 +231,18 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                MercatorModel.MercatorData e2 = MercatorModel.d().e();
-                if (e2 != null) {
-                    addCookie(jSONObject, COOKIE_MERCATOR_LAT, e2.B());
-                    addCookie(jSONObject, COOKIE_MERCATOR_LON, e2.C());
-                    addCookie(jSONObject, COOKIE_MERCATOR_CITY, String.valueOf(e2.y()));
-                    addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e2.E());
-                    addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e2.F()));
+                MercatorModel.MercatorData e = MercatorModel.d().e();
+                if (e != null) {
+                    addCookie(jSONObject, COOKIE_MERCATOR_LAT, e.B());
+                    addCookie(jSONObject, COOKIE_MERCATOR_LON, e.C());
+                    addCookie(jSONObject, COOKIE_MERCATOR_CITY, String.valueOf(e.y()));
+                    addCookie(jSONObject, COOKIE_MERCATOR_RADIUS, e.E());
+                    addCookie(jSONObject, COOKIE_MERCATOR_TIME, String.valueOf(e.F()));
                 }
                 addCookie(jSONObject, COOKIE_MOD, Build.MODEL);
                 addCookie(jSONObject, COOKIE_OV, Build.VERSION.RELEASE);
                 addCookie(jSONObject, "os_type", String.valueOf(2));
-                addCookie(jSONObject, "net_type", String.valueOf(l.I()));
+                addCookie(jSONObject, "net_type", String.valueOf(mi.I()));
                 addCookie(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
                 addCookie(jSONObject, "from", TbConfig.getFrom());
                 addCookie(jSONObject, "cfrom", TbConfig.getCurrentFrom());
@@ -250,15 +254,15 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
                 if (!TextUtils.isEmpty(cuidGalaxy2)) {
                     addCookie(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
                 }
-            } catch (JSONException e3) {
-                BdLog.e(e3);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
             }
             return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.a4.o0.b
+    @Override // com.repackage.kl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -271,8 +275,8 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
                 } else if (METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
                     try {
                         jsPromptResult.confirm(deleteSearchHistory(new JSONObject(str3).optString("query")).a());
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     return true;
                 } else if (METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
@@ -282,8 +286,8 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
                     try {
                         JSONObject jSONObject = new JSONObject(str3);
                         jsPromptResult.confirm(openSearchPage(jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
                     return true;
                 } else if (GET_SEARCH_AD_COOKIE.equals(str2)) {
@@ -298,75 +302,75 @@ public class SearchJsBridge implements c.a.p0.a4.o0.b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.p0.a4.o0.d.c deleteAllSearchHistory() {
+    public ol8 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
-            n0.b(new c(this), new d(this));
-            return cVar;
+            ol8 ol8Var = new ol8();
+            dd5.b(new c(this), new d(this));
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c deleteSearchHistory(String str) {
+    public ol8 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
-            n0.b(new a(this, str), new b(this));
-            return cVar;
+            ol8 ol8Var = new ol8();
+            dd5.b(new a(this, str), new b(this));
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeL.objValue;
+        return (ol8) invokeL.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c getSearchAdCookie() {
+    public ol8 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
-            cVar.o(initCookies());
-            return cVar;
+            ol8 ol8Var = new ol8();
+            ol8Var.o(initCookies());
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c getSearchHistoryJson() {
+    public ol8 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
+            ol8 ol8Var = new ol8();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                cVar.o("");
+                ol8Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            cVar.o(jSONArray.toString());
+            ol8Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return cVar;
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 
-    public c.a.p0.a4.o0.d.c openSearchPage(String str, int i) {
+    public ol8 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
+            ol8 ol8Var = new ol8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
                 jSONObject.put("subType", i);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return cVar;
+            return ol8Var;
         }
-        return (c.a.p0.a4.o0.d.c) invokeLI.objValue;
+        return (ol8) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

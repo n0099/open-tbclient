@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SchemeTimeCostMoniter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -25,7 +25,7 @@ public final class SchemeTimeCostMoniter {
     public boolean mOpenMoniter;
     public TimeCostMonitor mTimeCostMoniter;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SchemeTimeCostMoniterHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SchemeTimeCostMoniter sInstance;

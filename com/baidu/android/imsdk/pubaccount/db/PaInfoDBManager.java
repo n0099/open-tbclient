@@ -34,14 +34,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PaInfoDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaInfoDBManager";
     public static PaInfoDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class PaInfoListParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class PaInfoParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class PaidParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -498,9 +498,9 @@ public class PaInfoDBManager extends DBBase {
                         cursor.close();
                     }
                     return arrayList;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getPaidListByPainfos:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getPaidListByPainfos:", e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -559,8 +559,8 @@ public class PaInfoDBManager extends DBBase {
                                 str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                             }
                             str = "paid in (" + str2 + ") ";
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = null;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
@@ -594,8 +594,8 @@ public class PaInfoDBManager extends DBBase {
                             }
                             list.remove(chatSession);
                             arrayList.add(constructShieldUsers(chatSession, cursor, false));
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
                         }
@@ -607,8 +607,8 @@ public class PaInfoDBManager extends DBBase {
                     } else {
                         getPaInfo(list, arrayList, iGetUserShieldListener);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     cursor = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -665,8 +665,8 @@ public class PaInfoDBManager extends DBBase {
                     arrayList.add(constructShieldUsers(new ChatSession(), cursor, true));
                 }
                 LogUtils.e(TAG, "whereClause :" + str3 + ", users :" + arrayList.size());
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "getShieldUser:", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getShieldUser:", e);
             }
         }
     }
@@ -693,9 +693,9 @@ public class PaInfoDBManager extends DBBase {
                         cursor.close();
                     }
                     return z;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "isSubscribed:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "isSubscribed:", e);
                     if (cursor != null) {
                         cursor.close();
                     }

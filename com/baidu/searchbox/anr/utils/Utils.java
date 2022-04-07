@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECKPROCESS_SEPARATOR_TIMEOUT = 500;
@@ -181,9 +181,9 @@ public class Utils {
                             }
                         }
                         fileWriter2.close();
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
                         fileWriter = fileWriter2;
-                        e = e2;
+                        e = e;
                         e.printStackTrace();
                         if (fileWriter != null) {
                             fileWriter.close();
@@ -202,8 +202,8 @@ public class Utils {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
             }
         } catch (IOException unused2) {
         }
@@ -225,8 +225,8 @@ public class Utils {
             BufferedWriter bufferedWriter = null;
             try {
                 file = new File(str);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 process = null;
                 bufferedReader = null;
             } catch (Throwable th) {
@@ -250,23 +250,23 @@ public class Utils {
                                 break;
                             }
                             bufferedWriter2.write(readLine + "\n");
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             bufferedWriter = bufferedWriter2;
                             try {
                                 e.printStackTrace();
                                 if (bufferedWriter != null) {
                                     try {
                                         bufferedWriter.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
                                     }
                                 }
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
+                                    } catch (IOException e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 if (process == null) {
@@ -278,15 +278,15 @@ public class Utils {
                                 if (bufferedWriter != null) {
                                     try {
                                         bufferedWriter.close();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
-                                    } catch (IOException e7) {
-                                        e7.printStackTrace();
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
                                     }
                                 }
                                 if (process != null) {
@@ -312,26 +312,26 @@ public class Utils {
                     }
                     try {
                         bufferedWriter2.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
                     try {
                         bufferedReader.close();
-                    } catch (IOException e9) {
-                        e9.printStackTrace();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
                     }
                     if (process == null) {
                         return;
                     }
-                } catch (IOException e10) {
-                    e = e10;
+                } catch (IOException e9) {
+                    e = e9;
                     bufferedReader = null;
                 } catch (Throwable th4) {
                     th = th4;
                     bufferedReader = null;
                 }
-            } catch (IOException e11) {
-                e = e11;
+            } catch (IOException e10) {
+                e = e10;
                 bufferedReader = null;
             } catch (Throwable th5) {
                 th = th5;

@@ -12,7 +12,7 @@ import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class b implements Serializable {
     public List<l> o;
     public List<i> p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,20 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapPoi {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f26196d = "MapPoi";
+    public static final String d = "MapPoi";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LatLng f26197b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26198c;
+    public LatLng b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,8 +57,8 @@ public final class MapPoi {
             if (optString != null && !optString.equals("")) {
                 this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
             }
-            this.f26197b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-            this.f26198c = jSONObject.optString("ud");
+            this.b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+            this.c = jSONObject.optString("ud");
         }
     }
 
@@ -77,12 +71,12 @@ public final class MapPoi {
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26197b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (LatLng) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26198c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 }

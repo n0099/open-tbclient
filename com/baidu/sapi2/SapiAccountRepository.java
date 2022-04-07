@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import c.a.l0.a;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
@@ -76,6 +75,7 @@ import com.baidu.sapi2.utils.Security;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -87,6 +87,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.repackage.ie1;
 import com.tachikoma.core.component.input.InputType;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
@@ -106,7 +107,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -115,7 +116,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i, String str);
 
@@ -164,9 +165,9 @@ public final class SapiAccountRepository {
             OAuthResult oAuthResult = new OAuthResult();
             try {
                 oAuthResult.setResultCode(Integer.parseInt(jSONObject.optString("errno")));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str = TAG;
-                Log.e(str, "formatOauthResult parseInt: " + e2.getMessage());
+                Log.e(str, "formatOauthResult parseInt: " + e.getMessage());
             }
             oAuthResult.accessToken = jSONObject.optString("access_token");
             oAuthResult.expiresIn = jSONObject.optInt("expires_in");
@@ -199,9 +200,9 @@ public final class SapiAccountRepository {
             String string = SapiContext.getInstance().getString(getAccessTokenCacheKey(str, str2));
             try {
                 jSONObject = new JSONObject(string);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 String str3 = TAG;
-                Log.e(str3, "formatOauthResult: " + e2.getMessage());
+                Log.e(str3, "formatOauthResult: " + e.getMessage());
                 jSONObject = null;
             }
             if (jSONObject != null) {
@@ -252,7 +253,7 @@ public final class SapiAccountRepository {
                 buildSapiParams.put("json", "1");
                 buildSapiParams.put("type", SocialType.IQIYI.getType() + "");
                 buildSapiParams.put("act", "special");
-                buildSapiParams.put("display", "native");
+                buildSapiParams.put(CriusAttrConstants.DISPLAY, "native");
                 new HttpClientWrap().get(getDomainSSOStart(), ReqPriority.IMMEDIATE, buildSapiParams, null, getUaInfo(), new HttpHandlerWrap(this, Looper.getMainLooper(), iqiyiLoginCallback, iqiyiLoginResult) { // from class: com.baidu.sapi2.SapiAccountRepository.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -339,8 +340,8 @@ public final class SapiAccountRepository {
                                 JSONObject jSONObject = new JSONObject(str);
                                 this.val$result.nextUrl = jSONObject.optString("next_url");
                                 this.val$callback.onBindWebview(this.val$result);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -713,8 +714,8 @@ public final class SapiAccountRepository {
                         JSONArray jSONArray = null;
                         try {
                             jSONObject = new JSONObject(str2);
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                             jSONObject = null;
                         }
                         if (jSONObject == null) {
@@ -852,7 +853,7 @@ public final class SapiAccountRepository {
             OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
             OneKeyLoginStat.CheckAbility.statExtMap.put("scene", RetrieveTaskManager.KEY);
             OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", a.c().b(this.configuration.context));
+            OneKeyLoginStat.CheckAbility.statExtMap.put("operator", ie1.c().b(this.configuration.context));
             new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(this, Looper.getMainLooper(), currentTimeMillis, str, oneKeyLoginCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1076,9 +1077,9 @@ public final class SapiAccountRepository {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
                             this.this$0.realDynamicPwdLogin(this.val$callBack, jSONObject.optString("cert"), jSONObject.optString("cert_id"), this.val$username, this.val$password, this.val$needShare, this.val$helper);
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             this.this$0.handleDynamicPwdLogin(-100, this.val$callBack, str3, this.val$needShare, this.val$helper);
-                            Log.e(e2);
+                            Log.e(e);
                         }
                     }
                 }
@@ -1159,8 +1160,8 @@ public final class SapiAccountRepository {
                             JSONObject jSONObject = new JSONObject(str3);
                             this.val$result.setResultCode(jSONObject.optInt("errno"));
                             this.val$result.setResultMsg(jSONObject.optString("errmsg"));
-                        } catch (JSONException e2) {
-                            Log.e(e2);
+                        } catch (JSONException e) {
+                            Log.e(e);
                         }
                         if (this.val$result.getResultCode() == 0) {
                             this.val$callback.onSuccess(this.val$result);
@@ -1459,8 +1460,8 @@ public final class SapiAccountRepository {
                             openConnection.setConnectTimeout(3000);
                             openConnection.connect();
                             return Long.valueOf(openConnection.getDate() / 1000);
-                        } catch (Exception e2) {
-                            Log.e(e2);
+                        } catch (Exception e) {
+                            Log.e(e);
                             return 0L;
                         }
                     }
@@ -1672,8 +1673,8 @@ public final class SapiAccountRepository {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             try {
                 return new JSONObject(str).getInt("errno");
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return -100;
             }
         }
@@ -1796,8 +1797,8 @@ public final class SapiAccountRepository {
                         } else {
                             this.val$callback.onSuccess(optJSONArray);
                         }
-                    } catch (JSONException e2) {
-                        Log.e(SapiAccountRepository.TAG, e2.getMessage());
+                    } catch (JSONException e) {
+                        Log.e(SapiAccountRepository.TAG, e.getMessage());
                         this.val$callback.onFailure();
                     }
                 }
@@ -1882,8 +1883,8 @@ public final class SapiAccountRepository {
                     JSONArray jSONArray = null;
                     try {
                         jSONObject = new JSONObject(str4);
-                    } catch (JSONException e2) {
-                        Log.e(SapiAccountRepository.TAG, e2.getMessage());
+                    } catch (JSONException e) {
+                        Log.e(SapiAccountRepository.TAG, e.getMessage());
                         jSONObject = null;
                     }
                     if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
@@ -1964,8 +1965,8 @@ public final class SapiAccountRepository {
                             GetTplStokenStat.onEventAutoStat(String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(0), "成功");
                             return getTplStokenResult.tplStokenMap;
                         }
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                         getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL);
                         getTplStokenCallback.onFailure(getTplStokenResult);
                         GetTplStokenStat.onEventAutoStat(String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf((int) GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL), "服务端数据异常，请稍后再试");
@@ -2112,8 +2113,8 @@ public final class SapiAccountRepository {
                                     this.val$callback.onFailure(this.val$result);
                                     GetTplStokenStat.onEventAutoStat(String.valueOf(System.currentTimeMillis() - this.val$startTimeMillis), String.valueOf(8), optString3);
                                 }
-                            } catch (Exception e3) {
-                                Log.e(e3);
+                            } catch (Exception e2) {
+                                Log.e(e2);
                                 if (TextUtils.isEmpty(this.val$ptoken)) {
                                     return;
                                 }
@@ -2295,8 +2296,8 @@ public final class SapiAccountRepository {
                     }
                     sapiCallBack.onSuccess(sapiAccountResponse);
                 }
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 if (sapiCallBack != null) {
                     sapiCallBack.onSystemError(-100);
                 }
@@ -2442,8 +2443,8 @@ public final class SapiAccountRepository {
                         }
                     }
                     return true;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             return false;
@@ -2481,14 +2482,14 @@ public final class SapiAccountRepository {
                 if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
                     jSONObject.put("CUVersion", "2");
                 }
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
             }
             String oneKeyLoginJsCode = SapiContext.getInstance().getOneKeyLoginJsCode();
             String str3 = OneKeyLoginResult.secondJsCode;
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", a.c().b(this.configuration.context));
+            OneKeyLoginStat.LoadLogin.statExtMap.put("operator", ie1.c().b(this.configuration.context));
             SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback(this, currentTimeMillis, oneKeyLoginCallback, loadExternalWebViewActivityCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2535,11 +2536,11 @@ public final class SapiAccountRepository {
                         }
                         try {
                             jSONObject2 = new JSONObject(str4);
-                        } catch (JSONException e3) {
+                        } catch (JSONException e2) {
                             OneKeyLoginStat.LoadLogin.statExtMap.put("code", "JSONException");
                             OneKeyLoginStat.LoadLogin.sValue = "0";
                             OneKeyLoginStat.LoadLogin.upload();
-                            Log.e(e3);
+                            Log.e(e2);
                         }
                         HttpHashMap httpHashMap = new HttpHashMap();
                         if (jSONObject2 != null) {
@@ -2595,8 +2596,8 @@ public final class SapiAccountRepository {
                                 }
                             }
 
-                            /* JADX WARN: Removed duplicated region for block: B:45:0x012c A[Catch: Exception -> 0x0160, TryCatch #0 {Exception -> 0x0160, blocks: (B:5:0x0043, B:8:0x006e, B:10:0x007b, B:12:0x009e, B:11:0x0092, B:14:0x00a2, B:17:0x00ac, B:19:0x00b4, B:22:0x00bd, B:24:0x00c5, B:27:0x00ce, B:29:0x00d6, B:31:0x00dc, B:32:0x00e2, B:34:0x00f6, B:36:0x010a, B:38:0x0110, B:43:0x0126, B:45:0x012c, B:47:0x015c, B:46:0x0145, B:40:0x0119, B:42:0x011f), top: B:55:0x0043 }] */
-                            /* JADX WARN: Removed duplicated region for block: B:46:0x0145 A[Catch: Exception -> 0x0160, TryCatch #0 {Exception -> 0x0160, blocks: (B:5:0x0043, B:8:0x006e, B:10:0x007b, B:12:0x009e, B:11:0x0092, B:14:0x00a2, B:17:0x00ac, B:19:0x00b4, B:22:0x00bd, B:24:0x00c5, B:27:0x00ce, B:29:0x00d6, B:31:0x00dc, B:32:0x00e2, B:34:0x00f6, B:36:0x010a, B:38:0x0110, B:43:0x0126, B:45:0x012c, B:47:0x015c, B:46:0x0145, B:40:0x0119, B:42:0x011f), top: B:55:0x0043 }] */
+                            /* JADX WARN: Removed duplicated region for block: B:45:0x012a A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:5:0x0043, B:8:0x006e, B:10:0x007b, B:12:0x009d, B:11:0x0091, B:14:0x00a1, B:17:0x00ab, B:19:0x00b3, B:22:0x00bc, B:24:0x00c4, B:27:0x00cd, B:29:0x00d5, B:31:0x00db, B:32:0x00e1, B:34:0x00f5, B:36:0x0109, B:38:0x010f, B:43:0x0124, B:45:0x012a, B:47:0x015a, B:46:0x0143, B:40:0x0118, B:42:0x011e), top: B:55:0x0043 }] */
+                            /* JADX WARN: Removed duplicated region for block: B:46:0x0143 A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:5:0x0043, B:8:0x006e, B:10:0x007b, B:12:0x009d, B:11:0x0091, B:14:0x00a1, B:17:0x00ab, B:19:0x00b3, B:22:0x00bc, B:24:0x00c4, B:27:0x00cd, B:29:0x00d5, B:31:0x00db, B:32:0x00e1, B:34:0x00f5, B:36:0x0109, B:38:0x010f, B:43:0x0124, B:45:0x012a, B:47:0x015a, B:46:0x0143, B:40:0x0118, B:42:0x011e), top: B:55:0x0043 }] */
                             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                             /*
                                 Code decompiled incorrectly, please refer to instructions dump.
@@ -2669,11 +2670,11 @@ public final class SapiAccountRepository {
                                         if (TextUtils.isEmpty(optString)) {
                                         }
                                         OneKeyLoginStat.LoadLogin.upload();
-                                    } catch (Exception e4) {
-                                        Log.e(e4);
+                                    } catch (Exception e3) {
+                                        Log.e(e3);
                                         new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.this$1.val$callback, -100, null);
                                         SapiStatUtil.statOneKeyLoginPassAction(0, "-113", "json error");
-                                        OneKeyLoginStat.LoadLogin.statExtMap.put("code", e4.getMessage());
+                                        OneKeyLoginStat.LoadLogin.statExtMap.put("code", e3.getMessage());
                                         OneKeyLoginStat.LoadLogin.sValue = "0";
                                         OneKeyLoginStat.LoadLogin.upload();
                                     }
@@ -2768,18 +2769,18 @@ public final class SapiAccountRepository {
                         Log.d(str5, "oauth success: " + str4);
                         try {
                             jSONObject = new JSONObject(str4);
-                        } catch (JSONException e2) {
+                        } catch (JSONException e) {
                             String str6 = SapiAccountRepository.TAG;
-                            Log.e(str6, "formatOauthResult: " + e2.getMessage());
+                            Log.e(str6, "formatOauthResult: " + e.getMessage());
                             jSONObject = null;
                         }
                         if (jSONObject != null) {
                             try {
                                 jSONObject.put("extra", str4);
                                 jSONObject.put("cachedTimeSecond", System.currentTimeMillis() / 1000);
-                            } catch (JSONException e3) {
+                            } catch (JSONException e2) {
                                 String str7 = SapiAccountRepository.TAG;
-                                Log.e(str7, "" + e3.getMessage());
+                                Log.e(str7, "" + e2.getMessage());
                             }
                         }
                         OAuthResult formatOauthResult = this.this$0.formatOauthResult(jSONObject);
@@ -2905,8 +2906,8 @@ public final class SapiAccountRepository {
                                 SapiStatUtil.statSetCloudShareAccount(this.val$shareEvent, 1);
                                 return;
                             }
-                        } catch (Exception e2) {
-                            Log.e(e2);
+                        } catch (Exception e) {
+                            Log.e(e);
                         }
                         SapiStatUtil.statSetCloudShareAccount(this.val$shareEvent, 2);
                     }

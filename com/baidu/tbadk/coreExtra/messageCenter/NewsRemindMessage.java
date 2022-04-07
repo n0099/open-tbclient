@@ -8,38 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f30344b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f30345c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f30346d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f30347e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f30348f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f30349g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f30350h;
+        public boolean b;
+        public int c;
+        public int d;
+        public int e;
+        public int f;
+        public int g;
+        public boolean h;
         public int i;
         public boolean j;
 
@@ -59,13 +45,13 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
                 }
             }
             this.a = 0;
-            this.f30344b = false;
-            this.f30345c = 0;
-            this.f30346d = 0;
-            this.f30347e = 0;
-            this.f30348f = 0;
-            this.f30349g = 0;
-            this.f30350h = false;
+            this.b = false;
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = 0;
+            this.h = false;
             this.i = 0;
             this.j = false;
         }
@@ -93,19 +79,19 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public int getChatCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData.f30349g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData.g : invokeV.intValue;
     }
 
     public int getMsgAgreeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData.f30345c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData.c : invokeV.intValue;
     }
 
     public int getMsgAtCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData.f30347e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData.e : invokeV.intValue;
     }
 
     public int getMsgCount() {
@@ -117,13 +103,13 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public int getMsgFansCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData.f30348f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData.f : invokeV.intValue;
     }
 
     public int getMsgReplyCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mData.f30346d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mData.d : invokeV.intValue;
     }
 
     public int getNotificationCount() {
@@ -135,13 +121,13 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public boolean hasChatRemind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mData.f30350h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mData.h : invokeV.booleanValue;
     }
 
     public boolean hasMsgRemind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mData.f30344b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mData.b : invokeV.booleanValue;
     }
 
     public boolean hasNotificationRemind() {
@@ -153,21 +139,21 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public void setChatCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mData.f30349g = i;
+            this.mData.g = i;
         }
     }
 
     public void setHasChatRemind(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.mData.f30350h = z;
+            this.mData.h = z;
         }
     }
 
     public void setHasMsgRemind(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.mData.f30344b = z;
+            this.mData.b = z;
         }
     }
 
@@ -181,14 +167,14 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public void setMsgAgreeCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.mData.f30345c = i;
+            this.mData.c = i;
         }
     }
 
     public void setMsgAtCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mData.f30347e = i;
+            this.mData.e = i;
         }
     }
 
@@ -202,14 +188,14 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public void setMsgFansCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.mData.f30348f = i;
+            this.mData.f = i;
         }
     }
 
     public void setMsgReplyCount(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.mData.f30346d = i;
+            this.mData.d = i;
         }
     }
 

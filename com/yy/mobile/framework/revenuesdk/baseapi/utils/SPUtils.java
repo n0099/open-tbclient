@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SPUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_NAME = "revenuesdk_share_data";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SharedPreferencesCompat {
         public static /* synthetic */ Interceptable $ic;
         public static final Method sApplyMethod;
@@ -63,12 +63,12 @@ public class SPUtils {
                         sApplyMethod.invoke(editor, new Object[0]);
                         return;
                     }
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e2) {
                     e2.printStackTrace();
-                } catch (IllegalArgumentException e3) {
+                } catch (InvocationTargetException e3) {
                     e3.printStackTrace();
-                } catch (InvocationTargetException e4) {
-                    e4.printStackTrace();
                 }
                 editor.commit();
             }
@@ -80,8 +80,8 @@ public class SPUtils {
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
                 try {
                     return SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
-                } catch (NoSuchMethodException e2) {
-                    e2.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }

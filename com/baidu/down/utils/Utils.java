@@ -39,7 +39,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -226,8 +226,8 @@ public class Utils {
             String replaceAll = str2.replaceAll("[()（）.,：:\\-|^$#_，。：=、/+《》<>*?？‘“”''\"\"]", "_");
             try {
                 return URLEncoder.encode(replaceAll, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return replaceAll;
             }
         }
@@ -332,8 +332,8 @@ public class Utils {
                 bArr2 = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
                 return bArr2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return bArr2;
             }
         }
@@ -381,11 +381,11 @@ public class Utils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             try {
                 return TextUtils.isEmpty(str) ? "" : URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return "";
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return str;
             }
         }

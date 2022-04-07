@@ -1,7 +1,5 @@
 package com.baidu.tieba.wallet;
 
-import c.a.d.a.f;
-import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -19,7 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b9;
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class CurrencySwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class CurrencySwitchModel extends BdBaseModel {
     public OnPostDataCallBack mCallBack;
     public final HttpMessageListener mSwitchCurrencyListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPostDataCallBack {
         void callback(boolean z, int i, String str);
     }
@@ -44,7 +44,7 @@ public class CurrencySwitchModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -137,7 +137,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                n.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1546);
+                oi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f154d);
                 return;
             }
             this.isSending = true;

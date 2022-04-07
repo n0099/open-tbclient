@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -163,23 +163,23 @@ public class i {
             if (a == null) {
                 return null;
             }
-            int e2 = a.e();
+            int e = a.e();
             String m = a.m();
             String l = a.l();
             boolean z = a.g() == 1;
             boolean z2 = a.j() == 1;
             int i = a.i();
-            String f2 = a.f();
-            String h2 = a.h();
-            String b2 = a.b();
+            String f = a.f();
+            String h = a.h();
+            String b = a.b();
             PackageInfo packageInfo = new PackageInfo();
             try {
-                packageInfo.packageName = h2;
+                packageInfo.packageName = h;
                 packageInfo.versionName = m;
                 ApplicationInfo applicationInfo = new ApplicationInfo();
-                if (!TextUtils.isEmpty(h2) && !TextUtils.isEmpty(b2) && b2.startsWith(".")) {
-                    applicationInfo.name = h2 + b2;
-                    applicationInfo.className = h2 + b2;
+                if (!TextUtils.isEmpty(h) && !TextUtils.isEmpty(b) && b.startsWith(".")) {
+                    applicationInfo.name = h + b;
+                    applicationInfo.className = h + b;
                 }
                 applicationInfo.theme = a.k();
                 packageInfo.applicationInfo = applicationInfo;
@@ -202,13 +202,13 @@ public class i {
             } catch (Throwable th) {
                 l1.a(th);
             }
-            p pVar = new p(packageInfo, e2, h2, m, l, f2);
+            p pVar = new p(packageInfo, e, h, m, l, f);
             pVar.w = z;
             pVar.y = i;
             int a3 = a.c() == null ? 0 : a.c().a();
-            int b3 = a.c() != null ? a.c().b() : -1;
+            int b2 = a.c() != null ? a.c().b() : -1;
             pVar.u = a3;
-            pVar.v = b3;
+            pVar.v = b2;
             pVar.t = System.currentTimeMillis();
             pVar.z = (Build.VERSION.SDK_INT <= 29 || !z2) ? z2 : a.d() == 1;
             return pVar;

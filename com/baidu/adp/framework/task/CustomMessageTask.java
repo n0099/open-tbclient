@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CustomMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class CustomMessageTask extends MessageTask {
     public CustomRunnable<?> mRunnable;
     public TASK_TYPE mType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface CustomRunnable<T> {
         CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class TASK_TYPE {
         public static final /* synthetic */ TASK_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,23 +142,16 @@ public class CustomMessageTask extends MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isImme : invokeV.booleanValue;
     }
 
-    public void setImme(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.isImme = z;
-        }
-    }
-
     public void setTaskParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdAsyncTaskParallel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdAsyncTaskParallel) == null) {
             this.mBdAsyncTaskParallel = bdAsyncTaskParallel;
         }
     }
 
     public void setType(TASK_TYPE task_type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, task_type) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, task_type) == null) {
             this.mType = task_type;
         }
     }

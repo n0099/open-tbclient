@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceScoreModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -79,29 +79,29 @@ public class DeviceScoreModel {
         this.mModelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoMapper);
     }
 
-    public static float mergeScore(float f2, float f3) {
+    public static float mergeScore(float f, float f2) {
         InterceptResult invokeCommon;
+        float f3;
         float f4;
-        float f5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float abs = Math.abs(f2 - f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float abs = Math.abs(f - f2);
             if (abs < 0.05f) {
-                f4 = f2 * 0.8f;
-                f5 = f3 * 0.2f;
-            } else if (abs < 0.1f) {
-                f4 = f2 * 0.6f;
-                f5 = f3 * 0.4f;
-            } else if (abs < 0.15f) {
-                f4 = f2 * 0.4f;
-                f5 = f3 * 0.6f;
-            } else if (abs >= 0.2f) {
-                return f3;
-            } else {
+                f3 = f * 0.8f;
                 f4 = f2 * 0.2f;
-                f5 = f3 * 0.8f;
+            } else if (abs < 0.1f) {
+                f3 = f * 0.6f;
+                f4 = f2 * 0.4f;
+            } else if (abs < 0.15f) {
+                f3 = f * 0.4f;
+                f4 = f2 * 0.6f;
+            } else if (abs >= 0.2f) {
+                return f2;
+            } else {
+                f3 = f * 0.2f;
+                f4 = f2 * 0.8f;
             }
-            return f4 + f5;
+            return f3 + f4;
         }
         return invokeCommon.floatValue;
     }
@@ -130,21 +130,21 @@ public class DeviceScoreModel {
             if (DEBUG) {
                 Log.d(TAG, "predictByLRInline Result: " + round);
             }
-            float f2 = round >= 0.0f ? round : 0.0f;
-            if (f2 > 1.0f) {
+            float f = round >= 0.0f ? round : 0.0f;
+            if (f > 1.0f) {
                 return 1.0f;
             }
-            return f2;
+            return f;
         }
         return invokeV.floatValue;
     }
 
-    public static float roundUpRom(float f2) {
+    public static float roundUpRom(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) {
             int i = 1;
-            while (f2 > i * 1.5d && (i = i << 1) <= 268435456) {
+            while (f > i * 1.5d && (i = i << 1) <= 268435456) {
             }
             return i;
         }
@@ -217,11 +217,11 @@ public class DeviceScoreModel {
         return invokeV.longValue;
     }
 
-    public float mapStaticScore(float f2) {
+    public float mapStaticScore(float f) {
         InterceptResult invokeF;
         InferenceWrapper inferenceWrapper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
             InferenceWrapper inferenceWrapper2 = null;
             try {
                 inferenceWrapper = new InferenceWrapper();
@@ -241,32 +241,44 @@ public class DeviceScoreModel {
                 int i = 0;
                 while (i < 8) {
                     int i2 = i + 1;
-                    fArr[i] = (float) Math.pow(f2, i2);
+                    fArr[i] = (float) Math.pow(f, i2);
                     i = i2;
                 }
                 Tensor createInstance = Tensor.createInstance(new long[]{8}, FloatBuffer.wrap(fArr));
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Float f3 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                Float f2 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
                     Log.d(TAG, "MODEL_DEVICE_SCORE_MAPPER predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_MAPPER Result: " + f3);
+                    Log.d(TAG, "MODEL_DEVICE_SCORE_MAPPER Result: " + f2);
                 }
-                if (f3.floatValue() < 0.0f) {
-                    f3 = Float.valueOf(0.0f);
+                if (f2.floatValue() < 0.0f) {
+                    f2 = Float.valueOf(0.0f);
                 }
-                if (f3.floatValue() > 1.0f) {
-                    f3 = Float.valueOf(1.0f);
+                if (f2.floatValue() > 1.0f) {
+                    f2 = Float.valueOf(1.0f);
                 }
-                float floatValue = f3.floatValue();
+                float floatValue = f2.floatValue();
                 try {
                     inferenceWrapper.close();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return floatValue;
             } catch (InferenceException unused4) {
+                inferenceWrapper2 = inferenceWrapper;
+                if (inferenceWrapper2 != null) {
+                    try {
+                        inferenceWrapper2.close();
+                    } catch (Exception e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return -1.0f;
+            } catch (ModelLoadException unused5) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -278,7 +290,7 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (ModelLoadException unused5) {
+            } catch (IllegalStateException unused6) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -290,7 +302,8 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (IllegalStateException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -301,30 +314,17 @@ public class DeviceScoreModel {
                         }
                     }
                 }
-                return -1.0f;
-            } catch (Throwable th2) {
-                th = th2;
-                inferenceWrapper2 = inferenceWrapper;
-                if (inferenceWrapper2 != null) {
-                    try {
-                        inferenceWrapper2.close();
-                    } catch (Exception e6) {
-                        if (DEBUG) {
-                            e6.printStackTrace();
-                        }
-                    }
-                }
                 throw th;
             }
         }
         return invokeF.floatValue;
     }
 
-    public float predictByGBDTModel(float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
+    public float predictByGBDTModel(float f, float f2, float f3, float f4, float f5, float f6, float f7) {
         InterceptResult invokeCommon;
         InferenceWrapper inferenceWrapper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
             InferenceWrapper inferenceWrapper2 = null;
             try {
                 inferenceWrapper = new InferenceWrapper();
@@ -340,29 +340,41 @@ public class DeviceScoreModel {
                 if (DEBUG) {
                     Log.d(TAG, "MODEL_DEVICE_SCORE_GBDT Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
-                Tensor createInstance = Tensor.createInstance(new long[]{7}, FloatBuffer.wrap(new float[]{f2, f3, f4, f5, f6, f7, f8}));
+                Tensor createInstance = Tensor.createInstance(new long[]{7}, FloatBuffer.wrap(new float[]{f, f2, f3, f4, f5, f6, f7}));
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Float f9 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                Float f8 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
                     Log.d(TAG, "MODEL_DEVICE_SCORE_GBDT predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_GBDT Result: " + f9);
+                    Log.d(TAG, "MODEL_DEVICE_SCORE_GBDT Result: " + f8);
                 }
-                if (f9.floatValue() < 0.0f) {
-                    f9 = Float.valueOf(0.0f);
+                if (f8.floatValue() < 0.0f) {
+                    f8 = Float.valueOf(0.0f);
                 }
-                if (f9.floatValue() > 1.0f) {
-                    f9 = Float.valueOf(1.0f);
+                if (f8.floatValue() > 1.0f) {
+                    f8 = Float.valueOf(1.0f);
                 }
-                float floatValue = f9.floatValue();
+                float floatValue = f8.floatValue();
                 try {
                     inferenceWrapper.close();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return floatValue;
             } catch (InferenceException unused4) {
+                inferenceWrapper2 = inferenceWrapper;
+                if (inferenceWrapper2 != null) {
+                    try {
+                        inferenceWrapper2.close();
+                    } catch (Exception e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return -1.0f;
+            } catch (ModelLoadException unused5) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -374,7 +386,7 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (ModelLoadException unused5) {
+            } catch (IllegalStateException unused6) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -386,7 +398,8 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (IllegalStateException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -397,29 +410,16 @@ public class DeviceScoreModel {
                         }
                     }
                 }
-                return -1.0f;
-            } catch (Throwable th2) {
-                th = th2;
-                inferenceWrapper2 = inferenceWrapper;
-                if (inferenceWrapper2 != null) {
-                    try {
-                        inferenceWrapper2.close();
-                    } catch (Exception e6) {
-                        if (DEBUG) {
-                            e6.printStackTrace();
-                        }
-                    }
-                }
                 throw th;
             }
         }
         return invokeCommon.floatValue;
     }
 
-    public float predictByLRModel(float f2, float f3, float f4, float f5, float f6) {
+    public float predictByLRModel(float f, float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) != null) {
             return invokeCommon.floatValue;
         }
         InferenceWrapper inferenceWrapper = null;
@@ -431,29 +431,41 @@ public class DeviceScoreModel {
                 if (DEBUG) {
                     Log.d(TAG, "MODEL_DEVICE_SCORE_LR Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
-                Tensor createInstance = Tensor.createInstance(new long[]{5}, FloatBuffer.wrap(new float[]{f2, f3, f4, f5, f6}));
+                Tensor createInstance = Tensor.createInstance(new long[]{5}, FloatBuffer.wrap(new float[]{f, f2, f3, f4, f5}));
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Float f7 = (Float) inferenceWrapper2.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                Float f6 = (Float) inferenceWrapper2.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
                     Log.d(TAG, "MODEL_DEVICE_SCORE_LR predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_LR Result: " + f7);
+                    Log.d(TAG, "MODEL_DEVICE_SCORE_LR Result: " + f6);
                 }
-                if (f7.floatValue() < 0.0f) {
-                    f7 = Float.valueOf(0.0f);
+                if (f6.floatValue() < 0.0f) {
+                    f6 = Float.valueOf(0.0f);
                 }
-                if (f7.floatValue() > 1.0f) {
-                    f7 = Float.valueOf(1.0f);
+                if (f6.floatValue() > 1.0f) {
+                    f6 = Float.valueOf(1.0f);
                 }
-                float floatValue = f7.floatValue();
+                float floatValue = f6.floatValue();
                 try {
                     inferenceWrapper2.close();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return floatValue;
             } catch (InferenceException unused) {
+                inferenceWrapper = inferenceWrapper2;
+                if (inferenceWrapper != null) {
+                    try {
+                        inferenceWrapper.close();
+                    } catch (Exception e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return -1.0f;
+            } catch (ModelLoadException unused2) {
                 inferenceWrapper = inferenceWrapper2;
                 if (inferenceWrapper != null) {
                     try {
@@ -465,7 +477,7 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (ModelLoadException unused2) {
+            } catch (IllegalStateException unused3) {
                 inferenceWrapper = inferenceWrapper2;
                 if (inferenceWrapper != null) {
                     try {
@@ -477,7 +489,8 @@ public class DeviceScoreModel {
                     }
                 }
                 return -1.0f;
-            } catch (IllegalStateException unused3) {
+            } catch (Throwable th) {
+                th = th;
                 inferenceWrapper = inferenceWrapper2;
                 if (inferenceWrapper != null) {
                     try {
@@ -485,19 +498,6 @@ public class DeviceScoreModel {
                     } catch (Exception e5) {
                         if (DEBUG) {
                             e5.printStackTrace();
-                        }
-                    }
-                }
-                return -1.0f;
-            } catch (Throwable th) {
-                th = th;
-                inferenceWrapper = inferenceWrapper2;
-                if (inferenceWrapper != null) {
-                    try {
-                        inferenceWrapper.close();
-                    } catch (Exception e6) {
-                        if (DEBUG) {
-                            e6.printStackTrace();
                         }
                     }
                 }
@@ -547,9 +547,9 @@ public class DeviceScoreModel {
             float roundUpRom = roundUpRom(totalSDCardSize);
             float round2 = Math.round(screenResolution);
             float round3 = Math.round(screenDensity);
-            float f2 = round * aveCpuFrequency;
-            float predictByGBDTModel = predictByGBDTModel(round, aveCpuFrequency, ceil, roundUpRom, round2, round3, f2);
-            float predictByLRModel = predictByLRModel(aveCpuFrequency, ceil, roundUpRom, round2, f2);
+            float f = round * aveCpuFrequency;
+            float predictByGBDTModel = predictByGBDTModel(round, aveCpuFrequency, ceil, roundUpRom, round2, round3, f);
+            float predictByLRModel = predictByLRModel(aveCpuFrequency, ceil, roundUpRom, round2, f);
             int i = (predictByLRModel > 0.0f ? 1 : (predictByLRModel == 0.0f ? 0 : -1));
             if (i >= 0 || predictByGBDTModel >= 0.0f) {
                 return i < 0 ? predictByGBDTModel : predictByGBDTModel < 0.0f ? predictByLRModel : mergeScore(predictByGBDTModel, predictByLRModel);

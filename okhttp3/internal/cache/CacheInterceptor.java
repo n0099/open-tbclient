@@ -120,12 +120,12 @@ public final class CacheInterceptor implements Interceptor {
                             buffer.copyTo(this.val$cacheBody.buffer(), buffer.size() - read, read);
                             this.val$cacheBody.emitCompleteSegments();
                             return read;
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
                             if (!this.cacheRequestClosed) {
                                 this.cacheRequestClosed = true;
                                 this.val$cacheRequest.abort();
                             }
-                            throw e2;
+                            throw e;
                         }
                     }
                     return invokeLJ.longValue;

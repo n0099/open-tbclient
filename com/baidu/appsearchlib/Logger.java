@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
@@ -126,9 +126,9 @@ public class Logger {
                                     Logger.checkThread = null;
                                     return;
                                 }
-                            } catch (Exception e2) {
+                            } catch (Exception e) {
                                 Logger.checkThread = null;
-                                e2.printStackTrace();
+                                e.printStackTrace();
                                 return;
                             }
                         }
@@ -146,8 +146,8 @@ public class Logger {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -286,10 +286,10 @@ public class Logger {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             new DefaultHttpClient().execute(new HttpGet(this.val$url));
-                        } catch (ClientProtocolException e2) {
+                        } catch (ClientProtocolException e) {
+                            e.printStackTrace();
+                        } catch (IOException e2) {
                             e2.printStackTrace();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
                         }
                     }
                 }

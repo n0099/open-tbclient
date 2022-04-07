@@ -82,8 +82,8 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
             init();
             try {
                 return ((Boolean) sAddFontWeightStyle.invoke(obj, str, Integer.valueOf(i), Boolean.valueOf(z))).booleanValue();
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new RuntimeException(e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeCommon.booleanValue;
@@ -98,8 +98,8 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
                 Object newInstance = Array.newInstance(sFontFamily, 1);
                 Array.set(newInstance, 0, obj);
                 return (Typeface) sCreateFromFamiliesWithDefault.invoke(null, newInstance);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new RuntimeException(e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
             }
         }
         return (Typeface) invokeL.objValue;
@@ -137,8 +137,8 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
             method2 = cls.getMethod("addFontWeightStyle", String.class, Integer.TYPE, Boolean.TYPE);
             method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
             constructor = constructor2;
-        } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, e2.getClass().getName(), e2);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            Log.e(TAG, e.getClass().getName(), e);
             method = null;
             cls = null;
             method2 = null;
@@ -156,8 +156,8 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
             init();
             try {
                 return sFontFamilyCtor.newInstance(new Object[0]);
-            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e2) {
-                throw new RuntimeException(e2);
+            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeV.objValue;

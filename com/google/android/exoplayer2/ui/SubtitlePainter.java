@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.CaptionStyleCompat;
 import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SubtitlePainter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float INNER_PADDING_RATIO = 0.125f;
@@ -152,11 +152,11 @@ public final class SubtitlePainter {
                 rectF.top = lineTop;
                 rectF.bottom = staticLayout.getLineBottom(i);
                 RectF rectF2 = this.lineBounds;
-                float f2 = rectF2.bottom;
-                float f3 = this.cornerRadius;
-                canvas.drawRoundRect(rectF2, f3, f3, this.paint);
+                float f = rectF2.bottom;
+                float f2 = this.cornerRadius;
+                canvas.drawRoundRect(rectF2, f2, f2, this.paint);
                 i++;
-                lineTop = f2;
+                lineTop = f;
             }
         }
         int i2 = this.edgeType;
@@ -168,20 +168,20 @@ public final class SubtitlePainter {
             staticLayout.draw(canvas);
         } else if (i2 == 2) {
             TextPaint textPaint = this.textPaint;
-            float f4 = this.shadowRadius;
-            float f5 = this.shadowOffset;
-            textPaint.setShadowLayer(f4, f5, f5, this.edgeColor);
+            float f3 = this.shadowRadius;
+            float f4 = this.shadowOffset;
+            textPaint.setShadowLayer(f3, f4, f4, this.edgeColor);
         } else if (i2 == 3 || i2 == 4) {
             boolean z = this.edgeType == 3;
             int i3 = z ? -1 : this.edgeColor;
             int i4 = z ? this.edgeColor : -1;
-            float f6 = this.shadowRadius / 2.0f;
+            float f5 = this.shadowRadius / 2.0f;
             this.textPaint.setColor(this.foregroundColor);
             this.textPaint.setStyle(Paint.Style.FILL);
-            float f7 = -f6;
-            this.textPaint.setShadowLayer(this.shadowRadius, f7, f7, i3);
+            float f6 = -f5;
+            this.textPaint.setShadowLayer(this.shadowRadius, f6, f6, i3);
             staticLayout.draw(canvas);
-            this.textPaint.setShadowLayer(this.shadowRadius, f6, f6, i4);
+            this.textPaint.setShadowLayer(this.shadowRadius, f5, f5, i4);
         }
         this.textPaint.setColor(this.foregroundColor);
         this.textPaint.setStyle(Paint.Style.FILL);
@@ -196,49 +196,49 @@ public final class SubtitlePainter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void setupBitmapLayout() {
-        float f2;
+        float f;
         int i;
-        float f3;
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int i2 = this.parentRight;
             int i3 = this.parentLeft;
             int i4 = this.parentBottom;
             int i5 = this.parentTop;
-            float f4 = i2 - i3;
-            float f5 = i3 + (this.cuePosition * f4);
-            float f6 = i4 - i5;
-            float f7 = i5 + (this.cueLine * f6);
-            int round = Math.round(f4 * this.cueSize);
-            float f8 = this.cueBitmapHeight;
-            int round2 = f8 != Float.MIN_VALUE ? Math.round(f6 * f8) : Math.round(round * (this.cueBitmap.getHeight() / this.cueBitmap.getWidth()));
+            float f3 = i2 - i3;
+            float f4 = i3 + (this.cuePosition * f3);
+            float f5 = i4 - i5;
+            float f6 = i5 + (this.cueLine * f5);
+            int round = Math.round(f3 * this.cueSize);
+            float f7 = this.cueBitmapHeight;
+            int round2 = f7 != Float.MIN_VALUE ? Math.round(f5 * f7) : Math.round(round * (this.cueBitmap.getHeight() / this.cueBitmap.getWidth()));
             int i6 = this.cueLineAnchor;
             if (i6 != 2) {
                 if (i6 == 1) {
-                    f2 = round / 2;
+                    f = round / 2;
                 }
-                int round3 = Math.round(f5);
+                int round3 = Math.round(f4);
                 i = this.cuePositionAnchor;
                 if (i == 2) {
                     if (i == 1) {
-                        f3 = round2 / 2;
+                        f2 = round2 / 2;
                     }
-                    int round4 = Math.round(f7);
+                    int round4 = Math.round(f6);
                     this.bitmapRect = new Rect(round3, round4, round + round3, round2 + round4);
                 }
-                f3 = round2;
-                f7 -= f3;
-                int round42 = Math.round(f7);
+                f2 = round2;
+                f6 -= f2;
+                int round42 = Math.round(f6);
                 this.bitmapRect = new Rect(round3, round42, round + round3, round2 + round42);
             }
-            f2 = round;
-            f5 -= f2;
-            int round32 = Math.round(f5);
+            f = round;
+            f4 -= f;
+            int round32 = Math.round(f4);
             i = this.cuePositionAnchor;
             if (i == 2) {
             }
-            f7 -= f3;
-            int round422 = Math.round(f7);
+            f6 -= f2;
+            int round422 = Math.round(f6);
             this.bitmapRect = new Rect(round32, round422, round + round32, round2 + round422);
         }
     }
@@ -264,9 +264,9 @@ public final class SubtitlePainter {
             int i7 = (int) ((this.textSizePx * 0.125f) + 0.5f);
             int i8 = i7 * 2;
             int i9 = i5 - i8;
-            float f2 = this.cueSize;
-            if (f2 != Float.MIN_VALUE) {
-                i9 = (int) (i9 * f2);
+            float f = this.cueSize;
+            if (f != Float.MIN_VALUE) {
+                i9 = (int) (i9 * f);
             }
             if (i9 <= 0) {
                 Log.w(TAG, "Skipped drawing subtitle cue (insufficient space)");
@@ -306,9 +306,9 @@ public final class SubtitlePainter {
                 i9 = i10;
             }
             int i12 = i9 + i8;
-            float f3 = this.cuePosition;
-            if (f3 != Float.MIN_VALUE) {
-                int round2 = Math.round(i5 * f3) + this.parentLeft;
+            float f2 = this.cuePosition;
+            if (f2 != Float.MIN_VALUE) {
+                int round2 = Math.round(i5 * f2) + this.parentLeft;
                 int i13 = this.cuePositionAnchor;
                 if (i13 == 2) {
                     round2 -= i12;
@@ -326,19 +326,19 @@ public final class SubtitlePainter {
                 Log.w(TAG, "Skipped drawing subtitle cue (invalid horizontal positioning)");
                 return;
             }
-            float f4 = this.cueLine;
-            if (f4 != Float.MIN_VALUE) {
+            float f3 = this.cueLine;
+            if (f3 != Float.MIN_VALUE) {
                 if (this.cueLineType == 0) {
-                    round = Math.round(i6 * f4);
+                    round = Math.round(i6 * f3);
                     i4 = this.parentTop;
                 } else {
                     int lineBottom = this.textLayout.getLineBottom(0) - this.textLayout.getLineTop(0);
-                    float f5 = this.cueLine;
-                    if (f5 >= 0.0f) {
-                        round = Math.round(f5 * lineBottom);
+                    float f4 = this.cueLine;
+                    if (f4 >= 0.0f) {
+                        round = Math.round(f4 * lineBottom);
                         i4 = this.parentTop;
                     } else {
-                        round = Math.round((f5 + 1.0f) * lineBottom);
+                        round = Math.round((f4 + 1.0f) * lineBottom);
                         i4 = this.parentBottom;
                     }
                 }
@@ -369,9 +369,9 @@ public final class SubtitlePainter {
         }
     }
 
-    public void draw(Cue cue, boolean z, boolean z2, CaptionStyleCompat captionStyleCompat, float f2, float f3, Canvas canvas, int i, int i2, int i3, int i4) {
+    public void draw(Cue cue, boolean z, boolean z2, CaptionStyleCompat captionStyleCompat, float f, float f2, Canvas canvas, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{cue, Boolean.valueOf(z), Boolean.valueOf(z2), captionStyleCompat, Float.valueOf(f2), Float.valueOf(f3), canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{cue, Boolean.valueOf(z), Boolean.valueOf(z2), captionStyleCompat, Float.valueOf(f), Float.valueOf(f2), canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             boolean z3 = cue.bitmap == null;
             int i5 = -16777216;
             if (z3) {
@@ -380,7 +380,7 @@ public final class SubtitlePainter {
                 }
                 i5 = (cue.windowColorSet && z) ? cue.windowColor : captionStyleCompat.windowColor;
             }
-            if (areCharSequencesEqual(this.cueText, cue.text) && Util.areEqual(this.cueTextAlignment, cue.textAlignment) && this.cueBitmap == cue.bitmap && this.cueLine == cue.line && this.cueLineType == cue.lineType && Util.areEqual(Integer.valueOf(this.cueLineAnchor), Integer.valueOf(cue.lineAnchor)) && this.cuePosition == cue.position && Util.areEqual(Integer.valueOf(this.cuePositionAnchor), Integer.valueOf(cue.positionAnchor)) && this.cueSize == cue.size && this.cueBitmapHeight == cue.bitmapHeight && this.applyEmbeddedStyles == z && this.applyEmbeddedFontSizes == z2 && this.foregroundColor == captionStyleCompat.foregroundColor && this.backgroundColor == captionStyleCompat.backgroundColor && this.windowColor == i5 && this.edgeType == captionStyleCompat.edgeType && this.edgeColor == captionStyleCompat.edgeColor && Util.areEqual(this.textPaint.getTypeface(), captionStyleCompat.typeface) && this.textSizePx == f2 && this.bottomPaddingFraction == f3 && this.parentLeft == i && this.parentTop == i2 && this.parentRight == i3 && this.parentBottom == i4) {
+            if (areCharSequencesEqual(this.cueText, cue.text) && Util.areEqual(this.cueTextAlignment, cue.textAlignment) && this.cueBitmap == cue.bitmap && this.cueLine == cue.line && this.cueLineType == cue.lineType && Util.areEqual(Integer.valueOf(this.cueLineAnchor), Integer.valueOf(cue.lineAnchor)) && this.cuePosition == cue.position && Util.areEqual(Integer.valueOf(this.cuePositionAnchor), Integer.valueOf(cue.positionAnchor)) && this.cueSize == cue.size && this.cueBitmapHeight == cue.bitmapHeight && this.applyEmbeddedStyles == z && this.applyEmbeddedFontSizes == z2 && this.foregroundColor == captionStyleCompat.foregroundColor && this.backgroundColor == captionStyleCompat.backgroundColor && this.windowColor == i5 && this.edgeType == captionStyleCompat.edgeType && this.edgeColor == captionStyleCompat.edgeColor && Util.areEqual(this.textPaint.getTypeface(), captionStyleCompat.typeface) && this.textSizePx == f && this.bottomPaddingFraction == f2 && this.parentLeft == i && this.parentTop == i2 && this.parentRight == i3 && this.parentBottom == i4) {
                 drawLayout(canvas, z3);
                 return;
             }
@@ -402,8 +402,8 @@ public final class SubtitlePainter {
             this.edgeType = captionStyleCompat.edgeType;
             this.edgeColor = captionStyleCompat.edgeColor;
             this.textPaint.setTypeface(captionStyleCompat.typeface);
-            this.textSizePx = f2;
-            this.bottomPaddingFraction = f3;
+            this.textSizePx = f;
+            this.bottomPaddingFraction = f2;
             this.parentLeft = i;
             this.parentTop = i2;
             this.parentRight = i3;

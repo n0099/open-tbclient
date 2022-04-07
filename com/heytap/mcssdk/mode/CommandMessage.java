@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CommandMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";
@@ -152,8 +152,8 @@ public class CommandMessage extends Message {
                         subscribeResult.setContent(jSONObject.getString(str4));
                         subscribeResult.setSubscribeId(jSONObject.getString(str3));
                         arrayList.add(subscribeResult);
-                    } catch (JSONException e2) {
-                        e = e2;
+                    } catch (JSONException e) {
+                        e = e;
                         arrayList2 = arrayList;
                         e.printStackTrace();
                         arrayList = arrayList2;
@@ -161,8 +161,8 @@ public class CommandMessage extends Message {
                         return arrayList;
                     }
                 }
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
             }
             LogUtil.d("parseToSubscribeResultList--" + arrayList);
             return arrayList;

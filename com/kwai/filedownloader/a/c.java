@@ -16,29 +16,17 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final d f41582b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f41583c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final long f41584d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile List<Integer> f41585e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f41586f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile Thread f41587g;
+    public final d b;
+    public Handler c;
+    public final long d;
+    public volatile List<Integer> e;
+    public AtomicInteger f;
+    public volatile Thread g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -53,14 +41,14 @@ public class c implements a {
                 return;
             }
         }
-        this.f41585e = new CopyOnWriteArrayList();
-        this.f41586f = new AtomicInteger();
+        this.e = new CopyOnWriteArrayList();
+        this.f = new AtomicInteger();
         this.a = new b();
-        this.f41582b = new d();
-        this.f41584d = com.kwai.filedownloader.e.e.a().f41699b;
+        this.b = new d();
+        this.d = com.kwai.filedownloader.e.e.a().b;
         HandlerThread handlerThread = new HandlerThread(f.i("RemitHandoverToDB"), 10);
         handlerThread.start();
-        this.f41583c = new Handler(handlerThread.getLooper(), new Handler.Callback(this) { // from class: com.kwai.filedownloader.a.c.1
+        this.c = new Handler(handlerThread.getLooper(), new Handler.Callback(this) { // from class: com.kwai.filedownloader.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -90,22 +78,22 @@ public class c implements a {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
                     int i3 = message.what;
                     if (i3 == 0) {
-                        if (this.a.f41587g != null) {
-                            LockSupport.unpark(this.a.f41587g);
-                            this.a.f41587g = null;
+                        if (this.a.g != null) {
+                            LockSupport.unpark(this.a.g);
+                            this.a.g = null;
                         }
                         return false;
                     }
                     try {
-                        this.a.f41586f.set(i3);
+                        this.a.f.set(i3);
                         this.a.g(i3);
-                        this.a.f41585e.add(Integer.valueOf(i3));
+                        this.a.e.add(Integer.valueOf(i3));
                         return false;
                     } finally {
-                        this.a.f41586f.set(0);
-                        if (this.a.f41587g != null) {
-                            LockSupport.unpark(this.a.f41587g);
-                            this.a.f41587g = null;
+                        this.a.f.set(0);
+                        if (this.a.g != null) {
+                            LockSupport.unpark(this.a.g);
+                            this.a.g = null;
                         }
                     }
                 }
@@ -118,11 +106,11 @@ public class c implements a {
     public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
-            this.f41582b.a(this.a.b(i));
-            List<com.kwai.filedownloader.c.a> c2 = this.a.c(i);
-            this.f41582b.d(i);
-            for (com.kwai.filedownloader.c.a aVar : c2) {
-                this.f41582b.a(aVar);
+            this.b.a(this.a.b(i));
+            List<com.kwai.filedownloader.c.a> c = this.a.c(i);
+            this.b.d(i);
+            for (com.kwai.filedownloader.c.a aVar : c) {
+                this.b.a(aVar);
             }
         }
     }
@@ -130,19 +118,19 @@ public class c implements a {
     private boolean h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) ? !this.f41585e.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) ? !this.e.contains(Integer.valueOf(i)) : invokeI.booleanValue;
     }
 
     private void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            this.f41583c.removeMessages(i);
-            if (this.f41586f.get() != i) {
+            this.c.removeMessages(i);
+            if (this.f.get() != i) {
                 g(i);
                 return;
             }
-            this.f41587g = Thread.currentThread();
-            this.f41583c.sendEmptyMessage(0);
+            this.g = Thread.currentThread();
+            this.c.sendEmptyMessage(0);
             LockSupport.park();
         }
     }
@@ -152,7 +140,7 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.a();
-            this.f41582b.a();
+            this.b.a();
         }
     }
 
@@ -160,7 +148,7 @@ public class c implements a {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f41583c.sendEmptyMessageDelayed(i, this.f41584d);
+            this.c.sendEmptyMessageDelayed(i, this.d);
         }
     }
 
@@ -172,7 +160,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, i2);
+            this.b.a(i, i2);
         }
     }
 
@@ -184,7 +172,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, i2, j);
+            this.b.a(i, i2, j);
         }
     }
 
@@ -196,7 +184,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, j);
+            this.b.a(i, j);
         }
     }
 
@@ -208,7 +196,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, j, str, str2);
+            this.b.a(i, j, str, str2);
         }
     }
 
@@ -220,7 +208,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, str, j, j2, i2);
+            this.b.a(i, str, j, j2, i2);
         }
     }
 
@@ -232,7 +220,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.a(i, th);
+            this.b.a(i, th);
         }
     }
 
@@ -244,8 +232,8 @@ public class c implements a {
             if (h(i)) {
                 i(i);
             }
-            this.f41582b.a(i, th, j);
-            this.f41585e.remove(Integer.valueOf(i));
+            this.b.a(i, th, j);
+            this.e.remove(Integer.valueOf(i));
         }
     }
 
@@ -257,7 +245,7 @@ public class c implements a {
             if (h(aVar.a())) {
                 return;
             }
-            this.f41582b.a(aVar);
+            this.b.a(aVar);
         }
     }
 
@@ -269,20 +257,20 @@ public class c implements a {
             if (h(cVar.a())) {
                 return;
             }
-            this.f41582b.a(cVar);
+            this.b.a(cVar);
         }
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public a.InterfaceC2011a b() {
+    public a.InterfaceC0351a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d dVar = this.f41582b;
+            d dVar = this.b;
             b bVar = this.a;
-            return dVar.a(bVar.a, bVar.f41581b);
+            return dVar.a(bVar.a, bVar.b);
         }
-        return (a.InterfaceC2011a) invokeV.objValue;
+        return (a.InterfaceC0351a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a
@@ -298,16 +286,16 @@ public class c implements a {
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.a.b(i, j);
             if (h(i)) {
-                this.f41583c.removeMessages(i);
-                if (this.f41586f.get() == i) {
-                    this.f41587g = Thread.currentThread();
-                    this.f41583c.sendEmptyMessage(0);
+                this.c.removeMessages(i);
+                if (this.f.get() == i) {
+                    this.g = Thread.currentThread();
+                    this.c.sendEmptyMessage(0);
                     LockSupport.park();
                 }
-                this.f41585e.remove(Integer.valueOf(i));
+                this.e.remove(Integer.valueOf(i));
             }
-            this.f41582b.b(i, j);
-            this.f41585e.remove(Integer.valueOf(i));
+            this.b.b(i, j);
+            this.e.remove(Integer.valueOf(i));
         }
     }
 
@@ -326,8 +314,8 @@ public class c implements a {
             if (h(i)) {
                 i(i);
             }
-            this.f41582b.c(i, j);
-            this.f41585e.remove(Integer.valueOf(i));
+            this.b.c(i, j);
+            this.e.remove(Integer.valueOf(i));
         }
     }
 
@@ -339,7 +327,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.d(i);
+            this.b.d(i);
         }
     }
 
@@ -348,7 +336,7 @@ public class c implements a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.f41582b.e(i);
+            this.b.e(i);
             return this.a.e(i);
         }
         return invokeI.booleanValue;
@@ -362,7 +350,7 @@ public class c implements a {
             if (h(i)) {
                 return;
             }
-            this.f41582b.f(i);
+            this.b.f(i);
         }
     }
 }

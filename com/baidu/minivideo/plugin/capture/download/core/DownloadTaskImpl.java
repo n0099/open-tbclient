@@ -21,7 +21,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,8 +102,8 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void executeDownload() throws DownloadException {
-        IOException e2;
-        ProtocolException e3;
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) {
             return;
@@ -129,12 +129,12 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                             return;
                         }
                         throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                    } catch (ProtocolException e4) {
-                        e3 = e4;
-                        throw new DownloadException(108, "Protocol error", e3);
-                    } catch (IOException e5) {
-                        e2 = e5;
-                        throw new DownloadException(108, "IO error", e2);
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
+                        throw new DownloadException(108, "IO error", e);
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -144,18 +144,18 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     }
                     throw th;
                 }
-            } catch (ProtocolException e6) {
-                e3 = e6;
-            } catch (IOException e7) {
-                e2 = e7;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+            } catch (IOException e6) {
+                e = e6;
             } catch (Throwable th2) {
                 th = th2;
                 if (r2 != 0) {
                 }
                 throw th;
             }
-        } catch (MalformedURLException e8) {
-            throw new DownloadException(108, "Bad url.", e8);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -219,13 +219,13 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                         try {
                             close(inputStream);
                             close(file);
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                    } catch (IOException e3) {
-                        throw new DownloadException(108, "File occur IOException ", e3);
-                    } catch (Exception e4) {
-                        throw new DownloadException(108, "Occur Exception ", e4);
+                    } catch (IOException e2) {
+                        throw new DownloadException(108, "File occur IOException ", e2);
+                    } catch (Exception e3) {
+                        throw new DownloadException(108, "Occur Exception ", e3);
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -234,13 +234,13 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     try {
                         close(closeable2);
                         close(closeable);
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                     throw th;
                 }
-            } catch (IOException e6) {
-                throw new DownloadException(108, "http get inputStream error", e6);
+            } catch (IOException e5) {
+                throw new DownloadException(108, "http get inputStream error", e5);
             }
         } catch (Throwable th2) {
             th = th2;
@@ -322,8 +322,8 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     this.mStatus = 105;
                     this.mOnDownloadListener.onDownloadCompleted(createFileSavedPath());
                 }
-            } catch (DownloadException e2) {
-                handleDownloadException(e2);
+            } catch (DownloadException e) {
+                handleDownloadException(e);
             }
         }
     }
@@ -350,9 +350,9 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
                     this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
                 }
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 updateDB(this.mThreadRecord);
-                throw new DownloadException(108, e2);
+                throw new DownloadException(108, e);
             }
         }
     }

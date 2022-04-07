@@ -403,10 +403,10 @@ public class FragmentTransition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, fragmentTransitionImpl, arrayMap, obj, fragmentContainerTransition)) == null) {
             Fragment fragment = fragmentContainerTransition.lastIn;
-            View view = fragment.getView();
-            if (!arrayMap.isEmpty() && obj != null && view != null) {
+            View view2 = fragment.getView();
+            if (!arrayMap.isEmpty() && obj != null && view2 != null) {
                 ArrayMap<String, View> arrayMap2 = new ArrayMap<>();
-                fragmentTransitionImpl.findNamedViews(arrayMap2, view);
+                fragmentTransitionImpl.findNamedViews(arrayMap2, view2);
                 BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
                 if (fragmentContainerTransition.lastInIsPop) {
                     enterTransitionCallback = fragment.getExitTransitionCallback();
@@ -423,14 +423,14 @@ public class FragmentTransition {
                     enterTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         String str = arrayList.get(size);
-                        View view2 = arrayMap2.get(str);
-                        if (view2 == null) {
+                        View view3 = arrayMap2.get(str);
+                        if (view3 == null) {
                             String findKeyForValue2 = findKeyForValue(arrayMap, str);
                             if (findKeyForValue2 != null) {
                                 arrayMap.remove(findKeyForValue2);
                             }
-                        } else if (!str.equals(ViewCompat.getTransitionName(view2)) && (findKeyForValue = findKeyForValue(arrayMap, str)) != null) {
-                            arrayMap.put(findKeyForValue, ViewCompat.getTransitionName(view2));
+                        } else if (!str.equals(ViewCompat.getTransitionName(view3)) && (findKeyForValue = findKeyForValue(arrayMap, str)) != null) {
+                            arrayMap.put(findKeyForValue, ViewCompat.getTransitionName(view3));
                         }
                     }
                 } else {
@@ -469,11 +469,11 @@ public class FragmentTransition {
                     exitTransitionCallback.onMapSharedElements(arrayList, arrayMap2);
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         String str = arrayList.get(size);
-                        View view = arrayMap2.get(str);
-                        if (view == null) {
+                        View view2 = arrayMap2.get(str);
+                        if (view2 == null) {
                             arrayMap.remove(str);
-                        } else if (!str.equals(ViewCompat.getTransitionName(view))) {
-                            arrayMap.put(ViewCompat.getTransitionName(view), arrayMap.remove(str));
+                        } else if (!str.equals(ViewCompat.getTransitionName(view2))) {
+                            arrayMap.put(ViewCompat.getTransitionName(view2), arrayMap.remove(str));
                         }
                     }
                 } else {
@@ -539,15 +539,15 @@ public class FragmentTransition {
         return (FragmentTransitionImpl) invokeLL.objValue;
     }
 
-    public static ArrayList<View> configureEnteringExitingViews(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Fragment fragment, ArrayList<View> arrayList, View view) {
+    public static ArrayList<View> configureEnteringExitingViews(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Fragment fragment, ArrayList<View> arrayList, View view2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, fragmentTransitionImpl, obj, fragment, arrayList, view)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, fragmentTransitionImpl, obj, fragment, arrayList, view2)) == null) {
             if (obj != null) {
                 ArrayList<View> arrayList2 = new ArrayList<>();
-                View view2 = fragment.getView();
-                if (view2 != null) {
-                    fragmentTransitionImpl.captureTransitioningViews(arrayList2, view2);
+                View view3 = fragment.getView();
+                if (view3 != null) {
+                    fragmentTransitionImpl.captureTransitioningViews(arrayList2, view3);
                 }
                 if (arrayList != null) {
                     arrayList2.removeAll(arrayList);
@@ -555,7 +555,7 @@ public class FragmentTransition {
                 if (arrayList2.isEmpty()) {
                     return arrayList2;
                 }
-                arrayList2.add(view);
+                arrayList2.add(view2);
                 fragmentTransitionImpl.addTargets(obj, arrayList2);
                 return arrayList2;
             }
@@ -564,14 +564,14 @@ public class FragmentTransition {
         return (ArrayList) invokeLLLLL.objValue;
     }
 
-    public static Object configureSharedElementsOrdered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
+    public static Object configureSharedElementsOrdered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
         InterceptResult invokeCommon;
         Object sharedElementTransition;
         ArrayMap<String, String> arrayMap2;
         Object obj3;
         Rect rect;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{fragmentTransitionImpl, viewGroup, view, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{fragmentTransitionImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
             Fragment fragment = fragmentContainerTransition.lastIn;
             Fragment fragment2 = fragmentContainerTransition.firstOut;
             if (fragment == null || fragment2 == null) {
@@ -598,7 +598,7 @@ public class FragmentTransition {
             callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
             if (obj3 != null) {
                 rect = new Rect();
-                fragmentTransitionImpl.setSharedElementTargets(obj3, view, arrayList);
+                fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
                 setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
                 if (obj != null) {
                     fragmentTransitionImpl.setEpicenter(obj, rect);
@@ -606,7 +606,7 @@ public class FragmentTransition {
             } else {
                 rect = null;
             }
-            OneShotPreDrawListener.add(viewGroup, new Runnable(fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view, fragment, fragment2, z, arrayList, obj, rect) { // from class: androidx.fragment.app.FragmentTransition.6
+            OneShotPreDrawListener.add(viewGroup, new Runnable(fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view2, fragment, fragment2, z, arrayList, obj, rect) { // from class: androidx.fragment.app.FragmentTransition.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Object val$enterTransition;
@@ -627,7 +627,7 @@ public class FragmentTransition {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r3;
-                        Object[] objArr = {fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view, fragment, fragment2, Boolean.valueOf(z), arrayList, obj, rect};
+                        Object[] objArr = {fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view2, fragment, fragment2, Boolean.valueOf(z), arrayList, obj, rect};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -642,7 +642,7 @@ public class FragmentTransition {
                     this.val$finalSharedElementTransition = obj3;
                     this.val$fragments = fragmentContainerTransition;
                     this.val$sharedElementsIn = arrayList2;
-                    this.val$nonExistentView = view;
+                    this.val$nonExistentView = view2;
                     this.val$inFragment = fragment;
                     this.val$outFragment = fragment2;
                     this.val$inIsPop = z;
@@ -677,13 +677,13 @@ public class FragmentTransition {
         return invokeCommon.objValue;
     }
 
-    public static Object configureSharedElementsReordered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
+    public static Object configureSharedElementsReordered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
         InterceptResult invokeCommon;
         Object obj3;
-        View view2;
+        View view3;
         Rect rect;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{fragmentTransitionImpl, viewGroup, view, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{fragmentTransitionImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, obj, obj2})) == null) {
             Fragment fragment = fragmentContainerTransition.lastIn;
             Fragment fragment2 = fragmentContainerTransition.firstOut;
             if (fragment != null) {
@@ -714,8 +714,8 @@ public class FragmentTransition {
             }
             callSharedElementStartEnd(fragment, fragment2, z, captureOutSharedElements, true);
             if (obj3 != null) {
-                arrayList2.add(view);
-                fragmentTransitionImpl.setSharedElementTargets(obj3, view, arrayList);
+                arrayList2.add(view2);
+                fragmentTransitionImpl.setSharedElementTargets(obj3, view2, arrayList);
                 setOutEpicenter(fragmentTransitionImpl, obj3, obj2, captureOutSharedElements, fragmentContainerTransition.firstOutIsPop, fragmentContainerTransition.firstOutTransaction);
                 Rect rect2 = new Rect();
                 View inEpicenterView = getInEpicenterView(captureInSharedElements, fragmentContainerTransition, obj, z);
@@ -723,12 +723,12 @@ public class FragmentTransition {
                     fragmentTransitionImpl.setEpicenter(obj, rect2);
                 }
                 rect = rect2;
-                view2 = inEpicenterView;
+                view3 = inEpicenterView;
             } else {
-                view2 = null;
+                view3 = null;
                 rect = null;
             }
-            OneShotPreDrawListener.add(viewGroup, new Runnable(fragment, fragment2, z, captureInSharedElements, view2, fragmentTransitionImpl, rect) { // from class: androidx.fragment.app.FragmentTransition.5
+            OneShotPreDrawListener.add(viewGroup, new Runnable(fragment, fragment2, z, captureInSharedElements, view3, fragmentTransitionImpl, rect) { // from class: androidx.fragment.app.FragmentTransition.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Rect val$epicenter;
@@ -744,7 +744,7 @@ public class FragmentTransition {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {fragment, fragment2, Boolean.valueOf(z), captureInSharedElements, view2, fragmentTransitionImpl, rect};
+                        Object[] objArr = {fragment, fragment2, Boolean.valueOf(z), captureInSharedElements, view3, fragmentTransitionImpl, rect};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -758,7 +758,7 @@ public class FragmentTransition {
                     this.val$outFragment = fragment2;
                     this.val$inIsPop = z;
                     this.val$inSharedElements = captureInSharedElements;
-                    this.val$epicenterView = view2;
+                    this.val$epicenterView = view3;
                     this.val$impl = fragmentTransitionImpl;
                     this.val$epicenter = rect;
                 }
@@ -768,9 +768,9 @@ public class FragmentTransition {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         FragmentTransition.callSharedElementStartEnd(this.val$inFragment, this.val$outFragment, this.val$inIsPop, this.val$inSharedElements, false);
-                        View view3 = this.val$epicenterView;
-                        if (view3 != null) {
-                            this.val$impl.getBoundsOnScreen(view3, this.val$epicenter);
+                        View view4 = this.val$epicenterView;
+                        if (view4 != null) {
+                            this.val$impl.getBoundsOnScreen(view4, this.val$epicenter);
                         }
                     }
                 }
@@ -780,13 +780,13 @@ public class FragmentTransition {
         return invokeCommon.objValue;
     }
 
-    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view, arrayMap, callback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
             ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
             if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
@@ -797,7 +797,7 @@ public class FragmentTransition {
             Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
             ArrayList arrayList = new ArrayList();
             ArrayList<View> arrayList2 = new ArrayList<>();
-            Object configureSharedElementsOrdered = configureSharedElementsOrdered(chooseImpl, viewGroup, view, arrayMap, fragmentContainerTransition, arrayList, arrayList2, enterTransition, exitTransition);
+            Object configureSharedElementsOrdered = configureSharedElementsOrdered(chooseImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList, arrayList2, enterTransition, exitTransition);
             if (enterTransition == null && configureSharedElementsOrdered == null) {
                 obj = exitTransition;
                 if (obj == null) {
@@ -806,9 +806,9 @@ public class FragmentTransition {
             } else {
                 obj = exitTransition;
             }
-            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList, view);
+            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList, view2);
             Object obj2 = (configureEnteringExitingViews == null || configureEnteringExitingViews.isEmpty()) ? null : obj;
-            chooseImpl.addTarget(enterTransition, view);
+            chooseImpl.addTarget(enterTransition, view2);
             Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj2, configureSharedElementsOrdered, fragment, fragmentContainerTransition.lastInIsPop);
             if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList.size() > 0)) {
                 CancellationSignal cancellationSignal = new CancellationSignal();
@@ -852,7 +852,7 @@ public class FragmentTransition {
             if (mergeTransitions != null) {
                 ArrayList<View> arrayList3 = new ArrayList<>();
                 chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, arrayList3, obj2, configureEnteringExitingViews, configureSharedElementsOrdered, arrayList2);
-                scheduleTargetChange(chooseImpl, viewGroup, fragment, view, arrayList2, enterTransition, arrayList3, obj2, configureEnteringExitingViews);
+                scheduleTargetChange(chooseImpl, viewGroup, fragment, view2, arrayList2, enterTransition, arrayList3, obj2, configureEnteringExitingViews);
                 chooseImpl.setNameOverridesOrdered(viewGroup, arrayList2, arrayMap);
                 chooseImpl.beginDelayedTransition(viewGroup, mergeTransitions);
                 chooseImpl.scheduleNameReset(viewGroup, arrayList2, arrayMap);
@@ -860,13 +860,13 @@ public class FragmentTransition {
         }
     }
 
-    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view, arrayMap, callback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
             ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
             if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
@@ -877,7 +877,7 @@ public class FragmentTransition {
             ArrayList<View> arrayList2 = new ArrayList<>();
             Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
             Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
-            Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup, view, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
+            Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
             if (enterTransition == null && configureSharedElementsReordered == null) {
                 obj = exitTransition;
                 if (obj == null) {
@@ -886,8 +886,8 @@ public class FragmentTransition {
             } else {
                 obj = exitTransition;
             }
-            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList2, view);
-            ArrayList<View> configureEnteringExitingViews2 = configureEnteringExitingViews(chooseImpl, enterTransition, fragment, arrayList, view);
+            ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList2, view2);
+            ArrayList<View> configureEnteringExitingViews2 = configureEnteringExitingViews(chooseImpl, enterTransition, fragment, arrayList, view2);
             setViewVisibility(configureEnteringExitingViews2, 4);
             Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj, configureSharedElementsReordered, fragment, z);
             if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList2.size() > 0)) {
@@ -1127,10 +1127,10 @@ public class FragmentTransition {
         }
     }
 
-    public static void scheduleTargetChange(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, Fragment fragment, View view, ArrayList<View> arrayList, Object obj, ArrayList<View> arrayList2, Object obj2, ArrayList<View> arrayList3) {
+    public static void scheduleTargetChange(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, Fragment fragment, View view2, ArrayList<View> arrayList, Object obj, ArrayList<View> arrayList2, Object obj2, ArrayList<View> arrayList3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{fragmentTransitionImpl, viewGroup, fragment, view, arrayList, obj, arrayList2, obj2, arrayList3}) == null) {
-            OneShotPreDrawListener.add(viewGroup, new Runnable(obj, fragmentTransitionImpl, view, fragment, arrayList, arrayList2, arrayList3, obj2) { // from class: androidx.fragment.app.FragmentTransition.4
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{fragmentTransitionImpl, viewGroup, fragment, view2, arrayList, obj, arrayList2, obj2, arrayList3}) == null) {
+            OneShotPreDrawListener.add(viewGroup, new Runnable(obj, fragmentTransitionImpl, view2, fragment, arrayList, arrayList2, arrayList3, obj2) { // from class: androidx.fragment.app.FragmentTransition.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Object val$enterTransition;
@@ -1147,7 +1147,7 @@ public class FragmentTransition {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {obj, fragmentTransitionImpl, view, fragment, arrayList, arrayList2, arrayList3, obj2};
+                        Object[] objArr = {obj, fragmentTransitionImpl, view2, fragment, arrayList, arrayList2, arrayList3, obj2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1159,7 +1159,7 @@ public class FragmentTransition {
                     }
                     this.val$enterTransition = obj;
                     this.val$impl = fragmentTransitionImpl;
-                    this.val$nonExistentView = view;
+                    this.val$nonExistentView = view2;
                     this.val$inFragment = fragment;
                     this.val$sharedElementsIn = arrayList;
                     this.val$enteringViews = arrayList2;
@@ -1203,10 +1203,10 @@ public class FragmentTransition {
         } else {
             str = backStackRecord.mSharedElementSourceNames.get(0);
         }
-        View view = arrayMap.get(str);
-        fragmentTransitionImpl.setEpicenter(obj, view);
+        View view2 = arrayMap.get(str);
+        fragmentTransitionImpl.setEpicenter(obj, view2);
         if (obj2 != null) {
-            fragmentTransitionImpl.setEpicenter(obj2, view);
+            fragmentTransitionImpl.setEpicenter(obj2, view2);
         }
     }
 
@@ -1235,16 +1235,16 @@ public class FragmentTransition {
             }
         }
         if (sparseArray.size() != 0) {
-            View view = new View(fragmentManager.mHost.getContext());
+            View view2 = new View(fragmentManager.mHost.getContext());
             int size = sparseArray.size();
             for (int i4 = 0; i4 < size; i4++) {
                 int keyAt = sparseArray.keyAt(i4);
                 ArrayMap<String, String> calculateNameOverrides = calculateNameOverrides(keyAt, arrayList, arrayList2, i, i2);
                 FragmentContainerTransition fragmentContainerTransition = (FragmentContainerTransition) sparseArray.valueAt(i4);
                 if (z) {
-                    configureTransitionsReordered(fragmentManager, keyAt, fragmentContainerTransition, view, calculateNameOverrides, callback);
+                    configureTransitionsReordered(fragmentManager, keyAt, fragmentContainerTransition, view2, calculateNameOverrides, callback);
                 } else {
-                    configureTransitionsOrdered(fragmentManager, keyAt, fragmentContainerTransition, view, calculateNameOverrides, callback);
+                    configureTransitionsOrdered(fragmentManager, keyAt, fragmentContainerTransition, view2, calculateNameOverrides, callback);
                 }
             }
         }

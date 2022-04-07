@@ -1,6 +1,5 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.p0.w0.m.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.e66;
 import com.squareup.wire.Wire;
 import tbclient.Recommforum.RecommforumResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mRecommendData;
+    public e66 mRecommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketRecommendMessage() {
@@ -34,10 +34,10 @@ public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
         }
     }
 
-    public a getRecommendData() {
+    public e66 getRecommendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommendData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommendData : (e66) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
         if (getError() != 0 || recommforumResIdl.data == null) {
             return;
         }
-        a aVar = new a();
-        this.mRecommendData = aVar;
-        aVar.h(recommforumResIdl.data);
+        e66 e66Var = new e66();
+        this.mRecommendData = e66Var;
+        e66Var.h(recommforumResIdl.data);
     }
 }

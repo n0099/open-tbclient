@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -19,7 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class HeadImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public class HeadImageView extends TbClipImageView {
         }
     }
 
-    private void v() {
+    private void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.x0 = n.f(getContext(), R.dimen.tbds36);
+            this.x0 = oi.f(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -83,23 +83,23 @@ public class HeadImageView extends TbClipImageView {
         }
     }
 
-    public final void Q(Canvas canvas) {
+    public final void R(Canvas canvas) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.R0 && (i = this.M0) == (i2 = this.N0)) {
-            float f2 = i * 0.77f;
-            float f3 = (i - f2) / 2.0f;
-            float f4 = f2 + f3;
-            float f5 = (i2 * 0.77f) + f3;
+            float f = i * 0.77f;
+            float f2 = (i - f) / 2.0f;
+            float f3 = f + f2;
+            float f4 = (i2 * 0.77f) + f2;
             this.Q0.setColor(SkinManager.getColor(R.color.CAM_X0201));
-            canvas.drawCircle(f4, f5, f3, this.Q0);
+            canvas.drawCircle(f3, f4, f2, this.Q0);
             this.Q0.setColor(SkinManager.getColor(R.color.CAM_X0309));
-            canvas.drawCircle(f4, f5, f3 - 4.0f, this.Q0);
+            canvas.drawCircle(f3, f4, f2 - 4.0f, this.Q0);
         }
     }
 
-    public void R(Canvas canvas) {
+    public void S(Canvas canvas) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.y0 && this.x0 > 0) {
@@ -162,8 +162,8 @@ public class HeadImageView extends TbClipImageView {
             if (canvas == null) {
                 return;
             }
+            S(canvas);
             R(canvas);
-            Q(canvas);
         }
     }
 
@@ -278,7 +278,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.w0 = n.f(getContext(), i);
+                this.w0 = oi.f(getContext(), i);
             }
             invalidate();
         }
@@ -295,7 +295,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.x0 = n.f(getContext(), i);
+                this.x0 = oi.f(getContext(), i);
             }
             invalidate();
         }
@@ -387,7 +387,7 @@ public class HeadImageView extends TbClipImageView {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f1185));
+            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f118d));
         }
     }
 
@@ -448,11 +448,11 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.G0 = R.drawable.obfuscated_res_0x7f081200;
+        this.G0 = R.drawable.obfuscated_res_0x7f081207;
         this.H0 = R.color.CAM_X0209;
         this.I0 = R.drawable.ic_icon_mask_shen20_n;
         this.J0 = 0;
         this.P0 = -1;
-        v();
+        w();
     }
 }

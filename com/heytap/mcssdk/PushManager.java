@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PushManager implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";
@@ -279,7 +279,7 @@ public class PushManager implements b {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f38724f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f : (String) invokeV.objValue;
     }
 
     public static boolean isSupportPush(Context context) {
@@ -331,8 +331,8 @@ public class PushManager implements b {
                 intent.putExtra("messageType", appMessage.getType());
                 intent.putExtra("eventID", str);
                 context.startService(intent);
-            } catch (Exception e2) {
-                LogUtil.e("statisticMessage--Exception" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.e("statisticMessage--Exception" + e.getMessage());
             }
         }
     }
@@ -359,8 +359,8 @@ public class PushManager implements b {
                 intent.putExtra("messageType", sptDataMessage.getType());
                 intent.putExtra("eventID", str);
                 context.startService(intent);
-            } catch (Exception e2) {
-                LogUtil.e("statisticMessage--Exception" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.e("statisticMessage--Exception" + e.getMessage());
             }
         }
     }
@@ -395,8 +395,8 @@ public class PushManager implements b {
             try {
                 checkAll();
                 startMcsService(CommandMessage.COMMAND_CLEAR_NOTIFICATION_TYPE, jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -416,8 +416,8 @@ public class PushManager implements b {
             try {
                 checkContext();
                 startMcsService(CommandMessage.COMMAND_CLEAR_PKG_NOTIFICATION, jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -613,8 +613,8 @@ public class PushManager implements b {
             try {
                 checkAll();
                 startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_SETTINGS, jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -634,8 +634,8 @@ public class PushManager implements b {
             try {
                 checkAll();
                 startMcsService(CommandMessage.COMMAND_PAUSE_PUSH, jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -680,8 +680,8 @@ public class PushManager implements b {
             try {
                 checkContext();
                 bindMcsService(CommandMessage.COMMANAD_NOTIFICATION_ALLOWANCE);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -701,8 +701,8 @@ public class PushManager implements b {
             try {
                 checkAll();
                 startMcsService(12300, jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -755,8 +755,8 @@ public class PushManager implements b {
             try {
                 checkAll();
                 startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_TYPE, String.valueOf(i), jSONObject);
-            } catch (Exception e2) {
-                LogUtil.e(LogUtil.TAG, e2);
+            } catch (Exception e) {
+                LogUtil.e(LogUtil.TAG, e);
             }
         }
     }
@@ -793,12 +793,12 @@ public class PushManager implements b {
                     jSONObject2.put("endHour", i3);
                     jSONObject2.put("endMin", i4);
                     startMcsService(CommandMessage.COMMAND_SET_PUSH_TIME, jSONObject2.toString(), jSONObject);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 if (getPushCallback() != null) {
-                    getPushCallback().onSetPushTime(-2, e3.getMessage());
+                    getPushCallback().onSetPushTime(-2, e2.getMessage());
                 }
             }
         }

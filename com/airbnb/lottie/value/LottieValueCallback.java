@@ -3,7 +3,7 @@ package com.airbnb.lottie.value;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieValueCallback<T> {
     @Nullable
     public BaseKeyframeAnimation<?, ?> animation;
@@ -23,8 +23,8 @@ public class LottieValueCallback<T> {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public final T getValueInternal(float f2, float f3, T t, T t2, float f4, float f5, float f6) {
-        return getValue(this.frameInfo.set(f2, f3, t, t2, f4, f5, f6));
+    public final T getValueInternal(float f, float f2, T t, T t2, float f3, float f4, float f5) {
+        return getValue(this.frameInfo.set(f, f2, t, t2, f3, f4, f5));
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

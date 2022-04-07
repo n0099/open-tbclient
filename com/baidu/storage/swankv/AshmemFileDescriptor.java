@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AshmemFileDescriptor implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AshmemFileDescriptor> CREATOR;
@@ -22,7 +22,7 @@ public class AshmemFileDescriptor implements Parcelable {
     public final String mName;
     public final int mSize;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Parcelable.Creator<AshmemFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,8 +133,8 @@ public class AshmemFileDescriptor implements Parcelable {
                 parcel.writeString(this.mName);
                 ParcelFileDescriptor.fromFd(this.mAshmemFD).writeToParcel(parcel, i | 1);
                 parcel.writeInt(this.mSize);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

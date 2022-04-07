@@ -1,7 +1,5 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import c.a.d.o.e.n;
-import c.a.p0.q1.l.b.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -11,18 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d27;
+import com.repackage.uo;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<n> mDataList;
+    public List<uo> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicThreadMessage() {
@@ -43,7 +43,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.hasMore = false;
     }
 
-    public List<n> getDataList() {
+    public List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataList : (List) invokeV.objValue;
@@ -75,9 +75,9 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.mDataList = new ArrayList();
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
-                c cVar = new c();
-                cVar.g(topicThread);
-                this.mDataList.add(cVar);
+                d27 d27Var = new d27();
+                d27Var.g(topicThread);
+                this.mDataList.add(d27Var);
             }
         }
     }

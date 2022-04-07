@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class TKJSException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_LINE_LENGTH = 350;
@@ -48,13 +48,13 @@ public abstract class TKJSException extends RuntimeException {
         }
     }
 
-    private char[] createCharSequence(int i, char c2) {
+    private char[] createCharSequence(int i, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Character.valueOf(c)})) == null) {
             char[] cArr = new char[i];
             for (int i2 = 0; i2 < i; i2++) {
-                cArr[i2] = c2;
+                cArr[i2] = c;
             }
             return cArr;
         }

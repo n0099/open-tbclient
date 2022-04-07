@@ -56,7 +56,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PluginloaderHub {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFULT_ABI = "armeabi";
@@ -323,8 +323,8 @@ public class PluginloaderHub {
             try {
                 try {
                     zipFile4 = new ZipFile(apkInfo.pkgPath);
-                } catch (FileNotFoundException e2) {
-                    String message = e2.getMessage();
+                } catch (FileNotFoundException e) {
+                    String message = e.getMessage();
                     File file = new File(apkInfo.hostContext.getFilesDir(), ".b");
                     try {
                         if (file.exists()) {
@@ -1149,8 +1149,8 @@ public class PluginloaderHub {
                                 if (!CommonMethods.registerReceiver(sAppContext, myReceiver, pluginloaderIntentFilter.intentFilter)) {
                                     try {
                                         Thread.sleep(3000L);
-                                    } catch (InterruptedException e2) {
-                                        CommonMethods.handleNuLException(e2);
+                                    } catch (InterruptedException e) {
+                                        CommonMethods.handleNuLException(e);
                                     }
                                     CommonMethods.registerReceiver(sAppContext, myReceiver, pluginloaderIntentFilter.intentFilter);
                                 }

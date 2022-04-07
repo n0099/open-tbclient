@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppPageInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SwanAppPageInfo> CREATOR;
@@ -28,7 +28,7 @@ public class SwanAppPageInfo implements Parcelable {
     public String type;
     public String url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<SwanAppPageInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,8 +172,8 @@ public class SwanAppPageInfo implements Parcelable {
         }
         try {
             jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
             jSONObject = null;
         }
         parsePageInfo(jSONObject);

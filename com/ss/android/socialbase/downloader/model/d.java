@@ -6,83 +6,75 @@ import com.baidu.searchbox.bddownload.core.Util;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.network.g;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final g f43484b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f43485c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f43486d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f43487e;
+    public final g b;
+    public final int c;
+    public long d;
+    public long e;
 
     public d(String str, g gVar) throws IOException {
         this.a = str;
-        this.f43485c = gVar.b();
-        this.f43484b = gVar;
+        this.c = gVar.b();
+        this.b = gVar;
     }
 
     public boolean a() {
-        return f.c(this.f43485c);
+        return f.c(this.c);
     }
 
     public boolean b() {
-        return f.a(this.f43485c, this.f43484b.a(Util.ACCEPT_RANGES));
+        return f.a(this.c, this.b.a(Util.ACCEPT_RANGES));
     }
 
     public String c() {
-        return this.f43484b.a(Util.ETAG);
+        return this.b.a(Util.ETAG);
     }
 
     public String d() {
-        return this.f43484b.a("Content-Type");
+        return this.b.a("Content-Type");
     }
 
     public String e() {
-        return f.b(this.f43484b, "Content-Range");
+        return f.b(this.b, "Content-Range");
     }
 
     public String f() {
-        String b2 = f.b(this.f43484b, Headers.LAST_MODIFIED);
-        return TextUtils.isEmpty(b2) ? f.b(this.f43484b, com.baidubce.http.Headers.LAST_MODIFIED) : b2;
+        String b = f.b(this.b, Headers.LAST_MODIFIED);
+        return TextUtils.isEmpty(b) ? f.b(this.b, com.baidubce.http.Headers.LAST_MODIFIED) : b;
     }
 
     public String g() {
-        return f.b(this.f43484b, com.baidubce.http.Headers.CACHE_CONTROL);
+        return f.b(this.b, com.baidubce.http.Headers.CACHE_CONTROL);
     }
 
     public long h() {
-        if (this.f43486d <= 0) {
-            this.f43486d = f.a(this.f43484b);
+        if (this.d <= 0) {
+            this.d = f.a(this.b);
         }
-        return this.f43486d;
+        return this.d;
     }
 
     public boolean i() {
         if (com.ss.android.socialbase.downloader.i.a.a(8)) {
-            return f.c(this.f43484b);
+            return f.c(this.b);
         }
         return f.b(h());
     }
 
     public long j() {
-        if (this.f43487e <= 0) {
+        if (this.e <= 0) {
             if (!i()) {
-                String e2 = e();
-                if (!TextUtils.isEmpty(e2)) {
-                    this.f43487e = f.b(e2);
+                String e = e();
+                if (!TextUtils.isEmpty(e)) {
+                    this.e = f.b(e);
                 }
             } else {
-                this.f43487e = -1L;
+                this.e = -1L;
             }
         }
-        return this.f43487e;
+        return this.e;
     }
 
     public long k() {

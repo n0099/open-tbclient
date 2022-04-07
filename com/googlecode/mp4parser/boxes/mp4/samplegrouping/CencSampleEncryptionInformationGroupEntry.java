@@ -14,7 +14,7 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -134,10 +134,10 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         }
     }
 
-    public void setIvSize(byte b2) {
+    public void setIvSize(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(InputDeviceCompat.SOURCE_TOUCHPAD, this, b2) == null) {
-            this.ivSize = b2;
+        if (interceptable == null || interceptable.invokeB(InputDeviceCompat.SOURCE_TOUCHPAD, this, b) == null) {
+            this.ivSize = b;
         }
     }
 

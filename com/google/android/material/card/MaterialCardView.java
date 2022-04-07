@@ -36,7 +36,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
@@ -44,7 +44,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100352 = 2131755858;
+    public static final int obfuscated_res_0x7f100353 = 2131755859;
     public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public boolean isParentCardViewDoneInitializing;
     public OnCheckedChangeListener onCheckedChangeListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }
@@ -75,7 +75,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
-        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f040589};
+        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f0405c7};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -358,10 +358,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setCardElevation(float f2) {
+    public void setCardElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
-            super.setCardElevation(f2);
+        if (interceptable == null || interceptable.invokeF(1048606, this, f) == null) {
+            super.setCardElevation(f);
             this.cardViewHelper.updateElevation();
         }
     }
@@ -442,10 +442,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setMaxCardElevation(float f2) {
+    public void setMaxCardElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
-            super.setMaxCardElevation(f2);
+        if (interceptable == null || interceptable.invokeF(1048616, this, f) == null) {
+            super.setMaxCardElevation(f);
             this.cardViewHelper.updateInsets();
         }
     }
@@ -467,19 +467,19 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
-            this.cardViewHelper.setProgress(f2);
+        if (interceptable == null || interceptable.invokeF(1048619, this, f) == null) {
+            this.cardViewHelper.setProgress(f);
         }
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
-            super.setRadius(f2);
-            this.cardViewHelper.setCornerRadius(f2);
+        if (interceptable == null || interceptable.invokeF(1048620, this, f) == null) {
+            super.setRadius(f);
+            this.cardViewHelper.setCornerRadius(f);
         }
     }
 
@@ -548,7 +548,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040414);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040454);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -584,7 +584,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100352), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100353), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -604,8 +604,8 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         this.checked = false;
         this.dragged = false;
         this.isParentCardViewDoneInitializing = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.obfuscated_res_0x7f040119, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591}, i, obfuscated_res_0x7f100352, new int[0]);
-        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i, obfuscated_res_0x7f100352);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.obfuscated_res_0x7f04011c, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf}, i, obfuscated_res_0x7f100353, new int[0]);
+        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i, obfuscated_res_0x7f100353);
         this.cardViewHelper = materialCardViewHelper;
         materialCardViewHelper.setCardBackgroundColor(super.getCardBackgroundColor());
         this.cardViewHelper.setUserContentPadding(super.getContentPaddingLeft(), super.getContentPaddingTop(), super.getContentPaddingRight(), super.getContentPaddingBottom());

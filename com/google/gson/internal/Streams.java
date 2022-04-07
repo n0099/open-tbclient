@@ -18,7 +18,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Streams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,23 +52,23 @@ public final class Streams {
                 z = false;
                 try {
                     return TypeAdapters.JSON_ELEMENT.read(jsonReader);
-                } catch (EOFException e2) {
-                    e = e2;
+                } catch (EOFException e) {
+                    e = e;
                     if (z) {
                         return JsonNull.INSTANCE;
                     }
                     throw new JsonSyntaxException(e);
                 }
-            } catch (EOFException e3) {
-                e = e3;
+            } catch (EOFException e2) {
+                e = e2;
                 z = true;
             }
-        } catch (MalformedJsonException e4) {
-            throw new JsonSyntaxException(e4);
-        } catch (IOException e5) {
-            throw new JsonIOException(e5);
-        } catch (NumberFormatException e6) {
-            throw new JsonSyntaxException(e6);
+        } catch (MalformedJsonException e3) {
+            throw new JsonSyntaxException(e3);
+        } catch (IOException e4) {
+            throw new JsonIOException(e4);
+        } catch (NumberFormatException e5) {
+            throw new JsonSyntaxException(e5);
         }
     }
 
@@ -85,14 +85,14 @@ public final class Streams {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appendable)) == null) ? appendable instanceof Writer ? (Writer) appendable : new AppendableWriter(appendable) : (Writer) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class AppendableWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Appendable appendable;
         public final CurrentWrite currentWrite;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class CurrentWrite implements CharSequence {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

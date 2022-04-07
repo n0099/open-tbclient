@@ -214,10 +214,10 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public void colPut(E e2, E e3) {
+                    public void colPut(E e, E e2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, e2, e3) == null) {
-                            this.this$0.add(e2);
+                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, e, e2) == null) {
+                            this.this$0.add(e);
                         }
                     }
 
@@ -230,10 +230,10 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public E colSetValue(int i, E e2) {
+                    public E colSetValue(int i, E e) {
                         InterceptResult invokeIL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, e2)) == null) {
+                        if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, e)) == null) {
                             throw new UnsupportedOperationException("not a map");
                         }
                         return (E) invokeIL.objValue;
@@ -304,19 +304,19 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean add(@Nullable E e2) {
+    public boolean add(@Nullable E e) {
         InterceptResult invokeL;
         int i;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) {
-            if (e2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e == null) {
                 indexOf = indexOfNull();
                 i = 0;
             } else {
-                int hashCode = e2.hashCode();
+                int hashCode = e.hashCode();
                 i = hashCode;
-                indexOf = indexOf(e2, hashCode);
+                indexOf = indexOf(e, hashCode);
             }
             if (indexOf >= 0) {
                 return false;
@@ -349,7 +349,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                 System.arraycopy(objArr2, i2, objArr2, i6, this.mSize - i2);
             }
             this.mHashes[i2] = i;
-            this.mArray[i2] = e2;
+            this.mArray[i2] = e;
             this.mSize++;
             return true;
         }
@@ -518,7 +518,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             Object[] objArr = this.mArray;
-            E e2 = (E) objArr[i];
+            E e = (E) objArr[i];
             int i2 = this.mSize;
             if (i2 <= 1) {
                 freeArrays(this.mHashes, objArr, i2);
@@ -556,7 +556,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     this.mArray[this.mSize] = null;
                 }
             }
-            return e2;
+            return e;
         }
         return (E) invokeI.objValue;
     }
@@ -721,8 +721,8 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
             ensureCapacity(this.mSize + collection.size());
             boolean z = false;
-            for (E e2 : collection) {
-                z |= add(e2);
+            for (E e : collection) {
+                z |= add(e);
             }
             return z;
         }

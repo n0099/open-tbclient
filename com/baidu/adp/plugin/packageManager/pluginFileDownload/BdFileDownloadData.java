@@ -1,15 +1,15 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.j.j.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hm;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdFileDownloadData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
@@ -23,7 +23,7 @@ public class BdFileDownloadData implements Serializable {
     public static final long serialVersionUID = -3270428328316883061L;
     public transient /* synthetic */ FieldHolder $fh;
     public String afterHttpDnsUrl;
-    public transient a callback;
+    public transient hm callback;
     public String check;
     public String description;
     public int errorCode;
@@ -76,10 +76,10 @@ public class BdFileDownloadData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.afterHttpDnsUrl : (String) invokeV.objValue;
     }
 
-    public a getCallback() {
+    public hm getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.callback : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.callback : (hm) invokeV.objValue;
     }
 
     public String getCheck() {
@@ -185,10 +185,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setCallback(a aVar) {
+    public void setCallback(hm hmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
-            this.callback = aVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, hmVar) == null) {
+            this.callback = hmVar;
         }
     }
 
@@ -334,12 +334,12 @@ public class BdFileDownloadData implements Serializable {
         this.url = str2;
     }
 
-    public BdFileDownloadData(String str, String str2, String str3, a aVar) {
+    public BdFileDownloadData(String str, String str2, String str3, hm hmVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, aVar};
+            Object[] objArr = {str, str2, str3, hmVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -363,7 +363,7 @@ public class BdFileDownloadData implements Serializable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.callback = aVar;
+        this.callback = hmVar;
         this.status = 1;
     }
 }

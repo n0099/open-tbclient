@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SmsLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SmsLoginStat";
     public static final String UBC_ID = "4922";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class GetdpassStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -105,8 +105,8 @@ public class SmsLoginStat {
                     jSONObject2.put("page", "getdpass");
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(SmsLoginStat.UBC_ID, jSONObject2);
                 resetData();
@@ -114,7 +114,7 @@ public class SmsLoginStat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SmsClickLoginStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
@@ -196,8 +196,8 @@ public class SmsLoginStat {
                     jSONObject2.put("page", "smslogin");
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", sValue);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(SmsLoginStat.UBC_ID, jSONObject2);
                 resetData();

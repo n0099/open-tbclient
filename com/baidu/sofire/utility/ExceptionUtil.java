@@ -17,7 +17,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ExceptionUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] CHARACTER_LOAD_LIBRARY_FAIL;
@@ -146,14 +146,14 @@ public class ExceptionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
             try {
-                char c2 = 0;
+                char c = 0;
                 if (str.contains(CHARACTER_LOAD_LIBRARY_FAIL[0])) {
-                    c2 = 1;
+                    c = 1;
                 } else if (str.contains(CHARACTER_NO_SPACE_LEFT[0])) {
-                    c2 = 2;
+                    c = 2;
                 }
-                if (c2 != 1) {
-                    return c2 != 2 ? str : checkSpace(context, str);
+                if (c != 1) {
+                    return c != 2 ? str : checkSpace(context, str);
                 }
                 return checkLoadLibraryFail(context, str, str2);
             } catch (Throwable th) {

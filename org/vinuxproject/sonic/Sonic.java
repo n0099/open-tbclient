@@ -80,15 +80,15 @@ public class Sonic {
 
     private native void setNumChannelsNative(long j, int i);
 
-    private native void setPitchNative(long j, float f2);
+    private native void setPitchNative(long j, float f);
 
-    private native void setRateNative(long j, float f2);
+    private native void setRateNative(long j, float f);
 
     private native void setSampleRateNative(long j, int i);
 
-    private native void setSpeedNative(long j, float f2);
+    private native void setSpeedNative(long j, float f);
 
-    private native void setVolumeNative(long j, float f2);
+    private native void setVolumeNative(long j, float f);
 
     public int a() {
         InterceptResult invokeV;
@@ -126,10 +126,10 @@ public class Sonic {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) ? receiveBytesNative(this.a, bArr, i) : invokeLI.intValue;
     }
 
-    public void f(float f2) {
+    public void f(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            setSpeedNative(this.a, f2);
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            setSpeedNative(this.a, f);
         }
     }
 

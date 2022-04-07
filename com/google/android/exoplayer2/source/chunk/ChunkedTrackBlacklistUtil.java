@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ChunkedTrackBlacklistUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_TRACK_BLACKLIST_MS = 60000;

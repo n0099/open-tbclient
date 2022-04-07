@@ -13,34 +13,24 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile b f43559c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Object f43560e = new Object();
+    public static volatile b c;
+    public static final Object e = new Object();
     public final long a = 1000;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Long> f43561b = new HashMap();
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Set<String> f43562d = new HashSet();
-
-    /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<a> f43563f = new SparseArray<>();
+    public final Map<Integer, Long> b = new HashMap();
+    public final Set<String> d = new HashSet();
+    public final SparseArray<a> f = new SparseArray<>();
 
     public static b a() {
-        if (f43559c == null) {
+        if (c == null) {
             synchronized (b.class) {
-                if (f43559c == null) {
-                    f43559c = new b();
+                if (c == null) {
+                    c = new b();
                 }
             }
         }
-        return f43559c;
+        return c;
     }
 
     public static boolean b(int i) {
@@ -62,10 +52,10 @@ public class b {
         if (i == 0) {
             return null;
         }
-        synchronized (this.f43563f) {
-            aVar = this.f43563f.get(i);
+        synchronized (this.f) {
+            aVar = this.f.get(i);
             if (aVar != null) {
-                this.f43563f.remove(i);
+                this.f.remove(i);
                 com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i);
             }
         }
@@ -77,8 +67,8 @@ public class b {
         if (i == 0) {
             return null;
         }
-        synchronized (this.f43563f) {
-            aVar = this.f43563f.get(i);
+        synchronized (this.f) {
+            aVar = this.f.get(i);
         }
         return aVar;
     }
@@ -107,8 +97,8 @@ public class b {
 
     public SparseArray<a> b() {
         SparseArray<a> sparseArray;
-        synchronized (this.f43563f) {
-            sparseArray = this.f43563f;
+        synchronized (this.f) {
+            sparseArray = this.f;
         }
         return sparseArray;
     }
@@ -140,13 +130,13 @@ public class b {
             return;
         }
         if (i2 == 4) {
-            synchronized (this.f43561b) {
-                Long l = this.f43561b.get(Integer.valueOf(i));
+            synchronized (this.b) {
+                Long l = this.b.get(Integer.valueOf(i));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
                     return;
                 }
-                this.f43561b.put(Integer.valueOf(i), Long.valueOf(currentTimeMillis));
+                this.b.put(Integer.valueOf(i), Long.valueOf(currentTimeMillis));
             }
         }
         try {
@@ -165,8 +155,8 @@ public class b {
         if (aVar == null) {
             return;
         }
-        synchronized (this.f43563f) {
-            this.f43563f.put(aVar.a(), aVar);
+        synchronized (this.f) {
+            this.f.put(aVar.a(), aVar);
         }
     }
 }

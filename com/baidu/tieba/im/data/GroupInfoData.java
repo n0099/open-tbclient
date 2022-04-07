@@ -2,7 +2,6 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
@@ -15,10 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uo;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class GroupInfoData extends AbstractImageProvider implements n, Serializable, PreLoadImageProvider {
+/* loaded from: classes3.dex */
+public class GroupInfoData extends AbstractImageProvider implements uo, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FRS_GROUP;
     public static final int TYPE_USER_MEIZHI_TRUE = 1;
@@ -194,7 +194,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.o.e.n
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

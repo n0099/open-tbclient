@@ -2,8 +2,6 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.h;
-import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -21,10 +19,12 @@ import com.baidu.ugc.editvideo.record.processor.glrender.MultiMediaPreGlRenderer
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
+import com.repackage.pf0;
+import com.repackage.yb9;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public GLViewPortLocation mGLViewPortLocation;
     public MultiMediaPreGlRenderer mInnerRenderer;
     public List<IMediaRenderer> mMediaRenderers;
-    public e mVlogEdit;
+    public pf0 mVlogEdit;
 
     public MultiMediaOutputSurface(IMultiMediaDataSource iMultiMediaDataSource) {
         Interceptable interceptable = $ic;
@@ -82,10 +82,10 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public e getVlogCore() {
+    public pf0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (pf0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
@@ -116,9 +116,9 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public void onDrawFrame(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            e eVar = this.mVlogEdit;
-            if (eVar != null) {
-                eVar.g(i, j);
+            pf0 pf0Var = this.mVlogEdit;
+            if (pf0Var != null) {
+                pf0Var.g(i, j);
                 this.mVlogEdit.b(this.mVideoWidth, this.mVideoHeight);
             }
             List<IEffectProcessor> list = this.mEffectProcessors;
@@ -218,7 +218,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
                 }
                 i2 = i4;
             }
-            if (this.mVlogEdit == null || h.e(this.mMediaRenderers)) {
+            if (this.mVlogEdit == null || yb9.e(this.mMediaRenderers)) {
                 this.mFullScreen2D.drawFrame(i, fArr);
                 return;
             }
@@ -236,18 +236,18 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVideoRatio(float f2) {
+    public void setVideoRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVlogCore(e eVar) {
+    public void setVlogCore(pf0 pf0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
-            this.mVlogEdit = eVar;
-            this.mInnerRenderer.setCompat(eVar != null);
+        if (interceptable == null || interceptable.invokeL(1048591, this, pf0Var) == null) {
+            this.mVlogEdit = pf0Var;
+            this.mInnerRenderer.setCompat(pf0Var != null);
         }
     }
 

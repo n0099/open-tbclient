@@ -25,7 +25,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetShieldAndTopListRequest";
@@ -184,8 +184,8 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
                 }
                 i2 = i3;
                 str = optString;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

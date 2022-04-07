@@ -24,29 +24,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class l1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38897b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f38898c = "16";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f38899d = "62c80c436b7547a68a12774c67519836";
+    public static String b = null;
+    public static final String c = "16";
+    public static final String d = "62c80c436b7547a68a12774c67519836";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f38900b;
+        public final /* synthetic */ Context b;
 
         public a(String str, Context context) {
             Interceptable interceptable = $ic;
@@ -64,14 +56,14 @@ public class l1 {
                 }
             }
             this.a = str;
-            this.f38900b = context;
+            this.b = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g1.a(this.a, this.f38900b);
+                g1.a(this.a, this.b);
             }
         }
     }
@@ -142,7 +134,7 @@ public class l1 {
             return;
         }
         try {
-            JSONObject a2 = new d1(str, q0.f38953f).a(context);
+            JSONObject a2 = new d1(str, q0.f).a(context);
             if (map == null || map.size() <= 0) {
                 a2.put("module_section", new JSONObject());
             } else {
@@ -302,7 +294,7 @@ public class l1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f38897b)) {
+            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
                 String k = new d(context).k();
                 if (TextUtils.isEmpty(k)) {
                     return new String[2];
@@ -312,10 +304,10 @@ public class l1 {
                     return new String[2];
                 }
                 a = split[0];
-                f38897b = split[1];
+                b = split[1];
                 return split;
             }
-            return new String[]{a, f38897b};
+            return new String[]{a, b};
         }
         return (String[]) invokeL.objValue;
     }
@@ -607,7 +599,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) {
             a = str;
-            f38897b = str2;
+            b = str2;
         }
     }
 
@@ -701,8 +693,8 @@ public class l1 {
                     r1.r = 1;
                     return deviceId;
                 }
-            } catch (Exception e2) {
-                a(e2);
+            } catch (Exception e) {
+                a(e);
             }
             r1.r = 4;
             return "";

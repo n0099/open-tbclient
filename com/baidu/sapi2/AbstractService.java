@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -62,8 +62,8 @@ public abstract class AbstractService implements NoProguard {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
                 return new JSONObject(str).getInt("errno");
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return -100;
             }
         }
@@ -76,8 +76,8 @@ public abstract class AbstractService implements NoProguard {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 return new JSONObject(str).optString("errmsg");
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return "网络连接失败，请检查网络设置";
             }
         }

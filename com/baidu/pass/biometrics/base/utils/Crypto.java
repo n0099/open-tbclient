@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,16 +35,16 @@ public class Crypto {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuffer stringBuffer = new StringBuffer();
-                for (byte b2 : digest) {
-                    String hexString = Integer.toHexString(b2 & 255);
+                for (byte b : digest) {
+                    String hexString = Integer.toHexString(b & 255);
                     if (hexString.length() < 2) {
                         stringBuffer.append(0);
                     }
                     stringBuffer.append(hexString);
                 }
                 return stringBuffer.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
                 return "";
             }
         }

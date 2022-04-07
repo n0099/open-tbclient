@@ -6,7 +6,7 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class KeyPath {
     public static final KeyPath COMPOSITION = new KeyPath("COMPOSITION");
     public final List<String> keys;

@@ -10,20 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f23817b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f23818c;
+    public BdAsyncTaskParallelType b;
+    public int c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class BdAsyncTaskParallelType {
         public static final /* synthetic */ BdAsyncTaskParallelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,10 +102,10 @@ public class BdAsyncTaskParallel {
             }
         }
         this.a = null;
-        this.f23817b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f23818c = 1;
+        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.c = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.f23817b = bdAsyncTaskParallelType;
+            this.b = bdAsyncTaskParallelType;
             this.a = bdUniqueId;
             return;
         }
@@ -119,7 +115,7 @@ public class BdAsyncTaskParallel {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23818c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public int b() {
@@ -138,7 +134,7 @@ public class BdAsyncTaskParallel {
     public BdAsyncTaskParallelType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23817b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
@@ -157,11 +153,11 @@ public class BdAsyncTaskParallel {
             }
         }
         this.a = null;
-        this.f23817b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f23818c = 1;
+        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.c = 1;
         if (bdUniqueId != null) {
-            this.f23817b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.f23818c = i;
+            this.b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.c = i;
             this.a = bdUniqueId;
             return;
         }

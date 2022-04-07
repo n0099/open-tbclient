@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbadkCoreStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
@@ -114,8 +114,10 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_MANAGE_ITEM_CLICK = "c12713";
     public static final String KEY_MESSAGE_AGGREGATION_PV = "view_msg";
     public static final String KEY_MORE_HISTORY_RECORD_CLICK = "c13437";
+    public static final String KEY_MSG_REPLY_CLICK = "c14624";
     public static final String KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK = "c13742";
     public static final String KEY_PAY_PUT_TIE = "c13998";
+    public static final String KEY_PB_REPLY_CLICK = "c13563";
     public static final String KEY_PB_VOTE_SOURCE = "c13445";
     public static final String KEY_PERSONALIZE_LOAD_MORE = "c14569";
     public static final String KEY_PERSON_CENTER_LITE_GAME_CENTER_CLICK = "c13431";
@@ -236,7 +238,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;

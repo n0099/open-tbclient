@@ -18,7 +18,7 @@ import com.airbnb.lottie.model.content.GradientStroke;
 import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientStrokeContent extends BaseStrokeContent {
     public static final int CACHE_STEPS_MS = 32;
     public final RectF boundsRect;
@@ -104,8 +104,8 @@ public class GradientStrokeContent extends BaseStrokeContent {
     }
 
     private RadialGradient getRadialGradient() {
+        float f;
         float f2;
-        float f3;
         long gradientHash = getGradientHash();
         RadialGradient radialGradient = this.radialGradientCache.get(gradientHash);
         if (radialGradient != null) {
@@ -116,7 +116,7 @@ public class GradientStrokeContent extends BaseStrokeContent {
         GradientColor value3 = this.colorAnimation.getValue();
         int[] applyDynamicColorsIfNeeded = applyDynamicColorsIfNeeded(value3.getColors());
         float[] positions = value3.getPositions();
-        RadialGradient radialGradient2 = new RadialGradient(value.x, value.y, (float) Math.hypot(value2.x - f2, value2.y - f3), applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
+        RadialGradient radialGradient2 = new RadialGradient(value.x, value.y, (float) Math.hypot(value2.x - f, value2.y - f2), applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
         this.radialGradientCache.put(gradientHash, radialGradient2);
         return radialGradient2;
     }

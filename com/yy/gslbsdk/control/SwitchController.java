@@ -15,7 +15,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwitchController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;
@@ -109,8 +109,8 @@ public class SwitchController {
                 }
                 LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController readCache, switchCache is illegal. switchCache: %d", Integer.valueOf(i)));
                 return false;
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return false;
             }
         }
@@ -131,8 +131,8 @@ public class SwitchController {
                 try {
                     PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).edit().putInt(SHARED_KEY, i).apply();
                     return true;
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                     return false;
                 }
             }

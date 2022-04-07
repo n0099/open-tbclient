@@ -13,14 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MaxHeightScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f28236b;
+    public float b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -43,12 +41,12 @@ public class MaxHeightScrollView extends ScrollView {
         }
     }
 
-    public final float a(float f2) {
+    public final float a(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f2) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07093a)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d9);
+            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070947)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d9);
         }
         return invokeF.floatValue;
     }
@@ -56,9 +54,9 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f04042c});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045b, R.attr.obfuscated_res_0x7f04045c, R.attr.obfuscated_res_0x7f04046b});
             this.a = obtainStyledAttributes.getFloat(1, -1.0f);
-            this.f28236b = obtainStyledAttributes.getFloat(2, -1.0f);
+            this.b = obtainStyledAttributes.getFloat(2, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
@@ -67,15 +65,15 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            if (this.a > 0.0f || this.f28236b > 0.0f) {
+            if (this.a > 0.0f || this.b > 0.0f) {
                 int size = View.MeasureSpec.getSize(i2);
-                float f2 = this.a;
-                if (f2 > 0.0f) {
-                    size = (int) Math.min(a(f2), size);
+                float f = this.a;
+                if (f > 0.0f) {
+                    size = (int) Math.min(a(f), size);
                 }
-                float f3 = this.f28236b;
-                if (f3 > 0.0f) {
-                    size = (int) Math.max(a(f3), size);
+                float f2 = this.b;
+                if (f2 > 0.0f) {
+                    size = (int) Math.max(a(f2), size);
                 }
                 i2 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
             }

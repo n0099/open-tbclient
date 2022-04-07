@@ -6,17 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f27410b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f27411c;
+    public String b;
+    public String c;
 
     public i(long j, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -36,8 +32,8 @@ public class i {
         this.a = -1L;
         str2 = str2 == null ? "" : str2;
         this.a = j;
-        this.f27410b = str;
-        this.f27411c = str2;
+        this.b = str;
+        this.c = str2;
     }
 
     public long a() {
@@ -49,6 +45,6 @@ public class i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27411c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 }

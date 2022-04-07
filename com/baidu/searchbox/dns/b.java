@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static List<String> i;
@@ -26,12 +26,12 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C1796a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C0137a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
-            com.baidu.searchbox.dns.d.a.a h2 = k.h();
+            com.baidu.searchbox.dns.d.a.a h = k.h();
             int j = k.j();
-            if (h2 != null) {
-                list = a(h2, DnsUtil.stackType);
+            if (h != null) {
+                list = a(h, DnsUtil.stackType);
                 if (list == null || list.isEmpty()) {
                     j = 1006;
                 } else {
@@ -82,22 +82,22 @@ public class b {
                     if (z) {
                         int i2 = 2000;
                         int i3 = 2002;
-                        List<String> g2 = com.baidu.searchbox.dns.b.a.g(str);
-                        if (g2 == null || g2.isEmpty()) {
+                        List<String> g = com.baidu.searchbox.dns.b.a.g(str);
+                        if (g == null || g.isEmpty()) {
                             i3 = 3;
                             i2 = 0;
                         }
                         if (DnsUtil.DEBUG) {
-                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g2));
+                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g));
                         }
                         subType = i3;
-                        ipList = g2;
+                        ipList = g;
                         type = i2;
                     }
                     if (ipList == null || ipList.isEmpty()) {
-                        Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
-                        ipList = com.baidu.searchbox.dns.b.b.a(h2);
-                        if (com.baidu.searchbox.dns.b.b.b(h2)) {
+                        Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
+                        ipList = com.baidu.searchbox.dns.b.b.a(h);
+                        if (com.baidu.searchbox.dns.b.b.b(h)) {
                             subType = 5;
                         }
                         if (DnsUtil.DEBUG) {

@@ -3,14 +3,14 @@ package com.kwad.sdk.core.a;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.p;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g implements i {
     @Override // com.kwad.sdk.core.a.i
     public String a(String str) {
         try {
             return new String(c.a().a(h.a(str.getBytes(), p.a(1))), "UTF-8");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return str;
         }
     }

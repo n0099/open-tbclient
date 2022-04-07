@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CacheDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_MAX_CACHE_FILE_SIZE = 2097152;
@@ -49,13 +49,13 @@ public final class CacheDataSource implements DataSource {
     public final DataSource upstreamDataSource;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface EventListener {
         void onCachedBytesRead(long j, long j2);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface Flags {
     }
 
@@ -176,15 +176,15 @@ public final class CacheDataSource implements DataSource {
             long j6 = 0;
             try {
                 j6 = this.currentDataSource.open(dataSpec);
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (!z && this.currentRequestUnbounded) {
-                    for (Throwable th = e2; th != null; th = th.getCause()) {
+                    for (Throwable th = e; th != null; th = th.getCause()) {
                         if ((th instanceof DataSourceException) && ((DataSourceException) th).reason == 0) {
                             break;
                         }
                     }
                 }
-                iOException = e2;
+                iOException = e;
                 if (iOException != null) {
                     throw iOException;
                 }
@@ -214,9 +214,9 @@ public final class CacheDataSource implements DataSource {
             notifyBytesRead();
             try {
                 closeCurrentSource();
-            } catch (IOException e2) {
-                handleBeforeThrow(e2);
-                throw e2;
+            } catch (IOException e) {
+                handleBeforeThrow(e);
+                throw e;
             }
         }
     }
@@ -260,9 +260,9 @@ public final class CacheDataSource implements DataSource {
                 this.bytesRemaining = dataSpec.length;
                 openNextSource(true);
                 return this.bytesRemaining;
-            } catch (IOException e2) {
-                handleBeforeThrow(e2);
-                throw e2;
+            } catch (IOException e) {
+                handleBeforeThrow(e);
+                throw e;
             }
         }
         return invokeL.longValue;
@@ -301,9 +301,9 @@ public final class CacheDataSource implements DataSource {
                     }
                 }
                 return read;
-            } catch (IOException e2) {
-                handleBeforeThrow(e2);
-                throw e2;
+            } catch (IOException e) {
+                handleBeforeThrow(e);
+                throw e;
             }
         }
         return invokeLII.intValue;

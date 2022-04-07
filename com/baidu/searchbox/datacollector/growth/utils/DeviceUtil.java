@@ -6,8 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import c.a.p.b;
-import c.a.p.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.l30;
+import com.repackage.n30;
+/* loaded from: classes2.dex */
 public class DeviceUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -56,9 +56,9 @@ public class DeviceUtil {
     public static void generateOaid(Context context, IDeviceCallback iDeviceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iDeviceCallback) == null) {
-            b e2 = b.e(context);
-            if (e2 != null) {
-                e2.l(new d<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+            l30 e = l30.e(context);
+            if (e != null) {
+                e.l(new n30<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IDeviceCallback val$callback;
@@ -81,7 +81,7 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // c.a.p.d
+                    @Override // com.repackage.n30
                     public void onError(int i, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -92,7 +92,7 @@ public class DeviceUtil {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // c.a.p.d
+                    @Override // com.repackage.n30
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -124,9 +124,9 @@ public class DeviceUtil {
                     if (telephonyManager != null) {
                         str = telephonyManager.getDeviceId();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return TextUtils.isEmpty(str) ? "" : str;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AddressConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AddrInfoConverter";
@@ -69,8 +69,8 @@ public class AddressConverter {
                 jSONObject.put(AddressField.KEY_DISTRICT_NAME, addressSelectedBean.districtName);
                 jSONObject.put(AddressField.KEY_TOWN_ID, addressSelectedBean.townId);
                 jSONObject.put(AddressField.KEY_TOWN_NAME, addressSelectedBean.townName);
-            } catch (JSONException e2) {
-                Log.e(TAG, "convert region to JsonObj is error " + e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, "convert region to JsonObj is error " + e.getMessage());
             }
             return jSONObject;
         }

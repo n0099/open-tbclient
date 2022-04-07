@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,12 +10,12 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.d> {
             return;
         }
         dVar.a = jSONObject.optInt("isRoot");
-        dVar.f39233b = jSONObject.optInt("isXPosed");
-        dVar.f39234c = jSONObject.optInt("isFrameworkHooked");
-        dVar.f39235d = jSONObject.optInt("isVirtual");
-        dVar.f39236e = jSONObject.optInt("isAdbEnabled");
-        dVar.f39237f = jSONObject.optInt("isEmulator");
-        dVar.f39238g = jSONObject.optInt("isGroupControl");
+        dVar.b = jSONObject.optInt("isXPosed");
+        dVar.c = jSONObject.optInt("isFrameworkHooked");
+        dVar.d = jSONObject.optInt("isVirtual");
+        dVar.e = jSONObject.optInt("isAdbEnabled");
+        dVar.f = jSONObject.optInt("isEmulator");
+        dVar.g = jSONObject.optInt("isGroupControl");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class bh implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.d> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "isRoot", dVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "isXPosed", dVar.f39233b);
-        com.kwad.sdk.utils.t.a(jSONObject, "isFrameworkHooked", dVar.f39234c);
-        com.kwad.sdk.utils.t.a(jSONObject, "isVirtual", dVar.f39235d);
-        com.kwad.sdk.utils.t.a(jSONObject, "isAdbEnabled", dVar.f39236e);
-        com.kwad.sdk.utils.t.a(jSONObject, "isEmulator", dVar.f39237f);
-        com.kwad.sdk.utils.t.a(jSONObject, "isGroupControl", dVar.f39238g);
+        com.kwad.sdk.utils.t.a(jSONObject, "isXPosed", dVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, "isFrameworkHooked", dVar.c);
+        com.kwad.sdk.utils.t.a(jSONObject, "isVirtual", dVar.d);
+        com.kwad.sdk.utils.t.a(jSONObject, "isAdbEnabled", dVar.e);
+        com.kwad.sdk.utils.t.a(jSONObject, "isEmulator", dVar.f);
+        com.kwad.sdk.utils.t.a(jSONObject, "isGroupControl", dVar.g);
         return jSONObject;
     }
 }

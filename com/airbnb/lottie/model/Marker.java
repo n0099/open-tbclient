@@ -1,15 +1,15 @@
 package com.airbnb.lottie.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Marker {
     public static String CARRIAGE_RETURN = "\r";
     public final float durationFrames;
     public final String name;
     public final float startFrame;
 
-    public Marker(String str, float f2, float f3) {
+    public Marker(String str, float f, float f2) {
         this.name = str;
-        this.durationFrames = f3;
-        this.startFrame = f2;
+        this.durationFrames = f2;
+        this.startFrame = f;
     }
 
     public boolean matchesName(String str) {

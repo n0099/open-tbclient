@@ -8,10 +8,6 @@ import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.a;
-import c.a.v0.r.h;
-import c.a.v0.r.v;
-import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,10 +19,14 @@ import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
+import com.repackage.mc9;
+import com.repackage.pf0;
+import com.repackage.v79;
+import com.repackage.yb9;
 import java.util.List;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IMediaLifeCycle, MediaGLRenderer.OnDrawFrameFrequencyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public float mTx;
     public float mTy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnSurfaceTextureCreateListener {
         void onSurfaceTextureCreate(SurfaceTexture surfaceTexture, int i);
     }
@@ -135,7 +135,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             public void onError(int i3, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
-                    a.a("v_log_preview_render_error", str, null);
+                    v79.a("v_log_preview_render_error", str, null);
                 }
             }
         });
@@ -145,9 +145,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public void notifyOnDestroy(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
-            int b2 = h.b(this.mIEffectProcessorList);
-            for (int i = 0; i < b2; i++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i);
+            int b = yb9.b(this.mIEffectProcessorList);
+            for (int i = 0; i < b; i++) {
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) yb9.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onDestroyInGlThread();
                 } else {
@@ -171,9 +171,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public void notifyOnPause(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
-            int b2 = h.b(this.mIEffectProcessorList);
-            for (int i = 0; i < b2; i++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i);
+            int b = yb9.b(this.mIEffectProcessorList);
+            for (int i = 0; i < b; i++) {
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) yb9.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onPauseInGlThread();
                 } else {
@@ -196,12 +196,12 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     private void scissor(GLViewPortLocation gLViewPortLocation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, gLViewPortLocation) == null) {
-            if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > v.c()) {
+            if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > mc9.c()) {
                 GLES20.glEnable(3089);
                 int i = gLViewPortLocation.width;
-                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - v.c()) * this.mScaleX) / 2.0f));
+                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - mc9.c()) * this.mScaleX) / 2.0f));
                 int ceil2 = (int) Math.ceil((1.0f - this.mScaleY) * gLViewPortLocation.height);
-                int ceil3 = (int) Math.ceil((gLViewPortLocation.width - v.c()) * this.mScaleX);
+                int ceil3 = (int) Math.ceil((gLViewPortLocation.width - mc9.c()) * this.mScaleX);
                 int ceil4 = (int) Math.ceil(gLViewPortLocation.height * this.mScaleY);
                 GLES20.glScissor(ceil, ceil2, ceil3, ceil4);
                 GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
@@ -218,10 +218,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float f2 = this.mScaleX;
-            float width = (((getWidth() * 1.0f) / 2.0f) * f2) + ((((1.0f - f2) * getWidth()) * 1.0f) / 2.0f) + (((getWidth() * this.mTx) * 1.0f) / 2.0f);
-            float f3 = this.mScaleY;
-            return new PointF(width, ((((getHeight() * 1.0f) / 2.0f) * f3) + ((((1.0f - f3) * getHeight()) * 1.0f) / 2.0f)) - (((getHeight() * this.mTy) * 1.0f) / 2.0f));
+            float f = this.mScaleX;
+            float width = (((getWidth() * 1.0f) / 2.0f) * f) + ((((1.0f - f) * getWidth()) * 1.0f) / 2.0f) + (((getWidth() * this.mTx) * 1.0f) / 2.0f);
+            float f2 = this.mScaleY;
+            return new PointF(width, ((((getHeight() * 1.0f) / 2.0f) * f2) + ((((1.0f - f2) * getHeight()) * 1.0f) / 2.0f)) - (((getHeight() * this.mTy) * 1.0f) / 2.0f));
         }
         return (PointF) invokeV.objValue;
     }
@@ -350,9 +350,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             this.mRenderer.onResume();
-            int b2 = h.b(this.mIEffectProcessorList);
-            for (int i = 0; i < b2; i++) {
-                ((IEffectProcessor) h.c(this.mIEffectProcessorList, i)).onResume();
+            int b = yb9.b(this.mIEffectProcessorList);
+            for (int i = 0; i < b; i++) {
+                ((IEffectProcessor) yb9.c(this.mIEffectProcessorList, i)).onResume();
             }
             List<IMediaRenderer> list = this.mIMediaRendererList;
             if (list != null) {
@@ -389,10 +389,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         }
     }
 
-    public void setGlClearColor(float f2, float f3, float f4, float f5) {
+    public void setGlClearColor(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            queueEvent(new Runnable(this, f2, f3, f4, f5) { // from class: com.baidu.ugc.editvideo.record.preview.MediaPreviewView.4
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            queueEvent(new Runnable(this, f, f2, f3, f4) { // from class: com.baidu.ugc.editvideo.record.preview.MediaPreviewView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MediaPreviewView this$0;
@@ -406,7 +406,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+                        Object[] objArr = {this, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -417,10 +417,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         }
                     }
                     this.this$0 = this;
-                    this.val$red = f2;
-                    this.val$green = f3;
-                    this.val$blue = f4;
-                    this.val$alpha = f5;
+                    this.val$red = f;
+                    this.val$green = f2;
+                    this.val$blue = f3;
+                    this.val$alpha = f4;
                 }
 
                 @Override // java.lang.Runnable
@@ -461,10 +461,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         }
     }
 
-    public void setScaleAndTranslate(float f2, float f3, float f4, float f5) {
+    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            queueEvent(new Runnable(this, f2, f3, f4, f5) { // from class: com.baidu.ugc.editvideo.record.preview.MediaPreviewView.3
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            queueEvent(new Runnable(this, f, f2, f3, f4) { // from class: com.baidu.ugc.editvideo.record.preview.MediaPreviewView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MediaPreviewView this$0;
@@ -478,7 +478,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+                        Object[] objArr = {this, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -489,10 +489,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         }
                     }
                     this.this$0 = this;
-                    this.val$sh = f2;
-                    this.val$sw = f3;
-                    this.val$tx = f4;
-                    this.val$ty = f5;
+                    this.val$sh = f;
+                    this.val$sw = f2;
+                    this.val$tx = f3;
+                    this.val$ty = f4;
                 }
 
                 @Override // java.lang.Runnable
@@ -500,15 +500,15 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         MediaPreviewView mediaPreviewView = this.this$0;
-                        float f6 = this.val$sh;
-                        mediaPreviewView.mScaleX = f6;
-                        float f7 = this.val$sw;
-                        mediaPreviewView.mScaleY = f7;
-                        float f8 = this.val$tx;
-                        mediaPreviewView.mTx = f8;
-                        float f9 = this.val$ty;
-                        mediaPreviewView.mTy = f9;
-                        mediaPreviewView.mRenderer.setScaleAndTranslate(f6, f7, f8, f9);
+                        float f5 = this.val$sh;
+                        mediaPreviewView.mScaleX = f5;
+                        float f6 = this.val$sw;
+                        mediaPreviewView.mScaleY = f6;
+                        float f7 = this.val$tx;
+                        mediaPreviewView.mTx = f7;
+                        float f8 = this.val$ty;
+                        mediaPreviewView.mTy = f8;
+                        mediaPreviewView.mRenderer.setScaleAndTranslate(f5, f6, f7, f8);
                         this.this$0.requestRender();
                     }
                 }
@@ -530,10 +530,10 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         requestRender();
     }
 
-    public void setVlogCore(e eVar) {
+    public void setVlogCore(pf0 pf0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.mRenderer.setCore(eVar);
+        if (interceptable == null || interceptable.invokeL(1048592, this, pf0Var) == null) {
+            this.mRenderer.setCore(pf0Var);
         }
     }
 

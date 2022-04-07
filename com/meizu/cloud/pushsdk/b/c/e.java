@@ -9,7 +9,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e implements a {
     public com.meizu.cloud.pushsdk.b.h.a a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
@@ -29,17 +29,17 @@ public class e implements a {
     public static void a(HttpURLConnection httpURLConnection, i iVar) throws IOException {
         String str;
         String str2;
-        int c2 = iVar.c();
-        if (c2 != 0) {
-            if (c2 == 1) {
+        int c = iVar.c();
+        if (c != 0) {
+            if (c == 1) {
                 str2 = "POST";
-            } else if (c2 == 2) {
+            } else if (c == 2) {
                 str2 = HttpPut.METHOD_NAME;
-            } else if (c2 == 3) {
+            } else if (c == 3) {
                 str = HttpDelete.METHOD_NAME;
-            } else if (c2 == 4) {
+            } else if (c == 4) {
                 str = "HEAD";
-            } else if (c2 != 5) {
+            } else if (c != 5) {
                 throw new IllegalStateException("Unknown method type.");
             } else {
                 str2 = "PATCH";
@@ -74,27 +74,27 @@ public class e implements a {
     }
 
     public static void b(HttpURLConnection httpURLConnection, i iVar) throws IOException {
-        j e2 = iVar.e();
-        if (e2 != null) {
+        j e = iVar.e();
+        if (e != null) {
             httpURLConnection.setDoOutput(true);
-            httpURLConnection.addRequestProperty("Content-Type", e2.a().toString());
+            httpURLConnection.addRequestProperty("Content-Type", e.a().toString());
             com.meizu.cloud.pushsdk.b.g.c a = com.meizu.cloud.pushsdk.b.g.g.a(com.meizu.cloud.pushsdk.b.g.g.a(httpURLConnection.getOutputStream()));
-            e2.a(a);
+            e.a(a);
             a.close();
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.a
     public k a(i iVar) throws IOException {
-        HttpURLConnection b2 = b(iVar);
+        HttpURLConnection b = b(iVar);
         for (String str : iVar.d().b()) {
             String a = iVar.a(str);
             com.meizu.cloud.pushsdk.b.a.a.b("current header name " + str + " value " + a);
-            b2.addRequestProperty(str, a);
+            b.addRequestProperty(str, a);
         }
-        a(b2, iVar);
-        int responseCode = b2.getResponseCode();
-        return new k.a().a(responseCode).a(iVar.d()).a(b2.getResponseMessage()).a(iVar).a(a(b2)).a();
+        a(b, iVar);
+        int responseCode = b.getResponseCode();
+        return new k.a().a(responseCode).a(iVar.d()).a(b.getResponseMessage()).a(iVar).a(a(b)).a();
     }
 
     public HttpURLConnection a(URL url) throws IOException {

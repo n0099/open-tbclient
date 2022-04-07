@@ -1,8 +1,6 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import c.a.p0.a0.a.d.d;
-import c.a.p0.a0.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -22,7 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes5.dex */
+import com.repackage.cl5;
+import com.repackage.pl5;
+/* loaded from: classes3.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TbHttpMessageTask mTask;
@@ -70,17 +70,17 @@ public class SplashHttpRequest extends HttpMessage {
             return;
         }
         addParam("pid", adInfo.placeId);
-        addParam("ver", c.b(context));
+        addParam("ver", pl5.b(context));
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(SearchJsBridge.COOKIE_MOD, d.c());
+        addParam(SearchJsBridge.COOKIE_MOD, cl5.c());
         addParam("ot", 2);
-        addParam(SearchJsBridge.COOKIE_OV, d.d());
+        addParam(SearchJsBridge.COOKIE_OV, cl5.d());
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
-        addParam("nt", d.b(context).intValue());
+        addParam("nt", cl5.b(context).intValue());
         addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-        addParam(TbConfig.SW_APID, d.f(context).intValue());
-        addParam("sh", d.e(context).intValue());
-        addParam("imei", d.a(context));
+        addParam(TbConfig.SW_APID, cl5.f(context).intValue());
+        addParam("sh", cl5.e(context).intValue());
+        addParam("imei", cl5.a(context));
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);
         addParam("adh", adInfo.adHeight);

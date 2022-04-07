@@ -15,7 +15,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.fm;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public static l a;
@@ -24,7 +24,7 @@ public class m {
     public static a f944a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
     }
@@ -46,7 +46,7 @@ public class m {
                 String string6 = sharedPreferences.getString("package_name", null);
                 String string7 = sharedPreferences.getString("device_id", null);
                 int i = sharedPreferences.getInt("env_type", 1);
-                if (!TextUtils.isEmpty(string7) && com.xiaomi.push.i.m480a(string7)) {
+                if (!TextUtils.isEmpty(string7) && com.xiaomi.push.i.m476a(string7)) {
                     string7 = com.xiaomi.push.i.k(context);
                     sharedPreferences.edit().putString("device_id", string7).commit();
                 }
@@ -55,7 +55,7 @@ public class m {
                 }
                 String k = com.xiaomi.push.i.k(context);
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName()) && !TextUtils.isEmpty(k) && !TextUtils.isEmpty(string7) && !string7.equals(k)) {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("read_phone_state permission changes.");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("read_phone_state permission changes.");
                 }
                 l lVar = new l(string, string2, string3, string4, string5, string6, i);
                 a = lVar;
@@ -90,17 +90,17 @@ public class m {
     public static synchronized l a(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         String str4;
-        String b2;
+        String b;
         String a2;
         int a3;
         String a4;
-        String f2;
+        String f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, str, str2, str3)) == null) {
             synchronized (m.class) {
                 TreeMap treeMap = new TreeMap();
                 String a5 = com.xiaomi.push.i.a(context, false);
-                com.xiaomi.channel.commonutils.logger.b.m112a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
+                com.xiaomi.channel.commonutils.logger.b.m108a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
                 treeMap.put("devid", a5);
                 if (a != null && !TextUtils.isEmpty(a.f943a)) {
                     treeMap.put("uuid", a.f943a);
@@ -108,23 +108,23 @@ public class m {
                     if (lastIndexOf != -1) {
                         str4 = a.f943a.substring(lastIndexOf + 1);
                         com.xiaomi.push.ax.a(context).a(treeMap);
-                        b2 = com.xiaomi.push.i.b(context);
-                        if (!TextUtils.isEmpty(b2)) {
-                            treeMap.put("vdevid", b2);
+                        b = com.xiaomi.push.i.b(context);
+                        if (!TextUtils.isEmpty(b)) {
+                            treeMap.put("vdevid", b);
                         }
                         a2 = com.xiaomi.push.i.a(context);
                         if (!TextUtils.isEmpty(a2)) {
                             treeMap.put("gaid", a2);
                         }
-                        if (m674a(context)) {
+                        if (m670a(context)) {
                             str2 = "1000271";
                         }
                         String str5 = str2;
-                        if (m674a(context)) {
+                        if (m670a(context)) {
                             str3 = "420100086271";
                         }
                         String str6 = str3;
-                        if (m674a(context)) {
+                        if (m670a(context)) {
                             str = "com.xiaomi.xmsf";
                         }
                         String str7 = str;
@@ -139,11 +139,11 @@ public class m {
                         if (!com.xiaomi.push.l.d()) {
                             String str8 = "";
                             if (!TextUtils.isEmpty(com.xiaomi.push.i.f(context))) {
-                                str8 = "" + com.xiaomi.push.bm.a(f2);
+                                str8 = "" + com.xiaomi.push.bm.a(f);
                             }
-                            String h2 = com.xiaomi.push.i.h(context);
-                            if (!TextUtils.isEmpty(str8) && !TextUtils.isEmpty(h2)) {
-                                str8 = str8 + "," + h2;
+                            String h = com.xiaomi.push.i.h(context);
+                            if (!TextUtils.isEmpty(str8) && !TextUtils.isEmpty(h)) {
+                                str8 = str8 + "," + h;
                             }
                             if (!TextUtils.isEmpty(str8)) {
                                 treeMap.put(Constants.EXTRA_KEY_IMEI_MD5, str8);
@@ -155,9 +155,9 @@ public class m {
                             treeMap.put("space_id", Integer.toString(a3));
                         }
                         treeMap.put("brand", Build.BRAND + "");
-                        treeMap.put("ram", com.xiaomi.push.i.m477a());
-                        treeMap.put(Config.ROM, com.xiaomi.push.i.m481b());
-                        com.xiaomi.push.be a6 = com.xiaomi.push.bg.a(context, m672a(context), treeMap);
+                        treeMap.put("ram", com.xiaomi.push.i.m473a());
+                        treeMap.put(Config.ROM, com.xiaomi.push.i.m477b());
+                        com.xiaomi.push.be a6 = com.xiaomi.push.bg.a(context, m668a(context), treeMap);
                         a4 = a6 != null ? a6.a() : "";
                         if (!TextUtils.isEmpty(a4)) {
                             JSONObject jSONObject = new JSONObject(a4);
@@ -176,26 +176,26 @@ public class m {
                                 return lVar;
                             }
                             p.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
-                            com.xiaomi.channel.commonutils.logger.b.m112a(a4);
+                            com.xiaomi.channel.commonutils.logger.b.m108a(a4);
                         }
                         return null;
                     }
                 }
                 str4 = null;
                 com.xiaomi.push.ax.a(context).a(treeMap);
-                b2 = com.xiaomi.push.i.b(context);
-                if (!TextUtils.isEmpty(b2)) {
+                b = com.xiaomi.push.i.b(context);
+                if (!TextUtils.isEmpty(b)) {
                 }
                 a2 = com.xiaomi.push.i.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                 }
-                if (m674a(context)) {
+                if (m670a(context)) {
                 }
                 String str52 = str2;
-                if (m674a(context)) {
+                if (m670a(context)) {
                 }
                 String str62 = str3;
-                if (m674a(context)) {
+                if (m670a(context)) {
                 }
                 String str72 = str;
                 treeMap.put("appid", str52);
@@ -213,9 +213,9 @@ public class m {
                 if (a3 >= 0) {
                 }
                 treeMap.put("brand", Build.BRAND + "");
-                treeMap.put("ram", com.xiaomi.push.i.m477a());
-                treeMap.put(Config.ROM, com.xiaomi.push.i.m481b());
-                com.xiaomi.push.be a62 = com.xiaomi.push.bg.a(context, m672a(context), treeMap);
+                treeMap.put("ram", com.xiaomi.push.i.m473a());
+                treeMap.put(Config.ROM, com.xiaomi.push.i.m477b());
+                com.xiaomi.push.be a62 = com.xiaomi.push.bg.a(context, m668a(context), treeMap);
                 if (a62 != null) {
                 }
                 if (!TextUtils.isEmpty(a4)) {
@@ -227,7 +227,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m672a(Context context) {
+    public static String m668a(Context context) {
         InterceptResult invokeL;
         StringBuilder sb;
         String str;
@@ -237,27 +237,27 @@ public class m {
             if (com.xiaomi.push.ab.b()) {
                 sb = new StringBuilder();
                 sb.append("http://");
-                sb.append(fm.f44250b);
+                sb.append(fm.b);
                 str = ":9085";
             } else if (com.xiaomi.push.o.a.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://cn.register.xmpush.xiaomi.com";
-            } else if (com.xiaomi.push.o.f44527b.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.b.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f44528c.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.c.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://fr.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f44529d.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.d.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://ru.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f44530e.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.e.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://idmb.register.xmpush.global.xiaomi.com";
             } else {
                 sb = new StringBuilder();
                 sb.append("https://");
-                str = com.xiaomi.push.ab.m181a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com";
+                str = com.xiaomi.push.ab.m177a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com";
             }
             sb.append(str);
             sb.append("/pass/v2/register");
@@ -276,7 +276,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m673a(Context context) {
+    public static void m669a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
@@ -290,11 +290,11 @@ public class m {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, lVar) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
             edit.putString("uuid", lVar.f943a);
-            edit.putString("security", lVar.f44582c);
-            edit.putString("token", lVar.f44581b);
-            edit.putString("app_id", lVar.f44583d);
-            edit.putString("package_name", lVar.f44585f);
-            edit.putString("app_token", lVar.f44584e);
+            edit.putString("security", lVar.c);
+            edit.putString("token", lVar.b);
+            edit.putString("app_id", lVar.d);
+            edit.putString("package_name", lVar.f);
+            edit.putString("app_token", lVar.e);
             edit.putString("device_id", com.xiaomi.push.i.k(context));
             edit.putInt("env_type", lVar.a);
             edit.commit();
@@ -310,7 +310,7 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m674a(Context context) {
+    public static boolean m670a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context.getPackageName().equals("com.xiaomi.xmsf") : invokeL.booleanValue;

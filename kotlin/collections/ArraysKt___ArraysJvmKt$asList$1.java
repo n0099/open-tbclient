@@ -46,8 +46,8 @@ public final class ArraysKt___ArraysJvmKt$asList$1 extends AbstractList<Byte> im
         return -1;
     }
 
-    public boolean contains(byte b2) {
-        return ArraysKt___ArraysKt.contains(this.$this_asList, b2);
+    public boolean contains(byte b) {
+        return ArraysKt___ArraysKt.contains(this.$this_asList, b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,11 +56,11 @@ public final class ArraysKt___ArraysJvmKt$asList$1 extends AbstractList<Byte> im
         return Byte.valueOf(this.$this_asList[i]);
     }
 
-    public int indexOf(byte b2) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, b2);
+    public int indexOf(byte b) {
+        return ArraysKt___ArraysKt.indexOf(this.$this_asList, b);
     }
 
-    public int lastIndexOf(byte b2) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, b2);
+    public int lastIndexOf(byte b) {
+        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, b);
     }
 }

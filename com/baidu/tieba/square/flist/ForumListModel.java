@@ -1,8 +1,5 @@
 package com.baidu.tieba.square.flist;
 
-import c.a.d.a.f;
-import c.a.d.f.d.l;
-import c.a.o0.r.s.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,8 +16,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import com.repackage.b9;
+import com.repackage.cr4;
+import com.repackage.qe;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "_list";
@@ -37,7 +37,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class List extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3206282936395220632L;
@@ -62,7 +62,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8487620337266534315L;
@@ -156,10 +156,10 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
             if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
-                a.f();
-                l<String> g2 = a.g("tb.my_posts");
-                if (g2 != null) {
-                    g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
+                cr4.f();
+                qe<String> g = cr4.g("tb.my_posts");
+                if (g != null) {
+                    g.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
                 }
             }
             return forumListModel;
@@ -205,7 +205,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

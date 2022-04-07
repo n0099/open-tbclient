@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SocketAddCommonParamSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOCKET_ADD_COMMON_PARAM_ENABLE = "android_lcs_common_param";
@@ -36,7 +36,7 @@ public class SocketAddCommonParamSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(SOCKET_ADD_COMMON_PARAM_ENABLE) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

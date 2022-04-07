@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,24 +19,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f35538d;
+    public static ViewGroup.LayoutParams d;
     public transient /* synthetic */ FieldHolder $fh;
     public List<TextView> a;
+    public boolean b;
+    public View.OnClickListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f35539b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f35540c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,11 +56,11 @@ public class ReplyLinearLayout extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.a.f35539b ? 1 : 2));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String[] strArr = (String[]) view2.getTag();
+                TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.a.b ? 1 : 2));
                 if (strArr != null) {
                     Context context = this.a.getContext();
                     if ("0".equals(strArr[3])) {
@@ -109,17 +103,17 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
             if (i == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10039, 1);
-                textView.setPadding(0, n.d(getContext(), 10.0f), 0, n.d(getContext(), 10.0f));
+                textView.setPadding(0, oi.d(getContext(), 10.0f), 0, oi.d(getContext(), 10.0f));
                 return;
             }
             int i2 = i % 3;
             if (i2 == 2) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10081, 1);
                 textView.setBackgroundResource(R.color.CAM_X0201);
-                textView.setPadding(0, n.d(getContext(), 10.0f), 0, n.d(getContext(), 2.0f));
+                textView.setPadding(0, oi.d(getContext(), 10.0f), 0, oi.d(getContext(), 2.0f));
             } else if (i2 == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10005, 1);
-                textView.setPadding(0, n.d(getContext(), 2.0f), 0, n.d(getContext(), 10.0f));
+                textView.setPadding(0, oi.d(getContext(), 2.0f), 0, oi.d(getContext(), 10.0f));
             }
         }
     }
@@ -136,8 +130,8 @@ public class ReplyLinearLayout extends LinearLayout {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            if (f35538d == null) {
-                f35538d = new LinearLayout.LayoutParams(-1, -2);
+            if (d == null) {
+                d = new LinearLayout.LayoutParams(-1, -2);
             }
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
             int size = ((arrayList.size() - 1) * 3) + 1;
@@ -164,12 +158,12 @@ public class ReplyLinearLayout extends LinearLayout {
                             textView2.setText(charSequenceArr[4]);
                         }
                         textView2.setTag(charSequenceArr);
-                        textView2.setOnClickListener(this.f35540c);
+                        textView2.setOnClickListener(this.c);
                         b(textView2, i5);
                         if (i5 != 0) {
                             textView2.setTextSize(17.0f);
                             textView2.setMaxLines(3);
-                            textView2.setLayoutParams(f35538d);
+                            textView2.setLayoutParams(d);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                         } else if (i5 == 1 || (i2 = i5 % 3) == 1) {
                             textView2.setLayoutParams(layoutParams);
@@ -177,11 +171,11 @@ public class ReplyLinearLayout extends LinearLayout {
                         } else if (i2 == 2) {
                             textView2.setTextSize(15.0f);
                             textView2.setMaxLines(2);
-                            textView2.setLayoutParams(f35538d);
+                            textView2.setLayoutParams(d);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                         } else if (i2 == 0) {
                             textView2.setTextSize(10.0f);
-                            textView2.setLayoutParams(f35538d);
+                            textView2.setLayoutParams(d);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                         }
                         textView2.setVisibility(0);
@@ -192,7 +186,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     }
                     textView2.setText(charSequenceArr[0]);
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f35540c);
+                    textView2.setOnClickListener(this.c);
                     b(textView2, i5);
                     if (i5 != 0) {
                     }
@@ -207,7 +201,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public void setIsHost(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f35539b = z;
+            this.b = z;
         }
     }
 
@@ -230,7 +224,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f35540c = new a(this);
+        this.c = new a(this);
         this.a = new ArrayList();
     }
 }

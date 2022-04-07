@@ -2,7 +2,6 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.l3.j0.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,8 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dc8;
+import com.repackage.gd7;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +29,7 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public float p0;
     public float q0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +54,10 @@ public class AdCardMultiPicView extends AdCardBaseView {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.a.Q("image");
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.R("image");
             }
         }
     }
@@ -83,42 +84,42 @@ public class AdCardMultiPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void O(AdCard adCard) {
+    public void P(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            e eVar = adCard.picInfo;
-            List<String> list = eVar == null ? null : eVar.f16234c;
-            if (!c.a.p0.b2.o.k.a.e(list) && eVar != null) {
-                int k = c.a.p0.b2.o.k.a.k(eVar.f16234c);
+            dc8 dc8Var = adCard.picInfo;
+            List<String> list = dc8Var == null ? null : dc8Var.c;
+            if (!gd7.e(list) && dc8Var != null) {
+                int k = gd7.k(dc8Var.c);
                 int dimensionPixelSize = (int) ((this.B - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i = eVar.f16236e;
-                int i2 = eVar.f16235d;
+                int i = dc8Var.e;
+                int i2 = dc8Var.d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i == 0 || i2 == 0) ? 1.0f : i / i2, 1.0f), 0.0f));
                 this.k0.setVisibility(4);
                 this.m0.setVisibility(4);
                 this.o0.setVisibility(4);
-                r0(this.j0, 1);
-                r0(this.l0, 2);
-                r0(this.n0, 3);
-                q0(this.k0, dimensionPixelSize, max);
-                q0(this.m0, dimensionPixelSize, max);
-                q0(this.o0, dimensionPixelSize, max);
+                t0(this.j0, 1);
+                t0(this.l0, 2);
+                t0(this.n0, 3);
+                s0(this.k0, dimensionPixelSize, max);
+                s0(this.m0, dimensionPixelSize, max);
+                s0(this.o0, dimensionPixelSize, max);
                 if (k == 1) {
-                    this.k0.J((String) c.a.p0.b2.o.k.a.d(list, 0), 30, false);
+                    this.k0.K((String) gd7.d(list, 0), 30, false);
                     this.k0.setVisibility(0);
-                    r0(this.j0, 4);
+                    t0(this.j0, 4);
                 } else if (k == 2) {
-                    this.k0.J((String) c.a.p0.b2.o.k.a.d(list, 0), 30, false);
+                    this.k0.K((String) gd7.d(list, 0), 30, false);
                     this.k0.setVisibility(0);
-                    this.m0.J((String) c.a.p0.b2.o.k.a.d(list, 1), 30, false);
+                    this.m0.K((String) gd7.d(list, 1), 30, false);
                     this.m0.setVisibility(0);
-                    r0(this.l0, 3);
+                    t0(this.l0, 3);
                 } else if (k >= 3) {
-                    this.k0.J((String) c.a.p0.b2.o.k.a.d(list, 0), 30, false);
+                    this.k0.K((String) gd7.d(list, 0), 30, false);
                     this.k0.setVisibility(0);
-                    this.m0.J((String) c.a.p0.b2.o.k.a.d(list, 1), 30, false);
+                    this.m0.K((String) gd7.d(list, 1), 30, false);
                     this.m0.setVisibility(0);
-                    this.o0.J((String) c.a.p0.b2.o.k.a.d(list, 2), 30, false);
+                    this.o0.K((String) gd7.d(list, 2), 30, false);
                     this.o0.setVisibility(0);
                 }
                 this.o.setVisibility(0);
@@ -130,16 +131,16 @@ public class AdCardMultiPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void U(View view) {
+    public void V(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.j0 = (XfremodeRoundLayout) view.findViewById(R.id.obfuscated_res_0x7f091acc);
-            this.k0 = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090144);
-            this.l0 = (XfremodeRoundLayout) view.findViewById(R.id.obfuscated_res_0x7f091acb);
-            this.m0 = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090143);
-            this.n0 = (XfremodeRoundLayout) view.findViewById(R.id.obfuscated_res_0x7f091acd);
-            this.o0 = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090145);
-            this.p0 = P(R.string.J_X05);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.k0 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09014d);
+            this.l0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091abb);
+            this.m0 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09014c);
+            this.n0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
+            this.o0 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09014e);
+            this.p0 = Q(R.string.J_X05);
             this.k0.setPlaceHolder(2);
             this.m0.setPlaceHolder(2);
             this.o0.setPlaceHolder(2);
@@ -150,17 +151,17 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0179 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d017d : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0178 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d017c : invokeV.intValue;
     }
 
-    public final void q0(TbImageView tbImageView, int i, int i2) {
+    public final void s0(TbImageView tbImageView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLII(1048580, this, tbImageView, i, i2) == null) || tbImageView == null) {
             return;
@@ -171,23 +172,23 @@ public class AdCardMultiPicView extends AdCardBaseView {
         tbImageView.setLayoutParams(layoutParams);
     }
 
-    public final void r0(XfremodeRoundLayout xfremodeRoundLayout, int i) {
+    public final void t0(XfremodeRoundLayout xfremodeRoundLayout, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, xfremodeRoundLayout, i) == null) {
             if (i == 1) {
-                float f2 = this.p0;
-                float f3 = this.q0;
-                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f2, f2, f3, f3, f3, f3, f2, f2});
+                float f = this.p0;
+                float f2 = this.q0;
+                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f, f, f2, f2, f2, f2, f, f});
             } else if (i == 2) {
-                float f4 = this.q0;
-                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f4, f4, f4, f4, f4, f4, f4, f4});
+                float f3 = this.q0;
+                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f3, f3, f3, f3, f3, f3, f3, f3});
             } else if (i != 3) {
-                float f5 = this.p0;
-                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f5, f5, f5, f5, f5, f5});
+                float f4 = this.p0;
+                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f4, f4, f4, f4, f4, f4, f4, f4});
             } else {
-                float f6 = this.q0;
-                float f7 = this.p0;
-                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f6, f6, f7, f7, f7, f7, f6, f6});
+                float f5 = this.q0;
+                float f6 = this.p0;
+                xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f6, f6, f6, f6, f5, f5});
             }
         }
     }

@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegDetector";
@@ -248,13 +248,13 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     int i = this.vP.oU;
                     if (i == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f24836tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f986tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     } else if (i == 4) {
-                        return aVar.f24836tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f986tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     } else if (i != 5) {
                         return -1;
                     } else {
-                        return aVar.f24836tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f986tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;
@@ -525,8 +525,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                     str = "sky_seg";
                                 }
                                 performanceApi.recordAlgoTimeCost(str, "predict", elapsedRealtime, i6);
-                            } catch (Exception e2) {
-                                exc2 = e2;
+                            } catch (Exception e) {
+                                exc2 = e;
                                 bArr6 = bArr7;
                                 exc2.printStackTrace();
                                 bArr4 = bArr6;
@@ -537,8 +537,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                 bVar.W(this.vP.getName());
                                 return bVar;
                             }
-                        } catch (Exception e3) {
-                            exc2 = e3;
+                        } catch (Exception e2) {
+                            exc2 = e2;
                             bArr6 = bArr5;
                             exc2.printStackTrace();
                             bArr4 = bArr6;
@@ -575,8 +575,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                         bArr3 = (reserveHandleData.getByteArrayListData() == null || reserveHandleData.getByteArrayListData().size() <= 0) ? bArr : reserveHandleData.getByteArrayListData().get(0);
                                         try {
                                             bVar.n(createHandle3);
-                                        } catch (Exception e4) {
-                                            exc = e4;
+                                        } catch (Exception e3) {
+                                            exc = e3;
                                             bArr2 = bArr3;
                                             exc.printStackTrace();
                                             bArr4 = bArr2;
@@ -593,8 +593,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                     }
                                     bArr2 = bArr3;
                                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("bg_seg", "predict", SystemClock.elapsedRealtime() - elapsedRealtime4, 0);
-                                } catch (Exception e5) {
-                                    exc = e5;
+                                } catch (Exception e4) {
+                                    exc = e4;
                                     bArr2 = bArr;
                                 }
                                 bArr4 = bArr2;
@@ -622,10 +622,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         } : (com.baidu.ar.b.b.c) invokeL.objValue;
     }
 
-    public void f(float f2) {
+    public void f(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.qD = f2;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            this.qD = f;
         }
     }
 

@@ -19,7 +19,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class u extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,15 +67,15 @@ public final class u extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
             com.vivo.push.b.p pVar = (com.vivo.push.b.p) oVar;
-            InsideNotificationItem f2 = pVar.f();
-            if (f2 == null) {
+            InsideNotificationItem f = pVar.f();
+            if (f == null) {
                 com.vivo.push.util.p.d("OnNotificationClickTask", "current notification item is null");
                 return;
             }
-            UPSNotificationMessage a = com.vivo.push.util.q.a(f2);
-            String d2 = pVar.d();
-            f2.getAppType();
-            boolean equals = this.a.getPackageName().equals(d2);
+            UPSNotificationMessage a = com.vivo.push.util.q.a(f);
+            String d = pVar.d();
+            f.getAppType();
+            boolean equals = this.a.getPackageName().equals(d);
             if (equals) {
                 NotifyAdapterUtil.cancelNotify(this.a);
             }
@@ -86,9 +86,9 @@ public final class u extends z {
                 hashMap.put("messageID", String.valueOf(pVar.e()));
                 hashMap.put(Constants.PARAM_PLATFORM, this.a.getPackageName());
                 Context context = this.a;
-                String b2 = com.vivo.push.util.aa.b(context, context.getPackageName());
-                if (!TextUtils.isEmpty(b2)) {
-                    hashMap.put("remoteAppId", b2);
+                String b = com.vivo.push.util.aa.b(context, context.getPackageName());
+                if (!TextUtils.isEmpty(b)) {
+                    hashMap.put("remoteAppId", b);
                 }
                 xVar.a(hashMap);
                 com.vivo.push.e.a().a(xVar);
@@ -130,8 +130,8 @@ public final class u extends z {
                     try {
                         parseUri = Intent.parseUri(skipContent2, 1);
                         str = parseUri.getPackage();
-                    } catch (Exception e2) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : ".concat(String.valueOf(skipContent2)), e2);
+                    } catch (Exception e) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : ".concat(String.valueOf(skipContent2)), e);
                     }
                     if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
                         com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());

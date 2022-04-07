@@ -15,7 +15,7 @@ import java.io.ByteArrayInputStream;
 import java.net.URLEncoder;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EncryptProcessor implements MessageProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_PUB_KEY = "MCwwDQYJKoZIhvcNAQEBBQADGwAwGAIRAMRSvSVZEbyQwtFwNtNiZKkCAwEAAQ==";
@@ -86,8 +86,8 @@ public class EncryptProcessor implements MessageProcessor {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
             try {
                 return encrypt(message);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

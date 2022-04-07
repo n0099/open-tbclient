@@ -1,8 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.o0.r.j0.b;
-import c.a.o0.r.z.a;
-import c.a.o0.r0.k;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -12,7 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.js4;
+import com.repackage.s85;
+import com.repackage.wt4;
+/* loaded from: classes2.dex */
 public class InitCmdRouterAndStaticTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            a.a();
-            k.b().u(System.currentTimeMillis() - currentTimeMillis);
+            js4.a();
+            s85.b().u(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -44,7 +44,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (b.k().l("static_opt_open", 0) > 0) {
+            if (wt4.k().l("static_opt_open", 0) > 0) {
                 CmdRouter.init(TbadkCoreApplication.getInst());
             }
             initTasks();

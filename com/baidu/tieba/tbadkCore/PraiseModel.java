@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore;
 
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -17,24 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b9;
+/* loaded from: classes4.dex */
 public class PraiseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f36110c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static TbHttpMessageTask f36111d;
+    public static final String c;
+    public static TbHttpMessageTask d;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f36112b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +78,7 @@ public class PraiseModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(String str);
 
@@ -105,11 +99,11 @@ public class PraiseModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f36110c = str;
+        c = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f36111d = tbHttpMessageTask;
+        d = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f36111d);
+        MessageManager.getInstance().registerTask(d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,14 +118,14 @@ public class PraiseModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f36112b = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.b = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
         this.a = bVar;
     }
 
@@ -158,9 +152,9 @@ public class PraiseModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f36112b.setSelfListener(true);
-            this.f36112b.setTag(getUniqueId());
-            registerListener(this.f36112b);
+            this.b.setSelfListener(true);
+            this.b.setTag(getUniqueId());
+            registerListener(this.b);
         }
     }
 }

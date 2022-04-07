@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaUtilHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class AlaUtilHelper {
         int identifier;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android")) <= 0) {
+            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android")) <= 0) {
                 return 0;
             }
             return resources.getDimensionPixelSize(identifier);
@@ -77,12 +77,12 @@ public class AlaUtilHelper {
                 return fArr;
             }
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            float f2 = displayMetrics.xdpi;
-            if (f2 != 0.0f) {
-                float f3 = displayMetrics.ydpi;
-                if (f3 != 0.0f) {
-                    fArr[0] = displayMetrics.widthPixels / f2;
-                    fArr[1] = displayMetrics.heightPixels / f3;
+            float f = displayMetrics.xdpi;
+            if (f != 0.0f) {
+                float f2 = displayMetrics.ydpi;
+                if (f2 != 0.0f) {
+                    fArr[0] = displayMetrics.widthPixels / f;
+                    fArr[1] = displayMetrics.heightPixels / f2;
                 }
             }
             return fArr;
@@ -100,8 +100,8 @@ public class AlaUtilHelper {
             try {
                 Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
                 return displayMetrics.heightPixels - windowManager.getDefaultDisplay().getHeight();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0;
             }
         }
@@ -136,8 +136,8 @@ public class AlaUtilHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
                 return (Build.VERSION.SDK_INT >= 17 ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled") : 0) == 1;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -150,11 +150,11 @@ public class AlaUtilHelper {
             return;
         }
         if (z2 && str.toLowerCase().startsWith("http")) {
-            tbImageView.J(str, 10, false);
+            tbImageView.K(str, 10, false);
         } else if (z) {
-            tbImageView.J(str, 25, false);
+            tbImageView.K(str, 25, false);
         } else {
-            tbImageView.J(str, 12, false);
+            tbImageView.K(str, 12, false);
         }
     }
 
@@ -164,11 +164,11 @@ public class AlaUtilHelper {
             return;
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.J(str, 10, false);
+            tbImageView.K(str, 10, false);
         } else if (z) {
-            tbImageView.J(str, 25, false);
+            tbImageView.K(str, 25, false);
         } else {
-            tbImageView.J(str, 12, false);
+            tbImageView.K(str, 12, false);
         }
     }
 }

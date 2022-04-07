@@ -11,8 +11,6 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.n4.i.g.a;
-import c.a.p0.n4.i.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -21,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kt8;
+import com.repackage.lt8;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ScalableType f36425b;
+    public ScalableType b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScalableVideoView(Context context) {
@@ -132,7 +130,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i, i2)).m(this.f36425b)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new kt8(new lt8(getWidth(), getHeight()), new lt8(i, i2)).m(this.b)) == null) {
             return;
         }
         setTransform(m);
@@ -241,8 +239,8 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
                 if (this.a != null) {
                     this.a.setSurface(surface);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -332,18 +330,18 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setScalableType(ScalableType scalableType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, scalableType) == null) {
-            this.f36425b = scalableType;
+            this.b = scalableType;
             g(getVideoWidth(), getVideoHeight());
         }
     }
 
-    public void setVolume(float f2, float f3) {
+    public void setVolume(float f, float f2) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mediaPlayer = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (mediaPlayer = this.a) == null) {
             return;
         }
-        mediaPlayer.setVolume(f2, f3);
+        mediaPlayer.setVolume(f, f2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -387,13 +385,13 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
                 return;
             }
         }
-        this.f36425b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040686}, 0, 0)) == null) {
+        this.b = ScalableType.NONE;
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406c4}, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
         obtainStyledAttributes.recycle();
-        this.f36425b = ScalableType.values()[i4];
+        this.b = ScalableType.values()[i4];
     }
 
     public void setDataSource(String str) throws IOException {

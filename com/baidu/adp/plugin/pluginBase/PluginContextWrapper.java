@@ -6,8 +6,6 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.h;
-import c.a.d.j.j.f.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -19,7 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.d9;
+import com.repackage.om;
+/* loaded from: classes.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PluginSetting h2 = c.j().h(this.mPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(this.mPackageName);
+            if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {
                     return plugin2.getApplication();
@@ -107,15 +107,15 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            PluginSetting h2 = c.j().h(this.mPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(this.mPackageName);
+            if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {
                     return plugin2.getPluginResources();
                 }
                 throw new RuntimeException("third plugin is not loaded");
             }
-            Resources resources = h.a().getResources();
+            Resources resources = d9.a().getResources();
             return resources != null ? resources : super.getResources();
         }
         return (Resources) invokeV.objValue;

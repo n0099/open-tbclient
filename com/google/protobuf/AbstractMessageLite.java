@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractMessageLite implements MessageLite {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public abstract class AbstractMessageLite implements MessageLite {
                 writeTo(newInstance);
                 newInstance.checkNoSpaceLeft();
                 return bArr;
-            } catch (IOException e2) {
-                throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e2);
+            } catch (IOException e) {
+                throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e);
             }
         }
         return (byte[]) invokeV.objValue;
@@ -66,8 +66,8 @@ public abstract class AbstractMessageLite implements MessageLite {
                 ByteString.CodedBuilder newCodedBuilder = ByteString.newCodedBuilder(getSerializedSize());
                 writeTo(newCodedBuilder.getCodedOutput());
                 return newCodedBuilder.build();
-            } catch (IOException e2) {
-                throw new RuntimeException("Serializing to a ByteString threw an IOException (should never happen).", e2);
+            } catch (IOException e) {
+                throw new RuntimeException("Serializing to a ByteString threw an IOException (should never happen).", e);
             }
         }
         return (ByteString) invokeV.objValue;
@@ -95,7 +95,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         @Override // com.google.protobuf.MessageLite.Builder
         public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static final class LimitedInputStream extends FilterInputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -283,10 +283,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                     mergeFrom(newCodedInput);
                     newCodedInput.checkLastTagWas(0);
                     return this;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2;
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e3);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
                 }
             }
             return (BuilderType) invokeL.objValue;
@@ -303,10 +303,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                     mergeFrom(newCodedInput, extensionRegistryLite);
                     newCodedInput.checkLastTagWas(0);
                     return this;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2;
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e3);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
                 }
             }
             return (BuilderType) invokeLL.objValue;
@@ -331,10 +331,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                     mergeFrom(newInstance);
                     newInstance.checkLastTagWas(0);
                     return this;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2;
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e3);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
                 }
             }
             return (BuilderType) invokeLII.objValue;
@@ -359,10 +359,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                     mergeFrom(newInstance, extensionRegistryLite);
                     newInstance.checkLastTagWas(0);
                     return this;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2;
-                } catch (IOException e3) {
-                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e3);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
                 }
             }
             return (BuilderType) invokeCommon.objValue;

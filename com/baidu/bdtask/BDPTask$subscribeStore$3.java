@@ -1,6 +1,5 @@
 package com.baidu.bdtask;
 
-import c.a.j.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.ctrl.b;
@@ -12,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.repackage.is;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
@@ -19,30 +19,30 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0004\u0012\u00020\u00030\u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00030\u0001H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "Lcom/baidu/bdtask/framework/redux/Subscription;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/ctrl/DefaultTaskAction;", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
-public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<e<b, d>, e<SubTaskState, d>> {
+/* loaded from: classes.dex */
+public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<e<b, is>, e<SubTaskState, is>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ BDPTask this$0;
 
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u0018\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u00012\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0003H\n¢\u0006\u0002\b\u0007"}, d2 = {"<anonymous>", "Lkotlin/Pair;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "Lcom/baidu/bdtask/ctrl/DefaultTaskAction;", "<anonymous parameter 0>", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "action", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.BDPTask$subscribeStore$3$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    public static final class AnonymousClass1 extends Lambda implements Function2<b, d, Pair<? extends SubTaskState, ? extends d>> {
+    /* loaded from: classes.dex */
+    public static final class AnonymousClass1 extends Lambda implements Function2<b, is, Pair<? extends SubTaskState, ? extends is>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BDPTask$subscribeStore$3 this$0;
 
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.BDPTask$subscribeStore$3$1$1  reason: invalid class name and collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static final class C17211 extends Lambda implements Function0<String> {
+        /* loaded from: classes.dex */
+        public static final class C00611 extends Lambda implements Function0<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SubTaskState $subState;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17211(SubTaskState subTaskState) {
+            public C00611(SubTaskState subTaskState) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -104,18 +104,18 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function2
-        public final Pair<SubTaskState, d> invoke(b bVar, d dVar) {
+        public final Pair<SubTaskState, is> invoke(b bVar, is isVar) {
             InterceptResult invokeLL;
             b O;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar)) == null) {
-                if (dVar != null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, isVar)) == null) {
+                if (isVar != null) {
                     O = this.this$0.this$0.O();
-                    SubTaskState k = O.k(dVar.f());
-                    DebugTrace.a.c(new C17211(k));
-                    return new Pair<>(k, dVar);
+                    SubTaskState k = O.k(isVar.f());
+                    DebugTrace.a.c(new C00611(k));
+                    return new Pair<>(k, isVar);
                 }
-                return new Pair<>(null, dVar);
+                return new Pair<>(null, isVar);
             }
             return (Pair) invokeLL.objValue;
         }
@@ -143,9 +143,9 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.bdtask.framework.redux.e<Substate, c.a.j.f.d>, com.baidu.bdtask.framework.redux.e<com.baidu.bdtask.ctrl.SubTaskState, c.a.j.f.d> */
+    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.bdtask.framework.redux.e<Substate, com.repackage.is>, com.baidu.bdtask.framework.redux.e<com.baidu.bdtask.ctrl.SubTaskState, com.repackage.is> */
     @Override // kotlin.jvm.functions.Function1
-    public final e<SubTaskState, d> invoke(e<b, d> eVar) {
+    public final e<SubTaskState, is> invoke(e<b, is> eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? eVar.a(new AnonymousClass1(this)) : (e) invokeL.objValue;

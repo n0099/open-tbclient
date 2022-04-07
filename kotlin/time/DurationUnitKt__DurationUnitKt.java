@@ -11,18 +11,18 @@ import kotlin.time.DurationUnitKt;
 public class DurationUnitKt__DurationUnitKt extends DurationUnitKt__DurationUnitJvmKt {
     @SinceKotlin(version = "1.5")
     @ExperimentalTime
-    public static final TimeUnit durationUnitByIsoChar(char c2, boolean z) {
+    public static final TimeUnit durationUnitByIsoChar(char c, boolean z) {
         if (!z) {
-            if (c2 == 'D') {
+            if (c == 'D') {
                 return TimeUnit.DAYS;
             }
-            throw new IllegalArgumentException("Invalid or unsupported duration ISO non-time unit: " + c2);
-        } else if (c2 != 'H') {
-            if (c2 != 'M') {
-                if (c2 == 'S') {
+            throw new IllegalArgumentException("Invalid or unsupported duration ISO non-time unit: " + c);
+        } else if (c != 'H') {
+            if (c != 'M') {
+                if (c == 'S') {
                     return TimeUnit.SECONDS;
                 }
-                throw new IllegalArgumentException("Invalid duration ISO time unit: " + c2);
+                throw new IllegalArgumentException("Invalid duration ISO time unit: " + c);
             }
             return TimeUnit.MINUTES;
         } else {

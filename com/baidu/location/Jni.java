@@ -8,31 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Jni {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f25864b = 1;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f25865c = 2;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f25866d = 11;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f25867e = 12;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f25868f = 13;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f25869g = 14;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f25870h = 15;
+    public static int b = 1;
+    public static int c = 2;
+    public static int d = 11;
+    public static int e = 12;
+    public static int f = 13;
+    public static int g = 14;
+    public static int h = 15;
     public static int i = 1024;
     public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,17 +76,17 @@ public class Jni {
             if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
                 i2 = a;
             } else if (str.equals("bd09ll")) {
-                i2 = f25864b;
+                i2 = b;
             } else if (str.equals("gcj02")) {
-                i2 = f25865c;
+                i2 = c;
             } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-                i2 = f25866d;
+                i2 = d;
             } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-                i2 = f25867e;
+                i2 = e;
             } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-                i2 = f25868f;
+                i2 = f;
             } else if (str.equals("wgs842mc")) {
-                i2 = f25870h;
+                i2 = h;
             }
             try {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");

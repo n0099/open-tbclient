@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.a implements IBusLineSearch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public OnGetBusLineSearchResultListener f28203b;
+    public OnGetBusLineSearchResultListener b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
                 return;
             }
         }
-        this.f28203b = null;
+        this.b = null;
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
@@ -38,7 +36,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f28203b = null;
+            this.b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +46,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetBusLineSearchResultListener) == null) {
             this.a.lock();
-            this.f28203b = onGetBusLineSearchResultListener;
+            this.b = onGetBusLineSearchResultListener;
             this.a.unlock();
         }
     }
@@ -60,7 +58,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, busLineSearchOption)) == null) {
             a aVar = new a();
             aVar.a(SearchType.o);
-            return a(new b(busLineSearchOption), this.f28203b, aVar);
+            return a(new b(busLineSearchOption), this.b, aVar);
         }
         return invokeL.booleanValue;
     }

@@ -10,20 +10,20 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class BottomRetainer$akRetainer$2 extends Lambda implements Function0<BottomRetainer.AkRetainer> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ float $endRatio;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomRetainer$akRetainer$2(float f2) {
+    public BottomRetainer$akRetainer$2(float f) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2)};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,7 +34,7 @@ public final class BottomRetainer$akRetainer$2 extends Lambda implements Functio
                 return;
             }
         }
-        this.$endRatio = f2;
+        this.$endRatio = f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

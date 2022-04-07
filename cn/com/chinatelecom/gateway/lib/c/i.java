@@ -10,16 +10,14 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadPoolExecutor a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static i f23699b;
+    public static i b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,10 +73,10 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f23699b == null) {
-                f23699b = new i();
+            if (b == null) {
+                b = new i();
             }
-            return f23699b;
+            return b;
         }
         return (i) invokeV.objValue;
     }

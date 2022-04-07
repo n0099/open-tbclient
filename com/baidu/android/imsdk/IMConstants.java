@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMConstants implements NoProGuard, ResponseCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCOUNT_ANON = 0;

@@ -1,9 +1,6 @@
 package com.baidu.tbadk.core.feedManager;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,8 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.rc5;
 import tbclient.Personalized.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FeedRecRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class FeedRecRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            b0.c(builder, true, false, true);
+            rc5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -64,12 +64,12 @@ public class FeedRecRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(l.I());
+            builder.new_net_type = Integer.valueOf(mi.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;

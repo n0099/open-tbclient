@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,21 +42,21 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0c4b);
-            this.more1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091448);
-            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4d));
+            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0c4e);
+            this.more1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091441);
+            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c50));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.more1.setText(spannableString);
-            this.more2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091449);
-            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
+            this.more2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091442);
+            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c51));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.more2.setText(spannableString2);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09153f)).setOnClickListener(this);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f09153a)).setOnClickListener(this);
         }
     }
 
@@ -69,13 +69,13 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            int id = view.getId();
-            if (view == this.mBack) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            int id = view2.getId();
+            if (view2 == this.mBack) {
                 finish();
-            } else if (id == R.id.obfuscated_res_0x7f09153f) {
+            } else if (id == R.id.obfuscated_res_0x7f09153a) {
                 startActivity(new Intent("android.settings.SETTINGS"));
                 finish();
             }
@@ -87,7 +87,7 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0620);
+            setContentView(R.layout.obfuscated_res_0x7f0d061c);
             initUI();
         }
     }

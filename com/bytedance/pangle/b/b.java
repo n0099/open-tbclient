@@ -10,60 +10,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38017b = "request_finish";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f38018c = "download_start";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f38019d = "download_finish";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f38020e = "install_start";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f38021f = "install_finish";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f38022g = "load_start";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f38023h = "load_finish";
+    public static String b = "request_finish";
+    public static String c = "download_start";
+    public static String d = "download_finish";
+    public static String e = "install_start";
+    public static String f = "install_finish";
+    public static String g = "load_start";
+    public static String h = "load_finish";
     public static String i = "zeus_error";
     public static volatile b j;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<com.bytedance.pangle.b.a> a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 11000;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static int f38024b = 12000;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static int f38025c = 12001;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static int f38026d = 20000;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static int f38027e = 21000;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static int f38028f = 21001;
-
-        /* renamed from: g  reason: collision with root package name */
-        public static int f38029g = 21002;
-
-        /* renamed from: h  reason: collision with root package name */
-        public static int f38030h = 22000;
+        public static int b = 12000;
+        public static int c = 12001;
+        public static int d = 20000;
+        public static int e = 21000;
+        public static int f = 21001;
+        public static int g = 21002;
+        public static int h = 22000;
         public static int i = 22001;
         public static int j = 22002;
         public static int k = 22999;

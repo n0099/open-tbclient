@@ -158,9 +158,9 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
                     }
                     this.param.getGetBundle().putAll(bundle);
                     this.param.getPostBundle().putAll(bundle);
-                } catch (InterceptException e2) {
-                    LogUtil.e("Task", "FixRequestTask:" + e2.getMessage());
-                    requestResult.setE(e2);
+                } catch (InterceptException e) {
+                    LogUtil.e("Task", "FixRequestTask:" + e.getMessage());
+                    requestResult.setE(e);
                     Handler handler = new Handler(Looper.getMainLooper(), this.callback);
                     Message message = new Message();
                     message.obj = requestResult;
@@ -180,8 +180,8 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
                     }
                 } catch (Exception unused) {
                 }
-            } catch (Exception e3) {
-                requestResult.setE(e3);
+            } catch (Exception e2) {
+                requestResult.setE(e2);
             }
             Handler handler2 = new Handler(Looper.getMainLooper(), this.callback);
             Message message2 = new Message();

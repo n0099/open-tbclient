@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPeriod.Listener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LOADING_CHECK_INTERVAL_BYTES = 1048576;
@@ -37,7 +37,7 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
     public boolean timelineIsSeekable;
     public final Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface EventListener {
         void onLoadError(IOException iOException);
     }

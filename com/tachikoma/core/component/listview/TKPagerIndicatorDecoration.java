@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKPagerIndicatorDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,11 +25,11 @@ public class TKPagerIndicatorDecoration extends RecyclerView.ItemDecoration {
     public final Interpolator mInterpolator;
     public final Paint mPaint;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IIndicatorRender {
-        void drawHighlights(float f2, float f3, float f4, float f5, int i, int i2, Paint paint, Canvas canvas);
+        void drawHighlights(float f, float f2, float f3, float f4, int i, int i2, Paint paint, Canvas canvas);
 
-        void drawInactiveIndicators(float f2, float f3, float f4, float f5, Paint paint, Canvas canvas);
+        void drawInactiveIndicators(float f, float f2, float f3, float f4, Paint paint, Canvas canvas);
 
         float getIndicatorHeight();
 
@@ -69,41 +69,41 @@ public class TKPagerIndicatorDecoration extends RecyclerView.ItemDecoration {
         this.mIndicatorItemPadding = this.mIndicatorRender.getIndicatorPadding();
     }
 
-    private void drawHighlights(Canvas canvas, float f2, float f3, int i, float f4, int i2, int i3) {
+    private void drawHighlights(Canvas canvas, float f, float f2, int i, float f3, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Float.valueOf(f4), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            float f5 = this.mIndicatorWidth;
-            float f6 = this.mIndicatorItemPadding + f5;
-            float f7 = f2 + (i * f6);
-            if (f4 == 0.0f) {
-                this.mIndicatorRender.drawHighlights(f7, f3, f7 + f5, f3, i2, i3, this.mPaint, canvas);
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            float f4 = this.mIndicatorWidth;
+            float f5 = this.mIndicatorItemPadding + f4;
+            float f6 = f + (i * f5);
+            if (f3 == 0.0f) {
+                this.mIndicatorRender.drawHighlights(f6, f2, f6 + f4, f2, i2, i3, this.mPaint, canvas);
                 return;
             }
-            float f8 = f5 * f4;
-            this.mIndicatorRender.drawHighlights(f7 + f8, f3, f7 + f5, f3, i2, i3, this.mPaint, canvas);
+            float f7 = f4 * f3;
+            this.mIndicatorRender.drawHighlights(f6 + f7, f2, f6 + f4, f2, i2, i3, this.mPaint, canvas);
             if (i < i2 - 1) {
-                float f9 = f7 + f6;
-                this.mIndicatorRender.drawHighlights(f9, f3, f9 + f8, f3, i2, i3, this.mPaint, canvas);
+                float f8 = f6 + f5;
+                this.mIndicatorRender.drawHighlights(f8, f2, f8 + f7, f2, i2, i3, this.mPaint, canvas);
             }
         }
     }
 
-    private void drawInactiveIndicators(Canvas canvas, float f2, float f3, int i) {
+    private void drawInactiveIndicators(Canvas canvas, float f, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
-            float f4 = this.mIndicatorWidth + this.mIndicatorItemPadding;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+            float f3 = this.mIndicatorWidth + this.mIndicatorItemPadding;
             for (int i2 = 0; i2 < i; i2++) {
-                this.mIndicatorRender.drawInactiveIndicators(f2, f3, f2 + this.mIndicatorWidth, f3, this.mPaint, canvas);
-                f2 += f4;
+                this.mIndicatorRender.drawInactiveIndicators(f, f2, f + this.mIndicatorWidth, f2, this.mPaint, canvas);
+                f += f3;
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            super.getItemOffsets(rect, view, recyclerView, state);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+            super.getItemOffsets(rect, view2, recyclerView, state);
             rect.bottom = this.mIndicatorRender.getIndicatorTopMargin();
         }
     }

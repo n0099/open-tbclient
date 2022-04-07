@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -154,17 +154,17 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 String str4 = TAG;
                 LogUtils.e(str4, "upload failure " + responseCode);
                 return 1008;
-            } catch (MalformedURLException e2) {
+            } catch (MalformedURLException e) {
                 String str5 = TAG;
-                Log.e(str5, "MalformedURLException:" + e2);
+                Log.e(str5, "MalformedURLException:" + e);
                 return 1008;
-            } catch (ProtocolException e3) {
+            } catch (ProtocolException e2) {
                 String str6 = TAG;
-                Log.e(str6, "ProtocolException:" + e3);
+                Log.e(str6, "ProtocolException:" + e2);
                 return 1008;
-            } catch (IOException e4) {
+            } catch (IOException e3) {
                 String str7 = TAG;
-                Log.e(str7, "IOException:" + e4);
+                Log.e(str7, "IOException:" + e3);
                 return 1008;
             }
         }
@@ -178,9 +178,9 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (this.mListener != null) {
                     this.mListener.onFailed(i, this.mType, this.mFilePath);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "notifyFailed", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "notifyFailed", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -192,9 +192,9 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (this.mListener != null) {
                     this.mListener.onFinished(this.mType, this.mRemoteUrl);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "notifyFinished", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "notifyFinished", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

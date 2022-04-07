@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupQrCodeRequest";
@@ -26,7 +26,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,10 +149,10 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
                     str2 = optJSONObject.optString("qrcode_url");
                     j = optJSONObject.optLong("expire");
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e);
                 i2 = 1010;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             QrCode qrCode = new QrCode(str2, j);

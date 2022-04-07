@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbDimenManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile TbDimenManager sInstance = null;
@@ -91,24 +91,24 @@ public class TbDimenManager {
         return (DisplayMetrics) invokeL.objValue;
     }
 
-    private void setDensity(DisplayMetrics displayMetrics, float f2, int i) {
+    private void setDensity(DisplayMetrics displayMetrics, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
-            TbDimenUtil.setDensity(displayMetrics, f2, i);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            TbDimenUtil.setDensity(displayMetrics, f, i);
         }
     }
 
-    public void adaptDimen(Context context, float f2, int i) {
+    public void adaptDimen(Context context, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Float.valueOf(f), Integer.valueOf(i)}) == null) {
             DisplayMetrics metrics = getMetrics(context);
             DisplayMetrics metrics2 = getMetrics(this.mApplication);
-            setDensity(metrics, f2, i);
-            setDensity(metrics2, f2, i);
+            setDensity(metrics, f, i);
+            setDensity(metrics2, f, i);
             DisplayMetrics metricsOnMiui = getMetricsOnMiui(context);
             DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
-            setDensity(metricsOnMiui, f2, i);
-            setDensity(metricsOnMiui2, f2, i);
+            setDensity(metricsOnMiui, f, i);
+            setDensity(metricsOnMiui2, f, i);
         }
     }
 
@@ -131,10 +131,10 @@ public class TbDimenManager {
             Display defaultDisplay = ((WindowManager) application.getSystemService("window")).getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics);
-            float f2 = displayMetrics.density;
-            this.mDefaultDensity = f2;
+            float f = displayMetrics.density;
+            this.mDefaultDensity = f;
             this.mDefaultDensityDpi = displayMetrics.densityDpi;
-            if (f2 <= 2.5d || f2 >= 3.0f) {
+            if (f <= 2.5d || f >= 3.0f) {
                 return;
             }
             adaptDimen(null);
@@ -148,8 +148,8 @@ public class TbDimenManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            float f2 = this.mDefaultDensity;
-            return ((double) f2) > 2.5d && f2 < 3.0f;
+            float f = this.mDefaultDensity;
+            return ((double) f) > 2.5d && f < 3.0f;
         }
         return invokeV.booleanValue;
     }

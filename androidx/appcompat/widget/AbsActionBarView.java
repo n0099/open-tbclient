@@ -65,17 +65,17 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationCancel(View view) {
+        public void onAnimationCancel(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.mCanceled = true;
             }
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view) {
+        public void onAnimationEnd(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.mCanceled) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.mCanceled) {
                 return;
             }
             AbsActionBarView absActionBarView = this.this$0;
@@ -84,9 +84,9 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view) {
+        public void onAnimationStart(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 AbsActionBarView.super.setVisibility(0);
                 this.mCanceled = false;
             }
@@ -220,12 +220,12 @@ public abstract class AbsActionBarView extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    public int measureChildView(View view, int i, int i2, int i3) {
+    public int measureChildView(View view2, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, view, i, i2, i3)) == null) {
-            view.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
-            return Math.max(0, (i - view.getMeasuredWidth()) - i3);
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, view2, i, i2, i3)) == null) {
+            view2.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
+            return Math.max(0, (i - view2.getMeasuredWidth()) - i3);
         }
         return invokeLIII.intValue;
     }
@@ -291,17 +291,17 @@ public abstract class AbsActionBarView extends ViewGroup {
         return invokeL.booleanValue;
     }
 
-    public int positionChild(View view, int i, int i2, int i3, boolean z) {
+    public int positionChild(View view2, int i, int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int measuredWidth = view.getMeasuredWidth();
-            int measuredHeight = view.getMeasuredHeight();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
             int i4 = i2 + ((i3 - measuredHeight) / 2);
             if (z) {
-                view.layout(i - measuredWidth, i4, i, measuredHeight + i4);
+                view2.layout(i - measuredWidth, i4, i, measuredHeight + i4);
             } else {
-                view.layout(i, i4, i + measuredWidth, measuredHeight + i4);
+                view2.layout(i, i4, i + measuredWidth, measuredHeight + i4);
             }
             return z ? -measuredWidth : measuredWidth;
         }

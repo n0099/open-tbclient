@@ -15,12 +15,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class d {
     public ExecutorService a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f42919b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f42920c;
+    public ExecutorService b;
+    public ScheduledExecutorService c;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -36,27 +32,27 @@ public class d {
     }
 
     public ExecutorService c() {
-        if (this.f42919b == null) {
+        if (this.b == null) {
             synchronized (d.class) {
-                if (this.f42919b == null) {
+                if (this.b == null) {
                     TimeUnit timeUnit = TimeUnit.SECONDS;
                     SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.f42919b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                    this.b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
                 }
             }
         }
-        return this.f42919b;
+        return this.b;
     }
 
     public ScheduledExecutorService d() {
-        if (this.f42920c == null) {
+        if (this.c == null) {
             synchronized (d.class) {
-                if (this.f42920c == null) {
-                    this.f42920c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                if (this.c == null) {
+                    this.c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.f42920c;
+        return this.c;
     }
 
     public void e() {

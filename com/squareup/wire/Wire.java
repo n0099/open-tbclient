@@ -136,8 +136,8 @@ public final class Wire {
                 if (field.getType().equals(Extension.class)) {
                     try {
                         this.registry.add((Extension) field.get(null));
-                    } catch (IllegalAccessException e2) {
-                        throw new AssertionError(e2);
+                    } catch (IllegalAccessException e) {
+                        throw new AssertionError(e);
                     }
                 }
             }

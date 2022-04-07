@@ -1,29 +1,29 @@
 package com.kwad.sdk.d.a;
 
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface d {
     void a();
 
-    void a(View view);
+    void a(View view2);
 
     void a(boolean z);
 
     void b();
 
-    void b(View view);
+    void b(View view2);
 
     void b(boolean z);
 
-    void c(View view);
+    void c(View view2);
 
-    void d(View view);
+    void d(View view2);
 
-    void e(View view);
+    void e(View view2);
 
-    void f(View view);
+    void f(View view2);
 
-    void g(View view);
+    void g(View view2);
 
-    void h(View view);
+    void h(View view2);
 }

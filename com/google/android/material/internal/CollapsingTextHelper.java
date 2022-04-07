@@ -39,7 +39,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
@@ -107,7 +107,9 @@ public final class CollapsingTextHelper {
     @NonNull
     public final TextPaint tmpPaint;
     public boolean useTexture;
-    public final View view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public final View f1026view;
 
     static {
         InterceptResult invokeClinit;
@@ -131,12 +133,12 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public CollapsingTextHelper(View view) {
+    public CollapsingTextHelper(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -151,7 +153,7 @@ public final class CollapsingTextHelper {
         this.expandedTextSize = 15.0f;
         this.collapsedTextSize = 15.0f;
         this.maxLines = 1;
-        this.view = view;
+        this.f1026view = view2;
         this.textPaint = new TextPaint(129);
         this.tmpPaint = new TextPaint(this.textPaint);
         this.collapsedBounds = new Rect();
@@ -159,12 +161,12 @@ public final class CollapsingTextHelper {
         this.currentBounds = new RectF();
     }
 
-    public static int blendColors(int i, int i2, float f2) {
+    public static int blendColors(int i, int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            float f3 = 1.0f - f2;
-            return Color.argb((int) ((Color.alpha(i) * f3) + (Color.alpha(i2) * f2)), (int) ((Color.red(i) * f3) + (Color.red(i2) * f2)), (int) ((Color.green(i) * f3) + (Color.green(i2) * f2)), (int) ((Color.blue(i) * f3) + (Color.blue(i2) * f2)));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            float f2 = 1.0f - f;
+            return Color.argb((int) ((Color.alpha(i) * f2) + (Color.alpha(i2) * f)), (int) ((Color.red(i) * f2) + (Color.red(i2) * f)), (int) ((Color.green(i) * f2) + (Color.green(i2) * f)), (int) ((Color.blue(i) * f2) + (Color.blue(i2) * f)));
         }
         return invokeCommon.intValue;
     }
@@ -174,7 +176,7 @@ public final class CollapsingTextHelper {
         StaticLayout staticLayout2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            float f2 = this.currentTextSize;
+            float f = this.currentTextSize;
             calculateUsingTextSize(this.collapsedTextSize);
             CharSequence charSequence = this.textToDraw;
             if (charSequence != null && (staticLayout2 = this.textLayout) != null) {
@@ -227,7 +229,7 @@ public final class CollapsingTextHelper {
                 this.expandedDrawX = this.expandedBounds.right - measureText2;
             }
             clearTexture();
-            setInterpolatedTextSize(f2);
+            setInterpolatedTextSize(f);
         }
     }
 
@@ -247,37 +249,37 @@ public final class CollapsingTextHelper {
         return invokeL.booleanValue;
     }
 
-    private void calculateOffsets(float f2) {
+    private void calculateOffsets(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65542, this, f2) == null) {
-            interpolateBounds(f2);
-            this.currentDrawX = lerp(this.expandedDrawX, this.collapsedDrawX, f2, this.positionInterpolator);
-            this.currentDrawY = lerp(this.expandedDrawY, this.collapsedDrawY, f2, this.positionInterpolator);
-            setInterpolatedTextSize(lerp(this.expandedTextSize, this.collapsedTextSize, f2, this.textSizeInterpolator));
-            setCollapsedTextBlend(1.0f - lerp(0.0f, 1.0f, 1.0f - f2, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
-            setExpandedTextBlend(lerp(1.0f, 0.0f, f2, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+        if (interceptable == null || interceptable.invokeF(65542, this, f) == null) {
+            interpolateBounds(f);
+            this.currentDrawX = lerp(this.expandedDrawX, this.collapsedDrawX, f, this.positionInterpolator);
+            this.currentDrawY = lerp(this.expandedDrawY, this.collapsedDrawY, f, this.positionInterpolator);
+            setInterpolatedTextSize(lerp(this.expandedTextSize, this.collapsedTextSize, f, this.textSizeInterpolator));
+            setCollapsedTextBlend(1.0f - lerp(0.0f, 1.0f, 1.0f - f, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
+            setExpandedTextBlend(lerp(1.0f, 0.0f, f, AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR));
             if (this.collapsedTextColor != this.expandedTextColor) {
-                this.textPaint.setColor(blendColors(getCurrentExpandedTextColor(), getCurrentCollapsedTextColor(), f2));
+                this.textPaint.setColor(blendColors(getCurrentExpandedTextColor(), getCurrentCollapsedTextColor(), f));
             } else {
                 this.textPaint.setColor(getCurrentCollapsedTextColor());
             }
-            this.textPaint.setShadowLayer(lerp(this.expandedShadowRadius, this.collapsedShadowRadius, f2, null), lerp(this.expandedShadowDx, this.collapsedShadowDx, f2, null), lerp(this.expandedShadowDy, this.collapsedShadowDy, f2, null), blendColors(getCurrentColor(this.expandedShadowColor), getCurrentColor(this.collapsedShadowColor), f2));
-            ViewCompat.postInvalidateOnAnimation(this.view);
+            this.textPaint.setShadowLayer(lerp(this.expandedShadowRadius, this.collapsedShadowRadius, f, null), lerp(this.expandedShadowDx, this.collapsedShadowDx, f, null), lerp(this.expandedShadowDy, this.collapsedShadowDy, f, null), blendColors(getCurrentColor(this.expandedShadowColor), getCurrentColor(this.collapsedShadowColor), f));
+            ViewCompat.postInvalidateOnAnimation(this.f1026view);
         }
     }
 
-    private void calculateUsingTextSize(float f2) {
+    private void calculateUsingTextSize(float f) {
         boolean z;
-        float f3;
+        float f2;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65543, this, f2) == null) || this.text == null) {
+        if (!(interceptable == null || interceptable.invokeF(65543, this, f) == null) || this.text == null) {
             return;
         }
         float width = this.collapsedBounds.width();
         float width2 = this.expandedBounds.width();
-        if (isClose(f2, this.collapsedTextSize)) {
-            f3 = this.collapsedTextSize;
+        if (isClose(f, this.collapsedTextSize)) {
+            f2 = this.collapsedTextSize;
             this.scale = 1.0f;
             Typeface typeface = this.currentTypeface;
             Typeface typeface2 = this.collapsedTypeface;
@@ -288,7 +290,7 @@ public final class CollapsingTextHelper {
                 z2 = false;
             }
         } else {
-            float f4 = this.expandedTextSize;
+            float f3 = this.expandedTextSize;
             Typeface typeface3 = this.currentTypeface;
             Typeface typeface4 = this.expandedTypeface;
             if (typeface3 != typeface4) {
@@ -297,19 +299,19 @@ public final class CollapsingTextHelper {
             } else {
                 z = false;
             }
-            if (isClose(f2, this.expandedTextSize)) {
+            if (isClose(f, this.expandedTextSize)) {
                 this.scale = 1.0f;
             } else {
-                this.scale = f2 / this.expandedTextSize;
+                this.scale = f / this.expandedTextSize;
             }
-            float f5 = this.collapsedTextSize / this.expandedTextSize;
-            width = width2 * f5 > width ? Math.min(width / f5, width2) : width2;
-            f3 = f4;
+            float f4 = this.collapsedTextSize / this.expandedTextSize;
+            width = width2 * f4 > width ? Math.min(width / f4, width2) : width2;
+            f2 = f3;
             z2 = z;
         }
         if (width > 0.0f) {
-            z2 = this.currentTextSize != f3 || this.boundsChanged || z2;
-            this.currentTextSize = f3;
+            z2 = this.currentTextSize != f2 || this.boundsChanged || z2;
+            this.currentTextSize = f2;
             this.boundsChanged = false;
         }
         if (this.textToDraw == null || z2) {
@@ -333,15 +335,15 @@ public final class CollapsingTextHelper {
         this.expandedTitleTexture = null;
     }
 
-    private StaticLayout createStaticLayout(int i, float f2, boolean z) {
+    private StaticLayout createStaticLayout(int i, float f, boolean z) {
         StaticLayout staticLayout;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)})) == null) {
             try {
-                staticLayout = StaticLayoutBuilderCompat.obtain(this.text, this.textPaint, (int) f2).setEllipsize(TextUtils.TruncateAt.END).setIsRtl(z).setAlignment(Layout.Alignment.ALIGN_NORMAL).setIncludePad(false).setMaxLines(i).build();
-            } catch (StaticLayoutBuilderCompat.StaticLayoutBuilderCompatException e2) {
-                Log.e(TAG, e2.getCause().getMessage(), e2);
+                staticLayout = StaticLayoutBuilderCompat.obtain(this.text, this.textPaint, (int) f).setEllipsize(TextUtils.TruncateAt.END).setIsRtl(z).setAlignment(Layout.Alignment.ALIGN_NORMAL).setIncludePad(false).setMaxLines(i).build();
+            } catch (StaticLayoutBuilderCompat.StaticLayoutBuilderCompatException e) {
+                Log.e(TAG, e.getCause().getMessage(), e);
                 staticLayout = null;
             }
             return (StaticLayout) Preconditions.checkNotNull(staticLayout);
@@ -349,26 +351,26 @@ public final class CollapsingTextHelper {
         return (StaticLayout) invokeCommon.objValue;
     }
 
-    private void drawMultinlineTransition(@NonNull Canvas canvas, float f2, float f3) {
+    private void drawMultinlineTransition(@NonNull Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             int alpha = this.textPaint.getAlpha();
-            canvas.translate(f2, f3);
-            float f4 = alpha;
-            this.textPaint.setAlpha((int) (this.expandedTextBlend * f4));
+            canvas.translate(f, f2);
+            float f3 = alpha;
+            this.textPaint.setAlpha((int) (this.expandedTextBlend * f3));
             this.textLayout.draw(canvas);
-            this.textPaint.setAlpha((int) (this.collapsedTextBlend * f4));
+            this.textPaint.setAlpha((int) (this.collapsedTextBlend * f3));
             int lineBaseline = this.textLayout.getLineBaseline(0);
             CharSequence charSequence = this.textToDrawCollapsed;
-            float f5 = lineBaseline;
-            canvas.drawText(charSequence, 0, charSequence.length(), 0.0f, f5, this.textPaint);
+            float f4 = lineBaseline;
+            canvas.drawText(charSequence, 0, charSequence.length(), 0.0f, f4, this.textPaint);
             String trim = this.textToDrawCollapsed.toString().trim();
             if (trim.endsWith("…")) {
                 trim = trim.substring(0, trim.length() - 1);
             }
             String str = trim;
             this.textPaint.setAlpha(alpha);
-            canvas.drawText(str, 0, Math.min(this.textLayout.getLineEnd(0), str.length()), 0.0f, f5, (Paint) this.textPaint);
+            canvas.drawText(str, 0, Math.min(this.textLayout.getLineEnd(0), str.length()), 0.0f, f4, (Paint) this.textPaint);
         }
     }
 
@@ -454,36 +456,36 @@ public final class CollapsingTextHelper {
         }
     }
 
-    private void interpolateBounds(float f2) {
+    private void interpolateBounds(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65554, this, f2) == null) {
-            this.currentBounds.left = lerp(this.expandedBounds.left, this.collapsedBounds.left, f2, this.positionInterpolator);
-            this.currentBounds.top = lerp(this.expandedDrawY, this.collapsedDrawY, f2, this.positionInterpolator);
-            this.currentBounds.right = lerp(this.expandedBounds.right, this.collapsedBounds.right, f2, this.positionInterpolator);
-            this.currentBounds.bottom = lerp(this.expandedBounds.bottom, this.collapsedBounds.bottom, f2, this.positionInterpolator);
+        if (interceptable == null || interceptable.invokeF(65554, this, f) == null) {
+            this.currentBounds.left = lerp(this.expandedBounds.left, this.collapsedBounds.left, f, this.positionInterpolator);
+            this.currentBounds.top = lerp(this.expandedDrawY, this.collapsedDrawY, f, this.positionInterpolator);
+            this.currentBounds.right = lerp(this.expandedBounds.right, this.collapsedBounds.right, f, this.positionInterpolator);
+            this.currentBounds.bottom = lerp(this.expandedBounds.bottom, this.collapsedBounds.bottom, f, this.positionInterpolator);
         }
     }
 
-    public static boolean isClose(float f2, float f3) {
+    public static boolean isClose(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.abs(f2 - f3) < 0.001f : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? Math.abs(f - f2) < 0.001f : invokeCommon.booleanValue;
     }
 
     private boolean isDefaultIsRtl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? ViewCompat.getLayoutDirection(this.view) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? ViewCompat.getLayoutDirection(this.f1026view) == 1 : invokeV.booleanValue;
     }
 
-    public static float lerp(float f2, float f3, float f4, @Nullable TimeInterpolator timeInterpolator) {
+    public static float lerp(float f, float f2, float f3, @Nullable TimeInterpolator timeInterpolator) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), timeInterpolator})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), timeInterpolator})) == null) {
             if (timeInterpolator != null) {
-                f4 = timeInterpolator.getInterpolation(f4);
+                f3 = timeInterpolator.getInterpolation(f3);
             }
-            return AnimationUtils.lerp(f2, f3, f4);
+            return AnimationUtils.lerp(f, f2, f3);
         }
         return invokeCommon.floatValue;
     }
@@ -494,11 +496,11 @@ public final class CollapsingTextHelper {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? rect.left == i && rect.top == i2 && rect.right == i3 && rect.bottom == i4 : invokeCommon.booleanValue;
     }
 
-    private void setCollapsedTextBlend(float f2) {
+    private void setCollapsedTextBlend(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65559, this, f2) == null) {
-            this.collapsedTextBlend = f2;
-            ViewCompat.postInvalidateOnAnimation(this.view);
+        if (interceptable == null || interceptable.invokeF(65559, this, f) == null) {
+            this.collapsedTextBlend = f;
+            ViewCompat.postInvalidateOnAnimation(this.f1026view);
         }
     }
 
@@ -519,11 +521,11 @@ public final class CollapsingTextHelper {
         return invokeL.booleanValue;
     }
 
-    private void setExpandedTextBlend(float f2) {
+    private void setExpandedTextBlend(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65561, this, f2) == null) {
-            this.expandedTextBlend = f2;
-            ViewCompat.postInvalidateOnAnimation(this.view);
+        if (interceptable == null || interceptable.invokeF(65561, this, f) == null) {
+            this.expandedTextBlend = f;
+            ViewCompat.postInvalidateOnAnimation(this.f1026view);
         }
     }
 
@@ -544,16 +546,16 @@ public final class CollapsingTextHelper {
         return invokeL.booleanValue;
     }
 
-    private void setInterpolatedTextSize(float f2) {
+    private void setInterpolatedTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65563, this, f2) == null) {
-            calculateUsingTextSize(f2);
+        if (interceptable == null || interceptable.invokeF(65563, this, f) == null) {
+            calculateUsingTextSize(f);
             boolean z = USE_SCALING_TEXTURE && this.scale != 1.0f;
             this.useTexture = z;
             if (z) {
                 ensureExpandedTexture();
             }
-            ViewCompat.postInvalidateOnAnimation(this.view);
+            ViewCompat.postInvalidateOnAnimation(this.f1026view);
         }
     }
 
@@ -588,24 +590,24 @@ public final class CollapsingTextHelper {
             boolean z = false;
             float lineLeft = (this.currentDrawX + this.textLayout.getLineLeft(0)) - (this.expandedFirstLineDrawX * 2.0f);
             this.textPaint.setTextSize(this.currentTextSize);
-            float f2 = this.currentDrawX;
-            float f3 = this.currentDrawY;
+            float f = this.currentDrawX;
+            float f2 = this.currentDrawY;
             if (this.useTexture && this.expandedTitleTexture != null) {
                 z = true;
             }
-            float f4 = this.scale;
-            if (f4 != 1.0f) {
-                canvas.scale(f4, f4, f2, f3);
+            float f3 = this.scale;
+            if (f3 != 1.0f) {
+                canvas.scale(f3, f3, f, f2);
             }
             if (z) {
-                canvas.drawBitmap(this.expandedTitleTexture, f2, f3, this.texturePaint);
+                canvas.drawBitmap(this.expandedTitleTexture, f, f2, this.texturePaint);
                 canvas.restoreToCount(save);
                 return;
             }
             if (shouldDrawMultiline()) {
-                drawMultinlineTransition(canvas, lineLeft, f3);
+                drawMultinlineTransition(canvas, lineLeft, f2);
             } else {
-                canvas.translate(f2, f3);
+                canvas.translate(f, f2);
                 this.textLayout.draw(canvas);
             }
             canvas.restoreToCount(save);
@@ -745,7 +747,7 @@ public final class CollapsingTextHelper {
 
     public void recalculate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.view.getHeight() <= 0 || this.view.getWidth() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || this.f1026view.getHeight() <= 0 || this.f1026view.getWidth() <= 0) {
             return;
         }
         calculateBaseOffsets();
@@ -765,14 +767,14 @@ public final class CollapsingTextHelper {
     public void setCollapsedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1026view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.collapsedTextColor = colorStateList;
             }
-            float f2 = textAppearance.textSize;
-            if (f2 != 0.0f) {
-                this.collapsedTextSize = f2;
+            float f = textAppearance.textSize;
+            if (f != 0.0f) {
+                this.collapsedTextSize = f;
             }
             ColorStateList colorStateList2 = textAppearance.shadowColor;
             if (colorStateList2 != null) {
@@ -816,7 +818,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.view.getContext(), this.collapsedFontCallback);
+            textAppearance.getFontAsync(this.f1026view.getContext(), this.collapsedFontCallback);
             recalculate();
         }
     }
@@ -839,12 +841,12 @@ public final class CollapsingTextHelper {
         recalculate();
     }
 
-    public void setCollapsedTextSize(float f2) {
+    public void setCollapsedTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048601, this, f2) == null) || this.collapsedTextSize == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048601, this, f) == null) || this.collapsedTextSize == f) {
             return;
         }
-        this.collapsedTextSize = f2;
+        this.collapsedTextSize = f;
         recalculate();
     }
 
@@ -868,14 +870,14 @@ public final class CollapsingTextHelper {
     public void setExpandedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1026view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.expandedTextColor = colorStateList;
             }
-            float f2 = textAppearance.textSize;
-            if (f2 != 0.0f) {
-                this.expandedTextSize = f2;
+            float f = textAppearance.textSize;
+            if (f != 0.0f) {
+                this.expandedTextSize = f;
             }
             ColorStateList colorStateList2 = textAppearance.shadowColor;
             if (colorStateList2 != null) {
@@ -919,7 +921,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.view.getContext(), this.expandedFontCallback);
+            textAppearance.getFontAsync(this.f1026view.getContext(), this.expandedFontCallback);
             recalculate();
         }
     }
@@ -942,12 +944,12 @@ public final class CollapsingTextHelper {
         recalculate();
     }
 
-    public void setExpandedTextSize(float f2) {
+    public void setExpandedTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048608, this, f2) == null) || this.expandedTextSize == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048608, this, f) == null) || this.expandedTextSize == f) {
             return;
         }
-        this.expandedTextSize = f2;
+        this.expandedTextSize = f;
         recalculate();
     }
 
@@ -958,10 +960,10 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public void setExpansionFraction(float f2) {
+    public void setExpansionFraction(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048610, this, f2) == null) {
-            float clamp = MathUtils.clamp(f2, 0.0f, 1.0f);
+        if (interceptable == null || interceptable.invokeF(1048610, this, f) == null) {
+            float clamp = MathUtils.clamp(f, 0.0f, 1.0f);
             if (clamp != this.expandedFraction) {
                 this.expandedFraction = clamp;
                 calculateCurrentOffsets();

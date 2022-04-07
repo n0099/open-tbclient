@@ -8,7 +8,7 @@ import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class d {
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a() ? c.p : b(context) ? c.t : b() ? c.q : c.f37956b : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a() ? c.p : b(context) ? c.t : b() ? c.q : c.b : (c) invokeL.objValue;
     }
 
     public static String a(String str, String str2) {
@@ -26,8 +26,8 @@ public class d {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "unknown");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return str2;
             } catch (Throwable unused) {
                 return str2;

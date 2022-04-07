@@ -2,7 +2,7 @@ package com.tachikoma.core.component.listview.viewpager;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ITKPageTransformer {
-    void transformPage(@NonNull View view, float f2);
+    void transformPage(@NonNull View view2, float f);
 }

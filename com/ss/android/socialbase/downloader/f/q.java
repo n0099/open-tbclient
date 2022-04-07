@@ -8,37 +8,23 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public class q {
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f43326b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f43327c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final boolean f43328d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final List<m> f43329e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f43330f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f43331g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f43332h;
+    public final String b;
+    public final String c;
+    public final boolean d;
+    public final List<m> e;
+    public int f;
+    public boolean g;
+    public int h;
     public String i;
     public final AtomicLong j;
 
     public q(String str, boolean z) {
-        this.f43329e = new ArrayList();
+        this.e = new ArrayList();
         this.j = new AtomicLong();
         this.a = str;
-        this.f43328d = z;
-        this.f43326b = null;
-        this.f43327c = null;
+        this.d = z;
+        this.b = null;
+        this.c = null;
     }
 
     private String a(String str) {
@@ -62,13 +48,13 @@ public class q {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("_");
-            String str = this.f43326b;
+            String str = this.b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f43328d);
+            sb.append(this.d);
             this.i = sb.toString();
         }
         return this.i;
@@ -76,17 +62,17 @@ public class q {
 
     public synchronized void b(m mVar) {
         try {
-            this.f43329e.remove(mVar);
+            this.e.remove(mVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void c() {
-        this.f43331g = false;
+        this.g = false;
     }
 
     public synchronized boolean d() {
-        return this.f43331g;
+        return this.g;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -100,36 +86,36 @@ public class q {
     }
 
     public int hashCode() {
-        if (this.f43332h == 0) {
-            this.f43332h = e().hashCode();
+        if (this.h == 0) {
+            this.h = e().hashCode();
         }
-        return this.f43332h;
+        return this.h;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.a + "', ip='" + this.f43326b + "', ipFamily='" + this.f43327c + "', isMainUrl=" + this.f43328d + ", failedTimes=" + this.f43330f + ", isCurrentFailed=" + this.f43331g + '}';
+        return "UrlRecord{url='" + this.a + "', ip='" + this.b + "', ipFamily='" + this.c + "', isMainUrl=" + this.d + ", failedTimes=" + this.f + ", isCurrentFailed=" + this.g + '}';
     }
 
     public synchronized void b() {
-        this.f43330f++;
-        this.f43331g = true;
+        this.f++;
+        this.g = true;
     }
 
     public synchronized void a(m mVar) {
-        this.f43329e.add(mVar);
+        this.e.add(mVar);
     }
 
     public q(String str, String str2) {
-        this.f43329e = new ArrayList();
+        this.e = new ArrayList();
         this.j = new AtomicLong();
         this.a = str;
-        this.f43328d = false;
-        this.f43326b = str2;
-        this.f43327c = a(str2);
+        this.d = false;
+        this.b = str2;
+        this.c = a(str2);
     }
 
     public synchronized int a() {
-        return this.f43329e.size();
+        return this.e.size();
     }
 
     public void a(long j) {

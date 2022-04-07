@@ -18,32 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAdDownloadButtonView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29466b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29467c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f29468d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f29469e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f29470f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f29471g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f29472h;
+    public int b;
+    public int c;
+    public boolean d;
+    public int e;
+    public boolean f;
+    public Paint g;
+    public int h;
     public float i;
     public String j;
     public int k;
@@ -51,7 +37,7 @@ public class SwanAdDownloadButtonView extends View {
     public float m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +98,7 @@ public class SwanAdDownloadButtonView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -163,28 +149,28 @@ public class SwanAdDownloadButtonView extends View {
             }
         }
         this.a = new Paint();
-        this.f29471g = new Paint();
-        this.f29472h = -1;
+        this.g = new Paint();
+        this.h = -1;
         this.k = 100;
         this.l = State.PREPARE;
         this.m = -1.0f;
         this.a.setAntiAlias(true);
-        this.f29471g.setAntiAlias(true);
-        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f8);
-        this.f29466b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a4f);
-        this.f29467c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a50);
+        this.g.setAntiAlias(true);
+        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070607);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060a5e);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060a5f);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
-            this.a.setColor(this.f29466b);
+            this.a.setColor(this.b);
             this.a.setStyle(Paint.Style.FILL);
-            float f2 = this.m;
-            if (f2 <= 0.0f) {
-                f2 = this.f29468d ? rectF.height() / 2.0f : 0.0f;
+            float f = this.m;
+            if (f <= 0.0f) {
+                f = this.d ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.a);
+            canvas.drawRoundRect(rectF, f, f, this.a);
         }
     }
 
@@ -192,52 +178,52 @@ public class SwanAdDownloadButtonView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
             int i = a.a[this.l.ordinal()];
-            float f2 = 0.0f;
+            float f = 0.0f;
             if (i != 1) {
                 if (i != 2) {
                     return;
                 }
-                this.a.setColor(this.f29467c);
+                this.a.setColor(this.c);
                 this.a.setStyle(Paint.Style.FILL);
-                float f3 = this.m;
-                if (f3 > 0.0f) {
-                    f2 = f3;
-                } else if (this.f29468d) {
-                    f2 = rectF.height() / 2.0f;
+                float f2 = this.m;
+                if (f2 > 0.0f) {
+                    f = f2;
+                } else if (this.d) {
+                    f = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.a);
+                canvas.drawRoundRect(rectF, f, f, this.a);
                 return;
             }
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
-            float f4 = this.f29469e / this.k;
-            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f29467c, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
-            float f5 = this.m;
-            if (f5 > 0.0f) {
-                f2 = f5;
-            } else if (this.f29468d) {
-                f2 = rectF.height() / 2.0f;
+            float f3 = this.e / this.k;
+            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.c, 0}, new float[]{f3, f3 + 1.0E-4f}, Shader.TileMode.CLAMP));
+            float f4 = this.m;
+            if (f4 > 0.0f) {
+                f = f4;
+            } else if (this.d) {
+                f = rectF.height() / 2.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, paint);
+            canvas.drawRoundRect(rectF, f, f, paint);
         }
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            this.f29471g.setTextSize(this.i);
-            float height = (canvas.getHeight() / 2) - ((this.f29471g.descent() / 2.0f) + (this.f29471g.ascent() / 2.0f));
-            float measureText = this.f29471g.measureText(this.j);
-            this.f29471g.setColor(this.f29472h);
-            canvas.drawText(this.j, (getMeasuredWidth() - measureText) / 2.0f, height, this.f29471g);
+            this.g.setTextSize(this.i);
+            float height = (canvas.getHeight() / 2) - ((this.g.descent() / 2.0f) + (this.g.ascent() / 2.0f));
+            float measureText = this.g.measureText(this.j);
+            this.g.setColor(this.h);
+            canvas.drawText(this.j, (getMeasuredWidth() - measureText) / 2.0f, height, this.g);
         }
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            float f2 = 0;
-            RectF rectF = new RectF(f2, f2, getWidth(), getHeight());
+            float f = 0;
+            RectF rectF = new RectF(f, f, getWidth(), getHeight());
             a(canvas, rectF);
             b(canvas, rectF);
             c(canvas);
@@ -252,7 +238,7 @@ public class SwanAdDownloadButtonView extends View {
             if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.j)) {
                 return;
             }
-            if (!this.f29470f) {
+            if (!this.f) {
                 e(canvas);
             } else {
                 d(canvas);
@@ -263,20 +249,20 @@ public class SwanAdDownloadButtonView extends View {
     public final void e(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            float f2 = 0;
-            RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-            this.a.setColor(this.f29466b);
+            float f = 0;
+            RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
+            this.a.setColor(this.b);
             this.a.setStyle(Paint.Style.FILL);
-            float f3 = this.m;
-            if (f3 <= 0.0f) {
-                f3 = this.f29468d ? rectF.height() / 2.0f : 0.0f;
+            float f2 = this.m;
+            if (f2 <= 0.0f) {
+                f2 = this.d ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f3, f3, this.a);
-            this.f29471g.setColor(this.f29472h);
-            this.f29471g.setTextSize(this.i);
-            Paint.FontMetrics fontMetrics = this.f29471g.getFontMetrics();
-            float f4 = fontMetrics.descent;
-            canvas.drawText(this.j, (getMeasuredWidth() - this.f29471g.measureText(this.j)) / 2.0f, ((getHeight() / 2) - f4) + ((f4 - fontMetrics.ascent) / 2.0f), this.f29471g);
+            canvas.drawRoundRect(rectF, f2, f2, this.a);
+            this.g.setColor(this.h);
+            this.g.setTextSize(this.i);
+            Paint.FontMetrics fontMetrics = this.g.getFontMetrics();
+            float f3 = fontMetrics.descent;
+            canvas.drawText(this.j, (getMeasuredWidth() - this.g.measureText(this.j)) / 2.0f, ((getHeight() / 2) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.g);
         }
     }
 
@@ -284,7 +270,7 @@ public class SwanAdDownloadButtonView extends View {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f29468d = z;
+            this.d = z;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeZ.objValue;
@@ -294,7 +280,7 @@ public class SwanAdDownloadButtonView extends View {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f29470f = z;
+            this.f = z;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeZ.objValue;
@@ -310,7 +296,7 @@ public class SwanAdDownloadButtonView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            this.f29466b = i;
+            this.b = i;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeI.objValue;
@@ -320,17 +306,17 @@ public class SwanAdDownloadButtonView extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            this.f29472h = i;
+            this.h = i;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeI.objValue;
     }
 
-    public SwanAdDownloadButtonView j(float f2) {
+    public SwanAdDownloadButtonView j(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f2)) == null) {
-            this.i = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.i = f;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeF.objValue;
@@ -353,7 +339,7 @@ public class SwanAdDownloadButtonView extends View {
             if (i > i2) {
                 i = i2;
             }
-            this.f29469e = i;
+            this.e = i;
             if (i == 0) {
                 this.l = State.PREPARE;
             } else if (i == this.k) {
@@ -364,10 +350,10 @@ public class SwanAdDownloadButtonView extends View {
         }
     }
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.m = f2;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            this.m = f;
         }
     }
 

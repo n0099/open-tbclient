@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OkHttpRequest implements HttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,10 +144,10 @@ public class OkHttpRequest implements HttpRequest {
                 if (this.mCallback != null) {
                     this.mCallback.onSuccess(getHttpResponse(response));
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 ResponseCallback responseCallback = this.mCallback;
                 if (responseCallback != null) {
-                    responseCallback.onFail(-1, e2);
+                    responseCallback.onFail(-1, e);
                 }
             }
         }

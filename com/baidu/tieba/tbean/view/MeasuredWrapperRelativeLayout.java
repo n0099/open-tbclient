@@ -10,19 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public int b;
+    public boolean c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f36227b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f36228c;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void update(boolean z, int i);
     }
@@ -52,22 +48,22 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
             int size = View.MeasureSpec.getSize(i);
-            int i2 = this.f36227b;
+            int i2 = this.b;
             if (i2 == 0) {
-                this.f36227b = size;
+                this.b = size;
             } else if (i2 == size) {
             } else {
                 int i3 = i2 - size;
-                if (Math.abs(i3) < context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070263)) {
+                if (Math.abs(i3) < context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070270)) {
                     return;
                 }
                 if (i3 > 0) {
-                    this.f36228c = true;
+                    this.c = true;
                 } else {
-                    this.f36228c = false;
+                    this.c = false;
                 }
-                b(this.f36228c, Math.abs(i3));
-                this.f36227b = size;
+                b(this.c, Math.abs(i3));
+                this.b = size;
             }
         }
     }

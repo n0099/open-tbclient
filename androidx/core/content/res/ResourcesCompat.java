@@ -208,16 +208,16 @@ public final class ResourcesCompat {
                                 Method declaredMethod = Resources.Theme.class.getDeclaredMethod("rebase", new Class[0]);
                                 sRebaseMethod = declaredMethod;
                                 declaredMethod.setAccessible(true);
-                            } catch (NoSuchMethodException e2) {
-                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e2);
+                            } catch (NoSuchMethodException e) {
+                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e);
                             }
                             sRebaseMethodFetched = true;
                         }
                         if (sRebaseMethod != null) {
                             try {
                                 sRebaseMethod.invoke(theme, new Object[0]);
-                            } catch (IllegalAccessException | InvocationTargetException e3) {
-                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e3);
+                            } catch (IllegalAccessException | InvocationTargetException e2) {
+                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e2);
                                 sRebaseMethod = null;
                             }
                         }
@@ -450,14 +450,14 @@ public final class ResourcesCompat {
                         }
                     }
                     return createFromResourcesFontFile;
-                } catch (IOException e2) {
-                    Log.e(TAG, "Failed to read xml resource " + charSequence2, e2);
+                } catch (IOException e) {
+                    Log.e(TAG, "Failed to read xml resource " + charSequence2, e);
                     if (fontCallback != null) {
                         fontCallback.callbackFailAsync(-3, handler);
                     }
                     return null;
-                } catch (XmlPullParserException e3) {
-                    Log.e(TAG, "Failed to parse xml resource " + charSequence2, e3);
+                } catch (XmlPullParserException e2) {
+                    Log.e(TAG, "Failed to parse xml resource " + charSequence2, e2);
                     if (fontCallback != null) {
                     }
                     return null;

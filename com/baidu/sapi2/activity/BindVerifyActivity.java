@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BindVerifyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A = 403;
@@ -33,27 +33,13 @@ public class BindVerifyActivity extends Activity {
     public static final int C = 405;
     public static final int D = 406;
     public static final int E = 407;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28418b = "cmd";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f28419c = "taskId";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f28420d = "resultCode";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f28421e = "login";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f28422f = "bindphone";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f28423g = "normalize";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f28424h = 101;
+    public static final String b = "cmd";
+    public static final String c = "taskId";
+    public static final String d = "resultCode";
+    public static final String e = "login";
+    public static final String f = "bindphone";
+    public static final String g = "normalize";
+    public static final int h = 101;
     public static final int i = 102;
     public static final int j = 200;
     public static final int k = 201;
@@ -308,13 +294,13 @@ public class BindVerifyActivity extends Activity {
             int hashCode = str.hashCode();
             if (hashCode != -914671791) {
                 if (hashCode != 103149417) {
-                    if (hashCode == 236609293 && str.equals(f28423g)) {
+                    if (hashCode == 236609293 && str.equals(g)) {
                         c2 = 2;
                     }
                 } else if (str.equals("login")) {
                     c2 = 0;
                 }
-            } else if (str.equals(f28422f)) {
+            } else if (str.equals(f)) {
                 c2 = 1;
             }
             if (c2 == 0) {

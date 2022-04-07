@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,14 +54,14 @@ public class StringUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static float parseFloat(String str, float f2) {
+    public static float parseFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
             try {
                 return Float.parseFloat(str);
             } catch (Throwable unused) {
-                return f2;
+                return f;
             }
         }
         return invokeLF.floatValue;
@@ -112,8 +112,8 @@ public class StringUtil {
                             GDTLogger.d("Exception while close bufferreader");
                         }
                         return sb2;
-                    } catch (IOException e2) {
-                        throw e2;
+                    } catch (IOException e) {
+                        throw e;
                     }
                 } catch (Throwable th) {
                     bufferedReader2 = bufferedReader;
@@ -127,9 +127,9 @@ public class StringUtil {
                     }
                     throw th;
                 }
-            } catch (IOException e3) {
+            } catch (IOException e2) {
                 bufferedReader = null;
-                throw e3;
+                throw e2;
             } catch (Throwable th2) {
                 th = th2;
                 if (bufferedReader2 != null) {

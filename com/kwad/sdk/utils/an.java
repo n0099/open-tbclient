@@ -8,12 +8,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class an {
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f41350b;
+    public static String b;
 
     public static boolean a() {
         return a("EMUI");
@@ -26,31 +24,31 @@ public class an {
             return str2.contains(str);
         }
         String b2 = b("ro.build.version.opporom");
-        f41350b = b2;
+        b = b2;
         if (TextUtils.isEmpty(b2)) {
             String b3 = b("ro.vivo.os.version");
-            f41350b = b3;
+            b = b3;
             if (TextUtils.isEmpty(b3)) {
                 String b4 = b("ro.build.version.emui");
-                f41350b = b4;
+                b = b4;
                 if (TextUtils.isEmpty(b4)) {
                     String b5 = b("ro.miui.ui.version.name");
-                    f41350b = b5;
+                    b = b5;
                     if (TextUtils.isEmpty(b5)) {
                         String b6 = b(com.kuaishou.weapon.un.g.p);
-                        f41350b = b6;
+                        b = b6;
                         if (TextUtils.isEmpty(b6)) {
                             String b7 = b("ro.smartisan.version");
-                            f41350b = b7;
+                            b = b7;
                             if (TextUtils.isEmpty(b7)) {
                                 String upperCase2 = b(com.kuaishou.weapon.un.g.q).toUpperCase();
                                 String str3 = com.kuaishou.weapon.un.g.j;
                                 if (!upperCase2.contains(com.kuaishou.weapon.un.g.j)) {
                                     String str4 = Build.DISPLAY;
-                                    f41350b = str4;
+                                    b = str4;
                                     str3 = "FLYME";
                                     if (!str4.toUpperCase().contains("FLYME")) {
-                                        f41350b = "unknown";
+                                        b = "unknown";
                                         upperCase = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
@@ -91,26 +89,26 @@ public class an {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                str2 = null;
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return str2;
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 str2 = null;
                 if (TextUtils.isEmpty(str2)) {
                 }
                 return str2;
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchMethodException e3) {
                 e3.printStackTrace();
                 str2 = null;
                 if (TextUtils.isEmpty(str2)) {
                 }
                 return str2;
-            } catch (NoSuchMethodException e4) {
+            } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
-                str2 = null;
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return str2;
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
                 str2 = null;
                 if (TextUtils.isEmpty(str2)) {
                 }
@@ -119,14 +117,14 @@ public class an {
             if (TextUtils.isEmpty(str2)) {
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-                } catch (IOException e6) {
-                    e = e6;
+                } catch (IOException e5) {
+                    e = e5;
                 }
                 try {
                     str2 = bufferedReader.readLine();
                     bufferedReader.close();
-                } catch (IOException e7) {
-                    e = e7;
+                } catch (IOException e6) {
+                    e = e6;
                     bufferedReader2 = bufferedReader;
                     e.printStackTrace();
                     if (bufferedReader2 != null) {
@@ -167,9 +165,9 @@ public class an {
     }
 
     public static String e() {
-        if (f41350b == null) {
+        if (b == null) {
             a("");
         }
-        return f41350b;
+        return b;
     }
 }

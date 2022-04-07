@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gz;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ah implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,31 +37,31 @@ public final class ah implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
+        boolean b;
         boolean b2;
-        boolean b3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b2 = ag.b("www.baidu.com:80");
+            b = ag.b("www.baidu.com:80");
             Iterator it = this.a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String str = (String) it.next();
-                if (!b2) {
-                    b3 = ag.b(str);
-                    if (!b3) {
-                        b2 = false;
-                        if (!b2 && !this.f868a) {
+                if (!b) {
+                    b2 = ag.b(str);
+                    if (!b2) {
+                        b = false;
+                        if (!b && !this.f868a) {
                             break;
                         }
                     }
                 }
-                b2 = true;
-                if (!b2) {
+                b = true;
+                if (!b) {
                 }
             }
-            gz.a(b2 ? 1 : 2);
+            gz.a(b ? 1 : 2);
         }
     }
 }

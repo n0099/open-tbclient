@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,8 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import com.kwad.v8.debug.mirror.Frame;
 import com.kwad.yoga.YogaAlign;
 import com.kwad.yoga.YogaDirection;
 import com.kwad.yoga.YogaDisplay;
@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKYogaConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> NON_DP_CONVERT_KEYS;
@@ -56,7 +56,7 @@ public class TKYogaConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap yogaConfig;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TKYogaConfigHolder {
         public static /* synthetic */ Interceptable $ic;
         public static TKYogaConfig instance;
@@ -124,10 +124,10 @@ public class TKYogaConfig {
                         return;
                     }
                 }
-                put(Frame.COLUMN, Integer.valueOf(YogaFlexDirection.COLUMN.ordinal()));
-                put("column-reverse", Integer.valueOf(YogaFlexDirection.COLUMN_REVERSE.ordinal()));
-                put("row", Integer.valueOf(YogaFlexDirection.ROW.ordinal()));
-                put("row-reverse", Integer.valueOf(YogaFlexDirection.ROW_REVERSE.ordinal()));
+                put("column", Integer.valueOf(YogaFlexDirection.COLUMN.ordinal()));
+                put(CriusAttrConstants.COLUMN_REVERSE, Integer.valueOf(YogaFlexDirection.COLUMN_REVERSE.ordinal()));
+                put(CriusAttrConstants.ROW, Integer.valueOf(YogaFlexDirection.ROW.ordinal()));
+                put(CriusAttrConstants.ROW_REVERSE, Integer.valueOf(YogaFlexDirection.ROW_REVERSE.ordinal()));
             }
         };
         overflowMap = new HashMap() { // from class: com.tachikoma.core.layout.TKYogaConfig.2
@@ -213,11 +213,11 @@ public class TKYogaConfig {
                         return;
                     }
                 }
-                put("flex-start", Integer.valueOf(YogaJustify.FLEX_START.ordinal()));
+                put(CriusAttrConstants.FLEX_START, Integer.valueOf(YogaJustify.FLEX_START.ordinal()));
                 put("center", Integer.valueOf(YogaJustify.CENTER.ordinal()));
-                put("flex-end", Integer.valueOf(YogaJustify.FLEX_END.ordinal()));
-                put("space-between", Integer.valueOf(YogaJustify.SPACE_BETWEEN.ordinal()));
-                put("space-around", Integer.valueOf(YogaJustify.SPACE_AROUND.ordinal()));
+                put(CriusAttrConstants.FLEX_END, Integer.valueOf(YogaJustify.FLEX_END.ordinal()));
+                put(CriusAttrConstants.SPACE_BETWEEN, Integer.valueOf(YogaJustify.SPACE_BETWEEN.ordinal()));
+                put(CriusAttrConstants.SPACE_AROUND, Integer.valueOf(YogaJustify.SPACE_AROUND.ordinal()));
             }
         };
         positionTypeMap = new HashMap() { // from class: com.tachikoma.core.layout.TKYogaConfig.6
@@ -237,8 +237,8 @@ public class TKYogaConfig {
                         return;
                     }
                 }
-                put("absolute", Integer.valueOf(YogaPositionType.ABSOLUTE.ordinal()));
-                put("relative", Integer.valueOf(YogaPositionType.RELATIVE.ordinal()));
+                put(CriusAttrConstants.ABSOLUTE, Integer.valueOf(YogaPositionType.ABSOLUTE.ordinal()));
+                put(CriusAttrConstants.RELATIVE, Integer.valueOf(YogaPositionType.RELATIVE.ordinal()));
                 put("static", Integer.valueOf(YogaPositionType.RELATIVE.ordinal()));
             }
         };
@@ -260,13 +260,13 @@ public class TKYogaConfig {
                     }
                 }
                 put("auto", Integer.valueOf(YogaAlign.AUTO.ordinal()));
-                put("flex-start", Integer.valueOf(YogaAlign.FLEX_START.ordinal()));
+                put(CriusAttrConstants.FLEX_START, Integer.valueOf(YogaAlign.FLEX_START.ordinal()));
                 put("center", Integer.valueOf(YogaAlign.CENTER.ordinal()));
-                put("flex-end", Integer.valueOf(YogaAlign.FLEX_END.ordinal()));
-                put("stretch", Integer.valueOf(YogaAlign.STRETCH.ordinal()));
+                put(CriusAttrConstants.FLEX_END, Integer.valueOf(YogaAlign.FLEX_END.ordinal()));
+                put(CriusAttrConstants.STRETCH, Integer.valueOf(YogaAlign.STRETCH.ordinal()));
                 put("baseline", Integer.valueOf(YogaAlign.BASELINE.ordinal()));
-                put("space-between", Integer.valueOf(YogaAlign.SPACE_BETWEEN.ordinal()));
-                put("space-around", Integer.valueOf(YogaAlign.SPACE_AROUND.ordinal()));
+                put(CriusAttrConstants.SPACE_BETWEEN, Integer.valueOf(YogaAlign.SPACE_BETWEEN.ordinal()));
+                put(CriusAttrConstants.SPACE_AROUND, Integer.valueOf(YogaAlign.SPACE_AROUND.ordinal()));
             }
         };
         displayMap = new HashMap() { // from class: com.tachikoma.core.layout.TKYogaConfig.8
@@ -321,7 +321,7 @@ public class TKYogaConfig {
                 put("borderTop", 11);
                 put("borderVertical", 12);
                 put("direction", 13);
-                put("display", 14);
+                put(CriusAttrConstants.DISPLAY, 14);
                 put("flex", 15);
                 put("flexBasis", 16);
                 put("flexDirection", 17);
@@ -330,7 +330,7 @@ public class TKYogaConfig {
                 put("height", 20);
                 put("justifyContent", 21);
                 put("marginAll", 22);
-                put(AnimationProperty.MARGIN, 22);
+                put("margin", 22);
                 put(AnimationProperty.MARGIN_BOTTOM, 23);
                 put("marginEnd", 24);
                 put("marginHorizontal", 25);
@@ -361,12 +361,12 @@ public class TKYogaConfig {
                 put("positionRight", 50);
                 put("positionStart", 51);
                 put("positionTop", 52);
-                put(TipsConfigItem.TipConfigData.BOTTOM, 46);
+                put("bottom", 46);
                 put("end", 47);
                 put("left", 49);
                 put("right", 50);
                 put("start", 51);
-                put(AnimationProperty.TOP, 52);
+                put("top", 52);
                 put("positionType", 53);
                 put("position", 53);
                 put("positionVertical", 54);
@@ -391,10 +391,10 @@ public class TKYogaConfig {
                         return;
                     }
                 }
-                add("opacity");
+                add(NativeConstants.OPACITY);
                 add("maxLength");
                 add("textLineClamp");
-                add(Frame.COLUMN);
+                add("column");
             }
         };
     }

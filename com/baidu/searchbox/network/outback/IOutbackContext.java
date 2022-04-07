@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IOutbackContext {
     CallFactory.CallFactoryProducer getBackupCallFactoryProducer();
 

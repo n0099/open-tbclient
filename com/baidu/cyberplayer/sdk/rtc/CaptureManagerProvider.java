@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CaptureManagerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,17 +45,17 @@ public abstract class CaptureManagerProvider {
 
     public abstract void resume();
 
-    public abstract void setBeautyBlure(float f2);
+    public abstract void setBeautyBlure(float f);
 
-    public abstract void setBeautyWhite(float f2);
+    public abstract void setBeautyWhite(float f);
 
     public abstract void setCameraFace(boolean z);
 
     public abstract void setCaptureReadyCallback(CyberCaptureManager.OnCaptureReadyCallback onCaptureReadyCallback);
 
-    public abstract void setCheekThin(float f2);
+    public abstract void setCheekThin(float f);
 
-    public abstract void setEnlargeEye(float f2);
+    public abstract void setEnlargeEye(float f);
 
     public abstract void setFlip(boolean z);
 

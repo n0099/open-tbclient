@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,13 +66,13 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                SkinManager.setBackgroundResource(this.f30430e, R.drawable.icon_news_head_new);
-                this.f30430e.setText((CharSequence) null);
+                SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_head_new);
+                this.e.setText((CharSequence) null);
                 return;
             }
-            this.f30430e.setText(TbConfig.getVersion());
-            this.f30430e.setBackgroundDrawable(null);
-            this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
+            this.e.setText(TbConfig.getVersion());
+            this.e.setBackgroundDrawable(null);
+            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ee : R.style.obfuscated_res_0x7f1003ed);
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -395,24 +395,24 @@ public class FaceConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.isSound : invokeV.booleanValue;
     }
 
-    public void setBlurnessValue(float f2) {
+    public void setBlurnessValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048614, this, f2) == null) {
-            this.blurnessValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048614, this, f) == null) {
+            this.blurnessValue = f;
         }
     }
 
-    public void setBrightnessMaxValue(float f2) {
+    public void setBrightnessMaxValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
-            this.brightnessMaxValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048615, this, f) == null) {
+            this.brightnessMaxValue = f;
         }
     }
 
-    public void setBrightnessValue(float f2) {
+    public void setBrightnessValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
-            this.brightnessValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048616, this, f) == null) {
+            this.brightnessValue = f;
         }
     }
 
@@ -437,31 +437,31 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setEnlargeRatio(float f2) {
+    public void setEnlargeRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
-            this.enlargeRatio = f2;
+        if (interceptable == null || interceptable.invokeF(1048620, this, f) == null) {
+            this.enlargeRatio = f;
         }
     }
 
-    public void setEyeClosedValue(float f2) {
+    public void setEyeClosedValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048621, this, f2) == null) {
-            this.eyeClosedValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048621, this, f) == null) {
+            this.eyeClosedValue = f;
         }
     }
 
-    public void setFaceClosedRatio(float f2) {
+    public void setFaceClosedRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
-            this.faceClosedRatio = f2;
+        if (interceptable == null || interceptable.invokeF(1048622, this, f) == null) {
+            this.faceClosedRatio = f;
         }
     }
 
-    public void setFaceFarRatio(float f2) {
+    public void setFaceFarRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048623, this, f2) == null) {
-            this.faceFarRatio = f2;
+        if (interceptable == null || interceptable.invokeF(1048623, this, f) == null) {
+            this.faceFarRatio = f;
         }
     }
 
@@ -511,10 +511,10 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setMaskValue(float f2) {
+    public void setMaskValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048630, this, f2) == null) {
-            this.maskValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048630, this, f) == null) {
+            this.maskValue = f;
         }
     }
 
@@ -532,66 +532,66 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setNotFaceValue(float f2) {
+    public void setNotFaceValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
-            this.notFaceValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048633, this, f) == null) {
+            this.notFaceValue = f;
         }
     }
 
-    public void setOcclusionChinValue(float f2) {
+    public void setOcclusionChinValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048634, this, f2) == null) {
-            this.occlusionChinValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048634, this, f) == null) {
+            this.occlusionChinValue = f;
         }
     }
 
-    public void setOcclusionLeftContourValue(float f2) {
+    public void setOcclusionLeftContourValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048635, this, f2) == null) {
-            this.occlusionLeftContourValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048635, this, f) == null) {
+            this.occlusionLeftContourValue = f;
         }
     }
 
-    public void setOcclusionLeftEyeValue(float f2) {
+    public void setOcclusionLeftEyeValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048636, this, f2) == null) {
-            this.occlusionLeftEyeValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048636, this, f) == null) {
+            this.occlusionLeftEyeValue = f;
         }
     }
 
-    public void setOcclusionMouthValue(float f2) {
+    public void setOcclusionMouthValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048637, this, f2) == null) {
-            this.occlusionMouthValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048637, this, f) == null) {
+            this.occlusionMouthValue = f;
         }
     }
 
-    public void setOcclusionNoseValue(float f2) {
+    public void setOcclusionNoseValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048638, this, f2) == null) {
-            this.occlusionNoseValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048638, this, f) == null) {
+            this.occlusionNoseValue = f;
         }
     }
 
-    public void setOcclusionRightContourValue(float f2) {
+    public void setOcclusionRightContourValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048639, this, f2) == null) {
-            this.occlusionRightContourValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048639, this, f) == null) {
+            this.occlusionRightContourValue = f;
         }
     }
 
-    public void setOcclusionRightEyeValue(float f2) {
+    public void setOcclusionRightEyeValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048640, this, f2) == null) {
-            this.occlusionRightEyeValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048640, this, f) == null) {
+            this.occlusionRightEyeValue = f;
         }
     }
 
-    public void setOcclusionValue(float f2) {
+    public void setOcclusionValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048641, this, f2) == null) {
-            this.occlusionValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048641, this, f) == null) {
+            this.occlusionValue = f;
         }
     }
 
@@ -630,10 +630,10 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setScale(float f2) {
+    public void setScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048647, this, f2) == null) {
-            this.scale = f2;
+        if (interceptable == null || interceptable.invokeF(1048647, this, f) == null) {
+            this.scale = f;
         }
     }
 

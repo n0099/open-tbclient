@@ -12,27 +12,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public InputStream a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f38293b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f38294c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f38295d;
+        public Map<String, String> b;
+        public int c;
+        public HttpURLConnection d;
 
         public a(InputStream inputStream, Map<String, String> map, int i, HttpURLConnection httpURLConnection) {
             this.a = inputStream;
-            this.f38293b = map;
-            this.f38294c = i;
-            this.f38295d = httpURLConnection;
+            this.b = map;
+            this.c = i;
+            this.d = httpURLConnection;
         }
     }
 

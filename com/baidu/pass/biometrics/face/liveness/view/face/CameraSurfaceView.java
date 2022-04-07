@@ -22,29 +22,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CameraSurfaceView extends SurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f28019e = "CameraPreview";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f28020f = 480;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f28021g = 640;
+    public static final String e = "CameraPreview";
+    public static final int f = 480;
+    public static final int g = 640;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f28022b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Point f28023c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Path f28024d;
+    public a b;
+    public Point c;
+    public Path d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraSurfaceView(Context context) {
@@ -70,8 +58,8 @@ public class CameraSurfaceView extends SurfaceView {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f28024d = new Path();
-            this.f28023c = new Point();
+            this.d = new Path();
+            this.c = new Point();
         }
     }
 
@@ -106,9 +94,9 @@ public class CameraSurfaceView extends SurfaceView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                canvas.clipPath(this.f28024d);
+                canvas.clipPath(this.d);
             } else {
-                canvas.clipPath(this.f28024d, Region.Op.REPLACE);
+                canvas.clipPath(this.d, Region.Op.REPLACE);
             }
             super.draw(canvas);
         }
@@ -146,28 +134,26 @@ public class CameraSurfaceView extends SurfaceView {
             super.onMeasure(i, i2);
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
-            Point point = this.f28023c;
+            Point point = this.c;
             int i3 = size >> 1;
             point.x = i3;
             int i4 = size2 >> 1;
             point.y = i4;
             int min = Math.min(i3, i4);
-            this.f28024d.reset();
-            Path path = this.f28024d;
-            Point point2 = this.f28023c;
+            this.d.reset();
+            Path path = this.d;
+            Point point2 = this.c;
             path.addCircle(point2.x, point2.y, min, Path.Direction.CCW);
             setMeasuredDimension(size, size2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f28025b;
+        public int b;
 
         public a(int i, int i2) {
             Interceptable interceptable = $ic;
@@ -185,14 +171,14 @@ public class CameraSurfaceView extends SurfaceView {
                 }
             }
             this.a = i;
-            this.f28025b = i2;
+            this.b = i2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "CameraSize{width=" + this.a + ", height=" + this.f28025b + '}';
+                return "CameraSize{width=" + this.a + ", height=" + this.b + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -213,7 +199,7 @@ public class CameraSurfaceView extends SurfaceView {
                 }
             }
             this.a = size.width;
-            this.f28025b = size.height;
+            this.b = size.height;
         }
     }
 
@@ -243,32 +229,32 @@ public class CameraSurfaceView extends SurfaceView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parameters)) == null) {
-            a aVar = this.f28022b;
+            a aVar = this.b;
             if (aVar != null) {
                 return aVar;
             }
-            List<a> b2 = b(parameters);
-            this.f28022b = new a(640, 480);
-            if (b2 != null && b2.size() != 0) {
+            List<a> b = b(parameters);
+            this.b = new a(640, 480);
+            if (b != null && b.size() != 0) {
                 float f2 = 2.0f;
                 float f3 = 1.0f;
-                for (a aVar2 : b2) {
+                for (a aVar2 : b) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                    float f4 = aVar2.f28025b;
+                    float f4 = aVar2.b;
                     float f5 = f4 / layoutParams.width;
                     float f6 = aVar2.a / f4;
                     if (f6 >= 1.0f && f6 <= f2 && f5 >= f3) {
-                        this.f28022b = aVar2;
+                        this.b = aVar2;
                         f3 = f5;
                         f2 = f6;
                     }
                 }
-                if (this.f28022b == null) {
-                    this.f28022b = new a(640, 480);
+                if (this.b == null) {
+                    this.b = new a(640, 480);
                 }
-                return this.f28022b;
+                return this.b;
             }
-            return this.f28022b;
+            return this.b;
         }
         return (a) invokeL.objValue;
     }

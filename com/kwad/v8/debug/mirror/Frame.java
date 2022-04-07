@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Frame extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARGUMENT_COUNT = "argumentCount";
@@ -211,7 +211,7 @@ public class Frame extends Mirror {
                 if (str != null || scriptName == null) {
                     scriptName = SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
                 }
-                return new SourceLocation(scriptName, executeObjectFunction.getInteger("position"), executeObjectFunction.getInteger("line"), executeObjectFunction.getInteger(COLUMN), executeObjectFunction.getString(SOURCE_TEXT));
+                return new SourceLocation(scriptName, executeObjectFunction.getInteger("position"), executeObjectFunction.getInteger("line"), executeObjectFunction.getInteger("column"), executeObjectFunction.getString(SOURCE_TEXT));
             } finally {
                 function.close();
                 executeObjectFunction.close();

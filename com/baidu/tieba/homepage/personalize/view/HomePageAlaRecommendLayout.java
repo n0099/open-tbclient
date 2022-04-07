@@ -8,8 +8,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.d.f.p.n;
-import c.a.p0.q1.i.j.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,31 +23,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nz6;
+import com.repackage.oi;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public int b;
+    public BdRecyclerView c;
+    public AlaRecommendListAdapter d;
+    public List<AlaLiveInfo> e;
+    public CustomMessageListener f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f33402b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BdRecyclerView f33403c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AlaRecommendListAdapter f33404d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<AlaLiveInfo> f33405e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f33406f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,12 +73,12 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
             AlaUserInfo alaUserInfo;
             Long l;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || data.f30339d || StringUtils.isNull(data.f30338c) || this.a.f33405e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || data.d || StringUtils.isNull(data.c) || this.a.e == null) {
                 return;
             }
-            for (AlaLiveInfo alaLiveInfo : this.a.f33405e) {
-                if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.f30338c.equals(l.toString())) {
-                    this.a.f33405e.remove(alaLiveInfo);
+            for (AlaLiveInfo alaLiveInfo : this.a.e) {
+                if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.c.equals(l.toString())) {
+                    this.a.e.remove(alaLiveInfo);
                     this.a.d();
                     return;
                 }
@@ -120,40 +110,40 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039b, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f33403c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09021f);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090227);
             AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
-            this.f33404d = alaRecommendListAdapter;
-            this.f33403c.setAdapter(alaRecommendListAdapter);
-            this.f33403c.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
-            this.f33403c.setItemAnimator(new DefaultItemAnimator());
-            int f2 = n.f(this.a, R.dimen.tbds20);
-            this.f33403c.addItemDecoration(new CommonSpaceItemDecoration(f2, 0, f2));
-            BdRecyclerView bdRecyclerView = this.f33403c;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.f33403c.getPaddingTop(), this.f33403c.getPaddingRight(), n.f(this.f33403c.getContext(), HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds0, R.dimen.tbds51)));
+            this.d = alaRecommendListAdapter;
+            this.c.setAdapter(alaRecommendListAdapter);
+            this.c.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
+            this.c.setItemAnimator(new DefaultItemAnimator());
+            int f = oi.f(this.a, R.dimen.tbds20);
+            this.c.addItemDecoration(new CommonSpaceItemDecoration(f, 0, f));
+            BdRecyclerView bdRecyclerView = this.c;
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.c.getPaddingTop(), this.c.getPaddingRight(), oi.f(this.c.getContext(), HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds0, R.dimen.tbds51)));
         }
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.f33402b == i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.b == i) {
             return;
         }
-        this.f33402b = i;
+        this.b = i;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (ListUtils.isEmpty(this.f33405e)) {
+            if (ListUtils.isEmpty(this.e)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f33404d.setData(this.f33405e);
-            this.f33404d.notifyDataSetChanged();
+            this.d.setData(this.e);
+            this.d.notifyDataSetChanged();
         }
     }
 
@@ -161,7 +151,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f33406f);
+            MessageManager.getInstance().registerListener(this.f);
             super.onAttachedToWindow();
         }
     }
@@ -170,16 +160,16 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f33406f);
+            MessageManager.getInstance().unRegisterListener(this.f);
             super.onDetachedFromWindow();
         }
     }
 
-    public void setData(f fVar) {
+    public void setData(nz6 nz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            if (fVar != null && !ListUtils.isEmpty(fVar.e())) {
-                this.f33405e = fVar.e();
+        if (interceptable == null || interceptable.invokeL(1048581, this, nz6Var) == null) {
+            if (nz6Var != null && !ListUtils.isEmpty(nz6Var.e())) {
+                this.e = nz6Var.e();
                 setVisibility(0);
                 d();
                 return;
@@ -207,8 +197,8 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                 return;
             }
         }
-        this.f33402b = 3;
-        this.f33406f = new a(this, 2001115);
+        this.b = 3;
+        this.f = new a(this, 2001115);
         this.a = context;
         b();
     }

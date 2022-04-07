@@ -2,7 +2,6 @@ package com.baidu.tieba.im.forum.detail;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.y;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,16 +25,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.mg;
+import com.repackage.vj8;
+import com.repackage.wa;
+import com.repackage.ya;
+/* loaded from: classes3.dex */
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumDetailActivity a;
+    public f b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public f f33805b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,14 +68,14 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y)) {
-                this.a.a.updateLikeAndMsgStatus(((y) customResponsedMessage.getData()).n() == 1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vj8)) {
+                this.a.a.updateLikeAndMsgStatus(((vj8) customResponsedMessage.getData()).n() == 1);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends c.a.d.c.g.a {
+    /* loaded from: classes3.dex */
+    public class b extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -100,32 +102,32 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             this.a = forumDetailModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage == null) {
-                    if (this.a.f33805b != null) {
-                        this.a.f33805b.onNetError(null);
+                    if (this.a.b != null) {
+                        this.a.b.onNetError(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (this.a.f33805b != null) {
-                        this.a.f33805b.onNetError(responsedMessage.getErrorString());
+                    if (this.a.b != null) {
+                        this.a.b.onNetError(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.f33805b.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.f33805b.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                        this.a.b.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class c extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -166,27 +168,27 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                            errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
                         this.a.a.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.a.f33805b.onSubscrib(false);
+                            this.a.b.onSubscrib(false);
                         } else {
-                            this.a.f33805b.onUnSubscrib(false);
+                            this.a.b.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.f33805b.onSubscrib(true);
+                        this.a.b.onSubscrib(true);
                     } else {
-                        this.a.f33805b.onUnSubscrib(true);
+                        this.a.b.onUnSubscrib(true);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,12 +220,12 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f049c);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f04a3);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,17 +259,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (this.a.f33805b != null) {
-                        this.a.f33805b.onNetError(httpResponsedMessage.getErrorString());
+                    if (this.a.b != null) {
+                        this.a.b.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.f33805b.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.b.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void onHttpEmotionResponseMessage(BarEmotionResponseMessage barEmotionResponseMessage);
 
@@ -294,14 +296,14 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((c.a.d.a.f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = forumDetailActivity;
-        this.f33805b = forumDetailActivity;
+        this.b = forumDetailActivity;
         D();
         E();
         A();
@@ -368,7 +370,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
-            forumDetailRequestMessage.setForumId(c.a.d.f.m.b.g(str, 0L));
+            forumDetailRequestMessage.setForumId(mg.g(str, 0L));
             sendMessage(forumDetailRequestMessage);
         }
     }

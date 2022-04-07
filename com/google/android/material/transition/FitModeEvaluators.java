@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FitModeEvaluators {
     public static /* synthetic */ Interceptable $ic;
     public static final FitModeEvaluator HEIGHT;
@@ -48,22 +48,22 @@ public class FitModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FitModeEvaluator
-            public void applyMask(RectF rectF, float f2, FitModeResult fitModeResult) {
+            public void applyMask(RectF rectF, float f, FitModeResult fitModeResult) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{rectF, Float.valueOf(f2), fitModeResult}) == null) {
-                    rectF.bottom -= Math.abs(fitModeResult.currentEndHeight - fitModeResult.currentStartHeight) * f2;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{rectF, Float.valueOf(f), fitModeResult}) == null) {
+                    rectF.bottom -= Math.abs(fitModeResult.currentEndHeight - fitModeResult.currentStartHeight) * f;
                 }
             }
 
             @Override // com.google.android.material.transition.FitModeEvaluator
-            public FitModeResult evaluate(float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
+            public FitModeResult evaluate(float f, float f2, float f3, float f4, float f5, float f6, float f7) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)})) == null) {
-                    float lerp = TransitionUtils.lerp(f5, f7, f3, f4, f2);
-                    float f9 = lerp / f5;
-                    float f10 = lerp / f7;
-                    return new FitModeResult(f9, f10, lerp, f6 * f9, lerp, f8 * f10);
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
+                    float lerp = TransitionUtils.lerp(f4, f6, f2, f3, f);
+                    float f8 = lerp / f4;
+                    float f9 = lerp / f6;
+                    return new FitModeResult(f8, f9, lerp, f5 * f8, lerp, f7 * f9);
                 }
                 return (FitModeResult) invokeCommon.objValue;
             }
@@ -94,24 +94,24 @@ public class FitModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FitModeEvaluator
-            public void applyMask(RectF rectF, float f2, FitModeResult fitModeResult) {
+            public void applyMask(RectF rectF, float f, FitModeResult fitModeResult) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{rectF, Float.valueOf(f2), fitModeResult}) == null) {
-                    float abs = (Math.abs(fitModeResult.currentEndWidth - fitModeResult.currentStartWidth) / 2.0f) * f2;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{rectF, Float.valueOf(f), fitModeResult}) == null) {
+                    float abs = (Math.abs(fitModeResult.currentEndWidth - fitModeResult.currentStartWidth) / 2.0f) * f;
                     rectF.left += abs;
                     rectF.right -= abs;
                 }
             }
 
             @Override // com.google.android.material.transition.FitModeEvaluator
-            public FitModeResult evaluate(float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
+            public FitModeResult evaluate(float f, float f2, float f3, float f4, float f5, float f6, float f7) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)})) == null) {
-                    float lerp = TransitionUtils.lerp(f6, f8, f3, f4, f2);
-                    float f9 = lerp / f6;
-                    float f10 = lerp / f8;
-                    return new FitModeResult(f9, f10, f5 * f9, lerp, f7 * f10, lerp);
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
+                    float lerp = TransitionUtils.lerp(f5, f7, f2, f3, f);
+                    float f8 = lerp / f5;
+                    float f9 = lerp / f7;
+                    return new FitModeResult(f8, f9, f4 * f8, lerp, f6 * f9, lerp);
                 }
                 return (FitModeResult) invokeCommon.objValue;
             }
@@ -165,13 +165,13 @@ public class FitModeEvaluators {
             float height = rectF.height();
             float width2 = rectF2.width();
             float height2 = rectF2.height();
-            float f2 = (height2 * width) / width2;
-            float f3 = (width2 * height) / width;
+            float f = (height2 * width) / width2;
+            float f2 = (width2 * height) / width;
             if (z) {
-                if (f2 >= height) {
+                if (f >= height) {
                     return true;
                 }
-            } else if (f3 >= height2) {
+            } else if (f2 >= height2) {
                 return true;
             }
             return false;

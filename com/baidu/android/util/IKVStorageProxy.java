@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IKVStorageProxy {
     public static final IKVStorageProxy EMPTY = new IKVStorageProxy() { // from class: com.baidu.android.util.IKVStorageProxy.1
         public static /* synthetic */ Interceptable $ic;

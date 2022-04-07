@@ -20,32 +20,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbCornersImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f30735b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30736c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30737d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30738e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30739f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30740g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30741h;
+    public boolean b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public int i;
     public int j;
     public int k;
@@ -87,38 +73,38 @@ public class TbCornersImageView extends AppCompatImageView {
             return;
         }
         int i = 0;
-        if (this.f30740g <= 0) {
+        if (this.g <= 0) {
             float[] fArr = this.p;
-            int i2 = this.f30741h;
-            float f2 = i2;
-            fArr[1] = f2;
-            fArr[0] = f2;
+            int i2 = this.h;
+            float f = i2;
+            fArr[1] = f;
+            fArr[0] = f;
             int i3 = this.i;
-            float f3 = i3;
-            fArr[3] = f3;
-            fArr[2] = f3;
+            float f2 = i3;
+            fArr[3] = f2;
+            fArr[2] = f2;
             int i4 = this.k;
-            float f4 = i4;
-            fArr[5] = f4;
-            fArr[4] = f4;
+            float f3 = i4;
+            fArr[5] = f3;
+            fArr[4] = f3;
             int i5 = this.j;
-            float f5 = i5;
-            fArr[7] = f5;
-            fArr[6] = f5;
+            float f4 = i5;
+            fArr[7] = f4;
+            fArr[6] = f4;
             float[] fArr2 = this.q;
-            int i6 = this.f30736c;
-            float f6 = i2 - (i6 / 2.0f);
-            fArr2[1] = f6;
-            fArr2[0] = f6;
-            float f7 = i3 - (i6 / 2.0f);
-            fArr2[3] = f7;
-            fArr2[2] = f7;
-            float f8 = i4 - (i6 / 2.0f);
-            fArr2[5] = f8;
-            fArr2[4] = f8;
-            float f9 = i5 - (i6 / 2.0f);
-            fArr2[7] = f9;
-            fArr2[6] = f9;
+            int i6 = this.c;
+            float f5 = i2 - (i6 / 2.0f);
+            fArr2[1] = f5;
+            fArr2[0] = f5;
+            float f6 = i3 - (i6 / 2.0f);
+            fArr2[3] = f6;
+            fArr2[2] = f6;
+            float f7 = i4 - (i6 / 2.0f);
+            fArr2[5] = f7;
+            fArr2[4] = f7;
+            float f8 = i5 - (i6 / 2.0f);
+            fArr2[7] = f8;
+            fArr2[6] = f8;
             return;
         }
         while (true) {
@@ -126,9 +112,9 @@ public class TbCornersImageView extends AppCompatImageView {
             if (i >= fArr3.length) {
                 return;
             }
-            int i7 = this.f30740g;
+            int i7 = this.g;
             fArr3[i] = i7;
-            this.q[i] = i7 - (this.f30736c / 2.0f);
+            this.q[i] = i7 - (this.c / 2.0f);
             i++;
         }
     }
@@ -137,10 +123,10 @@ public class TbCornersImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.f30740g = 0;
+                this.g = 0;
             }
             f();
-            q();
+            r();
             invalidate();
         }
     }
@@ -150,36 +136,36 @@ public class TbCornersImageView extends AppCompatImageView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a) {
             return;
         }
-        this.f30738e = 0;
+        this.e = 0;
     }
 
     public final void m(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             if (this.a) {
-                int i = this.f30736c;
+                int i = this.c;
                 if (i > 0) {
-                    n(canvas, i, this.f30737d, this.o - (i / 2.0f));
+                    n(canvas, i, this.d, this.o - (i / 2.0f));
                 }
-                int i2 = this.f30738e;
+                int i2 = this.e;
                 if (i2 > 0) {
-                    n(canvas, i2, this.f30739f, (this.o - this.f30736c) - (i2 / 2.0f));
+                    n(canvas, i2, this.f, (this.o - this.c) - (i2 / 2.0f));
                     return;
                 }
                 return;
             }
-            int i3 = this.f30736c;
+            int i3 = this.c;
             if (i3 > 0) {
-                o(canvas, i3, this.f30737d, this.s, this.p);
+                o(canvas, i3, this.d, this.s, this.p);
             }
         }
     }
 
-    public final void n(Canvas canvas, int i, int i2, float f2) {
+    public final void n(Canvas canvas, int i, int i2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
             p(i, i2);
-            this.u.addCircle(this.m / 2.0f, this.n / 2.0f, f2, Path.Direction.CCW);
+            this.u.addCircle(this.m / 2.0f, this.n / 2.0f, f, Path.Direction.CCW);
             canvas.drawPath(this.u, this.t);
         }
     }
@@ -198,10 +184,10 @@ public class TbCornersImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             canvas.saveLayer(this.r, null, 31);
-            if (!this.f30735b) {
+            if (!this.b) {
                 int i = this.m;
-                int i2 = this.f30736c;
-                int i3 = this.f30738e;
+                int i2 = this.c;
+                int i3 = this.e;
                 int i4 = this.n;
                 canvas.scale((((i - (i2 * 2)) - (i3 * 2)) * 1.0f) / i, (((i4 - (i2 * 2)) - (i3 * 2)) * 1.0f) / i4, i / 2.0f, i4 / 2.0f);
             }
@@ -245,8 +231,8 @@ public class TbCornersImageView extends AppCompatImageView {
             super.onSizeChanged(i, i2, i3, i4);
             this.m = i;
             this.n = i2;
-            q();
             r();
+            s();
         }
     }
 
@@ -260,17 +246,17 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public final void q() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a) {
             return;
         }
         RectF rectF = this.s;
-        int i = this.f30736c;
+        int i = this.c;
         rectF.set(i / 2.0f, i / 2.0f, this.m - (i / 2.0f), this.n - (i / 2.0f));
     }
 
-    public final void r() {
+    public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.a) {
@@ -283,7 +269,7 @@ public class TbCornersImageView extends AppCompatImageView {
                 return;
             }
             this.r.set(0.0f, 0.0f, this.m, this.n);
-            if (this.f30735b) {
+            if (this.b) {
                 this.r = this.s;
             }
         }
@@ -292,7 +278,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setBorderColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f30737d = i;
+            this.d = i;
             invalidate();
         }
     }
@@ -300,7 +286,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setBorderWidth(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f30736c = i;
+            this.c = i;
             g(false);
         }
     }
@@ -324,7 +310,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setCornerRadius(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f30740g = i;
+            this.g = i;
             g(false);
         }
     }
@@ -332,7 +318,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setCornerTopLeftRadius(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f30741h = i;
+            this.h = i;
             g(true);
         }
     }
@@ -348,7 +334,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setInnerBorderColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.f30739f = i;
+            this.f = i;
             invalidate();
         }
     }
@@ -356,7 +342,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setInnerBorderWidth(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.f30738e = i;
+            this.e = i;
             k();
             invalidate();
         }
@@ -410,27 +396,27 @@ public class TbCornersImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f30737d = -1;
-        this.f30739f = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f040192, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f0402bf, R.attr.obfuscated_res_0x7f0402c0, R.attr.obfuscated_res_0x7f0402d0, R.attr.obfuscated_res_0x7f0402d4, R.attr.obfuscated_res_0x7f040401}, 0, 0);
+        this.d = -1;
+        this.f = -1;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f040196, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040301, R.attr.obfuscated_res_0x7f040302, R.attr.obfuscated_res_0x7f04030f, R.attr.obfuscated_res_0x7f040310, R.attr.obfuscated_res_0x7f040441}, 0, 0);
         for (int i4 = 0; i4 < obtainStyledAttributes.getIndexCount(); i4++) {
             int index = obtainStyledAttributes.getIndex(i4);
             if (index == 10) {
-                this.f30735b = obtainStyledAttributes.getBoolean(index, this.f30735b);
+                this.b = obtainStyledAttributes.getBoolean(index, this.b);
             } else if (index == 9) {
                 this.a = obtainStyledAttributes.getBoolean(index, this.a);
             } else if (index == 1) {
-                this.f30736c = obtainStyledAttributes.getDimensionPixelSize(index, this.f30736c);
+                this.c = obtainStyledAttributes.getDimensionPixelSize(index, this.c);
             } else if (index == 0) {
-                this.f30737d = obtainStyledAttributes.getColor(index, this.f30737d);
+                this.d = obtainStyledAttributes.getColor(index, this.d);
             } else if (index == 8) {
-                this.f30738e = obtainStyledAttributes.getDimensionPixelSize(index, this.f30738e);
+                this.e = obtainStyledAttributes.getDimensionPixelSize(index, this.e);
             } else if (index == 7) {
-                this.f30739f = obtainStyledAttributes.getColor(index, this.f30739f);
+                this.f = obtainStyledAttributes.getColor(index, this.f);
             } else if (index == 4) {
-                this.f30740g = obtainStyledAttributes.getDimensionPixelSize(index, this.f30740g);
+                this.g = obtainStyledAttributes.getDimensionPixelSize(index, this.g);
             } else if (index == 5) {
-                this.f30741h = obtainStyledAttributes.getDimensionPixelSize(index, this.f30741h);
+                this.h = obtainStyledAttributes.getDimensionPixelSize(index, this.h);
             } else if (index == 6) {
                 this.i = obtainStyledAttributes.getDimensionPixelSize(index, this.i);
             } else if (index == 2) {

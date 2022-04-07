@@ -38,15 +38,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import c.a.d.a.a;
-import c.a.d.a.f;
-import c.a.d.a.g;
-import c.a.d.a.h;
-import c.a.d.a.i;
-import c.a.d.j.d;
-import c.a.d.j.f.b;
-import c.a.d.j.k.d;
-import c.a.d.o.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -61,10 +52,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.c9;
+import com.repackage.d9;
+import com.repackage.e9;
+import com.repackage.vl;
+import com.repackage.vm;
+import com.repackage.w8;
+import com.repackage.xo;
+import com.repackage.yl;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes3.dex */
-public class FragmentActivityProxy extends FragmentActivity implements b, i, Handler.Callback, g {
+/* loaded from: classes.dex */
+public class FragmentActivityProxy extends FragmentActivity implements yl, e9, Handler.Callback, c9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginBaseFragmentActivity mEntity;
@@ -86,14 +86,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.addContentView(view, layoutParams);
+                pluginBaseFragmentActivity.addContentView(view2, layoutParams);
             } else {
-                super.addContentView(view, layoutParams);
+                super.addContentView(view2, layoutParams);
             }
         }
     }
@@ -309,7 +309,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -480,18 +480,18 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (PackageManager) invokeV.objValue;
     }
 
-    @Override // c.a.d.a.g
-    public f getPageContext() {
+    @Override // com.repackage.c9
+    public b9 getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
-            if (pluginBaseFragmentActivity == null || !(pluginBaseFragmentActivity instanceof g)) {
+            if (pluginBaseFragmentActivity == null || !(pluginBaseFragmentActivity instanceof c9)) {
                 return null;
             }
             return pluginBaseFragmentActivity.getPageContext();
         }
-        return (f) invokeV.objValue;
+        return (b9) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -533,7 +533,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
                     return pluginBaseFragmentActivity.getResources();
                 }
             } else {
-                Resources resources = h.a().getResources();
+                Resources resources = d9.a().getResources();
                 if (resources != null) {
                     return resources;
                 }
@@ -599,7 +599,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (Resources.Theme) invokeV.objValue;
     }
 
-    @Override // c.a.d.a.i
+    @Override // com.repackage.e9
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -711,7 +711,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.d.a.i
+    @Override // com.repackage.e9
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -759,23 +759,23 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
                     Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
                     PluginBaseFragmentActivity pluginBaseFragmentActivity = (PluginBaseFragmentActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseFragmentActivity;
-                    pluginBaseFragmentActivity.setActivityProxy((b) this);
+                    pluginBaseFragmentActivity.setActivityProxy((yl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                     setTheme(plugin2.getActivityThemeResource());
                 } else {
                     PluginBaseFragmentActivity pluginBaseFragmentActivity2 = (PluginBaseFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseFragmentActivity2;
-                    pluginBaseFragmentActivity2.setActivityProxy((b) this);
+                    pluginBaseFragmentActivity2.setActivityProxy((yl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                BdLog.e(e);
+            } catch (IllegalAccessException e2) {
                 BdLog.e(e2);
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 BdLog.e(e3);
-            } catch (InstantiationException e4) {
+            } catch (Exception e4) {
                 BdLog.e(e4);
-            } catch (Exception e5) {
-                BdLog.e(e5);
             }
         }
     }
@@ -801,7 +801,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
                 Class cls = Integer.TYPE;
-                d.k(pluginBaseFragmentActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
+                vm.k(pluginBaseFragmentActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
                 return;
             }
             super.onActivityResult(i, i2, intent);
@@ -814,7 +814,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
+                vm.k(pluginBaseFragmentActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
             } else {
                 super.onApplyThemeResource(theme, i, z);
             }
@@ -853,7 +853,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeLL(1048632, this, activity, charSequence) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
+                vm.k(pluginBaseFragmentActivity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
             } else {
                 super.onChildTitleChanged(activity, charSequence);
             }
@@ -917,20 +917,20 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048638, this, bundle, persistableBundle) == null) {
-            a.b(this);
+            w8.b(this);
             super.onCreate(bundle, persistableBundle);
         }
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048639, this, contextMenu, view, contextMenuInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048639, this, contextMenu, view2, contextMenuInfo) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+                pluginBaseFragmentActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
             } else {
-                super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+                super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
             }
         }
     }
@@ -955,7 +955,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
-            return pluginBaseFragmentActivity != null ? (Dialog) d.k(pluginBaseFragmentActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
+            return pluginBaseFragmentActivity != null ? (Dialog) vm.k(pluginBaseFragmentActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
         }
         return (Dialog) invokeI.objValue;
     }
@@ -1022,7 +1022,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048646, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
             } else {
                 super.onDestroy();
             }
@@ -1145,7 +1145,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeL(1048655, this, intent) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
+                vm.k(pluginBaseFragmentActivity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
             } else {
                 super.onNewIntent(intent);
             }
@@ -1198,7 +1198,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
             } else {
                 super.onPause();
             }
@@ -1211,7 +1211,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeL(1048660, this, bundle) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+                vm.k(pluginBaseFragmentActivity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onPostCreate(bundle);
             }
@@ -1224,21 +1224,21 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onPostResume", new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, "onPostResume", new Class[0], new Object[0]);
             } else {
                 super.onPostResume();
             }
         }
     }
 
-    @Override // c.a.d.a.i
-    public void onPreLoad(q qVar) {
+    @Override // com.repackage.e9
+    public void onPreLoad(xo xoVar) {
         PluginBaseFragmentActivity pluginBaseFragmentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048662, this, qVar) == null) || (pluginBaseFragmentActivity = this.mEntity) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048662, this, xoVar) == null) || (pluginBaseFragmentActivity = this.mEntity) == null) {
             return;
         }
-        pluginBaseFragmentActivity.onPreLoad(qVar);
+        pluginBaseFragmentActivity.onPreLoad(xoVar);
     }
 
     @Override // android.app.Activity
@@ -1269,15 +1269,15 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048665, this, i, view, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048665, this, i, view2, menu)) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                return pluginBaseFragmentActivity.onPreparePanel(i, view, menu);
+                return pluginBaseFragmentActivity.onPreparePanel(i, view2, menu);
             }
-            return super.onPreparePanel(i, view, menu);
+            return super.onPreparePanel(i, view2, menu);
         }
         return invokeILL.booleanValue;
     }
@@ -1288,7 +1288,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onRestart", new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, "onRestart", new Class[0], new Object[0]);
             } else {
                 super.onRestart();
             }
@@ -1301,7 +1301,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeL(1048667, this, bundle) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+                vm.k(pluginBaseFragmentActivity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onRestoreInstanceState(bundle);
             }
@@ -1314,7 +1314,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onResume", new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, "onResume", new Class[0], new Object[0]);
             } else {
                 super.onResume();
             }
@@ -1327,7 +1327,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeL(1048669, this, bundle) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+                vm.k(pluginBaseFragmentActivity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onSaveInstanceState(bundle);
             }
@@ -1354,7 +1354,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, "onStart", new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, "onStart", new Class[0], new Object[0]);
             } else {
                 super.onStart();
             }
@@ -1367,7 +1367,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                d.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
+                vm.k(pluginBaseFragmentActivity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
             } else {
                 super.onStop();
             }
@@ -1381,7 +1381,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (!(interceptable == null || interceptable.invokeLI(1048673, this, charSequence, i) == null) || (pluginBaseFragmentActivity = this.mEntity) == null) {
             return;
         }
-        d.k(pluginBaseFragmentActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
+        vm.k(pluginBaseFragmentActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
     }
 
     @Override // android.app.Activity
@@ -1460,14 +1460,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // android.app.Activity
-    public void openContextMenu(View view) {
+    public void openContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048680, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048680, this, view2) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.openContextMenu(view);
+                pluginBaseFragmentActivity.openContextMenu(view2);
             } else {
-                super.openContextMenu(view);
+                super.openContextMenu(view2);
             }
         }
     }
@@ -1498,15 +1498,15 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    @Override // com.repackage.xl
+    public void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048683, this, view, layoutParams) == null) {
-            super.addContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048683, this, view2, layoutParams) == null) {
+            super.addContentView(view2, layoutParams);
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -1516,7 +1516,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return invokeLLI.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyCloseContextMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048685, this) == null) {
@@ -1524,7 +1524,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyCloseOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048686, this) == null) {
@@ -1532,63 +1532,63 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048687, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? super.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048688, this, motionEvent)) == null) ? super.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048691, this, accessibilityEvent)) == null) ? super.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048692, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyDispatchTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, motionEvent)) == null) ? super.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public View proxyFindViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048694, this, i)) == null) ? super.findViewById(i) : (View) invokeI.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048695, this) == null) {
@@ -1596,7 +1596,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyFinishActivity(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
@@ -1604,7 +1604,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyFinishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048697, this, activity, i) == null) {
@@ -1612,7 +1612,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyFinishFromChild(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048698, this, activity) == null) {
@@ -1620,42 +1620,42 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Context proxyGetApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) ? super.getApplicationContext() : (Context) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public ComponentName proxyGetCallingActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) ? super.getCallingActivity() : (ComponentName) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public String proxyGetCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) ? super.getCallingPackage() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public int proxyGetChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) ? super.getChangingConfigurations() : invokeV.intValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public View proxyGetCurrentFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? super.getCurrentFocus() : (View) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Intent proxyGetIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1668,28 +1668,28 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? super.getLastNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public LayoutInflater proxyGetLayoutInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) ? super.getLayoutInflater() : (LayoutInflater) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public String proxyGetLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) ? super.getLocalClassName() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public MenuInflater proxyGetMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? super.getMenuInflater() : (MenuInflater) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public PackageManager proxyGetPackageManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1699,21 +1699,21 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (PackageManager) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public SharedPreferences proxyGetPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048710, this, i)) == null) ? super.getPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public int proxyGetRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) ? super.getRequestedOrientation() : invokeV.intValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -1723,28 +1723,28 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (SharedPreferences) invokeLI.objValue;
     }
 
-    @Override // c.a.d.j.f.b
+    @Override // com.repackage.yl
     public FragmentManager proxyGetSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) ? super.getSupportFragmentManager() : (FragmentManager) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Object proxyGetSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048714, this, str)) == null) ? super.getSystemService(str) : invokeL.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public int proxyGetTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) ? super.getTaskId() : invokeV.intValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public int proxyGetWallpaperDesiredMinimumHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1754,7 +1754,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public int proxyGetWallpaperDesiredMinimumWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1764,49 +1764,49 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Window proxyGetWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) ? super.getWindow() : (Window) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public WindowManager proxyGetWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) ? super.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyHasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) ? super.hasWindowFocus() : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyIsFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? super.isFinishing() : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyIsTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? super.isTaskRoot() : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyMoveTaskToBack(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeZ = interceptable.invokeZ(1048723, this, z)) == null) ? super.moveTaskToBack(z) : invokeZ.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048724, this, i, i2, intent) == null) {
@@ -1814,7 +1814,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048725, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -1822,14 +1822,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.b
+    @Override // com.repackage.yl
     public void proxyOnAttachFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048726, this, fragment) == null) {
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048727, this) == null) {
@@ -1837,7 +1837,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048728, this) == null) {
@@ -1845,7 +1845,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048729, this, activity, charSequence) == null) {
@@ -1853,7 +1853,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048730, this, configuration) == null) {
@@ -1861,7 +1861,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnContentChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048731, this) == null) {
@@ -1869,14 +1869,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnContextItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048732, this, menuItem)) == null) ? super.onContextItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnContextMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048733, this, menu) == null) {
@@ -1884,7 +1884,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048734, this, bundle) == null) {
@@ -1892,36 +1892,36 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    @Override // com.repackage.xl
+    public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048735, this, contextMenu, view, contextMenuInfo) == null) {
-            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (interceptable == null || interceptable.invokeLLL(1048735, this, contextMenu, view2, contextMenuInfo) == null) {
+            super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048736, this, i, menu)) == null) ? super.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048737, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048739, this, str, context, attributeSet)) == null) ? super.onCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048740, this) == null) {
@@ -1929,7 +1929,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048741, this) == null) {
@@ -1937,35 +1937,35 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048742, this, i, keyEvent)) == null) ? super.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048743, this, i, keyEvent)) == null) ? super.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048744, this, i, i2, keyEvent)) == null) ? super.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048745, this, i, keyEvent)) == null) ? super.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnLowMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048746, this) == null) {
@@ -1973,28 +1973,28 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i, menuItem)) == null) ? super.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048748, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnOptionsItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048749, this, menuItem)) == null) ? super.onOptionsItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnOptionsMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048750, this, menu) == null) {
@@ -2002,7 +2002,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048751, this, i, menu) == null) {
@@ -2010,7 +2010,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048752, this) == null) {
@@ -2018,7 +2018,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnPostCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048753, this, bundle) == null) {
@@ -2026,7 +2026,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnPostResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048754, this) == null) {
@@ -2034,7 +2034,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048755, this, i, dialog) == null) {
@@ -2042,21 +2042,21 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnPrepareOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048756, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
-    public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
+    @Override // com.repackage.xl
+    public boolean proxyOnPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048757, this, i, view, menu)) == null) ? super.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048757, this, i, view2, menu)) == null) ? super.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnRestart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048758, this) == null) {
@@ -2064,7 +2064,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048759, this, bundle) == null) {
@@ -2072,7 +2072,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048760, this) == null) {
@@ -2080,14 +2080,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public Object proxyOnRetainNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) ? super.onRetainNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048762, this, bundle) == null) {
@@ -2095,14 +2095,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048763, this)) == null) ? super.onSearchRequested() : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048764, this) == null) {
@@ -2110,7 +2110,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048765, this) == null) {
@@ -2118,28 +2118,28 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048766, this, charSequence, i) == null) {
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048767, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyOnTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048768, this, motionEvent)) == null) ? super.onTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnUserInteraction() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048769, this) == null) {
@@ -2147,7 +2147,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048770, this, layoutParams) == null) {
@@ -2155,7 +2155,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOnWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048771, this, z) == null) {
@@ -2163,15 +2163,15 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxyOpenContextMenu(View view) {
+    @Override // com.repackage.xl
+    public void proxyOpenContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048772, this, view) == null) {
-            super.openContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048772, this, view2) == null) {
+            super.openContextMenu(view2);
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOpenOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048773, this) == null) {
@@ -2179,7 +2179,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyOverridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048774, this, i, i2) == null) {
@@ -2187,15 +2187,15 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxyRegisterForContextMenu(View view) {
+    @Override // com.repackage.xl
+    public void proxyRegisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048775, this, view) == null) {
-            super.registerForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048775, this, view2) == null) {
+            super.registerForContextMenu(view2);
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetContentView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048776, this, i) == null) {
@@ -2203,7 +2203,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048779, this, intent) == null) {
@@ -2211,7 +2211,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048780, this, i) == null) {
@@ -2219,7 +2219,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetTitle(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048781, this, i) == null) {
@@ -2227,7 +2227,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetTitleColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048783, this, i) == null) {
@@ -2235,7 +2235,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
@@ -2243,7 +2243,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartActivity(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048785, this, intent) == null) {
@@ -2251,7 +2251,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048786, this, intent, i) == null) {
@@ -2259,7 +2259,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048787, this, activity, intent, i) == null) {
@@ -2267,21 +2267,21 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.b
+    @Override // com.repackage.yl
     public void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048788, this, fragment, intent, i) == null) {
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyStartActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048789, this, intent, i)) == null) ? super.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
@@ -2289,7 +2289,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048791, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -2304,7 +2304,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048793, this, cursor) == null) {
@@ -2312,14 +2312,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyStartNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048794, this, intent)) == null) ? super.startNextMatchingActivity(intent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048795, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
@@ -2327,7 +2327,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public ComponentName proxyStartService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2337,7 +2337,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return (ComponentName) invokeL.objValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyStopManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048797, this, cursor) == null) {
@@ -2345,21 +2345,21 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048798, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
-            d.a c2 = stringExtra != null ? c.a.d.j.d.a().c(stringExtra) : null;
-            if (c2 != null && c2.a != null) {
-                if (c.a.d.j.d.a().b() == 1) {
-                    c.a.d.j.d.a().e(stringExtra);
-                    c2.a.stopSelf();
+            vl.a c = stringExtra != null ? vl.a().c(stringExtra) : null;
+            if (c != null && c.a != null) {
+                if (vl.a().b() == 1) {
+                    vl.a().e(stringExtra);
+                    c.a.stopSelf();
                     return true;
                 }
-                c2.a.onDestroy();
-                c.a.d.j.d.a().e(stringExtra);
+                c.a.onDestroy();
+                vl.a().e(stringExtra);
                 return true;
             }
             BdLog.d("service stop error!" + intent.toString());
@@ -2368,7 +2368,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxyTakeKeyEvents(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048799, this, z) == null) {
@@ -2376,11 +2376,11 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxyUnregisterForContextMenu(View view) {
+    @Override // com.repackage.xl
+    public void proxyUnregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048800, this, view) == null) {
-            super.unregisterForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048800, this, view2) == null) {
+            super.unregisterForContextMenu(view2);
         }
     }
 
@@ -2392,14 +2392,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // android.app.Activity
-    public void registerForContextMenu(View view) {
+    public void registerForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048802, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048802, this, view2) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.registerForContextMenu(view);
+                pluginBaseFragmentActivity.registerForContextMenu(view2);
             } else {
-                super.registerForContextMenu(view);
+                super.registerForContextMenu(view2);
             }
         }
     }
@@ -2430,7 +2430,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.a.i
+    @Override // com.repackage.e9
     public void setIsScroll(boolean z) {
         PluginBaseFragmentActivity pluginBaseFragmentActivity;
         Interceptable interceptable = $ic;
@@ -2447,7 +2447,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
                 pluginBaseFragmentActivity.setRequestedOrientation(i);
-            } else if (a.d(this) && a.a(i)) {
+            } else if (w8.d(this) && w8.a(i)) {
             } else {
                 super.setRequestedOrientation(i);
             }
@@ -2677,42 +2677,42 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // android.app.Activity
-    public void unregisterForContextMenu(View view) {
+    public void unregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048827, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048827, this, view2) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.unregisterForContextMenu(view);
+                pluginBaseFragmentActivity.unregisterForContextMenu(view2);
             } else {
-                super.unregisterForContextMenu(view);
+                super.unregisterForContextMenu(view2);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public PluginBaseFragmentActivity getTarget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mEntity : (PluginBaseFragmentActivity) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.a
-    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    @Override // com.repackage.xl
+    public View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048738, this, view, str, context, attributeSet)) == null) ? super.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048738, this, view2, str, context, attributeSet)) == null) ? super.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxySetContentView(View view) {
+    @Override // com.repackage.xl
+    public void proxySetContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048777, this, view) == null) {
-            super.setContentView(view);
+        if (interceptable == null || interceptable.invokeL(1048777, this, view2) == null) {
+            super.setContentView(view2);
         }
     }
 
-    @Override // c.a.d.j.f.a
+    @Override // com.repackage.xl
     public void proxySetTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048782, this, charSequence) == null) {
@@ -2729,7 +2729,7 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
             loadEntityActivity();
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                c.a.d.j.k.d.k(pluginBaseFragmentActivity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+                vm.k(pluginBaseFragmentActivity, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
             } else {
                 super.onCreate(bundle);
             }
@@ -2737,23 +2737,23 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         }
     }
 
-    @Override // c.a.d.j.f.a
-    public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    @Override // com.repackage.xl
+    public void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048778, this, view, layoutParams) == null) {
-            super.setContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048778, this, view2, layoutParams) == null) {
+            super.setContentView(view2, layoutParams);
         }
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048804, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048804, this, view2) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.setContentView(view);
+                pluginBaseFragmentActivity.setContentView(view2);
             } else {
-                super.setContentView(view);
+                super.setContentView(view2);
             }
         }
     }
@@ -2772,14 +2772,14 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048805, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048805, this, view2, layoutParams) == null) {
             PluginBaseFragmentActivity pluginBaseFragmentActivity = this.mEntity;
             if (pluginBaseFragmentActivity != null) {
-                pluginBaseFragmentActivity.setContentView(view, layoutParams);
+                pluginBaseFragmentActivity.setContentView(view2, layoutParams);
             } else {
-                super.setContentView(view, layoutParams);
+                super.setContentView(view2, layoutParams);
             }
         }
     }

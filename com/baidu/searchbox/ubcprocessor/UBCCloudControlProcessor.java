@@ -2,8 +2,6 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s;
-import c.a.r0.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
@@ -18,11 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
+import com.repackage.i49;
+import com.repackage.m49;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -112,9 +112,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
             if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
                 boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
-                w wVar = new w("", serviceData);
-                if (wVar.l()) {
-                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(wVar, z, new s(this, iCloudControlUBCCallBack, wVar.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                m49 m49Var = new m49("", serviceData);
+                if (m49Var.l()) {
+                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(m49Var, z, new i49(this, iCloudControlUBCCallBack, m49Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -141,7 +141,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // c.a.r0.s
+                        @Override // com.repackage.i49
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;
@@ -166,8 +166,8 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                 for (UBCCloudConfigObserver uBCCloudConfigObserver : list) {
                     try {
                         uBCCloudConfigObserver.onReceiveUbcCloudConfig(jSONObject, option);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }

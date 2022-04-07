@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.p0.o2.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
@@ -14,7 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.jm7;
+import com.repackage.wt4;
+/* loaded from: classes3.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_NAME = "com.baidu.tieba.broadcast.collectupdate";
@@ -38,15 +39,15 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
-            b.b().g();
-            if (c.a.o0.r.j0.b.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            jm7.b().g();
+            if (wt4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);
                     intent2.putExtra("is_notify", true);
                     intent2.setFlags(603979776);
                     PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                    String string = context.getString(R.string.obfuscated_res_0x7f0f03ec);
+                    String string = context.getString(R.string.obfuscated_res_0x7f0f03f3);
                     NotificationHelper.showNotification(context, 28, context.getString(R.string.obfuscated_res_0x7f0f029e), string, string, service, false);
                 } catch (Throwable th) {
                     if (BdLog.isDebugMode()) {

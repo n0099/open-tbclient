@@ -10,14 +10,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractResponse implements Response {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpURLConnection a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42470b;
+    public int b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
@@ -34,15 +32,15 @@ public abstract class AbstractResponse implements Response {
                 return;
             }
         }
-        this.f42470b = 0;
+        this.b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
         this.a = httpURLConnection;
         try {
-            this.f42470b = httpURLConnection.getResponseCode();
-        } catch (IOException e2) {
-            throw new AssertionError(e2);
+            this.b = httpURLConnection.getResponseCode();
+        } catch (IOException e) {
+            throw new AssertionError(e);
         }
     }
 
@@ -81,7 +79,7 @@ public abstract class AbstractResponse implements Response {
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42470b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response

@@ -78,7 +78,6 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +107,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_CENTER = "account_center";
@@ -201,17 +200,17 @@ public class SapiWebView extends WebView {
     public WebviewClientCallback webviewClientCallback;
     public View webviewLoadingView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AccountChangeCallback {
         void onAccountChange();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AccountDestoryCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class AccountDestoryResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -248,12 +247,12 @@ public class SapiWebView extends WebView {
         public abstract void onAccountDestory(AccountDestoryResult accountDestoryResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AccountFreezeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class AccountFreezeResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -291,7 +290,7 @@ public class SapiWebView extends WebView {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ActivityLifeCycle {
         public static final /* synthetic */ ActivityLifeCycle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -353,22 +352,22 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface BdussChangeCallback {
         void onBdussChange();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface BindWidgetCallback {
         void onPhoneNumberExist(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface BioScanFaceCallback {
         public static final int BIO_SCAN_FACE_LOGIN = 2;
         public static final int BIO_SCAN_FACE_REG = 1;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static abstract class BioScanFaceResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -402,14 +401,14 @@ public class SapiWebView extends WebView {
         void onBioScanFace(BioScanFaceResult bioScanFaceResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface BiometricsIdentifyCallback {
         public static final int LIVENESS_RECOG = 1;
 
         void onBiometricsIdentify(BiometricsIdentifyResult biometricsIdentifyResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BiometricsIdentifyResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_GET_STOKEN_FAILED = -402;
@@ -445,12 +444,12 @@ public class SapiWebView extends WebView {
         public abstract void setIdentifyToken(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ChangePwdCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Command {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -494,8 +493,8 @@ public class SapiWebView extends WebView {
                         }
                     }
                     return command;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -515,12 +514,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface CoverWebBdussCallback {
         void onCoverBduss(String str, CoverWebBdussResult coverWebBdussResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class CoverWebBdussResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,22 +541,22 @@ public class SapiWebView extends WebView {
         public abstract void setWebBduss(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface FileChooserCallback {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
         void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface HistoryLoginCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface InvokeScAppCallback {
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static abstract class InvokeScAppResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -582,7 +581,7 @@ public class SapiWebView extends WebView {
         void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, InvokeScAppResult invokeScAppResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LeftBtnVisibleCallback {
         public static final int LEFT_BTN_INVISIBLE = 0;
         public static final int LEFT_BTN_VISIBLE = 1;
@@ -590,12 +589,12 @@ public class SapiWebView extends WebView {
         void onLeftBtnVisible(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LoadExternalWebViewCallback {
         void loadExternalWebview(LoadExternalWebViewResult loadExternalWebViewResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LoadExternalWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -617,12 +616,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LoadSlideWebViewCallback {
         void loadSlideWebview(LoadSlideWebViewResult loadSlideWebViewResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LoadSlideWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -646,32 +645,32 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LocalConfigCallback {
         List<FastLoginFeature> getFastLoginFeatureList();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnBackCallback {
         void onBack();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnFinishCallback {
         void onFinish();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnNewBackCallback {
         boolean onBack();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSlidePageFinishCallback {
         void onFinish(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface PickPhotoCallback {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
@@ -679,7 +678,7 @@ public class SapiWebView extends WebView {
         void onPickImage(int i, int i2, int i3, PickPhotoResult pickPhotoResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class PickPhotoResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -705,12 +704,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class PreFillUserNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class PreFillUserNameResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -748,24 +747,24 @@ public class SapiWebView extends WebView {
         public abstract void onPreFillUserName(PreFillUserNameResult preFillUserNameResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface QrLoginCallback {
         void loginStatusChange(boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface QuickLoginHandler {
         void handleOtherLogin();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface RealnameAuthenticateCallback {
         void onFailure();
 
         void onSuccess();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ReloadConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -805,17 +804,17 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ShareAccountClickCallback {
         void onClick(String str, String str2, String str3, String str4, String str5);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class SwitchAccountCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -858,7 +857,7 @@ public class SapiWebView extends WebView {
         public abstract void onAccountSwitch(Result result);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TimeoutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -904,12 +903,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface UniteVerifyCallback {
         void onSuccess(String str, String str2, SapiAccount sapiAccount);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface WebChromeClientCallback {
         boolean isSubClassHandleMessage(String str);
 
@@ -918,12 +917,12 @@ public class SapiWebView extends WebView {
         boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface WebViewTitleCallback {
         void onTitleChange(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface WebviewClientCallback {
         void onPageFinished(WebView webView, String str);
 
@@ -1021,8 +1020,8 @@ public class SapiWebView extends WebView {
                     if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                         try {
                             arrayList.add(new PassNameValuePair(URLEncoder.encode(passNameValuePair.getName(), "UTF-8"), URLEncoder.encode(passNameValuePair.getValue(), "UTF-8")));
-                        } catch (UnsupportedEncodingException e2) {
-                            Log.e(e2);
+                        } catch (UnsupportedEncodingException e) {
+                            Log.e(e);
                         }
                     }
                 }
@@ -1054,8 +1053,8 @@ public class SapiWebView extends WebView {
                         this.jsCallBacks.authorizationListener.onSuccess(accountType);
                         return;
                     }
-                } catch (NoSuchMethodException e2) {
-                    Log.e(e2);
+                } catch (NoSuchMethodException e) {
+                    Log.e(e);
                 }
                 this.jsCallBacks.authorizationListener.onSuccess();
             }
@@ -1070,8 +1069,8 @@ public class SapiWebView extends WebView {
             WebSettings settings = getSettings();
             try {
                 settings.setJavaScriptEnabled(true);
-            } catch (NullPointerException e2) {
-                Log.e(e2);
+            } catch (NullPointerException e) {
+                Log.e(e);
             }
             String userAgentString = settings.getUserAgentString();
             settings.setUserAgentString(userAgentString + " " + getUaInfo());
@@ -1182,10 +1181,10 @@ public class SapiWebView extends WebView {
     public void handleLoadingView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65584, this) == null) {
-            View view = this.noNetworkView;
-            if (view == null || view.getVisibility() != 0) {
-                View view2 = this.timeoutView;
-                if (view2 == null || view2.getVisibility() != 0) {
+            View view2 = this.noNetworkView;
+            if (view2 == null || view2.getVisibility() != 0) {
+                View view3 = this.timeoutView;
+                if (view3 == null || view3.getVisibility() != 0) {
                     post(new Runnable(this) { // from class: com.baidu.sapi2.SapiWebView.10
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -1818,9 +1817,9 @@ public class SapiWebView extends WebView {
                                 socialResponse = new SocialResponse();
                                 try {
                                     socialResponse.errorCode = Integer.parseInt(newPullParser.nextText());
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     socialResponse2 = socialResponse;
-                                    e = e2;
+                                    e = e;
                                     Log.e(e);
                                     return socialResponse2;
                                 }
@@ -1928,8 +1927,8 @@ public class SapiWebView extends WebView {
                         }
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             return socialResponse2;
         }
@@ -1962,8 +1961,8 @@ public class SapiWebView extends WebView {
                     }
                     return str;
                 }
-            } catch (Exception e2) {
-                Log.e(Log.TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.e(Log.TAG, e.getMessage());
             }
             return str;
         }
@@ -2044,14 +2043,14 @@ public class SapiWebView extends WebView {
     }
 
     public void back() {
-        View view;
         View view2;
+        View view3;
         ProgressBar progressBar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.shouldClose && (progressBar = this.progressBar) != null && progressBar.getVisibility() == 0) {
                 finish();
-            } else if (this.shouldClose && (view = this.webviewLoadingView) != null && view.getVisibility() == 0) {
+            } else if (this.shouldClose && (view2 = this.webviewLoadingView) != null && view2.getVisibility() == 0) {
                 finish();
             } else if (this.onNewBackCallback == null || this.jsCallBacks.rrLoginResponse != null) {
                 super.loadUrl(FN_SWITCH_VIEW);
@@ -2060,8 +2059,8 @@ public class SapiWebView extends WebView {
                 SapiUtils.hideSoftInput((Activity) getContext());
                 this.onNewBackCallback.onBack();
             }
-            View view3 = this.noNetworkView;
-            if ((view3 == null || view3.getVisibility() != 0) && ((view2 = this.timeoutView) == null || view2.getVisibility() != 0)) {
+            View view4 = this.noNetworkView;
+            if ((view4 == null || view4.getVisibility() != 0) && ((view3 = this.timeoutView) == null || view3.getVisibility() != 0)) {
                 return;
             }
             finish();
@@ -2098,8 +2097,8 @@ public class SapiWebView extends WebView {
             String replaceAll = this.configuration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             String replaceAll2 = this.configuration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             if (this.configuration.isDarkMode) {
-                arrayList.add(new PassNameValuePair(this.configuration.environment.getWap(), SapiUtils.buildDarkModeCookie(replaceAll, SkinManager.SKIN_TYPE_STR_DARK)));
-                arrayList.add(new PassNameValuePair(this.configuration.environment.getURL(), SapiUtils.buildDarkModeCookie(replaceAll2, SkinManager.SKIN_TYPE_STR_DARK)));
+                arrayList.add(new PassNameValuePair(this.configuration.environment.getWap(), SapiUtils.buildDarkModeCookie(replaceAll, "dark")));
+                arrayList.add(new PassNameValuePair(this.configuration.environment.getURL(), SapiUtils.buildDarkModeCookie(replaceAll2, "dark")));
             } else {
                 arrayList.add(new PassNameValuePair(this.configuration.environment.getWap(), SapiUtils.buildDarkModeCookie(replaceAll, SensorController.KEY_LIGHT)));
                 arrayList.add(new PassNameValuePair(this.configuration.environment.getURL(), SapiUtils.buildDarkModeCookie(replaceAll2, SensorController.KEY_LIGHT)));
@@ -2971,8 +2970,8 @@ public class SapiWebView extends WebView {
                     if (str3 != null) {
                         arrayList.add(new PassNameValuePair("adtext", URLEncoder.encode(str3, "UTF-8")));
                     }
-                } catch (UnsupportedEncodingException e2) {
-                    Log.e(e2);
+                } catch (UnsupportedEncodingException e) {
+                    Log.e(e);
                 }
                 String uniteVerifyUrl = getUniteVerifyUrl();
                 loadUrl(uniteVerifyUrl + "&" + SapiUtils.createRequestParams(arrayList));
@@ -3036,10 +3035,10 @@ public class SapiWebView extends WebView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Boolean.valueOf(z)})) == null) {
-            View view = this.noNetworkView;
-            if (view == null || view.getVisibility() != 0) {
-                View view2 = this.timeoutView;
-                if (view2 == null || view2.getVisibility() != 0) {
+            View view2 = this.noNetworkView;
+            if (view2 == null || view2.getVisibility() != 0) {
+                View view3 = this.timeoutView;
+                if (view3 == null || view3.getVisibility() != 0) {
                     return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
                 }
                 return false;
@@ -3290,11 +3289,11 @@ public class SapiWebView extends WebView {
 
     @Override // android.view.View
     public void scrollTo(int i, int i2) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048641, this, i, i2) == null) {
-            View view2 = this.noNetworkView;
-            if ((view2 != null && view2.getVisibility() == 0) || ((view = this.timeoutView) != null && view.getVisibility() == 0)) {
+            View view3 = this.noNetworkView;
+            if ((view3 != null && view3.getVisibility() == 0) || ((view2 = this.timeoutView) != null && view2.getVisibility() == 0)) {
                 super.scrollTo(0, 0);
             }
             super.scrollTo(i, i2);
@@ -3532,11 +3531,11 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public final void setNoNetworkView(View view) {
+    public final void setNoNetworkView(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048675, this, view) == null) && this.noNetworkView == null) {
-            this.noNetworkView = view;
-            view.setVisibility(4);
+        if ((interceptable == null || interceptable.invokeL(1048675, this, view2) == null) && this.noNetworkView == null) {
+            this.noNetworkView = view2;
+            view2.setVisibility(4);
             addView(this.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -3686,11 +3685,11 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public final void setTimeoutView(View view) {
+    public final void setTimeoutView(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048696, this, view) == null) && this.timeoutView == null) {
-            this.timeoutView = view;
-            view.setVisibility(4);
+        if ((interceptable == null || interceptable.invokeL(1048696, this, view2) == null) && this.timeoutView == null) {
+            this.timeoutView = view2;
+            view2.setVisibility(4);
             addView(this.timeoutView, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -3723,12 +3722,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void setWebviewLoadingView(View view) {
+    public void setWebviewLoadingView(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048701, this, view) == null) && this.webviewLoadingView == null) {
-            this.webviewLoadingView = view;
-            view.setVisibility(4);
-            addView(view, new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable == null || interceptable.invokeL(1048701, this, view2) == null) && this.webviewLoadingView == null) {
+            this.webviewLoadingView = view2;
+            view2.setVisibility(4);
+            addView(view2, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -3872,8 +3871,8 @@ public class SapiWebView extends WebView {
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new PassNameValuePair("skin", str));
                 }
-            } catch (UnsupportedEncodingException e2) {
-                Log.e(e2);
+            } catch (UnsupportedEncodingException e) {
+                Log.e(e);
             }
             String forgetPwdUrl = getForgetPwdUrl();
             if (arrayList.size() > 0) {
@@ -3956,7 +3955,7 @@ public class SapiWebView extends WebView {
     }
 
     /* renamed from: com.baidu.sapi2.SapiWebView$2  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass2 extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3980,7 +3979,7 @@ public class SapiWebView extends WebView {
             this.this$0 = sapiWebView;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x0179, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x0178, code lost:
             if ((r5.getHost() + r5.getPath()).contains(r4.getHost() + r4.getPath()) != false) goto L44;
          */
         @Override // android.webkit.WebViewClient
@@ -4138,7 +4137,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC17842 this$2;
+                                            public final /* synthetic */ RunnableC01252 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 

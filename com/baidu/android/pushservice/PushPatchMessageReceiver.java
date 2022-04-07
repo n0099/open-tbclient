@@ -17,7 +17,7 @@ import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_ARRIVED = 2;
@@ -52,8 +52,8 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                 intent.putExtra(PUSH_MSG, miPushMessage);
                 intent.putExtra(PUSH_MSG_TYPE, i);
                 m.a(intent, context.getApplicationContext());
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -65,8 +65,8 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             try {
                 new JSONObject(str);
                 return false;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return true;
             }
         }
@@ -91,7 +91,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.k = k.f24761b.b();
+                iVar.k = k.b.b();
             } else {
                 content = iVar.b(context, content);
             }
@@ -124,8 +124,8 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                         intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());
                         m.a(intent, context.getApplicationContext());
                     }
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
             }
         }

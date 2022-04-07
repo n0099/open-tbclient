@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
@@ -47,7 +47,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +191,10 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                         }
                     }
                     throw new RuntimeException("Error while transcoding the image");
-                } catch (Exception e2) {
-                    this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
+                } catch (Exception e) {
+                    this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e, null);
                     if (BaseConsumer.isLast(i)) {
-                        getConsumer().onFailure(e2);
+                        getConsumer().onFailure(e);
                     }
                 } finally {
                     newOutputStream.close();

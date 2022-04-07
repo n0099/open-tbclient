@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RetrieveFileJob extends IRetrieveJob {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_FILE_ZIP = ".im_fetch_file_zip";
@@ -43,7 +43,7 @@ public class RetrieveFileJob extends IRetrieveJob {
     public final AtomicInteger mRetryCount;
 
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,8 +253,8 @@ public class RetrieveFileJob extends IRetrieveJob {
                 jSONObject.put(str, makeFileMeta);
                 LogUtils.d(TAG, "retrieve--> generateMetaInfo error:" + str2);
                 LogUtils.d(TAG, "retrieve-->generateMetaInfo path:" + str + " fileMeta:" + makeFileMeta);
-            } catch (JSONException e2) {
-                LogUtils.d(TAG, e2.toString());
+            } catch (JSONException e) {
+                LogUtils.d(TAG, e.toString());
             }
         }
     }
@@ -405,8 +405,8 @@ public class RetrieveFileJob extends IRetrieveJob {
                 generateMetaInfo(absolutePath2, "1", file6.getPath() + " not exist", null, null, true, jSONObject);
                 LogUtils.d(TAG, "retrieve--> zipFile path 空");
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

@@ -19,32 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ee5;
+/* loaded from: classes3.dex */
 public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public c.a.o0.e1.h.a f30781b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f30782c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30783d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30784e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30785f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30786g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f30787h;
+    public ee5 b;
+    public View c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public float h;
     public ValueAnimator i;
     public ValueAnimator j;
     public int k;
@@ -55,32 +42,24 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public boolean p;
     public RecyclerView.OnScrollListener q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f30788b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f30789c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public ValueAnimator f30790d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PullLeftRefreshLayout f30791e;
+        public boolean b;
+        public int c;
+        public ValueAnimator d;
+        public final /* synthetic */ PullLeftRefreshLayout e;
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C1833a implements ValueAnimator.AnimatorUpdateListener {
+        /* loaded from: classes3.dex */
+        public class C0174a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1833a(a aVar) {
+            public C0174a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,12 +81,12 @@ public class PullLeftRefreshLayout extends FrameLayout {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    this.a.f30791e.setTranslationStatus(-((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    this.a.e.setTranslationStatus(-((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class b extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +122,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.a.f30791e.f();
+                    this.a.e.f();
                 }
             }
         }
@@ -163,9 +142,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f30791e = pullLeftRefreshLayout;
-            this.f30788b = true;
-            this.f30789c = 0;
+            this.e = pullLeftRefreshLayout;
+            this.b = true;
+            this.c = 0;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -173,21 +152,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
                 this.a = i;
-                if (this.f30791e.p && this.a == 0 && !this.f30788b) {
-                    ValueAnimator valueAnimator = this.f30790d;
+                if (this.e.p && this.a == 0 && !this.b) {
+                    ValueAnimator valueAnimator = this.d;
                     if (valueAnimator != null) {
                         valueAnimator.cancel();
                     }
-                    int i2 = (int) (this.f30791e.f30787h - 1.0f);
-                    if (this.f30789c > i2) {
-                        this.f30789c = i2;
+                    int i2 = (int) (this.e.h - 1.0f);
+                    if (this.c > i2) {
+                        this.c = i2;
                     }
-                    ValueAnimator ofInt = ValueAnimator.ofInt(this.f30789c, 0);
-                    this.f30790d = ofInt;
+                    ValueAnimator ofInt = ValueAnimator.ofInt(this.c, 0);
+                    this.d = ofInt;
                     ofInt.setDuration(100L);
-                    this.f30790d.addUpdateListener(new C1833a(this));
-                    this.f30790d.addListener(new b(this));
-                    this.f30790d.start();
+                    this.d.addUpdateListener(new C0174a(this));
+                    this.d.addListener(new b(this));
+                    this.d.start();
                 }
             }
         }
@@ -196,17 +175,17 @@ public class PullLeftRefreshLayout extends FrameLayout {
         public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
-                this.f30789c = i;
+                this.c = i;
                 if (!recyclerView.canScrollHorizontally(1) && i > 0) {
-                    this.f30788b = false;
+                    this.b = false;
                 } else {
-                    this.f30788b = true;
+                    this.b = true;
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -240,7 +219,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +260,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,13 +294,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PullLeftRefreshLayout a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +369,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a();
     }
@@ -427,9 +406,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
             if (recyclerView != null) {
                 recyclerView.setTranslationX(f2);
             }
-            View view = this.f30782c;
-            if (view != null) {
-                view.setTranslationX(this.f30784e + f2);
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.setTranslationX(this.e + f2);
             }
         }
     }
@@ -443,7 +422,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30783d = 0;
+            this.d = 0;
             this.n = 0.0f;
             setTranslationStatus(0.0f);
         }
@@ -483,9 +462,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
             this.i.addUpdateListener(new b(this));
             this.i.addListener(new c(this));
             this.i.start();
-            View view = this.f30782c;
-            if (view != null) {
-                this.f30781b.b(view);
+            View view2 = this.c;
+            if (view2 != null) {
+                this.b.b(view2);
             }
         }
     }
@@ -503,9 +482,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
             this.j.addUpdateListener(new d(this));
             this.j.addListener(new e(this));
             this.j.start();
-            View view = this.f30782c;
-            if (view != null) {
-                this.f30781b.b(view);
+            View view2 = this.c;
+            if (view2 != null) {
+                this.b.b(view2);
             }
         }
     }
@@ -573,14 +552,14 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         this.k = x;
                         this.m = x;
                         this.l = y;
-                        if (Math.abs(i) > Math.abs(y - this.l) && this.p && i < 0 && !e() && this.f30783d == 0) {
+                        if (Math.abs(i) > Math.abs(y - this.l) && this.p && i < 0 && !e() && this.d == 0) {
                             if (getParent() != null) {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
-                            this.f30783d = 2;
-                            c.a.o0.e1.h.a aVar = this.f30781b;
-                            if (aVar != null) {
-                                aVar.b(this.f30782c);
+                            this.d = 2;
+                            ee5 ee5Var = this.b;
+                            if (ee5Var != null) {
+                                ee5Var.b(this.c);
                             }
                             return true;
                         }
@@ -602,8 +581,8 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (this.f30783d == 0) {
-                this.f30782c.setTranslationX(this.f30784e);
+            if (this.d == 0) {
+                this.c.setTranslationX(this.e);
             }
             super.onLayout(z, i, i2, i3, i4);
         }
@@ -614,14 +593,14 @@ public class PullLeftRefreshLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            View view = this.f30782c;
-            if (view != null) {
-                int measuredWidth = view.getMeasuredWidth();
-                this.f30784e = measuredWidth;
+            View view2 = this.c;
+            if (view2 != null) {
+                int measuredWidth = view2.getMeasuredWidth();
+                this.e = measuredWidth;
                 int i3 = measuredWidth * 2;
-                this.f30786g = i3;
-                this.f30785f = i3 + measuredWidth;
-                this.f30787h = measuredWidth;
+                this.g = i3;
+                this.f = i3 + measuredWidth;
+                this.h = measuredWidth;
             }
         }
     }
@@ -648,43 +627,43 @@ public class PullLeftRefreshLayout extends FrameLayout {
                     if (action == 2) {
                         int i = x - this.m;
                         this.m = x;
-                        float abs = this.n + (i * (1.0f - Math.abs(this.n / this.f30785f)));
+                        float abs = this.n + (i * (1.0f - Math.abs(this.n / this.f)));
                         this.n = abs;
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            c.a.o0.e1.h.a aVar = this.f30781b;
-                            if (aVar != null) {
-                                aVar.b(this.f30782c);
+                            ee5 ee5Var = this.b;
+                            if (ee5Var != null) {
+                                ee5Var.b(this.c);
                             }
                         } else {
-                            int i2 = this.f30785f;
+                            int i2 = this.f;
                             if (abs <= (-i2)) {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                c.a.o0.e1.h.a aVar2 = this.f30781b;
-                                if (aVar2 != null) {
-                                    aVar2.a(this.f30782c);
+                                ee5 ee5Var2 = this.b;
+                                if (ee5Var2 != null) {
+                                    ee5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
-                                if (Math.abs(this.n) > this.f30787h) {
-                                    c.a.o0.e1.h.a aVar3 = this.f30781b;
-                                    if (aVar3 != null) {
-                                        aVar3.a(this.f30782c);
+                                if (Math.abs(this.n) > this.h) {
+                                    ee5 ee5Var3 = this.b;
+                                    if (ee5Var3 != null) {
+                                        ee5Var3.a(this.c);
                                     }
                                 } else {
-                                    c.a.o0.e1.h.a aVar4 = this.f30781b;
-                                    if (aVar4 != null) {
-                                        aVar4.b(this.f30782c);
+                                    ee5 ee5Var4 = this.b;
+                                    if (ee5Var4 != null) {
+                                        ee5Var4.b(this.c);
                                     }
                                 }
                             }
                         }
-                        View view = this.f30782c;
-                        if (view != null) {
-                            view.setTranslationX(this.f30784e + this.n);
+                        View view2 = this.c;
+                        if (view2 != null) {
+                            view2.setTranslationX(this.e + this.n);
                         }
                         return true;
                     }
@@ -692,7 +671,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 this.k = 0;
                 this.m = 0;
                 this.l = 0;
-                if (Math.abs(this.n) < this.f30787h) {
+                if (Math.abs(this.n) < this.h) {
                     j();
                 } else {
                     k();
@@ -719,15 +698,15 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(c.a.o0.e1.h.a aVar) {
+    public void setRefreshViewAndListener(ee5 ee5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) {
-            this.f30781b = aVar;
-            this.f30782c = aVar.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, ee5Var) == null) {
+            this.b = ee5Var;
+            this.c = ee5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
-            this.f30782c.setLayoutParams(layoutParams);
-            addView(this.f30782c, 0);
+            this.c.setLayoutParams(layoutParams);
+            addView(this.c, 0);
         }
     }
 

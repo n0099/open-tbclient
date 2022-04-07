@@ -1,9 +1,6 @@
 package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.p0.a4.e;
-import c.a.p0.a4.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
@@ -16,16 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bj8;
+import com.repackage.kj8;
+import com.repackage.mg;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes6.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, FrsPageResIdl> {
+/* loaded from: classes4.dex */
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kj8, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public n responseData;
+    public kj8 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,10 +54,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public n getResponseData() {
+    public kj8 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (kj8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -83,16 +83,16 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
                     this.updateType = frsRequestData.getUpdateType();
                     this.needCache = frsRequestData.isNeedCache();
                     this.mCategoryId = frsRequestData.z();
-                    this.mIsGood = frsRequestData.A();
+                    this.mIsGood = frsRequestData.B();
                 }
             }
         }
     }
 
-    public void setResponseData(n nVar) {
+    public void setResponseData(kj8 kj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, nVar) == null) {
-            this.responseData = nVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, kj8Var) == null) {
+            this.responseData = kj8Var;
         }
     }
 
@@ -106,30 +106,30 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        n nVar;
+        kj8 kj8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (nVar = this.responseData) == null || !this.needCache || nVar.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (kj8Var = this.responseData) == null || !this.needCache || kj8Var.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        e i2 = e.i();
-        String g2 = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+        bj8 i2 = bj8.i();
+        String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
-            e.i().m(g2, bArr);
+            bj8.i().m(g, bArr);
         } else {
-            e.i().a(g2, bArr, true);
+            bj8.i().a(g, bArr, true);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        int e2;
+        int e;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.beforeDispatchInBackGround(i, (int) bArr);
-            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e2 = b.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e2))) == null) {
+            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e = mg.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e))) == null) {
                 return;
             }
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
@@ -142,9 +142,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            n nVar = new n();
-            this.responseData = nVar;
-            FrsPageResIdl parserProtobuf = nVar.parserProtobuf(bArr, true);
+            kj8 kj8Var = new kj8();
+            this.responseData = kj8Var;
+            FrsPageResIdl parserProtobuf = kj8Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -153,7 +153,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            setData(this.responseData);
+            kj8 kj8Var2 = this.responseData;
+            kj8Var2.isFromCache = false;
+            setData(kj8Var2);
         }
     }
 }

@@ -9,12 +9,12 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import c.a.q0.b.e.d;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.repackage.m39;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TNWebViewClient extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,35 +58,35 @@ public class TNWebViewClient extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest)) == null) {
             try {
-            } catch (MalformedURLException e2) {
-                Log.e("tn_TNWebViewClient", "MalformedURLException when intercept webview request: " + e2.toString());
-            } catch (IOException e3) {
-                Log.e("tn_TNWebViewClient", "IOException when intercept webview request: " + e3.toString());
-            } catch (Exception e4) {
-                Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e4.toString());
+            } catch (MalformedURLException e) {
+                Log.e("tn_TNWebViewClient", "MalformedURLException when intercept webview request: " + e.toString());
+            } catch (IOException e2) {
+                Log.e("tn_TNWebViewClient", "IOException when intercept webview request: " + e2.toString());
+            } catch (Exception e3) {
+                Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e3.toString());
             }
             if (webResourceRequest.getMethod().equals("GET") && !this.a.f()) {
                 Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-                d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.a);
-                dVar.setRequestMethod(webResourceRequest.getMethod());
+                m39 m39Var = new m39(new URL(webResourceRequest.getUrl().toString()), this.a);
+                m39Var.setRequestMethod(webResourceRequest.getMethod());
                 Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
                 if (requestHeaders != null) {
                     for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                        dVar.setRequestProperty(entry.getKey(), entry.getValue());
+                        m39Var.setRequestProperty(entry.getKey(), entry.getValue());
                     }
                 }
                 CookieManager cookieManager = CookieManager.getInstance();
                 String cookie = cookieManager.getCookie(webResourceRequest.getUrl().toString());
                 if (!TextUtils.isEmpty(cookie)) {
-                    dVar.setRequestProperty("Cookie", cookie);
+                    m39Var.setRequestProperty("Cookie", cookie);
                 }
-                int responseCode = dVar.getResponseCode();
+                int responseCode = m39Var.getResponseCode();
                 if (responseCode >= 100 && responseCode <= 599 && (responseCode <= 299 || responseCode >= 400)) {
-                    String headerField = dVar.getHeaderField("Set-Cookie");
+                    String headerField = m39Var.getHeaderField("Set-Cookie");
                     if (!TextUtils.isEmpty(headerField)) {
-                        cookieManager.setCookie(dVar.getURL().toString(), headerField);
+                        cookieManager.setCookie(m39Var.getURL().toString(), headerField);
                     }
-                    String headerField2 = dVar.getHeaderField("Content-Type");
+                    String headerField2 = m39Var.getHeaderField("Content-Type");
                     String str3 = "UTF-8";
                     if (headerField2 == null || (length = (split = headerField2.split(";")).length) <= 0) {
                         str = "UTF-8";
@@ -102,7 +102,7 @@ public class TNWebViewClient extends WebViewClient {
                         str = str3;
                         str2 = str4;
                     }
-                    Map<String, List<String>> headerFields = dVar.getHeaderFields();
+                    Map<String, List<String>> headerFields = m39Var.getHeaderFields();
                     if (headerFields != null) {
                         HashMap hashMap = new HashMap();
                         for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
@@ -116,10 +116,10 @@ public class TNWebViewClient extends WebViewClient {
                             }
                             hashMap.put(entry2.getKey(), sb.toString());
                         }
-                        if (!TextUtils.isEmpty(dVar.getResponseMessage())) {
-                            return new WebResourceResponse(str2, str, dVar.getResponseCode(), dVar.getResponseMessage(), hashMap, dVar.getInputStream());
+                        if (!TextUtils.isEmpty(m39Var.getResponseMessage())) {
+                            return new WebResourceResponse(str2, str, m39Var.getResponseCode(), m39Var.getResponseMessage(), hashMap, m39Var.getInputStream());
                         }
-                        return new WebResourceResponse(str2, str, dVar.getInputStream());
+                        return new WebResourceResponse(str2, str, m39Var.getInputStream());
                     }
                     return null;
                 }

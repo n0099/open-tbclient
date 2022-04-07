@@ -24,9 +24,9 @@ public class ViewHierarchyEncoder {
         }
     }
 
-    public void addProperty(String str, float f2) {
+    public void addProperty(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048576, this, str, f) == null) {
         }
     }
 

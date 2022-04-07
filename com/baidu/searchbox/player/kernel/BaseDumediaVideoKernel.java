@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final DumediaInfoConverter mConverter;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

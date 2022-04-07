@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MemorySizeCalculator {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -30,7 +30,7 @@ public final class MemorySizeCalculator {
     public final Context context;
     public final int memoryCacheSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
@@ -121,45 +121,45 @@ public final class MemorySizeCalculator {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setBitmapPoolScreens(float f2) {
+        public Builder setBitmapPoolScreens(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) {
-                Preconditions.checkArgument(f2 >= 0.0f, "Bitmap pool screens must be greater than or equal to 0");
-                this.bitmapPoolScreens = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+                Preconditions.checkArgument(f >= 0.0f, "Bitmap pool screens must be greater than or equal to 0");
+                this.bitmapPoolScreens = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setLowMemoryMaxSizeMultiplier(float f2) {
+        public Builder setLowMemoryMaxSizeMultiplier(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-                Preconditions.checkArgument(f2 >= 0.0f && f2 <= 1.0f, "Low memory max size multiplier must be between 0 and 1");
-                this.lowMemoryMaxSizeMultiplier = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+                Preconditions.checkArgument(f >= 0.0f && f <= 1.0f, "Low memory max size multiplier must be between 0 and 1");
+                this.lowMemoryMaxSizeMultiplier = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMaxSizeMultiplier(float f2) {
+        public Builder setMaxSizeMultiplier(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                Preconditions.checkArgument(f2 >= 0.0f && f2 <= 1.0f, "Size multiplier must be between 0 and 1");
-                this.maxSizeMultiplier = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+                Preconditions.checkArgument(f >= 0.0f && f <= 1.0f, "Size multiplier must be between 0 and 1");
+                this.maxSizeMultiplier = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMemoryCacheScreens(float f2) {
+        public Builder setMemoryCacheScreens(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-                Preconditions.checkArgument(f2 >= 0.0f, "Memory cache screens must be greater than or equal to 0");
-                this.memoryCacheScreens = f2;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+                Preconditions.checkArgument(f >= 0.0f, "Memory cache screens must be greater than or equal to 0");
+                this.memoryCacheScreens = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -177,7 +177,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ScreenDimensions {
         int getHeightPixels();
 
@@ -256,12 +256,12 @@ public final class MemorySizeCalculator {
             this.memoryCacheSize = round2;
             this.bitmapPoolSize = round;
         } else {
-            float f2 = i4;
-            float f3 = builder.bitmapPoolScreens;
-            float f4 = builder.memoryCacheScreens;
-            float f5 = f2 / (f3 + f4);
-            this.memoryCacheSize = Math.round(f4 * f5);
-            this.bitmapPoolSize = Math.round(f5 * builder.bitmapPoolScreens);
+            float f = i4;
+            float f2 = builder.bitmapPoolScreens;
+            float f3 = builder.memoryCacheScreens;
+            float f4 = f / (f2 + f3);
+            this.memoryCacheSize = Math.round(f3 * f4);
+            this.bitmapPoolSize = Math.round(f4 * builder.bitmapPoolScreens);
         }
         if (Log.isLoggable(TAG, 3)) {
             StringBuilder sb = new StringBuilder();
@@ -283,16 +283,16 @@ public final class MemorySizeCalculator {
         }
     }
 
-    public static int getMaxSize(ActivityManager activityManager, float f2, float f3) {
+    public static int getMaxSize(ActivityManager activityManager, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{activityManager, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{activityManager, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             boolean isLowMemoryDevice = isLowMemoryDevice(activityManager);
             float memoryClass = activityManager.getMemoryClass() * 1024 * 1024;
             if (isLowMemoryDevice) {
-                f2 = f3;
+                f = f2;
             }
-            return Math.round(memoryClass * f2);
+            return Math.round(memoryClass * f);
         }
         return invokeCommon.intValue;
     }

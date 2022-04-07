@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.Tachikoma;
 import com.tachikoma.core.log.Logger;
 import com.tachikoma.core.utility.TKConverter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RoundImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config BITMAP_CONFIG;
@@ -190,13 +190,13 @@ public class RoundImageView extends ImageView {
                 this.mBitmapHeight = this.mBitmap.getHeight();
                 this.mBitmapWidth = this.mBitmap.getWidth();
                 RectF rectF = this.mBorderRect;
-                float f2 = this.mBorderWidth;
-                float f3 = this.mShadowWidth;
-                rectF.set((f2 / 2.0f) + f3, (f2 / 2.0f) + f3, (getWidth() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth, (getHeight() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth);
+                float f = this.mBorderWidth;
+                float f2 = this.mShadowWidth;
+                rectF.set((f / 2.0f) + f2, (f / 2.0f) + f2, (getWidth() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth, (getHeight() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth);
                 RectF rectF2 = this.mDrawableRect;
-                float f4 = this.mBorderWidth;
-                float f5 = this.mShadowWidth;
-                rectF2.set((f4 / 2.0f) + f5, (f4 / 2.0f) + f5, (getWidth() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth, (getHeight() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth);
+                float f3 = this.mBorderWidth;
+                float f4 = this.mShadowWidth;
+                rectF2.set((f3 / 2.0f) + f4, (f3 / 2.0f) + f4, (getWidth() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth, (getHeight() - (this.mBorderWidth / 2.0f)) - this.mShadowWidth);
                 this.mCircleRadius = Math.min(this.mDrawableRect.height() / 2.0f, this.mDrawableRect.width() / 2.0f);
                 updateShaderMatrix();
                 invalidate();
@@ -210,10 +210,10 @@ public class RoundImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mShaderMatrix.set(null);
-            float f2 = 0.0f;
+            float f = 0.0f;
             if (this.mBitmapWidth * this.mDrawableRect.height() > this.mDrawableRect.width() * this.mBitmapHeight) {
                 width = this.mDrawableRect.height() / this.mBitmapHeight;
-                f2 = (this.mDrawableRect.width() - (this.mBitmapWidth * width)) * 0.5f;
+                f = (this.mDrawableRect.width() - (this.mBitmapWidth * width)) * 0.5f;
                 height = 0.0f;
             } else {
                 width = this.mDrawableRect.width() / this.mBitmapWidth;
@@ -221,8 +221,8 @@ public class RoundImageView extends ImageView {
             }
             this.mShaderMatrix.setScale(width, width);
             Matrix matrix = this.mShaderMatrix;
-            float f3 = this.mBorderWidth;
-            matrix.postTranslate(((int) (f2 + 0.5f)) + f3, ((int) (height + 0.5f)) + f3);
+            float f2 = this.mBorderWidth;
+            matrix.postTranslate(((int) (f + 0.5f)) + f2, ((int) (height + 0.5f)) + f2);
             this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);
         }
     }
@@ -264,12 +264,12 @@ public class RoundImageView extends ImageView {
         }
     }
 
-    public void onShadowSet(float f2) {
+    public void onShadowSet(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048579, this, f2) == null) || this.mShadowWidth == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048579, this, f) == null) || this.mShadowWidth == f) {
             return;
         }
-        this.mShadowWidth = f2;
+        this.mShadowWidth = f;
         setup();
     }
 
@@ -292,10 +292,10 @@ public class RoundImageView extends ImageView {
         invalidate();
     }
 
-    public void setBorderRadius(float f2) {
+    public void setBorderRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            float dp2px = TKConverter.dp2px(Tachikoma.sApplication, f2);
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            float dp2px = TKConverter.dp2px(Tachikoma.sApplication, f);
             this.mTopLeftRoundRadius = dp2px;
             this.mTopRightRoundRadius = dp2px;
             this.mBottomRightRoundRadius = dp2px;
@@ -304,26 +304,26 @@ public class RoundImageView extends ImageView {
         }
     }
 
-    public void setBorderWidth(float f2) {
+    public void setBorderWidth(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048583, this, f2) == null) || f2 == this.mBorderWidth) {
+        if (!(interceptable == null || interceptable.invokeF(1048583, this, f) == null) || f == this.mBorderWidth) {
             return;
         }
-        this.mBorderWidth = f2;
+        this.mBorderWidth = f;
         setup();
     }
 
-    public void setBottomLeftRoundRadius(float f2) {
+    public void setBottomLeftRoundRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.mBottomLeftRoundRadius = f2;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.mBottomLeftRoundRadius = f;
         }
     }
 
-    public void setBottomRightRoundRadius(float f2) {
+    public void setBottomRightRoundRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.mBottomRightRoundRadius = f2;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.mBottomRightRoundRadius = f;
         }
     }
 
@@ -357,17 +357,17 @@ public class RoundImageView extends ImageView {
         }
     }
 
-    public void setTopLeftRoundRadius(float f2) {
+    public void setTopLeftRoundRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.mTopLeftRoundRadius = f2;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            this.mTopLeftRoundRadius = f;
         }
     }
 
-    public void setTopRightRoundRadius(float f2) {
+    public void setTopRightRoundRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.mTopRightRoundRadius = f2;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            this.mTopRightRoundRadius = f;
         }
     }
 }

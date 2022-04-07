@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -38,7 +38,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnWebRequestListener {
         void onFailed();
 
@@ -145,8 +145,8 @@ public class HttpURLExecutorRunnable implements Runnable {
                                         break;
                                     }
                                     str = str + readLine;
-                                } catch (Exception e2) {
-                                    e = e2;
+                                } catch (Exception e) {
+                                    e = e;
                                     inputStream2 = inputStream;
                                     try {
                                         e.printStackTrace();
@@ -155,22 +155,22 @@ public class HttpURLExecutorRunnable implements Runnable {
                                         } else {
                                             try {
                                                 Thread.sleep(1000L);
-                                            } catch (InterruptedException e3) {
-                                                e3.printStackTrace();
+                                            } catch (InterruptedException e2) {
+                                                e2.printStackTrace();
                                             }
                                         }
                                         if (inputStream2 != null) {
                                             try {
                                                 inputStream2.close();
-                                            } catch (IOException e4) {
-                                                e4.printStackTrace();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
                                             }
                                         }
                                         if (bufferedReader == null) {
                                             try {
                                                 bufferedReader.close();
-                                            } catch (IOException e5) {
-                                                e5.printStackTrace();
+                                            } catch (IOException e4) {
+                                                e4.printStackTrace();
                                             }
                                         }
                                     } catch (Throwable th) {
@@ -178,15 +178,15 @@ public class HttpURLExecutorRunnable implements Runnable {
                                         if (inputStream2 != null) {
                                             try {
                                                 inputStream2.close();
-                                            } catch (IOException e6) {
-                                                e6.printStackTrace();
+                                            } catch (IOException e5) {
+                                                e5.printStackTrace();
                                             }
                                         }
                                         if (bufferedReader != null) {
                                             try {
                                                 bufferedReader.close();
-                                            } catch (IOException e7) {
-                                                e7.printStackTrace();
+                                            } catch (IOException e6) {
+                                                e6.printStackTrace();
                                             }
                                         }
                                         throw th;
@@ -202,8 +202,8 @@ public class HttpURLExecutorRunnable implements Runnable {
                                 }
                             }
                             this.mOnWebRequestListener.onSuccess(str);
-                        } catch (Exception e8) {
-                            e = e8;
+                        } catch (Exception e7) {
+                            e = e7;
                             bufferedReader = null;
                             inputStream2 = inputStream;
                             e.printStackTrace();
@@ -241,22 +241,22 @@ public class HttpURLExecutorRunnable implements Runnable {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
                         }
                     }
                     if (bufferedReader2 != null) {
                         try {
                             bufferedReader2.close();
                             return;
-                        } catch (IOException e10) {
-                            e10.printStackTrace();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
                             return;
                         }
                     }
                     return;
-                } catch (Exception e11) {
-                    e = e11;
+                } catch (Exception e10) {
+                    e = e10;
                     bufferedReader = null;
                 } catch (Throwable th4) {
                     th = th4;

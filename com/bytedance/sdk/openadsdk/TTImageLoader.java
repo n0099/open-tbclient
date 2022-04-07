@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTImageLoader {
     TTImageLoader from(String str);
 

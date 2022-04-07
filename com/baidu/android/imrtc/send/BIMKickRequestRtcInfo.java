@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMKickRequestRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickRequestRtcInfo";
@@ -89,8 +89,8 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
                     bIMUser2.thirdUserId = optJSONObject2.optString("third_userid");
                     bIMKickRequestRtcInfo.setBIMKickedUser(bIMUser2);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickRequestRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickRequestRtcInfo toRtcInfo Exception ", e);
             }
             return bIMKickRequestRtcInfo;
         }
@@ -121,8 +121,8 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
                 jSONObject.put("kicked_user", jSONObject3);
                 LogUtils.d(TAG, "BIMKickRequestRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickRequestRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickRequestRtcInfo Exception ", e);
                 return "";
             }
         }

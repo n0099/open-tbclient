@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UnLoginCastService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKPLAY = 1;
@@ -56,7 +56,7 @@ public class UnLoginCastService {
     public long startSeekTime;
     public long startSeekTsTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Uptask extends UpMessageManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,8 +144,8 @@ public class UnLoginCastService {
                         ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray4);
                         try {
                             Thread.sleep(1000L);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                     }
                     if (!this.this$0.isActive || this.this$0.isSeek || i6 >= length2) {
@@ -161,9 +161,9 @@ public class UnLoginCastService {
                     String str4 = UnLoginCastService.TAG;
                     LogUtils.d(str4, "FXF upload a last ts message  " + jSONArray5.toString());
                     ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray5);
-                } catch (JSONException e3) {
+                } catch (JSONException e2) {
                     LogUtils.e(UnLoginCastService.TAG, "m3u8 work task execption  ");
-                    e3.printStackTrace();
+                    e2.printStackTrace();
                 }
             }
         }
@@ -368,8 +368,8 @@ public class UnLoginCastService {
                         return false;
                     }
                     return true;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                     LogUtils.d(TAG, "parse m3u8 execption");
                     return false;
                 }
@@ -388,8 +388,8 @@ public class UnLoginCastService {
             JSONObject jSONObject = null;
             try {
                 jSONObject = new JSONObject(new String(bArr));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             if (jSONObject != null) {
                 String str = TAG;
@@ -476,8 +476,8 @@ public class UnLoginCastService {
                     try {
                         LogUtils.d(TAG, "FXF requestTsTask wait...");
                         this.mawakeLock.wait();
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                     int size = this.mTss.size();
                     if (!this.isActive) {
@@ -817,8 +817,8 @@ public class UnLoginCastService {
             if (thread != null) {
                 try {
                     thread.join();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 this.requestTsTask = null;
             }

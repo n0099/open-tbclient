@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Dimension;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class EncoderContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,11 +42,11 @@ public final class EncoderContext {
         StringBuilder sb = new StringBuilder(bytes.length);
         int length = bytes.length;
         for (int i3 = 0; i3 < length; i3++) {
-            char c2 = (char) (bytes[i3] & 255);
-            if (c2 == '?' && str.charAt(i3) != '?') {
+            char c = (char) (bytes[i3] & 255);
+            if (c == '?' && str.charAt(i3) != '?') {
                 throw new IllegalArgumentException("Message contains characters outside ISO-8859-1 encoding.");
             }
-            sb.append(c2);
+            sb.append(c);
         }
         this.msg = sb.toString();
         this.shape = SymbolShapeHint.FORCE_NONE;
@@ -164,10 +164,10 @@ public final class EncoderContext {
         }
     }
 
-    public void writeCodeword(char c2) {
+    public void writeCodeword(char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Character.valueOf(c2)}) == null) {
-            this.codewords.append(c2);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Character.valueOf(c)}) == null) {
+            this.codewords.append(c);
         }
     }
 

@@ -27,11 +27,11 @@ public final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements 
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(File f2, IOException e2) {
-        Intrinsics.checkNotNullParameter(f2, "f");
-        Intrinsics.checkNotNullParameter(e2, "e");
-        if (((OnErrorAction) this.$onError.invoke(f2, e2)) == OnErrorAction.TERMINATE) {
-            throw new TerminateException(f2);
+    public final void invoke2(File f, IOException e) {
+        Intrinsics.checkNotNullParameter(f, "f");
+        Intrinsics.checkNotNullParameter(e, "e");
+        if (((OnErrorAction) this.$onError.invoke(f, e)) == OnErrorAction.TERMINATE) {
+            throw new TerminateException(f);
         }
     }
 }

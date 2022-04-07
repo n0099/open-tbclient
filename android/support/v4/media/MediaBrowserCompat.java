@@ -901,8 +901,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.search(str, bundle, new SearchResultReceiver(str, bundle, searchCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e2);
+                    } catch (RemoteException e) {
+                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e);
                         this.mHandler.post(new Runnable(this, searchCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -997,8 +997,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.sendCustomAction(str, bundle, new CustomActionResultReceiver(str, bundle, customActionCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e2);
+                    } catch (RemoteException e) {
+                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e);
                         if (customActionCallback != null) {
                             this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.7
                                 public static /* synthetic */ Interceptable $ic;
@@ -1911,8 +1911,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.search(str, bundle, new SearchResultReceiver(str, bundle, searchCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e2);
+                    } catch (RemoteException e) {
+                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e);
                         this.mHandler.post(new Runnable(this, searchCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1965,8 +1965,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.sendCustomAction(str, bundle, new CustomActionResultReceiver(str, bundle, customActionCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e2);
+                    } catch (RemoteException e) {
+                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e);
                         if (customActionCallback != null) {
                             this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.6
                                 public static /* synthetic */ Interceptable $ic;

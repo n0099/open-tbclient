@@ -4,8 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.q.h.g;
-import c.a.n0.q.h.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.h94;
+import com.repackage.i94;
+/* loaded from: classes2.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PMSAppInfo> CREATOR;
@@ -70,7 +70,7 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(g gVar) {
+    public void copyMainPkgInfo(h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h94Var) == null) || h94Var == null) {
             return;
         }
-        this.appId = gVar.f9145g;
-        this.versionCode = gVar.i;
-        this.versionName = gVar.j;
-        this.type = gVar.o;
-        this.pkgSize = gVar.k;
+        this.appId = h94Var.g;
+        this.versionCode = h94Var.i;
+        this.versionName = h94Var.j;
+        this.type = h94Var.o;
+        this.pkgSize = h94Var.k;
     }
 
-    public void copySubPkgInfo(h hVar) {
+    public void copySubPkgInfo(i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, i94Var) == null) || i94Var == null) {
             return;
         }
-        this.appId = hVar.o;
-        this.versionCode = hVar.i;
-        this.versionName = hVar.j;
-        this.type = hVar.q;
-        this.pkgSize = hVar.k;
+        this.appId = i94Var.o;
+        this.versionCode = i94Var.i;
+        this.versionName = i94Var.j;
+        this.type = i94Var.q;
+        this.pkgSize = i94Var.k;
     }
 
     public void countLaunch(long j) {

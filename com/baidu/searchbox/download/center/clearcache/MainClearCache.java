@@ -19,7 +19,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MainClearCache extends BaseClearCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALCULATE_TASK_NAME = "getMainCacheSize";
@@ -32,12 +32,12 @@ public class MainClearCache extends BaseClearCache {
     public transient /* synthetic */ FieldHolder $fh;
     public List<BaseClearCache> mShowClearCacheList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
         void onItemClearCacheResult(BaseClearCache baseClearCache, long j, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface MainClearSizeCallback extends BaseClearCache.CacheSizeCallback {
         void onItemCacheSizeResult(BaseClearCache baseClearCache, long j);
     }
@@ -182,8 +182,8 @@ public class MainClearCache extends BaseClearCache {
                         }
                         try {
                             countDownLatch.await(2L, TimeUnit.MINUTES);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                         long j = 0;
                         for (BaseClearCache baseClearCache2 : calculateCacheList) {
@@ -194,8 +194,8 @@ public class MainClearCache extends BaseClearCache {
                         this.this$0.setCacheSize(j);
                         try {
                             ClearCacheTips.notifyTips(j);
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         BaseClearCache.CacheSizeCallback cacheSizeCallback2 = this.val$cacheSizeCallback;
                         if (cacheSizeCallback2 != null) {
@@ -289,8 +289,8 @@ public class MainClearCache extends BaseClearCache {
                         }
                         try {
                             countDownLatch.await(2L, TimeUnit.MINUTES);
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                         long j = 0;
                         for (BaseClearCache baseClearCache2 : this.this$0.getCalculateCacheList()) {
@@ -299,8 +299,8 @@ public class MainClearCache extends BaseClearCache {
                         this.this$0.setCacheSize(j);
                         try {
                             ClearCacheTips.notifyTips(j);
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         BaseClearCache.CacheClearCallback cacheClearCallback2 = this.val$clearCacheCallback;
                         if (cacheClearCallback2 != null) {

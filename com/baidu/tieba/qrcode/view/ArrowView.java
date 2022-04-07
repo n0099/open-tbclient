@@ -7,7 +7,6 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,26 +16,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f35687e = 20;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f35688f = 13;
+    public static int e = 20;
+    public static int f = 13;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f35689b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f35690c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Path f35691d;
+    public int b;
+    public Paint c;
+    public Path d;
 
     static {
         InterceptResult invokeClinit;
@@ -77,13 +67,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f35687e = n.f(context, R.dimen.tbds20);
-            f35688f = n.f(context, R.dimen.tbds13);
+            e = oi.f(context, R.dimen.tbds20);
+            f = oi.f(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f35690c = paint;
+            this.c = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f35690c.setAntiAlias(true);
-            this.f35691d = new Path();
+            this.c.setAntiAlias(true);
+            this.d = new Path();
         }
     }
 
@@ -92,12 +82,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f35691d.reset();
-            this.f35691d.moveTo(this.a / 2, 0.0f);
-            this.f35691d.lineTo(0.0f, this.f35689b);
-            this.f35691d.lineTo(this.a, this.f35689b);
-            this.f35691d.close();
-            canvas.drawPath(this.f35691d, this.f35690c);
+            this.d.reset();
+            this.d.moveTo(this.a / 2, 0.0f);
+            this.d.lineTo(0.0f, this.b);
+            this.d.lineTo(this.a, this.b);
+            this.d.close();
+            canvas.drawPath(this.d, this.c);
         }
     }
 
@@ -111,11 +101,11 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i2);
             int size2 = View.MeasureSpec.getSize(i2);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f35687e, f35688f);
+                setMeasuredDimension(e, f);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f35687e, size2);
+                setMeasuredDimension(e, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f35688f);
+                setMeasuredDimension(size, f);
             }
         }
     }
@@ -126,7 +116,7 @@ public class ArrowView extends View {
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             this.a = i;
-            this.f35689b = i2;
+            this.b = i2;
         }
     }
 

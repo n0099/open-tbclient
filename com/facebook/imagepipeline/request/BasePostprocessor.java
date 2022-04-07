@@ -16,7 +16,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BasePostprocessor implements Postprocessor {
     public static /* synthetic */ Interceptable $ic;
     public static final Bitmap.Config FALLBACK_BITMAP_CONFIGURATION;

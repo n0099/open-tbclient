@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaCmdConfigSocket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_SOCKET_GET_LIVE_STATUS2 = 602007;

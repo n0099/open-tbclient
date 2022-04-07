@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ADSize {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_HEIGHT = -2;
     public static final int FULL_WIDTH = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42353b;
+    public int b;
 
     public ADSize(int i, int i2) {
         Interceptable interceptable = $ic;
@@ -32,14 +30,14 @@ public class ADSize {
                 return;
             }
         }
-        this.f42353b = i2;
+        this.b = i2;
         this.a = i;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42353b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getWidth() {

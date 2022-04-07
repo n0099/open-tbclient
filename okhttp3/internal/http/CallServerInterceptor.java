@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +129,7 @@ public final class CallServerInterceptor implements Interceptor {
             } else {
                 build = build2.newBuilder().body(httpStream.openResponseBody(build2)).build();
             }
-            if (IntentConfig.CLOSE.equalsIgnoreCase(build.request().header(HTTP.CONN_DIRECTIVE)) || IntentConfig.CLOSE.equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
+            if ("close".equalsIgnoreCase(build.request().header(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
                 streamAllocation.noNewStreams();
             }
             if ((code == 204 || code == 205) && build.body().contentLength() > 0) {

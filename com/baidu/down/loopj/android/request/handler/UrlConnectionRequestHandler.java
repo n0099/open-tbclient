@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -81,7 +81,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     private String convertUrlDomainNameToIp(String str) throws URLDNSException {
         InterceptResult invokeL;
         String str2;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, str)) != null) {
             return (String) invokeL.objValue;
@@ -109,14 +109,14 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
                             this.mDomainNameAndIpInfo.dnsTime = System.currentTimeMillis() - currentTimeMillis;
                             this.mConvertDomainNameToIp = true;
                             return str2;
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
                             this.mConvertDomainNameToIp = false;
                             return str2;
                         }
-                    } catch (MalformedURLException e4) {
-                        e4.printStackTrace();
+                    } catch (MalformedURLException e3) {
+                        e3.printStackTrace();
                         this.mConvertDomainNameToIp = false;
                         return str;
                     }
@@ -125,9 +125,9 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
                 return str;
             }
             throw new URLDNSException("Dns failed");
-        } catch (Exception e5) {
+        } catch (Exception e4) {
             str2 = str;
-            e2 = e5;
+            e = e4;
         }
     }
 
@@ -152,8 +152,8 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             if (this.mAsyncUrlConnection.usingDNSProxy()) {
                 try {
                     this.mRequestHeader.put("Host", new URI(str).getHost());
-                } catch (URISyntaxException e2) {
-                    e2.printStackTrace();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
                 }
             }
             if (this.mTlsCertSkip && URLUtil.isHttpsUrl(str)) {
@@ -388,8 +388,8 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
                             if (TextUtils.isEmpty(uri.getHost())) {
                                 headerField = this.mURL.replace(uri2.getPath(), headerField).replace(uri2.getQuery(), "");
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         cloneRequest(headerField);
                         hashSet.add(headerField);

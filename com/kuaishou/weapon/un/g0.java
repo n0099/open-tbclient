@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                d1 d1Var = new d1(str, q0.f38953f);
+                d1 d1Var = new d1(str, q0.f);
                 d1Var.e(l1.g(this.a));
                 d1Var.j(l1.l());
                 d1Var.c(l1.e(this.a));
@@ -92,9 +92,9 @@ public class g0 {
                 jSONObject.put("22", a0.c());
                 b0 b0Var = new b0();
                 jSONObject.put("7", b0Var.a() ? 1 : 0);
-                boolean d2 = b0Var.d(this.a);
-                jSONObject.put("8", d2 ? 1 : 0);
-                if (d2) {
+                boolean d = b0Var.d(this.a);
+                jSONObject.put("8", d ? 1 : 0);
+                if (d) {
                     jSONObject.put("61", b0Var.c(this.a));
                 }
                 jSONObject.put("9", b0Var.a(this.a));
@@ -107,30 +107,30 @@ public class g0 {
                 jSONObject.put("29", e0Var.b(HardwareInfoUtils.MEM_INFO_FILE) ? 1 : 0);
                 jSONObject.put("96", e0Var.a());
                 m0 m0Var = new m0();
-                Set<String> c2 = m0Var.c();
-                Set<String> d3 = m0Var.d();
-                if (d3 != null) {
+                Set<String> c = m0Var.c();
+                Set<String> d2 = m0Var.d();
+                if (d2 != null) {
                     jSONObject.put("30", 1);
-                    jSONObject.put("32", new JSONArray((Collection) d3));
+                    jSONObject.put("32", new JSONArray((Collection) d2));
                 } else {
                     jSONObject.put("30", 0);
                 }
-                if (c2 != null) {
+                if (c != null) {
                     jSONObject.put("31", 1);
-                    jSONObject.put("33", new JSONArray((Collection) c2));
+                    jSONObject.put("33", new JSONArray((Collection) c));
                 } else {
                     jSONObject.put("31", 0);
                 }
-                Object b2 = m0Var.b();
-                if (b2 != null) {
-                    jSONObject.put("34", b2);
-                    if (c2 != null || d3 != null) {
+                Object b = m0Var.b();
+                if (b != null) {
+                    jSONObject.put("34", b);
+                    if (c != null || d2 != null) {
                         HashSet hashSet = new HashSet();
-                        if (c2 != null) {
-                            hashSet.add(c2);
+                        if (c != null) {
+                            hashSet.add(c);
                         }
-                        if (d3 != null) {
-                            hashSet.add(d3);
+                        if (d2 != null) {
+                            hashSet.add(d2);
                         }
                         jSONObject.put("13", m0Var.a(this.a, 13, hashSet));
                         jSONObject.put("14", m0Var.a(this.a, 14, hashSet));
@@ -145,9 +145,9 @@ public class g0 {
                 }
                 l0 l0Var = new l0();
                 jSONObject.put("65", l0Var.f() ? 1 : 0);
-                boolean e2 = l0Var.e();
-                jSONObject.put("66", e2 ? 1 : 0);
-                if (e2) {
+                boolean e = l0Var.e();
+                jSONObject.put("66", e ? 1 : 0);
+                if (e) {
                     jSONObject.put("67", l0Var.g() ? 1 : 0);
                 }
                 jSONObject.put("68", l0Var.c() ? 1 : 0);

@@ -4,13 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.p0.q3.d.a;
-import c.a.p0.q3.d.c;
-import c.a.p0.q3.d.d;
-import c.a.p0.q3.d.e;
-import c.a.p0.q3.d.f;
-import c.a.p0.q3.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -23,17 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.af8;
+import com.repackage.cf8;
+import com.repackage.ef8;
+import com.repackage.ni;
+import com.repackage.ve8;
+import com.repackage.we8;
+import com.repackage.xe8;
+import com.repackage.ye8;
+import com.repackage.ze8;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-/* loaded from: classes5.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
+/* loaded from: classes4.dex */
+public class ShareHandlerActivity extends ShareBaseActivity implements cf8, WbShareCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static int skinType = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSecondOnResume;
-    public a mCurrentShare;
+    public ve8 mCurrentShare;
     public PermissionJudgePolicy mPermissionJudgement;
-    public e mShareByWeibo;
+    public ze8 mShareByWeibo;
     public int mShareChannel;
     public ShareEntity mShareEntity;
     public ShareReportModel mShareReportModel;
@@ -105,9 +107,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                a aVar = this.mCurrentShare;
-                if (aVar != null) {
-                    aVar.l(intent);
+                ve8 ve8Var = this.mCurrentShare;
+                if (ve8Var != null) {
+                    ve8Var.l(intent);
                     return;
                 }
                 return;
@@ -135,37 +137,37 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
             }
             shareReport(shareEntity.getStats());
             this.mShareChannel = this.mShareEntity.getShareTo();
-            a aVar = this.mCurrentShare;
-            if (aVar != null) {
-                aVar.p();
+            ve8 ve8Var = this.mCurrentShare;
+            if (ve8Var != null) {
+                ve8Var.p();
                 this.mCurrentShare = null;
             }
-            e eVar = this.mShareByWeibo;
-            if (eVar != null) {
-                eVar.p();
+            ze8 ze8Var = this.mShareByWeibo;
+            if (ze8Var != null) {
+                ze8Var.p();
                 this.mShareByWeibo = null;
             }
             int i = this.mShareChannel;
             if (i == 0) {
-                this.mCurrentShare = new d(this);
+                this.mCurrentShare = new ye8(this);
             } else if (i == 6) {
-                e eVar2 = new e(this, this, this);
-                this.mShareByWeibo = eVar2;
-                this.mCurrentShare = eVar2;
+                ze8 ze8Var2 = new ze8(this, this, this);
+                this.mShareByWeibo = ze8Var2;
+                this.mCurrentShare = ze8Var2;
             } else if (i == 8) {
-                this.mCurrentShare = new c.a.p0.q3.d.b(this);
+                this.mCurrentShare = new we8(this);
             } else if (i == 2) {
-                this.mCurrentShare = new f(this, 2);
+                this.mCurrentShare = new af8(this, 2);
             } else if (i == 3) {
-                this.mCurrentShare = new f(this, 3);
+                this.mCurrentShare = new af8(this, 3);
             } else if (i != 4) {
                 this.mCurrentShare = null;
             } else {
-                this.mCurrentShare = new c(this);
+                this.mCurrentShare = new xe8(this);
             }
-            a aVar2 = this.mCurrentShare;
-            if (aVar2 != null) {
-                aVar2.t(this.mShareEntity.getTid());
+            ve8 ve8Var2 = this.mCurrentShare;
+            if (ve8Var2 != null) {
+                ve8Var2.t(this.mShareEntity.getTid());
                 this.mCurrentShare.s(this.mShareEntity.getExtLiveInfo());
             }
             if (this.mShareEntity.needCheckStoragePermission() && !TextUtils.isEmpty(this.mShareEntity.getImgUrl())) {
@@ -178,9 +180,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                     return;
                 }
             }
-            a aVar3 = this.mCurrentShare;
-            if (aVar3 != null) {
-                aVar3.q(getUniqueId());
+            ve8 ve8Var3 = this.mCurrentShare;
+            if (ve8Var3 != null) {
+                ve8Var3.q(getUniqueId());
                 this.mCurrentShare.l(getIntent());
                 this.mCurrentShare.a(this.mShareEntity, this);
                 return;
@@ -196,9 +198,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a aVar = this.mCurrentShare;
-            if (aVar != null) {
-                aVar.p();
+            ve8 ve8Var = this.mCurrentShare;
+            if (ve8Var != null) {
+                ve8Var.p();
             }
             ShareReportModel shareReportModel = this.mShareReportModel;
             if (shareReportModel != null) {
@@ -216,9 +218,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
             if (intent != null) {
                 skinType = intent.getIntExtra("extra_skin", 3);
             }
-            a aVar = this.mCurrentShare;
-            if (aVar != null) {
-                aVar.l(intent);
+            ve8 ve8Var = this.mCurrentShare;
+            if (ve8Var != null) {
+                ve8Var.l(intent);
             }
         }
     }
@@ -252,55 +254,55 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // c.a.p0.q3.e.b
+    @Override // com.repackage.cf8
     public void onShare(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             if (i2 == 1) {
-                c.a.p0.q3.f.b.b(i, this.mShareEntity);
+                ef8.b(i, this.mShareEntity);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    c.a.p0.q3.f.b.a(i, this.mShareEntity);
+                    ef8.a(i, this.mShareEntity);
                 } else {
-                    c.a.p0.q3.f.b.b(i, this.mShareEntity);
+                    ef8.b(i, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {
                 this.mShareEntity.getStats().getString("tid");
                 this.mShareEntity.getStats().getString("pid");
             }
-            finishWithResult(i, i2, this.mShareEntity.getStats(), m.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
+            finishWithResult(i, i2, this.mShareEntity.getStats(), ni.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        e eVar;
+        ze8 ze8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (eVar = this.mShareByWeibo) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (ze8Var = this.mShareByWeibo) == null) {
             return;
         }
-        eVar.I();
+        ze8Var.I();
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        e eVar;
+        ze8 ze8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (eVar = this.mShareByWeibo) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ze8Var = this.mShareByWeibo) == null) {
             return;
         }
-        eVar.J();
+        ze8Var.J();
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        e eVar;
+        ze8 ze8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (eVar = this.mShareByWeibo) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (ze8Var = this.mShareByWeibo) == null) {
             return;
         }
-        eVar.K();
+        ze8Var.K();
     }
 }

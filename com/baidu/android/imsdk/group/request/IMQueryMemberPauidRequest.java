@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryMemberPauidRequest";
@@ -30,7 +30,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public List<Long> mUids;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class UserId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,9 +161,9 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
                         arrayList.add(new UserId(jSONObject2.getLong("bduid"), jSONObject2.getLong("pauid"), jSONObject2.getLong("uk")));
                     }
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "IMQueryMemberPauidRequest JSONException", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "IMQueryMemberPauidRequest JSONException", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
             }

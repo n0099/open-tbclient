@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class StreamUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -122,8 +122,8 @@ public class StreamUtils {
                     return byteArrayOutputStream.toByteArray();
                 }
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
             return null;
         } finally {
             Closeables.closeSafely(inputStream);
@@ -156,8 +156,8 @@ public class StreamUtils {
             try {
                 try {
                     fileOutputStream = new FileOutputStream(file);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -174,8 +174,8 @@ public class StreamUtils {
                 fileOutputStream.flush();
                 z = true;
                 Closeables.closeSafely(fileOutputStream);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 Closeables.closeSafely(fileOutputStream2);
@@ -252,16 +252,16 @@ public class StreamUtils {
                                 break;
                             }
                             sb.append(readLine);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             bufferedReader = bufferedReader2;
                             e.printStackTrace();
                             Closeables.closeSafely((Closeable) inputStream);
                             Closeables.closeSafely(bufferedReader);
                             inputStream = sb.toString();
                             return inputStream;
-                        } catch (OutOfMemoryError e3) {
-                            e = e3;
+                        } catch (OutOfMemoryError e2) {
+                            e = e2;
                             bufferedReader = bufferedReader2;
                             e.printStackTrace();
                             Closeables.closeSafely((Closeable) inputStream);
@@ -281,10 +281,10 @@ public class StreamUtils {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e4) {
+            } catch (Exception e3) {
+                e = e3;
+            } catch (OutOfMemoryError e4) {
                 e = e4;
-            } catch (OutOfMemoryError e5) {
-                e = e5;
             }
             inputStream = sb.toString();
             return inputStream;

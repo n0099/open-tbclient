@@ -28,12 +28,12 @@ public class AppCompatHintHelper {
         }
     }
 
-    public static InputConnection onCreateInputConnection(InputConnection inputConnection, EditorInfo editorInfo, View view) {
+    public static InputConnection onCreateInputConnection(InputConnection inputConnection, EditorInfo editorInfo, View view2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputConnection, editorInfo, view)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputConnection, editorInfo, view2)) == null) {
             if (inputConnection != null && editorInfo.hintText == null) {
-                ViewParent parent = view.getParent();
+                ViewParent parent = view2.getParent();
                 while (true) {
                     if (!(parent instanceof View)) {
                         break;

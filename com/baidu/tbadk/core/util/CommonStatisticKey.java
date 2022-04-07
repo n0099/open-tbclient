@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -100,6 +100,20 @@ public class CommonStatisticKey {
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
     public static final String KEY_HEATING_THREAD_EXPOSE = "c14202";
+    public static final String KEY_HOME_PAGE_MESSGAE_AGREE_PAGE_SHOW = "c14601";
+    public static final String KEY_HOME_PAGE_MESSGAE_AT_CLICK = "c14598";
+    public static final String KEY_HOME_PAGE_MESSGAE_AT_PAGE_CLICK = "c14600";
+    public static final String KEY_HOME_PAGE_MESSGAE_AT_PAGE_SHOW = "c14599";
+    public static final String KEY_HOME_PAGE_MESSGAE_AT_SUCESSED = "c14612";
+    public static final String KEY_HOME_PAGE_MESSGAE_FANS_CLICK = "c14614";
+    public static final String KEY_HOME_PAGE_MESSGAE_FANS_PAGE_SHOW = "c14615";
+    public static final String KEY_HOME_PAGE_MESSGAE_ITEM_CLICK = "c14618";
+    public static final String KEY_HOME_PAGE_MESSGAE_ITEM_SHOW = "c14617";
+    public static final String KEY_HOME_PAGE_MESSGAE_REPLY_CLICK = "c14602";
+    public static final String KEY_HOME_PAGE_MESSGAE_STRANGE_ITEM_CLICK = "c14620";
+    public static final String KEY_HOME_PAGE_MESSGAE_STRANGE_ITEM_SHOW = "c14619";
+    public static final String KEY_HOME_PAGE_MESSGAE_TAB_CLICK = "c14609";
+    public static final String KEY_HOME_PAGE_MESSGAE_TAB_SHOW = "c14611";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK = "c14281";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW = "c14282";
     public static final String KEY_IMMERSION_VIDEO_SHARE_DIALOG_MUSK_CLiCK = "c14339";
@@ -174,6 +188,7 @@ public class CommonStatisticKey {
     public static final String KEY_TIE_PLUS_WECHAT_DIALOG_EXPOSE = "c14480";
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
+    public static final String KEY_VIDEO_AD_PLAY_SWITCH = "c14625";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
     public static final String KEY_VIDEO_EASTER_EGG_SHARE = "c13045";
     public static final String KEY_VIDEO_EASTER_EGG_SHOW = "c13046";
@@ -217,7 +232,7 @@ public class CommonStatisticKey {
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

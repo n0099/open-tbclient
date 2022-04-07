@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EncryptUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCRYPT_MD5 = "MD5";
@@ -107,8 +107,8 @@ public class EncryptUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase();
                 }

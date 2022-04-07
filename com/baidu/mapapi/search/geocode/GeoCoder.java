@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GeoCoder extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.core.b.d a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26411b;
+    public boolean b;
 
     public GeoCoder() {
         Interceptable interceptable = $ic;
@@ -45,10 +43,10 @@ public class GeoCoder extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26411b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
             return;
         }
-        this.f26411b = true;
+        this.b = true;
         this.a.a();
         BMapManager.destroy();
     }

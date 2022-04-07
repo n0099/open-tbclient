@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DBAccessMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBAccessMgr";
@@ -71,8 +71,8 @@ public class DBAccessMgr {
             this.dbHelper = dBInitMgr;
             this.db = dBInitMgr.getWritableDatabase();
             z = false;
-        } catch (SQLiteException e2) {
-            LogTools.printError(TAG, String.format(Locale.US, "open db failed. %s ", e2.getMessage()));
+        } catch (SQLiteException e) {
+            LogTools.printError(TAG, String.format(Locale.US, "open db failed. %s ", e.getMessage()));
             this.openDBFailed = true;
             z = true;
         }
@@ -85,16 +85,16 @@ public class DBAccessMgr {
                     if (this.db != null && this.db.isOpen()) {
                         this.db.close();
                     }
-                } catch (Exception e3) {
-                    LogTools.printError(TAG, String.format(Locale.US, "close db failed before open it again. %s ", e3.getMessage()));
+                } catch (Exception e2) {
+                    LogTools.printError(TAG, String.format(Locale.US, "close db failed before open it again. %s ", e2.getMessage()));
                 }
                 try {
                     DBInitMgr dBInitMgr2 = new DBInitMgr(context, GlobalTools.DB_NAME, null, GlobalTools.DB_VERSION);
                     this.dbHelper = dBInitMgr2;
                     this.db = dBInitMgr2.getWritableDatabase();
                     this.openDBFailed = false;
-                } catch (SQLiteException e4) {
-                    LogTools.printError(TAG, String.format(Locale.US, "open db failed again. %s ", e4.getMessage()));
+                } catch (SQLiteException e3) {
+                    LogTools.printError(TAG, String.format(Locale.US, "open db failed again. %s ", e3.getMessage()));
                     this.openDBFailed = true;
                 }
             } finally {
@@ -148,8 +148,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HIJACK, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -173,8 +173,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HOST, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -248,8 +248,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -279,8 +279,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT_V6, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -304,8 +304,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -329,8 +329,8 @@ public class DBAccessMgr {
                     Long.valueOf(0L);
                     try {
                         valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER_V6, null, contentValues));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return valueOf;
                 }
@@ -383,12 +383,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_HIJACK, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -420,8 +420,8 @@ public class DBAccessMgr {
                     }
                     try {
                         i = this.db.delete(DBInitMgr.TB_HIJACK, str2, (String[]) linkedList2.toArray(new String[0]));
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return i;
                 }
@@ -462,12 +462,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_HOST, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -512,12 +512,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_RESULT, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -552,8 +552,8 @@ public class DBAccessMgr {
                 }
                 try {
                     i = this.db.delete(DBInitMgr.TB_RESULT, str2, (String[]) linkedList2.toArray(new String[0]));
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return i;
             }
@@ -596,12 +596,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_RESULT_V6, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -636,8 +636,8 @@ public class DBAccessMgr {
                 }
                 try {
                     i = this.db.delete(DBInitMgr.TB_RESULT_V6, str2, (String[]) linkedList2.toArray(new String[0]));
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return i;
             }
@@ -676,12 +676,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_SERVER, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -722,12 +722,12 @@ public class DBAccessMgr {
                         }
                         try {
                             i = this.db.delete(DBInitMgr.TB_SERVER_V6, str, (String[]) linkedList2.toArray(new String[0]));
-                        } catch (Exception e2) {
-                            LogTools.printWarning(TAG, e2);
+                        } catch (Exception e) {
+                            LogTools.printWarning(TAG, e);
                         }
                         return i;
-                    } catch (Exception e3) {
-                        LogTools.printWarning(TAG, e3);
+                    } catch (Exception e2) {
+                        LogTools.printWarning(TAG, e2);
                         return -1;
                     }
                 }
@@ -789,8 +789,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -820,8 +820,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -851,8 +851,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -882,8 +882,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -925,8 +925,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -963,8 +963,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -1001,8 +1001,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -1033,8 +1033,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -1065,8 +1065,8 @@ public class DBAccessMgr {
                         query.moveToNext();
                     }
                     query.close();
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 return arrayList;
             }
@@ -1093,8 +1093,8 @@ public class DBAccessMgr {
                     }
                     try {
                         i = this.db.update(DBInitMgr.TB_HOST, contentValues, "_id=?", new String[]{String.valueOf(hostTB.getId())});
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return i;
                 }
@@ -1141,8 +1141,8 @@ public class DBAccessMgr {
                     }
                     try {
                         i = this.db.update(DBInitMgr.TB_RESULT, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return i;
                 }
@@ -1189,8 +1189,8 @@ public class DBAccessMgr {
                     }
                     try {
                         i = this.db.update(DBInitMgr.TB_RESULT_V6, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
-                    } catch (Exception e2) {
-                        LogTools.printWarning(TAG, e2);
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
                     }
                     return i;
                 }

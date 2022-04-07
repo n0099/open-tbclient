@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DBResource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBManager";
@@ -110,6 +110,18 @@ public class DBResource {
                 if (this.mDatabase == null) {
                     try {
                         this.mDatabase = IMDatabase.getWritableDb(mContext, this.mUid, this.appid);
+                    } catch (SQLiteDatabaseCorruptException e) {
+                        if (this.mDatabase != null) {
+                            closeDatabase();
+                            this.mDatabase = null;
+                            LogUtils.e("DBManager", "getWritableDb  DatabaseCorruptException");
+                        }
+                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
+                    }
+                } else if (!TextUtils.isEmpty(path) && !this.mDatabase.getPath().equals(path)) {
+                    closeDatabase();
+                    try {
+                        this.mDatabase = IMDatabase.getWritableDb(mContext, this.mUid, this.appid);
                     } catch (SQLiteDatabaseCorruptException e2) {
                         if (this.mDatabase != null) {
                             closeDatabase();
@@ -117,18 +129,6 @@ public class DBResource {
                             LogUtils.e("DBManager", "getWritableDb  DatabaseCorruptException");
                         }
                         new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                    }
-                } else if (!TextUtils.isEmpty(path) && !this.mDatabase.getPath().equals(path)) {
-                    closeDatabase();
-                    try {
-                        this.mDatabase = IMDatabase.getWritableDb(mContext, this.mUid, this.appid);
-                    } catch (SQLiteDatabaseCorruptException e3) {
-                        if (this.mDatabase != null) {
-                            closeDatabase();
-                            this.mDatabase = null;
-                            LogUtils.e("DBManager", "getWritableDb  DatabaseCorruptException");
-                        }
-                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e3)).build();
                     }
                 }
                 return this.mDatabase;

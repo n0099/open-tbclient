@@ -11,27 +11,27 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Wrapper;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class af {
     public static void a(Context context, boolean z) {
         try {
-            Activity f2 = f(context);
-            if (f2 == null) {
+            Activity f = f(context);
+            if (f == null) {
                 return;
             }
             if (z) {
                 if (Build.VERSION.SDK_INT < 19) {
-                    f2.getWindow().getDecorView().setSystemUiVisibility(8);
+                    f.getWindow().getDecorView().setSystemUiVisibility(8);
                 } else {
-                    f2.getWindow().getDecorView().setSystemUiVisibility(1792);
+                    f.getWindow().getDecorView().setSystemUiVisibility(1792);
                 }
             } else if (Build.VERSION.SDK_INT < 19) {
-                f2.getWindow().getDecorView().setSystemUiVisibility(0);
+                f.getWindow().getDecorView().setSystemUiVisibility(0);
             } else {
-                f2.getWindow().getDecorView().setSystemUiVisibility(3846);
+                f.getWindow().getDecorView().setSystemUiVisibility(3846);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -41,9 +41,9 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        Activity f2 = f(context);
-        if (f2 != null) {
-            Window window = f2.getWindow();
+        Activity f = f(context);
+        if (f != null) {
+            Window window = f.getWindow();
             r0 = (window.getAttributes().flags & 1024) == 1024;
             window.setFlags(1024, 1024);
         }
@@ -51,25 +51,25 @@ public class af {
     }
 
     public static void b(Context context) {
-        Activity f2 = f(context);
-        if (f2 != null) {
-            f2.getWindow().clearFlags(1024);
+        Activity f = f(context);
+        if (f != null) {
+            f.getWindow().clearFlags(1024);
         }
     }
 
     @SuppressLint({"SourceLockedOrientationActivity"})
     public static void c(Context context) {
-        Activity f2 = f(context);
-        if (f2 != null) {
-            f2.setRequestedOrientation(0);
+        Activity f = f(context);
+        if (f != null) {
+            f.setRequestedOrientation(0);
         }
     }
 
     @SuppressLint({"SourceLockedOrientationActivity"})
     public static void d(Context context) {
-        Activity f2 = f(context);
-        if (f2 != null) {
-            f2.setRequestedOrientation(1);
+        Activity f = f(context);
+        if (f != null) {
+            f.setRequestedOrientation(1);
         }
     }
 

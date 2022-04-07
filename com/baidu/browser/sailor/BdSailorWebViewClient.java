@@ -19,7 +19,7 @@ import com.baidu.webkit.sdk.RenderProcessGoneDetail;
 import com.baidu.webkit.sdk.WebResourceError;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebViewClient implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -129,9 +129,9 @@ public class BdSailorWebViewClient implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public void onScaleChanged(BdSailorWebView bdSailorWebView, float f2, float f3) {
+    public void onScaleChanged(BdSailorWebView bdSailorWebView, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{bdSailorWebView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{bdSailorWebView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 

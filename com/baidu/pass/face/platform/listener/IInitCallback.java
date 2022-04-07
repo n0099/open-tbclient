@@ -1,5 +1,5 @@
 package com.baidu.pass.face.platform.listener;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IInitCallback {
     void initFailure(int i, String str);
 

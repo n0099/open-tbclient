@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CheckPostRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class CheckPostRequestMessage extends NetMessage {
             builder.ori_ugc_nid = this.ori_ugc_nid;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
             builder2.data = builder.build(false);

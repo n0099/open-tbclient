@@ -27,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -43,7 +43,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
@@ -243,11 +243,11 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
             try {
                 try {
                     dataCallback.onDataReady(loadDataWithRedirects(this.glideUrl.toURL(), 0, null, this.glideUrl.getHeaders()));
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Failed to load data for url", e2);
+                        Log.d(TAG, "Failed to load data for url", e);
                     }
-                    dataCallback.onLoadFailed(e2);
+                    dataCallback.onLoadFailed(e);
                     if (!Log.isLoggable(TAG, 2)) {
                         return;
                     }

@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, file, str, file2)) == null) {
             com.kwai.sodler.lib.a.a("plugin.so", "--");
-            String b2 = a.b();
+            String b = a.b();
             File file3 = null;
-            if (TextUtils.isEmpty(b2)) {
+            if (TextUtils.isEmpty(b)) {
                 com.kwai.sodler.lib.a.e("plugin.so", "Cpu abis is null.");
             } else {
-                com.kwai.sodler.lib.a.a("plugin.so", "Try install soLib, supported abi = " + b2);
-                File file4 = new File(file, "lib" + File.separator + b2 + File.separator + str);
+                com.kwai.sodler.lib.a.a("plugin.so", "Try install soLib, supported abi = " + b);
+                File file4 = new File(file, "lib" + File.separator + b + File.separator + str);
                 if (file4.exists()) {
                     File file5 = new File(file2, str);
                     if (!file4.renameTo(file5)) {
@@ -113,8 +113,8 @@ public class c {
                                                     break;
                                                 }
                                                 bufferedOutputStream.write(bArr, 0, read);
-                                            } catch (IOException e2) {
-                                                e = e2;
+                                            } catch (IOException e) {
+                                                e = e;
                                                 zipFile4 = zipFile;
                                                 outputStream = bufferedOutputStream;
                                                 zipFile2 = r8;
@@ -151,14 +151,14 @@ public class c {
                                         hashSet.add(file4.getName());
                                         zipFile4 = r8;
                                         outputStream = bufferedOutputStream;
-                                    } catch (IOException e3) {
-                                        e = e3;
+                                    } catch (IOException e2) {
+                                        e = e2;
                                         r8 = zipFile4;
                                     } catch (Throwable th3) {
                                         th = th3;
                                     }
-                                } catch (IOException e4) {
-                                    e = e4;
+                                } catch (IOException e3) {
+                                    e = e3;
                                     outputStream = fileOutputStream;
                                     zipFile3 = zipFile4;
                                     zipFile4 = zipFile;
@@ -171,8 +171,8 @@ public class c {
                                 }
                             }
                         }
-                    } catch (IOException e5) {
-                        e = e5;
+                    } catch (IOException e4) {
+                        e = e4;
                     } catch (Throwable th5) {
                         th = th5;
                     }
@@ -184,16 +184,16 @@ public class c {
                 } catch (IOException unused2) {
                 }
                 return hashSet;
-            } catch (IOException e6) {
-                e = e6;
+            } catch (IOException e5) {
+                e = e5;
                 outputStream = null;
                 zipFile3 = null;
             } catch (Throwable th6) {
                 th = th6;
                 outputStream = null;
             }
-        } catch (IOException e7) {
-            e = e7;
+        } catch (IOException e6) {
+            e = e6;
             outputStream = null;
             zipFile2 = null;
         } catch (Throwable th7) {

@@ -8,31 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Q {
     public static /* synthetic */ Interceptable $ic;
     public static final Q a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Q f43996b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Q f43997c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Q f43998d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Q f43999e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final Q f44000f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final Q f44001g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final Q f44002h;
+    public static final Q b;
+    public static final Q c;
+    public static final Q d;
+    public static final Q e;
+    public static final Q f;
+    public static final Q g;
+    public static final Q h;
     public static final /* synthetic */ Q[] i;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,15 +36,15 @@ public final class Q {
             }
         }
         a = new Q("UnknownHost", 0);
-        f43996b = new Q("Socket", 1);
-        f43997c = new Q("SocketTimeout", 2);
-        f43998d = new Q("ConnectTimeout", 3);
-        f43999e = new Q("IO", 4);
-        f44000f = new Q("HttpResponse", 5);
-        f44001g = new Q("JSON", 6);
+        b = new Q("Socket", 1);
+        c = new Q("SocketTimeout", 2);
+        d = new Q("ConnectTimeout", 3);
+        e = new Q("IO", 4);
+        f = new Q("HttpResponse", 5);
+        g = new Q("JSON", 6);
         Q q = new Q("Interrupted", 7);
-        f44002h = q;
-        i = new Q[]{a, f43996b, f43997c, f43998d, f43999e, f44000f, f44001g, q};
+        h = q;
+        i = new Q[]{a, b, c, d, e, f, g, q};
     }
 
     public Q(String str, int i2) {

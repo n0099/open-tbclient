@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EmotionLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -36,7 +36,7 @@ public class EmotionLoader {
     public LruCache<String, Bitmap> mLruCache;
     public Handler mUIHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SpannableBeanHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class EmotionLoader {
         public final /* synthetic */ EmotionLoader this$0;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f28705tv;
+        public TextView f993tv;
 
         public SpannableBeanHolder(EmotionLoader emotionLoader) {
             Interceptable interceptable = $ic;
@@ -185,18 +185,18 @@ public class EmotionLoader {
         lruCache.evictAll();
     }
 
-    public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView, float f2) {
+    public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView, float f) {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionType, context, charSequence, textView, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionType, context, charSequence, textView, Float.valueOf(f)})) == null) {
             EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {
                 String group = matcher.group();
                 int start = matcher.start();
-                int textSize = (int) (textView.getTextSize() * f2);
+                int textSize = (int) (textView.getTextSize() * f);
                 Bitmap bitmapFromLruCache = getBitmapFromLruCache(group);
                 if (bitmapFromLruCache == null && (bitmapFromLruCache = EmotionUtils.getInstance().getEmotionBitmapByName(emotionType, group)) != null) {
                     addBitmapToLruCache(group, bitmapFromLruCache);
@@ -257,7 +257,7 @@ public class EmotionLoader {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                            TextView textView2 = spannableBeanHolder.f28705tv;
+                            TextView textView2 = spannableBeanHolder.f993tv;
                             SpannableString spannableString = spannableBeanHolder.ss;
                             String str2 = spannableBeanHolder.content;
                             if (EmotionLoader.DEBUG) {
@@ -311,7 +311,7 @@ public class EmotionLoader {
                         SpannableString parseEmotion = this.this$0.parseEmotion(this.val$type, this.val$context, this.val$content, this.val$textView);
                         SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                         spannableBeanHolder.ss = parseEmotion;
-                        spannableBeanHolder.f28705tv = this.val$textView;
+                        spannableBeanHolder.f993tv = this.val$textView;
                         spannableBeanHolder.content = this.val$content;
                         Message obtain = Message.obtain();
                         obtain.obj = spannableBeanHolder;

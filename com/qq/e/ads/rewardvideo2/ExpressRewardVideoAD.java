@@ -22,20 +22,16 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f42386g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f42387h;
+    public boolean g;
+    public boolean h;
     public ServerSideVerificationOptions i;
     public ExpressRewardVideoAdListener j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +121,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
                 return;
             }
         }
-        this.f42387h = true;
+        this.h = true;
         GDTLogger.e("ExpressRewardVideoAD 接口即将被移除，请使用 RewardVideoAD 接口");
         this.j = expressRewardVideoAdListener;
         a(context, str);
@@ -170,11 +166,11 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             RVADI2 rvadi2 = (RVADI2) obj;
-            rvadi2.setVolumeOn(this.f42387h);
+            rvadi2.setVolumeOn(this.h);
             rvadi2.setServerSideVerificationOptions(this.i);
-            if (this.f42386g) {
+            if (this.g) {
                 rvadi2.loadAD();
-                this.f42386g = false;
+                this.g = false;
             }
         }
     }
@@ -267,7 +263,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f42386g = true;
+                this.g = true;
                 return;
             }
             T t = this.a;
@@ -298,7 +294,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
             if (t != 0) {
                 ((RVADI2) t).setVolumeOn(z);
             } else {
-                this.f42387h = z;
+                this.h = z;
             }
         }
     }

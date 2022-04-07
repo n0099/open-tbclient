@@ -31,6 +31,7 @@ import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -62,12 +63,12 @@ public class AppCompatViewInflater {
         public Context mResolvedContext;
         public Method mResolvedMethod;
 
-        public DeclaredOnClickListener(@NonNull View view, @NonNull String str) {
+        public DeclaredOnClickListener(@NonNull View view2, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, str};
+                Object[] objArr = {view2, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -77,7 +78,7 @@ public class AppCompatViewInflater {
                     return;
                 }
             }
-            this.mHostView = view;
+            this.mHostView = view2;
             this.mMethodName = str;
         }
 
@@ -108,18 +109,18 @@ public class AppCompatViewInflater {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(@NonNull View view) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.mResolvedMethod == null) {
                     resolveMethod(this.mHostView.getContext());
                 }
                 try {
-                    this.mResolvedMethod.invoke(this.mResolvedContext, view);
-                } catch (IllegalAccessException e2) {
-                    throw new IllegalStateException("Could not execute non-public method for android:onClick", e2);
-                } catch (InvocationTargetException e3) {
-                    throw new IllegalStateException("Could not execute method for android:onClick", e3);
+                    this.mResolvedMethod.invoke(this.mResolvedContext, view2);
+                } catch (IllegalAccessException e) {
+                    throw new IllegalStateException("Could not execute non-public method for android:onClick", e);
+                } catch (InvocationTargetException e2) {
+                    throw new IllegalStateException("Could not execute method for android:onClick", e2);
                 }
             }
         }
@@ -160,16 +161,16 @@ public class AppCompatViewInflater {
         this.mConstructorArgs = new Object[2];
     }
 
-    private void checkOnClickListener(View view, AttributeSet attributeSet) {
+    private void checkOnClickListener(View view2, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, view, attributeSet) == null) {
-            Context context = view.getContext();
+        if (interceptable == null || interceptable.invokeLL(65538, this, view2, attributeSet) == null) {
+            Context context = view2.getContext();
             if (context instanceof ContextWrapper) {
-                if (Build.VERSION.SDK_INT < 15 || ViewCompat.hasOnClickListeners(view)) {
+                if (Build.VERSION.SDK_INT < 15 || ViewCompat.hasOnClickListeners(view2)) {
                     TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sOnClickAttrs);
                     String string = obtainStyledAttributes.getString(0);
                     if (string != null) {
-                        view.setOnClickListener(new DeclaredOnClickListener(view, string));
+                        view2.setOnClickListener(new DeclaredOnClickListener(view2, string));
                     }
                     obtainStyledAttributes.recycle();
                 }
@@ -206,7 +207,7 @@ public class AppCompatViewInflater {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, attributeSet)) == null) {
-            if (str.equals("view")) {
+            if (str.equals(NativeConstants.TYPE_VIEW)) {
                 str = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
             }
             try {
@@ -248,9 +249,9 @@ public class AppCompatViewInflater {
         return (Context) invokeCommon.objValue;
     }
 
-    private void verifyNotNull(View view, String str) {
+    private void verifyNotNull(View view2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, this, view, str) == null) && view == null) {
+        if ((interceptable == null || interceptable.invokeLL(65542, this, view2, str) == null) && view2 == null) {
             throw new IllegalStateException(getClass().getName() + " asked to inflate view for <" + str + ">, but returned null");
         }
     }
@@ -363,106 +364,106 @@ public class AppCompatViewInflater {
         return (View) invokeLLL.objValue;
     }
 
-    public final View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
+    public final View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         View createTextView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{view, str, context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            Context context2 = (!z || view == null) ? context : view.getContext();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{view2, str, context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            Context context2 = (!z || view2 == null) ? context : view2.getContext();
             if (z2 || z3) {
                 context2 = themifyContext(context2, attributeSet, z2, z3);
             }
             if (z4) {
                 context2 = TintContextWrapper.wrap(context2);
             }
-            char c2 = 65535;
+            char c = 65535;
             switch (str.hashCode()) {
                 case -1946472170:
                     if (str.equals("RatingBar")) {
-                        c2 = 11;
+                        c = 11;
                         break;
                     }
                     break;
                 case -1455429095:
                     if (str.equals("CheckedTextView")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
                     break;
                 case -1346021293:
                     if (str.equals("MultiAutoCompleteTextView")) {
-                        c2 = '\n';
+                        c = '\n';
                         break;
                     }
                     break;
                 case -938935918:
                     if (str.equals("TextView")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
                     break;
                 case -937446323:
                     if (str.equals("ImageButton")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
                     break;
                 case -658531749:
                     if (str.equals("SeekBar")) {
-                        c2 = '\f';
+                        c = '\f';
                         break;
                     }
                     break;
                 case -339785223:
                     if (str.equals("Spinner")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
                     break;
                 case 776382189:
                     if (str.equals("RadioButton")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
                     break;
                 case 799298502:
                     if (str.equals("ToggleButton")) {
-                        c2 = '\r';
+                        c = '\r';
                         break;
                     }
                     break;
                 case 1125864064:
                     if (str.equals("ImageView")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
                     break;
                 case 1413872058:
                     if (str.equals("AutoCompleteTextView")) {
-                        c2 = '\t';
+                        c = '\t';
                         break;
                     }
                     break;
                 case 1601505219:
                     if (str.equals("CheckBox")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
                     break;
                 case 1666676343:
                     if (str.equals("EditText")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
                     break;
                 case 2001146706:
                     if (str.equals("Button")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     createTextView = createTextView(context2, attributeSet);
                     verifyNotNull(createTextView, str);

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.Fetch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_RANGE_RIGHT_VALUE;
@@ -137,8 +137,8 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
                         return processConnect;
                     }
                     throw new IOException("Update store failed!");
-                } catch (Exception e2) {
-                    throw new IOException("Update store failed!", e2);
+                } catch (Exception e) {
+                    throw new IOException("Update store failed!", e);
                 }
             }
             throw InterruptException.SIGNAL;

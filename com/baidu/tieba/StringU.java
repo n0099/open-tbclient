@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import c.a.d.f.p.j;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ki;
+/* loaded from: classes3.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -31,15 +31,15 @@ public class StringU {
             }
         }
         try {
-            boolean h2 = j.d().h("stringu", 2);
-            a = h2;
-            if (h2) {
+            boolean h = ki.d().h("stringu", 2);
+            a = h;
+            if (h) {
                 a("stringu_so_load_success", null);
             } else {
                 a("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
             }
-        } catch (Exception e2) {
-            a("stringu_so_load_fail", e2.getMessage());
+        } catch (Exception e) {
+            a("stringu_so_load_fail", e.getMessage());
         }
     }
 
@@ -83,16 +83,16 @@ public class StringU {
             } else {
                 try {
                     str2 = toUpper(str);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     str2 = "";
                 }
                 try {
                     if (TextUtils.isEmpty(str2)) {
                         a("stringu_m_result_null", null);
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     a("stringu_m_call_fail", e.getMessage());
                     if (str2 != null) {
                     }

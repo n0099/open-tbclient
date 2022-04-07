@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     return Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -117,8 +117,8 @@ public class DeviceUtils {
                         return null;
                     }
                     return telephonyManager.getDeviceId();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -143,16 +143,16 @@ public class DeviceUtils {
                             Method method = telephonyManager.getClass().getMethod("getImei", new Class[0]);
                             method.setAccessible(true);
                             str = (String) method.invoke(telephonyManager, new Object[0]);
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         if (!TextUtils.isEmpty(str)) {
                             return str;
                         }
                     }
                     return telephonyManager.getDeviceId();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
@@ -170,12 +170,12 @@ public class DeviceUtils {
                 messageDigest.update(str.getBytes());
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    sb.append(Integer.toHexString((b2 & 255) | (-256)).substring(6));
+                for (byte b : digest) {
+                    sb.append(Integer.toHexString((b & 255) | (-256)).substring(6));
                 }
                 return sb.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
                 return "";
             }
         }

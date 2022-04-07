@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PSCIMessageSendRequest extends RequestPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PSCIMessageRequest";
@@ -58,8 +58,8 @@ public class PSCIMessageSendRequest extends RequestPacket {
                 jSONObject.put("version", this.version);
                 jSONObject.put("jsonMsg", this.jsonMsg);
                 this.requestJson = jSONObject.toString();
-            } catch (JSONException e2) {
-                RLog.error("PSCIMessageSendRequest", "packageRequestJson error", e2);
+            } catch (JSONException e) {
+                RLog.error("PSCIMessageSendRequest", "packageRequestJson error", e);
             }
         }
     }
@@ -170,8 +170,8 @@ public class PSCIMessageSendRequest extends RequestPacket {
             } else {
                 RLog.error("PSCIMessageSendRequest", "PSCIMessageSendRequest construct ProtocolType error ", new Object[0]);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

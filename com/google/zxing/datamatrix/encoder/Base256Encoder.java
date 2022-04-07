@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Base256Encoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,11 +25,11 @@ public final class Base256Encoder implements Encoder {
         }
     }
 
-    public static char randomize255State(char c2, int i) {
+    public static char randomize255State(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            int i2 = c2 + ((i * 149) % 255) + 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int i2 = c + ((i * 149) % 255) + 1;
             return i2 <= 255 ? (char) i2 : (char) (i2 - 256);
         }
         return invokeCommon.charValue;

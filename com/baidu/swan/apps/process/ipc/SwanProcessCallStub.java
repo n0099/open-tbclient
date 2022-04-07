@@ -7,7 +7,6 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
-import c.a.n0.a.o1.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
@@ -16,7 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ww2;
+/* loaded from: classes2.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return e.e(str, bundle);
+            return ww2.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }

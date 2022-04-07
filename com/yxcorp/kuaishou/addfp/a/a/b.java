@@ -13,29 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "KWE_NS";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f44593c;
+    public static AtomicBoolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f44594b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f44595d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.a f44596e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Context f44597f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.android.a.e f44598g;
+    public a b;
+    public CountDownLatch d;
+    public com.yxcorp.kuaishou.addfp.a.b.a e;
+    public Context f;
+    public com.yxcorp.kuaishou.addfp.android.a.e g;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +38,7 @@ public final class b implements a {
                 return;
             }
         }
-        f44593c = new AtomicBoolean(false);
+        c = new AtomicBoolean(false);
     }
 
     public b() {
@@ -66,11 +54,11 @@ public final class b implements a {
                 return;
             }
         }
-        this.f44595d = null;
-        this.f44596e = null;
+        this.d = null;
+        this.e = null;
     }
 
-    public /* synthetic */ b(byte b2) {
+    public /* synthetic */ b(byte b) {
         this();
     }
 
@@ -90,11 +78,11 @@ public final class b implements a {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             d dVar = new d(this);
             try {
-                if (f44593c.compareAndSet(false, true)) {
-                    if (this.f44597f == null) {
-                        this.f44597f = context;
+                if (c.compareAndSet(false, true)) {
+                    if (this.f == null) {
+                        this.f = context;
                     }
-                    this.f44598g = new com.yxcorp.kuaishou.addfp.android.a.e(this.f44597f);
+                    this.g = new com.yxcorp.kuaishou.addfp.android.a.e(this.f);
                     Thread thread = new Thread(new c(this, context, dVar));
                     thread.setName("adsence-dfp");
                     thread.start();
@@ -110,8 +98,8 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, aVar) == null) {
             try {
-                if (this.f44594b != null) {
-                    this.f44594b.a(z, aVar);
+                if (this.b != null) {
+                    this.b.a(z, aVar);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -122,7 +110,7 @@ public final class b implements a {
     public final void b() {
         CountDownLatch countDownLatch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f44595d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.d) == null) {
             return;
         }
         countDownLatch.countDown();
@@ -132,12 +120,12 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f44595d == null || this.f44595d.getCount() <= 0) {
+                if (this.d == null || this.d.getCount() <= 0) {
                     return;
                 }
-                this.f44595d.await(2000L, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+                this.d.await(2000L, TimeUnit.MILLISECONDS);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
                 Thread.currentThread().interrupt();
             }
         }

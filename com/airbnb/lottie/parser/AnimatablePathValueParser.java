@@ -11,7 +11,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AnimatablePathValueParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("k", "x", "y");
 

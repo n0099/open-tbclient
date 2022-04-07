@@ -1,7 +1,6 @@
 package com.baidu.ala.refresh;
 
 import android.os.Bundle;
-import c.a.d.c.g.a;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -14,13 +13,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wa;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mLiveStatusMsgListener;
+    public wa mLiveStatusMsgListener;
     public ISquareRefreshHandler mSquareRefreshHandler;
 
     public AlaAutoRefreshFragment() {
@@ -36,7 +36,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 return;
             }
         }
-        this.mLiveStatusMsgListener = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
+        this.mLiveStatusMsgListener = new wa(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AlaAutoRefreshFragment this$0;
@@ -63,7 +63,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 this.this$0 = this;
             }
 
-            @Override // c.a.d.c.g.a
+            @Override // com.repackage.wa
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.this$0.getUniqueId()) {

@@ -19,7 +19,7 @@ import com.google.zxing.common.PerspectiveTransform;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.qrcode.decoder.Version;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Detector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,11 +55,11 @@ public class Detector {
         return invokeLL.floatValue;
     }
 
-    public static int computeDimension(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, float f2) throws NotFoundException {
+    public static int computeDimension(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, float f) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{resultPoint, resultPoint2, resultPoint3, Float.valueOf(f2)})) == null) {
-            int round = ((MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2) / f2) + MathUtils.round(ResultPoint.distance(resultPoint, resultPoint3) / f2)) / 2) + 7;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{resultPoint, resultPoint2, resultPoint3, Float.valueOf(f)})) == null) {
+            int round = ((MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2) / f) + MathUtils.round(ResultPoint.distance(resultPoint, resultPoint3) / f)) / 2) + 7;
             int i = round & 3;
             if (i != 0) {
                 if (i != 2) {
@@ -79,20 +79,20 @@ public class Detector {
         InterceptResult invokeCommon;
         float x;
         float y;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i)})) == null) {
-            float f3 = i - 3.5f;
+            float f2 = i - 3.5f;
             if (resultPoint4 != null) {
                 x = resultPoint4.getX();
                 y = resultPoint4.getY();
-                f2 = f3 - 3.0f;
+                f = f2 - 3.0f;
             } else {
                 x = (resultPoint2.getX() - resultPoint.getX()) + resultPoint3.getX();
                 y = (resultPoint2.getY() - resultPoint.getY()) + resultPoint3.getY();
-                f2 = f3;
+                f = f2;
             }
-            return PerspectiveTransform.quadrilateralToQuadrilateral(3.5f, 3.5f, f3, 3.5f, f2, f2, 3.5f, f3, resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY(), x, y, resultPoint3.getX(), resultPoint3.getY());
+            return PerspectiveTransform.quadrilateralToQuadrilateral(3.5f, 3.5f, f2, 3.5f, f, f, 3.5f, f2, resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY(), x, y, resultPoint3.getX(), resultPoint3.getY());
         }
         return (PerspectiveTransform) invokeCommon.objValue;
     }
@@ -184,34 +184,34 @@ public class Detector {
 
     private float sizeOfBlackWhiteBlackRunBothWays(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
+        float f;
         float f2;
-        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i, i2, i3, i4)) == null) {
             float sizeOfBlackWhiteBlackRun = sizeOfBlackWhiteBlackRun(i, i2, i3, i4);
             int i5 = i - (i3 - i);
             int i6 = 0;
             if (i5 < 0) {
-                f2 = i / (i - i5);
+                f = i / (i - i5);
                 i5 = 0;
             } else if (i5 >= this.image.getWidth()) {
-                f2 = ((this.image.getWidth() - 1) - i) / (i5 - i);
+                f = ((this.image.getWidth() - 1) - i) / (i5 - i);
                 i5 = this.image.getWidth() - 1;
             } else {
-                f2 = 1.0f;
+                f = 1.0f;
             }
-            float f4 = i2;
-            int i7 = (int) (f4 - ((i4 - i2) * f2));
+            float f3 = i2;
+            int i7 = (int) (f3 - ((i4 - i2) * f));
             if (i7 < 0) {
-                f3 = f4 / (i2 - i7);
+                f2 = f3 / (i2 - i7);
             } else if (i7 >= this.image.getHeight()) {
-                f3 = ((this.image.getHeight() - 1) - i2) / (i7 - i2);
+                f2 = ((this.image.getHeight() - 1) - i2) / (i7 - i2);
                 i6 = this.image.getHeight() - 1;
             } else {
                 i6 = i7;
-                f3 = 1.0f;
+                f2 = 1.0f;
             }
-            return (sizeOfBlackWhiteBlackRun + sizeOfBlackWhiteBlackRun(i, i2, (int) (i + ((i5 - i) * f3)), i6)) - 1.0f;
+            return (sizeOfBlackWhiteBlackRun + sizeOfBlackWhiteBlackRun(i, i2, (int) (i + ((i5 - i) * f2)), i6)) - 1.0f;
         }
         return invokeIIII.floatValue;
     }
@@ -228,19 +228,19 @@ public class Detector {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? detect(null) : (DetectorResult) invokeV.objValue;
     }
 
-    public final AlignmentPattern findAlignmentInRegion(float f2, int i, int i2, float f3) throws NotFoundException {
+    public final AlignmentPattern findAlignmentInRegion(float f, int i, int i2, float f2) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3)})) == null) {
-            int i3 = (int) (f3 * f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+            int i3 = (int) (f2 * f);
             int max = Math.max(0, i - i3);
             int min = Math.min(this.image.getWidth() - 1, i + i3) - max;
-            float f4 = 3.0f * f2;
-            if (min >= f4) {
+            float f3 = 3.0f * f;
+            if (min >= f3) {
                 int max2 = Math.max(0, i2 - i3);
                 int min2 = Math.min(this.image.getHeight() - 1, i2 + i3) - max2;
-                if (min2 >= f4) {
-                    return new AlignmentPatternFinder(this.image, max, max2, min, min2, f2, this.resultPointCallback).find();
+                if (min2 >= f3) {
+                    return new AlignmentPatternFinder(this.image, max, max2, min, min2, f, this.resultPointCallback).find();
                 }
                 throw NotFoundException.getNotFoundInstance();
             }
@@ -277,9 +277,9 @@ public class Detector {
                 if (provisionalVersionForDimension.getAlignmentPatternCenters().length > 0) {
                     float x = (topRight.getX() - topLeft.getX()) + bottomLeft.getX();
                     float y = (topRight.getY() - topLeft.getY()) + bottomLeft.getY();
-                    float f2 = 1.0f - (3.0f / dimensionForVersion);
-                    int x2 = (int) (topLeft.getX() + ((x - topLeft.getX()) * f2));
-                    int y2 = (int) (topLeft.getY() + (f2 * (y - topLeft.getY())));
+                    float f = 1.0f - (3.0f / dimensionForVersion);
+                    int x2 = (int) (topLeft.getX() + ((x - topLeft.getX()) * f));
+                    int y2 = (int) (topLeft.getY() + (f * (y - topLeft.getY())));
                     for (int i = 4; i <= 16; i <<= 1) {
                         try {
                             alignmentPattern = findAlignmentInRegion(calculateModuleSize, x2, y2, i);

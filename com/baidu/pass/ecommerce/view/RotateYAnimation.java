@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RotateYAnimation extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public class RotateYAnimation extends Animation {
     }
 
     @Override // android.view.animation.Animation
-    public void applyTransformation(float f2, Transformation transformation) {
+    public void applyTransformation(float f, Transformation transformation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
             Matrix matrix = transformation.getMatrix();
             this.camera.save();
-            this.camera.rotateY(f2 * 360.0f);
+            this.camera.rotateY(f * 360.0f);
             this.camera.getMatrix(matrix);
             matrix.preTranslate(-this.centerX, -this.centerY);
             matrix.postTranslate(this.centerX, this.centerY);

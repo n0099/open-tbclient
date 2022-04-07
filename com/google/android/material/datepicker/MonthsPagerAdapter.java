@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.MaterialCalendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int itemHeight;
     public final MaterialCalendar.OnDayClickListener onDayClickListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +55,10 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091437);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091430);
             this.monthTitle = textView;
             ViewCompat.setAccessibilityHeading(textView, true);
-            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091431);
+            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09142a);
             if (z) {
                 return;
             }
@@ -139,7 +139,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             Month monthsLater = this.calendarConstraints.getStart().monthsLater(i);
             viewHolder.monthTitle.setText(monthsLater.getLongName());
-            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f091431);
+            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f09142a);
             if (materialCalendarGridView.getAdapter2() != null && monthsLater.equals(materialCalendarGridView.getAdapter2().month)) {
                 materialCalendarGridView.getAdapter2().notifyDataSetChanged();
             } else {
@@ -173,9 +173,9 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i2)) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i2)) {
                         this.this$0.onDayClickListener.onDayClick(this.val$monthGrid.getAdapter2().getItem(i2).longValue());
                     }
                 }
@@ -190,7 +190,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0575, viewGroup, false);
             if (MaterialDatePicker.isFullscreen(viewGroup.getContext())) {
                 linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, this.itemHeight));
                 return new ViewHolder(linearLayout, true);

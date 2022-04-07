@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MetricsWorker implements IMetricsAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "mmetric";

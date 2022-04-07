@@ -12,24 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.a.b;
 import com.cmic.sso.sdk.auth.AuthnHelper;
 import com.cmic.sso.sdk.e.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c implements b.a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
     public static c a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f38382b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a f38383c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public b f38384d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f38385e;
+    public a b;
+    public a c;
+    public b d;
+    public Context e;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -46,7 +38,7 @@ public class c implements b.a {
                 return;
             }
         }
-        this.f38385e = context;
+        this.e = context;
         b();
     }
 
@@ -69,21 +61,21 @@ public class c implements b.a {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            String b2 = k.b("sdk_config_version", "");
-            if (!TextUtils.isEmpty(b2) && AuthnHelper.SDK_VERSION.equals(b2)) {
+            String b = k.b("sdk_config_version", "");
+            if (!TextUtils.isEmpty(b) && AuthnHelper.SDK_VERSION.equals(b)) {
                 b a2 = b.a(false);
-                this.f38384d = a2;
-                this.f38382b = a2.b();
+                this.d = a2;
+                this.b = a2.b();
             } else {
                 b a3 = b.a(true);
-                this.f38384d = a3;
-                this.f38382b = a3.a();
-                if (!TextUtils.isEmpty(b2)) {
+                this.d = a3;
+                this.b = a3.a();
+                if (!TextUtils.isEmpty(b)) {
                     c();
                 }
             }
-            this.f38384d.a(this);
-            this.f38383c = this.f38384d.a();
+            this.d.a(this);
+            this.c = this.d.a();
         }
     }
 
@@ -91,7 +83,7 @@ public class c implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             com.cmic.sso.sdk.e.c.b("UmcConfigManager", "delete localConfig");
-            this.f38384d.c();
+            this.d.c();
         }
     }
 
@@ -100,9 +92,9 @@ public class c implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return this.f38382b.clone();
+                return this.b.clone();
             } catch (CloneNotSupportedException unused) {
-                return this.f38383c;
+                return this.c;
             }
         }
         return (a) invokeV.objValue;
@@ -112,14 +104,14 @@ public class c implements b.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f38382b = aVar;
+            this.b = aVar;
         }
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f38384d.a(aVar);
+            this.d.a(aVar);
         }
     }
 }

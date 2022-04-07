@@ -1,6 +1,5 @@
 package com.baidu.tieba.flutter;
 
-import c.a.o0.r.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -16,7 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.vm4;
+/* loaded from: classes3.dex */
 public class FlutterPluginStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (e.c().contains("-Flutter")) {
+        if (vm4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class FlutterPluginStatic {
             });
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2921680) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.3
+            MessageManager.getInstance().registerListener(new CustomMessageListener(2921684) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

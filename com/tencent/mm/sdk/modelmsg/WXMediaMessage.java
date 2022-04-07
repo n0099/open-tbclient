@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WXMediaMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
@@ -32,7 +32,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
@@ -71,9 +71,9 @@ public final class WXMediaMessage {
                         wXMediaMessage.mediaObject = iMediaObject;
                         iMediaObject.unserialize(bundle);
                         return wXMediaMessage;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        a.a("MicroMsg.SDK.WXMediaMessage", "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e2.getMessage());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        a.a("MicroMsg.SDK.WXMediaMessage", "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e.getMessage());
                     }
                 }
                 return wXMediaMessage;
@@ -130,7 +130,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IMediaObject {
         public static final int TYPE_APPDATA = 7;
         public static final int TYPE_EMOJI = 8;
@@ -257,8 +257,8 @@ public final class WXMediaMessage {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
                 this.thumbData = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 a.a("MicroMsg.SDK.WXMediaMessage", "put thumb failed");
             }
         }

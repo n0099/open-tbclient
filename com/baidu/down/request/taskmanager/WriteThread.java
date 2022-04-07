@@ -21,7 +21,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class WriteThread implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -199,8 +199,8 @@ public class WriteThread implements Runnable {
                                     taskMsg.downDetail = downDetail;
                                     TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 binaryTaskMng2 = binaryTaskMng;
                             }
                             if (wrirteToFile(byteArrayInfo, taskByKey)) {
@@ -242,8 +242,8 @@ public class WriteThread implements Runnable {
                                             this.mTaskmsg.url = taskByKey.getDefaultUrl();
                                             binaryTaskMng2 = binaryTaskMng3;
                                             binaryTaskMng2.notifyUi(this.mTaskmsg);
-                                        } catch (Exception e3) {
-                                            e = e3;
+                                        } catch (Exception e2) {
+                                            e = e2;
                                             binaryTaskMng2 = binaryTaskMng3;
                                             if (taskByKey.mStatus != 1004) {
                                                 taskByKey.mStatus = 1005;

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAMS_ISCHECK = "isCheck";
@@ -143,7 +143,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -267,8 +267,8 @@ public class InvoiceBuildActivity extends SlideActiviy {
                                 this.this$0.invoiceBuildResult.map.put(next, jSONObject.optString(next));
                             }
                             this.this$0.invoiceBuildResult.setResultCode(0);
-                        } catch (JSONException e2) {
-                            Log.e(e2);
+                        } catch (JSONException e) {
+                            Log.e(e);
                             this.this$0.invoiceBuildResult.setResultCode(-205);
                         }
                         this.this$0.finishActivity();

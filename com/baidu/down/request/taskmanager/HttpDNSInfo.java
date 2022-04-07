@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_IP_AVAILABLE = 2;
@@ -76,8 +76,8 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
                 } else {
                     httpDNSInfo.mUrl += "?xcode=" + str2;
                 }
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             }
             httpDNSInfo.mDownloadTimes = this.mDownloadTimes;
             httpDNSInfo.mDownloadBytes = this.mDownloadBytes;

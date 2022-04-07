@@ -15,7 +15,7 @@ import com.facebook.common.util.StreamUtil;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ProgressiveJpegParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 16384;
@@ -122,8 +122,8 @@ public class ProgressiveJpegParser {
                         this.mParserState = 6;
                     }
                     this.mLastByteRead = read;
-                } catch (IOException e2) {
-                    Throwables.propagate(e2);
+                } catch (IOException e) {
+                    Throwables.propagate(e);
                 }
             }
             return (this.mParserState == 6 || this.mBestScanNumber == i) ? false : true;
@@ -188,8 +188,8 @@ public class ProgressiveJpegParser {
                 try {
                     StreamUtil.skip(pooledByteArrayBufferedInputStream, this.mBytesParsed);
                     return doParseMoreData(pooledByteArrayBufferedInputStream);
-                } catch (IOException e2) {
-                    Throwables.propagate(e2);
+                } catch (IOException e) {
+                    Throwables.propagate(e);
                     return false;
                 } finally {
                     Closeables.closeQuietly(pooledByteArrayBufferedInputStream);

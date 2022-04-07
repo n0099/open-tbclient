@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
@@ -16,7 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public View f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d06a5, null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d06a2, null) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -55,7 +55,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             super.i(i, i2);
-            this.o.setProgress(this.f35562g.getProgress());
+            this.o.setProgress(this.g.getProgress());
         }
     }
 
@@ -74,7 +74,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int o = super.o();
-            this.o.setProgress(this.f35562g.getProgress());
+            this.o.setProgress(this.g.getProgress());
             return o;
         }
         return invokeV.intValue;
@@ -84,22 +84,22 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int f2 = n.f(getContext(), R.dimen.tbds126);
+            int f = oi.f(getContext(), R.dimen.tbds126);
             if (z2 && z) {
-                f2 = n.f(getContext(), R.dimen.tbds210);
+                f = oi.f(getContext(), R.dimen.tbds210);
             }
-            layoutParams.height = f2;
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f35558c.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f35559d.getLayoutParams();
-            layoutParams2.leftMargin = n.f(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
-            layoutParams3.rightMargin = n.f(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
+            layoutParams.height = f;
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
+            layoutParams2.leftMargin = oi.f(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
+            layoutParams3.rightMargin = oi.f(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09168f);
+            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091689);
         }
     }
 
@@ -107,9 +107,9 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.o.setVisibility(z ? 0 : 8);
-            this.f35562g.setVisibility(z ? 8 : 0);
-            this.f35558c.setVisibility(z ? 8 : 0);
-            this.f35559d.setVisibility(z ? 8 : 0);
+            this.g.setVisibility(z ? 8 : 0);
+            this.c.setVisibility(z ? 8 : 0);
+            this.d.setVisibility(z ? 8 : 0);
         }
     }
 
@@ -119,13 +119,13 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             super.setCurrentDuration(i, z);
             if (!z) {
-                this.f35562g.setProgress((int) (((i * 1.0f) / this.k) * 10000.0f));
-                TextView textView = this.f35558c;
+                this.g.setProgress((int) (((i * 1.0f) / this.k) * 10000.0f));
+                TextView textView = this.c;
                 if (textView != null) {
                     textView.setText(StringHelper.stringForVideoTime(i));
                 }
             }
-            this.o.setProgress(this.f35562g.getProgress());
+            this.o.setProgress(this.g.getProgress());
         }
     }
 

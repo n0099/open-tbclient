@@ -191,11 +191,11 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view, Menu menu) {
+        public boolean onPreparePanel(int i, View view2, Menu menu) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view, menu)) == null) {
-                boolean onPreparePanel = super.onPreparePanel(i, view, menu);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, menu)) == null) {
+                boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
                 if (onPreparePanel) {
                     ToolbarActionBar toolbarActionBar = this.this$0;
                     if (!toolbarActionBar.mToolbarMenuPrepared) {
@@ -652,10 +652,10 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, view) == null) {
-            setCustomView(view, new ActionBar.LayoutParams(-2, -2));
+        if (interceptable == null || interceptable.invokeL(1048617, this, view2) == null) {
+            setCustomView(view2, new ActionBar.LayoutParams(-2, -2));
         }
     }
 
@@ -716,10 +716,10 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
-            ViewCompat.setElevation(this.mDecorToolbar.getViewGroup(), f2);
+        if (interceptable == null || interceptable.invokeF(1048627, this, f) == null) {
+            ViewCompat.setElevation(this.mDecorToolbar.getViewGroup(), f);
         }
     }
 
@@ -856,13 +856,13 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(View view, ActionBar.LayoutParams layoutParams) {
+    public void setCustomView(View view2, ActionBar.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048618, this, view, layoutParams) == null) {
-            if (view != null) {
-                view.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048618, this, view2, layoutParams) == null) {
+            if (view2 != null) {
+                view2.setLayoutParams(layoutParams);
             }
-            this.mDecorToolbar.setCustomView(view);
+            this.mDecorToolbar.setCustomView(view2);
         }
     }
 

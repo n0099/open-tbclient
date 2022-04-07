@@ -32,12 +32,12 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100358 = 2131755864;
+    public static final int obfuscated_res_0x7f100359 = 2131755865;
     public transient /* synthetic */ FieldHolder $fh;
     @IdRes
     public int checkedId;
@@ -55,13 +55,13 @@ public class ChipGroup extends FlowLayout {
     public boolean singleSelection;
 
     /* renamed from: com.google.android.material.chip.ChipGroup$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,12 +201,12 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,38 +232,38 @@ public class ChipGroup extends FlowLayout {
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewAdded(View view, View view2) {
+        public void onChildViewAdded(View view2, View view3) {
             int hashCode;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
-                if (view == this.this$0 && (view2 instanceof Chip)) {
-                    if (view2.getId() == -1) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
+                if (view2 == this.this$0 && (view3 instanceof Chip)) {
+                    if (view3.getId() == -1) {
                         if (Build.VERSION.SDK_INT >= 17) {
                             hashCode = View.generateViewId();
                         } else {
-                            hashCode = view2.hashCode();
+                            hashCode = view3.hashCode();
                         }
-                        view2.setId(hashCode);
+                        view3.setId(hashCode);
                     }
-                    ((Chip) view2).setOnCheckedChangeListenerInternal(this.this$0.checkedStateTracker);
+                    ((Chip) view3).setOnCheckedChangeListenerInternal(this.this$0.checkedStateTracker);
                 }
                 ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.onHierarchyChangeListener;
                 if (onHierarchyChangeListener != null) {
-                    onHierarchyChangeListener.onChildViewAdded(view, view2);
+                    onHierarchyChangeListener.onChildViewAdded(view2, view3);
                 }
             }
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewRemoved(View view, View view2) {
+        public void onChildViewRemoved(View view2, View view3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) {
-                if (view == this.this$0 && (view2 instanceof Chip)) {
-                    ((Chip) view2).setOnCheckedChangeListenerInternal(null);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
+                if (view2 == this.this$0 && (view3 instanceof Chip)) {
+                    ((Chip) view3).setOnCheckedChangeListenerInternal(null);
                 }
                 ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.onHierarchyChangeListener;
                 if (onHierarchyChangeListener != null) {
-                    onHierarchyChangeListener.onChildViewRemoved(view, view2);
+                    onHierarchyChangeListener.onChildViewRemoved(view2, view3);
                 }
             }
         }
@@ -346,11 +346,11 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
-            if (view instanceof Chip) {
-                Chip chip = (Chip) view;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
+            if (view2 instanceof Chip) {
+                Chip chip = (Chip) view2;
                 if (chip.isChecked()) {
                     int i2 = this.checkedId;
                     if (i2 != -1 && this.singleSelection) {
@@ -359,7 +359,7 @@ public class ChipGroup extends FlowLayout {
                     setCheckedId(chip.getId());
                 }
             }
-            super.addView(view, i, layoutParams);
+            super.addView(view2, i, layoutParams);
         }
     }
 
@@ -463,15 +463,15 @@ public class ChipGroup extends FlowLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.chipSpacingVertical : invokeV.intValue;
     }
 
-    public int getIndexOfChip(@Nullable View view) {
+    public int getIndexOfChip(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) {
-            if (view instanceof Chip) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
+            if (view2 instanceof Chip) {
                 int i = 0;
                 for (int i2 = 0; i2 < getChildCount(); i2++) {
                     if (getChildAt(i2) instanceof Chip) {
-                        if (((Chip) getChildAt(i2)) == view) {
+                        if (((Chip) getChildAt(i2)) == view2) {
                             return i;
                         }
                         i++;
@@ -655,7 +655,7 @@ public class ChipGroup extends FlowLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChipGroup(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04012d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040130);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -703,7 +703,7 @@ public class ChipGroup extends FlowLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChipGroup(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100358), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100359), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -724,7 +724,7 @@ public class ChipGroup extends FlowLayout {
         this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
         this.checkedId = -1;
         this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011e, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f04055f, R.attr.obfuscated_res_0x7f040560}, i, obfuscated_res_0x7f100358, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04057f, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f04059e}, i, obfuscated_res_0x7f100359, new int[0]);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
         setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));

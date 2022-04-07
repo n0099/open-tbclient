@@ -15,37 +15,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f26826b = 0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static g f26827c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static Thread f26828d = null;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f26829e = true;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static volatile long f26830g = 5000;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static long f26831h = 5000;
+    public static int b = 0;
+    public static g c = null;
+    public static Thread d = null;
+    public static volatile boolean e = true;
+    public static volatile long g = 5000;
+    public static long h = 5000;
     public static volatile boolean i = false;
     public static int j = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c f26832f;
+    public c f;
     public boolean k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
@@ -68,7 +54,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,29 +82,29 @@ public class d {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!d.f26829e) {
-                    if (d.f26827c != null) {
-                        d.f26827c.a(d.f26826b, d.i);
+                while (!d.e) {
+                    if (d.c != null) {
+                        d.c.a(d.b, d.i);
                         boolean unused = d.i = false;
                     }
                     try {
-                        Thread.sleep(d.f26830g);
+                        Thread.sleep(d.g);
                     } catch (InterruptedException unused2) {
                         Thread.currentThread().interrupt();
                     }
-                    int d2 = d.f26827c != null ? d.f26827c.d() : 0;
-                    if (d2 >= 3) {
-                        long j = (d2 / 3) + 1;
-                        long unused3 = d.f26830g = d.f26831h * j < 60000 ? d.f26831h * j : 60000L;
+                    int d = d.c != null ? d.c.d() : 0;
+                    if (d >= 3) {
+                        long j = (d / 3) + 1;
+                        long unused3 = d.g = d.h * j < 60000 ? d.h * j : 60000L;
                     } else {
-                        long unused4 = d.f26830g = d.f26831h;
+                        long unused4 = d.g = d.h;
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,11 +201,11 @@ public class d {
     private void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            f26829e = true;
-            Thread thread = f26828d;
+            e = true;
+            Thread thread = d;
             if (thread != null) {
                 thread.interrupt();
-                f26828d = null;
+                d = null;
             }
         }
     }
@@ -228,7 +214,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
             synchronized (d.class) {
-                f26829e = true;
+                e = true;
             }
         }
     }
@@ -237,17 +223,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             synchronized (d.class) {
-                if (f26828d == null) {
+                if (d == null) {
                     return;
                 }
-                f26829e = false;
-                if (Thread.State.NEW == f26828d.getState()) {
-                    f26828d.start();
+                e = false;
+                if (Thread.State.NEW == d.getState()) {
+                    d.start();
                 }
-                if (Thread.State.TERMINATED == f26828d.getState()) {
-                    f26828d = null;
+                if (Thread.State.TERMINATED == d.getState()) {
+                    d = null;
                     Thread thread = new Thread(new b(Thread.currentThread().getName()));
-                    f26828d = thread;
+                    d = thread;
                     thread.start();
                 }
             }
@@ -260,31 +246,31 @@ public class d {
             synchronized (this) {
                 String str = a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i2);
-                f26826b = i2;
-                if (this.f26832f == null) {
+                b = i2;
+                if (this.f == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncDataRequestHandler is null");
                     return;
                 }
-                Message obtainMessage = this.f26832f.obtainMessage();
+                Message obtainMessage = this.f.obtainMessage();
                 obtainMessage.what = i2;
-                this.f26832f.sendMessage(obtainMessage);
+                this.f.sendMessage(obtainMessage);
             }
         }
     }
 
-    public void a(View view) {
+    public void a(View view2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (gVar = c) == null) {
             return;
         }
-        gVar.a(view);
+        gVar.a(view2);
     }
 
     public void a(DisplayOptions displayOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = c) == null) {
             return;
         }
         gVar.a(displayOptions);
@@ -293,7 +279,7 @@ public class d {
     public void a(RoleOptions roleOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = c) == null) {
             return;
         }
         gVar.a(roleOptions);
@@ -303,21 +289,21 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, roleOptions, displayOptions) == null) {
             g a2 = g.a();
-            f26827c = a2;
+            c = a2;
             if (a2 != null) {
                 a2.b();
-                f26827c.a(roleOptions);
-                f26827c.a(displayOptions);
+                c.a(roleOptions);
+                c.a(displayOptions);
             }
-            f26828d = new Thread(new b(Thread.currentThread().getName()));
-            this.f26832f = new c();
+            d = new Thread(new b(Thread.currentThread().getName()));
+            this.f = new c();
         }
     }
 
     public void a(k kVar) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = c) == null) {
             return;
         }
         gVar.a(kVar);
@@ -338,18 +324,18 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             long j2 = i2 * 1000;
-            f26831h = j2;
-            f26830g = j2;
+            h = j2;
+            g = j2;
         }
     }
 
-    public void b(View view) {
+    public void b(View view2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || (gVar = c) == null) {
             return;
         }
-        gVar.b(view);
+        gVar.b(view2);
     }
 
     public void c() {
@@ -359,26 +345,26 @@ public class d {
         }
     }
 
-    public void c(View view) {
+    public void c(View view2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (gVar = f26827c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, view2) == null) || (gVar = c) == null) {
             return;
         }
-        gVar.c(view);
+        gVar.c(view2);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             o();
-            this.f26832f.removeCallbacksAndMessages(null);
-            f26826b = 0;
-            f26831h = 5000L;
+            this.f.removeCallbacksAndMessages(null);
+            b = 0;
+            h = 5000L;
             i = false;
             j = 1000;
             this.k = true;
-            g gVar = f26827c;
+            g gVar = c;
             if (gVar != null) {
                 gVar.h();
             }

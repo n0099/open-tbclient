@@ -102,11 +102,11 @@ public final class ImmLeaksCleaner implements LifecycleEventObserver {
                     synchronized (obj) {
                         try {
                             try {
-                                View view = (View) sServedViewField.get(inputMethodManager);
-                                if (view == null) {
+                                View view2 = (View) sServedViewField.get(inputMethodManager);
+                                if (view2 == null) {
                                     return;
                                 }
-                                if (view.isAttachedToWindow()) {
+                                if (view2.isAttachedToWindow()) {
                                     return;
                                 }
                                 try {

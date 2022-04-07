@@ -36,7 +36,7 @@ import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CachedContentIndex {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_NAME = "cached_content_index.exi";
@@ -115,7 +115,7 @@ public class CachedContentIndex {
     private boolean readFile() {
         InterceptResult invokeV;
         DataInputStream dataInputStream;
-        IOException e2;
+        IOException e;
         DataInputStream dataInputStream2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65543, this)) != null) {
@@ -141,11 +141,11 @@ public class CachedContentIndex {
                         try {
                             this.cipher.init(2, this.secretKeySpec, new IvParameterSpec(bArr));
                             dataInputStream3 = new DataInputStream(new CipherInputStream(bufferedInputStream, this.cipher));
-                        } catch (InvalidAlgorithmParameterException e3) {
-                            e = e3;
+                        } catch (InvalidAlgorithmParameterException e2) {
+                            e = e2;
                             throw new IllegalStateException(e);
-                        } catch (InvalidKeyException e4) {
-                            e = e4;
+                        } catch (InvalidKeyException e3) {
+                            e = e3;
                             throw new IllegalStateException(e);
                         }
                     } else {
@@ -173,9 +173,9 @@ public class CachedContentIndex {
                         Util.closeQuietly(dataInputStream3);
                     }
                     return false;
-                } catch (IOException e5) {
-                    e2 = e5;
-                    Log.e(TAG, "Error reading cache content index file.", e2);
+                } catch (IOException e4) {
+                    e = e4;
+                    Log.e(TAG, "Error reading cache content index file.", e);
                     if (dataInputStream != null) {
                         Util.closeQuietly(dataInputStream);
                     }
@@ -190,9 +190,9 @@ public class CachedContentIndex {
                 throw th;
             }
         } catch (FileNotFoundException unused2) {
-        } catch (IOException e6) {
+        } catch (IOException e5) {
             dataInputStream = dataInputStream3;
-            e2 = e6;
+            e = e5;
         } catch (Throwable th2) {
             th = th2;
             if (dataInputStream3 != null) {
@@ -218,8 +218,8 @@ public class CachedContentIndex {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 dataOutputStream.writeInt(1);
@@ -233,11 +233,11 @@ public class CachedContentIndex {
                         this.cipher.init(1, this.secretKeySpec, new IvParameterSpec(bArr));
                         dataOutputStream.flush();
                         dataOutputStream = new DataOutputStream(new CipherOutputStream(this.bufferedOutputStream, this.cipher));
-                    } catch (InvalidAlgorithmParameterException e3) {
-                        e = e3;
+                    } catch (InvalidAlgorithmParameterException e2) {
+                        e = e2;
                         throw new IllegalStateException(e);
-                    } catch (InvalidKeyException e4) {
-                        e = e4;
+                    } catch (InvalidKeyException e3) {
+                        e = e3;
                         throw new IllegalStateException(e);
                     }
                 }
@@ -249,8 +249,8 @@ public class CachedContentIndex {
                 dataOutputStream.writeInt(i);
                 this.atomicFile.endWrite(dataOutputStream);
                 Util.closeQuietly((Closeable) null);
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e4) {
+                e = e4;
                 throw new Cache.CacheException(e);
             } catch (Throwable th2) {
                 th = th2;
@@ -412,8 +412,8 @@ public class CachedContentIndex {
             try {
                 this.cipher = getCipher();
                 this.secretKeySpec = new SecretKeySpec(bArr, "AES");
-            } catch (NoSuchAlgorithmException | NoSuchPaddingException e2) {
-                throw new IllegalStateException(e2);
+            } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
+                throw new IllegalStateException(e);
             }
         } else {
             Assertions.checkState(!z);

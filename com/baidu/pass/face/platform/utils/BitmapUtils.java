@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class BitmapUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGEBOUND = 128;
@@ -56,12 +56,12 @@ public final class BitmapUtils {
             byte[] bArr2 = new byte[i3 * 4];
             for (int i4 = 0; i4 < i3; i4++) {
                 int i5 = i4 * 3;
-                byte b2 = bArr[i5 + 0];
-                byte b3 = bArr[i5 + 1];
+                byte b = bArr[i5 + 0];
+                byte b2 = bArr[i5 + 1];
                 int i6 = i4 * 4;
                 bArr2[i6 + 0] = bArr[i5 + 2];
-                bArr2[i6 + 1] = b3;
-                bArr2[i6 + 2] = b2;
+                bArr2[i6 + 1] = b2;
+                bArr2[i6 + 2] = b;
                 bArr2[i6 + 3] = -1;
             }
             createBitmap.copyPixelsFromBuffer(ByteBuffer.wrap(bArr2));
@@ -103,16 +103,16 @@ public final class BitmapUtils {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return byteArray;
             } catch (Exception unused) {
                 if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 return null;
@@ -122,8 +122,8 @@ public final class BitmapUtils {
                 if (byteArrayOutputStream2 != null) {
                     try {
                         byteArrayOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th;
@@ -135,12 +135,12 @@ public final class BitmapUtils {
         }
     }
 
-    public static String bitmapToJpegBase64(Bitmap bitmap, int i, float f2) {
+    public static String bitmapToJpegBase64(Bitmap bitmap, int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitmap, Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitmap, Integer.valueOf(i), Float.valueOf(f)})) == null) {
             try {
-                float max = f2 / Math.max(bitmap.getWidth(), bitmap.getHeight());
+                float max = f / Math.max(bitmap.getWidth(), bitmap.getHeight());
                 if (max < 1.0f) {
                     bitmap = scale(bitmap, max);
                 }
@@ -163,12 +163,12 @@ public final class BitmapUtils {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (height > i2 || width > i) {
-                float f2 = i2 / height;
-                float f3 = i / width;
-                if (f2 >= f3) {
-                    f2 = f3;
+                float f = i2 / height;
+                float f2 = i / width;
+                if (f >= f2) {
+                    f = f2;
                 }
-                return scale(bitmap, f2);
+                return scale(bitmap, f);
             }
             return bitmap;
         }
@@ -180,14 +180,14 @@ public final class BitmapUtils {
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i, i2)) == null) {
-            double d2 = options.outWidth;
-            double d3 = options.outHeight;
-            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
+            double d = options.outWidth;
+            double d2 = options.outHeight;
+            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d * d2) / i2));
             if (i == -1) {
                 min = 128;
             } else {
-                double d4 = i;
-                min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
+                double d3 = i;
+                min = (int) Math.min(Math.floor(d / d3), Math.floor(d2 / d3));
             }
             if (min < ceil) {
                 return ceil;
@@ -227,8 +227,8 @@ public final class BitmapUtils {
                 Math.min(DensityUtils.getDisplayWidth(context), DensityUtils.getDisplayHeight(context));
                 options.inJustDecodeBounds = false;
                 bitmap = Bitmap.createBitmap(iArr, i, i2, Bitmap.Config.RGB_565);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
                 bitmap = null;
             }
             if (bitmap != null && bitmap != null) {
@@ -254,8 +254,8 @@ public final class BitmapUtils {
                 options.inJustDecodeBounds = false;
                 bitmap = BitmapFactory.decodeFile(str, options);
                 rotateBitmap = rotateBitmap(i, bitmap);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
@@ -274,11 +274,11 @@ public final class BitmapUtils {
         return (Bitmap) invokeLLI.objValue;
     }
 
-    public static Bitmap createBitmap(Context context, byte[] bArr, float f2) {
+    public static Bitmap createBitmap(Context context, byte[] bArr, float f) {
         InterceptResult invokeCommon;
         Bitmap rotateBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, bArr, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, bArr, Float.valueOf(f)})) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             Bitmap bitmap = null;
             try {
@@ -288,9 +288,9 @@ public final class BitmapUtils {
                 options.inSampleSize = computeSampleSize(options, min, 1048576);
                 options.inJustDecodeBounds = false;
                 bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                rotateBitmap = rotateBitmap(f2, bitmap);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+                rotateBitmap = rotateBitmap(f, bitmap);
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
                 if (bitmap != null && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
@@ -299,7 +299,7 @@ public final class BitmapUtils {
                 options.inSampleSize = computeSampleSize(options, -1, (options.outWidth * options.outHeight) / 4);
                 options.inJustDecodeBounds = false;
                 bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                rotateBitmap = rotateBitmap(f2, bitmap);
+                rotateBitmap = rotateBitmap(f, bitmap);
             }
             if (rotateBitmap != bitmap && bitmap != null) {
                 bitmap.recycle();
@@ -321,8 +321,8 @@ public final class BitmapUtils {
                 options.inJustDecodeBounds = false;
                 bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 rotateBitmap = rotateBitmap(i, bitmap);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
@@ -354,8 +354,8 @@ public final class BitmapUtils {
                     return 90;
                 }
                 return 180;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0;
             }
         }
@@ -386,15 +386,15 @@ public final class BitmapUtils {
         return (Bitmap) invokeL.objValue;
     }
 
-    public static Bitmap rotateBitmap(float f2, Bitmap bitmap) {
+    public static Bitmap rotateBitmap(float f, Bitmap bitmap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), bitmap})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f), bitmap})) == null) {
             Matrix matrix = new Matrix();
-            if (f2 == 0.0f) {
+            if (f == 0.0f) {
                 return bitmap;
             }
-            matrix.setRotate(f2);
+            matrix.setRotate(f);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
         return (Bitmap) invokeCommon.objValue;
@@ -412,27 +412,27 @@ public final class BitmapUtils {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                 try {
                     fileOutputStream.close();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 return true;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
                         return false;
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                         return false;
                     }
                 }
@@ -443,8 +443,8 @@ public final class BitmapUtils {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
@@ -453,12 +453,12 @@ public final class BitmapUtils {
         return invokeLL.booleanValue;
     }
 
-    public static Bitmap scale(Bitmap bitmap, float f2) {
+    public static Bitmap scale(Bitmap bitmap, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, bitmap, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, bitmap, f)) == null) {
             Matrix matrix = new Matrix();
-            matrix.postScale(f2, f2);
+            matrix.postScale(f, f);
             Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             if (bitmap != null) {
                 bitmap.recycle();
@@ -501,12 +501,12 @@ public final class BitmapUtils {
                     if (i8 < 16) {
                         i8 = 16;
                     }
-                    float f2 = (i8 - 16) * 1.164f;
-                    float f3 = i11 - 128;
-                    int round = Math.round((1.596f * f3) + f2);
-                    float f4 = i10 - 128;
-                    int round2 = Math.round((f2 - (f3 * 0.813f)) - (0.391f * f4));
-                    int round3 = Math.round(f2 + (f4 * 2.018f));
+                    float f = (i8 - 16) * 1.164f;
+                    float f2 = i11 - 128;
+                    int round = Math.round((1.596f * f2) + f);
+                    float f3 = i10 - 128;
+                    int round2 = Math.round((f - (f2 * 0.813f)) - (0.391f * f3));
+                    int round3 = Math.round(f + (f3 * 2.018f));
                     if (round < 0) {
                         round = 0;
                     } else if (round > 255) {

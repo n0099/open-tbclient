@@ -19,10 +19,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.mj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Bdtls$ApplicationData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static Parser<Bdtls$ApplicationData> PARSER = null;
@@ -35,7 +36,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public int memoizedSerializedSize;
     public ByteString sKR_;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<Bdtls$ApplicationData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,14 +65,12 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public ByteString f29397b;
+        public ByteString b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -86,7 +85,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                     return;
                 }
             }
-            this.f29397b = ByteString.EMPTY;
+            this.b = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -144,9 +143,9 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (c.a.n0.c.a.i.a) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (mj3) null);
                 int i = (this.a & 1) != 1 ? 0 : 1;
-                bdtls$ApplicationData.sKR_ = this.f29397b;
+                bdtls$ApplicationData.sKR_ = this.b;
                 bdtls$ApplicationData.bitField0_ = i;
                 return bdtls$ApplicationData;
             }
@@ -158,7 +157,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f29397b = ByteString.EMPTY;
+                this.b = ByteString.EMPTY;
                 this.a &= -2;
                 return this;
             }
@@ -222,10 +221,10 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                             t(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        Bdtls$ApplicationData bdtls$ApplicationData2 = (Bdtls$ApplicationData) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        Bdtls$ApplicationData bdtls$ApplicationData2 = (Bdtls$ApplicationData) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             bdtls$ApplicationData = bdtls$ApplicationData2;
@@ -251,7 +250,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteString)) == null) {
                 if (byteString != null) {
                     this.a |= 1;
-                    this.f29397b = byteString;
+                    this.b = byteString;
                     return this;
                 }
                 throw null;
@@ -299,7 +298,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -406,7 +405,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, c.a.n0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
         this(builder);
     }
 
@@ -568,11 +567,11 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
                     }
-                } catch (IOException e3) {
-                    throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

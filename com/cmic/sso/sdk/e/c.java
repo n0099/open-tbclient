@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f38481b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +30,7 @@ public class c {
             }
         }
         a = new c();
-        f38481b = false;
+        b = false;
     }
 
     public c() {
@@ -52,20 +50,20 @@ public class c {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f38481b = z;
+            b = z;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f38481b) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b) {
             Log.d("CMCC-SDK:" + str, "" + str2);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f38481b) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && b) {
             Log.e("CMCC-SDK:" + str, "" + str2);
         }
     }

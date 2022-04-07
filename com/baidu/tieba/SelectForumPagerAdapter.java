@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.p0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -16,19 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xg5;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectForumActivity> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<g> f31091b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f31092c;
+    public List<xg5> b;
+    public int c;
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -45,40 +41,40 @@ public class SelectForumPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f31092c = -1;
+        this.c = -1;
         this.a = tbPageContext;
         ArrayList arrayList = new ArrayList();
-        this.f31091b = arrayList;
+        this.b = arrayList;
         arrayList.add(new LatelyView(this.a.getPageActivity()));
-        this.f31091b.add(new AttentionView(this.a.getPageActivity()));
+        this.b.add(new AttentionView(this.a.getPageActivity()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     /* renamed from: b */
-    public g instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+    public xg5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            g gVar = (g) ListUtils.getItem(this.f31091b, i);
-            if (gVar instanceof View) {
-                View view = (View) gVar;
-                if (view.getParent() != null) {
-                    viewGroup.removeView(view);
+            xg5 xg5Var = (xg5) ListUtils.getItem(this.b, i);
+            if (xg5Var instanceof View) {
+                View view2 = (View) xg5Var;
+                if (view2.getParent() != null) {
+                    viewGroup.removeView(view2);
                 }
-                viewGroup.addView(view);
+                viewGroup.addView(view2);
             }
-            return gVar;
+            return xg5Var;
         }
-        return (g) invokeLI.objValue;
+        return (xg5) invokeLI.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (g gVar : this.f31091b) {
-                gVar.onDestroy();
+            for (xg5 xg5Var : this.b) {
+                xg5Var.onDestroy();
             }
         }
     }
@@ -86,8 +82,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (g gVar : this.f31091b) {
-                gVar.a();
+            for (xg5 xg5Var : this.b) {
+                xg5Var.a();
             }
         }
     }
@@ -104,21 +100,21 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f31091b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.f31091b, i) == null ? "" : ((g) ListUtils.getItem(this.f31091b, i)).getTitle() : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.b, i) == null ? "" : ((xg5) ListUtils.getItem(this.b, i)).getTitle() : (CharSequence) invokeI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
+    public boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -126,13 +122,13 @@ public class SelectForumPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i, obj) == null) {
             super.setPrimaryItem(viewGroup, i, obj);
-            if (this.f31092c == i) {
+            if (this.c == i) {
                 return;
             }
-            this.f31092c = i;
-            g gVar = (g) ListUtils.getItem(this.f31091b, i);
-            if (gVar != null) {
-                gVar.c(null);
+            this.c = i;
+            xg5 xg5Var = (xg5) ListUtils.getItem(this.b, i);
+            if (xg5Var != null) {
+                xg5Var.c(null);
             }
         }
     }

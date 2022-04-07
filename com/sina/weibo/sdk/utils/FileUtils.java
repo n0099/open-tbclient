@@ -76,8 +76,8 @@ public class FileUtils {
                             }
                             return string;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         e.printStackTrace();
                     }
                 } catch (Throwable th) {
@@ -89,8 +89,8 @@ public class FileUtils {
                     throw th;
                 }
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;

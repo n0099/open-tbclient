@@ -17,31 +17,23 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0012\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 \u0013:\u0001\u0013B\u0019\b\u0002\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0005\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0005\u0010\u0004J\u0017\u0010\t\u001a\u00020\b2\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0016\u0010\u000f\u001a\u00020\u000e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0014"}, d2 = {"Lcom/baidu/bdtask/service/cache/storage/encrypter/aes/AEStorageEncrypter;", "", "data", "decrypt", "([B)[B", "encrypt", "", "mode", "", "initCipher", "(I)V", "Ljavax/crypto/Cipher;", "cipher", "Ljavax/crypto/Cipher;", "Ljava/security/Key;", "cipherKey", "Ljava/security/Key;", "<init>", "(Ljavax/crypto/Cipher;Ljava/security/Key;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int[] f24955c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static byte[] f24956d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final C1736a f24957e;
+    public static final int[] c;
+    public static byte[] d;
+    public static final C0076a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Cipher a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Key f24958b;
+    public final Key b;
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.encrypter.aes.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C1736a {
+    /* loaded from: classes.dex */
+    public static final class C0076a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1736a() {
+        public C0076a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,11 +55,11 @@ public final class a {
                     c(new byte[d().length]);
                     int length = d().length;
                     for (int i = 0; i < length; i++) {
-                        byte[] e2 = e();
-                        if (e2 == null) {
+                        byte[] e = e();
+                        if (e == null) {
                             Intrinsics.throwNpe();
                         }
-                        e2[i] = (byte) d()[i];
+                        e[i] = (byte) d()[i];
                     }
                 }
                 SecretKeySpec secretKeySpec = new SecretKeySpec(e(), "AES");
@@ -87,23 +79,23 @@ public final class a {
         public final void c(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-                a.f24956d = bArr;
+                a.d = bArr;
             }
         }
 
         public final int[] d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f24955c : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.c : (int[]) invokeV.objValue;
         }
 
         public final byte[] e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.f24956d : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.d : (byte[]) invokeV.objValue;
         }
 
-        public /* synthetic */ C1736a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0076a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -121,8 +113,8 @@ public final class a {
                 return;
             }
         }
-        f24957e = new C1736a(null);
-        f24955c = new int[]{40, 114, -31, -94, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, -82, -95, -82, -96, 126, -85, 0, -116, -104, 44, -39};
+        e = new C0076a(null);
+        c = new int[]{40, 114, -31, -94, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, -82, -95, -82, -96, 126, -85, 0, -116, -104, 44, -39};
     }
 
     public a(Cipher cipher, Key key) {
@@ -141,13 +133,13 @@ public final class a {
             }
         }
         this.a = cipher;
-        this.f24958b = key;
+        this.b = key;
     }
 
     public final void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.init(i, this.f24958b);
+            this.a.init(i, this.b);
         }
     }
 

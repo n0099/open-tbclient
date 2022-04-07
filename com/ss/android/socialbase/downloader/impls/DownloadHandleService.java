@@ -23,8 +23,8 @@ public class DownloadHandleService extends Service {
                 public void run() {
                     try {
                         com.ss.android.socialbase.downloader.downloader.d.a().o(intExtra);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             });

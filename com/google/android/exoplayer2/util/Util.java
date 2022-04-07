@@ -46,7 +46,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CRC32_BYTES_MSBF;
@@ -709,9 +709,9 @@ public final class Util {
                     i++;
                 }
             } else if (i2 >= 0 || j % j2 != 0) {
-                double d2 = j / j2;
+                double d = j / j2;
                 while (i < size) {
-                    jArr[i] = (long) (list.get(i).longValue() * d2);
+                    jArr[i] = (long) (list.get(i).longValue() * d);
                     i++;
                 }
             } else {
@@ -744,19 +744,19 @@ public final class Util {
                     i++;
                 }
             } else {
-                double d2 = j / j2;
+                double d = j / j2;
                 while (i < jArr.length) {
-                    jArr[i] = (long) (jArr[i] * d2);
+                    jArr[i] = (long) (jArr[i] * d);
                     i++;
                 }
             }
         }
     }
 
-    public static boolean shouldEscapeCharacter(char c2) {
+    public static boolean shouldEscapeCharacter(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 == '\"' || c2 == '%' || c2 == '*' || c2 == '/' || c2 == ':' || c2 == '<' || c2 == '\\' || c2 == '|' || c2 == '>' || c2 == '?' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Character.valueOf(c)})) == null) ? c == '\"' || c == '%' || c == '*' || c == '/' || c == ':' || c == '<' || c == '\\' || c == '|' || c == '>' || c == '?' : invokeCommon.booleanValue;
     }
 
     public static void sneakyThrow(Throwable th) {
@@ -878,10 +878,10 @@ public final class Util {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.max(j2, Math.min(j, j3)) : invokeCommon.longValue;
     }
 
-    public static float constrainValue(float f2, float f3, float f4) {
+    public static float constrainValue(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.max(f3, Math.min(f2, f4)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.max(f2, Math.min(f, f3)) : invokeCommon.floatValue;
     }
 
     public static Point getPhysicalDisplaySize(Context context, Display display) {
@@ -897,8 +897,8 @@ public final class Util {
                     try {
                         Class<?> cls = Class.forName("android.os.SystemProperties");
                         str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "sys.display-size");
-                    } catch (Exception e2) {
-                        Log.e("Util", "Failed to read sys.display-size", e2);
+                    } catch (Exception e) {
+                        Log.e("Util", "Failed to read sys.display-size", e);
                     }
                     if (!TextUtils.isEmpty(str)) {
                         try {

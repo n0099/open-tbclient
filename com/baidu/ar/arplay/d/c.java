@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -101,9 +101,9 @@ public class c {
             if (surface != null) {
                 try {
                     this.gy = surface.lockCanvas(null);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    Log.e(str, "error while rendering view to gl: " + e2);
+                    Log.e(str, "error while rendering view to gl: " + e);
                 }
             }
             return this.gy;
@@ -132,9 +132,9 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
                 this.dL.updateTexImage();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str = TAG;
-                Log.e(str, "error while update view to gl: " + e2);
+                Log.e(str, "error while update view to gl: " + e);
             }
         }
     }

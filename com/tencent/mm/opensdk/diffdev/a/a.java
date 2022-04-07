@@ -15,19 +15,13 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements IDiffDevOAuth {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<OAuthListener> f43671c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public d f43672d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public OAuthListener f43673e;
+    public List<OAuthListener> c;
+    public d d;
+    public OAuthListener e;
     public Handler handler;
 
     public a() {
@@ -44,17 +38,17 @@ public final class a implements IDiffDevOAuth {
             }
         }
         this.handler = null;
-        this.f43671c = new ArrayList();
-        this.f43673e = new b(this);
+        this.c = new ArrayList();
+        this.e = new b(this);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void addListener(OAuthListener oAuthListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, oAuthListener) == null) || this.f43671c.contains(oAuthListener)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, oAuthListener) == null) || this.c.contains(oAuthListener)) {
             return;
         }
-        this.f43671c.add(oAuthListener);
+        this.c.add(oAuthListener);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
@@ -71,12 +65,12 @@ public final class a implements IDiffDevOAuth {
                 this.handler = new Handler(Looper.getMainLooper());
             }
             addListener(oAuthListener);
-            if (this.f43672d != null) {
+            if (this.d != null) {
                 Log.d("MicroMsg.SDK.DiffDevOAuth", "auth, already running, no need to start auth again");
                 return true;
             }
-            d dVar = new d(str, str2, str3, str4, str5, this.f43673e);
-            this.f43672d = dVar;
+            d dVar = new d(str, str2, str3, str4, str5, this.e);
+            this.d = dVar;
             if (Build.VERSION.SDK_INT >= 11) {
                 dVar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
             } else {
@@ -92,7 +86,7 @@ public final class a implements IDiffDevOAuth {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Log.i("MicroMsg.SDK.DiffDevOAuth", "detach");
-            this.f43671c.clear();
+            this.c.clear();
             stopAuth();
         }
     }
@@ -101,7 +95,7 @@ public final class a implements IDiffDevOAuth {
     public final void removeAllListeners() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f43671c.clear();
+            this.c.clear();
         }
     }
 
@@ -109,7 +103,7 @@ public final class a implements IDiffDevOAuth {
     public final void removeListener(OAuthListener oAuthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, oAuthListener) == null) {
-            this.f43671c.remove(oAuthListener);
+            this.c.remove(oAuthListener);
         }
     }
 
@@ -121,12 +115,12 @@ public final class a implements IDiffDevOAuth {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Log.i("MicroMsg.SDK.DiffDevOAuth", "stopAuth");
             try {
-                z = this.f43672d == null ? true : this.f43672d.a();
-            } catch (Exception e2) {
-                Log.w("MicroMsg.SDK.DiffDevOAuth", "stopAuth fail, ex = " + e2.getMessage());
+                z = this.d == null ? true : this.d.a();
+            } catch (Exception e) {
+                Log.w("MicroMsg.SDK.DiffDevOAuth", "stopAuth fail, ex = " + e.getMessage());
                 z = false;
             }
-            this.f43672d = null;
+            this.d = null;
             return z;
         }
         return invokeV.booleanValue;

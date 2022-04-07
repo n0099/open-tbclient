@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CATEGORY_RECOMMEND = 1;
@@ -83,8 +83,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
             try {
                 jSONObject = new JSONObject(str);
                 musicData = new MusicData();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
@@ -111,8 +111,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 musicData.collectStatus = jSONObject.optString("collect_status");
                 musicData.mProgress = jSONObject.optInt("progress");
                 return musicData;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 musicData2 = musicData;
                 e.printStackTrace();
                 return musicData2;
@@ -239,8 +239,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 jSONObject.put("volume", musicData.mVolume);
                 jSONObject.put("collect_status", musicData.collectStatus);
                 jSONObject.put("progress", musicData.mProgress);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }
@@ -272,8 +272,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
                     }
                     return (parseLong + parseLong2) * 1000;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return 0L;
         }

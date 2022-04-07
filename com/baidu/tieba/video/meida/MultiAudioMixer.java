@@ -12,13 +12,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -45,13 +45,13 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void onMixComplete();
 
@@ -172,15 +172,15 @@ public abstract class MultiAudioMixer {
                                         fileInputStream.close();
                                     }
                                     i++;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     throw th;
                                 }
                             }
                             throw th;
                         }
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         if (this.a != null) {
                             this.a.onMixError(1);
                         }
@@ -193,8 +193,8 @@ public abstract class MultiAudioMixer {
                         }
                         return;
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                     return;
                 }
             }

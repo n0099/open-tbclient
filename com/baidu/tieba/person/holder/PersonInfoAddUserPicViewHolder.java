@@ -3,8 +3,6 @@ package com.baidu.tieba.person.holder;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.d.o.e.n;
-import c.a.p0.y2.i.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,35 +13,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.g18;
+import com.repackage.uo;
+/* loaded from: classes3.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f35348b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f35349c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f35350d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public n f35351e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f35352f;
+    public ImageView b;
+    public TextView c;
+    public int d;
+    public uo e;
+    public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonInfoAddUserPicViewHolder(View view) {
-        super(view);
+    public PersonInfoAddUserPicViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,46 +44,46 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f35350d = 3;
-        this.a = view.findViewById(R.id.obfuscated_res_0x7f090118);
-        this.f35348b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090111);
-        this.f35349c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09201e);
+        this.d = 3;
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090121);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09011a);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092005);
     }
 
-    public void c(n nVar) {
+    public void c(uo uoVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof c)) {
-            this.f35351e = nVar;
-            c cVar = (c) nVar;
-            SkinManager.setImageResource(this.f35348b, R.drawable.icon_mine_pic_add);
-            if (cVar.a() > 0) {
-                this.f35349c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0813), Integer.valueOf(cVar.a())));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uoVar) == null) && (uoVar instanceof g18)) {
+            this.e = uoVar;
+            g18 g18Var = (g18) uoVar;
+            SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
+            if (g18Var.a() > 0) {
+                this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0814), Integer.valueOf(g18Var.a())));
             }
-            b().setOnClickListener(this.f35352f);
+            b().setOnClickListener(this.f);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public n d() {
+    public uo d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35351e : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (uo) invokeV.objValue;
     }
 
     public void e(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.f35350d == i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.d == i) {
             return;
         }
-        SkinManager.setViewTextColor(this.f35349c, R.color.CAM_X0110, 1);
+        SkinManager.setViewTextColor(this.c, R.color.CAM_X0110, 1);
         SkinManager.setBackgroundColor(b(), R.color.CAM_X0205);
-        this.f35350d = i;
+        this.d = i;
     }
 
     public void f(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f35352f = onClickListener;
+            this.f = onClickListener;
         }
     }
 }

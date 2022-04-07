@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ManifestParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_MODULE_VALUE = "GlideModule";
@@ -48,21 +48,21 @@ public final class ManifestParser {
                 Object obj = null;
                 try {
                     obj = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    throwInstantiateGlideModuleException(cls, e);
+                } catch (InstantiationException e2) {
                     throwInstantiateGlideModuleException(cls, e2);
-                } catch (InstantiationException e3) {
+                } catch (NoSuchMethodException e3) {
                     throwInstantiateGlideModuleException(cls, e3);
-                } catch (NoSuchMethodException e4) {
+                } catch (InvocationTargetException e4) {
                     throwInstantiateGlideModuleException(cls, e4);
-                } catch (InvocationTargetException e5) {
-                    throwInstantiateGlideModuleException(cls, e5);
                 }
                 if (obj instanceof GlideModule) {
                     return (GlideModule) obj;
                 }
                 throw new RuntimeException("Expected instanceof GlideModule, but found: " + obj);
-            } catch (ClassNotFoundException e6) {
-                throw new IllegalArgumentException("Unable to find GlideModule implementation", e6);
+            } catch (ClassNotFoundException e5) {
+                throw new IllegalArgumentException("Unable to find GlideModule implementation", e5);
             }
         }
         return (GlideModule) invokeL.objValue;
@@ -106,8 +106,8 @@ public final class ManifestParser {
                     Log.d(TAG, "Finished loading Glide modules");
                 }
                 return arrayList;
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new RuntimeException("Unable to find metadata to parse GlideModules", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new RuntimeException("Unable to find metadata to parse GlideModules", e);
             }
         }
         return (List) invokeV.objValue;

@@ -1,15 +1,15 @@
 package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
-import c.b.b.q.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r7;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Ellipse implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7381533206532032099L;
@@ -43,26 +43,26 @@ public class Ellipse implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            float f2 = this.width / 2.0f;
-            float f3 = this.height / 2.0f;
-            float f4 = f2 * 3.0f;
-            if (f4 <= f3 && f3 * 3.0f <= f2) {
-                return (float) (Math.sqrt(((f2 * f2) + (f3 * f3)) / 2.0f) * 6.2831854820251465d);
+            float f = this.width / 2.0f;
+            float f2 = this.height / 2.0f;
+            float f3 = f * 3.0f;
+            if (f3 <= f2 && f2 * 3.0f <= f) {
+                return (float) (Math.sqrt(((f * f) + (f2 * f2)) / 2.0f) * 6.2831854820251465d);
             }
-            return (float) ((((f2 + f3) * 3.0f) - Math.sqrt((f4 + f3) * (f2 + (f3 * 3.0f)))) * 3.1415927410125732d);
+            return (float) ((((f + f2) * 3.0f) - Math.sqrt((f3 + f2) * (f + (f2 * 3.0f)))) * 3.1415927410125732d);
         }
         return invokeV.floatValue;
     }
 
-    public boolean contains(float f2, float f3) {
+    public boolean contains(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = f2 - this.x;
-            float f5 = f3 - this.y;
-            float f6 = this.width;
-            float f7 = this.height;
-            return ((f4 * f4) / (((f6 * 0.5f) * f6) * 0.5f)) + ((f5 * f5) / (((f7 * 0.5f) * f7) * 0.5f)) <= 1.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float f3 = f - this.x;
+            float f4 = f2 - this.y;
+            float f5 = this.width;
+            float f6 = this.height;
+            return ((f3 * f3) / (((f5 * 0.5f) * f5) * 0.5f)) + ((f4 * f4) / (((f6 * 0.5f) * f6) * 0.5f)) <= 1.0f;
         }
         return invokeCommon.booleanValue;
     }
@@ -86,16 +86,16 @@ public class Ellipse implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((((t.b(this.height) + 53) * 53) + t.b(this.width)) * 53) + t.b(this.x)) * 53) + t.b(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((((r7.b(this.height) + 53) * 53) + r7.b(this.width)) * 53) + r7.b(this.x)) * 53) + r7.b(this.y) : invokeV.intValue;
     }
 
-    public void set(float f2, float f3, float f4, float f5) {
+    public void set(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.x = f2;
-            this.y = f3;
-            this.width = f4;
-            this.height = f5;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.x = f;
+            this.y = f2;
+            this.width = f3;
+            this.height = f4;
         }
     }
 
@@ -110,12 +110,12 @@ public class Ellipse implements Serializable {
         return (Ellipse) invokeL.objValue;
     }
 
-    public Ellipse setSize(float f2, float f3) {
+    public Ellipse setSize(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.width = f2;
-            this.height = f3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.width = f;
+            this.height = f2;
             return this;
         }
         return (Ellipse) invokeCommon.objValue;
@@ -142,12 +142,12 @@ public class Ellipse implements Serializable {
         this.height = ellipse.height;
     }
 
-    public Ellipse setPosition(float f2, float f3) {
+    public Ellipse setPosition(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.x = f2;
-            this.y = f3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.x = f;
+            this.y = f2;
             return this;
         }
         return (Ellipse) invokeCommon.objValue;
@@ -169,12 +169,12 @@ public class Ellipse implements Serializable {
         }
     }
 
-    public Ellipse(float f2, float f3, float f4, float f5) {
+    public Ellipse(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,10 +184,10 @@ public class Ellipse implements Serializable {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
-        this.width = f4;
-        this.height = f5;
+        this.x = f;
+        this.y = f2;
+        this.width = f3;
+        this.height = f4;
     }
 
     public void set(Circle circle) {
@@ -195,18 +195,18 @@ public class Ellipse implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048583, this, circle) == null) {
             this.x = circle.x;
             this.y = circle.y;
-            float f2 = circle.radius;
-            this.width = f2 * 2.0f;
-            this.height = f2 * 2.0f;
+            float f = circle.radius;
+            this.width = f * 2.0f;
+            this.height = f * 2.0f;
         }
     }
 
-    public Ellipse(Vector2 vector2, float f2, float f3) {
+    public Ellipse(Vector2 vector2, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vector2, Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {vector2, Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -218,8 +218,8 @@ public class Ellipse implements Serializable {
         }
         this.x = vector2.x;
         this.y = vector2.y;
-        this.width = f2;
-        this.height = f3;
+        this.width = f;
+        this.height = f2;
     }
 
     public void set(Vector2 vector2, Vector2 vector22) {
@@ -270,8 +270,8 @@ public class Ellipse implements Serializable {
         }
         this.x = circle.x;
         this.y = circle.y;
-        float f2 = circle.radius;
-        this.width = f2 * 2.0f;
-        this.height = f2 * 2.0f;
+        float f = circle.radius;
+        this.width = f * 2.0f;
+        this.height = f * 2.0f;
     }
 }

@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class UnitedSchemeUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -109,26 +109,26 @@ public final class UnitedSchemeUtility {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1472);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147a);
                                         case 402:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f146f);
-                                        case 403:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1470);
-                                        default:
                                             return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1477);
+                                        case 403:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1478);
+                                        default:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147f);
                                     }
                                 }
-                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1471);
+                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1479);
                             }
-                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1473);
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147b);
                         }
-                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1476);
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147e);
                     }
-                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1477);
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147f);
                 }
-                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1474);
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147c);
             }
-            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1475);
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f147d);
         }
         return (String) invokeI.objValue;
     }
@@ -144,9 +144,9 @@ public final class UnitedSchemeUtility {
             try {
                 String[] strArr = (String[]) pathSegments.toArray(new String[0]);
                 return (String[]) Arrays.copyOfRange(strArr, 0, strArr.length - 1);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return null;
                 }
                 return null;
@@ -187,9 +187,9 @@ public final class UnitedSchemeUtility {
                 if (indexOf3 > 0) {
                     try {
                         hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         if (DEBUG) {
-                            e2.printStackTrace();
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -247,10 +247,10 @@ public final class UnitedSchemeUtility {
             if (lowerCase.startsWith("v")) {
                 try {
                     return Integer.parseInt(lowerCase.substring(1));
-                } catch (NumberFormatException e2) {
-                    e2.printStackTrace();
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                     if (UnitedSchemeConstants.DEBUG) {
-                        throw e2;
+                        throw e;
                     }
                     return -1;
                 }
@@ -280,9 +280,9 @@ public final class UnitedSchemeUtility {
             try {
                 Pattern compile = Pattern.compile("[0-9]");
                 return compile != null && compile.matcher(str).find();
-            } catch (PatternSyntaxException e2) {
+            } catch (PatternSyntaxException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 return false;
             }
@@ -322,9 +322,9 @@ public final class UnitedSchemeUtility {
             }
             try {
                 return new JSONObject(param);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 return null;
             }
@@ -432,8 +432,8 @@ public final class UnitedSchemeUtility {
             if (str != null) {
                 try {
                     wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
-                } catch (UnsupportedEncodingException | JSONException e2) {
-                    e2.printStackTrace();
+                } catch (UnsupportedEncodingException | JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return wrapCallbackParams;
@@ -449,8 +449,8 @@ public final class UnitedSchemeUtility {
             if (jSONObject != null) {
                 try {
                     wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), "UTF-8"));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return wrapCallbackParams;
@@ -472,8 +472,8 @@ public final class UnitedSchemeUtility {
             if (jSONObject != null) {
                 try {
                     wrapCallbackParams.put("data", jSONObject);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return wrapCallbackParams;
@@ -523,8 +523,8 @@ public final class UnitedSchemeUtility {
             try {
                 jSONObject.put("status", String.valueOf(i));
                 jSONObject.put("message", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

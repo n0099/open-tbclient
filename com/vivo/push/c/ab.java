@@ -7,23 +7,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ab implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f43853b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f43854c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f43855d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ aa f43856e;
+    public final /* synthetic */ List b;
+    public final /* synthetic */ List c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ aa e;
 
     public ab(aa aaVar, int i, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +32,11 @@ public final class ab implements Runnable {
                 return;
             }
         }
-        this.f43856e = aaVar;
+        this.e = aaVar;
         this.a = i;
-        this.f43853b = list;
-        this.f43854c = list2;
-        this.f43855d = str;
+        this.b = list;
+        this.c = list2;
+        this.d = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,10 +44,10 @@ public final class ab implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            aa aaVar = this.f43856e;
-            PushMessageCallback pushMessageCallback = ((z) aaVar).f43881b;
+            aa aaVar = this.e;
+            PushMessageCallback pushMessageCallback = ((z) aaVar).b;
             context = aaVar.a;
-            pushMessageCallback.onSetTags(context, this.a, this.f43853b, this.f43854c, this.f43855d);
+            pushMessageCallback.onSetTags(context, this.a, this.b, this.c, this.d);
         }
     }
 }

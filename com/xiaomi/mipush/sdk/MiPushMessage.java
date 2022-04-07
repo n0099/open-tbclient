@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MiPushMessage implements PushMessageHandler.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALIAS = "alias";

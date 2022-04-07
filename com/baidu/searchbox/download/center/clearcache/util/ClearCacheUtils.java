@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ClearCacheUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_CLEAR_TIME = 0;
@@ -50,47 +50,47 @@ public class ClearCacheUtils {
 
     public static String formatSize(long j) {
         InterceptResult invokeJ;
-        double d2;
+        double d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            double d3 = j;
+            double d2 = j;
             String str = "KB";
-            if (d3 >= 1024.0d) {
-                d2 = d3 / 1024.0d;
-                if (d2 >= 1024.0d) {
-                    d2 /= 1024.0d;
-                    if (d2 >= 1024.0d) {
-                        d2 /= 1024.0d;
+            if (d2 >= 1024.0d) {
+                d = d2 / 1024.0d;
+                if (d >= 1024.0d) {
+                    d /= 1024.0d;
+                    if (d >= 1024.0d) {
+                        d /= 1024.0d;
                         str = "GB";
                     } else {
                         str = "MB";
                     }
                 }
             } else {
-                d2 = 0.0d;
+                d = 0.0d;
             }
             if (!TextUtils.equals(str, "GB")) {
                 String str2 = "0" + str;
                 try {
-                    return String.format(Locale.CHINESE, "%d%s", Long.valueOf(Math.round(d2)), str);
+                    return String.format(Locale.CHINESE, "%d%s", Long.valueOf(Math.round(d)), str);
                 } catch (Throwable th) {
                     if (AppConfig.isDebug()) {
                         Log.w(TAG, "formatSize: " + th.getMessage());
                         th.printStackTrace();
                     }
-                    return Math.round(d2) + str;
+                    return Math.round(d) + str;
                 }
             }
             String str3 = "0" + str;
             try {
-                String format = String.format(Locale.CHINESE, "%.1f%s", Double.valueOf(d2), str);
-                return format.substring(format.length() + (-3), format.length() - 2).equals("0") ? String.format(Locale.CHINESE, "%.0f%s", Double.valueOf(d2), str) : format;
+                String format = String.format(Locale.CHINESE, "%.1f%s", Double.valueOf(d), str);
+                return format.substring(format.length() + (-3), format.length() - 2).equals("0") ? String.format(Locale.CHINESE, "%.0f%s", Double.valueOf(d), str) : format;
             } catch (Throwable th2) {
                 if (AppConfig.isDebug()) {
                     Log.w(TAG, "formatSize: " + th2.getMessage());
                     th2.printStackTrace();
                 }
-                return Math.round(d2) + str;
+                return Math.round(d) + str;
             }
         }
         return (String) invokeJ.objValue;
@@ -102,8 +102,8 @@ public class ClearCacheUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 return context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }

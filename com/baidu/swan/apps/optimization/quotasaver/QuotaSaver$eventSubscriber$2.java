@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import c.a.n0.a.t1.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g03;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001H\n¢\u0006\u0002\b\u0003"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
-public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<b> {
+/* loaded from: classes2.dex */
+public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<g03> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$eventSubscriber$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Functi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final b invoke() {
+    public final g03 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = new b();
-            bVar.e(QuotaSaver.l, "event_messenger_call");
-            return bVar;
+            g03 g03Var = new g03();
+            g03Var.e(QuotaSaver.l, "event_messenger_call");
+            return g03Var;
         }
-        return (b) invokeV.objValue;
+        return (g03) invokeV.objValue;
     }
 }

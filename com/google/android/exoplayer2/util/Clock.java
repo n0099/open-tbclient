@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.util;
 
 import android.os.Handler;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Clock {
     public static final Clock DEFAULT = new SystemClock();
 

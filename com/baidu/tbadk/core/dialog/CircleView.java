@@ -15,33 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f29840h = 360;
+    public static int h = 360;
     public static int i = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29841b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29842c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Paint f29843d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f29844e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RectF f29845f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f29846g;
+    public int b;
+    public int c;
+    public Paint d;
+    public Paint e;
+    public RectF f;
+    public int g;
 
     static {
         InterceptResult invokeClinit;
@@ -77,7 +63,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f29846g = 0;
+        this.g = 0;
         a();
     }
 
@@ -85,23 +71,23 @@ public class CircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a);
-            this.f29841b = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.f29842c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
+            this.b = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             Paint paint = new Paint();
-            this.f29843d = paint;
-            paint.setStrokeWidth(this.f29841b);
-            this.f29843d.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f29843d.setStyle(Paint.Style.STROKE);
-            this.f29843d.setAntiAlias(true);
+            this.d = paint;
+            paint.setStrokeWidth(this.b);
+            this.d.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.d.setStyle(Paint.Style.STROKE);
+            this.d.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f29844e = paint2;
-            paint2.setStrokeWidth(this.f29842c);
-            this.f29844e.setColor(getResources().getColor(R.color.common_color_10042));
-            this.f29844e.setStyle(Paint.Style.STROKE);
-            this.f29844e.setAntiAlias(true);
-            int i2 = this.f29841b;
+            this.e = paint2;
+            paint2.setStrokeWidth(this.c);
+            this.e.setColor(getResources().getColor(R.color.common_color_10042));
+            this.e.setStyle(Paint.Style.STROKE);
+            this.e.setAntiAlias(true);
+            int i2 = this.b;
             int i3 = this.a;
-            this.f29845f = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -109,15 +95,15 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f29845f, 0.0f, f29840h, false, this.f29844e);
-            canvas.drawArc(this.f29845f, 270.0f, (f29840h * this.f29846g) / i, false, this.f29843d);
+            canvas.drawArc(this.f, 0.0f, h, false, this.e);
+            canvas.drawArc(this.f, 270.0f, (h * this.g) / i, false, this.d);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f29846g = i2;
+            this.g = i2;
             invalidate();
         }
     }
@@ -141,7 +127,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f29846g = 0;
+        this.g = 0;
         a();
     }
 
@@ -163,7 +149,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.f29846g = 0;
+        this.g = 0;
         a();
     }
 }

@@ -3,7 +3,7 @@ package com.airbnb.lottie.model;
 import android.graphics.PointF;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CubicCurveData {
     public final PointF controlPoint1;
     public final PointF controlPoint2;
@@ -27,16 +27,16 @@ public class CubicCurveData {
         return this.vertex;
     }
 
-    public void setControlPoint1(float f2, float f3) {
-        this.controlPoint1.set(f2, f3);
+    public void setControlPoint1(float f, float f2) {
+        this.controlPoint1.set(f, f2);
     }
 
-    public void setControlPoint2(float f2, float f3) {
-        this.controlPoint2.set(f2, f3);
+    public void setControlPoint2(float f, float f2) {
+        this.controlPoint2.set(f, f2);
     }
 
-    public void setVertex(float f2, float f3) {
-        this.vertex.set(f2, f3);
+    public void setVertex(float f, float f2) {
+        this.vertex.set(f, f2);
     }
 
     public CubicCurveData(PointF pointF, PointF pointF2, PointF pointF3) {

@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static Context D;
@@ -75,8 +75,8 @@ public final class d {
                         }
                     }
                     return available;
-                } catch (Exception e2) {
-                    Log.w("MicroMsg.SDK.Util", "getFileSize fail, " + e2.getMessage());
+                } catch (Exception e) {
+                    Log.w("MicroMsg.SDK.Util", "getFileSize fail, " + e.getMessage());
                     if (0 != 0) {
                         try {
                             inputStream.close();

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Version {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -35,8 +35,8 @@ public class Version {
         LOG = Logger.getLogger(Version.class.getName());
         try {
             str = new LineNumberReader(new InputStreamReader(Version.class.getResourceAsStream("/version.txt"))).readLine();
-        } catch (IOException e2) {
-            LOG.warning(e2.getMessage());
+        } catch (IOException e) {
+            LOG.warning(e.getMessage());
             str = "unknown";
         }
         VERSION = str;

@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.http;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ResponseCallback {
     void onFail(int i, Exception exc);
 

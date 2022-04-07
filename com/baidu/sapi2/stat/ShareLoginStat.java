@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ShareLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShareLoginStat";
     public static final String UBC_ID = "4833";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class GetShareListStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APPS = "account_apps";
@@ -131,8 +131,8 @@ public class ShareLoginStat {
                     }
                     jSONObject2.put("page", VALUE_NAME);
                     jSONObject2.put("ext", jSONObject);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID, jSONObject2);
                 resetData();
@@ -140,7 +140,7 @@ public class ShareLoginStat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MakeShareLoginStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ERRMSG = "errorMsg";
@@ -233,8 +233,8 @@ public class ShareLoginStat {
                     jSONObject2.put("page", VALUE_NAME);
                     jSONObject2.put("ext", jSONObject);
                     jSONObject2.put("value", statExtMap.get(KEY_SUCCESS));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID, jSONObject2);
                 resetData();

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface d extends IInterface {
     ComponentName a(Intent intent, String str);
 
@@ -23,7 +23,7 @@ public interface d extends IInterface {
 
     boolean b(Intent intent, String str);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public interface d extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                     return (d) queryLocalInterface;
                 }
-                return new C1916a(iBinder);
+                return new C0256a(iBinder);
             }
             return (d) invokeL.objValue;
         }
@@ -85,9 +85,9 @@ public interface d extends IInterface {
                     return true;
                 } else if (i == 2) {
                     parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                    boolean b2 = b(parcel.readInt() != 0 ? (Intent) Intent.CREATOR.createFromParcel(parcel) : null, parcel.readString());
+                    boolean b = b(parcel.readInt() != 0 ? (Intent) Intent.CREATOR.createFromParcel(parcel) : null, parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeInt(b2 ? 1 : 0);
+                    parcel2.writeInt(b ? 1 : 0);
                     return true;
                 } else if (i == 3) {
                     parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
@@ -114,20 +114,18 @@ public interface d extends IInterface {
         public static d a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1916a.a : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0256a.a : (d) invokeV.objValue;
         }
 
         /* renamed from: com.bytedance.pangle.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1916a implements d {
+        /* loaded from: classes4.dex */
+        public static class C0256a implements d {
             public static /* synthetic */ Interceptable $ic;
             public static d a;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f38039b;
-
-            public C1916a(IBinder iBinder) {
+            public C0256a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +140,7 @@ public interface d extends IInterface {
                         return;
                     }
                 }
-                this.f38039b = iBinder;
+                this.b = iBinder;
             }
 
             @Override // com.bytedance.pangle.d
@@ -161,7 +159,7 @@ public interface d extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeString(str);
-                        if (!this.f38039b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(intent, str);
                         }
                         obtain2.readException();
@@ -178,7 +176,7 @@ public interface d extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38039b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.pangle.d
@@ -197,7 +195,7 @@ public interface d extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeString(str);
-                        if (!this.f38039b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(intent, str);
                         }
                         obtain2.readException();
@@ -228,7 +226,7 @@ public interface d extends IInterface {
                         obtain.writeStrongBinder(fVar != null ? fVar.asBinder() : null);
                         obtain.writeInt(i);
                         obtain.writeString(str);
-                        if (!this.f38039b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(intent, fVar, i, str);
                         }
                         obtain2.readException();
@@ -250,7 +248,7 @@ public interface d extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
                         obtain.writeStrongBinder(fVar != null ? fVar.asBinder() : null);
-                        if (!this.f38039b.transact(4, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.b.transact(4, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(fVar);
                         } else {
                             obtain2.readException();

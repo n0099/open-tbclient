@@ -12,8 +12,8 @@ public class a implements j {
     public void b(DownloadInfo downloadInfo, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {
         com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
         boolean a2 = com.ss.android.downloadlib.b.f.a(a);
-        boolean b2 = com.ss.android.downloadlib.b.f.b(a);
-        if (a2 && b2) {
+        boolean b = com.ss.android.downloadlib.b.f.b(a);
+        if (a2 && b) {
             com.ss.android.downloadlib.b.c.a(a, new com.ss.android.downloadlib.guide.install.a() { // from class: com.ss.android.downloadlib.f.a.3
                 @Override // com.ss.android.downloadlib.guide.install.a
                 public void a() {

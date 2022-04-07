@@ -13,7 +13,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -38,6 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -54,7 +54,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_NAME = "AES";
@@ -67,7 +67,7 @@ public final class Utility {
     public static int mDisableRestapi;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -116,12 +116,12 @@ public final class Utility {
                 return Constants.ERROR_MSG_MD5_NULL;
             }
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 char[] cArr = hexDigits;
-                char c2 = cArr[(b2 & 240) >> 4];
-                char c3 = cArr[b2 & 15];
+                char c = cArr[(b & 240) >> 4];
+                char c2 = cArr[b & 15];
+                sb.append(c);
                 sb.append(c2);
-                sb.append(c3);
             }
             return !TextUtils.isEmpty(sb.toString()) ? sb.toString() : Constants.ERROR_MSG_MD5_EMPTY;
         }
@@ -171,8 +171,8 @@ public final class Utility {
                     return;
                 }
                 LogUtils.d("Utility", "sp reliableMaxMsg，sp 清理后，回写回的msg：NULL");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -206,7 +206,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
-            Intent intent = new Intent(context, a.class);
+            Intent intent = new Intent(context, p70.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -219,7 +219,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
-            Intent intent = new Intent(context, a.class);
+            Intent intent = new Intent(context, p70.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -262,8 +262,8 @@ public final class Utility {
                     file.delete();
                 }
             }
-        } catch (Exception e2) {
-            LogUtils.e("Utility", "Exception ", e2);
+        } catch (Exception e) {
+            LogUtils.e("Utility", "Exception ", e);
         }
     }
 
@@ -317,9 +317,9 @@ public final class Utility {
                     return -1L;
                 }
                 return Long.parseLong(metadata.toString());
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "getAppId:", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "getAppId:", e);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return -1L;
             }
         }
@@ -332,8 +332,8 @@ public final class Utility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e2) {
-                LogUtils.e(Utils.TAG, "getAppVersionName NameNotFoundException", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                LogUtils.e(Utils.TAG, "getAppVersionName NameNotFoundException", e);
                 return null;
             }
         }
@@ -444,11 +444,11 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                a.g(context).f(context, creatMethodIntent);
-            } catch (Exception e2) {
+                p70.g(context).f(context, creatMethodIntent);
+            } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
-                LogUtils.e("Utility", "Exception ", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e("Utility", "Exception ", e);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -519,8 +519,8 @@ public final class Utility {
                     }
                 }
                 return "";
-            } catch (SocketException e2) {
-                LogUtils.e(LogUtils.TAG, e2.toString());
+            } catch (SocketException e) {
+                LogUtils.e(LogUtils.TAG, e.toString());
                 return "";
             }
         }
@@ -612,8 +612,8 @@ public final class Utility {
                     return null;
                 }
                 return applicationInfo.metaData.get(str);
-            } catch (PackageManager.NameNotFoundException e2) {
-                LogUtils.e("Utility", "Exception ", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                LogUtils.e("Utility", "Exception ", e);
                 return null;
             }
         }
@@ -637,8 +637,8 @@ public final class Utility {
                         return -1;
                     }
                     return -1;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return -1;
                 }
             }
@@ -742,8 +742,8 @@ public final class Utility {
                     }
                     l = Long.valueOf(j2);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             LogUtils.d("Utility", "sp reliableMaxMsg， getReliableMaxMsgId:" + l);
             return l;
@@ -817,8 +817,8 @@ public final class Utility {
         if (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) {
             try {
                 return InetAddress.getByName("180.76.76.76").isReachable(1000);
-            } catch (Exception e2) {
-                LogUtils.e("Utility", "isIpv4Reachable", e2);
+            } catch (Exception e) {
+                LogUtils.e("Utility", "isIpv4Reachable", e);
                 return true;
             }
         }
@@ -1020,8 +1020,8 @@ public final class Utility {
                 intent.setPackage(context.getPackageName());
                 intent.putExtra("lcs", i);
                 context.sendBroadcast(intent);
-            } catch (Exception e2) {
-                LogUtils.e("Utility", "Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("Utility", "Exception ", e);
             }
         }
     }
@@ -1173,8 +1173,8 @@ public final class Utility {
             }
             LogUtils.d("Utility", "sp reliableMaxMsg， write to sp msg：" + reliableMaxMsg);
             writeReliableMaxMsg(context, reliableMaxMsg);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -1214,9 +1214,9 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65644, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                a.g(context).f(context, new Intent(context, a.class));
-            } catch (Exception e2) {
-                LogUtils.e("Utility", "Exception ", e2);
+                p70.g(context).f(context, new Intent(context, p70.class));
+            } catch (Exception e) {
+                LogUtils.e("Utility", "Exception ", e);
             }
         }
     }
@@ -1257,8 +1257,8 @@ public final class Utility {
                         j += length;
                     }
                 }
-            } catch (Exception e2) {
-                LogUtils.e("Utility", "Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("Utility", "Exception ", e);
             }
             return j;
         }

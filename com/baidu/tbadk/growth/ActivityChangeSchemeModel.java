@@ -2,7 +2,6 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import c.a.o0.a0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -22,14 +21,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.e35;
+import com.repackage.rt4;
+import com.repackage.x8;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,17 +79,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    b.c(scheme);
+                    e35.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.A();
                 } else {
-                    int a = c.a.o0.r.f0.b.a();
+                    int a = rt4.a();
                     if (a != 2) {
                         this.a.B(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    b.c(scheme);
+                    e35.c(scheme);
                 }
             }
         }
@@ -129,14 +131,14 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Object invoke = c.a.d.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.g().b(), new Object[0]);
-                b.b(invoke != null ? (String) invoke : null);
-            } catch (IllegalAccessException e2) {
+                Object invoke = x8.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(x8.f().b(), new Object[0]);
+                e35.b(invoke != null ? (String) invoke : null);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e2) {
                 e2.printStackTrace();
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 e3.printStackTrace();
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -145,13 +147,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                b.b("a025");
+                e35.b("a025");
             } else if (i == 22) {
-                b.b("a088");
+                e35.b("a088");
             } else if (i == 3) {
-                b.b("a079");
+                e35.b("a079");
             } else if (i == 8) {
-                b.b("a011");
+                e35.b("a011");
             }
         }
     }

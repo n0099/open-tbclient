@@ -18,46 +18,30 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public List<b> b;
+    public String c;
+    public bk d;
+    public boolean e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<b> f27309b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f27310c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public bk f27311d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f27312e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(View view, boolean z);
+        void a(View view2, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f27313b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f27314c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f27315d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ bi f27316e;
+        public String b;
+        public boolean c;
+        public int d;
+        public final /* synthetic */ bi e;
 
         public b(bi biVar, String str, String str2, boolean z, int i) {
             Interceptable interceptable = $ic;
@@ -74,11 +58,11 @@ public class bi {
                     return;
                 }
             }
-            this.f27316e = biVar;
+            this.e = biVar;
             this.a = str;
-            this.f27313b = str2;
-            this.f27314c = z;
-            this.f27315d = i;
+            this.b = str2;
+            this.c = z;
+            this.d = i;
         }
     }
 
@@ -97,10 +81,10 @@ public class bi {
                 return;
             }
         }
-        this.f27309b = new ArrayList();
-        this.f27310c = activity.getClass().getName();
-        this.f27311d = bkVar;
-        this.f27312e = z;
+        this.b = new ArrayList();
+        this.c = activity.getClass().getName();
+        this.d = bkVar;
+        this.e = z;
     }
 
     public void a(JSONObject jSONObject) {
@@ -123,35 +107,29 @@ public class bi {
                 String optString2 = jSONObject2.optString(TtmlNode.TAG_LAYOUT);
                 int optInt = jSONObject2.optInt("contentAsLabel");
                 boolean z = jSONObject2.optInt("ignoreCellIndex") != 0;
-                if (this.f27310c.equals(optString)) {
-                    this.f27309b.add(new b(this, optString, optString2, z, optInt));
+                if (this.c.equals(optString)) {
+                    this.b.add(new b(this, optString, optString2, z, optInt));
                 }
             }
         } catch (Exception unused2) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
+        public String b;
+        public String c;
+        public c d;
 
-        /* renamed from: b  reason: collision with root package name */
-        public String f27317b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f27318c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public c f27319d;
-
-        public c(View view, c cVar, View view2) {
+        public c(View view2, c cVar, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, cVar, view2};
+                Object[] objArr = {view2, cVar, view3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -161,17 +139,17 @@ public class bi {
                     return;
                 }
             }
-            this.f27319d = cVar;
-            this.a = bj.l(view);
-            this.f27317b = bj.b(view);
-            String c2 = bj.c(view);
-            if (TextUtils.isEmpty(c2)) {
-                c2 = bj.a(view, c());
-                if (TextUtils.isEmpty(c2)) {
-                    c2 = bj.a(view, view2);
+            this.d = cVar;
+            this.a = bj.l(view2);
+            this.b = bj.b(view2);
+            String c = bj.c(view2);
+            if (TextUtils.isEmpty(c)) {
+                c = bj.a(view2, c());
+                if (TextUtils.isEmpty(c)) {
+                    c = bj.a(view2, view3);
                 }
             }
-            this.f27318c = c2;
+            this.c = c;
         }
 
         public String a() {
@@ -179,7 +157,7 @@ public class bi {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                for (c cVar = this; cVar != null; cVar = cVar.f27319d) {
+                for (c cVar = this; cVar != null; cVar = cVar.d) {
                     sb.insert(0, cVar.a(false));
                 }
                 return sb.toString();
@@ -193,11 +171,11 @@ public class bi {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 boolean z = false;
-                for (c cVar = this; cVar != null; cVar = cVar.f27319d) {
+                for (c cVar = this; cVar != null; cVar = cVar.d) {
                     boolean z2 = true;
                     if (!z) {
-                        String c2 = cVar.c();
-                        if ("ListView".equals(c2) || RecyclerView.TAG.equals(c2) || "GridView".equals(c2)) {
+                        String c = cVar.c();
+                        if ("ListView".equals(c) || RecyclerView.TAG.equals(c) || "GridView".equals(c)) {
                             z = true;
                             sb.insert(0, cVar.a(z2));
                         }
@@ -214,8 +192,8 @@ public class bi {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                c cVar = this.f27319d;
-                return cVar == null ? "" : cVar.f27317b;
+                c cVar = this.d;
+                return cVar == null ? "" : cVar.b;
             }
             return (String) invokeV.objValue;
         }
@@ -229,7 +207,7 @@ public class bi {
                 sb.append(this.a);
                 if (!z) {
                     sb.append(PreferencesUtil.LEFT_MOUNT);
-                    sb.append(this.f27318c);
+                    sb.append(this.c);
                     sb.append(PreferencesUtil.RIGHT_MOUNT);
                 }
                 return sb.toString();
@@ -242,37 +220,37 @@ public class bi {
         List<b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.f27312e || this.a || !((list = this.f27309b) == null || list.size() == 0)) {
+            if (this.e || this.a || !((list = this.b) == null || list.size() == 0)) {
                 View a2 = bj.a(activity);
                 a(activity, a2, null, a2);
             }
         }
     }
 
-    private void a(Activity activity, View view, c cVar, View view2) {
+    private void a(Activity activity, View view2, c cVar, View view3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, this, activity, view, cVar, view2) == null) || view == null || ai.a(view) || bj.c(activity, view)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, this, activity, view2, cVar, view3) == null) || view2 == null || ai.a(view2) || bj.c(activity, view2)) {
             return;
         }
-        c cVar2 = new c(view, cVar, view2);
+        c cVar2 = new c(view2, cVar, view3);
         if (cVar != null) {
-            boolean b2 = this.a ? bj.b(view, cVar2.c()) : a(this.f27309b, cVar2.a(), cVar2.b());
-            if (b2 || this.f27312e) {
+            boolean b2 = this.a ? bj.b(view2, cVar2.c()) : a(this.b, cVar2.a(), cVar2.b());
+            if (b2 || this.e) {
                 if (bd.c().b() && b2) {
                     bd c2 = bd.c();
-                    c2.a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
+                    c2.a("accumulate view:" + view2.getClass().getName() + "; content:" + bj.h(view2));
                 }
                 if (bh.c().b()) {
                     bh c3 = bh.c();
-                    c3.a("accumulate view:" + view.getClass().getName() + "; content:" + bj.h(view));
+                    c3.a("accumulate view:" + view2.getClass().getName() + "; content:" + bj.h(view2));
                 }
-                this.f27311d.a(view, b2);
+                this.d.a(view2, b2);
             }
         }
-        if (!(view instanceof WebView) && (view instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) view;
+        if (!(view2 instanceof WebView) && (view2 instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) view2;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                a(activity, viewGroup.getChildAt(i), cVar2, view2);
+                a(activity, viewGroup.getChildAt(i), cVar2, view3);
             }
         }
     }
@@ -282,8 +260,8 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, list, str, str2)) == null) {
             for (b bVar : list) {
-                String str3 = bVar.f27314c ? str2 : str;
-                if (!TextUtils.isEmpty(str3) && str3.equals(bVar.f27313b)) {
+                String str3 = bVar.c ? str2 : str;
+                if (!TextUtils.isEmpty(str3) && str3.equals(bVar.b)) {
                     return true;
                 }
             }

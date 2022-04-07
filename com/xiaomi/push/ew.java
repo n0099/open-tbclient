@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public static final ew A;
@@ -48,27 +48,13 @@ public final class ew {
     public static final ew ac;
     public static final ew ad;
     public static final ew ae;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ew f44222b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final ew f44223c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final ew f44224d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final ew f44225e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final ew f44226f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final ew f44227g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final ew f44228h;
+    public static final ew b;
+    public static final ew c;
+    public static final ew d;
+    public static final ew e;
+    public static final ew f;
+    public static final ew g;
+    public static final ew h;
     public static final ew i;
     public static final ew j;
     public static final ew k;
@@ -106,13 +92,13 @@ public final class ew {
             }
         }
         a = new ew("TCP_CONN_FAIL", 0, 1);
-        f44222b = new ew("TCP_CONN_TIME", 1, 2);
-        f44223c = new ew("PING_RTT", 2, 3);
-        f44224d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f44225e = new ew("CHANNEL_CON_OK", 4, 5);
-        f44226f = new ew("ICMP_PING_FAIL", 5, 6);
-        f44227g = new ew("ICMP_PING_OK", 6, 7);
-        f44228h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        b = new ew("TCP_CONN_TIME", 1, 2);
+        c = new ew("PING_RTT", 2, 3);
+        d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        e = new ew("CHANNEL_CON_OK", 4, 5);
+        f = new ew("ICMP_PING_FAIL", 5, 6);
+        g = new ew("ICMP_PING_OK", 6, 7);
+        h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
         i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
         j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
         k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
@@ -163,7 +149,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f322a = new ew[]{a, f44222b, f44223c, f44224d, f44225e, f44226f, f44227g, f44228h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f322a = new ew[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -197,19 +183,19 @@ public final class ew {
                         case 1:
                             return a;
                         case 2:
-                            return f44222b;
+                            return b;
                         case 3:
-                            return f44223c;
+                            return c;
                         case 4:
-                            return f44224d;
+                            return d;
                         case 5:
-                            return f44225e;
+                            return e;
                         case 6:
-                            return f44226f;
+                            return f;
                         case 7:
-                            return f44227g;
+                            return g;
                         case 8:
-                            return f44228h;
+                            return h;
                         default:
                             switch (i2) {
                                 case 8000:

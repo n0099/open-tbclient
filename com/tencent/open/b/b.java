@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class b extends WebView {
                 getSettings().setDisplayZoomControls(false);
                 setVisibility(8);
                 SLog.i("openSDK_LOG.OpenWebView", "-->OpenWebView.destroy setBuiltInZoomControls");
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.OpenWebView", "-->OpenWebView.destroy setBuiltInZoomControls", e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.OpenWebView", "-->OpenWebView.destroy setBuiltInZoomControls", e);
             }
             super.destroy();
         }
@@ -82,8 +82,8 @@ public class b extends WebView {
                     method.invoke(this, "accessibilityTraversal");
                     SLog.i("openSDK_LOG.OpenWebView", "remove js interface");
                 }
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.OpenWebView", "remove js interface.e:" + e2.toString());
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.OpenWebView", "remove js interface.e:" + e.toString());
             }
         }
     }

@@ -20,7 +20,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKCDNUrlInner extends BaseJsonCoreParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CDN = "cdn";
@@ -241,8 +241,8 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
                         this.mHeaders.put(next, optJSONObject.optString(next));
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -299,8 +299,8 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
                 return new URL(this.mUrl).getPath();
-            } catch (MalformedURLException e2) {
-                e2.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
                 return this.mUrl;
             }
         }

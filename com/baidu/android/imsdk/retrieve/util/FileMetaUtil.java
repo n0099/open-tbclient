@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FileMetaUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_TIME = "createTime";
@@ -52,8 +52,8 @@ public class FileMetaUtil {
                     jSONObject.put(CREATE_TIME, file.lastModified());
                     jSONObject.put(MODIFY_TIME, file.lastModified());
                 }
-            } catch (Exception e2) {
-                LogUtils.d(TAG, e2.toString());
+            } catch (Exception e) {
+                LogUtils.d(TAG, e.toString());
             }
             return jSONObject;
         }

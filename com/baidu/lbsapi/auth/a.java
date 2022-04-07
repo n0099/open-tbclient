@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f25594b = "BaiduApiAuth";
+    public static String b = "BaiduApiAuth";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +43,7 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a && Thread.currentThread().getStackTrace().length != 0) {
-            String str2 = f25594b;
+            String str2 = b;
             Log.d(str2, a() + ";" + str);
         }
     }
@@ -55,13 +53,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.i(f25594b, str);
+        Log.i(b, str);
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a && Thread.currentThread().getStackTrace().length != 0) {
-            String str2 = f25594b;
+            String str2 = b;
             Log.e(str2, a() + ";" + str);
         }
     }

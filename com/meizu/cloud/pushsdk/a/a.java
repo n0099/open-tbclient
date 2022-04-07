@@ -4,28 +4,28 @@ import android.content.Context;
 import com.meizu.cloud.pushsdk.a.c;
 import com.meizu.cloud.pushsdk.base.f;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final String a = "a";
 
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        c c2 = c(context);
-        Map<String, String> a2 = c2.a();
-        Map<String, String> b2 = c2.b();
-        Map<String, Object> c3 = c2.c();
-        Map<String, Object> d2 = c2.d();
+        c c = c(context);
+        Map<String, String> a2 = c.a();
+        Map<String, String> b = c.b();
+        Map<String, Object> c2 = c.c();
+        Map<String, Object> d = c.d();
         if (a2.size() > 0) {
             cVar.a(b.a, a2);
         }
-        if (b2.size() > 0) {
-            cVar.a(b.f41869f, b2);
+        if (b.size() > 0) {
+            cVar.a(b.f, b);
         }
-        if (c3.size() > 0) {
-            cVar.a(b.o, c3);
+        if (c2.size() > 0) {
+            cVar.a(b.o, c2);
         }
-        if (d2.size() > 0) {
-            cVar.a(b.v, d2);
+        if (d.size() > 0) {
+            cVar.a(b.v, d);
         }
         return cVar;
     }

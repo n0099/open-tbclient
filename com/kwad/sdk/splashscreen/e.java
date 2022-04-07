@@ -4,19 +4,15 @@ import android.text.TextUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.splashscreen.a.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f41326b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f41327c = 2;
+    public boolean b;
+    public int c = 2;
 
     public static e a(AdTemplate adTemplate, AdInfo adInfo, com.kwad.sdk.core.download.a.b bVar) {
         String str;
-        int c2;
+        int c;
         e eVar = new e();
         if (adInfo == null || !com.kwad.sdk.core.response.a.a.B(adInfo) || bVar == null) {
             String aB = com.kwad.sdk.core.config.b.aB();
@@ -26,7 +22,7 @@ public class e {
             str = "或" + aB;
         } else {
             com.kwad.sdk.core.d.a.c("SplashActionBarModel", "createModel localStatus: " + bVar.c());
-            str = "或点击" + a(adTemplate, adInfo, c2);
+            str = "或点击" + a(adTemplate, adInfo, c);
         }
         eVar.a(str);
         eVar.a(com.kwad.sdk.core.response.a.b.a(adInfo));
@@ -43,7 +39,7 @@ public class e {
     }
 
     public void a(int i) {
-        this.f41327c = i;
+        this.c = i;
     }
 
     public void a(String str) {
@@ -51,10 +47,10 @@ public class e {
     }
 
     public void a(boolean z) {
-        this.f41326b = z;
+        this.b = z;
     }
 
     public int b() {
-        return this.f41327c;
+        return this.c;
     }
 }

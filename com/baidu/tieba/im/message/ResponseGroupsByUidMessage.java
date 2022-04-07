@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -12,13 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY_PREFIX = "p_group_info";
@@ -107,8 +107,8 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
                 return;
             }
-            a.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(a.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
+            cr4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(cr4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
         }
     }
 

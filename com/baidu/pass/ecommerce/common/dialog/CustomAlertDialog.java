@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CustomAlertDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,12 +45,12 @@ public class CustomAlertDialog extends Dialog {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d0);
+            setContentView(R.layout.obfuscated_res_0x7f0d04cb);
             setCanceledOnTouchOutside(true);
-            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b83);
-            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b80);
-            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b82);
-            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b81);
+            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b72);
+            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b6f);
+            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b71);
+            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b70);
         }
     }
 

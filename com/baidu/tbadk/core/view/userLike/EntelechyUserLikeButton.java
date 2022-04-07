@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,17 +37,17 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.o0.r.l0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.nv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            this.f30301c = z;
+            this.c = z;
             if (z) {
                 setClickable(false);
                 setText(this.a);
             } else {
                 setClickable(true);
-                setText(this.f30300b);
+                setText(this.b);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -58,8 +58,8 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            setTextSize(0, n.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
-            setCompoundDrawablePadding(n.f(getContext(), R.dimen.obfuscated_res_0x7f0702df));
+            setTextSize(0, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            setCompoundDrawablePadding(oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e9));
             setGravity(5);
             setGravity(16);
         }
@@ -69,7 +69,7 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (this.f30301c) {
+            if (this.c) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, (int) R.color.CAM_X0109);
                 setBackgroundDrawable(null);

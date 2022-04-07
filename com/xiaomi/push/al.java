@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,11 +26,9 @@ public class al {
 
     /* renamed from: a  reason: collision with other field name */
     public volatile boolean f96a;
+    public final boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f44090b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,8 +64,8 @@ public class al {
             if (interceptable == null || interceptable.invokeIL(65537, this, i, bVar) == null) {
                 try {
                     this.a.f93a.sendMessage(this.a.f93a.obtainMessage(i, bVar));
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
         }
@@ -77,8 +75,8 @@ public class al {
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 try {
                     this.f97a.add(bVar);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -99,15 +97,15 @@ public class al {
                         } else if (this.a.a > 0) {
                             this.a.a();
                         }
-                    } catch (InterruptedException e2) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    } catch (InterruptedException e) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +133,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo284c() {
+        public void mo280c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
@@ -200,7 +198,7 @@ public class al {
         this.f96a = false;
         this.a = 0;
         this.f93a = new am(this, Looper.getMainLooper());
-        this.f44090b = z;
+        this.b = z;
         this.a = i;
     }
 
@@ -222,7 +220,7 @@ public class al {
                 if (this.f94a == null) {
                     a aVar = new a(this);
                     this.f94a = aVar;
-                    aVar.setDaemon(this.f44090b);
+                    aVar.setDaemon(this.b);
                     this.f96a = false;
                     this.f94a.start();
                 }

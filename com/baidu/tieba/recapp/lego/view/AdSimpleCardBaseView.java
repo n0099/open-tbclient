@@ -9,9 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.p0.l3.a0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,8 +24,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
+import com.repackage.ga8;
+import com.repackage.mi;
+import com.repackage.oi;
 import tbclient.AdCloseInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public LinearLayout s;
     public AdCloseView t;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,22 +66,20 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.t.performClick();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AdCard a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f35723b;
+        public final /* synthetic */ AdSimpleCardBaseView b;
 
         public b(AdSimpleCardBaseView adSimpleCardBaseView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -98,26 +96,26 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                     return;
                 }
             }
-            this.f35723b = adSimpleCardBaseView;
+            this.b = adSimpleCardBaseView;
             this.a = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-                int d2 = a0.d(this.f35723b.i.getPageActivity(), this.a.getScheme(), this.a.getDownloadId(), this.a.getExtInfo(), this.a.cmdScheme);
-                if (this.f35723b.k != null) {
-                    this.f35723b.k.a(d2, null);
+                int d = ga8.d(this.b.i.getPageActivity(), this.a.getScheme(), this.a.getDownloadId(), this.a.getExtInfo(), this.a.cmdScheme);
+                if (this.b.k != null) {
+                    this.b.k.a(d, null);
                 }
             }
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                if (!l.A()) {
-                    this.f35723b.i.showToast(R.string.obfuscated_res_0x7f0f0c15);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                if (!mi.A()) {
+                    this.b.i.showToast(R.string.obfuscated_res_0x7f0f0c18);
                     return;
                 }
                 AdCard adCard = this.a;
@@ -149,22 +147,22 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    public final void H(View view) {
+    public final void I(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view.getVisibility() == 0) {
-            if (view.getParent() != null) {
-                ((FrameLayout) view.getParent()).removeView(view);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getVisibility() == 0) {
+            if (view2.getParent() != null) {
+                ((FrameLayout) view2.getParent()).removeView(view2);
             }
             this.r.setVisibility(0);
             this.r.removeAllViews();
-            view.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            this.r.addView(view);
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            this.r.addView(view2);
         }
     }
 
-    public abstract void I(AdCard adCard);
+    public abstract void J(AdCard adCard);
 
-    public final void J(AdvertAppInfo advertAppInfo, AdCard adCard) {
+    public final void K(AdvertAppInfo advertAppInfo, AdCard adCard) {
         AdCloseInfo adCloseInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo, adCard) == null) {
@@ -172,7 +170,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 this.t.setVisibility(0);
                 this.t.setPage(getBusinessType());
                 this.t.setData(advertAppInfo, adCard.closeInfo);
-                n.b(this.i.getPageActivity(), this.s, 40, 40, 40, 120);
+                oi.b(this.i.getPageActivity(), this.s, 40, 40, 40, 120);
                 this.s.setOnClickListener(new a(this));
                 return;
             }
@@ -180,12 +178,12 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    public abstract void K(View view);
+    public abstract void L(View view2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: L */
-    public void t(AdCard adCard, int i) {
+    /* renamed from: M */
+    public void u(AdCard adCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, adCard, i) == null) {
             this.t.onChangeSkinType();
@@ -196,8 +194,8 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: M */
-    public void u(AdCard adCard) {
+    /* renamed from: N */
+    public void v(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, adCard) == null) || adCard == null) {
             return;
@@ -215,10 +213,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             str2 = str2 + GlideException.IndentedAppendable.INDENT;
         }
         this.q.setText(str2 + "广告");
-        H(this.s);
-        t(adCard, TbadkCoreApplication.getInst().getSkinType());
-        I(adCard);
-        J(adCard.getAdvertAppInfo(), adCard);
+        I(this.s);
+        u(adCard, TbadkCoreApplication.getInst().getSkinType());
+        J(adCard);
+        K(adCard.getAdvertAppInfo(), adCard);
     }
 
     public abstract int getCustomLayout();
@@ -226,24 +224,24 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public abstract int getLayout();
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
             this.m = inflate;
-            ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09009a);
+            ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09009e);
             this.n = viewStub;
             viewStub.setLayoutResource(getCustomLayout());
             View inflate2 = this.n.inflate();
             this.o = inflate2;
-            K(inflate2);
-            this.p = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0900f3);
-            this.q = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090146);
-            this.r = (FrameLayout) this.m.findViewById(R.id.obfuscated_res_0x7f09042c);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null);
+            L(inflate2);
+            this.p = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.q = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f09014f);
+            this.r = (FrameLayout) this.m.findViewById(R.id.obfuscated_res_0x7f090434);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0073, (ViewGroup) null);
             this.s = linearLayout;
-            this.t = (AdCloseView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090092);
+            this.t = (AdCloseView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090096);
             return this.m;
         }
         return (View) invokeV.objValue;

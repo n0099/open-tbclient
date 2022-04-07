@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ImageMsg> CREATOR;
@@ -111,8 +111,8 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                     jSONObject.put("h", this.mHeight);
                 }
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getImgContent JSONObject", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getImgContent JSONObject", e);
                 return "";
             }
         }
@@ -159,8 +159,8 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 this.mWidth = jSONObject.optInt("w", 0);
                 this.mHeight = jSONObject.optInt("h", 0);
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }

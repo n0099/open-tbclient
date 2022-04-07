@@ -13,7 +13,7 @@ import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public abstract class c implements d {
             int i = 4096;
             try {
                 i = Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("type")));
-            } catch (Exception e2) {
-                LogUtil.e("MessageParser--getMessageByIntent--Exception:" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.e("MessageParser--getMessageByIntent--Exception:" + e.getMessage());
             }
             LogUtil.d("MessageParser--getMessageByIntent--type:" + i);
             ArrayList arrayList = new ArrayList();

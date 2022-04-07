@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadManager implements Downloader.OnDownloaderDestroyedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadManager";

@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompositeException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3026362227162912146L;
@@ -26,7 +26,7 @@ public final class CompositeException extends RuntimeException {
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
@@ -55,7 +55,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public final class CompositeException extends RuntimeException {
         public abstract void println(Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class WrappedPrintStream extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class WrappedPrintWriter extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

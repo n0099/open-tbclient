@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,18 +67,18 @@ public class b {
                     String sb2 = sb.toString();
                     try {
                         bufferedReader.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return sb2;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     e.printStackTrace();
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
@@ -89,14 +89,14 @@ public class b {
                 if (bufferedReader2 != null) {
                     try {
                         bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
@@ -121,7 +121,7 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i2;
-                aVar.f24836tv = z;
+                aVar.f986tv = z;
                 aVar.tw = new String[length2];
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
@@ -139,14 +139,14 @@ public class b {
                 }
                 try {
                     this.cD.put(i2, aVar);
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e) {
+                    e = e;
                     e.printStackTrace();
                     return;
                 }
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 
@@ -169,8 +169,8 @@ public class b {
                 }
                 sb.append(readLine);
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OfflineMapUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,20 +40,20 @@ public class OfflineMapUtil {
             }
             MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
             mKOLSearchRecord.cityID = qVar.a;
-            mKOLSearchRecord.cityName = qVar.f26738b;
-            mKOLSearchRecord.cityType = qVar.f26740d;
+            mKOLSearchRecord.cityName = qVar.b;
+            mKOLSearchRecord.cityType = qVar.d;
             long j = 0;
             if (qVar.a() != null) {
                 ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
                 Iterator<q> it = qVar.a().iterator();
                 while (it.hasNext()) {
                     arrayList.add(getSearchRecordFromLocalCityInfo(it.next()));
-                    j += next.f26739c;
+                    j += next.c;
                     mKOLSearchRecord.childCities = arrayList;
                 }
             }
             if (mKOLSearchRecord.cityType != 1) {
-                j = qVar.f26739c;
+                j = qVar.c;
             }
             mKOLSearchRecord.dataSize = j;
             return mKOLSearchRecord;
@@ -70,15 +70,15 @@ public class OfflineMapUtil {
             }
             MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
             mKOLUpdateElement.cityID = tVar.a;
-            mKOLUpdateElement.cityName = tVar.f26746b;
-            GeoPoint geoPoint = tVar.f26751g;
+            mKOLUpdateElement.cityName = tVar.b;
+            GeoPoint geoPoint = tVar.g;
             if (geoPoint != null) {
                 mKOLUpdateElement.geoPt = CoordUtil.mc2ll(geoPoint);
             }
-            mKOLUpdateElement.level = tVar.f26749e;
+            mKOLUpdateElement.level = tVar.e;
             int i = tVar.i;
             mKOLUpdateElement.ratio = i;
-            int i2 = tVar.f26752h;
+            int i2 = tVar.h;
             mKOLUpdateElement.serversize = i2;
             if (i != 100) {
                 i2 = (i2 / 100) * i;

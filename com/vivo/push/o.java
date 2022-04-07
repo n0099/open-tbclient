@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43916b;
+    public String b;
 
     public o(int i) {
         Interceptable interceptable = $ic;
@@ -46,7 +44,7 @@ public abstract class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
             aVar.a("command", this.a);
-            aVar.a("client_pkgname", this.f43916b);
+            aVar.a("client_pkgname", this.b);
             c(aVar);
         }
     }
@@ -54,7 +52,7 @@ public abstract class o {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43916b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public final int b() {
@@ -85,7 +83,7 @@ public abstract class o {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f43916b = str;
+            this.b = str;
         }
     }
 
@@ -99,9 +97,9 @@ public abstract class o {
             }
             a.a("method", this.a);
             e(a);
-            Bundle b2 = a.b();
-            if (b2 != null) {
-                intent.putExtras(b2);
+            Bundle b = a.b();
+            if (b != null) {
+                intent.putExtras(b);
             }
         }
     }
@@ -115,9 +113,9 @@ public abstract class o {
                 return;
             }
             a(a);
-            Bundle b2 = a.b();
-            if (b2 != null) {
-                intent.putExtras(b2);
+            Bundle b = a.b();
+            if (b != null) {
+                intent.putExtras(b);
             }
         }
     }
@@ -139,9 +137,9 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String a = aVar.a();
             if (!TextUtils.isEmpty(a)) {
-                this.f43916b = a;
+                this.b = a;
             } else {
-                this.f43916b = aVar.a("client_pkgname");
+                this.b = aVar.a("client_pkgname");
             }
             d(aVar);
         }

@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FETCH_COUNT = 20;
@@ -120,8 +120,8 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                 }
                 jSONObject.put("count", i);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }

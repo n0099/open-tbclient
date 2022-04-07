@@ -32,7 +32,7 @@ import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElement {
     public static final int CLIP_SAVE_FLAG = 2;
     public static final int CLIP_TO_LAYER_SAVE_FLAG = 16;
@@ -67,7 +67,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public boolean visible = true;
 
     /* renamed from: com.airbnb.lottie.model.layer.BaseLayer$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$LayerType;
@@ -348,8 +348,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         this.lottieDrawable.invalidateSelf();
     }
 
-    private void recordRenderTime(float f2) {
-        this.lottieDrawable.getComposition().getPerformanceTracker().recordRenderTime(this.layerModel.getName(), f2);
+    private void recordRenderTime(float f) {
+        this.lottieDrawable.getComposition().getPerformanceTracker().recordRenderTime(this.layerModel.getName(), f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -537,26 +537,26 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         this.parentLayer = baseLayer;
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.transform.setProgress(f2);
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        this.transform.setProgress(f);
         if (this.mask != null) {
             for (int i = 0; i < this.mask.getMaskAnimations().size(); i++) {
-                this.mask.getMaskAnimations().get(i).setProgress(f2);
+                this.mask.getMaskAnimations().get(i).setProgress(f);
             }
         }
         if (this.layerModel.getTimeStretch() != 0.0f) {
-            f2 /= this.layerModel.getTimeStretch();
+            f /= this.layerModel.getTimeStretch();
         }
         FloatKeyframeAnimation floatKeyframeAnimation = this.inOutAnimation;
         if (floatKeyframeAnimation != null) {
-            floatKeyframeAnimation.setProgress(f2 / this.layerModel.getTimeStretch());
+            floatKeyframeAnimation.setProgress(f / this.layerModel.getTimeStretch());
         }
         BaseLayer baseLayer = this.matteLayer;
         if (baseLayer != null) {
-            this.matteLayer.setProgress(baseLayer.layerModel.getTimeStretch() * f2);
+            this.matteLayer.setProgress(baseLayer.layerModel.getTimeStretch() * f);
         }
         for (int i2 = 0; i2 < this.animations.size(); i2++) {
-            this.animations.get(i2).setProgress(f2);
+            this.animations.get(i2).setProgress(f);
         }
     }
 }

@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DumediaUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INSTALL_TYPE = 31;
@@ -101,8 +101,8 @@ public class DumediaUtils {
             hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
             try {
                 initCyber(str, z, 31, hashMap, null, null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -113,8 +113,8 @@ public class DumediaUtils {
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener}) == null) {
             try {
                 initCyber("", z, i, map, installListener, null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -130,8 +130,8 @@ public class DumediaUtils {
             if (getNetHandleListener != null) {
                 CyberPlayerManager.setNetHandleListener(getNetHandleListener);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,17 +1,12 @@
 package com.baidu.searchbox.launch.stats;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_LIVE_TAB_ON_CREATE_DURATION = "AlaLiveTabFragmentOnCreate";
@@ -105,6 +100,9 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public long mSecondLayoutStartStamp;
     public long mSecondMeasureEndStamp;
     public long mSecondMeasureStartStamp;
+    public long mTabOnLayoutCoreDuration;
+    public long mTabOnLayoutCoreEndStamp;
+    public long mTabOnLayoutCoreStartStamp;
     public int mTabViewPagerOnLayoutCount;
     public long mTabViewPagerOnLayoutEndStamp;
     public long mTabViewPagerOnLayoutStartStamp;
@@ -161,6 +159,8 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
         this.mTabViewPagerOnMeasureStartStamp = -1L;
         this.mTabViewPagerOnMeasureEndStamp = -1L;
         this.mTabViewPagerOnLayoutStartStamp = -1L;
+        this.mTabOnLayoutCoreStartStamp = -1L;
+        this.mTabOnLayoutCoreEndStamp = -1L;
         this.mTabViewPagerOnLayoutEndStamp = -1L;
         this.mSearchboxViewOnMeasureTotal = 0L;
         this.mSearchboxViewOnMeasureCount = 0;
@@ -202,6 +202,7 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
         this.mPersonalizeFragmentOnCreateViewEndTimeStamp = -1L;
         this.mPersonalizeFragmentOnResumeStartTimeStamp = -1L;
         this.mPersonalizeFragmentOnResumeEndTimeStamp = -1L;
+        this.mTabOnLayoutCoreDuration = 0L;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -291,7 +292,13 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
                     return;
                 case 5014:
                     this.mTabViewPagerOnLayoutEndStamp = j;
-                    this.mTabViewPagerOnLayoutTotal = (this.mTabViewPagerOnLayoutTotal + j) - this.mTabViewPagerOnLayoutStartStamp;
+                    long j2 = this.mTabViewPagerOnLayoutStartStamp;
+                    if (j - j2 > this.mTabOnLayoutCoreDuration) {
+                        this.mTabOnLayoutCoreDuration = j - j2;
+                        this.mTabOnLayoutCoreStartStamp = j2;
+                        this.mTabOnLayoutCoreEndStamp = j;
+                    }
+                    this.mTabViewPagerOnLayoutTotal = (this.mTabViewPagerOnLayoutTotal + this.mTabViewPagerOnLayoutEndStamp) - this.mTabViewPagerOnLayoutStartStamp;
                     this.mTabViewPagerOnLayoutCount++;
                     return;
                 case SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY /* 5015 */:
@@ -441,111 +448,423 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstMeasureStartStamp : invokeV.longValue;
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:128:0x02f1
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public boolean packData(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            super.packData(jSONObject);
-            if (jSONObject == null) {
-                return true;
-            }
-            long j = this.mFirstDispatchDrawEndStamp;
-            long j2 = this.mFirstMeasureStartStamp;
-            long j3 = j - j2;
-            long j4 = this.mFirstMeasureEndStamp - j2;
-            long j5 = this.mSecondMeasureEndStamp - this.mSecondMeasureStartStamp;
-            long j6 = this.mFirstLayoutEndStamp - this.mFirstLayoutStartStamp;
-            long j7 = this.mThirdMeasureEndStamp - this.mThirdMeasureStartStamp;
-            long j8 = j - this.mFirstDispatchDrawStartStamp;
-            long j9 = this.mSecondLayoutEndStamp - this.mSecondLayoutStartStamp;
-            long j10 = this.mVideoTabFragmentOnCreateEndTimeStamp - this.mVideoTabFragmentOnCreateStartTimeStamp;
-            long j11 = this.mVideoTabFragmentOnCreateViewEndTimeStamp - this.mVideoTabFragmentOnCreateViewStartTimeStamp;
-            long j12 = this.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp;
-            long j13 = this.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp;
-            long j14 = this.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp;
-            long j15 = this.mGameVideoFragmentOnCreateEndTimeStamp - this.mGameVideoFragmentOnCreateStartTimeStamp;
-            long j16 = this.mGameVideoFragmentOnCreateViewEndTimeStamp - this.mGameVideoFragmentOnCreateViewStartTimeStamp;
-            long j17 = this.mConcernTabFragmentOnCreateViewEndTimeStamp - this.mConcernTabFragmentOnCreateViewStartTimeStamp;
-            long j18 = this.mConcernTabFragmentOnResumeEndTimeStamp - this.mConcernTabFragmentOnResumeStartTimeStamp;
-            long j19 = this.mHotTopicTabFragmentOnCreateEndTimeStamp - this.mHotTopicTabFragmentOnCreateStartTimeStamp;
-            long j20 = this.mHotTopicTabFragmentOnCreateViewEndTimeStamp - this.mHotTopicTabFragmentOnCreateViewStartTimeStamp;
-            long j21 = this.mPersonalizeFragmentOnCreateEndTimeStamp - this.mPersonalizeFragmentOnCreateStartTimeStamp;
-            long j22 = this.mPersonalizeFragmentOnCreateViewEndTimeStamp - this.mPersonalizeFragmentOnCreateViewStartTimeStamp;
-            long j23 = this.mPersonalizeFragmentOnResumeEndTimeStamp - this.mPersonalizeFragmentOnResumeStartTimeStamp;
-            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mFirstMeasureStartStamp, this.mFirstDispatchDrawEndStamp);
-            if (j3 < 0 || j3 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j19 < 0 || j19 > 60000 || j20 < 0 || j20 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000) {
-                return false;
-            }
-            long j24 = this.mSearchboxViewOnMeasureTotal;
-            if (j24 < 0 || j24 > 60000) {
-                return false;
-            }
-            long j25 = this.mSearchboxViewOnLayoutTotal;
-            if (j25 < 0 || j25 > 60000) {
-                return false;
-            }
-            long j26 = this.mFeedTabLayoutOnMeasureTotal;
-            if (j26 < 0 || j26 > 60000) {
-                return false;
-            }
-            long j27 = this.mFeedTabLayoutOnLayoutTotal;
-            if (j27 < 0 || j27 > 60000) {
-                return false;
-            }
-            long j28 = this.mTabViewPagerOnMeasureTotal;
-            if (j28 < 0 || j28 > 60000) {
-                return false;
-            }
-            long j29 = this.mTabViewPagerOnLayoutTotal;
-            if (j29 < 0 || j29 > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(FIRST_MEASURE, String.valueOf(j4));
-            hashMap.put(SECOND_MEASURE, String.valueOf(j5));
-            hashMap.put(FIRST_LAYOUT, String.valueOf(j6));
-            hashMap.put(THIRD_MEASURE, String.valueOf(j7));
-            hashMap.put(FIRST_DISPATCH_DRAW, String.valueOf(j8));
-            hashMap.put(SECOND_LAYOUT, String.valueOf(j9));
-            hashMap.put(SEARCHBOX_VIEW_ON_MEASURE, String.valueOf(this.mSearchboxViewOnMeasureTotal));
-            hashMap.put(SEARCHBOX_VIEW_ON_LAYOUT, String.valueOf(this.mSearchboxViewOnLayoutTotal));
-            hashMap.put(HOME_TAB_BAR_VIEW_ON_MEASURE, String.valueOf(this.mFeedTabLayoutOnMeasureTotal));
-            hashMap.put(HOME_TAB_BAR_VIEW_ON_LAYOUT, String.valueOf(this.mFeedTabLayoutOnLayoutTotal));
-            hashMap.put(TAB_VIEW_PAGER_ON_MEASURE, String.valueOf(this.mTabViewPagerOnMeasureTotal));
-            hashMap.put(TAB_VIEW_PAGER_ON_LAYOUT, String.valueOf(this.mTabViewPagerOnLayoutTotal));
-            hashMap.put(VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j10));
-            hashMap.put(VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j11));
-            hashMap.put(ALA_LIVE_TAB_ON_CREATE_DURATION, String.valueOf(j12));
-            hashMap.put(ALA_LIVE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j13));
-            hashMap.put(ALA_LIVE_TAB_ON_RESUME_DURATION, String.valueOf(j14));
-            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j15));
-            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j16));
-            hashMap.put(CONCERN_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j17));
-            hashMap.put(CONCERN_TAB_ON_RESUME_DURATION, String.valueOf(j18));
-            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_DURATION, String.valueOf(j19));
-            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j20));
-            hashMap.put(PERSONALIZE_TAB_ON_CREATE_DURATION, String.valueOf(j21));
-            hashMap.put(PERSONALIZE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j22));
-            hashMap.put(PERSONALIZE_TAB_ON_RESUME_DURATION, String.valueOf(j23));
-            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_MEASURE_COUNT, String.valueOf(this.mMeasureCount));
-            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_LAYOUT_COUNT, String.valueOf(this.mLayoutCount));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.FIRST_FRAME_STAGE, jsonData);
-                    return true;
-                } catch (JSONException e2) {
-                    if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    public boolean packData(org.json.JSONObject r58) {
+        /*
+            r57 = this;
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.FirstFrameSpeedStats.$ic
+            if (r0 != 0) goto L35f
+        L4:
+            r1 = r57
+            r2 = r58
+            super.packData(r58)
+            r3 = 1
+            if (r2 != 0) goto Lf
+            return r3
+        Lf:
+            long r4 = r1.mFirstDispatchDrawEndStamp
+            long r6 = r1.mFirstMeasureStartStamp
+            long r8 = r4 - r6
+            long r10 = r1.mFirstMeasureEndStamp
+            long r10 = r10 - r6
+            long r6 = r1.mSecondMeasureEndStamp
+            long r12 = r1.mSecondMeasureStartStamp
+            long r6 = r6 - r12
+            long r12 = r1.mFirstLayoutEndStamp
+            long r14 = r1.mFirstLayoutStartStamp
+            long r12 = r12 - r14
+            long r14 = r1.mThirdMeasureEndStamp
+            r16 = r4
+            long r3 = r1.mThirdMeasureStartStamp
+            long r14 = r14 - r3
+            long r3 = r1.mFirstDispatchDrawStartStamp
+            long r4 = r16 - r3
+            long r2 = r1.mSecondLayoutEndStamp
+            r16 = r4
+            long r4 = r1.mSecondLayoutStartStamp
+            long r2 = r2 - r4
+            long r4 = r1.mVideoTabFragmentOnCreateEndTimeStamp
+            r18 = r2
+            long r2 = r1.mVideoTabFragmentOnCreateStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mVideoTabFragmentOnCreateViewEndTimeStamp
+            r20 = r4
+            long r4 = r1.mVideoTabFragmentOnCreateViewStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp
+            r22 = r2
+            long r2 = r1.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp
+            r24 = r4
+            long r4 = r1.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp
+            r26 = r2
+            long r2 = r1.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mGameVideoFragmentOnCreateEndTimeStamp
+            r28 = r4
+            long r4 = r1.mGameVideoFragmentOnCreateStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mGameVideoFragmentOnCreateViewEndTimeStamp
+            r30 = r2
+            long r2 = r1.mGameVideoFragmentOnCreateViewStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mConcernTabFragmentOnCreateViewEndTimeStamp
+            r32 = r4
+            long r4 = r1.mConcernTabFragmentOnCreateViewStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mConcernTabFragmentOnResumeEndTimeStamp
+            r34 = r2
+            long r2 = r1.mConcernTabFragmentOnResumeStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mHotTopicTabFragmentOnCreateEndTimeStamp
+            r36 = r4
+            long r4 = r1.mHotTopicTabFragmentOnCreateStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mHotTopicTabFragmentOnCreateViewEndTimeStamp
+            r38 = r2
+            long r2 = r1.mHotTopicTabFragmentOnCreateViewStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mPersonalizeFragmentOnCreateEndTimeStamp
+            r40 = r4
+            long r4 = r1.mPersonalizeFragmentOnCreateStartTimeStamp
+            long r2 = r2 - r4
+            long r4 = r1.mPersonalizeFragmentOnCreateViewEndTimeStamp
+            r42 = r2
+            long r2 = r1.mPersonalizeFragmentOnCreateViewStartTimeStamp
+            long r4 = r4 - r2
+            long r2 = r1.mPersonalizeFragmentOnResumeEndTimeStamp
+            r44 = r4
+            long r4 = r1.mPersonalizeFragmentOnResumeStartTimeStamp
+            long r2 = r2 - r4
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r4 = r1.mFirstMeasureStartStamp
+            r46 = r2
+            long r2 = r1.mFirstDispatchDrawEndStamp
+            long r2 = r0.getDurationWithoutAD(r4, r2)
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r4 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r4 = r4.getAttachWindowEndTime()
+            r48 = r14
+            long r14 = r1.mFirstMeasureStartStamp
+            long r4 = r0.getDurationWithoutAD(r4, r14)
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r14 = r1.mFirstDispatchDrawEndStamp
+            r50 = r4
+            long r4 = r1.mTabOnLayoutCoreStartStamp
+            long r4 = r0.getDurationWithoutAD(r14, r4)
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r14 = r1.mTabOnLayoutCoreEndStamp
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r52 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            r53 = r4
+            long r4 = r52.getAppLaunchEndTimeStamp()
+            long r4 = r0.getDurationWithoutAD(r14, r4)
+            r14 = 0
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            r55 = 60000(0xea60, double:2.9644E-319)
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r2 > r14 ? 1 : (r2 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r2 > r55 ? 1 : (r2 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r10 > r14 ? 1 : (r10 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r10 > r55 ? 1 : (r10 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r6 > r14 ? 1 : (r6 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r6 > r55 ? 1 : (r6 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r12 > r55 ? 1 : (r12 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r48 > r14 ? 1 : (r48 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r48 > r55 ? 1 : (r48 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r16 > r14 ? 1 : (r16 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r16 > r55 ? 1 : (r16 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r18 > r14 ? 1 : (r18 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r18 > r55 ? 1 : (r18 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r20 > r14 ? 1 : (r20 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r20 > r55 ? 1 : (r20 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r22 > r14 ? 1 : (r22 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r22 > r55 ? 1 : (r22 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r24 > r14 ? 1 : (r24 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r24 > r55 ? 1 : (r24 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r26 > r14 ? 1 : (r26 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r26 > r55 ? 1 : (r26 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r28 > r14 ? 1 : (r28 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r28 > r55 ? 1 : (r28 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r42 > r14 ? 1 : (r42 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r42 > r55 ? 1 : (r42 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r44 > r14 ? 1 : (r44 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r44 > r55 ? 1 : (r44 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r46 > r14 ? 1 : (r46 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r46 > r55 ? 1 : (r46 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r38 > r14 ? 1 : (r38 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r38 > r55 ? 1 : (r38 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r40 > r14 ? 1 : (r40 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r40 > r55 ? 1 : (r40 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r34 > r14 ? 1 : (r34 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r34 > r55 ? 1 : (r34 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r36 > r14 ? 1 : (r36 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r36 > r55 ? 1 : (r36 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r30 > r14 ? 1 : (r30 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r30 > r55 ? 1 : (r30 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            int r0 = (r32 > r14 ? 1 : (r32 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r32 > r55 ? 1 : (r32 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mSearchboxViewOnMeasureTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mSearchboxViewOnLayoutTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mFeedTabLayoutOnMeasureTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mFeedTabLayoutOnLayoutTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mTabViewPagerOnMeasureTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 > 0) goto L35d
+            long r8 = r1.mTabViewPagerOnLayoutTotal
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 < 0) goto L35d
+            int r0 = (r8 > r55 ? 1 : (r8 == r55 ? 0 : -1))
+            if (r0 <= 0) goto L1cd
+            goto L35d
+        L1cd:
+            java.util.HashMap r8 = new java.util.HashMap
+            r8.<init>()
+            java.lang.String r0 = java.lang.String.valueOf(r10)
+            java.lang.String r9 = "firstMeasure"
+            r8.put(r9, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "secondMeasure"
+            r8.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r12)
+            java.lang.String r6 = "firstLayout"
+            r8.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r48)
+            java.lang.String r6 = "thirdMeasure"
+            r8.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r16)
+            java.lang.String r6 = "firstDispatchDraw"
+            r8.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r18)
+            java.lang.String r6 = "secondLayout"
+            r8.put(r6, r0)
+            long r6 = r1.mSearchboxViewOnMeasureTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "searchboxViewOnMeasure"
+            r8.put(r6, r0)
+            long r6 = r1.mSearchboxViewOnLayoutTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "searchboxViewOnLayout"
+            r8.put(r6, r0)
+            long r6 = r1.mFeedTabLayoutOnMeasureTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "feedTabLayoutOnMeasure"
+            r8.put(r6, r0)
+            long r6 = r1.mFeedTabLayoutOnLayoutTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "feedTabLayoutOnLayout"
+            r8.put(r6, r0)
+            long r6 = r1.mTabViewPagerOnMeasureTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "tabViewPagerOnMeasure"
+            r8.put(r6, r0)
+            long r6 = r1.mTabViewPagerOnLayoutTotal
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r6 = "tabViewPagerOnLayout"
+            r8.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r20)
+            java.lang.String r7 = "VideoTabFragmentOnCreate"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r22)
+            java.lang.String r7 = "VideoTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r24)
+            java.lang.String r7 = "AlaLiveTabFragmentOnCreate"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r26)
+            java.lang.String r7 = "AlaLiveTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r28)
+            java.lang.String r7 = "AlaLiveTabFragmentOnResume"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r30)
+            java.lang.String r7 = "GameVideoTabFragmentOnCreate"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r32)
+            java.lang.String r7 = "GameVideoTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r34)
+            java.lang.String r7 = "ConcernTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r36)
+            java.lang.String r7 = "ConcernTabFragmentOnResume"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r38)
+            java.lang.String r7 = "HotTopicTabFragmentOnCreate"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r40)
+            java.lang.String r7 = "HotTopicTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r42)
+            java.lang.String r7 = "PersonalizedTabFragmentOnCreate"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r44)
+            java.lang.String r7 = "PersonalizedTabFragmentOnCreateView"
+            r8.put(r7, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r46)
+            java.lang.String r7 = "PersonalizedTabFragmentOnResume"
+            r8.put(r7, r0)
+            int r0 = r1.mMeasureCount
+            java.lang.String r0 = java.lang.String.valueOf(r0)
+            java.lang.String r7 = "scrollMeasureCount"
+            r8.put(r7, r0)
+            int r0 = r1.mLayoutCount
+            java.lang.String r0 = java.lang.String.valueOf(r0)
+            java.lang.String r7 = "scrollLayoutCount"
+            r8.put(r7, r0)
+            r7 = 0
+            r9 = r50
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r9, r7)
+            if (r0 == 0) goto L2fe
+            java.lang.String r9 = "attach2frame"
+            r10 = r58
+            r10.put(r9, r0)     // Catch: org.json.JSONException -> L2ef
+            goto L300
+        L2ef:
+            r0 = move-exception
+            goto L2f4
+        L2f1:
+            r0 = move-exception
+            r10 = r58
+        L2f4:
+            boolean r9 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r9 == 0) goto L300
+            r0.printStackTrace()
+            goto L300
+        L2fe:
+            r10 = r58
+        L300:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r8)
+            if (r0 == 0) goto L316
+            java.lang.String r2 = "firstFrame"
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L30c
+            goto L316
+        L30c:
+            r0 = move-exception
+            boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r2 == 0) goto L316
+            r0.printStackTrace()
+        L316:
+            r2 = r53
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r7)
+            if (r0 == 0) goto L32e
+            java.lang.String r2 = "frame2layout"
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L324
+            goto L32e
+        L324:
+            r0 = move-exception
+            boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r2 == 0) goto L32e
+            r0.printStackTrace()
+        L32e:
+            long r2 = r1.mTabOnLayoutCoreDuration
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r7)
+            if (r0 == 0) goto L345
+            r10.put(r6, r0)     // Catch: org.json.JSONException -> L33a
+            goto L345
+        L33a:
+            r0 = move-exception
+            r2 = r0
+            boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r0 == 0) goto L345
+            r2.printStackTrace()
+        L345:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r4, r7)
+            if (r0 == 0) goto L35b
+            java.lang.String r2 = "layout2end"
+            r10.put(r2, r0)     // Catch: org.json.JSONException -> L351
+            goto L35b
+        L351:
+            r0 = move-exception
+            boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r2 == 0) goto L35b
+            r0.printStackTrace()
+        L35b:
+            r2 = 1
+            return r2
+        L35d:
+            r0 = 0
+            return r0
+        L35f:
+            r55 = r0
+            r56 = 1048580(0x100004, float:1.469374E-39)
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r55.invokeL(r56, r57, r58)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.launch.stats.FirstFrameSpeedStats.packData(org.json.JSONObject):boolean");
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats

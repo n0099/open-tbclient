@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.bh;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;
@@ -37,9 +37,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f44064f : af.a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f : af.a;
             } catch (Exception unused) {
-                return af.f44064f;
+                return af.f;
             }
         }
         return (af) invokeL.objValue;
@@ -56,8 +56,8 @@ public class n {
                         return true;
                     }
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
             return false;
         }
@@ -65,7 +65,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m178a(Context context) {
+    public static boolean m174a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {

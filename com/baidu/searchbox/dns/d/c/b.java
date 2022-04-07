@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class b<T> extends a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public abstract class b<T> extends a<T> {
             String q = q();
             Map<String, Object> parameters = getParameters();
             sb.append(q.contains("?") ? "&" : "?");
-            String c2 = c(parameters);
-            if (!TextUtils.isEmpty(c2)) {
-                sb.append(c2);
+            String c = c(parameters);
+            if (!TextUtils.isEmpty(c)) {
+                sb.append(c);
             }
             String str = q + sb.toString();
             if (!DnsUtil.DEBUG || TextUtils.isEmpty(DnsUtil.httpDnsDebugExtraQueryParams)) {

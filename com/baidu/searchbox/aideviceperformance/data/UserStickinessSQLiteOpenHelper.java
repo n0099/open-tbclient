@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLUMN_SPACER = "_";
@@ -151,14 +151,14 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                 if (rawQuery != null) {
                     try {
                         rawQuery.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -341,8 +341,8 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                             if (cursor != null) {
                                 try {
                                     cursor.close();
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
                             }
                             return arrayList;
@@ -357,14 +357,14 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                         if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                 }
             }
             return arrayList;

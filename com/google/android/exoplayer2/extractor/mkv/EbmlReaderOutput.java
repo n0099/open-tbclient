@@ -3,13 +3,13 @@ package com.google.android.exoplayer2.extractor.mkv;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface EbmlReaderOutput {
     void binaryElement(int i, int i2, ExtractorInput extractorInput) throws IOException, InterruptedException;
 
     void endMasterElement(int i) throws ParserException;
 
-    void floatElement(int i, double d2) throws ParserException;
+    void floatElement(int i, double d) throws ParserException;
 
     int getElementType(int i);
 

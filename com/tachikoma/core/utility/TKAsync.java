@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKAsync {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE;
@@ -27,13 +27,13 @@ public class TKAsync {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tachikoma.core.utility.TKAsync$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TKRejectedExecutionHandler implements RejectedExecutionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class TKAsync {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TKThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,8 +150,8 @@ public class TKAsync {
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
             try {
                 TK_EXECUTOR.execute(runnable);
-            } catch (Exception e2) {
-                Log.w(TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.w(TAG, e.getMessage());
             }
         }
     }

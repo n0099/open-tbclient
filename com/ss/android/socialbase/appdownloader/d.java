@@ -25,27 +25,13 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d {
     public static final String a = "d";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile d f43032b;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static boolean f43033f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static boolean f43034g;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f43035c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f43036d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public DownloadReceiver f43037e;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f43038h = false;
+    public static volatile d b;
+    public static boolean f;
+    public static boolean g;
+    public String c;
+    public String d;
+    public DownloadReceiver e;
+    public boolean h = false;
     public com.ss.android.socialbase.appdownloader.c.c i;
     public com.ss.android.socialbase.appdownloader.c.d j;
     public com.ss.android.socialbase.appdownloader.c.h k;
@@ -57,22 +43,22 @@ public class d {
     public ag q;
 
     public static d j() {
-        if (f43032b == null) {
+        if (b == null) {
             synchronized (d.class) {
-                if (f43032b == null) {
-                    f43032b = new d();
+                if (b == null) {
+                    b = new d();
                 }
             }
         }
-        return f43032b;
+        return b;
     }
 
     private void q() {
-        if (f43034g) {
+        if (g) {
             return;
         }
-        if (this.f43037e == null) {
-            this.f43037e = new DownloadReceiver();
+        if (this.e == null) {
+            this.e = new DownloadReceiver();
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
@@ -86,12 +72,12 @@ public class d {
             IntentFilter intentFilter3 = new IntentFilter();
             intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter3.addDataScheme("file");
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter2);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter3);
-            f43034g = true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.e, intentFilter);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.e, intentFilter2);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.e, intentFilter3);
+            g = true;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -115,7 +101,7 @@ public class d {
     }
 
     public String d() {
-        return this.f43036d;
+        return this.d;
     }
 
     public com.ss.android.socialbase.appdownloader.c.f e() {
@@ -135,7 +121,7 @@ public class d {
     }
 
     public String i() {
-        return this.f43035c;
+        return this.c;
     }
 
     public m k() {
@@ -159,7 +145,7 @@ public class d {
     }
 
     private void c(Context context) {
-        if (context == null || f43033f) {
+        if (context == null || f) {
             return;
         }
         com.ss.android.socialbase.downloader.constants.e.a("application/vnd.android.package-archive");
@@ -167,7 +153,7 @@ public class d {
         com.ss.android.socialbase.downloader.downloader.c.a(new com.ss.android.socialbase.appdownloader.d.b());
         q();
         r();
-        f43033f = true;
+        f = true;
     }
 
     public void b(String str) {
@@ -195,7 +181,7 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f43036d = str;
+        this.d = str;
     }
 
     public void a(j jVar) {
@@ -251,8 +237,8 @@ public class d {
                     Downloader.getInstance(context).pause(i);
                     break;
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -304,11 +290,11 @@ public class d {
             if (L.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && !c.c(fVar.l())) {
                 l = "application/vnd.android.package-archive";
             }
-            String c2 = fVar.c();
+            String c = fVar.c();
             if (TextUtils.isEmpty(fVar.c())) {
-                c2 = c.b();
+                c = c.b();
             }
-            String str2 = c2;
+            String str2 = c;
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(L)) {
                 int a4 = com.ss.android.socialbase.downloader.downloader.c.a(a3, str2);
                 if (com.ss.android.socialbase.downloader.g.a.a(fVar.ad()).a("resume_task_override_settings") && (downloadInfo = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadInfo(a4)) != null) {

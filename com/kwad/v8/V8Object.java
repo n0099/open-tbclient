@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8Object extends V8Value {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Undefined extends V8Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,10 +35,10 @@ public class V8Object extends V8Value {
         }
 
         @Override // com.kwad.v8.V8Object
-        public V8Object add(String str, double d2) {
+        public V8Object add(String str, double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Object) invokeCommon.objValue;
@@ -453,14 +453,14 @@ public class V8Object extends V8Value {
         }
     }
 
-    public V8Object add(String str, double d2) {
+    public V8Object add(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            v8.add(v8.getV8RuntimePtr(), this.objectHandle, str, d2);
+            v8.add(v8.getV8RuntimePtr(), this.objectHandle, str, d);
             return this;
         }
         return (V8Object) invokeCommon.objValue;
@@ -908,10 +908,10 @@ public class V8Object extends V8Value {
                 method.setAccessible(true);
                 this.v8.registerCallback(obj, method, getHandle(), str2, z);
                 return this;
-            } catch (NoSuchMethodException e2) {
+            } catch (NoSuchMethodException e) {
+                throw new IllegalStateException(e);
+            } catch (SecurityException e2) {
                 throw new IllegalStateException(e2);
-            } catch (SecurityException e3) {
-                throw new IllegalStateException(e3);
             }
         }
         return (V8Object) invokeCommon.objValue;

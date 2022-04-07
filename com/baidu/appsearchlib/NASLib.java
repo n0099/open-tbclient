@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NASLib extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static NASCallBack callback;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }
@@ -93,8 +93,8 @@ public class NASLib extends Activity {
                             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(trim)));
                         }
                         return trim;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         str3 = trim;
                         e.printStackTrace();
                         return str3;
@@ -103,8 +103,8 @@ public class NASLib extends Activity {
                 return null;
             }
             return null;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 

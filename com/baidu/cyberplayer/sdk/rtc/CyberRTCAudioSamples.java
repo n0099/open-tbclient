@@ -8,23 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CyberRTCAudioSamples {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f25451b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f25452c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final byte[] f25453d;
+    public final int b;
+    public final int c;
+    public final byte[] d;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface CyberRTCSamplesReadyCallback {
         void onRtcAudioRecordSamplesReady(CyberRTCAudioSamples cyberRTCAudioSamples);
     }
@@ -45,9 +39,9 @@ public class CyberRTCAudioSamples {
             }
         }
         this.a = i;
-        this.f25451b = i2;
-        this.f25452c = i3;
-        this.f25453d = bArr;
+        this.b = i2;
+        this.c = i3;
+        this.d = bArr;
     }
 
     public int getAudioFormat() {
@@ -59,18 +53,18 @@ public class CyberRTCAudioSamples {
     public int getChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25451b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25453d : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (byte[]) invokeV.objValue;
     }
 
     public int getSampleRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25452c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
     }
 }

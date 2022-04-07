@@ -127,31 +127,31 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rect) == null) {
                 RectF rectF = this.mTempBounds;
-                float f2 = this.mRingCenterRadius;
-                float f3 = (this.mStrokeWidth / 2.0f) + f2;
-                if (f2 <= 0.0f) {
-                    f3 = (Math.min(rect.width(), rect.height()) / 2.0f) - Math.max((this.mArrowWidth * this.mArrowScale) / 2.0f, this.mStrokeWidth / 2.0f);
+                float f = this.mRingCenterRadius;
+                float f2 = (this.mStrokeWidth / 2.0f) + f;
+                if (f <= 0.0f) {
+                    f2 = (Math.min(rect.width(), rect.height()) / 2.0f) - Math.max((this.mArrowWidth * this.mArrowScale) / 2.0f, this.mStrokeWidth / 2.0f);
                 }
-                rectF.set(rect.centerX() - f3, rect.centerY() - f3, rect.centerX() + f3, rect.centerY() + f3);
-                float f4 = this.mStartTrim;
-                float f5 = this.mRotation;
-                float f6 = (f4 + f5) * 360.0f;
-                float f7 = ((this.mEndTrim + f5) * 360.0f) - f6;
+                rectF.set(rect.centerX() - f2, rect.centerY() - f2, rect.centerX() + f2, rect.centerY() + f2);
+                float f3 = this.mStartTrim;
+                float f4 = this.mRotation;
+                float f5 = (f3 + f4) * 360.0f;
+                float f6 = ((this.mEndTrim + f4) * 360.0f) - f5;
                 this.mPaint.setColor(this.mCurrentColor);
                 this.mPaint.setAlpha(this.mAlpha);
-                float f8 = this.mStrokeWidth / 2.0f;
-                rectF.inset(f8, f8);
+                float f7 = this.mStrokeWidth / 2.0f;
+                rectF.inset(f7, f7);
                 canvas.drawCircle(rectF.centerX(), rectF.centerY(), rectF.width() / 2.0f, this.mCirclePaint);
-                float f9 = -f8;
-                rectF.inset(f9, f9);
-                canvas.drawArc(rectF, f6, f7, false, this.mPaint);
-                drawTriangle(canvas, f6, f7, rectF);
+                float f8 = -f7;
+                rectF.inset(f8, f8);
+                canvas.drawArc(rectF, f5, f6, false, this.mPaint);
+                drawTriangle(canvas, f5, f6, rectF);
             }
         }
 
-        public void drawTriangle(Canvas canvas, float f2, float f3, RectF rectF) {
+        public void drawTriangle(Canvas canvas, float f, float f2, RectF rectF) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), rectF}) == null) && this.mShowArrow) {
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), rectF}) == null) && this.mShowArrow) {
                 Path path = this.mArrow;
                 if (path == null) {
                     Path path2 = new Path();
@@ -163,14 +163,14 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
                 this.mArrow.moveTo(0.0f, 0.0f);
                 this.mArrow.lineTo(this.mArrowWidth * this.mArrowScale, 0.0f);
                 Path path3 = this.mArrow;
-                float f4 = this.mArrowScale;
-                path3.lineTo((this.mArrowWidth * f4) / 2.0f, this.mArrowHeight * f4);
+                float f3 = this.mArrowScale;
+                path3.lineTo((this.mArrowWidth * f3) / 2.0f, this.mArrowHeight * f3);
                 this.mArrow.offset(((Math.min(rectF.width(), rectF.height()) / 2.0f) + rectF.centerX()) - ((this.mArrowWidth * this.mArrowScale) / 2.0f), rectF.centerY() + (this.mStrokeWidth / 2.0f));
                 this.mArrow.close();
                 this.mArrowPaint.setColor(this.mCurrentColor);
                 this.mArrowPaint.setAlpha(this.mAlpha);
                 canvas.save();
-                canvas.rotate(f2 + f3, rectF.centerX(), rectF.centerY());
+                canvas.rotate(f + f2, rectF.centerX(), rectF.centerY());
                 canvas.drawPath(this.mArrow, this.mArrowPaint);
                 canvas.restore();
             }
@@ -316,20 +316,20 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setArrowDimensions(float f2, float f3) {
+        public void setArrowDimensions(float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.mArrowWidth = (int) f2;
-                this.mArrowHeight = (int) f3;
+            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.mArrowWidth = (int) f;
+                this.mArrowHeight = (int) f2;
             }
         }
 
-        public void setArrowScale(float f2) {
+        public void setArrowScale(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048601, this, f2) == null) || f2 == this.mArrowScale) {
+            if (!(interceptable == null || interceptable.invokeF(1048601, this, f) == null) || f == this.mArrowScale) {
                 return;
             }
-            this.mArrowScale = f2;
+            this.mArrowScale = f;
         }
 
         public void setBackgroundColor(int i) {
@@ -339,10 +339,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setCenterRadius(float f2) {
+        public void setCenterRadius(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-                this.mRingCenterRadius = f2;
+            if (interceptable == null || interceptable.invokeF(1048603, this, f) == null) {
+                this.mRingCenterRadius = f;
             }
         }
 
@@ -376,17 +376,17 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setEndTrim(float f2) {
+        public void setEndTrim(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048608, this, f2) == null) {
-                this.mEndTrim = f2;
+            if (interceptable == null || interceptable.invokeF(1048608, this, f) == null) {
+                this.mEndTrim = f;
             }
         }
 
-        public void setRotation(float f2) {
+        public void setRotation(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048609, this, f2) == null) {
-                this.mRotation = f2;
+            if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
+                this.mRotation = f;
             }
         }
 
@@ -398,10 +398,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             this.mShowArrow = z;
         }
 
-        public void setStartTrim(float f2) {
+        public void setStartTrim(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048611, this, f2) == null) {
-                this.mStartTrim = f2;
+            if (interceptable == null || interceptable.invokeF(1048611, this, f) == null) {
+                this.mStartTrim = f;
             }
         }
 
@@ -412,11 +412,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setStrokeWidth(float f2) {
+        public void setStrokeWidth(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048613, this, f2) == null) {
-                this.mStrokeWidth = f2;
-                this.mPaint.setStrokeWidth(f2);
+            if (interceptable == null || interceptable.invokeF(1048613, this, f) == null) {
+                this.mStrokeWidth = f;
+                this.mPaint.setStrokeWidth(f);
             }
         }
 
@@ -471,25 +471,25 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         setupAnimators();
     }
 
-    private void applyFinishTranslation(float f2, Ring ring) {
+    private void applyFinishTranslation(float f, Ring ring) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), ring}) == null) {
-            updateRingColor(f2, ring);
-            ring.setStartTrim(ring.getStartingStartTrim() + (((ring.getStartingEndTrim() - 0.01f) - ring.getStartingStartTrim()) * f2));
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), ring}) == null) {
+            updateRingColor(f, ring);
+            ring.setStartTrim(ring.getStartingStartTrim() + (((ring.getStartingEndTrim() - 0.01f) - ring.getStartingStartTrim()) * f));
             ring.setEndTrim(ring.getStartingEndTrim());
-            ring.setRotation(ring.getStartingRotation() + ((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f2));
+            ring.setRotation(ring.getStartingRotation() + ((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f));
         }
     }
 
-    private int evaluateColorChange(float f2, int i, int i2) {
+    private int evaluateColorChange(float f, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             int i3 = (i >> 24) & 255;
             int i4 = (i >> 16) & 255;
             int i5 = (i >> 8) & 255;
             int i6 = i & 255;
-            return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f2))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f2))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f2))) << 8) | (i6 + ((int) (f2 * ((i2 & 255) - i6))));
+            return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f))) << 8) | (i6 + ((int) (f * ((i2 & 255) - i6))));
         }
         return invokeCommon.intValue;
     }
@@ -500,22 +500,22 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mRotation : invokeV.floatValue;
     }
 
-    private void setRotation(float f2) {
+    private void setRotation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65541, this, f2) == null) {
-            this.mRotation = f2;
+        if (interceptable == null || interceptable.invokeF(65541, this, f) == null) {
+            this.mRotation = f;
         }
     }
 
-    private void setSizeParameters(float f2, float f3, float f4, float f5) {
+    private void setSizeParameters(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             Ring ring = this.mRing;
-            float f6 = this.mResources.getDisplayMetrics().density;
-            ring.setStrokeWidth(f3 * f6);
-            ring.setCenterRadius(f2 * f6);
+            float f5 = this.mResources.getDisplayMetrics().density;
+            ring.setStrokeWidth(f2 * f5);
+            ring.setCenterRadius(f * f5);
             ring.setColorIndex(0);
-            ring.setArrowDimensions(f4 * f6, f5 * f6);
+            ring.setArrowDimensions(f3 * f5, f4 * f5);
         }
     }
 
@@ -634,27 +634,27 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void applyTransformation(float f2, Ring ring, boolean z) {
+    public void applyTransformation(float f, Ring ring, boolean z) {
         float interpolation;
-        float f3;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), ring, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), ring, Boolean.valueOf(z)}) == null) {
             if (this.mFinishing) {
-                applyFinishTranslation(f2, ring);
-            } else if (f2 != 1.0f || z) {
+                applyFinishTranslation(f, ring);
+            } else if (f != 1.0f || z) {
                 float startingRotation = ring.getStartingRotation();
-                if (f2 < 0.5f) {
+                if (f < 0.5f) {
                     interpolation = ring.getStartingStartTrim();
-                    f3 = (MATERIAL_INTERPOLATOR.getInterpolation(f2 / 0.5f) * 0.79f) + 0.01f + interpolation;
+                    f2 = (MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * 0.79f) + 0.01f + interpolation;
                 } else {
                     float startingStartTrim = ring.getStartingStartTrim() + 0.79f;
-                    interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f2 - 0.5f) / 0.5f)) * 0.79f) + 0.01f);
-                    f3 = startingStartTrim;
+                    interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) * 0.79f) + 0.01f);
+                    f2 = startingStartTrim;
                 }
                 ring.setStartTrim(interpolation);
-                ring.setEndTrim(f3);
-                ring.setRotation(startingRotation + (0.20999998f * f2));
-                setRotation((f2 + this.mRotationCount) * 216.0f);
+                ring.setEndTrim(f2);
+                ring.setRotation(startingRotation + (0.20999998f * f));
+                setRotation((f + this.mRotationCount) * 216.0f);
             }
         }
     }
@@ -778,10 +778,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setArrowDimensions(float f2, float f3) {
+    public void setArrowDimensions(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mRing.setArrowDimensions(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRing.setArrowDimensions(f, f2);
             invalidateSelf();
         }
     }
@@ -794,10 +794,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setArrowScale(float f2) {
+    public void setArrowScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.mRing.setArrowScale(f2);
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.mRing.setArrowScale(f);
             invalidateSelf();
         }
     }
@@ -810,10 +810,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setCenterRadius(float f2) {
+    public void setCenterRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
-            this.mRing.setCenterRadius(f2);
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.mRing.setCenterRadius(f);
             invalidateSelf();
         }
     }
@@ -836,19 +836,19 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setProgressRotation(float f2) {
+    public void setProgressRotation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.mRing.setRotation(f2);
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.mRing.setRotation(f);
             invalidateSelf();
         }
     }
 
-    public void setStartEndTrim(float f2, float f3) {
+    public void setStartEndTrim(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mRing.setStartTrim(f2);
-            this.mRing.setEndTrim(f3);
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRing.setStartTrim(f);
+            this.mRing.setEndTrim(f2);
             invalidateSelf();
         }
     }
@@ -861,10 +861,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setStrokeWidth(float f2) {
+    public void setStrokeWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.mRing.setStrokeWidth(f2);
+        if (interceptable == null || interceptable.invokeF(1048604, this, f) == null) {
+            this.mRing.setStrokeWidth(f);
             invalidateSelf();
         }
     }
@@ -913,11 +913,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void updateRingColor(float f2, Ring ring) {
+    public void updateRingColor(float f, Ring ring) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), ring}) == null) {
-            if (f2 > 0.75f) {
-                ring.setColor(evaluateColorChange((f2 - 0.75f) / 0.25f, ring.getStartingColor(), ring.getNextColor()));
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), ring}) == null) {
+            if (f > 0.75f) {
+                ring.setColor(evaluateColorChange((f - 0.75f) / 0.25f, ring.getStartingColor(), ring.getNextColor()));
             } else {
                 ring.setColor(ring.getStartingColor());
             }

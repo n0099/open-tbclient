@@ -41,9 +41,9 @@ public final class AccessibilityClickableSpanCompat extends ClickableSpan {
     }
 
     @Override // android.text.style.ClickableSpan
-    public void onClick(@NonNull View view) {
+    public void onClick(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             Bundle bundle = new Bundle();
             bundle.putInt(SPAN_ID, this.mOriginalClickableSpanId);
             this.mNodeInfoCompat.performAction(this.mClickableSpanActionId, bundle);

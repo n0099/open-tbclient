@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CloudLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LOOP_TIME_INTERVAL = 0;
@@ -122,8 +122,8 @@ public class CloudLogUtil {
                                 jSONObject.put("timestamp", System.currentTimeMillis());
                                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, this.val$logContent);
                                 CloudLogUtil.addLogContent(jSONObject, false);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -227,8 +227,8 @@ public class CloudLogUtil {
                                 jSONObject.put("region", "cn-shenzhen");
                                 jSONObject.put("logStore", "turnover");
                                 jSONObject.put("content", this.val$logContent.content);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                             String postJson = HttpLoader.postJson("https://cloud-log.yy.com/api/log/put", jSONObject.toString());
                             Log.d(CloudLogUtil.TAG, "sendLog res=" + postJson);

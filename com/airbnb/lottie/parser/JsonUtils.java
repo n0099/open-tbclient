@@ -7,12 +7,12 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class JsonUtils {
     public static final JsonReader.Options POINT_NAMES = JsonReader.Options.of("x", "y");
 
     /* renamed from: com.airbnb.lottie.parser.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token;
 
@@ -34,7 +34,7 @@ public class JsonUtils {
         }
     }
 
-    public static PointF jsonArrayToPoint(JsonReader jsonReader, float f2) throws IOException {
+    public static PointF jsonArrayToPoint(JsonReader jsonReader, float f) throws IOException {
         jsonReader.beginArray();
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
@@ -42,35 +42,35 @@ public class JsonUtils {
             jsonReader.skipValue();
         }
         jsonReader.endArray();
-        return new PointF(nextDouble * f2, nextDouble2 * f2);
+        return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
-    public static PointF jsonNumbersToPoint(JsonReader jsonReader, float f2) throws IOException {
+    public static PointF jsonNumbersToPoint(JsonReader jsonReader, float f) throws IOException {
         float nextDouble = (float) jsonReader.nextDouble();
         float nextDouble2 = (float) jsonReader.nextDouble();
         while (jsonReader.hasNext()) {
             jsonReader.skipValue();
         }
-        return new PointF(nextDouble * f2, nextDouble2 * f2);
+        return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
-    public static PointF jsonObjectToPoint(JsonReader jsonReader, float f2) throws IOException {
+    public static PointF jsonObjectToPoint(JsonReader jsonReader, float f) throws IOException {
         jsonReader.beginObject();
+        float f2 = 0.0f;
         float f3 = 0.0f;
-        float f4 = 0.0f;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(POINT_NAMES);
             if (selectName == 0) {
-                f3 = valueFromObject(jsonReader);
+                f2 = valueFromObject(jsonReader);
             } else if (selectName != 1) {
                 jsonReader.skipName();
                 jsonReader.skipValue();
             } else {
-                f4 = valueFromObject(jsonReader);
+                f3 = valueFromObject(jsonReader);
             }
         }
         jsonReader.endObject();
-        return new PointF(f3 * f2, f4 * f2);
+        return new PointF(f2 * f, f3 * f);
     }
 
     @ColorInt
@@ -86,26 +86,26 @@ public class JsonUtils {
         return Color.argb(255, nextDouble, nextDouble2, nextDouble3);
     }
 
-    public static PointF jsonToPoint(JsonReader jsonReader, float f2) throws IOException {
+    public static PointF jsonToPoint(JsonReader jsonReader, float f) throws IOException {
         int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token[jsonReader.peek().ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {
-                    return jsonObjectToPoint(jsonReader, f2);
+                    return jsonObjectToPoint(jsonReader, f);
                 }
                 throw new IllegalArgumentException("Unknown point starts with " + jsonReader.peek());
             }
-            return jsonArrayToPoint(jsonReader, f2);
+            return jsonArrayToPoint(jsonReader, f);
         }
-        return jsonNumbersToPoint(jsonReader, f2);
+        return jsonNumbersToPoint(jsonReader, f);
     }
 
-    public static List<PointF> jsonToPoints(JsonReader jsonReader, float f2) throws IOException {
+    public static List<PointF> jsonToPoints(JsonReader jsonReader, float f) throws IOException {
         ArrayList arrayList = new ArrayList();
         jsonReader.beginArray();
         while (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
             jsonReader.beginArray();
-            arrayList.add(jsonToPoint(jsonReader, f2));
+            arrayList.add(jsonToPoint(jsonReader, f));
             jsonReader.endArray();
         }
         jsonReader.endArray();

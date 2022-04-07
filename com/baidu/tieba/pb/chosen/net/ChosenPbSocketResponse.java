@@ -1,8 +1,6 @@
 package com.baidu.tieba.pb.chosen.net;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.d.l;
-import c.a.p0.w2.h.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
@@ -11,6 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.kr7;
+import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -21,8 +22,8 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes5.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements a {
+/* loaded from: classes3.dex */
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements kr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -48,49 +49,49 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         }
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w2.h.c.a
+    @Override // com.repackage.kr7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -111,10 +112,10 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            c.a.o0.r.s.a.f();
-            l<byte[]> d2 = c.a.o0.r.s.a.d("tb.pb_normal");
-            d2.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
-            d2.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
+            cr4.f();
+            qe<byte[]> d = cr4.d("tb.pb_normal");
+            d.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
+            d.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
         }
     }
 

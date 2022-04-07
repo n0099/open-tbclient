@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class HttpUrlHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -55,7 +55,7 @@ public final class HttpUrlHelper {
     public final String username;
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
         public static /* synthetic */ Interceptable $ic;
@@ -168,14 +168,14 @@ public final class HttpUrlHelper {
                     if (codePointAt == 43 && z3) {
                         try {
                             sb.append(URLEncoder.encode(z ? BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX : "%2B", IMAudioTransRequest.CHARSET));
-                        } catch (UnsupportedEncodingException e2) {
-                            e2.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
                         }
                     } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || percentEncoded(str, i, i2)))))) {
                         sb.append(HttpUrlHelperUtil.writeUtf8CodePoint(codePointAt));
                     } else {
-                        for (byte b2 : HttpUrlHelperUtil.writeUtf8CodePoint2(codePointAt)) {
-                            int i3 = b2 & 255;
+                        for (byte b : HttpUrlHelperUtil.writeUtf8CodePoint2(codePointAt)) {
+                            int i3 = b & 255;
                             sb.append(HttpUrlHelperUtil.writeByte(37));
                             sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[(i3 >> 4) & 15]));
                             sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[i3 & 15]));
@@ -620,11 +620,11 @@ public final class HttpUrlHelper {
             String builder = newBuilder().reencodeForUri().toString();
             try {
                 return new URI(builder);
-            } catch (URISyntaxException e2) {
+            } catch (URISyntaxException e) {
                 try {
                     return URI.create(builder.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]", ""));
                 } catch (Exception unused) {
-                    throw new RuntimeException(e2);
+                    throw new RuntimeException(e);
                 }
             }
         }
@@ -637,8 +637,8 @@ public final class HttpUrlHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             try {
                 return new URL(this.url);
-            } catch (MalformedURLException e2) {
-                throw new RuntimeException(e2);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
             }
         }
         return (URL) invokeV.objValue;
@@ -650,7 +650,7 @@ public final class HttpUrlHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -664,7 +664,7 @@ public final class HttpUrlHelper {
         public String scheme;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class ParseResult {
             public static final /* synthetic */ ParseResult[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -1366,8 +1366,8 @@ public final class HttpUrlHelper {
                     return ParseResult.MISSING_SCHEME;
                 }
                 int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
-                char c2 = '?';
-                char c3 = '#';
+                char c = '?';
+                char c2 = '#';
                 if (slashCount < 2 && httpUrlHelper != null && httpUrlHelper.scheme.equals(this.scheme)) {
                     this.encodedUsername = httpUrlHelper.encodedUsername();
                     this.encodedPassword = httpUrlHelper.encodedPassword();
@@ -1385,7 +1385,7 @@ public final class HttpUrlHelper {
                     while (true) {
                         delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
                         char charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
-                        if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
+                        if (charAt == 65535 || charAt == c2 || charAt == '/' || charAt == '\\' || charAt == c) {
                             break;
                         }
                         if (charAt == '@') {
@@ -1408,8 +1408,8 @@ public final class HttpUrlHelper {
                             }
                             i2 = i + 1;
                         }
-                        c2 = '?';
-                        c3 = '#';
+                        c = '?';
+                        c2 = '#';
                     }
                     int portColonOffset = portColonOffset(str, i2, delimiterOffset);
                     int i3 = portColonOffset + 1;
@@ -1692,8 +1692,8 @@ public final class HttpUrlHelper {
                 if (charAt == '%' || (charAt == '+' && z)) {
                     try {
                         sb.append(URLEncoder.encode(str.substring(i, i3), IMAudioTransRequest.CHARSET));
-                    } catch (UnsupportedEncodingException e2) {
-                        e2.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
                     }
                     sb.append(percentDecode2(str, i3, i2, z));
                     return sb.toString();

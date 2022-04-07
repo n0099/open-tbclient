@@ -39,7 +39,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
@@ -49,7 +49,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     /* renamed from: DEF_STYLE_RES */
     public static final int obfuscated_res_0x7f100121 = 2131755297;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969603;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969667;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Drawable background;
@@ -235,7 +235,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         Context context2 = getContext();
         Resources.Theme theme = context2.getTheme();
         this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100121);
-        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f04016b, MaterialAlertDialogBuilder.class.getCanonicalName());
+        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f04016e, MaterialAlertDialogBuilder.class.getCanonicalName());
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100121);
         materialShapeDrawable.initializeElevationOverlay(context2);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
@@ -280,10 +280,10 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
     @NonNull
-    public MaterialAlertDialogBuilder setCustomTitle(@Nullable View view) {
+    public MaterialAlertDialogBuilder setCustomTitle(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view)) == null) ? (MaterialAlertDialogBuilder) super.setCustomTitle(view) : (MaterialAlertDialogBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view2)) == null) ? (MaterialAlertDialogBuilder) super.setCustomTitle(view2) : (MaterialAlertDialogBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -505,10 +505,10 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.appcompat.app.AlertDialog.Builder
     @NonNull
-    public MaterialAlertDialogBuilder setView(@Nullable View view) {
+    public MaterialAlertDialogBuilder setView(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, view)) == null) ? (MaterialAlertDialogBuilder) super.setView(view) : (MaterialAlertDialogBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, view2)) == null) ? (MaterialAlertDialogBuilder) super.setView(view2) : (MaterialAlertDialogBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

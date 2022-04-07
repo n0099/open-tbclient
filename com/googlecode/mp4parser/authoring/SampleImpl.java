@@ -11,7 +11,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SampleImpl implements Sample {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,8 +65,8 @@ public class SampleImpl implements Sample {
                 try {
                     this.data = new ByteBuffer[]{container.getByteBuffer(this.offset, this.size)};
                     return;
-                } catch (IOException e2) {
-                    throw new RuntimeException("couldn't read sample " + this, e2);
+                } catch (IOException e) {
+                    throw new RuntimeException("couldn't read sample " + this, e);
                 }
             }
             throw new RuntimeException("Missing parent container, can't read sample " + this);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.av;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,21 +17,11 @@ public class l {
 
     /* renamed from: a  reason: collision with other field name */
     public final String f943a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f44581b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f44582c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final String f44583d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final String f44584e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final String f44585f;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
 
     public l(String str, String str2, String str3, String str4, String str5, String str6, int i) {
         Interceptable interceptable = $ic;
@@ -49,11 +39,11 @@ public class l {
             }
         }
         this.f943a = str;
-        this.f44581b = str2;
-        this.f44582c = str3;
-        this.f44583d = str4;
-        this.f44584e = str5;
-        this.f44585f = str6;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
+        this.e = str5;
+        this.f = str6;
         this.a = i;
     }
 
@@ -99,15 +89,15 @@ public class l {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, context, eVar, str)) == null) {
             bVar.f892a = context.getPackageName();
             bVar.f895b = this.f943a;
-            bVar.f44552h = this.f44582c;
-            bVar.f44547c = this.f44581b;
-            bVar.f44551g = "5";
-            bVar.f44548d = "XMPUSH-PASS";
+            bVar.h = this.c;
+            bVar.c = this.b;
+            bVar.g = "5";
+            bVar.d = "XMPUSH-PASS";
             bVar.f894a = false;
-            bVar.f44549e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-            bVar.f44550f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f44583d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
+            bVar.e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
+            bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
             if (a(context)) {
-                bVar.f44550f += String.format(",%1$s:%2$s", "ab", str);
+                bVar.f += String.format(",%1$s:%2$s", "ab", str);
             }
             bVar.f891a = eVar;
             return bVar;

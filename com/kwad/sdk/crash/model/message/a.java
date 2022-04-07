@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.model.message;
 import android.text.TextUtils;
 import com.kwad.sdk.crash.c;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public JSONObject a = new JSONObject();
 
@@ -16,7 +16,7 @@ public class a {
     }
 
     public void a(String str) {
-        a(c.f40176g, (Object) str);
+        a(c.g, (Object) str);
     }
 
     public void a(String str, int i) {

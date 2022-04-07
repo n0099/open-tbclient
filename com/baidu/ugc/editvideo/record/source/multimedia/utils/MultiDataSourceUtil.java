@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.h;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -19,22 +18,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
+import com.repackage.yb9;
 import java.nio.Buffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MultiDataSourceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_SINGLE_MEDIA_TIME = 3.0f;
     public static String sDefaultScaleType = "center_inside";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnInitMultiMediaListener {
         void onInitMultiMedia(MultiMediaData multiMediaData);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnReleaseMultiMediaListener {
         void onReleaseMultiMedia(MultiMediaData multiMediaData);
     }
@@ -88,16 +88,16 @@ public class MultiDataSourceUtil {
         }
     }
 
-    public static MediaTrack buildBlurBackgroundTrack(float f2, float f3) {
+    public static MediaTrack buildBlurBackgroundTrack(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? InnerMultiDataSourceUtil.buildBlurBackgroundTrack("user_background", f2, f3) : (MediaTrack) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? InnerMultiDataSourceUtil.buildBlurBackgroundTrack("user_background", f, f2) : (MediaTrack) invokeCommon.objValue;
     }
 
-    public static MediaTrack buildColorBackgroundTrack(String str, String str2, float f2) {
+    public static MediaTrack buildColorBackgroundTrack(String str, String str2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Float.valueOf(f2)})) == null) ? InnerMultiDataSourceUtil.buildColorBackgroundTrack(str, str2, f2) : (MediaTrack) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Float.valueOf(f)})) == null) ? InnerMultiDataSourceUtil.buildColorBackgroundTrack(str, str2, f) : (MediaTrack) invokeCommon.objValue;
     }
 
     public static void buildInputTrack(List<MultiMediaData> list, List<MediaTrack> list2) {
@@ -186,10 +186,10 @@ public class MultiDataSourceUtil {
         MediaSegment mediaSegment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, mediaTrack, i)) == null) {
-            if (i < 0 || mediaTrack == null || h.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, i)) == null) {
+            if (i < 0 || mediaTrack == null || yb9.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) yb9.c(mediaTrack.mediaSegments, i)) == null) {
                 return 0L;
             }
-            MediaTransition mediaTransition = (MediaTransition) h.c(mediaTrack.mediaTransitions, i);
+            MediaTransition mediaTransition = (MediaTransition) yb9.c(mediaTrack.mediaTransitions, i);
             return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
         }
         return invokeLI.longValue;

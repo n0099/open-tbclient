@@ -1,6 +1,5 @@
 package com.baidu.searchbox.aperf.param;
 
-import c.a.p0.s3.b;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.of8;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AperfOverlayRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final IAperfOverlayContext OVERLAY_EMPTY;
@@ -78,6 +78,6 @@ public class AperfOverlayRuntime {
     public static IAperfOverlayContext getAperfOverlayContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (IAperfOverlayContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? of8.a() : (IAperfOverlayContext) invokeV.objValue;
     }
 }

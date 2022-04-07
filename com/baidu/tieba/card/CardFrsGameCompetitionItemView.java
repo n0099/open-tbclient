@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,32 +24,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.f9;
+/* loaded from: classes3.dex */
 public class CardFrsGameCompetitionItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f31626b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f31627c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ClickableHeaderImageView f31628d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f31629e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f31630f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f31631g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ClickableHeaderImageView f31632h;
+    public TbImageView b;
+    public LinearLayout c;
+    public ClickableHeaderImageView d;
+    public TextView e;
+    public RelativeLayout f;
+    public TextView g;
+    public ClickableHeaderImageView h;
     public TextView i;
     public ClickableHeaderImageView j;
     public TextView k;
@@ -58,7 +44,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public String m;
     public int n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,11 +69,11 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.a.m));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.getContext()), new String[]{(String) view.getTag()}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.getContext()), new String[]{(String) view2.getTag()}, true);
             }
         }
     }
@@ -117,12 +103,12 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public void b(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, featureCardCompetitionSubNode) == null) {
-            this.f31628d.J(featureCardCompetitionSubNode.competition_logo, 10, false);
-            this.f31626b.J(featureCardCompetitionSubNode.competition_image, 10, false);
-            this.f31629e.setText(featureCardCompetitionSubNode.title);
-            this.f31632h.J(featureCardCompetitionSubNode.team1_image, 10, false);
+            this.d.K(featureCardCompetitionSubNode.competition_logo, 10, false);
+            this.b.K(featureCardCompetitionSubNode.competition_image, 10, false);
+            this.e.setText(featureCardCompetitionSubNode.title);
+            this.h.K(featureCardCompetitionSubNode.team1_image, 10, false);
             this.i.setText(featureCardCompetitionSubNode.team1_name);
-            this.j.J(featureCardCompetitionSubNode.team2_image, 10, false);
+            this.j.K(featureCardCompetitionSubNode.team2_image, 10, false);
             this.k.setText(featureCardCompetitionSubNode.team2_name);
         }
     }
@@ -130,42 +116,42 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018b, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d2);
-            this.f31626b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904cf);
-            this.f31627c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904d9);
-            this.f31628d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904d8);
-            this.f31629e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d7);
-            this.f31630f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d1);
-            this.f31631g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904da);
-            this.f31632h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904d3);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d4);
-            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904d5);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d6);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018f, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904da);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904d7);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904e1);
+            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e0);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904df);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d9);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e2);
+            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904db);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904dc);
+            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904dd);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904de);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d8);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i = (dimensionPixelSize * 21) / 9;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f31626b.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.height = dimensionPixelSize;
             layoutParams.width = i;
-            this.f31626b.setLayoutParams(layoutParams);
+            this.b.setLayoutParams(layoutParams);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i;
             this.a.setLayoutParams(layoutParams2);
-            this.f31626b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080858);
-            this.f31628d.setDrawBorder(true);
-            this.f31628d.setDrawerType(1);
-            this.f31628d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-            this.f31628d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f31628d.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f31628d.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.f31632h.setDefaultResource(17170445);
-            this.f31632h.setDefaultBgResource(R.color.CAM_X0205);
-            this.f31632h.setIsRound(true);
-            this.f31632h.setDrawBorder(true);
-            this.f31632h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f31632h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08085c);
+            this.d.setDrawBorder(true);
+            this.d.setDrawerType(1);
+            this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.d.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.h.setDefaultResource(17170445);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.h.setDrawBorder(true);
+            this.h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.j.setDefaultResource(17170445);
             this.j.setDefaultBgResource(R.color.CAM_X0205);
             this.j.setIsRound(true);
@@ -180,8 +166,8 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.n != i) {
-                SkinManager.setViewTextColor(this.f31629e, R.color.CAM_X0101, 1);
-                SkinManager.setViewTextColor(this.f31631g, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.g, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0101, 1);

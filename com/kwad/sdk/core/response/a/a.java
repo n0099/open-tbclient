@@ -19,7 +19,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String A(@Nullable AdInfo adInfo) {
         if (adInfo == null) {
@@ -163,8 +163,8 @@ public class a {
                         arrayList.add(Integer.valueOf(parseInt));
                     }
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         }
         if (arrayList.isEmpty()) {
@@ -178,8 +178,8 @@ public class a {
             return false;
         }
         boolean a = af.a();
-        boolean g2 = g(adInfo);
-        return a ? !g2 : g2;
+        boolean g = g(adInfo);
+        return a ? !g : g;
     }
 
     public static boolean U(@NonNull AdInfo adInfo) {
@@ -200,8 +200,8 @@ public class a {
         }
         try {
             split = str.split(",");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
         if (split.length < 3) {
             return iArr;
@@ -266,12 +266,12 @@ public class a {
     }
 
     public static String a(Context context, @NonNull AdInfo adInfo) {
-        File f2 = com.kwad.sdk.core.config.b.f(context);
-        if (f2.exists()) {
-            return Uri.fromFile(f2).toString();
+        File f = com.kwad.sdk.core.config.b.f(context);
+        if (f.exists()) {
+            return Uri.fromFile(f).toString();
         }
-        String d2 = com.kwad.sdk.core.config.b.d();
-        return !at.a(d2) ? d2 : adInfo.downloadSafeInfo.windowPopUrl;
+        String d = com.kwad.sdk.core.config.b.d();
+        return !at.a(d) ? d : adInfo.downloadSafeInfo.windowPopUrl;
     }
 
     public static String a(@NonNull AdInfo adInfo) {
@@ -380,19 +380,19 @@ public class a {
         int j;
         int k;
         boolean z;
-        String c2 = c(adInfo);
-        int e2 = e(adInfo);
-        int f2 = f(adInfo);
-        if (at.a(c2) || at.b(c2) || e2 == 0 || f2 == 0) {
-            String h2 = h(adInfo);
-            str = h2;
+        String c = c(adInfo);
+        int e = e(adInfo);
+        int f = f(adInfo);
+        if (at.a(c) || at.b(c) || e == 0 || f == 0) {
+            String h = h(adInfo);
+            str = h;
             j = j(adInfo);
             k = k(adInfo);
             z = true;
         } else {
-            str = c2;
-            j = e2;
-            k = f2;
+            str = c;
+            j = e;
+            k = f;
             z = false;
         }
         com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + str + " useCover=" + z + " isAd=true");
@@ -721,17 +721,17 @@ public class a {
     }
 
     public static float y(@NonNull AdInfo adInfo) {
-        float f2 = adInfo.adBaseInfo.appScore;
-        if (f2 < 30.0f) {
+        float f = adInfo.adBaseInfo.appScore;
+        if (f < 30.0f) {
             return 3.0f;
         }
-        if (f2 < 35.0f) {
+        if (f < 35.0f) {
             return 3.5f;
         }
-        if (f2 < 40.0f) {
+        if (f < 40.0f) {
             return 4.0f;
         }
-        return f2 < 45.0f ? 4.5f : 5.0f;
+        return f < 45.0f ? 4.5f : 5.0f;
     }
 
     public static String z(AdInfo adInfo) {

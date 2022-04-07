@@ -5,7 +5,7 @@ import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,10 +35,10 @@ public class dl {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            byte[] m222a = bj.m222a(str);
+            byte[] m218a = bj.m218a(str);
             try {
-                a(m222a);
-                return h.a(m222a, bArr);
+                a(m218a);
+                return h.a(m218a, bArr);
             } catch (Exception unused) {
                 return null;
             }
@@ -50,10 +50,10 @@ public class dl {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            byte[] m222a = bj.m222a(str);
+            byte[] m218a = bj.m218a(str);
             try {
-                a(m222a);
-                return h.b(m222a, bArr);
+                a(m218a);
+                return h.b(m218a, bArr);
             } catch (Exception unused) {
                 return null;
             }

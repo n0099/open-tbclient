@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MediaOneAEffect implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MediaOneAEffect> CREATOR;
@@ -20,7 +20,7 @@ public class MediaOneAEffect implements Parcelable, Cloneable {
     public long end;
     public long start;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<MediaOneAEffect> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,8 +94,8 @@ public class MediaOneAEffect implements Parcelable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return new MediaOneAEffect();
             }
         }

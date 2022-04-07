@@ -4,17 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ com.vivo.push.b.b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f43903b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f43904c;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ e c;
 
     public j(e eVar, com.vivo.push.b.b bVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,17 +27,17 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f43904c = eVar;
+        this.c = eVar;
         this.a = bVar;
-        this.f43903b = str;
+        this.b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43904c.a(this.a);
-            this.f43904c.e(this.f43903b);
+            this.c.a(this.a);
+            this.c.e(this.b);
         }
     }
 }

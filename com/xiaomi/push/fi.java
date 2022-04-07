@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fi extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class fi extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 fcVar = this.a.a;
-                fcVar.m353a();
-            } catch (Exception e2) {
-                this.a.c(9, e2);
+                fcVar.m349a();
+            } catch (Exception e) {
+                this.a.c(9, e);
             }
         }
     }

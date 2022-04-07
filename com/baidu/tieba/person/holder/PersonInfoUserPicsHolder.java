@@ -2,10 +2,6 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.d.o.e.n;
-import c.a.p0.y2.d;
-import c.a.p0.y2.h.e;
-import c.a.p0.y2.h.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,40 +15,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c18;
+import com.repackage.d18;
+import com.repackage.oi;
+import com.repackage.u08;
+import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f35358b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f35359c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HTypeListView f35360d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public e f35361e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f35362f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f35363g;
+    public View b;
+    public TextView c;
+    public HTypeListView d;
+    public c18 e;
+    public int f;
+    public TbPageContext g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonInfoUserPicsHolder(View view, TbPageContext tbPageContext) {
-        super(view);
+    public PersonInfoUserPicsHolder(View view2, TbPageContext tbPageContext) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, tbPageContext};
+            Object[] objArr = {view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,37 +52,37 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f35362f = 3;
-        this.a = view;
-        this.f35363g = tbPageContext;
-        this.f35358b = view.findViewById(R.id.obfuscated_res_0x7f09080a);
-        this.f35359c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091f5d);
-        HTypeListView hTypeListView = (HTypeListView) view.findViewById(R.id.obfuscated_res_0x7f09128c);
-        this.f35360d = hTypeListView;
-        this.f35361e = new e(this.f35363g, hTypeListView);
+        this.f = 3;
+        this.a = view2;
+        this.g = tbPageContext;
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090813);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091280);
+        this.d = hTypeListView;
+        this.e = new c18(this.g, hTypeListView);
     }
 
-    public void c(f fVar) {
+    public void c(d18 d18Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d18Var) == null) || d18Var == null) {
             return;
         }
-        this.f35361e.c(e(fVar.a()));
+        this.e.c(e(d18Var.a()));
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f35362f == TbadkCoreApplication.getInst().getSkinType()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        this.f35362f = TbadkCoreApplication.getInst().getSkinType();
+        this.f = TbadkCoreApplication.getInst().getSkinType();
         SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f35358b, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f35359c, R.color.CAM_X0109, 1);
-        this.f35361e.b();
+        SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.c, R.color.CAM_X0109, 1);
+        this.e.b();
     }
 
-    public final List<n> e(List<n> list) {
+    public final List<uo> e(List<uo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -101,9 +90,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            d dVar = new d(c.a.d.f.p.n.f(this.f35363g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), c.a.d.f.p.n.f(this.f35363g.getPageActivity(), R.dimen.obfuscated_res_0x7f070235));
-            ListUtils.add(arrayList, 0, dVar);
-            ListUtils.add(arrayList, dVar);
+            u08 u08Var = new u08(oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f));
+            ListUtils.add(arrayList, 0, u08Var);
+            ListUtils.add(arrayList, u08Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

@@ -89,24 +89,24 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
+    public void showAsDropDown(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, view, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048576, this, view2, i, i2) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i2 -= view.getHeight();
+                i2 -= view2.getHeight();
             }
-            super.showAsDropDown(view, i, i2);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 
     @Override // android.widget.PopupWindow
-    public void update(View view, int i, int i2, int i3, int i4) {
+    public void update(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i2 -= view.getHeight();
+                i2 -= view2.getHeight();
             }
-            super.update(view, i, i2, i3, i4);
+            super.update(view2, i, i2, i3, i4);
         }
     }
 
@@ -133,13 +133,13 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2, int i3) {
+    public void showAsDropDown(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2, i3) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i2 -= view.getHeight();
+                i2 -= view2.getHeight();
             }
-            super.showAsDropDown(view, i, i2, i3);
+            super.showAsDropDown(view2, i, i2, i3);
         }
     }
 }

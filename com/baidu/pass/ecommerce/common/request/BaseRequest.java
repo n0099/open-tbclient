@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLIENT = "android";
@@ -310,10 +310,10 @@ public abstract class BaseRequest {
                 /* JADX WARN: Code restructure failed: missing block: B:14:0x0054, code lost:
                     r7 = "未知错误";
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:15:0x0057, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:15:0x0056, code lost:
                     r4.val$callback.onFailure(-10000, r7);
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:16:0x005e, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
                     return;
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:9:0x004a, code lost:
@@ -371,8 +371,8 @@ public abstract class BaseRequest {
                                 optString = jSONObject.has("msg") ? jSONObject.optString("msg") : "未知错误";
                             }
                             this.val$callback.onFailure(optInt, optString);
-                        } catch (JSONException e2) {
-                            this.val$callback.onFailure(-10000, e2.getMessage());
+                        } catch (JSONException e) {
+                            this.val$callback.onFailure(-10000, e.getMessage());
                         }
                     }
                 }

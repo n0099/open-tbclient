@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -53,8 +53,8 @@ public class e extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             String currentNetMode = NetworkUtil.getCurrentNetMode(context);
-            String e2 = i.e();
-            if (e2 == null || e2.equals(currentNetMode)) {
+            String e = i.e();
+            if (e == null || e.equals(currentNetMode)) {
                 return;
             }
             i.a(currentNetMode);

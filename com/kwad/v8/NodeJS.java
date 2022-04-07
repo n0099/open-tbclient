@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NodeJS {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLOBAL = "global";
@@ -102,8 +102,8 @@ public class NodeJS {
                     nodeJS.exec(file);
                 }
                 return nodeJS;
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return (NodeJS) invokeL.objValue;

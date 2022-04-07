@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go4;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class VideoPreloadData extends p implements Serializable {
+/* loaded from: classes3.dex */
+public class VideoPreloadData extends go4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int isWifi;
@@ -54,7 +54,7 @@ public class VideoPreloadData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isWifi : invokeV.intValue;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
@@ -64,8 +64,8 @@ public class VideoPreloadData extends p implements Serializable {
             this.mVideoNum = Integer.parseInt(jSONObject.optString("num", "-1"));
             this.isWifi = Integer.parseInt(jSONObject.optString("is_wifi", "-1"));
             this.mVideoSize = Integer.parseInt(jSONObject.optString("size", "-1"));
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

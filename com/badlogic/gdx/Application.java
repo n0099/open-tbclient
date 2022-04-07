@@ -1,6 +1,5 @@
 package com.badlogic.gdx;
 
-import c.b.b.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.y0;
+/* loaded from: classes.dex */
 public interface Application {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ApplicationType {
         public static final /* synthetic */ ApplicationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -85,7 +85,7 @@ public interface Application {
 
     void error(String str, String str2, Throwable th);
 
-    c getApplicationListener();
+    y0 getApplicationListener();
 
     Graphics getGraphics();
 

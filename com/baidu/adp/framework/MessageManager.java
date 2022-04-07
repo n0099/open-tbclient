@@ -3,17 +3,6 @@ package com.baidu.adp.framework;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.c.e.c.h;
-import c.a.d.c.f.e;
-import c.a.d.c.f.f;
-import c.a.d.c.f.g;
-import c.a.d.c.f.i;
-import c.a.d.c.h.a;
-import c.a.d.c.h.b;
-import c.a.d.c.h.c;
-import c.a.d.c.h.d;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
@@ -45,26 +34,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aa;
+import com.repackage.ab;
+import com.repackage.ba;
+import com.repackage.bb;
+import com.repackage.cb;
+import com.repackage.k9;
+import com.repackage.kh;
+import com.repackage.mi;
+import com.repackage.n9;
+import com.repackage.oi;
+import com.repackage.pa;
+import com.repackage.qa;
+import com.repackage.ra;
+import com.repackage.ta;
+import com.repackage.wa;
+import com.repackage.xa;
+import com.repackage.ya;
+import com.repackage.z9;
+import com.repackage.za;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "msgmgr";
     public static MessageManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public i mController;
-    public a mCustomManager;
-    public b mHttpManager;
+    public ta mController;
+    public za mCustomManager;
+    public ab mHttpManager;
     public int mHttpMsgCWSendFailedCnt;
-    public d mSocketManager;
+    public cb mSocketManager;
     public int mSocketMsgCWSendFailedCnt;
     public Handler mUIHandler;
 
-    /* renamed from: com.baidu.adp.framework.MessageManager$18  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass18 {
+    /* renamed from: com.baidu.adp.framework.MessageManager$16  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class AnonymousClass16 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +80,13 @@ public class MessageManager {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1530377225, "Lcom/baidu/adp/framework/MessageManager$18;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1530377287, "Lcom/baidu/adp/framework/MessageManager$16;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1530377225, "Lcom/baidu/adp/framework/MessageManager$18;");
+                    classClinitInterceptable.invokePostClinit(-1530377287, "Lcom/baidu/adp/framework/MessageManager$16;");
                     return;
                 }
             }
@@ -134,10 +142,10 @@ public class MessageManager {
         this.mUIHandler = null;
         this.mSocketMsgCWSendFailedCnt = 0;
         this.mHttpMsgCWSendFailedCnt = 0;
-        this.mHttpManager = new b(this);
-        this.mSocketManager = new d(this);
-        this.mCustomManager = new a(this);
-        this.mController = new i();
+        this.mHttpManager = new ab(this);
+        this.mSocketManager = new cb(this);
+        this.mCustomManager = new za(this);
+        this.mController = new ta();
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -157,24 +165,24 @@ public class MessageManager {
         return (MessageManager) invokeV.objValue;
     }
 
-    private c<?, ?, ?, ?> getManager(int i) {
+    private bb<?, ?, ?, ?> getManager(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i);
-            if (e2 == FrameHelper.TYPE.HTTP) {
+            FrameHelper.TYPE e = FrameHelper.e(i);
+            if (e == FrameHelper.TYPE.HTTP) {
                 return this.mHttpManager;
             }
-            if (e2 == FrameHelper.TYPE.SOCKET) {
+            if (e == FrameHelper.TYPE.SOCKET) {
                 return this.mSocketManager;
             }
-            if (e2 == FrameHelper.TYPE.CUSTOM) {
+            if (e == FrameHelper.TYPE.CUSTOM) {
                 return this.mCustomManager;
             }
             BdLog.e("cmd invalid");
             return null;
         }
-        return (c) invokeI.objValue;
+        return (bb) invokeI.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -183,15 +191,15 @@ public class MessageManager {
         if (!(interceptable == null || interceptable.invokeL(65549, this, messageListener) == null) || messageListener == null) {
             return;
         }
-        FrameHelper.TYPE e2 = FrameHelper.e(messageListener.getCmd());
-        if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
+        FrameHelper.TYPE e = FrameHelper.e(messageListener.getCmd());
+        if (e == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.n(0, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof c.a.d.c.g.c)) {
-            this.mSocketManager.n(0, (c.a.d.c.g.c) messageListener);
-        } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
+        } else if (e == FrameHelper.TYPE.SOCKET && (messageListener instanceof ya)) {
+            this.mSocketManager.n(0, (ya) messageListener);
+        } else if (e == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.n(0, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + c.a.d.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + n9.a().b(messageListener.getCmd()));
         }
     }
 
@@ -203,7 +211,7 @@ public class MessageManager {
         }
         int cmd = messageListener.getCmd();
         if (cmd != 0) {
-            c<?, ?, ?, ?> manager = getManager(cmd);
+            bb<?, ?, ?, ?> manager = getManager(cmd);
             if (manager != null) {
                 manager.t(messageListener);
                 return;
@@ -216,7 +224,7 @@ public class MessageManager {
     }
 
     public void abortResponsedMessage(ResponsedMessage<?> responsedMessage) {
-        c<?, ?, ?, ?> manager;
+        bb<?, ?, ?, ?> manager;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || (manager = getManager(responsedMessage.getCmd())) == null) {
             return;
@@ -224,24 +232,24 @@ public class MessageManager {
         manager.a();
     }
 
-    public void addMessageRule(f<?, ?> fVar) {
+    public void addMessageRule(qa<?, ?> qaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            if (n.B()) {
-                this.mController.b(fVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qaVar) == null) {
+            if (oi.B()) {
+                this.mController.b(qaVar);
             } else {
-                this.mUIHandler.post(new Runnable(this, fVar) { // from class: com.baidu.adp.framework.MessageManager.10
+                this.mUIHandler.post(new Runnable(this, qaVar) { // from class: com.baidu.adp.framework.MessageManager.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ f val$rule;
+                    public final /* synthetic */ qa val$rule;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, fVar};
+                            Object[] objArr = {this, qaVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -252,7 +260,7 @@ public class MessageManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$rule = fVar;
+                        this.val$rule = qaVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -267,24 +275,24 @@ public class MessageManager {
         }
     }
 
-    public void addRemovedMessageRule(e eVar) {
+    public void addRemovedMessageRule(pa paVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            if (n.B()) {
-                this.mController.a(eVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paVar) == null) {
+            if (oi.B()) {
+                this.mController.a(paVar);
             } else {
-                this.mUIHandler.post(new Runnable(this, eVar) { // from class: com.baidu.adp.framework.MessageManager.14
+                this.mUIHandler.post(new Runnable(this, paVar) { // from class: com.baidu.adp.framework.MessageManager.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ e val$rule;
+                    public final /* synthetic */ pa val$rule;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, eVar};
+                            Object[] objArr = {this, paVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -295,7 +303,7 @@ public class MessageManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$rule = eVar;
+                        this.val$rule = paVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -310,24 +318,24 @@ public class MessageManager {
         }
     }
 
-    public void addResponsedMessageRule(g<?> gVar) {
+    public void addResponsedMessageRule(ra<?> raVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            if (n.B()) {
-                this.mController.c(gVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, raVar) == null) {
+            if (oi.B()) {
+                this.mController.c(raVar);
             } else {
-                this.mUIHandler.post(new Runnable(this, gVar) { // from class: com.baidu.adp.framework.MessageManager.12
+                this.mUIHandler.post(new Runnable(this, raVar) { // from class: com.baidu.adp.framework.MessageManager.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ g val$rule;
+                    public final /* synthetic */ ra val$rule;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, gVar};
+                            Object[] objArr = {this, raVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -338,7 +346,7 @@ public class MessageManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$rule = gVar;
+                        this.val$rule = raVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -363,8 +371,8 @@ public class MessageManager {
         if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
             if (responsedMessage == null) {
                 BdLog.e("responsedMessage is null!!!");
-            } else if (!n.B()) {
-                this.mUIHandler.post(new Runnable(this, responsedMessage) { // from class: com.baidu.adp.framework.MessageManager.16
+            } else if (!oi.B()) {
+                this.mUIHandler.post(new Runnable(this, responsedMessage) { // from class: com.baidu.adp.framework.MessageManager.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageManager this$0;
@@ -399,26 +407,26 @@ public class MessageManager {
                 });
             } else {
                 int cmd = responsedMessage.getCmd();
-                FrameHelper.TYPE e2 = FrameHelper.e(cmd);
-                if (e2 == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
-                    c.a.d.b.a.a.h("Response_Http", responsedMessage);
+                FrameHelper.TYPE e = FrameHelper.e(cmd);
+                if (e == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
+                    k9.h("Response_Http", responsedMessage);
                     if (responsedMessage.getError() != 0) {
-                        if (l.z()) {
+                        if (mi.z()) {
                             this.mHttpMsgCWSendFailedCnt++;
-                            if (this.mHttpMsgCWSendFailedCnt >= c.a.d.f.n.m.a.o().q("alert_http", 3)) {
+                            if (this.mHttpMsgCWSendFailedCnt >= kh.o().q("alert_http", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
                     } else {
                         this.mHttpMsgCWSendFailedCnt = 0;
                     }
-                    this.mHttpManager.d(this.mController.j((HttpResponsedMessage) responsedMessage));
-                } else if (e2 == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
-                    c.a.d.b.a.a.h("Response_Socket", responsedMessage);
+                    this.mHttpManager.d(this.mController.h((HttpResponsedMessage) responsedMessage));
+                } else if (e == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
+                    k9.h("Response_Socket", responsedMessage);
                     if (responsedMessage.getError() != 0) {
-                        if (l.z()) {
+                        if (mi.z()) {
                             this.mSocketMsgCWSendFailedCnt++;
-                            if (this.mSocketMsgCWSendFailedCnt >= c.a.d.f.n.m.a.o().q("alert_im", 3)) {
+                            if (this.mSocketMsgCWSendFailedCnt >= kh.o().q("alert_im", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -430,9 +438,9 @@ public class MessageManager {
                         NetMessage netMessage = (NetMessage) orginalMessage.getExtra();
                         if (netMessage.getHttpMessage() != null && netMessage.getNetType() == NetMessage.NetType.AUTO) {
                             NetMessage.a switchToHttpStrategy = netMessage.getSwitchToHttpStrategy();
-                            if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == h.m) {
+                            if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == aa.m) {
                                 int i = 5;
-                                if (responsedMessage.getError() == h.m) {
+                                if (responsedMessage.getError() == aa.m) {
                                     netMessage.setSocketCostTime(System.currentTimeMillis() - orginalMessage.getStartTime());
                                 } else if (responsedMessage.getError() == 110004) {
                                     i = 8;
@@ -454,14 +462,14 @@ public class MessageManager {
                             }
                         }
                     }
-                    this.mSocketManager.d(this.mController.n((SocketResponsedMessage) responsedMessage));
-                } else if (e2 == FrameHelper.TYPE.CUSTOM && (responsedMessage instanceof CustomResponsedMessage)) {
-                    CustomResponsedMessage<?> h2 = this.mController.h((CustomResponsedMessage) responsedMessage);
+                    this.mSocketManager.d(this.mController.l((SocketResponsedMessage) responsedMessage));
+                } else if (e == FrameHelper.TYPE.CUSTOM && (responsedMessage instanceof CustomResponsedMessage)) {
+                    CustomResponsedMessage<?> f = this.mController.f((CustomResponsedMessage) responsedMessage);
                     if (CmdRouter.cmdMaps.containsKey(cmd + "")) {
                         try {
                             if (cmd == 2002001) {
-                                List<String> values = CmdRouter.cmdMaps.getValues(h2.getCmd() + "");
-                                String cls = h2.getData().getClass().toString();
+                                List<String> values = CmdRouter.cmdMaps.getValues(f.getCmd() + "");
+                                String cls = f.getData().getClass().toString();
                                 String substring = cls.substring(cls.lastIndexOf(".") + 1);
                                 for (String str : values) {
                                     if (CmdRouter.configMaps.getValues(str).get(0).contains(substring)) {
@@ -492,7 +500,7 @@ public class MessageManager {
                         }
                     }
                     if (!r6) {
-                        this.mUIHandler.postDelayed(new Runnable(this, h2) { // from class: com.baidu.adp.framework.MessageManager.17
+                        this.mUIHandler.postDelayed(new Runnable(this, f) { // from class: com.baidu.adp.framework.MessageManager.15
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ MessageManager this$0;
@@ -503,7 +511,7 @@ public class MessageManager {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, h2};
+                                    Object[] objArr = {this, f};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i2 = newInitContext.flag;
                                     if ((i2 & 1) != 0) {
@@ -514,7 +522,7 @@ public class MessageManager {
                                     }
                                 }
                                 this.this$0 = this;
-                                this.val$finalResponsedMessage = h2;
+                                this.val$finalResponsedMessage = f;
                             }
 
                             @Override // java.lang.Runnable
@@ -526,10 +534,10 @@ public class MessageManager {
                             }
                         }, 1L);
                     } else {
-                        this.mCustomManager.d(h2);
+                        this.mCustomManager.d(f);
                     }
                 } else {
-                    BdLog.e("responsedMessage invalid:CMD=" + c.a.d.c.a.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
+                    BdLog.e("responsedMessage invalid:CMD=" + n9.a().b(cmd) + " Class=" + responsedMessage.getClass().getName());
                 }
             }
         }
@@ -549,30 +557,18 @@ public class MessageManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) ? this.mCustomManager.w(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
-    public ArrayList<CustomMessageTask> findCustomTasks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCustomManager.i() : (ArrayList) invokeV.objValue;
-    }
-
-    public LinkedList<HttpMessage> findHttpMessage(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId)) == null) ? this.mHttpManager.w(bdUniqueId) : (LinkedList) invokeL.objValue;
-    }
-
     public ArrayList<HttpMessageTask> findHttpTasks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHttpManager.i() : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mHttpManager.i() : (ArrayList) invokeV.objValue;
     }
 
     /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: java.util.LinkedList<?>, java.util.LinkedList<? extends com.baidu.adp.framework.message.Message> */
     public LinkedList<? extends Message> findMessage(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, bdUniqueId)) == null) {
-            c<?, ?, ?, ?> manager = getManager(i);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bdUniqueId)) == null) {
+            bb<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
                 return manager.e(i, bdUniqueId);
             }
@@ -582,30 +578,18 @@ public class MessageManager {
         return (LinkedList) invokeIL.objValue;
     }
 
-    public LinkedList<SocketMessage> findSocketMessage(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bdUniqueId)) == null) ? this.mSocketManager.w(bdUniqueId) : (LinkedList) invokeL.objValue;
-    }
-
-    public ArrayList<SocketMessageTask> findSocketTasks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mSocketManager.i() : (ArrayList) invokeV.objValue;
-    }
-
     public MessageTask findTask(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i);
-            if (FrameHelper.TYPE.HTTP == e2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            FrameHelper.TYPE e = FrameHelper.e(i);
+            if (FrameHelper.TYPE.HTTP == e) {
                 return this.mHttpManager.g(i);
             }
-            if (FrameHelper.TYPE.SOCKET == e2) {
+            if (FrameHelper.TYPE.SOCKET == e) {
                 return this.mSocketManager.g(i);
             }
-            if (FrameHelper.TYPE.CUSTOM == e2) {
+            if (FrameHelper.TYPE.CUSTOM == e) {
                 try {
                     MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
                     List<String> values = multiValueMap.getValues(i + "");
@@ -626,27 +610,27 @@ public class MessageManager {
         return (MessageTask) invokeI.objValue;
     }
 
-    public i getController() {
+    public ta getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mController : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mController : (ta) invokeV.objValue;
     }
 
-    public c.a.d.c.e.c.g getSocketClient() {
+    public z9 getSocketClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSocketManager.x() : (c.a.d.c.e.c.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mSocketManager.w() : (z9) invokeV.objValue;
     }
 
     public boolean hasListener(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i);
-            if (e2 == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            FrameHelper.TYPE e = FrameHelper.e(i);
+            if (e == null) {
                 return false;
             }
-            int i2 = AnonymousClass18.$SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE[e2.ordinal()];
+            int i2 = AnonymousClass16.$SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE[e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -661,28 +645,28 @@ public class MessageManager {
         return invokeI.booleanValue;
     }
 
-    public void registerListener(c.a.d.c.g.a aVar) {
+    public void registerListener(wa waVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, waVar) == null) || waVar == null) {
             return;
         }
-        if (n.B()) {
-            this.mHttpManager.n(0, aVar.getHttpMessageListener());
-            this.mSocketManager.n(0, aVar.getSocketMessageListener());
+        if (oi.B()) {
+            this.mHttpManager.n(0, waVar.getHttpMessageListener());
+            this.mSocketManager.n(0, waVar.getSocketMessageListener());
             return;
         }
-        this.mUIHandler.post(new Runnable(this, aVar) { // from class: com.baidu.adp.framework.MessageManager.2
+        this.mUIHandler.post(new Runnable(this, waVar) { // from class: com.baidu.adp.framework.MessageManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
-            public final /* synthetic */ c.a.d.c.g.a val$listener;
+            public final /* synthetic */ wa val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, aVar};
+                    Object[] objArr = {this, waVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -693,7 +677,7 @@ public class MessageManager {
                     }
                 }
                 this.this$0 = this;
-                this.val$listener = aVar;
+                this.val$listener = waVar;
             }
 
             @Override // java.lang.Runnable
@@ -709,10 +693,10 @@ public class MessageManager {
 
     public void registerListenerFromBackground(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, messageListener) == null) || messageListener == null) {
             return;
         }
-        if (n.B()) {
+        if (oi.B()) {
             registerListener(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.5
@@ -752,9 +736,9 @@ public class MessageManager {
     }
 
     public void registerStickyMode(int i) {
-        c<?, ?, ?, ?> manager;
+        bb<?, ?, ?, ?> manager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || (manager = getManager(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || (manager = getManager(i)) == null) {
             return;
         }
         manager.o(i);
@@ -762,7 +746,7 @@ public class MessageManager {
 
     public void registerTask(MessageTask messageTask) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, messageTask) == null) || messageTask == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, messageTask) == null) || messageTask == null) {
             return;
         }
         if (messageTask instanceof HttpMessageTask) {
@@ -778,51 +762,51 @@ public class MessageManager {
 
     public void removeCustomMessage(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bdUniqueId) == null) {
             this.mCustomManager.y(bdUniqueId);
-            this.mController.p(bdUniqueId);
+            this.mController.n(bdUniqueId);
         }
     }
 
     public void removeHttpMessage(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bdUniqueId) == null) {
-            this.mHttpManager.y(bdUniqueId);
-            this.mController.p(bdUniqueId);
+        if (interceptable == null || interceptable.invokeL(1048597, this, bdUniqueId) == null) {
+            this.mHttpManager.x(bdUniqueId);
+            this.mController.n(bdUniqueId);
         }
     }
 
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048602, this, i, bdUniqueId) == null) {
-            c<?, ?, ?, ?> manager = getManager(i);
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i, bdUniqueId) == null) {
+            bb<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
                 manager.h(i, bdUniqueId);
-                this.mController.o(i, bdUniqueId);
+                this.mController.m(i, bdUniqueId);
                 return;
             }
             BdLog.e("cmd invalid");
         }
     }
 
-    public void removeMessageRule(f<?, ?> fVar) {
+    public void removeMessageRule(qa<?, ?> qaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, fVar) == null) {
-            if (n.B()) {
-                this.mController.e(fVar);
+        if (interceptable == null || interceptable.invokeL(1048600, this, qaVar) == null) {
+            if (oi.B()) {
+                this.mController.d(qaVar);
             } else {
-                this.mUIHandler.post(new Runnable(this, fVar) { // from class: com.baidu.adp.framework.MessageManager.11
+                this.mUIHandler.post(new Runnable(this, qaVar) { // from class: com.baidu.adp.framework.MessageManager.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ f val$rule;
+                    public final /* synthetic */ qa val$rule;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, fVar};
+                            Object[] objArr = {this, qaVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -833,50 +817,7 @@ public class MessageManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$rule = fVar;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.mController.e(this.val$rule);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public void removeRemovedMessageRule(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, eVar) == null) {
-            if (n.B()) {
-                this.mController.d(eVar);
-            } else {
-                this.mUIHandler.post(new Runnable(this, eVar) { // from class: com.baidu.adp.framework.MessageManager.15
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ e val$rule;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, eVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$rule = eVar;
+                        this.val$rule = qaVar;
                     }
 
                     @Override // java.lang.Runnable
@@ -891,79 +832,36 @@ public class MessageManager {
         }
     }
 
-    public void removeResponsedMessageRule(g<?> gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, gVar) == null) {
-            if (n.B()) {
-                this.mController.f(gVar);
-            } else {
-                this.mUIHandler.post(new Runnable(this, gVar) { // from class: com.baidu.adp.framework.MessageManager.13
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MessageManager this$0;
-                    public final /* synthetic */ g val$rule;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, gVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$rule = gVar;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.mController.f(this.val$rule);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
     public void removeSocketMessage(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) {
-            this.mSocketManager.z(bdUniqueId);
-            this.mController.p(bdUniqueId);
+        if (interceptable == null || interceptable.invokeL(1048601, this, bdUniqueId) == null) {
+            this.mSocketManager.y(bdUniqueId);
+            this.mController.n(bdUniqueId);
         }
     }
 
     public <T> CustomResponsedMessage<T> runTask(int i, Class<T> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i, cls)) == null) ? runTask(i, cls, null) : (CustomResponsedMessage) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, cls)) == null) ? runTask(i, cls, null) : (CustomResponsedMessage) invokeIL.objValue;
     }
 
     public boolean sendMessage(Message<?> message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, message)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, message)) == null) {
             if (message == null) {
                 return false;
             }
             message.setStartTime(System.currentTimeMillis());
             if (message instanceof HttpMessage) {
-                c.a.d.b.a.a.h("Request_Http", message);
+                k9.h("Request_Http", message);
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
-                c.a.d.b.a.a.h("Request_Socket", message);
+                k9.h("Request_Socket", message);
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (!(message instanceof CustomMessage)) {
-                BdLog.e("message invalid" + c.a.d.c.a.a().b(message.getCmd()));
+                BdLog.e("message invalid" + n9.a().b(message.getCmd()));
                 return false;
             } else {
                 MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
@@ -999,7 +897,7 @@ public class MessageManager {
 
     public void sendMessageFromBackground(Message<?> message) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, message) == null) || message == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048610, this, message) == null) || message == null) {
             return;
         }
         this.mUIHandler.post(new Runnable(this, message) { // from class: com.baidu.adp.framework.MessageManager.1
@@ -1037,35 +935,35 @@ public class MessageManager {
         });
     }
 
-    public void setNotFindTaskListener(c.a.d.c.g.b<Message<?>> bVar) {
+    public void setNotFindTaskListener(xa<Message<?>> xaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, bVar) == null) {
-            c.q(bVar);
+        if (interceptable == null || interceptable.invokeL(1048611, this, xaVar) == null) {
+            bb.q(xaVar);
         }
     }
 
-    public void unRegisterListener(c.a.d.c.g.a aVar) {
+    public void unRegisterListener(wa waVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048614, this, waVar) == null) || waVar == null) {
             return;
         }
-        if (n.B()) {
-            this.mHttpManager.t(aVar.getHttpMessageListener());
-            this.mSocketManager.t(aVar.getSocketMessageListener());
+        if (oi.B()) {
+            this.mHttpManager.t(waVar.getHttpMessageListener());
+            this.mSocketManager.t(waVar.getSocketMessageListener());
             return;
         }
-        this.mUIHandler.post(new Runnable(this, aVar) { // from class: com.baidu.adp.framework.MessageManager.4
+        this.mUIHandler.post(new Runnable(this, waVar) { // from class: com.baidu.adp.framework.MessageManager.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
-            public final /* synthetic */ c.a.d.c.g.a val$listener;
+            public final /* synthetic */ wa val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, aVar};
+                    Object[] objArr = {this, waVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -1076,7 +974,7 @@ public class MessageManager {
                     }
                 }
                 this.this$0 = this;
-                this.val$listener = aVar;
+                this.val$listener = waVar;
             }
 
             @Override // java.lang.Runnable
@@ -1092,9 +990,9 @@ public class MessageManager {
 
     public void unRegisterStickyMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
-            n.c();
-            c<?, ?, ?, ?> manager = getManager(i);
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            oi.c();
+            bb<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
                 manager.u(i);
             }
@@ -1102,9 +1000,9 @@ public class MessageManager {
     }
 
     public void unRegisterTask(int i) {
-        c<?, ?, ?, ?> manager;
+        bb<?, ?, ?, ?> manager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048622, this, i) == null) || (manager = getManager(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048616, this, i) == null) || (manager = getManager(i)) == null) {
             return;
         }
         manager.v(i);
@@ -1114,7 +1012,7 @@ public class MessageManager {
         InterceptResult invokeILL;
         CustomMessage<?> customMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048609, this, i, cls, obj)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048603, this, i, cls, obj)) == null) {
             if (obj != null) {
                 customMessage = new CustomMessage<>(i);
                 customMessage.setData(obj);
@@ -1148,35 +1046,35 @@ public class MessageManager {
                     BdLog.e(th);
                 }
             }
-            a aVar = this.mCustomManager;
-            return aVar.z(customMessage, aVar.g(i), cls);
+            za zaVar = this.mCustomManager;
+            return zaVar.z(customMessage, zaVar.g(i), cls);
         }
         return (CustomResponsedMessage) invokeILL.objValue;
     }
 
-    public void registerListener(int i, c.a.d.c.g.a aVar) {
+    public void registerListener(int i, wa waVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048590, this, i, waVar) == null) || waVar == null) {
             return;
         }
-        if (n.B()) {
-            this.mHttpManager.n(i, aVar.getHttpMessageListener());
-            this.mSocketManager.n(i, aVar.getSocketMessageListener());
+        if (oi.B()) {
+            this.mHttpManager.n(i, waVar.getHttpMessageListener());
+            this.mSocketManager.n(i, waVar.getSocketMessageListener());
             return;
         }
-        this.mUIHandler.post(new Runnable(this, i, aVar) { // from class: com.baidu.adp.framework.MessageManager.3
+        this.mUIHandler.post(new Runnable(this, i, waVar) { // from class: com.baidu.adp.framework.MessageManager.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
             public final /* synthetic */ int val$cmd;
-            public final /* synthetic */ c.a.d.c.g.a val$listener;
+            public final /* synthetic */ wa val$listener;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i), aVar};
+                    Object[] objArr = {this, Integer.valueOf(i), waVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -1188,7 +1086,7 @@ public class MessageManager {
                 }
                 this.this$0 = this;
                 this.val$cmd = i;
-                this.val$listener = aVar;
+                this.val$listener = waVar;
             }
 
             @Override // java.lang.Runnable
@@ -1204,7 +1102,7 @@ public class MessageManager {
 
     public void removeMessage(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, bdUniqueId) == null) {
             removeSocketMessage(bdUniqueId);
             removeCustomMessage(bdUniqueId);
             removeHttpMessage(bdUniqueId);
@@ -1213,10 +1111,10 @@ public class MessageManager {
 
     public void unRegisterListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048613, this, messageListener) == null) || messageListener == null) {
             return;
         }
-        if (n.B()) {
+        if (oi.B()) {
             unRegisterListenerInternal(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.8
@@ -1267,8 +1165,8 @@ public class MessageManager {
 
     public void unRegisterListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, bdUniqueId) == null) {
-            if (n.B()) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, bdUniqueId) == null) {
+            if (oi.B()) {
                 unRegisterListenerInternal(bdUniqueId);
             } else {
                 this.mUIHandler.post(new Runnable(this, bdUniqueId) { // from class: com.baidu.adp.framework.MessageManager.9
@@ -1314,24 +1212,24 @@ public class MessageManager {
         if (!(interceptable == null || interceptable.invokeIL(65548, this, i, messageListener) == null) || messageListener == null) {
             return;
         }
-        FrameHelper.TYPE e2 = FrameHelper.e(i);
-        if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
+        FrameHelper.TYPE e = FrameHelper.e(i);
+        if (e == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
             this.mHttpManager.n(i, (HttpMessageListener) messageListener);
-        } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof c.a.d.c.g.c)) {
-            this.mSocketManager.n(i, (c.a.d.c.g.c) messageListener);
-        } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
+        } else if (e == FrameHelper.TYPE.SOCKET && (messageListener instanceof ya)) {
+            this.mSocketManager.n(i, (ya) messageListener);
+        } else if (e == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
             this.mCustomManager.n(i, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + c.a.d.c.a.a().b(i) + "|" + c.a.d.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + n9.a().b(i) + "|" + n9.a().b(messageListener.getCmd()));
         }
     }
 
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, messageListener) == null) || messageListener == null) {
             return;
         }
-        if (n.B()) {
+        if (oi.B()) {
             registerListenerInternal(messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, messageListener) { // from class: com.baidu.adp.framework.MessageManager.6
@@ -1372,10 +1270,10 @@ public class MessageManager {
 
     public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048594, this, i, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i, messageListener) == null) || messageListener == null) {
             return;
         }
-        if (n.B()) {
+        if (oi.B()) {
             registerListenerInternal(i, messageListener);
         } else {
             this.mUIHandler.post(new Runnable(this, i, messageListener) { // from class: com.baidu.adp.framework.MessageManager.7
@@ -1419,18 +1317,18 @@ public class MessageManager {
     public <T> CustomResponsedMessage<T> runTask(CustomMessageTask customMessageTask, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, customMessageTask, cls)) == null) ? this.mCustomManager.z(null, customMessageTask, cls) : (CustomResponsedMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, customMessageTask, cls)) == null) ? this.mCustomManager.z(null, customMessageTask, cls) : (CustomResponsedMessage) invokeLL.objValue;
     }
 
     public <T> CustomResponsedMessage<T> runTask(CustomMessage<?> customMessage, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, customMessage, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, customMessage, cls)) == null) {
             if (customMessage == null) {
                 return null;
             }
-            a aVar = this.mCustomManager;
-            return aVar.z(customMessage, aVar.g(customMessage.getCmd()), cls);
+            za zaVar = this.mCustomManager;
+            return zaVar.z(customMessage, zaVar.g(customMessage.getCmd()), cls);
         }
         return (CustomResponsedMessage) invokeLL.objValue;
     }
@@ -1438,7 +1336,7 @@ public class MessageManager {
     public boolean sendMessage(NetMessage netMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, netMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, netMessage)) == null) {
             if (netMessage == null) {
                 return false;
             }
@@ -1448,15 +1346,15 @@ public class MessageManager {
             if (netMessage.getNetType() == NetMessage.NetType.HTTP) {
                 return sendMessage(netMessage.getHttpMessage());
             }
-            boolean v = getSocketClient().v();
-            if (!v) {
+            boolean u = getSocketClient().u();
+            if (!u) {
                 netMessage.setSocketErrNo(1);
             }
-            if (v && sendMessage(netMessage.getSocketMessage())) {
-                c.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+            if (u && sendMessage(netMessage.getSocketMessage())) {
+                ba.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
                 return true;
             }
-            c.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+            ba.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
             return sendMessage(netMessage.getHttpMessage());
         }
         return invokeL.booleanValue;
@@ -1465,7 +1363,7 @@ public class MessageManager {
     public boolean sendMessage(NetMessage netMessage, SocketMessageTask socketMessageTask, HttpMessageTask httpMessageTask) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048615, this, netMessage, socketMessageTask, httpMessageTask)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048609, this, netMessage, socketMessageTask, httpMessageTask)) == null) {
             if (netMessage == null) {
                 return false;
             }
@@ -1475,15 +1373,15 @@ public class MessageManager {
             if (netMessage.getNetType() == NetMessage.NetType.HTTP) {
                 return sendMessage(netMessage.getHttpMessage(), httpMessageTask);
             }
-            boolean v = getSocketClient().v();
-            if (!v) {
+            boolean u = getSocketClient().u();
+            if (!u) {
                 netMessage.setSocketErrNo(1);
             }
-            if (v && sendMessage(netMessage.getSocketMessage(), socketMessageTask)) {
-                c.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
+            if (u && sendMessage(netMessage.getSocketMessage(), socketMessageTask)) {
+                ba.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "socket");
                 return true;
             }
-            c.a.d.c.e.c.i.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
+            ba.c(MODULE_NAME, netMessage.getSocketMessage(), 0, "sendMessage", 0, "https");
             return sendMessage(netMessage.getHttpMessage(), httpMessageTask);
         }
         return invokeLLL.booleanValue;
@@ -1492,20 +1390,20 @@ public class MessageManager {
     public boolean sendMessage(Message<?> message, MessageTask messageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, message, messageTask)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, message, messageTask)) == null) {
             if (message == null) {
                 return false;
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
-                c.a.d.b.a.a.h("Request_Http", message);
+                k9.h("Request_Http", message);
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
-                c.a.d.b.a.a.h("Request_Socket", message);
+                k9.h("Request_Socket", message);
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
                 return this.mCustomManager.c((CustomMessage) message, (CustomMessageTask) messageTask);
             } else {
-                BdLog.e("message and task invalid:" + c.a.d.c.a.a().b(message.getCmd()));
+                BdLog.e("message and task invalid:" + n9.a().b(message.getCmd()));
                 return false;
             }
         }

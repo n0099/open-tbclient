@@ -7,9 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.g;
-import c.a.d.f.p.n;
-import c.a.o0.r.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,7 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+import com.repackage.rg;
+import com.repackage.tm4;
+/* loaded from: classes3.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class MorePopupWindow extends PopupWindow {
     public int mWindowHeight;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
+    public MorePopupWindow(Activity activity, View view2, View view3, Drawable drawable, KeyEventDealContainerView.a aVar) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view, view2, drawable, aVar};
+            Object[] objArr = {activity, view2, view3, drawable, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,29 +61,29 @@ public class MorePopupWindow extends PopupWindow {
         this.mContentView = null;
         this.mPadding_10 = 0;
         this.mIsIntercepted = false;
-        this.mHostView = view2;
-        init(activity, view, drawable, aVar);
+        this.mHostView = view3;
+        init(activity, view2, drawable, aVar);
     }
 
-    private void applaySkin(c cVar, int i, Drawable drawable) {
+    private void applaySkin(tm4 tm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, cVar, i, drawable) == null) || this.mContentView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65539, this, tm4Var, i, drawable) == null) || this.mContentView == null) {
             return;
         }
         setBackgroundDrawable(drawable);
-        cVar.k(i == 1);
+        tm4Var.k(i == 1);
         try {
-            cVar.j(this.mContentView);
-        } catch (IllegalArgumentException e2) {
-            BdLog.e(e2.toString());
+            tm4Var.j(this.mContentView);
+        } catch (IllegalArgumentException e) {
+            BdLog.e(e.toString());
         }
     }
 
-    private void init(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {
+    private void init(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, view, drawable, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, view2, drawable, aVar) == null) {
             this.mActivity = activity;
-            this.mContentView = view;
+            this.mContentView = view2;
             KeyEventDealContainerView keyEventDealContainerView = new KeyEventDealContainerView(activity, this.mContentView, aVar);
             this.mContainer = keyEventDealContainerView;
             setContentView(keyEventDealContainerView);
@@ -109,7 +109,7 @@ public class MorePopupWindow extends PopupWindow {
 
     public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseActivity, i, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, baseActivity, i, drawable) == null) {
             applaySkin(baseActivity.getLayoutMode(), i, drawable);
         }
     }
@@ -125,19 +125,19 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void refresh() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (view = this.mContentView) == null || this.mActivity == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (view2 = this.mContentView) == null || this.mActivity == null) {
             return;
         }
-        view.measure(0, 0);
+        view2.measure(0, 0);
         int measuredWidth = this.mContentView.getMeasuredWidth();
         int measuredHeight = this.mContentView.getMeasuredHeight();
         setWidth(measuredWidth);
         int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
         this.mWindowHeight = dimension;
         setHeight(dimension);
-        int[] p = n.p(this.mActivity);
+        int[] p = oi.p(this.mActivity);
         if (p != null && p.length > 1 && p[0] > measuredWidth) {
             this.mShowRightTopXOff = p[0] - measuredWidth;
         }
@@ -155,7 +155,7 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k = n.k(context);
+            int k = oi.k(context);
             this.mContentView.getLayoutParams().width = k;
             setWidth(k);
         }
@@ -172,25 +172,25 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (isShowing()) {
-                g.d(this, this.mActivity);
+                rg.d(this, this.mActivity);
                 return;
             }
-            View view = this.mHostView;
-            if (view == null) {
+            View view2 = this.mHostView;
+            if (view2 == null) {
                 return;
             }
-            g.l(this, view, i, i2);
+            rg.l(this, view2, i, i2);
         }
     }
 
-    public void showWindowInLeftCenterOfHost(View view, boolean z) {
+    public void showWindowInLeftCenterOfHost(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) {
-            setAnimationStyle(R.style.obfuscated_res_0x7f1003cb);
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003cc);
             setFocusable(z);
             int i = this.mShowLeftCenterXOff;
             int i2 = this.mWindowHeight;
-            g.l(this, view, i, (-i2) + ((i2 - view.getHeight()) / 2));
+            rg.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
         }
     }
 
@@ -198,28 +198,28 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (isShowing()) {
-                g.d(this, this.mActivity);
+                rg.d(this, this.mActivity);
                 return;
             }
-            View view = this.mHostView;
-            if (view == null) {
+            View view2 = this.mHostView;
+            if (view2 == null) {
                 return;
             }
-            g.l(this, view, this.mShowRightTopXOff, 0);
+            rg.l(this, view2, this.mShowRightTopXOff, 0);
         }
     }
 
     public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, baseFragmentActivity, i, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseFragmentActivity, i, drawable) == null) {
             applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
         }
     }
 
-    public void onChangeSkinType(c cVar, int i, Drawable drawable) {
+    public void onChangeSkinType(tm4 tm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, cVar, i, drawable) == null) {
-            applaySkin(cVar, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, tm4Var, i, drawable) == null) {
+            applaySkin(tm4Var, i, drawable);
         }
     }
 
@@ -227,25 +227,25 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             if (isShowing()) {
-                g.d(this, this.mActivity);
+                rg.d(this, this.mActivity);
                 return;
             }
-            View view = this.mHostView;
-            if (view == null) {
+            View view2 = this.mHostView;
+            if (view2 == null) {
                 return;
             }
-            g.l(this, view, this.mShowRightTopXOff - i, 0);
+            rg.l(this, view2, this.mShowRightTopXOff - i, 0);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MorePopupWindow(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {
+    public MorePopupWindow(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view, drawable, aVar};
+            Object[] objArr = {activity, view2, drawable, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -264,7 +264,7 @@ public class MorePopupWindow extends PopupWindow {
         this.mContentView = null;
         this.mPadding_10 = 0;
         this.mIsIntercepted = false;
-        init(activity, view, drawable, aVar);
+        init(activity, view2, drawable, aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

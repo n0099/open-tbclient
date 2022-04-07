@@ -30,37 +30,23 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28517b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f28518c = "android.support.FILE_PROVIDER_PATHS";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f28519d = "root-path";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f28520e = "files-path";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f28521f = "cache-path";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f28522g = "external-path";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f28523h = "name";
+    public static final String[] b;
+    public static final String c = "android.support.FILE_PROVIDER_PATHS";
+    public static final String d = "root-path";
+    public static final String e = "files-path";
+    public static final String f = "cache-path";
+    public static final String g = "external-path";
+    public static final String h = "name";
     public static final String i = "path";
     public static final File j;
     public static HashMap<String, a> k;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         Uri a(File file);
 
@@ -80,7 +66,7 @@ public class FileProvider extends ContentProvider {
                 return;
             }
         }
-        f28517b = new String[]{"_display_name", "_size"};
+        b = new String[]{"_display_name", "_size"};
         j = new File("/");
         k = new HashMap<>();
     }
@@ -243,7 +229,7 @@ public class FileProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File a2 = this.a.a(uri);
             if (strArr == null) {
-                strArr = f28517b;
+                strArr = b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
@@ -279,14 +265,12 @@ public class FileProvider extends ContentProvider {
         return invokeLLLL.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f28524b;
+        public final HashMap<String, File> b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -303,7 +287,7 @@ public class FileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.f28524b = new HashMap<>();
+            this.b = new HashMap<>();
             this.a = str;
         }
 
@@ -312,10 +296,10 @@ public class FileProvider extends ContentProvider {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.f28524b.put(str, file.getCanonicalFile());
+                        this.b.put(str, file.getCanonicalFile());
                         return;
-                    } catch (IOException e2) {
-                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
                     }
                 }
                 throw new IllegalArgumentException("Name must not be empty");
@@ -331,7 +315,7 @@ public class FileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f28524b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -363,7 +347,7 @@ public class FileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f28524b.get(decode);
+                File file = this.b.get(decode);
                 if (file != null) {
                     File file2 = new File(file, decode2);
                     try {

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.Nullable;
-import c.a.a0.v.d;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wp0;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -101,9 +101,9 @@ public class NetUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            NetworkInfo b2 = b();
-            if (b2 != null) {
-                if (1 == b2.getType()) {
+            NetworkInfo b = b();
+            if (b != null) {
+                if (1 == b.getType()) {
                     return NetStatus.NET_WIFI;
                 }
                 return NetStatus.NET_MOBILE;
@@ -120,8 +120,8 @@ public class NetUtils {
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b2 = d.b();
-            if (b2 == null || (connectivityManager = (ConnectivityManager) b2.getSystemService("connectivity")) == null) {
+            Context b = wp0.b();
+            if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
                 return null;
             }
             try {
@@ -137,11 +137,11 @@ public class NetUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo b2 = b();
-            if (b2 == null) {
+            NetworkInfo b = b();
+            if (b == null) {
                 return false;
             }
-            return "wifi".equals(b2.getTypeName().toLowerCase(Locale.getDefault()));
+            return "wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
         }
         return invokeV.booleanValue;
     }

@@ -8,11 +8,6 @@ import android.view.View;
 import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import c.a.d.f.p.l;
-import c.a.d.f.p.m;
-import c.a.o0.f0.g;
-import c.a.o0.f0.h;
-import c.a.o0.r.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -31,26 +26,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cm4;
+import com.repackage.dr4;
+import com.repackage.g45;
+import com.repackage.h45;
+import com.repackage.mi;
+import com.repackage.ni;
+import com.repackage.vl4;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String MODIFY_NICKNAME_URL;
-    public c.a.o0.r.t.a mDialog;
+    public dr4 mDialog;
     public boolean mLoadSuccess;
-    public g mLoadingView;
+    public g45 mLoadingView;
     public NavigationBar mNavigationBar;
     public TbPageContext<EditNickNameActivity> mPageContext;
-    public h mRefreshView;
+    public h45 mRefreshView;
     public View mRootView;
     public int mType;
     public String mUrl;
     public BaseWebView mWebView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,15 +77,15 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.onBackClick();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,16 +110,16 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.reloadPage();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements a.e {
+    /* loaded from: classes3.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditNickNameActivity a;
@@ -140,18 +142,18 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             this.a = editNickNameActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.onSaveClick();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements a.e {
+    /* loaded from: classes3.dex */
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditNickNameActivity a;
@@ -174,17 +176,17 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             this.a = editNickNameActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.goBackOrFinish(null);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,7 +220,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     this.a.mNavigationBar.setCenterTextTitle(title);
                 }
                 this.a.hideLoadingView();
-                if (l.z()) {
+                if (mi.z()) {
                     this.a.showNormalView();
                     this.a.mLoadSuccess = true;
                 }
@@ -248,7 +250,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                c.a.o0.l.h.a("EditNickNameActivity", webView);
+                cm4.a("EditNickNameActivity", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -338,14 +340,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ae5);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09244a);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ad5);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092425);
             this.mWebView = baseWebView;
             baseWebView.setWebViewClient(new e(this, null));
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
             if (this.mType == 0) {
-                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ac6));
+                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ac8));
             }
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
@@ -355,7 +357,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
-            String urlDecode = m.getUrlDecode(str);
+            String urlDecode = ni.getUrlDecode(str);
             if (urlDecode.contains(UrlSchemaHelper.SCHEMA_TYPE_MODIFY_NAME) && urlDecode.contains("data=")) {
                 try {
                     JSONObject jSONObject = new JSONObject(urlDecode.substring(urlDecode.indexOf("data=") + 5));
@@ -408,11 +410,11 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             if (this.mDialog == null) {
-                c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getActivity());
-                this.mDialog = aVar;
-                aVar.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ac9));
-                this.mDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f105d, new c(this));
-                this.mDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new d(this));
+                dr4 dr4Var = new dr4(getActivity());
+                this.mDialog = dr4Var;
+                dr4Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0acb));
+                this.mDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f1065, new c(this));
+                this.mDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(this));
                 this.mDialog.create(getPageContext());
             }
             this.mDialog.show();
@@ -420,12 +422,12 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     public void hideLoadingView() {
-        g gVar;
+        g45 g45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.mLoadingView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (g45Var = this.mLoadingView) == null) {
             return;
         }
-        gVar.dettachView(this.mRootView);
+        g45Var.dettachView(this.mRootView);
         this.mLoadingView = null;
     }
 
@@ -456,9 +458,9 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (TextUtils.isEmpty(stringExtra)) {
                 this.mUrl = "https://tieba.baidu.com/n/interact/modifyname";
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0251);
+            setContentView(R.layout.obfuscated_res_0x7f0d0252);
             initView();
-            c.a.o0.l.a.f(getApplicationContext());
+            vl4.f(getApplicationContext());
         }
     }
 
@@ -493,35 +495,35 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tbPageContext = this.mPageContext) == null || this.mRootView == null) {
             return;
         }
-        g gVar = new g(tbPageContext.getPageActivity());
-        this.mLoadingView = gVar;
-        gVar.attachView(this.mRootView, false);
+        g45 g45Var = new g45(tbPageContext.getPageActivity());
+        this.mLoadingView = g45Var;
+        g45Var.attachView(this.mRootView, false);
         this.mLoadingView.onChangeSkinType();
     }
 
     public void showNetRefreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c15);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18);
             if (this.mRefreshView == null) {
-                h hVar = new h(this.mPageContext.getPageActivity(), new b(this));
-                this.mRefreshView = hVar;
-                hVar.onChangeSkinType();
+                h45 h45Var = new h45(this.mPageContext.getPageActivity(), new b(this));
+                this.mRefreshView = h45Var;
+                h45Var.onChangeSkinType();
             }
             this.mWebView.setVisibility(8);
             this.mRefreshView.m(string);
             this.mRefreshView.attachView(this.mRootView, false);
             this.mRefreshView.p();
-            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028b));
+            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070295));
         }
     }
 
     public void showNormalView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            h hVar = this.mRefreshView;
-            if (hVar != null) {
-                hVar.dettachView(this.mRootView);
+            h45 h45Var = this.mRefreshView;
+            if (h45Var != null) {
+                h45Var.dettachView(this.mRootView);
                 this.mRefreshView = null;
             }
             this.mWebView.setVisibility(0);

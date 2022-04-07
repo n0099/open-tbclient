@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +25,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -50,7 +50,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View mTopCorner;
     public View.OnClickListener onClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,12 +75,12 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.a.mBack) {
-                    if (view != this.a.mGoPublishButton) {
-                        if (view == this.a.mGotItButton) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 != this.a.mBack) {
+                    if (view2 != this.a.mGoPublishButton) {
+                        if (view2 == this.a.mGotItButton) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
@@ -128,13 +128,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int f2 = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.mHeaderContainer.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
-                    ((LinearLayout.LayoutParams) layoutParams).height = f2;
+                    ((LinearLayout.LayoutParams) layoutParams).height = f;
                     ViewGroup.LayoutParams layoutParams2 = this.mGradientView.getLayoutParams();
                     if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                        ((RelativeLayout.LayoutParams) layoutParams2).height = f2;
+                        ((RelativeLayout.LayoutParams) layoutParams2).height = f;
                     }
                 }
             }
@@ -170,35 +170,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0499);
-            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091916);
-            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091921);
-            this.mGradientView = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091917);
-            this.mGoPublishButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09191e);
-            this.mGotItButton = findViewById(R.id.obfuscated_res_0x7f09191f);
-            this.mBottomView = findViewById(R.id.obfuscated_res_0x7f0903e3);
-            this.mProfessionDesc = findViewById(R.id.obfuscated_res_0x7f09191a);
+            setContentView(R.layout.obfuscated_res_0x7f0d0494);
+            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091909);
+            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091914);
+            this.mGradientView = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f09190a);
+            this.mGoPublishButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091911);
+            this.mGotItButton = findViewById(R.id.obfuscated_res_0x7f091912);
+            this.mBottomView = findViewById(R.id.obfuscated_res_0x7f0903ed);
+            this.mProfessionDesc = findViewById(R.id.obfuscated_res_0x7f09190d);
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onClickListener);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0edb));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091919);
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0edf));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09190c);
             this.mBackgroundContent = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.mBackgroundContent.setDefaultResource(R.drawable.obfuscated_res_0x7f080efd);
-            this.mContainer = findViewById(R.id.obfuscated_res_0x7f091918);
-            this.mTopCorner = findViewById(R.id.obfuscated_res_0x7f091925);
-            this.mFirstIndex = findViewById(R.id.obfuscated_res_0x7f09191b);
-            this.mFirstIntro = findViewById(R.id.obfuscated_res_0x7f09191c);
-            this.mFirstTitle = findViewById(R.id.obfuscated_res_0x7f09191d);
-            this.mSecondIndex = findViewById(R.id.obfuscated_res_0x7f091922);
-            this.mSecondIntro = findViewById(R.id.obfuscated_res_0x7f091923);
-            this.mSecondTitle = findViewById(R.id.obfuscated_res_0x7f091924);
+            this.mBackgroundContent.setDefaultResource(R.drawable.obfuscated_res_0x7f080f07);
+            this.mContainer = findViewById(R.id.obfuscated_res_0x7f09190b);
+            this.mTopCorner = findViewById(R.id.obfuscated_res_0x7f091918);
+            this.mFirstIndex = findViewById(R.id.obfuscated_res_0x7f09190e);
+            this.mFirstIntro = findViewById(R.id.obfuscated_res_0x7f09190f);
+            this.mFirstTitle = findViewById(R.id.obfuscated_res_0x7f091910);
+            this.mSecondIndex = findViewById(R.id.obfuscated_res_0x7f091915);
+            this.mSecondIntro = findViewById(R.id.obfuscated_res_0x7f091916);
+            this.mSecondTitle = findViewById(R.id.obfuscated_res_0x7f091917);
             this.mGoPublishButton.setEnabled(true);
             this.mGoPublishButton.setOnClickListener(this.onClickListener);
             this.mGotItButton.setOnClickListener(this.onClickListener);
             handleNotchScreen();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.mGradientView.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-            this.mBackgroundContent.J(stringExtra, 10, false);
+            this.mBackgroundContent.K(stringExtra, 10, false);
         }
     }
 }

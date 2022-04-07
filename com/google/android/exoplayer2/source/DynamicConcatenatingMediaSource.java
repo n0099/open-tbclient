@@ -33,7 +33,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPlayer.ExoPlayerComponent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_ADD = 0;
@@ -54,7 +54,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
     public ShuffleOrder shuffleOrder;
     public int windowCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DeferredMediaPeriod implements MediaPeriod, MediaPeriod.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -330,7 +330,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +364,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MediaSourceHolder implements Comparable<MediaSourceHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +406,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MessageData<CustomType> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -820,7 +820,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         this.query = new MediaSourceHolder(null, null, -1, -1, -1);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DeferredTimeline extends Timeline {
         public static /* synthetic */ Interceptable $ic;
         public static final Object DUMMY_ID;

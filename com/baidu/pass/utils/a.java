@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ float a;
 
-    public a(float f2) {
+    public a(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2)};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,23 +29,23 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = f2;
+        this.a = f;
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if ((action == 1 || action == 3) && Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(1.0f);
+                    view2.setAlpha(1.0f);
                     return false;
                 }
                 return false;
             } else if (Build.VERSION.SDK_INT >= 11) {
-                view.setAlpha(this.a);
+                view2.setAlpha(this.a);
                 return false;
             } else {
                 return false;

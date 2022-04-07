@@ -17,7 +17,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AesFlushingCipher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public final class AesFlushingCipher {
             if (i4 != 0) {
                 updateInPlace(new byte[i4], 0, i4);
             }
-        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException e2) {
-            throw new RuntimeException(e2);
+        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -71,8 +71,8 @@ public final class AesFlushingCipher {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)})) == null) {
             try {
                 return this.cipher.update(bArr, i, i2, bArr2, i3);
-            } catch (ShortBufferException e2) {
-                throw new RuntimeException(e2);
+            } catch (ShortBufferException e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeCommon.intValue;

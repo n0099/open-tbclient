@@ -11,31 +11,27 @@ import com.kuaishou.weapon.adsdk.DeviceInfo;
 import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class bg {
     public static boolean a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f41383b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final List<com.kwad.sdk.core.request.model.a> f41384c = new ArrayList();
+    public static boolean b;
+    public static final List<com.kwad.sdk.core.request.model.a> c = new ArrayList();
 
     public static List<com.kwad.sdk.core.request.model.a> a(Context context, int i) {
         WifiManager wifiManager;
         if (ao.k()) {
             return new ArrayList();
         }
-        if (f41383b || !a || !f41384c.isEmpty() || context == null) {
-            return f41384c;
+        if (b || !a || !c.isEmpty() || context == null) {
+            return c;
         }
         if (com.kwad.sdk.core.config.b.a(32L)) {
-            return f41384c;
+            return c;
         }
         try {
-        } catch (Exception e2) {
-            f41383b = true;
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            b = true;
+            com.kwad.sdk.core.d.a.b(e);
         }
         if (!a(context) && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null) {
             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
@@ -43,22 +39,22 @@ public class bg {
             if (wifiScanResults != null) {
                 for (ScanResult scanResult : wifiScanResults) {
                     com.kwad.sdk.core.request.model.a aVar = new com.kwad.sdk.core.request.model.a();
-                    aVar.f39810b = scanResult.SSID;
-                    aVar.f39811c = scanResult.BSSID;
+                    aVar.b = scanResult.SSID;
+                    aVar.c = scanResult.BSSID;
                     aVar.a = scanResult.level;
                     if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
-                        f41384c.add(aVar);
+                        c.add(aVar);
                     } else {
-                        f41384c.add(0, aVar);
+                        c.add(0, aVar);
                     }
-                    if (f41384c.size() >= i) {
-                        return f41384c;
+                    if (c.size() >= i) {
+                        return c;
                     }
                 }
             }
-            return f41384c;
+            return c;
         }
-        return f41384c;
+        return c;
     }
 
     public static void a(SdkConfig sdkConfig) {

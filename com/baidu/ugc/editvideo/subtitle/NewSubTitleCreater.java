@@ -13,8 +13,6 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.f;
-import c.a.v0.r.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,13 +25,15 @@ import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.mc9;
+import com.repackage.wb9;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NewSubTitleCreater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class NewSubTitleCreater {
     public String savePath;
 
     /* renamed from: com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater$2  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Paint$Align;
         public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class NewSubTitleCreater {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface SubtitleCreaterCallBack {
         void onSubtitleBitmapCreated();
     }
@@ -153,7 +153,7 @@ public class NewSubTitleCreater {
                 if (i2 > 0 && (i = subTitleUnit.height) > 0) {
                     Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
                     Canvas canvas = new Canvas(createBitmap);
-                    f.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
+                    wb9.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
                     int i3 = 0;
                     if (!TextUtils.isEmpty(subTitleUnit.line)) {
                         SubTitleConfig.StrokeConfig strokeConfig = subTitleUnit.chineseStrokeConfig;
@@ -192,7 +192,7 @@ public class NewSubTitleCreater {
         InterceptResult invokeLLL;
         float measureText;
         int i;
-        int[] d2;
+        int[] d;
         int i2;
         int i3;
         SubTitleConfig.StrokeConfig strokeConfig;
@@ -207,7 +207,7 @@ public class NewSubTitleCreater {
             if (shadowConfig != null) {
                 textPaint.setShadowLayer(shadowConfig.shadowRadius, shadowConfig.shadowDx, shadowConfig.shadowDy, subTitleUnit.chineseShadowColor);
             }
-            f.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+            wb9.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
             textPaint.setFakeBoldText(subTitleUnit.isChineseBold == 1);
             textPaint.setTextSkewX(subTitleUnit.isChineseItalic == 1 ? -0.5f : 0.0f);
             Typeface typeface = subTitleUnit.chineseTypeface;
@@ -219,34 +219,34 @@ public class NewSubTitleCreater {
             textPaint.setColor(subTitleUnit.textColor);
             textPaint.setTextSize(subTitleUnit.textSize);
             if (style == Paint.Style.STROKE && (strokeConfig = subTitleUnit.chineseStrokeConfig) != null) {
-                float f2 = strokeConfig.strokeWidth;
-                if (f2 > 0.0f) {
-                    textPaint.setStrokeWidth(f2);
+                float f = strokeConfig.strokeWidth;
+                if (f > 0.0f) {
+                    textPaint.setStrokeWidth(f);
                     textPaint.setColor(subTitleUnit.chineseStrokeConfig.strokeColor);
                 }
             }
-            int g2 = f.g(textPaint);
+            int g = wb9.g(textPaint);
             int i5 = subTitleUnit.padding;
             int i6 = subTitleUnit.backgroudPaddingLeft;
-            int abs = (g2 / 2) + ((int) (Math.abs(textPaint.ascent() + textPaint.descent()) / 2.0f)) + subTitleUnit.padding + subTitleUnit.backgroudPaddingTop;
+            int abs = (g / 2) + ((int) (Math.abs(textPaint.ascent() + textPaint.descent()) / 2.0f)) + subTitleUnit.padding + subTitleUnit.backgroudPaddingTop;
             int i7 = 0;
             while (i7 < this.mLineCount) {
                 int i8 = subTitleUnit.padding;
                 int i9 = subTitleUnit.backgroudPaddingTop;
-                int i10 = (g2 * i7) + i8 + i9;
+                int i10 = (g * i7) + i8 + i9;
                 int i11 = i7 + 1;
-                int i12 = i8 + (g2 * i11) + i9;
+                int i12 = i8 + (g * i11) + i9;
                 int i13 = AnonymousClass2.$SwitchMap$android$graphics$Paint$Align[subTitleUnit.textGravity.ordinal()];
                 if (i13 == i4) {
                     measureText = (subTitleUnit.width - textPaint.measureText(this.mTextContents.get(i7))) - subTitleUnit.padding;
                 } else if (i13 != 3) {
                     i = subTitleUnit.padding + subTitleUnit.backgroudPaddingLeft;
                     int i14 = i;
-                    d2 = f.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                    d = wb9.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                     int i15 = i7;
                     int i16 = abs;
-                    f.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
-                    if (d2[0] == 0) {
+                    wb9.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                    if (d[0] == 0) {
                         i2 = i14;
                         i3 = i16;
                         canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint2);
@@ -254,11 +254,11 @@ public class NewSubTitleCreater {
                         i2 = i14;
                         i3 = i16;
                     }
-                    if (d2[1] == 0) {
+                    if (d[1] == 0) {
                         canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint3);
                     }
                     canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint);
-                    abs = i3 + g2;
+                    abs = i3 + g;
                     i7 = i11;
                     i4 = 1;
                 } else {
@@ -266,16 +266,16 @@ public class NewSubTitleCreater {
                 }
                 i = (int) measureText;
                 int i142 = i;
-                d2 = f.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                d = wb9.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 int i152 = i7;
                 int i162 = abs;
-                f.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
-                if (d2[0] == 0) {
+                wb9.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                if (d[0] == 0) {
                 }
-                if (d2[1] == 0) {
+                if (d[1] == 0) {
                 }
                 canvas.drawText(this.mTextContents.get(i152), i2, i3, textPaint);
-                abs = i3 + g2;
+                abs = i3 + g;
                 i7 = i11;
                 i4 = 1;
             }
@@ -306,9 +306,9 @@ public class NewSubTitleCreater {
                 textPaint.setTypeface(typeface);
             }
             if (style == Paint.Style.STROKE && (strokeConfig = subTitleUnit.engStrokeConfig) != null) {
-                float f2 = strokeConfig.strokeWidth;
-                if (f2 > 0.0f) {
-                    textPaint.setStrokeWidth(f2);
+                float f = strokeConfig.strokeWidth;
+                if (f > 0.0f) {
+                    textPaint.setStrokeWidth(f);
                     textPaint.setColor(subTitleUnit.engStrokeConfig.strokeColor);
                 }
             }
@@ -358,10 +358,10 @@ public class NewSubTitleCreater {
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             SubTitleConfig subTitleConfig = this.mSubTitleConfig;
             if (subTitleConfig != null) {
-                float f2 = subTitleConfig.mScale;
-                return (int) ((subTitleConfig.mVideoWidth - (subTitleConfig.mMinLeftPadding / f2)) - (subTitleConfig.mMinRightPadding / f2));
+                float f = subTitleConfig.mScale;
+                return (int) ((subTitleConfig.mVideoWidth - (subTitleConfig.mMinLeftPadding / f)) - (subTitleConfig.mMinRightPadding / f));
             }
-            return (int) (v.e() * 0.8d);
+            return (int) (mc9.e() * 0.8d);
         }
         return invokeV.intValue;
     }
@@ -386,10 +386,10 @@ public class NewSubTitleCreater {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (i2 - (i4 / 2)) - i5} : (int[]) invokeCommon.objValue;
     }
 
-    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, float f2) {
+    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (int) ((i2 * f2) - (i4 / 2))} : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (int) ((i2 * f) - (i4 / 2))} : (int[]) invokeCommon.objValue;
     }
 
     private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, int i5) {
@@ -408,9 +408,9 @@ public class NewSubTitleCreater {
         InterceptResult invokeL;
         float abs;
         float abs2;
+        float f;
         float f2;
         float f3;
-        float f4;
         SubTitleConfig subTitleConfig;
         int i;
         float abs3;
@@ -423,7 +423,7 @@ public class NewSubTitleCreater {
             TextPaint textPaint = new TextPaint(1);
             textPaint.setStyle(Paint.Style.FILL);
             SubTitleConfig.ShadowConfig shadowConfig = subTitleUnit.chineseShadowConfig;
-            float f5 = 2.0f;
+            float f4 = 2.0f;
             if (shadowConfig == null) {
                 textPaint.setShadowLayer(2.0f, 0.0f, 2.0f, subTitleUnit.chineseShadowColor);
                 abs = 2.0f;
@@ -456,7 +456,7 @@ public class NewSubTitleCreater {
                     abs3 = 2.0f;
                 } else {
                     textPaint2.setShadowLayer(shadowConfig2.shadowRadius, shadowConfig2.shadowDx, shadowConfig2.shadowDy, subTitleUnit.engShadowColor);
-                    f5 = Math.abs(subTitleUnit.engShadowConfig.shadowDx);
+                    f4 = Math.abs(subTitleUnit.engShadowConfig.shadowDx);
                     abs3 = Math.abs(subTitleUnit.engShadowConfig.shadowDy);
                 }
                 textPaint2.setFakeBoldText(subTitleUnit.isEngBold == 1);
@@ -465,49 +465,49 @@ public class NewSubTitleCreater {
                 if (typeface2 != null) {
                     textPaint2.setTypeface(typeface2);
                 }
-                float measureText2 = textPaint2.measureText(subTitleUnit.engLine) + f5 + (subTitleUnit.padding * 2);
+                float measureText2 = textPaint2.measureText(subTitleUnit.engLine) + f4 + (subTitleUnit.padding * 2);
                 if (measureText2 > measureText) {
                     measureText = measureText2 > ((float) getMaxSubtitleWidth()) ? getMaxSubtitleWidth() : measureText2;
                 }
                 if (measureText > 0.0f) {
                     String str = subTitleUnit.engLine;
                     int i2 = subTitleUnit.padding;
-                    f2 = measureText;
-                    f3 = getMeasuredStaticLayout(str, textPaint2, (int) ((measureText - f5) - (i2 * 2)), this.mSubTitleConfig.maxEngLineNum, Layout.Alignment.ALIGN_CENTER, i2).getHeight() + abs3;
-                    if (f2 <= 0.0f) {
-                        StaticLayout measuredStaticLayout = getMeasuredStaticLayout(subTitleUnit.line, textPaint, (int) ((f2 - abs) - (i * 2)), this.mSubTitleConfig.maxChineseLineNum, Layout.Alignment.ALIGN_CENTER, subTitleUnit.padding);
-                        f4 = measuredStaticLayout.getHeight() + abs2;
+                    f = measureText;
+                    f2 = getMeasuredStaticLayout(str, textPaint2, (int) ((measureText - f4) - (i2 * 2)), this.mSubTitleConfig.maxEngLineNum, Layout.Alignment.ALIGN_CENTER, i2).getHeight() + abs3;
+                    if (f <= 0.0f) {
+                        StaticLayout measuredStaticLayout = getMeasuredStaticLayout(subTitleUnit.line, textPaint, (int) ((f - abs) - (i * 2)), this.mSubTitleConfig.maxChineseLineNum, Layout.Alignment.ALIGN_CENTER, subTitleUnit.padding);
+                        f3 = measuredStaticLayout.getHeight() + abs2;
                         this.mLineCount = measuredStaticLayout.getLineCount();
                         int i3 = 0;
                         for (int i4 = 0; i4 < this.mLineCount; i4++) {
                             int lineEnd = measuredStaticLayout.getLineEnd(i4);
                             if (lineEnd != 0) {
                                 this.mTextContents.add(subTitleUnit.line.substring(i3, lineEnd));
-                                f2 = Math.max(f2, textPaint.measureText(this.mTextContents.get(i4)) + abs + (subTitleUnit.padding * 2));
+                                f = Math.max(f, textPaint.measureText(this.mTextContents.get(i4)) + abs + (subTitleUnit.padding * 2));
                                 i3 = lineEnd;
                             }
                         }
                     } else {
-                        f4 = 0.0f;
+                        f3 = 0.0f;
                     }
-                    iArr[0] = (int) f2;
-                    float f6 = f4 + (subTitleUnit.padding * 2);
-                    if (f3 != 0.0f) {
-                        f6 += (subTitleConfig.mLinePadding / this.mSubTitleConfig.mScale) + f3;
+                    iArr[0] = (int) f;
+                    float f5 = f3 + (subTitleUnit.padding * 2);
+                    if (f2 != 0.0f) {
+                        f5 += (subTitleConfig.mLinePadding / this.mSubTitleConfig.mScale) + f2;
                     }
-                    iArr[1] = (int) f6;
+                    iArr[1] = (int) f5;
                     return iArr;
                 }
             }
-            f2 = measureText;
-            f3 = 0.0f;
-            if (f2 <= 0.0f) {
+            f = measureText;
+            f2 = 0.0f;
+            if (f <= 0.0f) {
             }
-            iArr[0] = (int) f2;
-            float f62 = f4 + (subTitleUnit.padding * 2);
-            if (f3 != 0.0f) {
+            iArr[0] = (int) f;
+            float f52 = f3 + (subTitleUnit.padding * 2);
+            if (f2 != 0.0f) {
             }
-            iArr[1] = (int) f62;
+            iArr[1] = (int) f52;
             return iArr;
         }
         return (int[]) invokeL.objValue;
@@ -585,18 +585,18 @@ public class NewSubTitleCreater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, subTitleUnit) == null) {
             int[] subtileWH = getSubtileWH(subTitleUnit);
-            Bitmap a = f.a(subTitleUnit.mTextStyleEntity);
+            Bitmap a = wb9.a(subTitleUnit.mTextStyleEntity);
             this.mNineBitmap = a;
-            NinePatchChunk f2 = f.f(a, subTitleUnit.mTextStyleEntity);
-            this.mNinePatchChunk = f2;
+            NinePatchChunk f = wb9.f(a, subTitleUnit.mTextStyleEntity);
+            this.mNinePatchChunk = f;
             int i = subtileWH[0];
             subTitleUnit.width = i;
             int i2 = subtileWH[1];
             subTitleUnit.height = i2;
             subTitleUnit.backgroudPaddingLeft = 0;
             subTitleUnit.backgroudPaddingTop = 0;
-            if (f2 != null) {
-                Rect rect = f2.padding;
+            if (f != null) {
+                Rect rect = f.padding;
                 int i3 = rect.left;
                 subTitleUnit.backgroudPaddingLeft = i3;
                 int i4 = rect.top;

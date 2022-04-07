@@ -51,8 +51,8 @@ public class MD5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 return hexdigest(str.getBytes());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -77,15 +77,15 @@ public class MD5 {
                 char[] cArr = new char[32];
                 int i = 0;
                 for (int i2 = 0; i2 < 16; i2++) {
-                    byte b2 = digest[i2];
+                    byte b = digest[i2];
                     int i3 = i + 1;
-                    cArr[i] = hexDigits[(b2 >>> 4) & 15];
+                    cArr[i] = hexDigits[(b >>> 4) & 15];
                     i = i3 + 1;
-                    cArr[i3] = hexDigits[b2 & 15];
+                    cArr[i3] = hexDigits[b & 15];
                 }
                 return new String(cArr);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

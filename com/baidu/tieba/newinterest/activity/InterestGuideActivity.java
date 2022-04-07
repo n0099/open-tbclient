@@ -1,8 +1,6 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.o0.r.j0.b;
-import c.a.p0.s2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -16,14 +14,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
+import com.repackage.xp7;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<Integer> mClassIds;
     public String[] mCustomTitle;
-    public a mGuideView;
+    public xp7 mGuideView;
     public boolean mOnlyShowInterestedForum;
     public int mScene;
 
@@ -56,14 +56,14 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = b.k().q("key_interest_guide_show", "");
+            String q = wt4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            b k = b.k();
+            wt4 k = wt4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            b.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            wt4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -96,9 +96,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             initData();
-            a aVar = new a(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
-            this.mGuideView = aVar;
-            setContentView(aVar.d());
+            xp7 xp7Var = new xp7(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
+            this.mGuideView = xp7Var;
+            setContentView(xp7Var.d());
             setInterestGuideConf();
         }
     }

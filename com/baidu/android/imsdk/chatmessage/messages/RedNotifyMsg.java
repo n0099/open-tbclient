@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RedNotifyMsg> CREATOR;
@@ -189,8 +189,8 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
                 this.mGrabTime = jSONObject.optLong("redpack_get_ts");
                 this.mLogoUrl = jSONObject.optString("logo");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }

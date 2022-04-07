@@ -18,16 +18,10 @@ import java.net.URL;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.a.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Boolean f42478b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f42479d;
+    public static Boolean b;
+    public static ConnectivityManager.NetworkCallback d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f42480c;
+    public HttpURLConnection c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f42478b = Boolean.valueOf(com.sdk.base.framework.c.f.f42567b);
+        b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
     }
 
     public a(Context context, URL url) {
@@ -66,10 +60,10 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f42479d = bVar;
+            d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
-        } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(a, e2.toString(), f42478b);
+        } catch (Exception e) {
+            com.sdk.base.framework.a.a.c.b(a, e.toString(), b);
         }
     }
 
@@ -79,7 +73,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c(this, 2000L);
             while (!cVar.a()) {
-                HttpURLConnection httpURLConnection = this.f42480c;
+                HttpURLConnection httpURLConnection = this.c;
                 if (httpURLConnection != null) {
                     return httpURLConnection;
                 }

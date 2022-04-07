@@ -9,29 +9,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f34353b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f34354c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f34355d;
+    public TextView b;
+    public ImageView c;
+    public View d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchSuggestCommonViewHolder(View view) {
-        super(view);
+    public SearchSuggestCommonViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,9 +36,9 @@ public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
-        this.f34353b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c48);
-        this.f34354c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f091c1c);
-        this.f34355d = view.findViewById(R.id.obfuscated_res_0x7f091c49);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091ade);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c37);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c0b);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091c38);
     }
 }

@@ -17,12 +17,12 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
     public final View mView;
     public ViewTreeObserver mViewTreeObserver;
 
-    public OneShotPreDrawListener(View view, Runnable runnable) {
+    public OneShotPreDrawListener(View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, runnable};
+            Object[] objArr = {view2, runnable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,21 +32,21 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
                 return;
             }
         }
-        this.mView = view;
-        this.mViewTreeObserver = view.getViewTreeObserver();
+        this.mView = view2;
+        this.mViewTreeObserver = view2.getViewTreeObserver();
         this.mRunnable = runnable;
     }
 
     @NonNull
-    public static OneShotPreDrawListener add(@NonNull View view, @NonNull Runnable runnable) {
+    public static OneShotPreDrawListener add(@NonNull View view2, @NonNull Runnable runnable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, view, runnable)) == null) {
-            if (view != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, view2, runnable)) == null) {
+            if (view2 != null) {
                 if (runnable != null) {
-                    OneShotPreDrawListener oneShotPreDrawListener = new OneShotPreDrawListener(view, runnable);
-                    view.getViewTreeObserver().addOnPreDrawListener(oneShotPreDrawListener);
-                    view.addOnAttachStateChangeListener(oneShotPreDrawListener);
+                    OneShotPreDrawListener oneShotPreDrawListener = new OneShotPreDrawListener(view2, runnable);
+                    view2.getViewTreeObserver().addOnPreDrawListener(oneShotPreDrawListener);
+                    view2.addOnAttachStateChangeListener(oneShotPreDrawListener);
                     return oneShotPreDrawListener;
                 }
                 throw new NullPointerException("runnable == null");
@@ -69,17 +69,17 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewAttachedToWindow(View view) {
+    public void onViewAttachedToWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.mViewTreeObserver = view.getViewTreeObserver();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.mViewTreeObserver = view2.getViewTreeObserver();
         }
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewDetachedFromWindow(View view) {
+    public void onViewDetachedFromWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             removeListener();
         }
     }

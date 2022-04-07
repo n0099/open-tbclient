@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 d a = c.a(new String[]{str}, false, true);
-                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.f44668b) || !a.f44668b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.b) || !a.b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "KWE_PE";

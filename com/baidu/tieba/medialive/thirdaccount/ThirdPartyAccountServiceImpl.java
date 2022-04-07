@@ -21,16 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public static /* synthetic */ Interceptable $ic;
     public static ThirdPartAccountService.LoginResultCallback a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ILoginListener f34422b;
+    public static final ILoginListener b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements SapiCallback<OAuthResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +72,8 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
             }
             try {
                 this.a.onResult(oAuthResult.accessToken);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -107,7 +105,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 return;
             }
         }
-        f34422b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
+        b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +191,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, loginResultCallback) == null) {
             LoginDialogData loginDialogData = new LoginDialogData(context, "");
-            loginDialogData.setLoginListener(f34422b);
+            loginDialogData.setLoginListener(b);
             DialogLoginHelper.checkUpIsLogin(loginDialogData);
             a = loginResultCallback;
         }

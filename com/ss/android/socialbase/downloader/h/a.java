@@ -5,12 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class a implements ThreadFactory {
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f43340b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final boolean f43341c;
+    public final AtomicInteger b;
+    public final boolean c;
 
     public a(String str) {
         this(str, false);
@@ -18,9 +14,9 @@ public class a implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        int incrementAndGet = this.f43340b.incrementAndGet();
+        int incrementAndGet = this.b.incrementAndGet();
         Thread thread = new Thread(runnable, this.a + "-" + incrementAndGet);
-        if (!this.f43341c) {
+        if (!this.c) {
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -32,8 +28,8 @@ public class a implements ThreadFactory {
     }
 
     public a(String str, boolean z) {
-        this.f43340b = new AtomicInteger();
+        this.b = new AtomicInteger();
         this.a = str;
-        this.f43341c = z;
+        this.c = z;
     }
 }

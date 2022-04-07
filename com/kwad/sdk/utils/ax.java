@@ -6,7 +6,7 @@ import android.os.Message;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ax {
     public static final Handler a = new Handler(Looper.getMainLooper());
 
@@ -36,8 +36,8 @@ public class ax {
                 String next = keys.next();
                 try {
                     jSONObject.put(next, jSONObject2.opt(next));
-                } catch (JSONException e2) {
-                    com.kwad.sdk.core.d.a.b(e2);
+                } catch (JSONException e) {
+                    com.kwad.sdk.core.d.a.b(e);
                 }
                 z = true;
             }

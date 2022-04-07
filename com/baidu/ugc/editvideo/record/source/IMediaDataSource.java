@@ -6,10 +6,10 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycle;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IMediaDataSource extends IMediaLifeCycle {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface IPlayerDataSource extends IMediaDataSource, IMediaLifeCycle {
         void addIPlayerDataSourceView(IDataSourceView.IPlayerDataSourceView iPlayerDataSourceView);
 
@@ -29,7 +29,7 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         boolean isPlaying();
 
-        boolean isSameSpeed(float f2);
+        boolean isSameSpeed(float f);
 
         void pause();
 
@@ -43,13 +43,13 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         void setLooping(boolean z);
 
-        void setSpeed(float f2);
+        void setSpeed(float f);
 
         void setVideoPath(String str);
 
         void setVideoPathList(List<VideoPlayData> list);
 
-        void setVolume(float f2, float f3);
+        void setVolume(float f, float f2);
 
         void start();
 

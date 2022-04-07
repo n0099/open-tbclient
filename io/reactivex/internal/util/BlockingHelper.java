@@ -37,10 +37,10 @@ public final class BlockingHelper {
         try {
             verifyNonBlocking();
             countDownLatch.await();
-        } catch (InterruptedException e2) {
+        } catch (InterruptedException e) {
             disposable.dispose();
             Thread.currentThread().interrupt();
-            throw new IllegalStateException("Interrupted while waiting for subscription to complete.", e2);
+            throw new IllegalStateException("Interrupted while waiting for subscription to complete.", e);
         }
     }
 

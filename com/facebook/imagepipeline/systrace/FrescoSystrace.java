@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrescoSystrace {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgsBuilder NO_OP_ARGS_BUILDER;
@@ -19,15 +19,15 @@ public class FrescoSystrace {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ArgsBuilder {
-        ArgsBuilder arg(String str, double d2);
+        ArgsBuilder arg(String str, double d);
 
         ArgsBuilder arg(String str, int i);
 
@@ -38,7 +38,7 @@ public class FrescoSystrace {
         void flush();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public class FrescoSystrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public ArgsBuilder arg(String str, double d2) {
+        public ArgsBuilder arg(String str, double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) ? this : (ArgsBuilder) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) ? this : (ArgsBuilder) invokeCommon.objValue;
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
@@ -97,7 +97,7 @@ public class FrescoSystrace {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Systrace {
         void beginSection(String str);
 

@@ -1,28 +1,28 @@
 package com.baidu.swan.apps.core.pms;
 
-import c.a.n0.a.k2.a;
-import c.a.n0.q.h.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.cc3;
+import com.repackage.g94;
+/* loaded from: classes2.dex */
 public class PkgDownloadError extends Throwable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mErrCode;
-    public f mPackage;
+    public cc3 mErrCode;
+    public g94 mPackage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PkgDownloadError(f fVar, a aVar) {
-        super(aVar.e());
+    public PkgDownloadError(g94 g94Var, cc3 cc3Var) {
+        super(cc3Var.e());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, aVar};
+            Object[] objArr = {g94Var, cc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,20 +33,20 @@ public class PkgDownloadError extends Throwable {
                 return;
             }
         }
-        this.mPackage = fVar;
-        this.mErrCode = aVar;
+        this.mPackage = g94Var;
+        this.mErrCode = cc3Var;
     }
 
-    public a getErrCode() {
+    public cc3 getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrCode : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrCode : (cc3) invokeV.objValue;
     }
 
-    public f getPackage() {
+    public g94 getPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackage : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackage : (g94) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable

@@ -9,7 +9,7 @@ import com.facebook.common.util.SecureHashUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CacheKeyUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,8 +37,8 @@ public final class CacheKeyUtil {
                     return secureHashKey(((MultiCacheKey) cacheKey).getCacheKeys().get(0));
                 }
                 return secureHashKey(cacheKey);
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -60,8 +60,8 @@ public final class CacheKeyUtil {
                 ArrayList arrayList2 = new ArrayList(1);
                 arrayList2.add(secureHashKey(cacheKey));
                 return arrayList2;
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (List) invokeL.objValue;

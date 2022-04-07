@@ -1,7 +1,6 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -14,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InitGlobalDataTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class InitGlobalDataTask extends LaunchTask {
     private void InitFrom() {
         Throwable th;
         BufferedReader bufferedReader;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             BufferedReader bufferedReader2 = null;
@@ -72,9 +72,9 @@ public class InitGlobalDataTask extends LaunchTask {
                                 TbConfig.setFrom(fromByShare);
                             }
                             bufferedReader.close();
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            BdLog.e(e2.getMessage());
+                        } catch (Exception e2) {
+                            e = e2;
+                            BdLog.e(e.getMessage());
                             if (bufferedReader != null) {
                                 bufferedReader.close();
                             }
@@ -84,23 +84,23 @@ public class InitGlobalDataTask extends LaunchTask {
                         if (0 != 0) {
                             try {
                                 bufferedReader2.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
+                } catch (Exception e4) {
                     bufferedReader = null;
-                    e2 = e5;
+                    e = e4;
                 } catch (Throwable th3) {
                     th = th3;
                     if (0 != 0) {
                     }
                     throw th;
                 }
-            } catch (Exception e6) {
-                e6.printStackTrace();
+            } catch (Exception e5) {
+                e5.printStackTrace();
             }
         }
     }
@@ -119,9 +119,9 @@ public class InitGlobalDataTask extends LaunchTask {
                     return str;
                 }
                 return null;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                TiebaStatic.file(e2, "TiebaApplication.getFromByFile");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TiebaStatic.file(e, "TiebaApplication.getFromByFile");
                 return str;
             }
         }
@@ -131,7 +131,7 @@ public class InitGlobalDataTask extends LaunchTask {
     private String getFromByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? b.k().q("from_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? wt4.k().q("from_id", null) : (String) invokeV.objValue;
     }
 
     private void saveFromToFile(String str) {
@@ -147,9 +147,9 @@ public class InitGlobalDataTask extends LaunchTask {
                 fileWriter.flush();
                 fileWriter.close();
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-            TiebaStatic.file(e2, "TiebaApplication.saveFromToFile");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            TiebaStatic.file(e, "TiebaApplication.saveFromToFile");
         }
     }
 
@@ -158,7 +158,7 @@ public class InitGlobalDataTask extends LaunchTask {
         if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        b.k().y("from_id", str);
+        wt4.k().y("from_id", str);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

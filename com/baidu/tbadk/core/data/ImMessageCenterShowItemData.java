@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int defaultDataType = 0;
@@ -467,8 +467,8 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return (ImMessageCenterShowItemData) super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return this;
             }
         }

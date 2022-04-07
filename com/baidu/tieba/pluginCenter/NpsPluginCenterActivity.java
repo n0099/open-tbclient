@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import c.a.d.i.c;
-import c.a.o0.k0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -22,9 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a75;
+import com.repackage.b75;
+import com.repackage.el;
+import com.repackage.v65;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +34,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.o0.k0.d.b, c.a.o0.k0.f.a<Object, c.a.o0.k0.d.b>> mPluginCenterAdapter;
+    public b75<Object, v65, a75<Object, v65>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -40,14 +42,12 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @NonNull
     public final List<String> whiteList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BundleInfo a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f35595b;
+        public final /* synthetic */ NpsPluginCenterActivity b;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f35595b = npsPluginCenterActivity;
+            this.b = npsPluginCenterActivity;
             this.a = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ToastUtil.show(this.a.getPackageName());
             }
         }
@@ -100,9 +100,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e56));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e5a));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -110,12 +110,12 @@ public class NpsPluginCenterActivity extends BaseActivity {
     private void initScrollContent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c0b);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bfa);
             this.whiteList.add("com.baidu.searchbox.bjhlivenps");
             this.whiteList.add("com.baidu.live.media.business");
             this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
             this.whiteList.add("com.baidu.searchbox.yylive.extlib");
-            for (BundleInfo bundleInfo : c.e().c()) {
+            for (BundleInfo bundleInfo : el.e().c()) {
                 if (this.whiteList.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView makeTipView = makeTipView();
                     makeTipView.setText(bundleInfo.getName());
@@ -165,7 +165,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0634);
+            setContentView(R.layout.obfuscated_res_0x7f0d0630);
             initNavigationBar();
             initScrollContent();
         }

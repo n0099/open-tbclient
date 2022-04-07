@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.TwZhiBoAnti;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TwzhiboAnti implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR = 0;
@@ -61,8 +61,8 @@ public class TwzhiboAnti implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

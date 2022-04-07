@@ -11,14 +11,12 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.util.BlockingHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BlockingBaseObserver<T> extends CountDownLatch implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Disposable f45287d;
+    public Disposable d;
     public Throwable error;
     public T value;
 
@@ -48,9 +46,9 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
                 try {
                     BlockingHelper.verifyNonBlocking();
                     await();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             Throwable th = this.error;
@@ -67,7 +65,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f45287d;
+            Disposable disposable = this.d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -93,7 +91,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-            this.f45287d = disposable;
+            this.d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,15 +25,15 @@ public class h {
                 jSONObject.put(Config.CUID_SEC, bw.a(2, context));
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.f27157c);
+                jSONObject.put("ly", ab.c);
                 jSONObject.put("pv", "24");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));
                     jSONObject.put("a", packageInfo.versionCode);
                     jSONObject.put("n", packageInfo.versionName);
-                } catch (Exception e2) {
-                    bb.c().a(e2);
+                } catch (Exception e) {
+                    bb.c().a(e);
                 }
                 jSONObject.put(Config.DEVICE_MAC_ID, bw.b(2, context));
                 jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.f(2, context));
@@ -42,14 +42,14 @@ public class h {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(Config.TRACE_FAILED_CNT, 0);
                 jSONObject2.put("send_index", 0);
-                String b2 = bw.b();
-                if (b2 == null) {
-                    b2 = "";
+                String b = bw.b();
+                if (b == null) {
+                    b = "";
                 }
-                jSONObject2.put(Config.ROM, b2);
+                jSONObject2.put(Config.ROM, b);
                 jSONObject.put(Config.TRACE_PART, jSONObject2);
-            } catch (JSONException e3) {
-                bb.c().b(e3);
+            } catch (JSONException e2) {
+                bb.c().b(e2);
             }
             return jSONObject;
         }

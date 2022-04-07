@@ -2,16 +2,16 @@ package com.kwad.sdk.core.videocache.b;
 
 import android.content.Context;
 import com.kwad.sdk.core.videocache.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static f a;
 
     public static f a(Context context) {
         f fVar = a;
         if (fVar == null) {
-            f b2 = b(context);
-            a = b2;
-            return b2;
+            f b = b(context);
+            a = b;
+            return b;
         }
         return fVar;
     }

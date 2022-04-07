@@ -27,25 +27,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: a  reason: collision with other field name */
         public static final /* synthetic */ a[] f402a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f44267b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f44268c;
+        public static final a b;
+        public static final a c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -65,10 +61,10 @@ public class g {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, 0);
-            f44267b = new a("ALLOWED", 1, 1);
+            b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f44268c = aVar;
-            f402a = new a[]{a, f44267b, aVar};
+            c = aVar;
+            f402a = new a[]{a, b, aVar};
         }
 
         public a(String str, int i, int i2) {
@@ -118,8 +114,8 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 packageInfo = null;
             }
             if (packageInfo != null) {
@@ -131,7 +127,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m378a(Context context, String str) {
+    public static ApplicationInfo m374a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
@@ -141,7 +137,7 @@ public class g {
             try {
                 return context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m108a("not found app info " + str);
                 return null;
             }
         }
@@ -149,20 +145,20 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m379a(Context context, String str) {
+    public static Drawable m375a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            ApplicationInfo m378a = m378a(context, str);
+            ApplicationInfo m374a = m374a(context, str);
             Drawable drawable = null;
-            if (m378a != null) {
+            if (m374a != null) {
                 try {
-                    drawable = m378a.loadIcon(context.getPackageManager());
+                    drawable = m374a.loadIcon(context.getPackageManager());
                     if (drawable == null && Build.VERSION.SDK_INT >= 9) {
-                        drawable = m378a.loadLogo(context.getPackageManager());
+                        drawable = m374a.loadLogo(context.getPackageManager());
                     }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("get app icon drawable failed, " + e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.m108a("get app icon drawable failed, " + e);
                 }
             }
             return drawable != null ? drawable : new ColorDrawable(0);
@@ -189,10 +185,10 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f44267b : a.f44268c;
+                    return bool.booleanValue() ? a.b : a.c;
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("are notifications enabled error " + e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("are notifications enabled error " + e);
             }
             return a.a;
         }
@@ -213,7 +209,7 @@ public class g {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
                 a2 = a(context, applicationInfo);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("get app op error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m108a("get app op error " + th);
             }
             if (a2 != a.a) {
                 return a2;
@@ -233,7 +229,7 @@ public class g {
                 i2 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i2) ? a.f44267b : a.f44268c : num2.equals(i) ? a.f44267b : a.f44268c;
+                return z ? !num2.equals(i2) ? a.b : a.c : num2.equals(i) ? a.b : a.c;
             }
             return a.a;
         }
@@ -273,15 +269,15 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m380a(Context context, String str) {
+    public static String m376a(Context context, String str) {
         PackageInfo packageInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 packageInfo = null;
             }
             return packageInfo != null ? packageInfo.versionName : "1.0";
@@ -290,7 +286,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m381a(Context context) {
+    public static boolean m377a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -308,7 +304,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m382a(Context context, String str) {
+    public static boolean m378a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
@@ -330,10 +326,10 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
-            ApplicationInfo m378a = m378a(context, str);
-            if (m378a != null) {
-                int i = m378a.icon;
-                return (i != 0 || Build.VERSION.SDK_INT < 9) ? i : m378a.logo;
+            ApplicationInfo m374a = m374a(context, str);
+            if (m374a != null) {
+                int i = m374a.icon;
+                return (i != 0 || Build.VERSION.SDK_INT < 9) ? i : m374a.logo;
             }
             return 0;
         }
@@ -371,7 +367,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m383b(Context context, String str) {
+    public static String m379b(Context context, String str) {
         ApplicationInfo applicationInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -380,8 +376,8 @@ public class g {
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                 return (packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null) ? str : packageManager.getApplicationLabel(applicationInfo).toString();
-            } catch (PackageManager.NameNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return str;
             }
         }
@@ -389,7 +385,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m384b(Context context, String str) {
+    public static boolean m380b(Context context, String str) {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;

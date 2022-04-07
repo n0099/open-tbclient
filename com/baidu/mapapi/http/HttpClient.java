@@ -25,33 +25,21 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean isHttpsEnable = true;
     public transient /* synthetic */ FieldHolder $fh;
     public HttpURLConnection a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26102b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26103c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f26104d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f26105e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f26106f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ProtoResultCallback f26107g;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public ProtoResultCallback g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class HttpStateError {
         public static final /* synthetic */ HttpStateError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +104,7 @@ public class HttpClient {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ProtoResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,10 +158,10 @@ public class HttpClient {
                 return;
             }
         }
-        this.f26102b = null;
-        this.f26103c = null;
-        this.f26106f = str;
-        this.f26107g = protoResultCallback;
+        this.b = null;
+        this.c = null;
+        this.f = str;
+        this.g = protoResultCallback;
     }
 
     private HttpURLConnection a() {
@@ -182,7 +170,7 @@ public class HttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                URL url = new URL(this.f26102b);
+                URL url = new URL(this.b);
                 if (isHttpsEnable) {
                     HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                     httpsURLConnection2.setHostnameVerifier(new b(this));
@@ -190,19 +178,19 @@ public class HttpClient {
                 } else {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                httpsURLConnection.setRequestMethod(this.f26106f);
+                httpsURLConnection.setRequestMethod(this.f);
                 httpsURLConnection.setDoOutput(false);
                 httpsURLConnection.setDoInput(true);
-                httpsURLConnection.setConnectTimeout(this.f26104d);
-                httpsURLConnection.setReadTimeout(this.f26105e);
+                httpsURLConnection.setConnectTimeout(this.d);
+                httpsURLConnection.setReadTimeout(this.e);
                 return httpsURLConnection;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Log.e("HttpClient", "url connect failed");
                 if (Logger.debugEnable()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return null;
                 }
-                Logger.logW("HttpClient", e2.getMessage());
+                Logger.logW("HttpClient", e.getMessage());
                 return null;
             }
         }
@@ -221,9 +209,9 @@ public class HttpClient {
                         Log.e("HttpClient", "permissionCheck result is: " + permissionCheck);
                     }
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 Log.e("HttpClient", "Parse json happened exception");
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }
@@ -231,7 +219,7 @@ public class HttpClient {
     public static String getAuthToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? i.f26917d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? i.d : (String) invokeV.objValue;
     }
 
     public static String getPhoneInfo() {
@@ -251,59 +239,60 @@ public class HttpClient {
                     return false;
                 }
                 return activeNetworkInfo.isAvailable();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (Logger.debugEnable()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 } else {
-                    Logger.logW("HttpClient", e2.getMessage());
+                    Logger.logW("HttpClient", e.getMessage());
                 }
-                e2.printStackTrace();
+                e.printStackTrace();
                 return false;
             }
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0091 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0090 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x013d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v12, types: [int] */
-    /* JADX WARN: Type inference failed for: r1v19, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x014c A[Catch: Exception -> 0x0152, TryCatch #6 {Exception -> 0x0152, blocks: (B:16:0x003b, B:28:0x0079, B:29:0x007f, B:31:0x0083, B:70:0x012d, B:71:0x0133, B:73:0x0137, B:78:0x0142, B:79:0x0148, B:81:0x014c, B:82:0x0151, B:55:0x00f9, B:57:0x00fd), top: B:96:0x003b }] */
+    /* JADX WARN: Type inference failed for: r1v11, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v20, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v10, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.StringBuilder] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void request(String str) {
         BufferedReader bufferedReader;
         Throwable th;
-        InputStream inputStream;
-        BufferedReader bufferedReader2;
-        Exception e2;
         ?? r1;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
             return;
         }
-        this.f26102b = str;
+        this.b = str;
         if (!checkNetwork()) {
-            this.f26107g.onFailed(HttpStateError.NETWORK_ERROR);
+            this.g.onFailed(HttpStateError.NETWORK_ERROR);
             return;
         }
         HttpURLConnection a = a();
         this.a = a;
         if (a == null) {
             Log.e("HttpClient", "url connection failed");
-            this.f26107g.onFailed(HttpStateError.INNER_ERROR);
-        } else if (TextUtils.isEmpty(this.f26102b)) {
-            this.f26107g.onFailed(HttpStateError.REQUEST_ERROR);
+            this.g.onFailed(HttpStateError.INNER_ERROR);
+        } else if (TextUtils.isEmpty(this.b)) {
+            this.g.onFailed(HttpStateError.REQUEST_ERROR);
         } else {
             try {
                 this.a.connect();
                 try {
-                    try {
-                        r1 = this.a.getResponseCode();
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
+                    r1 = this.a.getResponseCode();
                     try {
                         if (200 != r1) {
                             Log.e("HttpClient", "responseCode is: " + r1);
@@ -313,7 +302,7 @@ public class HttpClient {
                             } else {
                                 Logger.logW("HttpClient", "Get response from server failed, http response code=" + r1 + ", error=" + httpStateError);
                             }
-                            this.f26107g.onFailed(httpStateError);
+                            this.g.onFailed(httpStateError);
                             if (this.a != null) {
                                 this.a.disconnect();
                                 return;
@@ -321,77 +310,87 @@ public class HttpClient {
                             return;
                         }
                         r1 = this.a.getInputStream();
-                        bufferedReader2 = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
+                        bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                int read = bufferedReader2.read();
-                                if (read == -1) {
-                                    break;
+                            try {
+                                StringBuffer stringBuffer = new StringBuffer();
+                                while (true) {
+                                    int read = bufferedReader.read();
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    stringBuffer.append((char) read);
                                 }
-                                stringBuffer.append((char) read);
+                                String stringBuffer2 = stringBuffer.toString();
+                                this.c = stringBuffer2;
+                                a(stringBuffer2);
+                                if (r1 != 0) {
+                                    bufferedReader.close();
+                                    r1.close();
+                                }
+                                if (this.a != null) {
+                                    this.a.disconnect();
+                                }
+                                this.g.onSuccess(this.c);
+                            } catch (Exception e2) {
+                                e = e2;
+                                if (Logger.debugEnable()) {
+                                    e.printStackTrace();
+                                } else {
+                                    Logger.logW("HttpClient", e.getMessage());
+                                }
+                                Log.e("HttpClient", "Catch exception. INNER_ERROR", e);
+                                this.g.onFailed(HttpStateError.INNER_ERROR);
+                                if (r1 != 0 && bufferedReader != null) {
+                                    bufferedReader.close();
+                                    r1.close();
+                                }
+                                if (this.a != null) {
+                                    this.a.disconnect();
+                                }
                             }
-                            String stringBuffer2 = stringBuffer.toString();
-                            this.f26103c = stringBuffer2;
-                            a(stringBuffer2);
-                            if (r1 != 0) {
-                                bufferedReader2.close();
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (r1 != 0 && bufferedReader != null) {
+                                bufferedReader.close();
                                 r1.close();
                             }
                             if (this.a != null) {
                                 this.a.disconnect();
                             }
-                            this.f26107g.onSuccess(this.f26103c);
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            if (Logger.debugEnable()) {
-                                e2.printStackTrace();
-                            } else {
-                                Logger.logW("HttpClient", e2.getMessage());
-                            }
-                            Log.e("HttpClient", "Catch exception. INNER_ERROR", e2);
-                            this.f26107g.onFailed(HttpStateError.INNER_ERROR);
-                            if (r1 != 0 && bufferedReader2 != null) {
-                                bufferedReader2.close();
-                                r1.close();
-                            }
-                            if (this.a != null) {
-                                this.a.disconnect();
-                            }
+                            throw th;
                         }
-                    } catch (Exception e4) {
-                        bufferedReader2 = null;
-                        e2 = e4;
+                    } catch (Exception e3) {
+                        bufferedReader = null;
+                        e = e3;
                     } catch (Throwable th3) {
                         bufferedReader = null;
                         th = th3;
-                        inputStream = r1;
-                        if (inputStream != null && bufferedReader != null) {
+                        if (r1 != 0) {
                             bufferedReader.close();
-                            inputStream.close();
+                            r1.close();
                         }
                         if (this.a != null) {
-                            this.a.disconnect();
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
-                    bufferedReader2 = null;
-                    e2 = e5;
+                } catch (Exception e4) {
+                    bufferedReader = null;
+                    e = e4;
                     r1 = 0;
                 } catch (Throwable th4) {
                     bufferedReader = null;
                     th = th4;
-                    inputStream = null;
+                    r1 = 0;
                 }
-            } catch (Exception e6) {
+            } catch (Exception e5) {
                 if (Logger.debugEnable()) {
-                    e6.printStackTrace();
+                    e5.printStackTrace();
                 } else {
-                    Logger.logW("HttpClient", e6.getMessage());
+                    Logger.logW("HttpClient", e5.getMessage());
                 }
-                Log.e("HttpClient", "Catch connection exception, INNER_ERROR", e6);
-                this.f26107g.onFailed(HttpStateError.INNER_ERROR);
+                Log.e("HttpClient", "Catch connection exception, INNER_ERROR", e5);
+                this.g.onFailed(HttpStateError.INNER_ERROR);
             }
         }
     }
@@ -399,14 +398,14 @@ public class HttpClient {
     public void setMaxTimeOut(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f26104d = i;
+            this.d = i;
         }
     }
 
     public void setReadTimeOut(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f26105e = i;
+            this.e = i;
         }
     }
 }

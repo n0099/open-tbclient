@@ -1,18 +1,22 @@
 package com.baidu.tbadk.trackConfig;
 
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,19 +45,38 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
-            try {
-                int i2 = jSONObject.getInt("is_open_track");
-                boolean z = true;
-                if (i2 != 1) {
-                    z = false;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            if (jSONObject != null && isSuccess()) {
+                try {
+                    boolean z = true;
+                    if (jSONObject.getInt("is_open_track") != 1) {
+                        z = false;
+                    }
+                    this.isOpenTrack = z;
+                    wt4.k().u("key_is_open_track", this.isOpenTrack);
+                    TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
+                } catch (JSONException e) {
+                    BdLog.e("open track parese exception " + e.toString());
                 }
-                this.isOpenTrack = z;
-                b.k().u("key_is_open_track", this.isOpenTrack);
-                TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
-            } catch (JSONException e2) {
-                BdLog.e("open track parese exception " + e2.toString());
+            }
+            if (UbsABTestHelper.isAddBaidIdCookie() && isSuccess() && TbSingleton.getInstance().getBaiduIdForAnti() == null) {
+                List<String> header = getHeader("Set-Cookie");
+                if (ListUtils.isEmpty(header)) {
+                    return;
+                }
+                for (String str : header) {
+                    if (!StringUtils.isNull(str) && str.contains("BAIDUID=")) {
+                        for (String str2 : str.split(";")) {
+                            if (!StringUtils.isNull(str2) && str2.contains("BAIDUID=")) {
+                                TbSingleton.getInstance().setBaiduIdForAnti(str2.trim().substring(8));
+                                return;
+                            }
+                        }
+                        continue;
+                    }
+                }
             }
         }
     }

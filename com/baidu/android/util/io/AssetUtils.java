@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class AssetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -49,8 +49,8 @@ public final class AssetUtils {
                     if (open != null) {
                         try {
                             open.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                 } catch (IOException unused) {

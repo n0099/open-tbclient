@@ -10,7 +10,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class LruDiskCache implements DiskCache {
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.PNG;
@@ -59,13 +59,13 @@ public class LruDiskCache implements DiskCache {
     private void initCache(File file, File file2, long j, int i) {
         try {
             this.cache = DiskLruCache.open(file, 1, 1, j, i);
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e) {
+            L.e(e);
             if (file2 != null) {
                 initCache(file2, null, j, i);
             }
             if (this.cache == null) {
-                throw e2;
+                throw e;
             }
         }
     }
@@ -74,13 +74,13 @@ public class LruDiskCache implements DiskCache {
     public void clear() {
         try {
             this.cache.delete();
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e) {
+            L.e(e);
         }
         try {
             initCache(this.cache.getDirectory(), this.reserveCacheDir, this.cache.getMaxSize(), this.cache.getMaxFileCount());
-        } catch (IOException e3) {
-            L.e(e3);
+        } catch (IOException e2) {
+            L.e(e2);
         }
     }
 
@@ -88,8 +88,8 @@ public class LruDiskCache implements DiskCache {
     public void close() {
         try {
             this.cache.close();
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e) {
+            L.e(e);
         }
         this.cache = null;
     }
@@ -109,8 +109,8 @@ public class LruDiskCache implements DiskCache {
                 try {
                     try {
                         file = snapshot.getFile(0);
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         L.e(e);
                         if (snapshot != null) {
                             snapshot.close();
@@ -129,8 +129,8 @@ public class LruDiskCache implements DiskCache {
                 snapshot.close();
             }
             return file;
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             snapshot = null;
         } catch (Throwable th3) {
             th = th3;
@@ -150,8 +150,8 @@ public class LruDiskCache implements DiskCache {
     public boolean remove(String str) {
         try {
             return this.cache.remove(getKey(str));
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e) {
+            L.e(e);
             return false;
         }
     }

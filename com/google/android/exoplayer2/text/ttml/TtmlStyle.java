@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TtmlStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FONT_SIZE_UNIT_EM = 2;
@@ -41,12 +41,12 @@ public final class TtmlStyle {
     public int underline;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface StyleFlags {
     }
 
@@ -217,11 +217,11 @@ public final class TtmlStyle {
         return (TtmlStyle) invokeL.objValue;
     }
 
-    public TtmlStyle setFontSize(float f2) {
+    public TtmlStyle setFontSize(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f2)) == null) {
-            this.fontSize = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
+            this.fontSize = f;
             return this;
         }
         return (TtmlStyle) invokeF.objValue;

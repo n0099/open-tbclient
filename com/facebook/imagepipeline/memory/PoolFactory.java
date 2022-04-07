@@ -13,7 +13,7 @@ import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteStreams;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PoolFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,38 +66,38 @@ public class PoolFactory {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.mBitmapPool == null) {
                 String bitmapPoolType = this.mConfig.getBitmapPoolType();
-                char c2 = 65535;
+                char c = 65535;
                 switch (bitmapPoolType.hashCode()) {
                     case -1868884870:
                         if (bitmapPoolType.equals(BitmapPoolType.LEGACY_DEFAULT_PARAMS)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
                         break;
                     case -1106578487:
                         if (bitmapPoolType.equals("legacy")) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
                         break;
                     case -404562712:
                         if (bitmapPoolType.equals(BitmapPoolType.EXPERIMENTAL)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
                         break;
                     case 95945896:
                         if (bitmapPoolType.equals(BitmapPoolType.DUMMY)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     this.mBitmapPool = new DummyBitmapPool();
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     this.mBitmapPool = new LruBitmapPool(this.mConfig.getBitmapPoolMaxPoolSize(), this.mConfig.getBitmapPoolMaxBitmapSize(), NoOpPoolStatsTracker.getInstance(), this.mConfig.isRegisterLruBitmapPoolAsMemoryTrimmable() ? this.mConfig.getMemoryTrimmableRegistry() : null);
-                } else if (c2 != 2) {
+                } else if (c != 2) {
                     this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getBitmapPoolParams(), this.mConfig.getBitmapPoolStatsTracker());
                 } else {
                     this.mBitmapPool = new BucketsBitmapPool(this.mConfig.getMemoryTrimmableRegistry(), DefaultBitmapPoolParams.get(), this.mConfig.getBitmapPoolStatsTracker());

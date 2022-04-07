@@ -18,7 +18,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public final class c {
                         iPluginActivity.attachBaseContext(bVar.getBaseContext());
                         iPluginActivity.onCreate(bundle);
                         return;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 throw new RuntimeException("Have you declared " + stringExtra + " in plugin's AndroidManifest.xml!");
@@ -59,8 +59,8 @@ public final class c {
                 bVar.zeusSuperOnCreate(bundle);
                 ZeusLogger.e(ZeusLogger.TAG_ACTIVITY, "Cant start pluginActivity, plugin load failed! pluginPkgName: " + pluginPkgName + " targetActivity: " + stringExtra);
                 bVar.finish();
-            } catch (Exception e3) {
-                throw new RuntimeException(e3);
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
             }
         }
     }
@@ -82,36 +82,36 @@ public final class c {
                 } else {
                     bVar.zeusSuperAttachBaseContext(context);
                 }
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
 
-    public static void a(Activity activity, View view) {
+    public static void a(Activity activity, View view2) {
         Object readField;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, view2) == null) || view2 == null) {
             return;
         }
         try {
-            Object readField2 = FieldUtils.readField(view, "mListenerInfo");
+            Object readField2 = FieldUtils.readField(view2, "mListenerInfo");
             if (readField2 != null && (readField = FieldUtils.readField(readField2, "mOnClickListener")) != null) {
                 String name = readField.getClass().getName();
                 if (name.startsWith(AppCompatViewInflater.class.getName()) || name.startsWith(View.class.getName())) {
-                    view.setOnClickListener(new a(activity, view.getId(), (String) FieldUtils.readField(readField, "mMethodName")));
+                    view2.setOnClickListener(new a(activity, view2.getId(), (String) FieldUtils.readField(readField, "mMethodName")));
                 }
             }
-        } catch (Exception e2) {
-            ZeusLogger.e(ZeusLogger.TAG_ACTIVITY, "checkOnClickListener failed!".concat(String.valueOf(view)));
-            e2.printStackTrace();
+        } catch (Exception e) {
+            ZeusLogger.e(ZeusLogger.TAG_ACTIVITY, "checkOnClickListener failed!".concat(String.valueOf(view2)));
+            e.printStackTrace();
         }
-        if (!(view instanceof ViewGroup)) {
+        if (!(view2 instanceof ViewGroup)) {
             return;
         }
         int i = 0;
         while (true) {
-            ViewGroup viewGroup = (ViewGroup) view;
+            ViewGroup viewGroup = (ViewGroup) view2;
             if (i >= viewGroup.getChildCount()) {
                 return;
             }

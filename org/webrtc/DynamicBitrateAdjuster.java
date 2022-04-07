@@ -53,30 +53,30 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
             return;
         }
         int i3 = this.targetBitrateBps;
-        double d2 = this.deviationBytes + (i - ((i3 / 8.0d) / i2));
-        this.deviationBytes = d2;
+        double d = this.deviationBytes + (i - ((i3 / 8.0d) / i2));
+        this.deviationBytes = d;
         this.timeSinceLastAdjustmentMs += 1000.0d / i2;
-        double d3 = i3 / 8.0d;
-        double d4 = 3.0d * d3;
-        double min = Math.min(d2, d4);
+        double d2 = i3 / 8.0d;
+        double d3 = 3.0d * d2;
+        double min = Math.min(d, d3);
         this.deviationBytes = min;
-        double max = Math.max(min, -d4);
+        double max = Math.max(min, -d3);
         this.deviationBytes = max;
         if (this.timeSinceLastAdjustmentMs <= 3000.0d) {
             return;
         }
-        if (max > d3) {
-            int i4 = this.bitrateAdjustmentScaleExp - ((int) ((max / d3) + 0.5d));
+        if (max > d2) {
+            int i4 = this.bitrateAdjustmentScaleExp - ((int) ((max / d2) + 0.5d));
             this.bitrateAdjustmentScaleExp = i4;
             this.bitrateAdjustmentScaleExp = Math.max(i4, -20);
-            this.deviationBytes = d3;
+            this.deviationBytes = d2;
         } else {
-            double d5 = -d3;
-            if (max < d5) {
-                int i5 = this.bitrateAdjustmentScaleExp + ((int) (((-max) / d3) + 0.5d));
+            double d4 = -d2;
+            if (max < d4) {
+                int i5 = this.bitrateAdjustmentScaleExp + ((int) (((-max) / d2) + 0.5d));
                 this.bitrateAdjustmentScaleExp = i5;
                 this.bitrateAdjustmentScaleExp = Math.min(i5, 20);
-                this.deviationBytes = d5;
+                this.deviationBytes = d4;
             }
         }
         this.timeSinceLastAdjustmentMs = 0.0d;

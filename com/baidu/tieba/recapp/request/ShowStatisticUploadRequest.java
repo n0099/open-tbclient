@@ -1,8 +1,6 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
-import c.a.o0.s.c.c;
-import c.a.p0.a4.m0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -22,17 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.al8;
+import com.repackage.iw4;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
-    public static final TbHttpMessageTask task;
+    public static final TbHttpMessageTask TASK;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class ResponseMessage extends HttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,10 +80,10 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             }
         }
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CAD_AD_STATISTIC_UPLOAD, "https://als.baidu.com/flog/logFeed");
-        task = tbHttpMessageTask;
+        TASK = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(ResponseMessage.class);
-        task.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        task.setIsNeedAddCommenParam(true);
+        TASK.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        TASK.setIsNeedAddCommenParam(true);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,58 +111,58 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         if (netType != null) {
             addParam("net_type", netType);
         }
-        c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.d()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        iw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        TASK.setUrl((adAdSense == null || adAdSense.d()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
-    public static void sendFRS(boolean z, String str, String str2, String str3, List<a.c> list, String str4) {
+    public static void sendFRS(boolean z, String str, String str2, String str3, List<al8.c> list, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3, list, str4}) == null) {
             ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(1, str, str2, str4);
             init.addParam("fid", str3);
             if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (a.c cVar : list) {
+                for (al8.c cVar : list) {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("tid", cVar.a);
-                            jSONObject.put("locate", cVar.f12289c);
+                            jSONObject.put("locate", cVar.c);
                             jSONArray.put(jSONObject);
-                        } catch (JSONException e2) {
-                            BdLog.e(e2);
+                        } catch (JSONException e) {
+                            BdLog.e(e);
                         }
                     }
                 }
                 init.addParam("infos", jSONArray.toString());
             }
-            MessageManager.getInstance().sendMessage(init, task);
+            MessageManager.getInstance().sendMessage(init, TASK);
         }
     }
 
-    public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.c> list, String str5) {
+    public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<al8.c> list, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, list, str5}) == null) {
             ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(2, str, str2, str5);
             init.addParam("fid", str3);
             if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (a.c cVar : list) {
+                for (al8.c cVar : list) {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f12288b);
+                            jSONObject.put("pid", cVar.b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f12289c);
+                            jSONObject.put("locate", cVar.c);
                             jSONArray.put(jSONObject);
-                        } catch (JSONException e2) {
-                            BdLog.e(e2);
+                        } catch (JSONException e) {
+                            BdLog.e(e);
                         }
                     }
                 }
                 init.addParam("infos", jSONArray.toString());
             }
-            MessageManager.getInstance().sendMessage(init, task);
+            MessageManager.getInstance().sendMessage(init, TASK);
         }
     }
 

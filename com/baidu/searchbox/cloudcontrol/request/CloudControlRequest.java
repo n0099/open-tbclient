@@ -35,7 +35,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TIME = "300";
@@ -52,7 +52,7 @@ public class CloudControlRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public final SharedPrefsWrapper mSharedPrefsWrapper;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,9 +239,9 @@ public class CloudControlRequest {
                     j = httpRequest.getOkRequest().body().contentLength();
                 }
                 CloudStabilityUBCUtils.doRequestStatistics(str, bdTraceId, j);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "doStabilityRequestUBCEvent error " + e2.toString());
+                    Log.d(TAG, "doStabilityRequestUBCEvent error " + e.toString());
                 }
             }
         }
@@ -309,9 +309,9 @@ public class CloudControlRequest {
                 if (cloudControlRequestInfo != null) {
                     try {
                         jSONObject.put(cloudControlRequestInfo.getServiceName(), cloudControlRequestInfo.getPostData());
-                    } catch (JSONException e2) {
+                    } catch (JSONException e) {
                         if (AppConfig.isDebug()) {
-                            Log.d(TAG, "post data put error" + e2.toString());
+                            Log.d(TAG, "post data put error" + e.toString());
                         }
                     }
                     Object checkInfo = cloudControlRequestInfo.getCheckInfo();
@@ -321,9 +321,9 @@ public class CloudControlRequest {
                     HashMap<String, String> queryData = cloudControlRequestInfo.getQueryData();
                     try {
                         jSONObject2.put(cloudControlRequestInfo.getServiceName(), cloudControlRequestInfo.getFilter());
-                    } catch (JSONException e3) {
+                    } catch (JSONException e2) {
                         if (AppConfig.isDebug()) {
-                            Log.d(TAG, "filter data  put error" + e3.toString());
+                            Log.d(TAG, "filter data  put error" + e2.toString());
                         }
                     }
                     for (Map.Entry<String, String> entry : queryData.entrySet()) {

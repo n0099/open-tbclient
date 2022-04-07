@@ -1,6 +1,5 @@
 package com.baidu.tieba.videoplay.model;
 
-import c.a.d.a.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -13,19 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b9;
+/* loaded from: classes4.dex */
 public class FrsVideoTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public int b;
+    public CustomMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f36728b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f36729c;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +59,7 @@ public class FrsVideoTabModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
@@ -80,15 +76,15 @@ public class FrsVideoTabModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36729c = new a(this, 2921628);
+        this.c = new a(this, 2921628);
         setUniqueId(bdUniqueId);
-        registerListener(this.f36729c);
+        registerListener(this.c);
     }
 
     public void A(int i) {
@@ -127,8 +123,8 @@ public class FrsVideoTabModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f36728b < 2) {
-                this.f36728b = 2;
+            if (this.b < 2) {
+                this.b = 2;
             }
             z(2);
         }

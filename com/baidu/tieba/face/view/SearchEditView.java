@@ -23,25 +23,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchEditView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText a;
+    public ImageView b;
+    public ImageView c;
+    public LinearLayout d;
+    public d e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f32016b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f32017c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f32018d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public d f32019e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +61,13 @@ public class SearchEditView extends RelativeLayout {
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.a.f32019e != null) {
-                    this.a.f32019e.onTextChanged(editable.toString().trim());
+                if (this.a.e != null) {
+                    this.a.e.onTextChanged(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    this.a.f32018d.setVisibility(4);
+                    this.a.d.setVisibility(4);
                 } else {
-                    this.a.f32018d.setVisibility(0);
+                    this.a.d.setVisibility(0);
                 }
             }
         }
@@ -95,7 +87,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,10 +118,10 @@ public class SearchEditView extends RelativeLayout {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 3) {
                     String trim = this.a.a.getText().toString().trim();
-                    if (TextUtils.isEmpty(trim) || this.a.f32019e == null) {
+                    if (TextUtils.isEmpty(trim) || this.a.e == null) {
                         return true;
                     }
-                    this.a.f32019e.onClickSearch(trim);
+                    this.a.e.onClickSearch(trim);
                     return true;
                 }
                 return false;
@@ -138,7 +130,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,15 +155,15 @@ public class SearchEditView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.a.setText("");
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void onClickSearch(String str);
 
@@ -202,17 +194,17 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
-            this.f32016b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff7);
-            this.f32017c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fcb);
-            this.f32018d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fcc);
-            SkinManager.setImageResource(this.f32016b, R.drawable.icon_emotion_search);
-            SkinManager.setImageResource(this.f32017c, R.drawable.del_search_btn);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026b, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090868);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc5);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fc6);
+            SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
+            SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             this.a.addTextChangedListener(new a(this));
             this.a.setOnEditorActionListener(new b(this));
-            this.f32018d.setOnClickListener(new c(this));
+            this.d.setOnClickListener(new c(this));
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -237,7 +229,7 @@ public class SearchEditView extends RelativeLayout {
     public void setCallback(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f32019e = dVar;
+            this.e = dVar;
         }
     }
 

@@ -11,7 +11,7 @@ import com.kwai.filedownloader.event.DownloadServiceConnectChangedEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class z extends e implements v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,16 @@ public class z extends e implements v {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            w d2 = r.a().d();
+            w d = r.a().d();
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "The downloader service is connected.", new Object[0]);
             }
             synchronized (this.a) {
                 this.a.clear();
-                ArrayList arrayList = new ArrayList(d2.b());
+                ArrayList arrayList = new ArrayList(d.b());
                 for (a.b bVar : (List) this.a.clone()) {
                     int I = bVar.I();
-                    if (d2.a(I)) {
+                    if (d.a(I)) {
                         bVar.F().a().a();
                         if (!arrayList.contains(Integer.valueOf(I))) {
                             arrayList.add(Integer.valueOf(I));
@@ -55,7 +55,7 @@ public class z extends e implements v {
                         bVar.N();
                     }
                 }
-                d2.a(arrayList);
+                d.a(arrayList);
             }
         }
     }
@@ -78,7 +78,7 @@ public class z extends e implements v {
                 }
                 return;
             }
-            w d2 = r.a().d();
+            w d = r.a().d();
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "lost the connection to the file download service, and current active task size is %d", Integer.valueOf(h.a().b()));
             }
@@ -89,7 +89,7 @@ public class z extends e implements v {
                     while (it.hasNext()) {
                         it.next().M();
                     }
-                    d2.a();
+                    d.a();
                 }
                 r.a().b();
             }

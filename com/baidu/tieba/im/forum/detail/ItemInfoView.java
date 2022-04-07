@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.o0.w.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,10 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.z05;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b1, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b2, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef5);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef1);
         }
     }
 
@@ -74,14 +74,14 @@ public class ItemInfoView extends LinearLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
-            c cVar = new c();
+            z05 z05Var = new z05();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = list.get(i);
                 if (pbContent != null) {
                     if (pbContent.type.intValue() == 2) {
-                        Bitmap cashBitmap = BitmapHelper.getCashBitmap(cVar.d(pbContent.text));
+                        Bitmap cashBitmap = BitmapHelper.getCashBitmap(z05Var.d(pbContent.text));
                         if (cashBitmap != null) {
                             BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                             bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -103,10 +103,10 @@ public class ItemInfoView extends LinearLayout {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
-            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !m.isEmpty(recommendForumInfo.slogan))) {
+            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !ni.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064c));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0653));
             }
             setVisibility(0);
         }

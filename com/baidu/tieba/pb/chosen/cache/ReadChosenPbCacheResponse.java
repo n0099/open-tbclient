@@ -1,26 +1,26 @@
 package com.baidu.tieba.pb.chosen.cache;
 
-import c.a.p0.w2.h.c.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ReadChosenPbCacheResponse extends CustomResponsedMessage<a> {
+import com.repackage.kr7;
+/* loaded from: classes3.dex */
+public class ReadChosenPbCacheResponse extends CustomResponsedMessage<kr7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a chosenData;
+    public kr7 chosenData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadChosenPbCacheResponse(a aVar) {
+    public ReadChosenPbCacheResponse(kr7 kr7Var) {
         super(2001314);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {kr7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,12 +31,12 @@ public class ReadChosenPbCacheResponse extends CustomResponsedMessage<a> {
                 return;
             }
         }
-        this.chosenData = aVar;
+        this.chosenData = kr7Var;
     }
 
-    public a getChosenData() {
+    public kr7 getChosenData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chosenData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chosenData : (kr7) invokeV.objValue;
     }
 }

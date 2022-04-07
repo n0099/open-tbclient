@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.interactionpopupwindow;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POS_LEFT = "left";
@@ -24,7 +25,7 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +48,7 @@ public class CustomDialogData implements IBaseDialogData {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Head implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class CustomDialogData implements IBaseDialogData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             CustomDialogData customDialogData = new CustomDialogData();
-            JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_HEAD);
+            JSONObject optJSONObject = jSONObject.optJSONObject("head");
             if (optJSONObject != null) {
                 Head head = new Head();
                 head.imageUrl = optJSONObject.optString("image");
@@ -98,7 +99,7 @@ public class CustomDialogData implements IBaseDialogData {
                 customDialogData.head = head;
             }
             customDialogData.body = jSONObject.optString(TtmlNode.TAG_BODY);
-            JSONArray optJSONArray = jSONObject.optJSONArray("button");
+            JSONArray optJSONArray = jSONObject.optJSONArray(NativeConstants.ID_BUTTON);
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);

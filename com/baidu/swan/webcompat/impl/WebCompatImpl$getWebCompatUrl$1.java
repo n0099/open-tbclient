@@ -1,19 +1,19 @@
 package com.baidu.swan.webcompat.impl;
 
 import android.net.Uri;
-import c.a.n0.a.u.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jx1;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0004"}, d2 = {"urlTransform", "", "prefix", "compatPath", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Function2<String, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
             if (str != null) {
                 String substring = str.substring(length);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
-                d.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
+                jx1.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
                 int i = 0;
                 if (substring.length() > 0 && '/' == substring.charAt(0)) {
                     i = 1;
                 }
-                d.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
+                jx1.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
                 if (i > 0) {
                     if (substring == null) {
                         throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
@@ -72,7 +72,7 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
                     substring = substring.substring(i);
                     Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 }
-                d.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
+                jx1.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
                 Uri.Builder scheme = new Uri.Builder().scheme("http");
                 n = this.this$0.n();
                 String builder = scheme.authority(n).appendPath(compatPath).appendEncodedPath(substring).toString();

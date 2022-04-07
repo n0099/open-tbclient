@@ -1117,8 +1117,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
         private void checkExtraFields(Bundle bundle) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65537, this, bundle) == null) && bundle != null && bundle.containsKey(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS)) {
-                float f2 = bundle.getFloat(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS);
-                if (f2 < -1.0E-5f || f2 > 1.00001f) {
+                float f = bundle.getFloat(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS);
+                if (f < -1.0E-5f || f > 1.00001f) {
                     throw new IllegalArgumentException("The value of the EXTRA_DOWNLOAD_PROGRESS field must be a float number within [0.0, 1.0].");
                 }
             }

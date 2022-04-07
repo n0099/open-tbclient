@@ -27,11 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qq7;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -49,7 +50,7 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +167,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,13 +222,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i = this.type;
             if (i == 0) {
-                c.a.p0.u2.d.b.f().b(z, str);
+                qq7.f().b(z, str);
             } else if (i == 1) {
-                c.a.p0.u2.d.b.f().e(z);
+                qq7.f().e(z);
             } else if (i == 2) {
-                c.a.p0.u2.d.b.f().c(z);
+                qq7.f().c(z);
             } else {
-                c.a.p0.u2.d.b.f().a(null);
+                qq7.f().a(null);
             }
             finish();
         }
@@ -245,8 +246,8 @@ public class AuthActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
                 arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
-            } catch (UnsupportedEncodingException e2) {
-                Log.e(e2);
+            } catch (UnsupportedEncodingException e) {
+                Log.e(e);
             }
             Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
             return (environment.getWap() + PASS_AUTH_WIDGET_URL_PATH) + "?" + SapiUtils.createRequestParams(arrayList);
@@ -280,8 +281,8 @@ public class AuthActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
                 arrayList.add(new PassNameValuePair("client", "android"));
                 arrayList.add(new PassNameValuePair("clientfrom", "native"));
-            } catch (UnsupportedEncodingException e2) {
-                Log.e(e2);
+            } catch (UnsupportedEncodingException e) {
+                Log.e(e);
             }
             Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
             String str = (environment.getWap() + PASS_MODIFY_PWD_URL_PATH) + "?" + SapiUtils.createRequestParams(arrayList);
@@ -359,7 +360,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 PassManagerStatic.z();
                 init();
                 setupViews();
@@ -397,7 +398,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1055);
+                setTitleText(R.string.obfuscated_res_0x7f0f105d);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));

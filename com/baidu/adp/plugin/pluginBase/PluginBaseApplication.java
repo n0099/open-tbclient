@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.j.j.f.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -33,6 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.om;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,7 +41,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PluginBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,8 +80,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.deleteFile(pluginPackageName + str);
             }
@@ -98,8 +98,8 @@ public class PluginBaseApplication extends Application {
             try {
                 String[] list = getFilesDir().list();
                 return list != null ? list : new String[0];
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return null;
             }
         }
@@ -150,8 +150,8 @@ public class PluginBaseApplication extends Application {
                 return null;
             }
             try {
-                PluginSetting h2 = c.j().h(getPluginPackageName());
-                if (h2 == null || !h2.isThird) {
+                PluginSetting g = om.h().g(getPluginPackageName());
+                if (g == null || !g.isThird) {
                     return cacheDir;
                 }
                 File file = new File(cacheDir.getPath() + File.separator + getPluginPackageName() + cacheDir.getName());
@@ -159,8 +159,8 @@ public class PluginBaseApplication extends Application {
                     file.mkdir();
                 }
                 return file;
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return null;
             }
         }
@@ -187,8 +187,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getDir(pluginPackageName + str, i);
             }
@@ -203,8 +203,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getFileStreamPath(pluginPackageName + str);
             }
@@ -223,8 +223,8 @@ public class PluginBaseApplication extends Application {
                 return null;
             }
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird) {
                 return filesDir;
             }
             try {
@@ -233,8 +233,8 @@ public class PluginBaseApplication extends Application {
                     file.mkdir();
                 }
                 return file;
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return null;
             }
         }
@@ -285,8 +285,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
                 if (plugin2 == null) {
                     return null;
@@ -324,8 +324,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.getSharedPreferences(pluginPackageName + str, i);
             }
@@ -347,8 +347,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openFileInput(pluginPackageName + str);
             }
@@ -363,8 +363,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openFileOutput(pluginPackageName + str, i);
             }
@@ -379,8 +379,8 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i, cursorFactory)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g != null && g.isThird) {
                 Application application = this.mApplicationProxy;
                 return application.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
             }
@@ -442,13 +442,13 @@ public class PluginBaseApplication extends Application {
     */
     public void setApplicationProxy(Application application) {
         Context context;
-        Exception e2;
-        InvocationTargetException e3;
-        NoSuchMethodException e4;
-        InstantiationException e5;
-        IllegalArgumentException e6;
-        IllegalAccessException e7;
-        ClassNotFoundException e8;
+        Exception e;
+        InvocationTargetException e2;
+        NoSuchMethodException e3;
+        InstantiationException e4;
+        IllegalArgumentException e5;
+        IllegalAccessException e6;
+        ClassNotFoundException e7;
         Class<?> cls;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048611, this, application) != null) {
@@ -463,90 +463,90 @@ public class PluginBaseApplication extends Application {
             Constructor<?> constructor = cls.getConstructor(cls);
             constructor.setAccessible(true);
             context = (Context) constructor.newInstance(application.getBaseContext());
-        } catch (ClassNotFoundException e9) {
+        } catch (ClassNotFoundException e8) {
             context = null;
-            e8 = e9;
-        } catch (IllegalAccessException e10) {
+            e7 = e8;
+        } catch (IllegalAccessException e9) {
             context = null;
-            e7 = e10;
-        } catch (IllegalArgumentException e11) {
+            e6 = e9;
+        } catch (IllegalArgumentException e10) {
             context = null;
-            e6 = e11;
-        } catch (InstantiationException e12) {
+            e5 = e10;
+        } catch (InstantiationException e11) {
             context = null;
-            e5 = e12;
-        } catch (NoSuchMethodException e13) {
+            e4 = e11;
+        } catch (NoSuchMethodException e12) {
             context = null;
-            e4 = e13;
-        } catch (InvocationTargetException e14) {
+            e3 = e12;
+        } catch (InvocationTargetException e13) {
             context = null;
-            e3 = e14;
-        } catch (Exception e15) {
+            e2 = e13;
+        } catch (Exception e14) {
             context = null;
-            e2 = e15;
+            e = e14;
         }
         try {
             try {
                 Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(context, this);
-            } catch (ClassNotFoundException e16) {
-                e8 = e16;
-                BdLog.e(e8);
+            } catch (ClassNotFoundException e15) {
+                e7 = e15;
+                BdLog.e(e7);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field = application.getClass().getField("mLoadedApk");
                 field.set(this, field.get(application));
                 return;
-            } catch (IllegalAccessException e17) {
-                e7 = e17;
-                BdLog.e(e7);
+            } catch (IllegalAccessException e16) {
+                e6 = e16;
+                BdLog.e(e6);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field2 = application.getClass().getField("mLoadedApk");
                 field2.set(this, field2.get(application));
                 return;
-            } catch (IllegalArgumentException e18) {
-                e6 = e18;
-                BdLog.e(e6);
+            } catch (IllegalArgumentException e17) {
+                e5 = e17;
+                BdLog.e(e5);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field22 = application.getClass().getField("mLoadedApk");
                 field22.set(this, field22.get(application));
                 return;
-            } catch (InstantiationException e19) {
-                e5 = e19;
-                BdLog.e(e5);
+            } catch (InstantiationException e18) {
+                e4 = e18;
+                BdLog.e(e4);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field222 = application.getClass().getField("mLoadedApk");
                 field222.set(this, field222.get(application));
                 return;
-            } catch (NoSuchMethodException e20) {
-                e4 = e20;
-                BdLog.e(e4);
+            } catch (NoSuchMethodException e19) {
+                e3 = e19;
+                BdLog.e(e3);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field2222 = application.getClass().getField("mLoadedApk");
                 field2222.set(this, field2222.get(application));
                 return;
-            } catch (InvocationTargetException e21) {
-                e3 = e21;
-                BdLog.e(e3);
+            } catch (InvocationTargetException e20) {
+                e2 = e20;
+                BdLog.e(e2);
                 if (context == null) {
                 }
                 attachBaseContext(context);
                 Field field22222 = application.getClass().getField("mLoadedApk");
                 field22222.set(this, field22222.get(application));
                 return;
-            } catch (Exception e22) {
-                e2 = e22;
-                BdLog.e(e2);
+            } catch (Exception e21) {
+                e = e21;
+                BdLog.e(e);
                 if (context == null) {
                 }
                 attachBaseContext(context);

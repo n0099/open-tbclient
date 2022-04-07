@@ -1,11 +1,11 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Interceptable {
-    InterceptResult invokeB(int i, Object obj, byte b2);
+    InterceptResult invokeB(int i, Object obj, byte b);
 
     InterceptResult invokeCommon(int i, Object obj, Object[] objArr);
 
-    InterceptResult invokeF(int i, Object obj, float f2);
+    InterceptResult invokeF(int i, Object obj, float f);
 
     InterceptResult invokeI(int i, Object obj, int i2);
 
@@ -29,7 +29,7 @@ public interface Interceptable {
 
     InterceptResult invokeL(int i, Object obj, Object obj2);
 
-    InterceptResult invokeLF(int i, Object obj, Object obj2, float f2);
+    InterceptResult invokeLF(int i, Object obj, Object obj2, float f);
 
     InterceptResult invokeLI(int i, Object obj, Object obj2, int i2);
 

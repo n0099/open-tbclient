@@ -11,7 +11,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RemoteSdpResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemoteSdpRequest";
@@ -55,8 +55,8 @@ public class RemoteSdpResponse {
                 remoteSdpResponse.roomName = jSONObject2.optString("roomname");
                 remoteSdpResponse.userId = jSONObject2.optString("id");
                 remoteSdpResponse.feed = jSONObject2.optString(ExternalTransferSpeedStats.FEED_PAGE);
-            } catch (JSONException e2) {
-                Logging.e("RemoteSdpRequest", "Caught error while play response parse" + e2.getMessage());
+            } catch (JSONException e) {
+                Logging.e("RemoteSdpRequest", "Caught error while play response parse" + e.getMessage());
             }
             return remoteSdpResponse;
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PrivSets;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonPrivateData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class PersonPrivateData extends OrmObject {
             privSets.post.intValue();
             privSets.friend.intValue();
             privSets.live.intValue();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

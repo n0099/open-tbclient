@@ -1,0 +1,11 @@
+package com.repackage;
+/* loaded from: classes6.dex */
+public interface jx<T> {
+    T a();
+
+    void a(T t);
+
+    void b();
+
+    boolean c();
+}

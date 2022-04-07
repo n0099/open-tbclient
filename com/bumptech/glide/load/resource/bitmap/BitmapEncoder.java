@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.GlideTrace;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Bitmap.CompressFormat> COMPRESSION_FORMAT;
@@ -123,16 +123,16 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 bufferedOutputStream = this.arrayPool != null ? new BufferedOutputStream(fileOutputStream, this.arrayPool) : fileOutputStream;
                 bitmap.compress(format, intValue, bufferedOutputStream);
                 bufferedOutputStream.close();
                 z = true;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedOutputStream = fileOutputStream;
                 if (Log.isLoggable(TAG, 3)) {
                     Log.d(TAG, "Failed to encode Bitmap", e);

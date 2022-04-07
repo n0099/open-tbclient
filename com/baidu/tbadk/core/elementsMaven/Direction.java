@@ -7,10 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class Direction {
     public static final /* synthetic */ Direction[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,8 +31,8 @@ public final class Direction {
                 return;
             }
         }
-        TOP = new Direction("TOP", 0, AnimationProperty.TOP);
-        BOTTOM = new Direction("BOTTOM", 1, TipsConfigItem.TipConfigData.BOTTOM);
+        TOP = new Direction("TOP", 0, "top");
+        BOTTOM = new Direction("BOTTOM", 1, "bottom");
         LEFT = new Direction("LEFT", 2, "left");
         Direction direction = new Direction("RIGHT", 3, "right");
         RIGHT = direction;

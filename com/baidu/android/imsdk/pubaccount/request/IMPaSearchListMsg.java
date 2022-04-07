@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaSearchListMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +70,9 @@ public class IMPaSearchListMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("content", this.mSearchContent);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "buildBody:", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "buildBody:", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -80,7 +80,7 @@ public class IMPaSearchListMsg extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         ArrayList arrayList;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             ArrayList arrayList2 = null;
@@ -101,19 +101,19 @@ public class IMPaSearchListMsg extends Message {
                                 paInfo.setAcceptPush(true);
                                 paInfo.setStatus(jSONObject2.optInt("status"));
                                 arrayList.add(paInfo);
-                            } catch (Exception e3) {
-                                e2 = e3;
-                                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
-                                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                            } catch (Exception e2) {
+                                e = e2;
+                                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
+                                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                                 super.handleMessageResult(context, jSONObject, i, str);
                                 PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
                             }
                         }
                         arrayList2 = arrayList;
                     }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                     arrayList = null;
-                    e2 = e4;
+                    e = e3;
                 }
             }
             arrayList = arrayList2;

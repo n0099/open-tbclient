@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import com.kwad.sdk.api.core.ResContext;
 import com.sina.weibo.sdk.utils.ResourceManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class am {
     public static int a(Context context, String str) {
         Resources a = a(context);

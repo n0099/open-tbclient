@@ -70,6 +70,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -137,7 +138,7 @@ public class ContextCompat {
                 SERVICES.put(BluetoothManager.class, "bluetooth");
             }
             if (Build.VERSION.SDK_INT >= 17) {
-                SERVICES.put(DisplayManager.class, "display");
+                SERVICES.put(DisplayManager.class, CriusAttrConstants.DISPLAY);
                 SERVICES.put(UserManager.class, "user");
             }
             if (Build.VERSION.SDK_INT >= 16) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeStatisticUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UBC_KEY_SCHEME_INVALID = "326";
@@ -41,8 +41,8 @@ public class UnitedSchemeStatisticUtil {
             } else {
                 try {
                     uri2 = uri.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             jSONObject.put("scheme", uri2);
@@ -61,8 +61,8 @@ public class UnitedSchemeStatisticUtil {
             try {
                 jSONObject.put("from", str);
                 jSONObject.put("scheme", uri == null ? StringUtil.NULL_STRING : uri.toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             SchemeRuntime.getSchemeIoc().doStatistic(UBC_KEY_SCHEME_INVOKE, jSONObject.toString());
         }
@@ -78,8 +78,8 @@ public class UnitedSchemeStatisticUtil {
             } else {
                 try {
                     uri2 = uri.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             jSONObject.put("scheme", uri2);

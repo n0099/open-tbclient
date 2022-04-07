@@ -1,30 +1,30 @@
 package com.baidu.bdtask.event;
 
-import c.a.j.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.os;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TaskBusinessEventManager$dispatchBusinessEvent$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ a $event;
+    public final /* synthetic */ os $event;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBusinessEventManager$dispatchBusinessEvent$1$1(a aVar) {
+    public TaskBusinessEventManager$dispatchBusinessEvent$1$1(os osVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {osVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class TaskBusinessEventManager$dispatchBusinessEvent$1$1 extends La
                 return;
             }
         }
-        this.$event = aVar;
+        this.$event = osVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -36,7 +36,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChatMsgManager extends BaseManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -223,10 +223,10 @@ public class ChatMsgManager extends BaseManager {
             } else if (!TextUtils.isEmpty(str) && chatMsg != null) {
                 try {
                     j = Long.parseLong(str);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str2 = BaseManager.TAG;
-                    LogUtils.e(str2, "uid parse error " + e2.getMessage());
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(str2, "uid parse error " + e.getMessage());
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                     j = 0L;
                 }
                 if (j == 0) {

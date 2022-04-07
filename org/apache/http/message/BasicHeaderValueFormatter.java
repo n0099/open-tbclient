@@ -131,19 +131,19 @@ public class BasicHeaderValueFormatter implements HeaderValueFormatter {
         return invokeL.intValue;
     }
 
-    public boolean isSeparator(char c2) {
+    public boolean isSeparator(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean isUnsafe(char c2) {
+    public boolean isUnsafe(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;

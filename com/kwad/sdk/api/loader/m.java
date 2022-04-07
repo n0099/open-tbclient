@@ -7,20 +7,16 @@ import android.content.res.Resources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
 @SuppressLint({"RestrictedApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class m extends ContextThemeWrapper implements ResContext {
     public final ContextThemeWrapper a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f39141b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f39142c;
+    public Resources.Theme b;
+    public int c;
 
     public m(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
         this.a = contextThemeWrapper;
-        this.f39142c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -58,15 +54,15 @@ public class m extends ContextThemeWrapper implements ResContext {
         Resources.Theme theme;
         try {
             theme = super.getTheme();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.f39141b;
+        Resources.Theme theme2 = this.b;
         if (theme2 == null || theme2 == theme) {
-            this.f39141b = Wrapper.replaceTheme(theme, this.f39141b, this.f39142c);
+            this.b = Wrapper.replaceTheme(theme, this.b, this.c);
         }
-        return this.f39141b;
+        return this.b;
     }
 
     @Override // android.content.Context
@@ -76,7 +72,7 @@ public class m extends ContextThemeWrapper implements ResContext {
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        this.f39142c = i;
+        this.c = i;
         super.setTheme(i);
     }
 

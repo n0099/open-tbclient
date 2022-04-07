@@ -20,7 +20,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AuthActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -91,8 +91,8 @@ public class AuthActivity extends Activity {
                             Intent launchIntentForPackage = getPackageManager().getLaunchIntentForPackage(getPackageName());
                             try {
                                 str = l.d(a2.getString("response")).getString("activityid");
-                            } catch (Exception e2) {
-                                SLog.e("openSDK_LOG.AuthActivity", "sharePrize parseJson has exception.", e2);
+                            } catch (Exception e) {
+                                SLog.e("openSDK_LOG.AuthActivity", "sharePrize parseJson has exception.", e);
                             }
                             if (!TextUtils.isEmpty(str)) {
                                 launchIntentForPackage.putExtra(ACTION_SHARE_PRIZE, true);
@@ -198,14 +198,14 @@ public class AuthActivity extends Activity {
             Uri uri = null;
             try {
                 uri = getIntent().getData();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             SLog.v("openSDK_LOG.AuthActivity", "-->onCreate, uri: " + uri);
             try {
                 a(uri);
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 finish();
             }
             LogUtil.logActivity(this, "onCreate");

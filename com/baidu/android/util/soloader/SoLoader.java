@@ -38,7 +38,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class SoLoader implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -147,8 +147,8 @@ public final class SoLoader implements NoProGuard {
             File file = new File(releaseSoFilePath, str);
             FileLock fileLock = null;
             try {
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             try {
                 try {
@@ -156,24 +156,24 @@ public final class SoLoader implements NoProGuard {
                     if (!file2.exists()) {
                         try {
                             file2.createNewFile();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     try {
                         fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
-                    } catch (FileNotFoundException e4) {
-                        e = e4;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
                         fileChannel2 = null;
                     }
                     try {
                         try {
                             fileLock = fileChannel2.lock();
-                        } catch (IOException e5) {
+                        } catch (IOException e4) {
                             try {
-                                e5.printStackTrace();
-                            } catch (FileNotFoundException e6) {
-                                e = e6;
+                                e4.printStackTrace();
+                            } catch (FileNotFoundException e5) {
+                                e = e5;
                                 e.printStackTrace();
                                 if (fileLock != null) {
                                     saveCrc(j, str, releaseSoFilePath);
@@ -191,18 +191,18 @@ public final class SoLoader implements NoProGuard {
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
                             }
                         }
-                    } catch (Exception e8) {
-                        e = e8;
+                    } catch (Exception e7) {
+                        e = e7;
                         e.printStackTrace();
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e9) {
-                                e9.printStackTrace();
+                            } catch (IOException e8) {
+                                e8.printStackTrace();
                             }
                         }
                         if (fileChannel2 != null) {
@@ -215,21 +215,21 @@ public final class SoLoader implements NoProGuard {
                     if (0 != 0) {
                         try {
                             fileLock.release();
-                        } catch (IOException e10) {
-                            e10.printStackTrace();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
                         }
                     }
                     if (fileChannel != 0) {
                         try {
                             fileChannel.close();
-                        } catch (IOException e11) {
-                            e11.printStackTrace();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (Exception e12) {
-                e = e12;
+            } catch (Exception e11) {
+                e = e11;
                 fileChannel2 = null;
                 e.printStackTrace();
                 if (fileLock != null) {
@@ -290,8 +290,8 @@ public final class SoLoader implements NoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.nativeLibraryDir;
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -387,14 +387,14 @@ public final class SoLoader implements NoProGuard {
                     try {
                         bufferedReader3 = bufferedReader;
                         str2 = bufferedReader.readLine();
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         e.printStackTrace();
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                             }
                         }
                         return !TextUtils.equals(String.valueOf(j), str3) ? false : false;
@@ -405,8 +405,8 @@ public final class SoLoader implements NoProGuard {
                     if (bufferedReader2 != null) {
                         try {
                             bufferedReader2.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th;
@@ -417,13 +417,13 @@ public final class SoLoader implements NoProGuard {
             if (bufferedReader3 != null) {
                 try {
                     bufferedReader3.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
             }
             str3 = str2;
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
@@ -465,8 +465,8 @@ public final class SoLoader implements NoProGuard {
             try {
                 try {
                     soCrc = getSoCrc(zipFile, str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 if (loadFromReleaseCache(iCallingSoLoader, absolutePath, soCrc, j)) {
                     return true;
@@ -527,16 +527,16 @@ public final class SoLoader implements NoProGuard {
                 try {
                     try {
                         zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-                    } catch (ZipException e2) {
-                        this.sb.append(Log.getStackTraceString(e2));
-                        e2.printStackTrace();
+                    } catch (ZipException e) {
+                        this.sb.append(Log.getStackTraceString(e));
+                        e.printStackTrace();
                         zipFile = null;
                         if (zipFile == null) {
                         }
                     }
-                } catch (IOException e3) {
-                    this.sb.append(Log.getStackTraceString(e3));
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    this.sb.append(Log.getStackTraceString(e2));
+                    e2.printStackTrace();
                     zipFile = null;
                     if (zipFile == null) {
                     }
@@ -546,8 +546,8 @@ public final class SoLoader implements NoProGuard {
                     if (zipFile != null) {
                         try {
                             zipFile.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return false;
@@ -559,8 +559,8 @@ public final class SoLoader implements NoProGuard {
                     if (zipFile != null) {
                         try {
                             zipFile.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                     return true;
@@ -568,8 +568,8 @@ public final class SoLoader implements NoProGuard {
                     if (zipFile != null) {
                         try {
                             zipFile.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
                         }
                     }
                     return true;
@@ -578,8 +578,8 @@ public final class SoLoader implements NoProGuard {
                     if (zipFile != null) {
                         try {
                             zipFile.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
                         }
                     }
                     return false;
@@ -590,8 +590,8 @@ public final class SoLoader implements NoProGuard {
                 if (zipFile2 != null) {
                     try {
                         zipFile2.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
                 }
                 throw th;
@@ -636,14 +636,14 @@ public final class SoLoader implements NoProGuard {
                                     if (inputStream2 != null) {
                                         try {
                                             inputStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                     try {
                                         fileOutputStream.close();
-                                    } catch (Exception e3) {
-                                        e3.printStackTrace();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
                                     }
                                     return renameTo;
                                 }
@@ -653,8 +653,8 @@ public final class SoLoader implements NoProGuard {
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
-                                    } catch (Exception e4) {
-                                        e4.printStackTrace();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
                                     }
                                 }
                                 if (fileOutputStream != null) {
@@ -668,15 +668,15 @@ public final class SoLoader implements NoProGuard {
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
-                                    } catch (Exception e5) {
-                                        e5.printStackTrace();
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 if (fileOutputStream != null) {
                                     try {
                                         fileOutputStream.close();
-                                    } catch (Exception e6) {
-                                        e6.printStackTrace();
+                                    } catch (Exception e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                                 throw th;
@@ -699,8 +699,8 @@ public final class SoLoader implements NoProGuard {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e7) {
-                        e7.printStackTrace();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
                     }
                 }
                 if (fileOutputStream != null) {
@@ -708,8 +708,8 @@ public final class SoLoader implements NoProGuard {
                     return false;
                 }
                 return false;
-            } catch (Exception e8) {
-                e8.printStackTrace();
+            } catch (Exception e7) {
+                e7.printStackTrace();
                 return false;
             }
         }
@@ -725,8 +725,8 @@ public final class SoLoader implements NoProGuard {
             try {
                 try {
                     bufferedWriter = new BufferedWriter(new FileWriter(new File(file, getCrcFileName(str))));
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -736,19 +736,19 @@ public final class SoLoader implements NoProGuard {
                 try {
                     bufferedWriter.close();
                     return true;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return true;
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 bufferedWriter2 = bufferedWriter;
                 e.printStackTrace();
                 if (bufferedWriter2 != null) {
                     try {
                         bufferedWriter2.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
                 }
                 return false;
@@ -758,8 +758,8 @@ public final class SoLoader implements NoProGuard {
                 if (bufferedWriter2 != null) {
                     try {
                         bufferedWriter2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
@@ -778,8 +778,8 @@ public final class SoLoader implements NoProGuard {
                     return null;
                 }
                 return new File(soSources.get(0), fullName);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

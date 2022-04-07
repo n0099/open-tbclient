@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TBSelector {
     public static /* synthetic */ Interceptable $ic;
     public static final float RESOURCE_ALPHA_DISABLE;
@@ -115,21 +115,21 @@ public class TBSelector {
         return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i, i2)) == null) ? ColorSelector.make().textType(2).pressedColor(i2).defaultColor(i) : (ColorSelector) invokeII.objValue;
     }
 
-    public static void setViewBackgroundColorWithDisabledState(View view, @ColorRes int i) {
+    public static void setViewBackgroundColorWithDisabledState(View view2, @ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65552, null, view, i) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65552, null, view2, i) == null) || view2 == null) {
             return;
         }
         Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_DISABLE)).into(view);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_DISABLE)).into(view2);
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, int i, int i2) {
+    public static void setViewBackgroundColorWithPressedState(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65554, null, view, i, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65554, null, view2, i, i2) == null) || view2 == null) {
             return;
         }
-        DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).into(view);
+        DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).into(view2);
     }
 
     public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i, @DrawableRes int i2) {
@@ -156,12 +156,12 @@ public class TBSelector {
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, str, str2, i)) == null) ? DrawableSelector.make().setType(1).defaultColor(str).pressedColor(str2).radius(i) : (DrawableSelector) invokeLLI.objValue;
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, @ColorRes int i) {
+    public static void setViewBackgroundColorWithPressedState(View view2, @ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65553, null, view, i) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65553, null, view2, i) == null) || view2 == null) {
             return;
         }
         Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_PRESS)).into(view);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_PRESS)).into(view2);
     }
 }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MovieView extends FrameLayout implements ICyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,27 +61,13 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public boolean ac;
     public float ad;
     public HashMap<String, String> ae;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f25482b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Surface f25483c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f25484d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f25485e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f25486f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f25487g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public CyberPlayer f25488h;
+    public Context b;
+    public Surface c;
+    public View d;
+    public boolean e;
+    public boolean f;
+    public String g;
+    public CyberPlayer h;
     public int i;
     public boolean j;
     public String k;
@@ -101,65 +87,51 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public a y;
     public e z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface c {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface d {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface g {
         void a();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final h f25489b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final h f25490c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final h f25491d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final h f25492e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final h f25493f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final h f25494g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ h[] f25495h;
+        public static final h b;
+        public static final h c;
+        public static final h d;
+        public static final h e;
+        public static final h f;
+        public static final h g;
+        public static final /* synthetic */ h[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -176,14 +148,14 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 }
             }
             a = new h("ERROR", 0);
-            f25489b = new h("IDLE", 1);
-            f25490c = new h("PREPARING", 2);
-            f25491d = new h("PREPARED", 3);
-            f25492e = new h("PLAYING", 4);
-            f25493f = new h("PAUSED", 5);
+            b = new h("IDLE", 1);
+            c = new h("PREPARING", 2);
+            d = new h("PREPARED", 3);
+            e = new h("PLAYING", 4);
+            f = new h("PAUSED", 5);
             h hVar = new h("PLAYBACK_COMPLETED", 6);
-            f25494g = hVar;
-            f25495h = new h[]{a, f25489b, f25490c, f25491d, f25492e, f25493f, hVar};
+            g = hVar;
+            h = new h[]{a, b, c, d, e, f, hVar};
         }
 
         public h(String str, int i) {
@@ -214,21 +186,17 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         public static h[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f25495h.clone() : (h[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) h.clone() : (h[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class i {
         public static /* synthetic */ Interceptable $ic;
         public static final i a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final i f25496b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ i[] f25497c;
+        public static final i b;
+        public static final /* synthetic */ i[] c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -246,8 +214,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             }
             a = new i("PAUSED", 0);
             i iVar = new i("RESUMED", 1);
-            f25496b = iVar;
-            f25497c = new i[]{a, iVar};
+            b = iVar;
+            c = new i[]{a, iVar};
         }
 
         public i(String str, int i) {
@@ -278,7 +246,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         public static i[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (i[]) f25497c.clone() : (i[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (i[]) c.clone() : (i[]) invokeV.objValue;
         }
     }
 
@@ -300,8 +268,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 return;
             }
         }
-        this.f25485e = true;
-        this.f25486f = false;
+        this.e = true;
+        this.f = false;
         this.i = 0;
         this.j = true;
         this.m = null;
@@ -316,7 +284,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ac = false;
         this.ad = 1.0f;
         this.ae = new HashMap<>();
-        h hVar = h.f25489b;
+        h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
         this.K = false;
@@ -346,8 +314,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 return;
             }
         }
-        this.f25485e = true;
-        this.f25486f = false;
+        this.e = true;
+        this.f = false;
         this.i = 0;
         this.j = true;
         this.m = null;
@@ -362,7 +330,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ac = false;
         this.ad = 1.0f;
         this.ae = new HashMap<>();
-        h hVar = h.f25489b;
+        h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
         this.K = false;
@@ -389,8 +357,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 return;
             }
         }
-        this.f25485e = true;
-        this.f25486f = false;
+        this.e = true;
+        this.f = false;
         this.i = 0;
         this.j = true;
         this.m = null;
@@ -405,7 +373,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ac = false;
         this.ad = 1.0f;
         this.ae = new HashMap<>();
-        h hVar = h.f25489b;
+        h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
         this.K = false;
@@ -427,7 +395,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
 
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) || i2 == 0 || i3 == 0 || this.f25484d == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) || i2 == 0 || i3 == 0 || this.d == null) {
             return;
         }
         a(1, "on23DVideoSizeChanged w:" + i2 + " h:" + i3);
@@ -443,7 +411,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             if (context != null) {
-                this.f25482b = context.getApplicationContext();
+                this.b = context.getApplicationContext();
             } else {
                 CyberLog.e("VrMovieView", "Context not be null");
             }
@@ -460,17 +428,17 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null) {
                 cyberPlayer.setDisplay(null);
-                this.f25488h.release();
-                this.f25488h = null;
+                this.h.release();
+                this.h = null;
             }
-            setCurPlayerState(h.f25489b);
+            setCurPlayerState(h.b);
             if (z2) {
-                this.H = h.f25489b;
+                this.H = h.b;
             }
-            ((AudioManager) this.f25482b.getSystemService("audio")).abandonAudioFocus(null);
+            ((AudioManager) this.b.getSystemService("audio")).abandonAudioFocus(null);
         }
     }
 
@@ -489,8 +457,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             f();
             a(i2);
             Object[] objArr = new Object[1];
-            View view = this.f25484d;
-            objArr[0] = Integer.valueOf(view == null ? 0 : view.hashCode());
+            View view2 = this.d;
+            objArr[0] = Integer.valueOf(view2 == null ? 0 : view2.hashCode());
             a(1, String.format("rendView hashCode = %d", objArr));
             setFocusable(true);
             setFocusableInTouchMode(true);
@@ -505,7 +473,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 this.J = i3;
                 return;
             }
-            this.f25488h.seekTo(i2, i3);
+            this.h.seekTo(i2, i3);
             this.I = 0;
             this.J = 3;
         }
@@ -514,7 +482,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f25486f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     public void c() {
@@ -530,19 +498,19 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             a(this.n != null, false);
-            ((AudioManager) this.f25482b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
-            this.f25488h = d(i2);
+            ((AudioManager) this.b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
+            this.h = d(i2);
             HashMap<String, String> hashMap = this.ae;
             if (hashMap != null) {
                 for (String str : hashMap.keySet()) {
-                    this.f25488h.setOption(str, this.ae.get(str));
+                    this.h.setOption(str, this.ae.get(str));
                 }
             }
-            Surface surface = this.f25483c;
+            Surface surface = this.c;
             if (surface != null) {
-                this.f25488h.setSurface(surface);
+                this.h.setSurface(surface);
             }
-            this.f25488h.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.1
+            this.h.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -570,9 +538,9 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.a.a(1, "onPrepared");
-                        this.a.setCurPlayerState(h.f25491d);
+                        this.a.setCurPlayerState(h.d);
                         MovieView movieView = this.a;
-                        movieView.f25488h.setLooping(movieView.K);
+                        movieView.h.setLooping(movieView.K);
                         CyberPlayerManager.OnPreparedListener onPreparedListener = this.a.s;
                         if (onPreparedListener != null) {
                             onPreparedListener.onPrepared();
@@ -583,7 +551,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                             movieView2.seekTo(i3, movieView2.J);
                         }
                         MovieView movieView3 = this.a;
-                        if (movieView3.H == h.f25492e) {
+                        if (movieView3.H == h.e) {
                             movieView3.start();
                         } else if (movieView3.L) {
                             movieView3.pauseBuffering();
@@ -591,7 +559,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     }
                 }
             });
-            this.f25488h.setOnVideoSizeChangedListener(new CyberPlayerManager.OnVideoSizeChangedListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.2
+            this.h.setOnVideoSizeChangedListener(new CyberPlayerManager.OnVideoSizeChangedListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -633,7 +601,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     }
                 }
             });
-            this.f25488h.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.3
+            this.h.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -661,9 +629,9 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.a.a(1, "onCompletion");
-                        this.a.setCurPlayerState(h.f25494g);
+                        this.a.setCurPlayerState(h.g);
                         MovieView movieView = this.a;
-                        movieView.H = h.f25494g;
+                        movieView.H = h.g;
                         CyberPlayerManager.OnCompletionListener onCompletionListener = movieView.r;
                         if (onCompletionListener != null) {
                             onCompletionListener.onCompletion();
@@ -671,7 +639,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     }
                 }
             });
-            this.f25488h.setOnErrorListener(new CyberPlayerManager.OnErrorListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.4
+            this.h.setOnErrorListener(new CyberPlayerManager.OnErrorListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -709,7 +677,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     return invokeIIL.booleanValue;
                 }
             });
-            this.f25488h.setOnInfoListener(new CyberPlayerManager.OnInfoListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.5
+            this.h.setOnInfoListener(new CyberPlayerManager.OnInfoListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -766,7 +734,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     return invokeIIL.booleanValue;
                 }
             });
-            this.f25488h.setOnBufferingUpdateListener(new CyberPlayerManager.OnBufferingUpdateListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.6
+            this.h.setOnBufferingUpdateListener(new CyberPlayerManager.OnBufferingUpdateListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -801,7 +769,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                     }
                 }
             });
-            this.f25488h.setOnSeekCompleteListener(new CyberPlayerManager.OnSeekCompleteListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.7
+            this.h.setOnSeekCompleteListener(new CyberPlayerManager.OnSeekCompleteListener(this) { // from class: com.baidu.cyberplayer.sdk.vrplayer.MovieView.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MovieView a;
@@ -842,20 +810,20 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void changeProxyDynamic(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.f25488h != null && TextUtils.isEmpty(o.c())) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.h != null && TextUtils.isEmpty(o.c())) {
             HashMap<String, String> hashMap = this.ae;
             String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f25488h.changeProxyDynamic(null, false);
+                this.h.changeProxyDynamic(null, false);
             } else if (str.equals(str2)) {
                 return;
             } else {
-                this.f25488h.changeProxyDynamic(str, true);
+                this.h.changeProxyDynamic(str, true);
             }
-            this.f25488h.seekTo(getCurrentPosition() - 500);
+            this.h.seekTo(getCurrentPosition() - 500);
             HashMap<String, String> hashMap2 = this.ae;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
@@ -880,7 +848,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f25486f || this.f25483c == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f || this.c == null) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -902,7 +870,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             a(false);
             f();
             destroyRender();
-            this.f25483c = null;
+            this.c = null;
             this.r = null;
             this.s = null;
             this.t = null;
@@ -933,20 +901,20 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             c();
             try {
                 if (Build.VERSION.SDK_INT >= 14) {
-                    this.f25488h.setDataSource(this.f25482b, this.m, this.o);
+                    this.h.setDataSource(this.b, this.m, this.o);
                 } else {
-                    this.f25488h.setDataSource(this.m.toString());
+                    this.h.setDataSource(this.m.toString());
                 }
-                if (this.f25486f) {
+                if (this.f) {
                     a(1, "video is 2d");
                 } else {
-                    this.f25488h.setSurface(this.f25483c);
+                    this.h.setSurface(this.c);
                 }
-                this.f25488h.prepareAsync();
+                this.h.prepareAsync();
                 if (this.ac) {
                     muteOrUnmuteAudio(this.ac);
                 }
-                setCurPlayerState(h.f25490c);
+                setCurPlayerState(h.c);
             } catch (Exception unused) {
                 a(1, 0);
             }
@@ -959,7 +927,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             if (isInPlaybackState()) {
-                this.f25488h.seekTo(i2);
+                this.h.seekTo(i2);
                 i2 = 0;
             }
             this.I = i2;
@@ -969,21 +937,21 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void enableCache(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f25487g = str;
+            this.g = str;
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null) {
                 cyberPlayer.setDisplay(null);
             }
-            View view = this.f25484d;
-            if (view != null) {
-                removeView(view);
-                this.f25484d = null;
+            View view2 = this.d;
+            if (view2 != null) {
+                removeView(view2);
+                this.d = null;
             }
         }
     }
@@ -991,12 +959,12 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            if (isInPlaybackState() && (this.f25488h.isPlaying() || this.G == h.f25491d)) {
+            if (isInPlaybackState() && (this.h.isPlaying() || this.G == h.d)) {
                 a(1, "pausePlayer");
-                this.f25488h.pause();
-                setCurPlayerState(h.f25493f);
+                this.h.pause();
+                setCurPlayerState(h.f);
             }
-            this.H = h.f25493f;
+            this.H = h.f;
         }
     }
 
@@ -1006,7 +974,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             if (isInPlaybackState()) {
-                return this.f25488h.getCurrentPosition();
+                return this.h.getCurrentPosition();
             }
             return 0;
         }
@@ -1025,7 +993,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             if (isInPlaybackState()) {
-                return this.f25488h.getDuration();
+                return this.h.getDuration();
             }
             return -1;
         }
@@ -1038,8 +1006,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            CyberPlayer cyberPlayer = this.f25488h;
-            if (cyberPlayer == null || (hVar = this.G) == h.f25489b || hVar == h.f25490c) {
+            CyberPlayer cyberPlayer = this.h;
+            if (cyberPlayer == null || (hVar = this.G) == h.b || hVar == h.c) {
                 return -1L;
             }
             return cyberPlayer.getPlayedTime();
@@ -1090,7 +1058,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            this.f25486f = true;
+            this.f = true;
             if (this.i == 0) {
                 this.i = 1;
             }
@@ -1107,13 +1075,13 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public boolean isAllReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? (this.f25484d == null || this.f25488h == null || !b()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? (this.d == null || this.h == null || !b()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean isEnableDetachedSurfaceTextureView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f25485e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public boolean isEnableMediaCodec() {
@@ -1126,7 +1094,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         InterceptResult invokeV;
         h hVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? (this.f25488h == null || (hVar = this.G) == h.a || hVar == h.f25489b || hVar == h.f25490c) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? (this.h == null || (hVar = this.G) == h.a || hVar == h.b || hVar == h.c) ? false : true : invokeV.booleanValue;
     }
 
     public boolean isLooping() {
@@ -1138,14 +1106,14 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public boolean isPlayerIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f25488h != null && this.G == h.f25489b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.h != null && this.G == h.b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? isInPlaybackState() && this.f25488h.isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? isInPlaybackState() && this.h.isPlaying() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -1154,7 +1122,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
             this.ac = z;
             a(1, "muteOrUnmuteAudio flag:" + z);
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null) {
                 cyberPlayer.muteOrUnmuteAudio(z);
             } else {
@@ -1213,13 +1181,13 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void resetPlayer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null) {
                 cyberPlayer.reset();
-                this.f25488h.setSurface(this.f25483c);
+                this.h.setSurface(this.c);
             }
-            setCurPlayerState(h.f25489b);
-            this.H = h.f25489b;
+            setCurPlayerState(h.b);
+            this.H = h.b;
             this.aa = 0;
             this.ab = 0;
         }
@@ -1284,7 +1252,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setEnableDetachedSurfaceTextureView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            this.f25485e = z;
+            this.e = z;
         }
     }
 
@@ -1299,7 +1267,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setExternalInfo(String str, Object obj) {
         CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048632, this, str, obj) == null) || TextUtils.isEmpty(str) || (cyberPlayer = this.f25488h) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048632, this, str, obj) == null) || TextUtils.isEmpty(str) || (cyberPlayer = this.h) == null) {
             return;
         }
         cyberPlayer.setExternalInfo(str, obj);
@@ -1316,7 +1284,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null && this.G != h.a) {
                 cyberPlayer.setLooping(z);
             }
@@ -1449,7 +1417,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setOption(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048651, this, str, str2) == null) {
-            if (this.G != h.f25489b) {
+            if (this.G != h.b) {
                 a(1, "Do not set option when the video player playing");
                 return;
             }
@@ -1457,9 +1425,9 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             if (hashMap != null) {
                 hashMap.put(str, str2);
             }
-            if (this.f25488h != null) {
+            if (this.h != null) {
                 if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(o.c())) {
-                    this.f25488h.setOption(str, str2);
+                    this.h.setOption(str, str2);
                 }
             }
         }
@@ -1469,7 +1437,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setPlayJson(String str) {
         CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048652, this, str) == null) || (cyberPlayer = this.f25488h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048652, this, str) == null) || (cyberPlayer = this.h) == null) {
             return;
         }
         cyberPlayer.setPlayJson(str);
@@ -1503,7 +1471,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         if (interceptable == null || interceptable.invokeF(1048656, this, f2) == null) {
             a(1, "setSpeed()");
             this.ad = f2;
-            CyberPlayer cyberPlayer = this.f25488h;
+            CyberPlayer cyberPlayer = this.h;
             if (cyberPlayer != null) {
                 cyberPlayer.setSpeed(f2);
             } else {
@@ -1572,7 +1540,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void setVolume(float f2) {
         CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048664, this, f2) == null) || (cyberPlayer = this.f25488h) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048664, this, f2) == null) || (cyberPlayer = this.h) == null) {
             return;
         }
         cyberPlayer.setVolume(f2, f2);
@@ -1592,10 +1560,10 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
             if (isInPlaybackState()) {
-                this.f25488h.start();
-                setCurPlayerState(h.f25492e);
+                this.h.start();
+                setCurPlayerState(h.e);
             }
-            this.H = h.f25492e;
+            this.H = h.e;
             a(1, "startPlayer");
         }
     }

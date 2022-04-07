@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LiveMessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -55,8 +55,8 @@ public class LiveMessageParser {
             int i = -1;
             try {
                 i = Integer.parseInt(liveMessageBean.type);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (i != 0) {
                 switch (i) {
@@ -128,15 +128,15 @@ public class LiveMessageParser {
                     return parseContentJson;
                 }
                 return null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
         return (LiveMessageBean) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0039 A[Catch: Exception -> 0x0033, TryCatch #2 {Exception -> 0x0033, blocks: (B:6:0x001b, B:8:0x0028, B:16:0x0039, B:17:0x0057, B:26:0x007b, B:28:0x008b, B:29:0x0091, B:31:0x00a3, B:32:0x00a9, B:34:0x00af, B:35:0x00b5, B:37:0x00dd, B:38:0x00e3, B:40:0x00ed, B:41:0x00f3, B:43:0x00fd, B:44:0x0103, B:46:0x0133, B:47:0x0139, B:49:0x0141, B:19:0x005e, B:21:0x006a, B:24:0x0077, B:11:0x002f), top: B:61:0x001b, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0037 A[Catch: Exception -> 0x0031, TryCatch #2 {Exception -> 0x0031, blocks: (B:6:0x001a, B:8:0x0026, B:16:0x0037, B:17:0x0053, B:26:0x0076, B:28:0x0086, B:29:0x008c, B:31:0x009e, B:32:0x00a4, B:34:0x00aa, B:35:0x00b0, B:37:0x00d8, B:38:0x00de, B:40:0x00e8, B:41:0x00ee, B:43:0x00f8, B:44:0x00fe, B:46:0x012e, B:47:0x0134, B:49:0x013c, B:19:0x0059, B:21:0x0065, B:24:0x0072, B:11:0x002d), top: B:61:0x001a, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -155,8 +155,8 @@ public class LiveMessageParser {
                 if (!TextUtils.isEmpty(optString)) {
                     try {
                         jSONObject2 = new JSONObject(optString);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     if (jSONObject2 == null) {
                         int optInt = jSONObject2.optInt("type");
@@ -177,8 +177,8 @@ public class LiveMessageParser {
                                 if (!TextUtils.isEmpty(optString2)) {
                                     try {
                                         liveMessageBean.data = parseDataFromJson(optInt, new JSONObject(optString2));
-                                    } catch (JSONException e3) {
-                                        e3.printStackTrace();
+                                    } catch (JSONException e2) {
+                                        e2.printStackTrace();
                                     }
                                 }
                                 return liveMessageBean;
@@ -225,8 +225,8 @@ public class LiveMessageParser {
                     }
                     return liveMessageBean;
                 }
-            } catch (Exception e4) {
-                e4.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
                 return null;
             }
         }
@@ -267,8 +267,8 @@ public class LiveMessageParser {
                         JSONArray jSONArray = null;
                         try {
                             jSONArray = new JSONArray(optString);
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         if (jSONArray != null && jSONArray.length() > 0) {
                             try {
@@ -277,8 +277,8 @@ public class LiveMessageParser {
                                     data.stickMsg = parseJson(jSONObject2);
                                     break;
                                 }
-                            } catch (JSONException e3) {
-                                e3.printStackTrace();
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
                                 break;
                             }
                         }
@@ -326,8 +326,8 @@ public class LiveMessageParser {
                     if (!TextUtils.isEmpty(optString)) {
                         try {
                             jSONObject2 = new JSONObject(optString);
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         parseContentJson = parseContentJson(jSONObject2);
                         if (parseContentJson != null) {
@@ -341,8 +341,8 @@ public class LiveMessageParser {
                     if (parseContentJson != null) {
                     }
                     return parseContentJson;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
@@ -580,8 +580,8 @@ public class LiveMessageParser {
             JSONObject jSONObject5 = null;
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 jSONObject = null;
             }
             if (jSONObject != null) {
@@ -589,8 +589,8 @@ public class LiveMessageParser {
                 if (!TextUtils.isEmpty(jSONObject.optString("txt"))) {
                     try {
                         jSONObject4 = new JSONObject(jSONObject.optString("txt"));
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                         jSONObject4 = null;
                     }
                     if (jSONObject4 != null) {
@@ -603,8 +603,8 @@ public class LiveMessageParser {
                 if (!TextUtils.isEmpty(jSONObject.optString("link"))) {
                     try {
                         jSONObject3 = new JSONObject(jSONObject.optString("link"));
-                    } catch (JSONException e4) {
-                        e4.printStackTrace();
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
                         jSONObject3 = null;
                     }
                     if (jSONObject3 != null) {
@@ -619,8 +619,8 @@ public class LiveMessageParser {
                 if (!TextUtils.isEmpty(jSONObject.optString("voice"))) {
                     try {
                         jSONObject2 = new JSONObject(jSONObject.optString("voice"));
-                    } catch (JSONException e5) {
-                        e5.printStackTrace();
+                    } catch (JSONException e4) {
+                        e4.printStackTrace();
                         jSONObject2 = null;
                     }
                     if (jSONObject2 != null) {
@@ -637,8 +637,8 @@ public class LiveMessageParser {
                 if (!TextUtils.isEmpty(jSONObject.optString("pic"))) {
                     try {
                         jSONObject5 = new JSONObject(jSONObject.optString("pic"));
-                    } catch (JSONException e6) {
-                        e6.printStackTrace();
+                    } catch (JSONException e5) {
+                        e5.printStackTrace();
                     }
                     if (jSONObject5 != null) {
                         String optString7 = jSONObject5.optString("origin");
@@ -657,8 +657,8 @@ public class LiveMessageParser {
                             imageInfo.format = jSONObject6.optString("format");
                             pic.origin = imageInfo;
                             messageBody.pic = pic;
-                        } catch (JSONException e7) {
-                            e7.printStackTrace();
+                        } catch (JSONException e6) {
+                            e6.printStackTrace();
                         }
                         try {
                             JSONObject jSONObject7 = new JSONObject(optString8);
@@ -673,8 +673,8 @@ public class LiveMessageParser {
                             imageInfo2.format = jSONObject7.optString("format");
                             pic.thumbnail = imageInfo2;
                             messageBody.pic = pic;
-                        } catch (JSONException e8) {
-                            e8.printStackTrace();
+                        } catch (JSONException e7) {
+                            e7.printStackTrace();
                         }
                     }
                 }

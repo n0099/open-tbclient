@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,14 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PickEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmotionView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f34687b;
+    public ImageView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PickEmotionView(Context context) {
@@ -50,12 +48,12 @@ public class PickEmotionView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = new EmotionView(getContext());
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-            this.f34687b = new ImageView(getContext());
+            this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = n.f(getContext(), R.dimen.obfuscated_res_0x7f0702fb);
-            layoutParams.rightMargin = n.f(getContext(), R.dimen.obfuscated_res_0x7f0702fb);
-            addView(this.f34687b, layoutParams);
+            layoutParams.topMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070305);
+            layoutParams.rightMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070305);
+            addView(this.b, layoutParams);
         }
     }
 
@@ -82,9 +80,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.f34687b, R.drawable.obfuscated_res_0x7f080655);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080654);
             } else {
-                SkinManager.setBackgroundResource(this.f34687b, R.drawable.obfuscated_res_0x7f080654);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080653);
             }
         }
     }
@@ -93,8 +91,8 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
             this.a.setLoadProcType(i);
-            this.a.j0();
-            this.a.l0(emotionImageData);
+            this.a.k0();
+            this.a.m0(emotionImageData);
         }
     }
 

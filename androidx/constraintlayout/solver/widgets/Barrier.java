@@ -201,12 +201,12 @@ public class Barrier extends Helper {
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
     public void resolve() {
         ResolutionAnchor resolutionNode;
-        float f2;
+        float f;
         ResolutionAnchor resolutionAnchor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i = this.mBarrierType;
-            float f3 = Float.MAX_VALUE;
+            float f2 = Float.MAX_VALUE;
             if (i != 0) {
                 if (i == 1) {
                     resolutionNode = this.mRight.getResolutionNode();
@@ -217,7 +217,7 @@ public class Barrier extends Helper {
                 } else {
                     resolutionNode = this.mBottom.getResolutionNode();
                 }
-                f3 = 0.0f;
+                f2 = 0.0f;
             } else {
                 resolutionNode = this.mLeft.getResolutionNode();
             }
@@ -230,18 +230,18 @@ public class Barrier extends Helper {
                 }
                 int i3 = this.mBarrierType;
                 if (i3 != 0 && i3 != 2) {
-                    f2 = resolutionAnchor3.resolvedOffset;
-                    if (f2 > f3) {
+                    f = resolutionAnchor3.resolvedOffset;
+                    if (f > f2) {
                         resolutionAnchor = resolutionAnchor3.resolvedTarget;
                         resolutionAnchor2 = resolutionAnchor;
-                        f3 = f2;
+                        f2 = f;
                     }
                 } else {
-                    f2 = resolutionAnchor3.resolvedOffset;
-                    if (f2 < f3) {
+                    f = resolutionAnchor3.resolvedOffset;
+                    if (f < f2) {
                         resolutionAnchor = resolutionAnchor3.resolvedTarget;
                         resolutionAnchor2 = resolutionAnchor;
-                        f3 = f2;
+                        f2 = f;
                     }
                 }
             }
@@ -249,17 +249,17 @@ public class Barrier extends Helper {
                 LinearSystem.getMetrics().barrierConnectionResolved++;
             }
             resolutionNode.resolvedTarget = resolutionAnchor2;
-            resolutionNode.resolvedOffset = f3;
+            resolutionNode.resolvedOffset = f2;
             resolutionNode.didResolve();
             int i4 = this.mBarrierType;
             if (i4 == 0) {
-                this.mRight.getResolutionNode().resolve(resolutionAnchor2, f3);
+                this.mRight.getResolutionNode().resolve(resolutionAnchor2, f2);
             } else if (i4 == 1) {
-                this.mLeft.getResolutionNode().resolve(resolutionAnchor2, f3);
+                this.mLeft.getResolutionNode().resolve(resolutionAnchor2, f2);
             } else if (i4 == 2) {
-                this.mBottom.getResolutionNode().resolve(resolutionAnchor2, f3);
+                this.mBottom.getResolutionNode().resolve(resolutionAnchor2, f2);
             } else if (i4 == 3) {
-                this.mTop.getResolutionNode().resolve(resolutionAnchor2, f3);
+                this.mTop.getResolutionNode().resolve(resolutionAnchor2, f2);
             }
         }
     }

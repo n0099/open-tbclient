@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "utf-8";
@@ -182,15 +182,15 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
                                     dataOutputStream.write(stringBuffer2.toString().getBytes(IMAudioTransRequest.CHARSET));
                                     fileInputStream = new FileInputStream(file);
-                                } catch (Exception e2) {
-                                    e = e2;
+                                } catch (Exception e) {
+                                    e = e;
                                     fileInputStream = null;
                                 } catch (Throwable th) {
                                     th = th;
                                     fileInputStream = null;
                                 }
-                            } catch (Exception e3) {
-                                e = e3;
+                            } catch (Exception e2) {
+                                e = e2;
                                 dataOutputStream = null;
                                 fileInputStream = null;
                             } catch (Throwable th2) {
@@ -226,8 +226,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                 if (outputStream2 != null) {
                                     try {
                                         outputStream2.close();
-                                    } catch (Exception e4) {
-                                        e = e4;
+                                    } catch (Exception e3) {
+                                        e = e3;
                                         LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
                                         crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
                                         crashBuilder.exception(Log.getStackTraceString(e)).build();
@@ -242,8 +242,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     return;
                                 }
                                 return;
-                            } catch (Exception e5) {
-                                e = e5;
+                            } catch (Exception e4) {
+                                e = e4;
                                 outputStream = outputStream2;
                                 try {
                                     LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
@@ -252,8 +252,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     if (outputStream != null) {
                                         try {
                                             outputStream.close();
-                                        } catch (Exception e6) {
-                                            e = e6;
+                                        } catch (Exception e5) {
+                                            e = e5;
                                             LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
                                             crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
                                             crashBuilder.exception(Log.getStackTraceString(e)).build();
@@ -273,9 +273,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     if (outputStream != null) {
                                         try {
                                             outputStream.close();
-                                        } catch (Exception e7) {
-                                            LogUtils.d(IMAudioTransRequest.TAG, e7.getMessage());
-                                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e7)).build();
+                                        } catch (Exception e6) {
+                                            LogUtils.d(IMAudioTransRequest.TAG, e6.getMessage());
+                                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e6)).build();
                                             throw th;
                                         }
                                     }
@@ -300,8 +300,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                             }
                         }
                         this.this$0.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
-                    } catch (Exception e8) {
-                        e = e8;
+                    } catch (Exception e7) {
+                        e = e7;
                         dataOutputStream = null;
                         fileInputStream = null;
                     } catch (Throwable th5) {
@@ -357,9 +357,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
             try {
                 String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
                 str = getMd5("" + currentTimeMillis + bduss + appid);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = "";
             }
             hashMap.put("sign", str + "");
@@ -392,11 +392,11 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
             try {
                 jSONObject = new JSONObject(str4);
                 i2 = jSONObject.optInt("error_code", -1);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e2);
-                LogUtils.e(TAG, e2.getMessage(), e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
+                LogUtils.e(TAG, e.getMessage(), e);
                 i2 = 1010;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             if (i2 == 0) {

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -35,14 +35,12 @@ public class ap implements ar {
 
     /* renamed from: a  reason: collision with other field name */
     public volatile String f103a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile String f44091b;
+    public volatile String b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f104b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +75,7 @@ public class ap implements ar {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.f103a = b.a(iBinder);
-                    this.a.f104b = b.m192a(iBinder);
+                    this.a.f104b = b.m188a(iBinder);
                     this.a.b();
                     this.a.f99a = 2;
                     synchronized (this.a.f102a) {
@@ -117,7 +115,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +140,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m192a(IBinder iBinder) {
+        public static boolean m188a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -180,7 +178,7 @@ public class ap implements ar {
         this.f99a = 0;
         this.f103a = null;
         this.f104b = false;
-        this.f44091b = null;
+        this.b = null;
         this.f102a = new Object();
         this.f100a = context;
         a();
@@ -243,7 +241,7 @@ public class ap implements ar {
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f99a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f102a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("huawei's " + str + " wait...");
                     this.f102a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -252,7 +250,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m190a(Context context) {
+    public static boolean m186a(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -300,7 +298,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo191b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -325,14 +323,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f44091b == null) {
+            if (this.b == null) {
                 synchronized (this) {
-                    if (this.f44091b == null) {
-                        this.f44091b = a(this.f100a);
+                    if (this.b == null) {
+                        this.b = a(this.f100a);
                     }
                 }
             }
-            return this.f44091b;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

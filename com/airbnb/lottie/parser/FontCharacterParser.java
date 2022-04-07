@@ -6,7 +6,7 @@ import com.airbnb.lottie.model.content.ShapeGroup;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FontCharacterParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("ch", "size", "w", "style", "fFamily", "data");
     public static final JsonReader.Options DATA_NAMES = JsonReader.Options.of("shapes");
@@ -16,17 +16,17 @@ public class FontCharacterParser {
         jsonReader.beginObject();
         String str = null;
         String str2 = null;
+        double d = 0.0d;
         double d2 = 0.0d;
-        double d3 = 0.0d;
-        char c2 = 0;
+        char c = 0;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
             if (selectName == 0) {
-                c2 = jsonReader.nextString().charAt(0);
+                c = jsonReader.nextString().charAt(0);
             } else if (selectName == 1) {
-                d2 = jsonReader.nextDouble();
+                d = jsonReader.nextDouble();
             } else if (selectName == 2) {
-                d3 = jsonReader.nextDouble();
+                d2 = jsonReader.nextDouble();
             } else if (selectName == 3) {
                 str = jsonReader.nextString();
             } else if (selectName == 4) {
@@ -52,6 +52,6 @@ public class FontCharacterParser {
             }
         }
         jsonReader.endObject();
-        return new FontCharacter(arrayList, c2, d2, d3, str, str2);
+        return new FontCharacter(arrayList, c, d, d2, str, str2);
     }
 }

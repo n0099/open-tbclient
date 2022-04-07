@@ -7,18 +7,16 @@ import android.location.LocationManager;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.kuaishou.weapon.adsdk.DeviceInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class r {
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Location f41406b;
+    public static Location b;
 
     @Nullable
     public static Location a(Context context) {
         if (!ao.a() || ao.b() == null) {
-            if (a || f41406b != null || context == null) {
-                return f41406b;
+            if (a || b != null || context == null) {
+                return b;
             }
             if (!ao.a() && !com.kwad.sdk.core.config.b.a(64L)) {
                 if (com.kwad.sdk.b.a.booleanValue()) {
@@ -27,18 +25,18 @@ public class r {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f41406b = a(context, locationManager);
+                        b = a(context, locationManager);
                     }
-                    if (f41406b == null && locationManager.isProviderEnabled("network")) {
-                        f41406b = b(context, locationManager);
+                    if (b == null && locationManager.isProviderEnabled("network")) {
+                        b = b(context, locationManager);
                     }
-                    if (f41406b == null && locationManager.isProviderEnabled("passive")) {
-                        f41406b = c(context, locationManager);
+                    if (b == null && locationManager.isProviderEnabled("passive")) {
+                        b = c(context, locationManager);
                     }
-                    return f41406b;
-                } catch (Exception e2) {
+                    return b;
+                } catch (Exception e) {
                     a = true;
-                    com.kwad.sdk.core.d.a.b(e2);
+                    com.kwad.sdk.core.d.a.b(e);
                 }
             }
             return null;
@@ -57,9 +55,9 @@ public class r {
                 return lastKnownLocation;
             }
             return null;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             a = true;
-            com.kwad.sdk.core.d.a.b(e2);
+            com.kwad.sdk.core.d.a.b(e);
             return null;
         }
     }
@@ -75,9 +73,9 @@ public class r {
                 return lastKnownLocation;
             }
             return null;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             a = true;
-            com.kwad.sdk.core.d.a.b(e2);
+            com.kwad.sdk.core.d.a.b(e);
             return null;
         }
     }
@@ -93,9 +91,9 @@ public class r {
                 return lastKnownLocation;
             }
             return null;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             a = true;
-            com.kwad.sdk.core.d.a.b(e2);
+            com.kwad.sdk.core.d.a.b(e);
             return null;
         }
     }

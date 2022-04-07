@@ -35,7 +35,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final RequestManagerFactory DEFAULT_FACTORY;
@@ -57,7 +57,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final ArrayMap<View, Fragment> tempViewToFragment;
     public final ArrayMap<View, androidx.fragment.app.Fragment> tempViewToSupportFragment;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
@@ -213,16 +213,16 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     @Nullable
     @Deprecated
-    private Fragment findFragment(@NonNull View view, @NonNull Activity activity) {
+    private Fragment findFragment(@NonNull View view2, @NonNull Activity activity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, view, activity)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, view2, activity)) == null) {
             this.tempViewToFragment.clear();
             findAllFragmentsWithViews(activity.getFragmentManager(), this.tempViewToFragment);
             View findViewById = activity.findViewById(16908290);
             Fragment fragment = null;
-            while (!view.equals(findViewById) && (fragment = this.tempViewToFragment.get(view)) == null && (view.getParent() instanceof View)) {
-                view = (View) view.getParent();
+            while (!view2.equals(findViewById) && (fragment = this.tempViewToFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
+                view2 = (View) view2.getParent();
             }
             this.tempViewToFragment.clear();
             return fragment;
@@ -231,16 +231,16 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @Nullable
-    private androidx.fragment.app.Fragment findSupportFragment(@NonNull View view, @NonNull FragmentActivity fragmentActivity) {
+    private androidx.fragment.app.Fragment findSupportFragment(@NonNull View view2, @NonNull FragmentActivity fragmentActivity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, view, fragmentActivity)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, view2, fragmentActivity)) == null) {
             this.tempViewToSupportFragment.clear();
             findAllSupportFragmentsWithViews(fragmentActivity.getSupportFragmentManager().getFragments(), this.tempViewToSupportFragment);
             View findViewById = fragmentActivity.findViewById(16908290);
             androidx.fragment.app.Fragment fragment = null;
-            while (!view.equals(findViewById) && (fragment = this.tempViewToSupportFragment.get(view)) == null && (view.getParent() instanceof View)) {
-                view = (View) view.getParent();
+            while (!view2.equals(findViewById) && (fragment = this.tempViewToSupportFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
+                view2 = (View) view2.getParent();
             }
             this.tempViewToSupportFragment.clear();
             return fragment;
@@ -466,24 +466,24 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @NonNull
-    public RequestManager get(@NonNull View view) {
+    public RequestManager get(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
             if (Util.isOnBackgroundThread()) {
-                return get(view.getContext().getApplicationContext());
+                return get(view2.getContext().getApplicationContext());
             }
-            Preconditions.checkNotNull(view);
-            Preconditions.checkNotNull(view.getContext(), "Unable to obtain a request manager for a view without a Context");
-            Activity findActivity = findActivity(view.getContext());
+            Preconditions.checkNotNull(view2);
+            Preconditions.checkNotNull(view2.getContext(), "Unable to obtain a request manager for a view without a Context");
+            Activity findActivity = findActivity(view2.getContext());
             if (findActivity == null) {
-                return get(view.getContext().getApplicationContext());
+                return get(view2.getContext().getApplicationContext());
             }
             if (findActivity instanceof FragmentActivity) {
-                androidx.fragment.app.Fragment findSupportFragment = findSupportFragment(view, (FragmentActivity) findActivity);
+                androidx.fragment.app.Fragment findSupportFragment = findSupportFragment(view2, (FragmentActivity) findActivity);
                 return findSupportFragment != null ? get(findSupportFragment) : get(findActivity);
             }
-            Fragment findFragment = findFragment(view, findActivity);
+            Fragment findFragment = findFragment(view2, findActivity);
             if (findFragment == null) {
                 return get(findActivity);
             }

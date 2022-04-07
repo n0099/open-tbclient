@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.message;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SocketMessage extends Message<byte[]> {
     public static /* synthetic */ Interceptable $ic = null;
     public static String GLOBAL_ENCODE_NAME = "toByteArray";
@@ -20,7 +19,6 @@ public class SocketMessage extends Message<byte[]> {
     public Object mData;
     public String mEncodeName;
     public Object mExtraData;
-    public int mRetryCount;
 
     static {
         InterceptResult invokeClinit;
@@ -58,15 +56,7 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;
-        this.mRetryCount = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
-    }
-
-    public static void setGlobalEncodeName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            GLOBAL_ENCODE_NAME = str;
-        }
     }
 
     @Override // com.baidu.adp.framework.message.Message
@@ -95,43 +85,17 @@ public class SocketMessage extends Message<byte[]> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : invokeV.objValue;
     }
 
-    public String getEncodeName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEncodeName : (String) invokeV.objValue;
-    }
-
-    public int getmRetryCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRetryCount : invokeV.intValue;
-    }
-
     public void setData(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
             this.mData = obj;
-        }
-    }
-
-    public void setEncodeName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.mEncodeName = str;
         }
     }
 
     public void setExtraData(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
             this.mExtraData = obj;
-        }
-    }
-
-    public void setmRetryCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mRetryCount = i;
         }
     }
 
@@ -183,7 +147,6 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;
-        this.mRetryCount = 0;
         this.mData = obj;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
@@ -210,7 +173,6 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;
-        this.mRetryCount = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
 }

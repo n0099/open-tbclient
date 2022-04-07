@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditHeadsImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,20 +71,20 @@ public class EditHeadsImageView extends DragImageView {
             if (width > getHeight()) {
                 width = getHeight();
             }
-            float f2 = (i4 - i2) - width;
-            float f3 = this.x0;
-            int i5 = (int) (f2 * f3);
+            float f = (i4 - i2) - width;
+            float f2 = this.x0;
+            int i5 = (int) (f * f2);
             this.v0 = i5;
-            int i6 = (int) (f2 * (1.0f - f3));
+            int i6 = (int) (f * (1.0f - f2));
             this.w0 = i6;
             setOffset(0, i5, 0, i6);
         }
     }
 
-    public void setCutImageHeightScale(float f2) {
+    public void setCutImageHeightScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.z0 = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.z0 = f;
             invalidate();
         }
     }
@@ -111,8 +111,8 @@ public class EditHeadsImageView extends DragImageView {
                         createBitmap.recycle();
                     }
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2.toString());
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
             return bitmap;
         }

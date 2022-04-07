@@ -13,38 +13,24 @@ import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class d {
     public static volatile d a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f42767c = {"com", "android", "ss"};
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int[] f42768d = {3101, 3102, 3103, 3201, 3202, 3203};
-
-    /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<a> f42769b = new LinkedList<>();
+    public static final String[] c = {"com", "android", "ss"};
+    public static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
+    public final LinkedList<a> b = new LinkedList<>();
 
     /* loaded from: classes7.dex */
     public static class a {
         public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f42770b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final String f42771c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final String f42772d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final long f42773e;
+        public final int b;
+        public final String c;
+        public final String d;
+        public final long e;
 
         public a(String str, int i, String str2, String str3, long j) {
             this.a = str;
-            this.f42770b = i;
-            this.f42771c = str2 != null ? str2.toLowerCase() : null;
-            this.f42772d = str3 != null ? str3.toLowerCase() : null;
-            this.f42773e = j;
+            this.b = i;
+            this.c = str2 != null ? str2.toLowerCase() : null;
+            this.d = str3 != null ? str3.toLowerCase() : null;
+            this.e = j;
         }
     }
 
@@ -78,8 +64,8 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (this.f42769b) {
-            Iterator<a> it = this.f42769b.iterator();
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
             while (it.hasNext()) {
                 if (str.equals(it.next().a)) {
                     it.remove();
@@ -95,8 +81,8 @@ public class d {
         if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
             return;
         }
-        synchronized (this.f42769b) {
-            this.f42769b.add(c2);
+        synchronized (this.b) {
+            this.b.add(c2);
         }
     }
 
@@ -117,24 +103,24 @@ public class d {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (this.f42769b.isEmpty()) {
+        if (this.b.isEmpty()) {
             return null;
         }
         String N = bVar.N();
-        String e2 = bVar.e();
+        String e = bVar.e();
         String J = bVar.J();
         int I = bVar.I();
-        int length = f42768d.length;
+        int length = d.length;
         a[] aVarArr = new a[length];
-        synchronized (this.f42769b) {
-            Iterator<a> it = this.f42769b.iterator();
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
             PackageInfo packageInfo = null;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 next = it.next();
-                if (next.f42773e >= bVar.C()) {
+                if (next.e >= bVar.C()) {
                     if (TextUtils.isEmpty(N)) {
                         if (packageInfo == null) {
                             packageInfo = l.a(bVar);
@@ -146,29 +132,29 @@ public class d {
                             }
                         }
                     }
-                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f42772d)) {
+                    if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.d)) {
                         N = N.toLowerCase();
-                        if (N.equals(next.f42772d)) {
+                        if (N.equals(next.d)) {
                             aVarArr[0] = next;
                             break;
-                        } else if (N.contains(next.f42772d) || next.f42772d.contains(N)) {
+                        } else if (N.contains(next.d) || next.d.contains(N)) {
                             break;
                         }
                     }
-                    if (TextUtils.isEmpty(e2)) {
+                    if (TextUtils.isEmpty(e)) {
                         if (packageInfo == null) {
                             packageInfo = l.a(bVar);
                         }
                         if (packageInfo != null) {
-                            e2 = packageInfo.packageName;
+                            e = packageInfo.packageName;
                         }
                     }
-                    if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.a)) {
-                        e2 = e2.toLowerCase();
-                        if (e2.contains(next.a) || next.a.contains(e2)) {
+                    if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(next.a)) {
+                        e = e.toLowerCase();
+                        if (e.contains(next.a) || next.a.contains(e)) {
                             break;
                         } else if (aVarArr[3] == null) {
-                            if (a(e2, next.a)) {
+                            if (a(e, next.a)) {
                                 aVarArr[3] = next;
                             }
                         }
@@ -182,9 +168,9 @@ public class d {
                                 J = packageInfo.versionName;
                             }
                         }
-                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f42771c)) {
+                        if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.c)) {
                             J = J.toLowerCase();
-                            if (J.equals(next.f42771c)) {
+                            if (J.equals(next.c)) {
                                 aVarArr[4] = next;
                             }
                         }
@@ -197,7 +183,7 @@ public class d {
                                     I = packageInfo.versionCode;
                                 }
                             }
-                            if (I == next.f42770b) {
+                            if (I == next.b) {
                                 aVarArr[5] = next;
                             }
                         }
@@ -208,7 +194,7 @@ public class d {
         }
         for (i = 0; i < length; i++) {
             if (aVarArr[i] != null) {
-                return new Pair<>(aVarArr[i], Integer.valueOf(f42768d[i]));
+                return new Pair<>(aVarArr[i], Integer.valueOf(d[i]));
             }
         }
         return null;
@@ -219,11 +205,11 @@ public class d {
             return null;
         }
         b();
-        synchronized (this.f42769b) {
-            Iterator<a> it = this.f42769b.iterator();
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next.f42773e > bVar.C()) {
+                if (next.e > bVar.C()) {
                     return next;
                 }
             }
@@ -245,7 +231,7 @@ public class d {
             int i = 0;
             int i2 = 0;
             for (String str3 : split) {
-                String[] strArr = f42767c;
+                String[] strArr = c;
                 int length = strArr.length;
                 int i3 = 0;
                 while (true) {
@@ -289,9 +275,9 @@ public class d {
 
     private void b() {
         long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.f42769b) {
-            Iterator<a> it = this.f42769b.iterator();
-            while (it.hasNext() && currentTimeMillis - it.next().f42773e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+        synchronized (this.b) {
+            Iterator<a> it = this.b.iterator();
+            while (it.hasNext() && currentTimeMillis - it.next().e > FlushManager.ReportTimer.DEFAULT_INTERVAL) {
                 it.remove();
             }
         }

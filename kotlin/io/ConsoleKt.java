@@ -50,13 +50,13 @@ public final class ConsoleKt {
     }
 
     @InlineOnly
-    public static final void print(byte b2) {
-        System.out.print(Byte.valueOf(b2));
+    public static final void print(byte b) {
+        System.out.print(Byte.valueOf(b));
     }
 
     @InlineOnly
-    public static final void println(byte b2) {
-        System.out.println(Byte.valueOf(b2));
+    public static final void println(byte b) {
+        System.out.println(Byte.valueOf(b));
     }
 
     @InlineOnly
@@ -70,13 +70,13 @@ public final class ConsoleKt {
     }
 
     @InlineOnly
-    public static final void print(char c2) {
-        System.out.print(c2);
+    public static final void print(char c) {
+        System.out.print(c);
     }
 
     @InlineOnly
-    public static final void println(char c2) {
-        System.out.println(c2);
+    public static final void println(char c) {
+        System.out.println(c);
     }
 
     @InlineOnly
@@ -90,23 +90,23 @@ public final class ConsoleKt {
     }
 
     @InlineOnly
-    public static final void print(float f2) {
-        System.out.print(f2);
+    public static final void print(float f) {
+        System.out.print(f);
     }
 
     @InlineOnly
-    public static final void println(float f2) {
-        System.out.println(f2);
+    public static final void println(float f) {
+        System.out.println(f);
     }
 
     @InlineOnly
-    public static final void print(double d2) {
-        System.out.print(d2);
+    public static final void print(double d) {
+        System.out.print(d);
     }
 
     @InlineOnly
-    public static final void println(double d2) {
-        System.out.println(d2);
+    public static final void println(double d) {
+        System.out.println(d);
     }
 
     @InlineOnly

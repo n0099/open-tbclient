@@ -17,7 +17,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BASE64_TAG = ";base64";
@@ -25,7 +25,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     public transient /* synthetic */ FieldHolder $fh;
     public final DataDecoder<Data> dataDecoder;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DataDecoder<Data> {
         void close(Data data) throws IOException;
 
@@ -34,7 +34,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         Class<Data> getDataClass();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DataUriFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,14 +104,14 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                     Data decode = this.reader.decode(this.dataUri);
                     this.data = decode;
                     dataCallback.onDataReady(decode);
-                } catch (IllegalArgumentException e2) {
-                    dataCallback.onLoadFailed(e2);
+                } catch (IllegalArgumentException e) {
+                    dataCallback.onLoadFailed(e);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

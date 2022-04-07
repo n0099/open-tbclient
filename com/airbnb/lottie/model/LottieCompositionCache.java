@@ -5,7 +5,7 @@ import androidx.annotation.RestrictTo;
 import androidx.collection.LruCache;
 import com.airbnb.lottie.LottieComposition;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieCompositionCache {
     public static final LottieCompositionCache INSTANCE = new LottieCompositionCache();
     public final LruCache<String, LottieComposition> cache = new LruCache<>(20);

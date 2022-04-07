@@ -1,6 +1,5 @@
 package com.baidu.bdtask.ui.components.buoy;
 
-import c.a.j.h.c.c.c.c;
 import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.utils.DebugTrace;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.repackage.su;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewData;", "onChanged"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
-public final class TaskBuoyView$onViewModelBind$1<T> implements c<TaskBuoyViewData> {
+/* loaded from: classes.dex */
+public final class TaskBuoyView$onViewModelBind$1<T> implements su<TaskBuoyViewData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ TaskBuoyView a;
@@ -37,7 +37,7 @@ public final class TaskBuoyView$onViewModelBind$1<T> implements c<TaskBuoyViewDa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.j.h.c.c.c.c
+    @Override // com.repackage.su
     /* renamed from: a */
     public final void onChanged(TaskBuoyViewData it) {
         boolean z;

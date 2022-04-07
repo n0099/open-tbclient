@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class LiteralByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class LiteralByteString extends ByteString {
     public int hash;
 
     /* renamed from: com.google.protobuf.LiteralByteString$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class LiteralByteIterator implements ByteString.ByteIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class LiteralByteString extends ByteString {
                     int i = this.position;
                     this.position = i + 1;
                     return bArr[i];
-                } catch (ArrayIndexOutOfBoundsException e2) {
-                    throw new NoSuchElementException(e2.getMessage());
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    throw new NoSuchElementException(e.getMessage());
                 }
             }
             return invokeV.byteValue;

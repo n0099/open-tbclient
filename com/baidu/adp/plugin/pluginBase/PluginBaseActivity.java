@@ -39,12 +39,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
-import c.a.d.a.g;
-import c.a.d.a.i;
-import c.a.d.j.f.a;
-import c.a.d.j.j.f.c;
-import c.a.d.o.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
@@ -56,13 +50,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.c9;
+import com.repackage.e9;
+import com.repackage.om;
+import com.repackage.xl;
+import com.repackage.xo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
-public class PluginBaseActivity extends PluginContextWrapper implements LayoutInflater.Factory, KeyEvent.Callback, View.OnCreateContextMenuListener, ComponentCallbacks, i, Handler.Callback, g {
+/* loaded from: classes.dex */
+public class PluginBaseActivity extends PluginContextWrapper implements LayoutInflater.Factory, KeyEvent.Callback, View.OnCreateContextMenuListener, ComponentCallbacks, e9, Handler.Callback, c9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_KEYS_DIALER = 1;
     public static final int DEFAULT_KEYS_DISABLE = 0;
@@ -75,7 +75,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     public transient /* synthetic */ FieldHolder $fh;
     public boolean bOnCreateCalled;
     public Activity mActivity;
-    public a mProxyActivity;
+    public xl mProxyActivity;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PluginBaseActivity() {
@@ -98,10 +98,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.bOnCreateCalled = false;
     }
 
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
-            this.mProxyActivity.proxyAddContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
+            this.mProxyActivity.proxyAddContentView(view2, layoutParams);
         }
     }
 
@@ -112,8 +112,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, serviceConnection, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyBindService(intent, serviceConnection, i);
             }
             return false;
@@ -146,8 +146,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.deleteDatabase(getPluginPackageName() + str);
             }
@@ -161,8 +161,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.deleteFile(getPluginPackageName() + str);
             }
@@ -283,8 +283,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
                 return null;
             }
             try {
-                PluginSetting h2 = c.j().h(getPluginPackageName());
-                if (h2 == null || !h2.isThird) {
+                PluginSetting g = om.h().g(getPluginPackageName());
+                if (g == null || !g.isThird) {
                     return cacheDir;
                 }
                 File file = new File(cacheDir.getPath() + File.separator + getPluginPackageName() + cacheDir.getName());
@@ -334,8 +334,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getDatabasePath(getPluginPackageName() + str);
             }
@@ -349,8 +349,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048605, this, str, i)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getDir(getPluginPackageName() + str, i);
             }
@@ -364,8 +364,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getFileStreamPath(getPluginPackageName() + str);
             }
@@ -417,8 +417,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 return getPluginPackageName();
             }
             return this.mActivity.getPackageName();
@@ -426,14 +426,14 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.a.g
-    public f getPageContext() {
+    @Override // com.repackage.c9
+    public b9 getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return null;
         }
-        return (f) invokeV.objValue;
+        return (b9) invokeV.objValue;
     }
 
     public final Activity getParent() {
@@ -447,10 +447,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             Activity parent = this.mActivity.getParent();
-            if (parent == null || !(parent instanceof a)) {
+            if (parent == null || !(parent instanceof xl)) {
                 return null;
             }
-            return ((a) parent).getTarget();
+            return ((xl) parent).getTarget();
         }
         return (Context) invokeV.objValue;
     }
@@ -472,10 +472,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, str, i)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
-                a aVar = this.mProxyActivity;
-                return aVar.proxyGetSharedPreferences(getPluginPackageName() + str, i);
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
+                xl xlVar = this.mProxyActivity;
+                return xlVar.proxyGetSharedPreferences(getPluginPackageName() + str, i);
             }
             return this.mProxyActivity.proxyGetSharedPreferences(str, i);
         }
@@ -682,10 +682,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048648, this, contextMenu, view, contextMenuInfo) == null) {
-            this.mProxyActivity.proxyOnCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (interceptable == null || interceptable.invokeLLL(1048648, this, contextMenu, view2, contextMenuInfo) == null) {
+            this.mProxyActivity.proxyOnCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
 
@@ -844,9 +844,9 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void onPreLoad(q qVar) {
+    public void onPreLoad(xo xoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048672, this, qVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048672, this, xoVar) == null) {
         }
     }
 
@@ -863,10 +863,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return (interceptable == null || (invokeL = interceptable.invokeL(1048674, this, menu)) == null) ? this.mProxyActivity.proxyOnPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048675, this, i, view, menu)) == null) ? this.mProxyActivity.proxyOnPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048675, this, i, view2, menu)) == null) ? this.mProxyActivity.proxyOnPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     public void onRestart() {
@@ -969,10 +969,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void openContextMenu(View view) {
+    public void openContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048691, this, view) == null) {
-            this.mProxyActivity.proxyOpenContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048691, this, view2) == null) {
+            this.mProxyActivity.proxyOpenContextMenu(view2);
         }
     }
 
@@ -981,8 +981,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048692, this, str)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openFileInput(getPluginPackageName() + str);
             }
@@ -996,8 +996,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048693, this, str, i)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openFileOutput(getPluginPackageName() + str, i);
             }
@@ -1018,8 +1018,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048695, this, str, i, cursorFactory)) == null) {
-            PluginSetting h2 = c.j().h(getPluginPackageName());
-            if (h2 != null && h2.isThird) {
+            PluginSetting g = om.h().g(getPluginPackageName());
+            if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openOrCreateDatabase(getPluginPackageName() + str, i, cursorFactory);
             }
@@ -1035,10 +1035,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void registerForContextMenu(View view) {
+    public void registerForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, view) == null) {
-            this.mProxyActivity.proxyRegisterForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048697, this, view2) == null) {
+            this.mProxyActivity.proxyRegisterForContextMenu(view2);
         }
     }
 
@@ -1077,11 +1077,11 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void setActivityProxy(a aVar) {
+    public void setActivityProxy(xl xlVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, aVar) == null) {
-            this.mActivity = aVar.getActivity();
-            this.mProxyActivity = aVar;
+        if (interceptable == null || interceptable.invokeL(1048704, this, xlVar) == null) {
+            this.mActivity = xlVar.getActivity();
+            this.mProxyActivity = xlVar;
         }
     }
 
@@ -1230,8 +1230,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048729, this, intent) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
                 this.mProxyActivity.proxyStartActivity(intent);
             }
         }
@@ -1242,8 +1242,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048730, this, intent, i) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
                 this.mProxyActivity.proxyStartActivityForResult(intent, i);
             }
         }
@@ -1304,8 +1304,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048738, this, intent)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyStartService(intent);
             }
             return null;
@@ -1327,8 +1327,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048740, this, intent)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyStopService(intent);
             }
             return false;
@@ -1343,10 +1343,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void unregisterForContextMenu(View view) {
+    public void unregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048742, this, view) == null) {
-            this.mProxyActivity.proxyUnregisterForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048742, this, view2) == null) {
+            this.mProxyActivity.proxyUnregisterForContextMenu(view2);
         }
     }
 
@@ -1358,10 +1358,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048654, this, view, str, context, attributeSet)) == null) ? this.mProxyActivity.proxyOnCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048654, this, view2, str, context, attributeSet)) == null) ? this.mProxyActivity.proxyOnCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -1370,17 +1370,17 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048703, this, intent, str) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.j().h(pluginPackageName);
-            if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.isLoaded() && plugin2.remapBroadcastReceiver(intent))) {
+            PluginSetting g = om.h().g(pluginPackageName);
+            if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.isLoaded() && plugin2.remapBroadcastReceiver(intent))) {
                 super.sendBroadcast(intent, str);
             }
         }
     }
 
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048706, this, view) == null) {
-            this.mProxyActivity.proxySetContentView(view);
+        if (interceptable == null || interceptable.invokeL(1048706, this, view2) == null) {
+            this.mProxyActivity.proxySetContentView(view2);
         }
     }
 
@@ -1398,10 +1398,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048707, this, view, layoutParams) == null) {
-            this.mProxyActivity.proxySetContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048707, this, view2, layoutParams) == null) {
+            this.mProxyActivity.proxySetContentView(view2, layoutParams);
         }
     }
 }

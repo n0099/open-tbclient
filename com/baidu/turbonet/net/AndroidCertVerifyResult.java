@@ -14,17 +14,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AndroidCertVerifyResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f37651b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f37652c;
+    public final boolean b;
+    public final List<X509Certificate> c;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
@@ -42,8 +38,8 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i;
-        this.f37651b = z;
-        this.f37652c = new ArrayList(list);
+        this.b = z;
+        this.c = new ArrayList(list);
     }
 
     @CalledByNative
@@ -51,10 +47,10 @@ public class AndroidCertVerifyResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            byte[][] bArr = new byte[this.f37652c.size()];
-            for (int i = 0; i < this.f37652c.size(); i++) {
+            byte[][] bArr = new byte[this.c.size()];
+            for (int i = 0; i < this.c.size(); i++) {
                 try {
-                    bArr[i] = this.f37652c.get(i).getEncoded();
+                    bArr[i] = this.c.get(i).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -75,7 +71,7 @@ public class AndroidCertVerifyResult {
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37651b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
     public AndroidCertVerifyResult(int i) {
@@ -94,7 +90,7 @@ public class AndroidCertVerifyResult {
             }
         }
         this.a = i;
-        this.f37651b = false;
-        this.f37652c = Collections.emptyList();
+        this.b = false;
+        this.c = Collections.emptyList();
     }
 }

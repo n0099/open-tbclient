@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieCompositionMoshiParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", Config.OPERATOR, "fr", "v", "layers", "assets", "fonts", "chars", "markers");
     public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
@@ -41,9 +41,9 @@ public class LottieCompositionMoshiParser {
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
+        float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
-        float f4 = 0.0f;
         int i2 = 0;
         while (jsonReader.hasNext()) {
             switch (jsonReader2.selectName(NAMES)) {
@@ -56,18 +56,18 @@ public class LottieCompositionMoshiParser {
                     continue;
                     jsonReader2 = jsonReader;
                 case 2:
-                    f2 = (float) jsonReader.nextDouble();
+                    f = (float) jsonReader.nextDouble();
                     continue;
                     jsonReader2 = jsonReader;
                 case 3:
                     hashMap = hashMap4;
                     arrayList = arrayList3;
-                    f3 = ((float) jsonReader.nextDouble()) - 0.01f;
+                    f2 = ((float) jsonReader.nextDouble()) - 0.01f;
                     break;
                 case 4:
                     hashMap = hashMap4;
                     arrayList = arrayList3;
-                    f4 = (float) jsonReader.nextDouble();
+                    f3 = (float) jsonReader.nextDouble();
                     break;
                 case 5:
                     String[] split = jsonReader.nextString().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
@@ -113,7 +113,7 @@ public class LottieCompositionMoshiParser {
             arrayList3 = arrayList;
             jsonReader2 = jsonReader;
         }
-        lottieComposition.init(new Rect(0, 0, (int) (i * dpScale), (int) (i2 * dpScale)), f2, f3, f4, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
+        lottieComposition.init(new Rect(0, 0, (int) (i * dpScale), (int) (i2 * dpScale)), f, f2, f3, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
         return lottieComposition;
     }
 
@@ -213,23 +213,23 @@ public class LottieCompositionMoshiParser {
         while (jsonReader.hasNext()) {
             String str = null;
             jsonReader.beginObject();
+            float f = 0.0f;
             float f2 = 0.0f;
-            float f3 = 0.0f;
             while (jsonReader.hasNext()) {
                 int selectName = jsonReader.selectName(MARKER_NAMES);
                 if (selectName == 0) {
                     str = jsonReader.nextString();
                 } else if (selectName == 1) {
-                    f2 = (float) jsonReader.nextDouble();
+                    f = (float) jsonReader.nextDouble();
                 } else if (selectName != 2) {
                     jsonReader.skipName();
                     jsonReader.skipValue();
                 } else {
-                    f3 = (float) jsonReader.nextDouble();
+                    f2 = (float) jsonReader.nextDouble();
                 }
             }
             jsonReader.endObject();
-            list.add(new Marker(str, f2, f3));
+            list.add(new Marker(str, f, f2));
         }
         jsonReader.endArray();
     }

@@ -7,7 +7,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.p0.n4.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.gu8;
+/* loaded from: classes4.dex */
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f36481b;
+    public gu8 a;
+    public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
@@ -43,19 +41,19 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f36481b = null;
+        this.b = null;
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
-            if (this.f36481b == null) {
-                this.f36481b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
+            if (this.b == null) {
+                this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0175, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                addView(this.f36481b, layoutParams);
+                addView(this.b, layoutParams);
             }
-            this.f36481b.setVisibility(z ? 0 : 8);
+            this.b.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -78,21 +76,21 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.b(motionEvent);
+            gu8 gu8Var = this.a;
+            if (gu8Var != null) {
+                gu8Var.b(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void setZoomHelper(b bVar) {
+    public void setZoomHelper(gu8 gu8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, gu8Var) == null) || gu8Var == null) {
             return;
         }
-        this.a = bVar;
+        this.a = gu8Var;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,6 +112,6 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f36481b = null;
+        this.b = null;
     }
 }

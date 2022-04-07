@@ -15,7 +15,7 @@ import com.bytedance.pangle.util.h;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginResources extends Resources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,19 +45,19 @@ public class PluginResources extends Resources {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resources)) == null) {
-            List<String> b2 = h.b();
+            List<String> b = h.b();
             a aVar = new a();
             AssetManager assets = resources.getAssets();
             AssetManager assets2 = Zeus.getAppApplication().getAssets();
             HashSet hashSet = new HashSet(h.a(assets));
             List<String> a = h.a(assets2);
-            for (String str : b2) {
+            for (String str : b) {
                 if (!hashSet.contains(str)) {
                     assets = aVar.a(assets, str, true);
                 }
             }
             for (String str2 : a) {
-                if (!hashSet.contains(str2) && !b2.contains(str2)) {
+                if (!hashSet.contains(str2) && !b.contains(str2)) {
                     assets = aVar.a(assets, str2, false);
                 }
             }

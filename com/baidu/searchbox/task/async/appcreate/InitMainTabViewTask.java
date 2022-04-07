@@ -2,8 +2,6 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.o0.h0.f;
-import c.a.p0.q1.d.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -16,7 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.q45;
+import com.repackage.xt6;
+/* loaded from: classes2.dex */
 public class InitMainTabViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public class InitMainTabViewTask extends LaunchTask {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && PreInitMainTabViewSwitch.getIsOn()) {
             for (int i = 0; i < 5; i++) {
                 try {
-                    f.b().c((MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-                } catch (Exception e2) {
-                    BdLog.e(e2);
+                    q45.b().c((MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
+                } catch (Exception e) {
+                    BdLog.e(e);
                     return;
                 }
             }
-            f.b().f10312c = new b(TbadkCoreApplication.getInst());
+            q45.b().c = new xt6(TbadkCoreApplication.getInst());
         }
     }
 

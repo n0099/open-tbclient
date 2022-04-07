@@ -12,18 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlanNode implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PlanNode> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26489b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26490c;
+    public String b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,11 +53,11 @@ public class PlanNode implements Parcelable {
             }
         }
         this.a = null;
-        this.f26489b = null;
-        this.f26490c = null;
+        this.b = null;
+        this.c = null;
         this.a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f26489b = parcel.readString();
-        this.f26490c = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
@@ -80,11 +76,11 @@ public class PlanNode implements Parcelable {
             }
         }
         this.a = null;
-        this.f26489b = null;
-        this.f26490c = null;
+        this.b = null;
+        this.c = null;
         this.a = latLng;
-        this.f26489b = str;
-        this.f26490c = str2;
+        this.b = str;
+        this.c = str2;
     }
 
     public static PlanNode withCityCodeAndPlaceName(int i, String str) {
@@ -118,7 +114,7 @@ public class PlanNode implements Parcelable {
     public String getCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26489b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
@@ -130,7 +126,7 @@ public class PlanNode implements Parcelable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26490c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -138,8 +134,8 @@ public class PlanNode implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeValue(this.a);
-            parcel.writeString(this.f26489b);
-            parcel.writeString(this.f26490c);
+            parcel.writeString(this.b);
+            parcel.writeString(this.c);
         }
     }
 }

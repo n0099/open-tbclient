@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewUtility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,21 +27,21 @@ public class ViewUtility {
         }
     }
 
-    public static int dip2pxForBio(float f2, int[] iArr) {
+    public static int dip2pxForBio(float f, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), iArr})) == null) {
-            float f3 = 2.0f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), iArr})) == null) {
+            float f2 = 2.0f;
             if (iArr[0] >= 240 && iArr[0] <= 320 && iArr[1] >= 320 && iArr[1] >= 480) {
-                f3 = 0.75f;
+                f2 = 0.75f;
             } else if (iArr[0] >= 320 && iArr[0] < 480 && iArr[1] >= 480 && iArr[1] < 800) {
-                f3 = 1.0f;
+                f2 = 1.0f;
             } else if (iArr[0] >= 480 && iArr[0] < 720 && iArr[1] >= 800 && iArr[1] < 1280) {
-                f3 = 1.5f;
+                f2 = 1.5f;
             } else if ((iArr[0] < 720 || iArr[0] >= 1080 || iArr[1] < 1280 || iArr[1] >= 1920) && iArr[0] >= 1080 && iArr[1] >= 1920) {
-                f3 = 3.0f;
+                f2 = 3.0f;
             }
-            return (int) ((f2 * f3) + 0.5f);
+            return (int) ((f * f2) + 0.5f);
         }
         return invokeCommon.intValue;
     }
@@ -56,8 +56,8 @@ public class ViewUtility {
                 try {
                     dialog.dismiss();
                     return;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return;
                 }
             }

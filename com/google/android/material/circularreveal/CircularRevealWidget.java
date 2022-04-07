@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.math.MathUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     /* renamed from: com.google.android.material.circularreveal.CircularRevealWidget$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CircularRevealEvaluator implements TypeEvaluator<RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
         public static final TypeEvaluator<RevealInfo> CIRCULAR_REVEAL;
@@ -69,18 +69,18 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
         @NonNull
-        public RevealInfo evaluate(float f2, @NonNull RevealInfo revealInfo, @NonNull RevealInfo revealInfo2) {
+        public RevealInfo evaluate(float f, @NonNull RevealInfo revealInfo, @NonNull RevealInfo revealInfo2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), revealInfo, revealInfo2})) == null) {
-                this.revealInfo.set(MathUtils.lerp(revealInfo.centerX, revealInfo2.centerX, f2), MathUtils.lerp(revealInfo.centerY, revealInfo2.centerY, f2), MathUtils.lerp(revealInfo.radius, revealInfo2.radius, f2));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), revealInfo, revealInfo2})) == null) {
+                this.revealInfo.set(MathUtils.lerp(revealInfo.centerX, revealInfo2.centerX, f), MathUtils.lerp(revealInfo.centerY, revealInfo2.centerY, f), MathUtils.lerp(revealInfo.radius, revealInfo2.radius, f));
                 return this.revealInfo;
             }
             return (RevealInfo) invokeCommon.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CircularRevealProperty extends Property<CircularRevealWidget, RevealInfo> {
         public static /* synthetic */ Interceptable $ic;
         public static final Property<CircularRevealWidget, RevealInfo> CIRCULAR_REVEAL;
@@ -142,7 +142,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CircularRevealScrimColorProperty extends Property<CircularRevealWidget, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public static final Property<CircularRevealWidget, Integer> CIRCULAR_REVEAL_SCRIM_COLOR;
@@ -204,7 +204,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class RevealInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final float INVALID_RADIUS = Float.MAX_VALUE;
@@ -223,12 +223,12 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.radius == Float.MAX_VALUE : invokeV.booleanValue;
         }
 
-        public void set(float f2, float f3, float f4) {
+        public void set(float f, float f2, float f3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-                this.centerX = f2;
-                this.centerY = f3;
-                this.radius = f4;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.centerX = f;
+                this.centerY = f2;
+                this.radius = f3;
             }
         }
 
@@ -246,12 +246,12 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             }
         }
 
-        public RevealInfo(float f2, float f3, float f4) {
+        public RevealInfo(float f, float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+                Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -261,9 +261,9 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
                     return;
                 }
             }
-            this.centerX = f2;
-            this.centerY = f3;
-            this.radius = f4;
+            this.centerX = f;
+            this.centerY = f2;
+            this.radius = f3;
         }
 
         public void set(@NonNull RevealInfo revealInfo) {

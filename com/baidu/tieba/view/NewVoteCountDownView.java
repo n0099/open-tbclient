@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,36 +17,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class NewVoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f36919b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f36920c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f36921d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f36922e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36923f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f36924g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f36925h;
+    public TextView b;
+    public View c;
+    public View d;
+    public View e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
     public CountDownTimer i;
     public b j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +82,7 @@ public class NewVoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
@@ -134,13 +120,13 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f36919b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918db);
-            this.f36920c = findViewById(R.id.obfuscated_res_0x7f09075c);
-            this.f36921d = findViewById(R.id.obfuscated_res_0x7f090df3);
-            this.f36922e = findViewById(R.id.obfuscated_res_0x7f091427);
-            this.f36923f = (TextView) findViewById(R.id.obfuscated_res_0x7f09075d);
-            this.f36924g = (TextView) findViewById(R.id.obfuscated_res_0x7f090df4);
-            this.f36925h = (TextView) findViewById(R.id.obfuscated_res_0x7f091428);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ce);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090765);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090dfb);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091420);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090766);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfc);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091421);
         }
     }
 
@@ -152,10 +138,10 @@ public class NewVoteCountDownView extends LinearLayout {
             setClipToPadding(false);
             setClipChildren(false);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
+            layoutParams.topMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0615, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) this, true);
             c();
         }
     }
@@ -173,14 +159,14 @@ public class NewVoteCountDownView extends LinearLayout {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            SkinManager.setViewTextColor(this.f36919b, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.f36923f, R.color.CAM_X0105, 1, i);
-            SkinManager.setBackgroundResource(this.f36920c, R.drawable.bg_gradient_round, i);
-            SkinManager.setBackgroundResource(this.f36921d, R.drawable.bg_gradient_round, i);
-            SkinManager.setBackgroundResource(this.f36922e, R.drawable.bg_gradient_round, i);
-            SkinManager.setViewTextColor(this.f36923f, R.color.CAM_X0101, 1, i);
-            SkinManager.setViewTextColor(this.f36924g, R.color.CAM_X0101, 1, i);
-            SkinManager.setViewTextColor(this.f36925h, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1, i);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_gradient_round, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_gradient_round, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.bg_gradient_round, i);
+            SkinManager.setViewTextColor(this.f, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0101, 1, i);
         }
     }
 
@@ -196,10 +182,10 @@ public class NewVoteCountDownView extends LinearLayout {
     public void setContent(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d2);
-            this.f36923f.setText(String.format(string, Long.valueOf(j)));
-            this.f36924g.setText(String.format(string, Long.valueOf(j2)));
-            this.f36925h.setText(String.format(string, Long.valueOf(j3)));
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d3);
+            this.f.setText(String.format(string, Long.valueOf(j)));
+            this.g.setText(String.format(string, Long.valueOf(j2)));
+            this.h.setText(String.format(string, Long.valueOf(j3)));
         }
     }
 

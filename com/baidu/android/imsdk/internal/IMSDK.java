@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class IMSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSDK";
@@ -323,10 +323,10 @@ public final class IMSDK {
                         }
                     }
                 });
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 notifyLogout(str);
                 LogUtils.e(TAG, "crash when destory");
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -458,14 +458,14 @@ public final class IMSDK {
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                             try {
                                                 this.val$fMessage.handleMessageResult(this.this$0.mContext, null, 1001, Constants.ERROR_MSG_NETWORK_ERROR);
-                                            } catch (Exception e2) {
+                                            } catch (Exception e) {
                                                 try {
                                                     this.val$fMessage.handleMessageResult(this.this$0.mContext, null, 1010, Constants.ERROR_MSG_PARAMETER_ERROR);
                                                 } catch (Exception unused) {
                                                     LogUtils.e(IMSDK.TAG, "UnKown ERROR! " + this.val$fMessage.getBody());
-                                                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                                                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                                                 }
-                                                new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                                                new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                                             }
                                         }
                                     }

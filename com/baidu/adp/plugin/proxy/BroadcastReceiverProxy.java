@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BroadcastReceiverProxy extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,12 +48,12 @@ public class BroadcastReceiverProxy extends BroadcastReceiver {
                 for (String str : split) {
                     try {
                         ((BroadcastReceiver) plugin2.getDexClassLoader().loadClass(str).asSubclass(BroadcastReceiver.class).newInstance()).onReceive(context, intent);
-                    } catch (ClassNotFoundException e2) {
+                    } catch (ClassNotFoundException e) {
+                        BdLog.e(e);
+                    } catch (IllegalAccessException e2) {
                         BdLog.e(e2);
-                    } catch (IllegalAccessException e3) {
+                    } catch (InstantiationException e3) {
                         BdLog.e(e3);
-                    } catch (InstantiationException e4) {
-                        BdLog.e(e4);
                     }
                 }
                 return;

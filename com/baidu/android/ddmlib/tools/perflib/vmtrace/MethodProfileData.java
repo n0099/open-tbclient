@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MethodProfileData {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeUnit DATA_TIME_UNITS;
@@ -27,13 +27,13 @@ public class MethodProfileData {
     public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCaller;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class MethodStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class MethodProfileData {
         this.mIsRecursive = builder.mRecursive;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

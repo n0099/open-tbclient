@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static char[] a;
@@ -62,8 +62,8 @@ public class g {
                 fileInputStream.close();
                 try {
                     return a(messageDigest.digest());
-                } catch (Exception e2) {
-                    throw new IOException(e2.toString());
+                } catch (Exception e) {
+                    throw new IOException(e.toString());
                 }
             }
             messageDigest.update(bArr, 0, read);
@@ -91,14 +91,14 @@ public class g {
         return (String) invokeLII.objValue;
     }
 
-    public static void a(byte b2, StringBuffer stringBuffer) {
+    public static void a(byte b, StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b), stringBuffer}) == null) {
             char[] cArr = a;
-            char c2 = cArr[(b2 & 240) >> 4];
-            char c3 = cArr[b2 & 15];
+            char c = cArr[(b & 240) >> 4];
+            char c2 = cArr[b & 15];
+            stringBuffer.append(c);
             stringBuffer.append(c2);
-            stringBuffer.append(c3);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class SmoothProgressBar extends RotateProgressBar {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f27789d = (int) ((((this.f27789d * 12.0f) / 36.0f) / 2.0f) + 0.5f);
+            this.d = (int) ((((this.d * 12.0f) / 36.0f) / 2.0f) + 0.5f);
         }
     }
 
@@ -48,18 +48,18 @@ public class SmoothProgressBar extends RotateProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f27787b;
+                Drawable drawable = this.b;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.f27788c >= this.f27789d) {
-                        this.f27788c = SystemClock.uptimeMillis();
+                    if (SystemClock.uptimeMillis() - this.c >= this.d) {
+                        this.c = SystemClock.uptimeMillis();
                         int i = this.a + 277;
                         this.a = i;
                         if (i >= 10000) {
                             this.a = i - 10000;
                         }
                         drawable.setLevel(this.a);
-                        postInvalidateDelayed(this.f27789d);
+                        postInvalidateDelayed(this.d);
                     }
                 }
             }

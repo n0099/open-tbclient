@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.renderer.TakePictureCallback;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface l extends IRenderer {
     void a(long j, String str);
 
@@ -56,7 +56,7 @@ public interface l extends IRenderer {
 
     void sceneWorldPositionToOrigin();
 
-    void setFieldOfView(float f2);
+    void setFieldOfView(float f);
 
     void setOffScreenGuideWork(boolean z);
 

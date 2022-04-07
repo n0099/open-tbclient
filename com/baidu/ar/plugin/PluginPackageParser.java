@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PluginPackageParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -250,8 +250,8 @@ public class PluginPackageParser {
                     try {
                         FieldUtils.writeField(applicationInfo, "deviceEncryptedDataDir", applicationInfo.dataDir);
                         FieldUtils.writeField(applicationInfo, "credentialEncryptedDataDir", applicationInfo.dataDir);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 FieldUtils.writeField(applicationInfo, "deviceProtectedDataDir", applicationInfo.dataDir);

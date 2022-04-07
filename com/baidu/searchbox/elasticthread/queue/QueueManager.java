@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class QueueManager implements Recordable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double BLOCK_WEIGHT_IMMEDIATE = 9999999.0d;
@@ -46,11 +46,11 @@ public class QueueManager implements Recordable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (getQueue(0).isEmpty()) {
-                double d2 = 0.0d;
+                double d = 0.0d;
                 for (int i = 0; i < 4; i++) {
-                    d2 += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
+                    d += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
                 }
-                return d2 / 1000.0d;
+                return d / 1000.0d;
             }
             return 9999999.0d;
         }

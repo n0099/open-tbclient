@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -211,9 +211,9 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return invokeL.booleanValue;
     }
 
-    public void onOffsetsForFullscreenChanged(BdSailorWebView bdSailorWebView, float f2, float f3, float f4) {
+    public void onOffsetsForFullscreenChanged(BdSailorWebView bdSailorWebView, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{bdSailorWebView, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{bdSailorWebView, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
@@ -268,19 +268,19 @@ public class BdSailorWebChromeClient implements INoProGuard {
         }
     }
 
-    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048603, this, bdSailorWebView, view, i, customViewCallback)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048603, this, bdSailorWebView, view2, i, customViewCallback)) == null) {
             return false;
         }
         return invokeLLIL.booleanValue;
     }
 
-    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, WebChromeClient.CustomViewCallback customViewCallback) {
+    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view2, WebChromeClient.CustomViewCallback customViewCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, bdSailorWebView, view, customViewCallback)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, bdSailorWebView, view2, customViewCallback)) == null) {
             return false;
         }
         return invokeLLL.booleanValue;

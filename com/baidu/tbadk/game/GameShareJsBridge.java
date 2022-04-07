@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GameShareJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public static GameShareJsBridge g_instance;
@@ -120,10 +120,10 @@ public class GameShareJsBridge {
                 this.mShareImage = String.valueOf(jSONObject.opt("img"));
                 this.mShareName = String.valueOf(jSONObject.opt("app_name"));
                 this.mGameId = String.valueOf(jSONObject.opt(GameGuideConfigInfo.KEY_APP_KEY));
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (Exception e2) {
                 e2.printStackTrace();
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
         }
     }

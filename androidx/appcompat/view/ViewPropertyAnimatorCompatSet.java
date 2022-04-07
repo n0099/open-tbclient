@@ -68,9 +68,9 @@ public class ViewPropertyAnimatorCompatSet {
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view) {
+            public void onAnimationEnd(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     int i3 = this.mProxyEndCount + 1;
                     this.mProxyEndCount = i3;
                     if (i3 == this.this$0.mAnimators.size()) {
@@ -84,9 +84,9 @@ public class ViewPropertyAnimatorCompatSet {
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationStart(View view) {
+            public void onAnimationStart(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.mProxyStarted) {
+                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.mProxyStarted) {
                     return;
                 }
                 this.mProxyStarted = true;

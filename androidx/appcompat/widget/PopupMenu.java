@@ -48,13 +48,13 @@ public class PopupMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PopupMenu(@NonNull Context context, @NonNull View view) {
-        this(context, view, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view2) {
+        this(context, view2, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -211,13 +211,13 @@ public class PopupMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i) {
-        this(context, view, i, R$attr.popupMenuStyle, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
+        this(context, view2, i, R$attr.popupMenuStyle, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, Integer.valueOf(i)};
+            Object[] objArr = {context, view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -231,12 +231,12 @@ public class PopupMenu {
         }
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i, @AttrRes int i2, @StyleRes int i3) {
+    public PopupMenu(@NonNull Context context, @NonNull View view2, int i, @AttrRes int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -247,7 +247,7 @@ public class PopupMenu {
             }
         }
         this.mContext = context;
-        this.mAnchor = view;
+        this.mAnchor = view2;
         MenuBuilder menuBuilder = new MenuBuilder(context);
         this.mMenu = menuBuilder;
         menuBuilder.setCallback(new MenuBuilder.Callback(this) { // from class: androidx.appcompat.widget.PopupMenu.1
@@ -294,7 +294,7 @@ public class PopupMenu {
                 }
             }
         });
-        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
+        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view2, false, i2, i3);
         this.mPopup = menuPopupHelper;
         menuPopupHelper.setGravity(i);
         this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener(this) { // from class: androidx.appcompat.widget.PopupMenu.2

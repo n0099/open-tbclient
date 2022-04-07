@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.o0.t0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,15 +22,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hc5;
+import com.repackage.oi;
+import com.repackage.vl4;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f35289b;
+    public TbPageContext b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context) {
@@ -62,34 +61,34 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
         Context context = getContext();
         TextView textView = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, n.f(context, R.dimen.tbds72));
-        int f2 = n.f(context, R.dimen.tbds22);
-        layoutParams.rightMargin = f2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, oi.f(context, R.dimen.tbds72));
+        int f = oi.f(context, R.dimen.tbds22);
+        layoutParams.rightMargin = f;
         textView.setTag(recommendTopicListData);
-        textView.setText(a.a(recommendTopicListData.getTopicName()));
+        textView.setText(hc5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
-        textView.setTextSize(0, n.f(context, R.dimen.tbds33));
+        textView.setTextSize(0, oi.f(context, R.dimen.tbds33));
         textView.setGravity(17);
         textView.setOnClickListener(this);
-        textView.setPadding(f2, 0, f2, 0);
+        textView.setPadding(f, 0, f, 0);
         SkinManager.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (view2.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
-            RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f35289b;
-            if (tbPageContext != null && !a.c(tbPageContext, false, true)) {
+            RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
+            TbPageContext tbPageContext = this.b;
+            if (tbPageContext != null && !hc5.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;
             }
             Context context = getContext();
-            c.a.o0.l.a.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            vl4.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 
@@ -155,7 +154,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f35289b = tbPageContext;
+            this.b = tbPageContext;
         }
     }
 

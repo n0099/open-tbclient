@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class NativeCrashHandler {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Context f27129b;
+    public static Context b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +65,7 @@ public final class NativeCrashHandler {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        f27129b = context;
+        b = context;
         if (a) {
             File cacheDir = context.getCacheDir();
             if (cacheDir.exists() && cacheDir.isDirectory()) {
@@ -90,7 +88,7 @@ public final class NativeCrashHandler {
     public static void onCrashCallbackFromNative(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(f27129b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+            ExceptionAnalysis.getInstance().saveCrashInfo(b, System.currentTimeMillis(), str, "NativeException", 1, 0);
         }
     }
 

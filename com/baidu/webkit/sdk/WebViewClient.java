@@ -24,7 +24,7 @@ import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_AUTHENTICATION = -4;
@@ -50,7 +50,7 @@ public class WebViewClient {
     public List<g> mUrlHandlers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class InteractionType {
         public static final /* synthetic */ InteractionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SecurityInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SecurityLevel {
         public static final /* synthetic */ SecurityLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -235,7 +235,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class WebSiteInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,7 +276,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class WebSiteType {
         public static final /* synthetic */ WebSiteType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -347,7 +347,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }
@@ -876,9 +876,9 @@ public class WebViewClient {
         }
     }
 
-    public void onScaleChanged(WebView webView, float f2, float f3) {
+    public void onScaleChanged(WebView webView, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{webView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 

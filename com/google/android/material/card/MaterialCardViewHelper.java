@@ -40,7 +40,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialCardViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
@@ -133,8 +133,8 @@ public class MaterialCardViewHelper {
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070426);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070427);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070430);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070431);
         obtainStyledAttributes.recycle();
     }
 
@@ -144,15 +144,15 @@ public class MaterialCardViewHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? Math.max(Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopLeftCorner(), this.bgDrawable.getTopLeftCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getTopRightCorner(), this.bgDrawable.getTopRightCornerResolvedSize())), Math.max(calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomRightCorner(), this.bgDrawable.getBottomRightCornerResolvedSize()), calculateCornerPaddingForCornerTreatment(this.shapeAppearanceModel.getBottomLeftCorner(), this.bgDrawable.getBottomLeftCornerResolvedSize()))) : invokeV.floatValue;
     }
 
-    private float calculateCornerPaddingForCornerTreatment(CornerTreatment cornerTreatment, float f2) {
+    private float calculateCornerPaddingForCornerTreatment(CornerTreatment cornerTreatment, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, this, cornerTreatment, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, this, cornerTreatment, f)) == null) {
             if (cornerTreatment instanceof RoundedCornerTreatment) {
-                return (float) ((1.0d - COS_45) * f2);
+                return (float) ((1.0d - COS_45) * f);
             }
             if (cornerTreatment instanceof CutCornerTreatment) {
-                return f2 / 2.0f;
+                return f / 2.0f;
             }
             return 0.0f;
         }
@@ -245,7 +245,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091469);
+                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091462);
             }
             return this.clickableForegroundDrawable;
         }
@@ -599,7 +599,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091469, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091462, createCheckedIconLayer());
             }
         }
     }
@@ -615,10 +615,10 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setCornerRadius(float f2) {
+    public void setCornerRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
-            setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(f2));
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(f));
             this.fgDrawable.invalidateSelf();
             if (shouldAddCornerPaddingOutsideCardBackground() || shouldAddCornerPaddingInsideCardBackground()) {
                 updateContentPadding();
@@ -629,17 +629,17 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.bgDrawable.setInterpolation(f2);
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.bgDrawable.setInterpolation(f);
             MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
             if (materialShapeDrawable != null) {
-                materialShapeDrawable.setInterpolation(f2);
+                materialShapeDrawable.setInterpolation(f);
             }
             MaterialShapeDrawable materialShapeDrawable2 = this.foregroundShapeDrawable;
             if (materialShapeDrawable2 != null) {
-                materialShapeDrawable2.setInterpolation(f2);
+                materialShapeDrawable2.setInterpolation(f);
             }
         }
     }

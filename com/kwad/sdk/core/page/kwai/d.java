@@ -19,59 +19,47 @@ import com.kwad.sdk.core.webview.kwai.i;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.utils.be;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d extends g {
+    public com.kwad.sdk.core.webview.a b;
+    public WebView c;
+    public int d = -1;
+    public com.kwad.sdk.core.webview.kwai.g e;
+    public ViewGroup f;
+    public final a g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f39634b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public WebView f39635c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f39636d = -1;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.g f39637e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f39638f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final a f39639g;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i);
     }
 
     public d(a aVar) {
-        this.f39639g = aVar;
+        this.g = aVar;
     }
 
     private void a(com.kwad.sdk.core.webview.kwai.g gVar) {
         com.kwad.sdk.core.d.a.a("LandPageWebViewPresenter", "registerWebCardHandler");
-        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((g) this).a.f40747g);
-        gVar.a(new f(this.f39634b));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f39634b));
-        gVar.a(new t(this.f39634b, bVar));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f39634b));
+        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((g) this).a.g);
+        gVar.a(new f(this.b));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.b));
+        gVar.a(new t(this.b, bVar));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.b));
         gVar.a(new s());
         gVar.a(new p(t()));
-        gVar.a(new k(this.f39634b));
+        gVar.a(new k(this.b));
         gVar.a(new o(u()));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f39634b, bVar, null));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f39634b, bVar, (b.c) null));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.b, bVar, null));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.b, bVar, (b.c) null));
     }
 
     private void i() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f39634b = aVar;
-        aVar.a(((g) this).a.f40747g);
-        com.kwad.sdk.core.webview.a aVar2 = this.f39634b;
-        aVar2.a = ((g) this).a.f40746f;
-        aVar2.f39983d = this.f39638f;
-        aVar2.f39984e = this.f39635c;
+        this.b = aVar;
+        aVar.a(((g) this).a.g);
+        com.kwad.sdk.core.webview.a aVar2 = this.b;
+        aVar2.a = ((g) this).a.f;
+        aVar2.d = this.f;
+        aVar2.e = this.c;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x002d A[ORIG_RETURN, RETURN] */
@@ -99,25 +87,25 @@ public class d extends g {
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void s() {
         v();
-        be.b(this.f39635c);
-        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f39635c);
-        this.f39637e = gVar;
+        be.b(this.c);
+        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.c);
+        this.e = gVar;
         a(gVar);
-        this.f39635c.addJavascriptInterface(this.f39637e, "KwaiAd");
+        this.c.addJavascriptInterface(this.e, "KwaiAd");
     }
 
     private p.b t() {
         return new p.b() { // from class: com.kwad.sdk.core.page.kwai.d.1
             @Override // com.kwad.sdk.core.webview.jshandler.p.b
             public void a(p.a aVar) {
-                d.this.f39636d = aVar.a;
-                if (d.this.f39639g != null) {
-                    d.this.f39639g.a(aVar.a);
+                d.this.d = aVar.a;
+                if (d.this.g != null) {
+                    d.this.g.a(aVar.a);
                 }
                 if (aVar.a == 1) {
-                    d.this.f39638f.setVisibility(0);
+                    d.this.f.setVisibility(0);
                 } else {
-                    d.this.f39635c.setVisibility(8);
+                    d.this.c.setVisibility(8);
                 }
             }
         };
@@ -127,16 +115,16 @@ public class d extends g {
         return new o.a() { // from class: com.kwad.sdk.core.page.kwai.d.2
             @Override // com.kwad.sdk.core.webview.jshandler.o.a
             public void a(i iVar) {
-                AdWebViewActivityProxy.launch(d.this.f39635c.getContext(), new AdWebViewActivityProxy.a.C1963a().a(iVar.f40130b).b(iVar.a).a(((g) d.this).a.f40747g).a());
+                AdWebViewActivityProxy.launch(d.this.c.getContext(), new AdWebViewActivityProxy.a.C0303a().a(iVar.b).b(iVar.a).a(((g) d.this).a.g).a());
             }
         };
     }
 
     private void v() {
-        com.kwad.sdk.core.webview.kwai.g gVar = this.f39637e;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.e;
         if (gVar != null) {
             gVar.a();
-            this.f39637e = null;
+            this.e = null;
         }
     }
 
@@ -156,20 +144,20 @@ public class d extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f39635c = (WebView) a(R.id.obfuscated_res_0x7f0910b4);
-        this.f39638f = (ViewGroup) a(R.id.obfuscated_res_0x7f091189);
-        this.f39635c.setBackgroundColor(0);
+        this.c = (WebView) a(R.id.obfuscated_res_0x7f0910ad);
+        this.f = (ViewGroup) a(R.id.obfuscated_res_0x7f091182);
+        this.c.setBackgroundColor(0);
     }
 
     public void e() {
         s();
         if (!TextUtils.isEmpty(r())) {
-            this.f39635c.loadUrl(r());
+            this.c.loadUrl(r());
             return;
         }
-        a aVar = this.f39639g;
+        a aVar = this.g;
         if (aVar != null) {
-            aVar.a(this.f39636d);
+            aVar.a(this.d);
         }
     }
 }

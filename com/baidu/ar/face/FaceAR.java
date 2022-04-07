@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceAR";
@@ -59,7 +59,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1717a nz;
+    public a.C0057a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -111,21 +111,21 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             }
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
-                String f2 = i.f(new File(com.baidu.ar.h.a.aP(str)));
-                if (TextUtils.isEmpty(f2)) {
+                String f = i.f(new File(com.baidu.ar.h.a.aP(str)));
+                if (TextUtils.isEmpty(f)) {
                     return false;
                 }
-                this.nx.b(f2, this.nw);
+                this.nx.b(f, this.nw);
                 try {
-                    JSONObject jSONObject = new JSONObject(f2);
+                    JSONObject jSONObject = new JSONObject(f);
                     if (jSONObject.has("mainTriggers")) {
                         this.nr.clear();
                         this.nr.add(jSONObject.getString("mainTriggers"));
                         return true;
                     }
                     return true;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     return true;
                 }
             }
@@ -166,8 +166,8 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         if (interceptable == null || interceptable.invokeL(65544, this, iArr) == null) {
             try {
                 iArr2 = c.a(this.nv, iArr);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 iArr2 = null;
             }
             int i = 0;
@@ -261,15 +261,15 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 i3 = this.mInputHeight;
                 i4 = this.mInputWidth;
             }
-            float f2 = i3;
-            float f3 = i4;
-            float f4 = 180;
-            if (Float.compare((f2 * 1.0f) / f3, (1.0f * f4) / ((float) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP)) != 0) {
+            float f = i3;
+            float f2 = i4;
+            float f3 = 180;
+            if (Float.compare((f * 1.0f) / f2, (1.0f * f3) / ((float) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP)) != 0) {
                 if (i3 > i4) {
-                    i = Math.round(f2 * (f4 / f3));
+                    i = Math.round(f * (f3 / f2));
                     i2 = 180;
                 } else {
-                    i2 = Math.round(f3 * (f4 / f2));
+                    i2 = Math.round(f2 * (f3 / f));
                 }
             }
             this.nx.setAlgoImageWidth(i);
@@ -300,7 +300,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1717a a = this.nx.a(this.ny);
+            a.C0057a a = this.nx.a(this.ny);
             if (a != null) {
                 this.nz = a;
                 this.nw = c.a(a.pO, str, str2, str3);
@@ -412,8 +412,8 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                     }
                 }
                 this.np.q(j);
-            } catch (Exception e2) {
-                Log.e(TAG, "Destory algoHandle failed.  " + e2.getMessage());
+            } catch (Exception e) {
+                Log.e(TAG, "Destory algoHandle failed.  " + e.getMessage());
             }
         }
     }
@@ -645,18 +645,18 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) || bVar == null || !(bVar instanceof com.baidu.ar.face.detector.l) || (eA = ((com.baidu.ar.face.detector.l) bVar).eA()) == null) {
                             return;
                         }
-                        FaceResultData c2 = c.c(eA);
+                        FaceResultData c = c.c(eA);
                         n nVar = (n) bVar.dd();
-                        if (nVar != null && c2 != null) {
-                            c2.setAlgoImageWidth(nVar.bX());
-                            c2.setAlgoImageHeight(nVar.bY());
+                        if (nVar != null && c != null) {
+                            c.setAlgoImageWidth(nVar.bX());
+                            c.setAlgoImageHeight(nVar.bY());
                         }
                         this.nC.mIsFrontCamera = eA.isFrontCamera();
                         if (this.nC.nA != null) {
-                            this.nC.nA.a(eA, c2, this.nC.nx.getAlgoImageWidth(), this.nC.nx.getAlgoImageHeight());
+                            this.nC.nA.a(eA, c, this.nC.nx.getAlgoImageWidth(), this.nC.nx.getAlgoImageHeight());
                         }
                         if (this.nC.nq != null) {
-                            this.nC.nq.onFaceResult(c2);
+                            this.nC.nq.onFaceResult(c);
                         }
                         this.nC.o(eA.dN());
                         this.nC.dp();

@@ -3,8 +3,6 @@ package com.baidu.tbadk.img;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.l.d;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,13 +17,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
+import com.repackage.ig;
+import com.repackage.ni;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_EMOTION = 1;
@@ -309,7 +309,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean isAlreadyUploadedToServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !m.isEmpty(this.serverImageCode) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !ni.isEmpty(this.serverImageCode) : invokeV.booleanValue;
     }
 
     public boolean isFromCamera() {
@@ -508,7 +508,7 @@ public class ImageFileInfo extends MediaFileInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             if (getImageType() == 1) {
-                return d.h().g(this.filePath, 20);
+                return ig.h().g(this.filePath, 20);
             }
             if (z) {
                 if (this._cacheKey_all == null) {
@@ -600,8 +600,8 @@ public class ImageFileInfo extends MediaFileInfo {
                 jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, this.mImageType);
                 jSONObject.put("extra", this.extra);
                 return jSONObject;
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
                 return null;
             }
         }

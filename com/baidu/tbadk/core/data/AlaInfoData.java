@@ -3,8 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import c.a.d.f.p.m;
-import c.a.o0.r.r.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -17,12 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.xn4;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
@@ -46,7 +46,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient g label;
+    public transient xn4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -77,7 +77,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class AlaInfoData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || m.isEmpty(yyExtData.mSid) || m.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || ni.isEmpty(yyExtData.mSid) || ni.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -176,8 +176,8 @@ public class AlaInfoData implements Serializable, Parcelable {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -251,8 +251,8 @@ public class AlaInfoData implements Serializable, Parcelable {
                 this.mYyExtData = yyExtData;
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -320,9 +320,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                g gVar = new g();
-                this.label = gVar;
-                gVar.a(optJSONObject);
+                xn4 xn4Var = new xn4();
+                this.label = xn4Var;
+                xn4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {
@@ -367,8 +367,8 @@ public class AlaInfoData implements Serializable, Parcelable {
                 this.mYyExtData = yyExtData;
                 yyExtData.parserJson(optJSONObject3);
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

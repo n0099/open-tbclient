@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ElevationOverlayProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FORMULA_MULTIPLIER = 4.5f;
@@ -43,9 +43,9 @@ public class ElevationOverlayProvider {
                 return;
             }
         }
-        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f0401d8, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f0401d7, 0);
-        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016b, 0);
+        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040214, false);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040213, 0);
+        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016e, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }
 
@@ -55,50 +55,50 @@ public class ElevationOverlayProvider {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? ColorUtils.setAlphaComponent(i, 255) == this.colorSurface : invokeI.booleanValue;
     }
 
-    public int calculateOverlayAlpha(float f2) {
+    public int calculateOverlayAlpha(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? Math.round(calculateOverlayAlphaFraction(f2) * 255.0f) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? Math.round(calculateOverlayAlphaFraction(f) * 255.0f) : invokeF.intValue;
     }
 
-    public float calculateOverlayAlphaFraction(float f2) {
+    public float calculateOverlayAlphaFraction(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            float f3 = this.displayDensity;
-            if (f3 <= 0.0f || f2 <= 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            float f2 = this.displayDensity;
+            if (f2 <= 0.0f || f <= 0.0f) {
                 return 0.0f;
             }
-            return Math.min(((((float) Math.log1p(f2 / f3)) * 4.5f) + 2.0f) / 100.0f, 1.0f);
+            return Math.min(((((float) Math.log1p(f / f2)) * 4.5f) + 2.0f) / 100.0f, 1.0f);
         }
         return invokeF.floatValue;
     }
 
     @ColorInt
-    public int compositeOverlay(@ColorInt int i, float f2, @NonNull View view) {
+    public int compositeOverlay(@ColorInt int i, float f, @NonNull View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), view})) == null) ? compositeOverlay(i, f2 + getParentAbsoluteElevation(view)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), view2})) == null) ? compositeOverlay(i, f + getParentAbsoluteElevation(view2)) : invokeCommon.intValue;
     }
 
     @ColorInt
-    public int compositeOverlayIfNeeded(@ColorInt int i, float f2, @NonNull View view) {
+    public int compositeOverlayIfNeeded(@ColorInt int i, float f, @NonNull View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), view})) == null) ? compositeOverlayIfNeeded(i, f2 + getParentAbsoluteElevation(view)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), view2})) == null) ? compositeOverlayIfNeeded(i, f + getParentAbsoluteElevation(view2)) : invokeCommon.intValue;
     }
 
     @ColorInt
-    public int compositeOverlayWithThemeSurfaceColorIfNeeded(float f2, @NonNull View view) {
+    public int compositeOverlayWithThemeSurfaceColorIfNeeded(float f, @NonNull View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), view})) == null) ? compositeOverlayWithThemeSurfaceColorIfNeeded(f2 + getParentAbsoluteElevation(view)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), view2})) == null) ? compositeOverlayWithThemeSurfaceColorIfNeeded(f + getParentAbsoluteElevation(view2)) : invokeCommon.intValue;
     }
 
-    public float getParentAbsoluteElevation(@NonNull View view) {
+    public float getParentAbsoluteElevation(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view)) == null) ? ViewUtils.getParentAbsoluteElevation(view) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2)) == null) ? ViewUtils.getParentAbsoluteElevation(view2) : invokeL.floatValue;
     }
 
     @ColorInt
@@ -122,23 +122,23 @@ public class ElevationOverlayProvider {
     }
 
     @ColorInt
-    public int compositeOverlay(@ColorInt int i, float f2) {
+    public int compositeOverlay(@ColorInt int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? ColorUtils.setAlphaComponent(MaterialColors.layer(ColorUtils.setAlphaComponent(i, 255), this.elevationOverlayColor, calculateOverlayAlphaFraction(f2)), Color.alpha(i)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? ColorUtils.setAlphaComponent(MaterialColors.layer(ColorUtils.setAlphaComponent(i, 255), this.elevationOverlayColor, calculateOverlayAlphaFraction(f)), Color.alpha(i)) : invokeCommon.intValue;
     }
 
     @ColorInt
-    public int compositeOverlayIfNeeded(@ColorInt int i, float f2) {
+    public int compositeOverlayIfNeeded(@ColorInt int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? (this.elevationOverlayEnabled && isThemeSurfaceColor(i)) ? compositeOverlay(i, f2) : i : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (this.elevationOverlayEnabled && isThemeSurfaceColor(i)) ? compositeOverlay(i, f) : i : invokeCommon.intValue;
     }
 
     @ColorInt
-    public int compositeOverlayWithThemeSurfaceColorIfNeeded(float f2) {
+    public int compositeOverlayWithThemeSurfaceColorIfNeeded(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) ? compositeOverlayIfNeeded(this.colorSurface, f2) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) ? compositeOverlayIfNeeded(this.colorSurface, f) : invokeF.intValue;
     }
 }

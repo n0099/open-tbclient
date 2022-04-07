@@ -6,10 +6,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.annotation.Nullable;
-import c.a.d.a.e;
-import c.a.d.f.p.m;
-import c.a.d.f.p.n;
-import c.a.p0.a4.i0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -24,17 +20,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.a9;
+import com.repackage.fk8;
+import com.repackage.mu4;
+import com.repackage.ni;
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
     public boolean C;
-    public c.a.o0.r.l0.n.b D;
-    public c.a.o0.r.l0.n.b E;
+    public mu4 D;
+    public mu4 E;
     public LikeModel F;
-    public i0 G;
+    public fk8 G;
     public b H;
     public boolean I;
     public Animation J;
@@ -43,22 +44,20 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public TbPageContext<?> q;
     public TBSpecificationButtonConfig r;
     public TBSpecificationButtonConfig s;
-    public e t;
-    public i0.a u;
+    public a9 t;
+    public fk8.a u;
     public boolean v;
     public int w;
     public int x;
     public boolean y;
     public final int z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f36911b;
+        public final /* synthetic */ NewFollowButton b;
 
         public a(NewFollowButton newFollowButton, boolean z) {
             Interceptable interceptable = $ic;
@@ -75,7 +74,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f36911b = newFollowButton;
+            this.b = newFollowButton;
             this.a = z;
         }
 
@@ -83,7 +82,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f36911b.B(this.a);
+                this.b.C(this.a);
             }
         }
 
@@ -102,8 +101,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends e implements i0.a {
+    /* loaded from: classes4.dex */
+    public class b extends a9 implements fk8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFollowButton a;
@@ -126,7 +125,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // c.a.p0.a4.i0.a
+        @Override // com.repackage.fk8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -137,12 +136,12 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // c.a.p0.a4.i0.a
+        @Override // com.repackage.fk8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 NewFollowButton newFollowButton = this.a;
-                newFollowButton.C(false, newFollowButton.A);
+                newFollowButton.D(false, newFollowButton.A);
                 if (this.a.u != null) {
                     this.a.u.b(str, j);
                 }
@@ -150,21 +149,21 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.a.F.getErrorCode() == 22) {
-                    n.N(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0802));
+                    oi.N(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0803));
                     this.a.I = false;
                 } else if (obj == null) {
                     this.a.I = false;
                 } else if (this.a.F.getErrorCode() != 0) {
-                    n.N(this.a.q.getPageActivity(), this.a.F.getErrorString());
+                    oi.N(this.a.q.getPageActivity(), this.a.F.getErrorString());
                     this.a.I = false;
                 } else {
                     NewFollowButton newFollowButton = this.a;
-                    newFollowButton.C(true, newFollowButton.A);
+                    newFollowButton.D(true, newFollowButton.A);
                     if (this.a.t != null) {
                         this.a.t.c(obj);
                     }
@@ -204,33 +203,58 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.I || this.q == null) {
             return;
         }
-        if (!n.C()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c15));
+        if (!oi.C()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c18));
+        } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
+        } else {
+            if (this.H == null) {
+                this.H = new b(this, null);
+            }
+            if (this.F == null) {
+                LikeModel likeModel = new LikeModel(this.q);
+                this.F = likeModel;
+                likeModel.setLoadDataCallBack(this.H);
+            }
+            if (ni.isForumName(this.o)) {
+                this.I = true;
+                this.F.L();
+                this.F.P(this.o, String.valueOf(this.p));
+            }
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.I || this.q == null) {
+            return;
+        }
+        if (!oi.C()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c18));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
                 this.H = new b(this, null);
             }
             if (this.G == null) {
-                i0 i0Var = new i0();
-                this.G = i0Var;
-                i0Var.b(this.H);
+                fk8 fk8Var = new fk8();
+                this.G = fk8Var;
+                fk8Var.b(this.H);
             }
             this.I = true;
             this.G.c(this.o, this.p);
         }
     }
 
-    public final void B(boolean z) {
+    public final void C(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        c.a.o0.r.l0.n.b bVar = new c.a.o0.r.l0.n.b();
-                        this.E = bVar;
-                        bVar.t(R.color.CAM_X0109);
+                        mu4 mu4Var = new mu4();
+                        this.E = mu4Var;
+                        mu4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -238,14 +262,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig);
                 }
                 setClickable(this.v);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d));
             } else {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        c.a.o0.r.l0.n.b bVar2 = new c.a.o0.r.l0.n.b();
-                        this.D = bVar2;
-                        bVar2.r(R.color.CAM_X0302);
+                        mu4 mu4Var2 = new mu4();
+                        this.D = mu4Var2;
+                        mu4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -257,17 +281,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig2);
                 }
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c));
             }
             k();
             this.C = z;
         }
     }
 
-    public final void C(boolean z, boolean z2) {
+    public final void D(boolean z, boolean z2) {
         Animation animation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2 && this.B != 0 && this.J == null) {
                 Animation loadAnimation = AnimationUtils.loadAnimation(this.q.getPageActivity(), this.B);
                 this.J = loadAnimation;
@@ -276,44 +300,19 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             if (z2 && (animation = this.J) != null) {
                 startAnimation(animation);
             } else {
-                B(z);
+                C(z);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (this.C) {
-                z();
-            } else {
                 A();
-            }
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.I || this.q == null) {
-            return;
-        }
-        if (!n.C()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c15));
-        } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
-        } else {
-            if (this.H == null) {
-                this.H = new b(this, null);
-            }
-            if (this.F == null) {
-                LikeModel likeModel = new LikeModel(this.q);
-                this.F = likeModel;
-                likeModel.setLoadDataCallBack(this.H);
-            }
-            if (m.isForumName(this.o)) {
-                this.I = true;
-                this.F.L();
-                this.F.P(this.o, String.valueOf(this.p));
+            } else {
+                B();
             }
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OnceLocationManager implements GetLocationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OnceLocationManager";
@@ -47,26 +47,26 @@ public class OnceLocationManager implements GetLocationCallback {
         return (OnceLocationManager) invokeV.objValue;
     }
 
-    public BDLocation convertBdLocation(double d2, double d3, String str) {
+    public BDLocation convertBdLocation(double d, double d2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), str})) == null) {
             BDLocation bDLocation = new BDLocation();
-            bDLocation.setLatitude(d2);
-            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d);
+            bDLocation.setLongitude(d2);
             return LocationClient.getBDLocationInCoorType(bDLocation, str);
         }
         return (BDLocation) invokeCommon.objValue;
     }
 
     @Override // com.baidu.pass.ecommerce.callback.GetLocationCallback
-    public void onGetLocation(double d2, double d3) {
+    public void onGetLocation(double d, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)}) == null) {
-            Log.d(TAG, "onGetLocation lat=" + d2 + ", lng=" + d3);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)}) == null) {
+            Log.d(TAG, "onGetLocation lat=" + d + ", lng=" + d2);
             GetLocationCallback getLocationCallback = this.mGetLocationCallback;
             if (getLocationCallback != null) {
-                getLocationCallback.onGetLocation(d2, d3);
+                getLocationCallback.onGetLocation(d, d2);
             }
             this.mGetLocationCallback = null;
         }

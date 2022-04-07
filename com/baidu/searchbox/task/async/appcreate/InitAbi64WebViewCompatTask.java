@@ -1,8 +1,6 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import android.content.Context;
-import c.a.d.f.p.a;
-import c.a.d.f.p.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -12,7 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.bi;
+import com.repackage.ci;
+/* loaded from: classes2.dex */
 public class InitAbi64WebViewCompatTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             if (TbadkSettings.getInst().isContains("key_last_running_in_64_bit")) {
-                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != b.a()) {
-                    a.b(context);
+                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != ci.a()) {
+                    bi.b(context);
                 }
             } else {
-                a.b(context);
+                bi.b(context);
             }
-            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", b.a());
+            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", ci.a());
         }
     }
 

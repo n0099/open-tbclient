@@ -4,10 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import c.a.d.f.p.n;
-import c.a.o0.r.l;
-import c.a.p0.k2.d;
-import c.a.p0.u;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -26,7 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes5.dex */
+import com.repackage.ci;
+import com.repackage.cn4;
+import com.repackage.ki5;
+import com.repackage.oi;
+import com.repackage.ol7;
+import com.repackage.zx4;
+/* loaded from: classes4.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static String mStatistics;
@@ -35,7 +37,7 @@ public class SyncLoginService extends BdBaseService {
     public Runnable mRunnable;
     public b mSyncTask;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,14 +156,12 @@ public class SyncLoginService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, d> {
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<String, Integer, ol7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f35854b;
+        public final /* synthetic */ SyncLoginService b;
 
         public b(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -178,34 +178,34 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f35854b = syncLoginService;
+            this.b = syncLoginService;
             this.a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public d doInBackground(String... strArr) {
+        public ol7 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (d) invokeL.objValue;
+                return (ol7) invokeL.objValue;
             }
-            d dVar = null;
+            ol7 ol7Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(n.k(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(n.i(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("_phone_screen", stringBuffer.toString());
-                this.a.addPostData("scr_w", String.valueOf(n.k(TbadkCoreApplication.getInst().getApp())));
-                this.a.addPostData("scr_h", String.valueOf(n.i(TbadkCoreApplication.getInst().getApp())));
-                this.a.addPostData("scr_dip", String.valueOf(n.h(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_w", String.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_h", String.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_dip", String.valueOf(oi.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (c.a.o0.s.d.d.d().e() > 0) {
+                if (zx4.d().e() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -217,7 +217,7 @@ public class SyncLoginService extends BdBaseService {
                     }
                     this.a.addPostData("_active", str);
                 }
-                this.a.addPostData("_pic_quality", String.valueOf(l.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(cn4.c().e()));
                 if (SyncLoginService.mStatistics != null) {
                     this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
@@ -227,44 +227,44 @@ public class SyncLoginService extends BdBaseService {
                 NetWork netWork2 = this.a;
                 netWork2.addPostData("versioncode", versionCode + "");
                 this.a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.a.addPostData(PackageTable.MD5, u.a());
+                this.a.addPostData(PackageTable.MD5, ki5.a());
                 NetWork netWork3 = this.a;
-                boolean a = c.a.d.f.p.b.a();
+                boolean a = ci.a();
                 String str2 = WebKitFactory.OS_64;
                 netWork3.addPostData("running_abi", a ? WebKitFactory.OS_64 : "32");
                 NetWork netWork4 = this.a;
-                if (!c.a.d.f.p.b.b()) {
+                if (!ci.b()) {
                     str2 = "32";
                 }
                 netWork4.addPostData("support_abi", str2);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    d dVar2 = new d();
+                    ol7 ol7Var2 = new ol7();
                     try {
-                        dVar2.a(postNetData);
+                        ol7Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return dVar2;
-                    } catch (Exception e2) {
-                        e = e2;
-                        dVar = dVar2;
+                        return ol7Var2;
+                    } catch (Exception e) {
+                        e = e;
+                        ol7Var = ol7Var2;
                         BdLog.e(e.getMessage());
-                        return dVar;
+                        return ol7Var;
                     }
                 }
                 return null;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(d dVar) {
+        public void onPostExecute(ol7 ol7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-                super.onPostExecute(dVar);
-                this.f35854b.mSyncTask = null;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ol7Var) == null) {
+                super.onPostExecute(ol7Var);
+                this.b.mSyncTask = null;
             }
         }
 
@@ -272,7 +272,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f35854b.mSyncTask = null;
+                this.b.mSyncTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();

@@ -3,30 +3,24 @@ package com.kwad.sdk.utils;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ba {
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f41380d;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Point f41379c = new Point();
+    public View d;
+    public Point c = new Point();
     public Rect a = new Rect();
+    public Rect b = new Rect();
 
-    /* renamed from: b  reason: collision with root package name */
-    public Rect f41378b = new Rect();
-
-    public ba(View view) {
-        this.f41380d = view;
+    public ba(View view2) {
+        this.d = view2;
     }
 
     public boolean a() {
-        boolean globalVisibleRect = this.f41380d.getGlobalVisibleRect(this.a, this.f41379c);
-        Point point = this.f41379c;
-        if (point.x == 0 && point.y == 0 && this.a.height() == this.f41380d.getHeight() && this.f41378b.height() != 0 && Math.abs(this.a.top - this.f41378b.top) > this.f41380d.getHeight() / 2) {
-            this.a.set(this.f41378b);
+        boolean globalVisibleRect = this.d.getGlobalVisibleRect(this.a, this.c);
+        Point point = this.c;
+        if (point.x == 0 && point.y == 0 && this.a.height() == this.d.getHeight() && this.b.height() != 0 && Math.abs(this.a.top - this.b.top) > this.d.getHeight() / 2) {
+            this.a.set(this.b);
         }
-        this.f41378b.set(this.a);
+        this.b.set(this.a);
         return globalVisibleRect;
     }
 }

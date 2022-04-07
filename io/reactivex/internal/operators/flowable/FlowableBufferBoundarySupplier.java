@@ -28,14 +28,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableBufferBoundarySupplier<T, U extends Collection<? super T>, B> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Callable<? extends Publisher<B>> boundarySupplier;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class BufferBoundarySubscriber<T, U extends Collection<? super T>, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public final class FlowableBufferBoundarySupplier<T, U extends Collection<? supe
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(B b2) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2) == null) || this.once) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) || this.once) {
                 return;
             }
             this.once = true;
@@ -95,7 +95,7 @@ public final class FlowableBufferBoundarySupplier<T, U extends Collection<? supe
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class BufferBoundarySupplierSubscriber<T, U extends Collection<? super T>, B> extends QueueDrainSubscriber<T, U, U> implements FlowableSubscriber<T>, Subscription, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

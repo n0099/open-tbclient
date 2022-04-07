@@ -78,14 +78,14 @@ public class GhostViewHolder extends FrameLayout {
         return invokeL.intValue;
     }
 
-    public static void getParents(View view, ArrayList<View> arrayList) {
+    public static void getParents(View view2, ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view, arrayList) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, arrayList) == null) {
+            ViewParent parent = view2.getParent();
             if (parent instanceof ViewGroup) {
                 getParents((View) parent, arrayList);
             }
-            arrayList.add(view);
+            arrayList.add(view2);
         }
     }
 
@@ -98,10 +98,10 @@ public class GhostViewHolder extends FrameLayout {
             }
             int min = Math.min(arrayList.size(), arrayList2.size());
             for (int i = 1; i < min; i++) {
-                View view = arrayList.get(i);
-                View view2 = arrayList2.get(i);
-                if (view != view2) {
-                    return isOnTop(view, view2);
+                View view2 = arrayList.get(i);
+                View view3 = arrayList2.get(i);
+                if (view2 != view3) {
+                    return isOnTop(view2, view3);
                 }
             }
             return arrayList2.size() == min;
@@ -124,11 +124,11 @@ public class GhostViewHolder extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void onViewAdded(View view) {
+    public void onViewAdded(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.mAttached) {
-                super.onViewAdded(view);
+                super.onViewAdded(view2);
                 return;
             }
             throw new IllegalStateException("This GhostViewHolder is detached!");
@@ -136,11 +136,11 @@ public class GhostViewHolder extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void onViewRemoved(View view) {
+    public void onViewRemoved(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            super.onViewRemoved(view);
-            if ((getChildCount() == 1 && getChildAt(0) == view) || getChildCount() == 0) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            super.onViewRemoved(view2);
+            if ((getChildCount() == 1 && getChildAt(0) == view2) || getChildCount() == 0) {
                 this.mParent.setTag(R$id.ghost_view_holder, null);
                 ViewGroupUtils.getOverlay(this.mParent).remove(this);
                 this.mAttached = false;
@@ -160,21 +160,21 @@ public class GhostViewHolder extends FrameLayout {
         }
     }
 
-    public static boolean isOnTop(View view, View view2) {
+    public static boolean isOnTop(View view2, View view3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, view2)) == null) {
-            ViewGroup viewGroup = (ViewGroup) view.getParent();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, view3)) == null) {
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
             int childCount = viewGroup.getChildCount();
-            if (Build.VERSION.SDK_INT >= 21 && view.getZ() != view2.getZ()) {
-                return view.getZ() > view2.getZ();
+            if (Build.VERSION.SDK_INT >= 21 && view2.getZ() != view3.getZ()) {
+                return view2.getZ() > view3.getZ();
             }
             for (int i = 0; i < childCount; i++) {
                 View childAt = viewGroup.getChildAt(ViewGroupUtils.getChildDrawingOrder(viewGroup, i));
-                if (childAt == view) {
+                if (childAt == view2) {
                     return false;
                 }
-                if (childAt == view2) {
+                if (childAt == view3) {
                     break;
                 }
             }

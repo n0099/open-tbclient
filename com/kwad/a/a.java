@@ -19,22 +19,20 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1941a {
+    /* loaded from: classes5.dex */
+    public static class C0281a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ZipFile a;
+        public ZipEntry b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public ZipEntry f39050b;
-
-        public C1941a(ZipFile zipFile, ZipEntry zipEntry) {
+        public C0281a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +48,7 @@ public class a implements b.a {
                 }
             }
             this.a = zipFile;
-            this.f39050b = zipEntry;
+            this.b = zipEntry;
         }
     }
 
@@ -87,14 +85,14 @@ public class a implements b.a {
         }
     }
 
-    private C1941a a(Context context, String[] strArr, String str, c cVar) {
+    private C0281a a(Context context, String[] strArr, String str, c cVar) {
         InterceptResult invokeLLLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, context, strArr, str, cVar)) == null) {
             String[] a = a(context);
             int length = a.length;
-            char c2 = 0;
+            char c = 0;
             ZipFile zipFile = null;
             int i2 = 0;
             while (i2 < length) {
@@ -125,26 +123,26 @@ public class a implements b.a {
                         while (i7 < length2) {
                             String str3 = "lib" + File.separatorChar + strArr[i7] + File.separatorChar + str;
                             Object[] objArr = new Object[2];
-                            objArr[c2] = str3;
+                            objArr[c] = str3;
                             objArr[1] = str2;
                             cVar.a("Looking for %s in APK %s...", objArr);
                             ZipEntry entry = zipFile.getEntry(str3);
                             if (entry != null) {
-                                return new C1941a(zipFile, entry);
+                                return new C0281a(zipFile, entry);
                             }
                             i7++;
-                            c2 = 0;
+                            c = 0;
                         }
                         i5 = i6;
                         i = 5;
                     }
                 }
                 i2++;
-                c2 = 0;
+                c = 0;
             }
             return null;
         }
-        return (C1941a) invokeLLLL.objValue;
+        return (C0281a) invokeLLLL.objValue;
     }
 
     private void a(Closeable closeable) {
@@ -184,10 +182,10 @@ public class a implements b.a {
         if (interceptable != null && interceptable.invokeLLLLL(1048576, this, context, strArr, str, file, cVar) != null) {
             return;
         }
-        C1941a c1941a = null;
+        C0281a c0281a = null;
         Closeable closeable2 = null;
         try {
-            C1941a a2 = a(context, strArr, str, cVar);
+            C0281a a2 = a(context, strArr, str, cVar);
             try {
                 if (a2 == null) {
                     throw new RuntimeException(str);
@@ -214,7 +212,7 @@ public class a implements b.a {
                     try {
                         if (file.exists() || file.createNewFile()) {
                             try {
-                                inputStream = a2.a.getInputStream(a2.f39050b);
+                                inputStream = a2.a.getInputStream(a2.b);
                                 try {
                                     closeable = new FileOutputStream(file);
                                 } catch (FileNotFoundException unused2) {
@@ -281,11 +279,11 @@ public class a implements b.a {
                 }
             } catch (Throwable th4) {
                 th = th4;
-                c1941a = a2;
-                if (c1941a != null) {
+                c0281a = a2;
+                if (c0281a != null) {
                     try {
-                        if (c1941a.a != null) {
-                            c1941a.a.close();
+                        if (c0281a.a != null) {
+                            c0281a.a.close();
                         }
                     } catch (IOException unused10) {
                     }

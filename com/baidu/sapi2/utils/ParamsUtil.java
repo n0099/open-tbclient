@@ -11,6 +11,7 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,13 +29,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sapi2.utils.ParamsUtil$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction;
         public static /* synthetic */ Interceptable $ic;
@@ -203,9 +204,9 @@ public class ParamsUtil implements NoProguard {
                         jSONArray = new JSONObject(extraParams).optJSONArray("dt_params");
                         Log.e("privacy_parameter_control", "paramsList : " + jSONArray);
                         return jSONArray;
-                    } catch (JSONException e2) {
-                        Log.e("privacy_parameter_control", "exception : " + e2);
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        Log.e("privacy_parameter_control", "exception : " + e);
+                        e.printStackTrace();
                         return jSONArray;
                     }
                 }
@@ -219,7 +220,7 @@ public class ParamsUtil implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("display", "native");
+            hashMap.put(CriusAttrConstants.DISPLAY, "native");
             hashMap.put("type", socialType.getType() + "");
             hashMap.put("act", sapiConfiguration.socialBindType.getName());
             if (!TextUtils.isEmpty(str3)) {
@@ -279,7 +280,7 @@ public class ParamsUtil implements NoProguard {
             } else {
                 hashMap.put("adapter", "3");
             }
-            hashMap.put("display", "native");
+            hashMap.put(CriusAttrConstants.DISPLAY, "native");
             hashMap.put("act", "optional");
             hashMap.put("supportGuestAccount", "1");
             hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, sapiConfiguration.twitterAppKey);
@@ -306,7 +307,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("adapter", "3");
             }
             hashMap.put("appid", sapiConfiguration.wxAppID);
-            hashMap.put("display", "native");
+            hashMap.put(CriusAttrConstants.DISPLAY, "native");
             return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
         }
         return (String) invokeCommon.objValue;

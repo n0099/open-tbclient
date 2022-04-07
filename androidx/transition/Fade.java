@@ -36,12 +36,12 @@ public class Fade extends Visibility {
         public boolean mLayerTypeChanged;
         public final View mView;
 
-        public FadeAnimatorListener(View view) {
+        public FadeAnimatorListener(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public class Fade extends Visibility {
                 }
             }
             this.mLayerTypeChanged = false;
-            this.mView = view;
+            this.mView = view2;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -94,17 +94,17 @@ public class Fade extends Visibility {
         setMode(i);
     }
 
-    private Animator createAnimation(View view, float f2, float f3) {
+    private Animator createAnimation(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f2 == f3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (f == f2) {
                 return null;
             }
-            ViewUtils.setTransitionAlpha(view, f2);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, ViewUtils.TRANSITION_ALPHA, f3);
-            ofFloat.addListener(new FadeAnimatorListener(view));
-            addListener(new TransitionListenerAdapter(this, view) { // from class: androidx.transition.Fade.1
+            ViewUtils.setTransitionAlpha(view2, f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, ViewUtils.TRANSITION_ALPHA, f2);
+            ofFloat.addListener(new FadeAnimatorListener(view2));
+            addListener(new TransitionListenerAdapter(this, view2) { // from class: androidx.transition.Fade.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Fade this$0;
@@ -115,7 +115,7 @@ public class Fade extends Visibility {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view};
+                        Object[] objArr = {this, view2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -126,7 +126,7 @@ public class Fade extends Visibility {
                         }
                     }
                     this.this$0 = this;
-                    this.val$view = view;
+                    this.val$view = view2;
                 }
 
                 @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
@@ -144,11 +144,11 @@ public class Fade extends Visibility {
         return (Animator) invokeCommon.objValue;
     }
 
-    public static float getStartAlpha(TransitionValues transitionValues, float f2) {
+    public static float getStartAlpha(TransitionValues transitionValues, float f) {
         InterceptResult invokeLF;
-        Float f3;
+        Float f2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValues, f2)) == null) ? (transitionValues == null || (f3 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f2 : f3.floatValue() : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValues, f)) == null) ? (transitionValues == null || (f2 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f : f2.floatValue() : invokeLF.floatValue;
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
@@ -156,28 +156,28 @@ public class Fade extends Visibility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);
-            transitionValues.values.put(PROPNAME_TRANSITION_ALPHA, Float.valueOf(ViewUtils.getTransitionAlpha(transitionValues.view)));
+            transitionValues.values.put(PROPNAME_TRANSITION_ALPHA, Float.valueOf(ViewUtils.getTransitionAlpha(transitionValues.f980view)));
         }
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             float startAlpha = getStartAlpha(transitionValues, 0.0f);
-            return createAnimation(view, startAlpha != 1.0f ? startAlpha : 0.0f, 1.0f);
+            return createAnimation(view2, startAlpha != 1.0f ? startAlpha : 0.0f, 1.0f);
         }
         return (Animator) invokeLLLL.objValue;
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
-            ViewUtils.saveNonTransitionAlpha(view);
-            return createAnimation(view, getStartAlpha(transitionValues, 1.0f), 0.0f);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
+            ViewUtils.saveNonTransitionAlpha(view2);
+            return createAnimation(view2, getStartAlpha(transitionValues, 1.0f), 0.0f);
         }
         return (Animator) invokeLLLL.objValue;
     }

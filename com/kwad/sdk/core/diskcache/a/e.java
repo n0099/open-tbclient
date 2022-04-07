@@ -5,7 +5,7 @@ import com.kwad.sdk.core.diskcache.kwai.a;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static Object a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str) {
         InputStream inputStream;
@@ -20,8 +20,8 @@ public class e {
                 d.a(aVar2);
                 throw th;
             }
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e) {
+            e = e;
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -37,8 +37,8 @@ public class e {
             Object a2 = d.a(inputStream);
             d.a((Closeable) inputStream);
             return a2;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             com.kwad.sdk.core.d.a.a(e);
             d.a((Closeable) inputStream);
             return null;
@@ -49,18 +49,18 @@ public class e {
         OutputStream outputStream = null;
         try {
             try {
-                a.C1954a b2 = aVar.b(str);
-                if (b2 != null) {
-                    outputStream = b2.a(0);
+                a.C0294a b = aVar.b(str);
+                if (b != null) {
+                    outputStream = b.a(0);
                     if (d.a(outputStream, obj)) {
-                        b2.a();
+                        b.a();
                     } else {
-                        b2.b();
+                        b.b();
                     }
                     aVar.b();
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         } finally {
             d.a(outputStream);

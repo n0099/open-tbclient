@@ -24,36 +24,22 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class f implements ServiceConnection, t {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f43160b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f43161c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static long f43162d;
+    public static boolean b;
+    public static int c;
+    public static long d;
     @Nullable
     public c a;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.InterfaceC2072a f43165g;
+    public c.a.InterfaceC0616a g;
     public Future<?> i;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Handler f43163e = new Handler(Looper.getMainLooper());
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f43164f = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Runnable f43166h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
+    public Handler e = new Handler(Looper.getMainLooper());
+    public b f = null;
+    public Runnable h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.f43160b || f.this.f43165g == null) {
+            if (f.b || f.this.g == null) {
                 return;
             }
-            f.this.f43165g.a();
+            f.this.g.a();
         }
     };
     public CountDownLatch j = new CountDownLatch(1);
@@ -64,8 +50,8 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC2072a a(f fVar) {
-        return fVar.f43165g;
+    public static /* synthetic */ c.a.InterfaceC0616a a(f fVar) {
+        return fVar.g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,8 +73,8 @@ public class f implements ServiceConnection, t {
                 return this.a.i(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -100,8 +86,8 @@ public class f implements ServiceConnection, t {
                 return this.a.j(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -117,8 +103,8 @@ public class f implements ServiceConnection, t {
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
-        f43160b = true;
-        this.f43163e.removeCallbacks(this.f43166h);
+        b = true;
+        this.e.removeCallbacks(this.h);
         try {
             this.a = c.a.a(iBinder);
         } catch (Throwable th) {
@@ -129,18 +115,18 @@ public class f implements ServiceConnection, t {
             public void run() {
                 synchronized (this) {
                     try {
-                        if (f.this.f43164f != null && f.this.a != null) {
-                            f.this.a.a(f.this.f43164f);
+                        if (f.this.f != null && f.this.a != null) {
+                            f.this.a.a(f.this.f);
                         }
                         f.this.j.countDown();
                         iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.b.f.2.1
                             @Override // android.os.IBinder.DeathRecipient
                             public void binderDied() {
-                                boolean unused = f.f43160b = false;
-                                if (f.this.g() || f.this.f43165g == null) {
+                                boolean unused = f.b = false;
+                                if (f.this.g() || f.this.g == null) {
                                     return;
                                 }
-                                f.this.f43163e.postDelayed(f.this.f43166h, 2000L);
+                                f.this.e.postDelayed(f.this.h, 2000L);
                             }
                         }, 0);
                     } catch (Throwable unused) {
@@ -153,24 +139,24 @@ public class f implements ServiceConnection, t {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         this.a = null;
-        f43160b = false;
+        b = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        if (Build.VERSION.SDK_INT < 26 && !f43160b) {
-            if (f43161c > 5) {
+        if (Build.VERSION.SDK_INT < 26 && !b) {
+            if (c > 5) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: bind too many times!!! ");
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f43162d < 15000) {
+            if (currentTimeMillis - d < 15000) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: time too short since last bind!!! ");
                 return false;
             }
-            f43161c++;
-            f43162d = currentTimeMillis;
-            this.f43163e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
+            c++;
+            d = currentTimeMillis;
+            this.e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
                 @Override // java.lang.Runnable
                 public void run() {
                     SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), f.this);
@@ -188,8 +174,8 @@ public class f implements ServiceConnection, t {
                 return this.a.b(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -201,8 +187,8 @@ public class f implements ServiceConnection, t {
                 return this.a.c(str);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -214,8 +200,8 @@ public class f implements ServiceConnection, t {
                 return this.a.d(str);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -227,8 +213,8 @@ public class f implements ServiceConnection, t {
                 return this.a.e(i);
             }
             return false;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -240,14 +226,14 @@ public class f implements ServiceConnection, t {
                 return this.a.h(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    public void a(c.a.InterfaceC2072a interfaceC2072a) {
-        this.f43165g = interfaceC2072a;
+    public void a(c.a.InterfaceC0616a interfaceC0616a) {
+        this.g = interfaceC0616a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -257,8 +243,8 @@ public class f implements ServiceConnection, t {
                 return this.a.f(i);
             }
             return false;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -303,11 +289,11 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 try {
                     this.a.a(bVar);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             } else {
-                this.f43164f = bVar;
+                this.f = bVar;
             }
         }
     }
@@ -319,8 +305,8 @@ public class f implements ServiceConnection, t {
                 return this.a.b(str);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -332,8 +318,8 @@ public class f implements ServiceConnection, t {
                 return this.a.c(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -344,8 +330,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.d(i);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -356,8 +342,8 @@ public class f implements ServiceConnection, t {
                 return this.a.e();
             }
             return false;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -369,8 +355,8 @@ public class f implements ServiceConnection, t {
                 return this.a.b();
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -381,8 +367,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.c();
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -393,8 +379,8 @@ public class f implements ServiceConnection, t {
                 return this.a.d(i, j);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -404,8 +390,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a();
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -415,8 +401,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.b(bVar);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -427,8 +413,8 @@ public class f implements ServiceConnection, t {
                 return this.a.c(i, j);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -440,8 +426,8 @@ public class f implements ServiceConnection, t {
                 return this.a.d();
             }
             return false;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -453,8 +439,8 @@ public class f implements ServiceConnection, t {
                 return this.a.g(i);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -466,8 +452,8 @@ public class f implements ServiceConnection, t {
                 return this.a.a(str);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -479,8 +465,8 @@ public class f implements ServiceConnection, t {
                 return this.a.b(i, j);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -491,8 +477,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a(bVar);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -502,8 +488,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.b(downloadInfo);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -513,8 +499,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a(i, i2, j);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -524,8 +510,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.b(i, list);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -535,8 +521,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a(i, i2, i3, j);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -546,8 +532,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a(i, i2, i3, i4);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -558,8 +544,8 @@ public class f implements ServiceConnection, t {
                 return this.a.a(i, i2);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -571,8 +557,8 @@ public class f implements ServiceConnection, t {
                 return this.a.a(downloadInfo);
             }
             return false;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -584,8 +570,8 @@ public class f implements ServiceConnection, t {
                 return this.a.a(i, j, str, str2);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -597,8 +583,8 @@ public class f implements ServiceConnection, t {
                 return this.a.a(i, j);
             }
             return null;
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -609,8 +595,8 @@ public class f implements ServiceConnection, t {
             if (this.a != null) {
                 this.a.a(i, list);
             }
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -3,9 +3,6 @@ package com.baidu.tieba.ad.browser.newstyle;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.JsPromptResult;
-import c.a.d.f.p.t;
-import c.a.p0.a4.o0.b;
-import c.a.p0.a4.o0.d.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -20,10 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kl8;
+import com.repackage.ol8;
+import com.repackage.ui;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class CommonTbJsBridge implements b {
+/* loaded from: classes3.dex */
+public class CommonTbJsBridge implements kl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements b {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.a4.o0.b
+    @Override // com.repackage.kl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -74,8 +74,8 @@ public class CommonTbJsBridge implements b {
                         new JSONObject(str3);
                         jsPromptResult.confirm(startLoginModule());
                         return true;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return false;
                     }
                 } else if ("getSupplementInfo".equals(str2)) {
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public c getSupplementInfo() {
+    public ol8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c cVar = new c();
+            ol8 ol8Var = new ol8();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements b {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c2 = t.c(sb.toString());
+            String c = ui.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -127,15 +127,15 @@ public class CommonTbJsBridge implements b {
                 jSONObject.put("client_type", "Android");
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
-                jSONObject.put("sign", c2);
-                cVar.o(jSONObject.toString());
-                return cVar;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                cVar.o("");
-                return cVar;
+                jSONObject.put("sign", c);
+                ol8Var.o(jSONObject.toString());
+                return ol8Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                ol8Var.o("");
+                return ol8Var;
             }
         }
-        return (c) invokeV.objValue;
+        return (ol8) invokeV.objValue;
     }
 }

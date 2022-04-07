@@ -1,7 +1,6 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import c.a.e0.c.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s81;
+import com.repackage.u71;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpSigner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,19 +48,19 @@ public class HttpSigner {
         }
     }
 
-    public static String a(b bVar, String str, int i) {
+    public static String a(u71 u71Var, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, str, i)) == null) {
-            if (bVar == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, u71Var, str, i)) == null) {
+            if (u71Var == null) {
                 return "";
             }
-            Map<String, String> b2 = bVar.b();
-            ArrayList<String> arrayList = new ArrayList(b2.keySet());
+            Map<String, String> b = u71Var.b();
+            ArrayList<String> arrayList = new ArrayList(b.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             for (String str2 : arrayList) {
-                String str3 = b2.get(str2);
+                String str3 = b.get(str2);
                 if (!TextUtils.isEmpty(str3)) {
                     sb.append(str2);
                     sb.append("=");
@@ -70,28 +71,28 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i));
-            return c.a.e0.d.i.b.c(sb.toString());
+            return s81.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void b(b bVar) {
+    public static void b(u71 u71Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, u71Var) == null) || u71Var == null) {
             return;
         }
-        Map<String, String> b2 = bVar.b();
-        if (b2.containsKey("timestamp")) {
-            b2.remove("timestamp");
+        Map<String, String> b = u71Var.b();
+        if (b.containsKey("timestamp")) {
+            b.remove("timestamp");
         }
-        if (b2.containsKey("sign")) {
-            b2.remove("sign");
+        if (b.containsKey("sign")) {
+            b.remove("sign");
         }
-        ArrayList<String> arrayList = new ArrayList(b2.keySet());
+        ArrayList<String> arrayList = new ArrayList(b.keySet());
         Collections.sort(arrayList);
         StringBuilder sb = new StringBuilder();
         for (String str : arrayList) {
-            String str2 = b2.get(str);
+            String str2 = b.get(str);
             if (!TextUtils.isEmpty(str2)) {
                 sb.append(str);
                 sb.append("=");
@@ -99,11 +100,11 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        bVar.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        u71Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append(bVar.a("timestamp"));
-        bVar.d("sign", c.a.e0.d.i.b.c(sb.toString()));
+        sb.append(u71Var.a("timestamp"));
+        u71Var.d("sign", s81.c(sb.toString()));
     }
 
     public static native String nativeGetAppId(int i);

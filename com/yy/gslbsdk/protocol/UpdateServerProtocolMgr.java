@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UpdateServerProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpdateServerProtocolMgr";
@@ -85,8 +85,8 @@ public class UpdateServerProtocolMgr {
                     linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                 }
                 return translateErrCode;
-            } catch (Exception e2) {
-                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e2.getMessage());
+            } catch (Exception e) {
+                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
                 return 3;
             }
         }
@@ -117,8 +117,8 @@ public class UpdateServerProtocolMgr {
                     linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                 }
                 return translateErrCode;
-            } catch (Exception e2) {
-                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e2.getMessage());
+            } catch (Exception e) {
+                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
                 return 3;
             }
         }

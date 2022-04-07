@@ -22,36 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f32291b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f32292c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32293d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f32294e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f32295f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Rect f32296g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f32297h;
+    public View b;
+    public LinearLayout c;
+    public TextView d;
+    public ImageView e;
+    public int f;
+    public Rect g;
+    public int h;
     public CustomMessageListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +76,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,9 +101,9 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         }
 
         @Override // android.view.View.OnLayoutChangeListener
-        public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) && this.a.g(view)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) && this.a.g(view2)) {
                 this.a.e(Integer.MAX_VALUE);
             }
         }
@@ -140,13 +126,13 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsNoListItemViewHolder(View view, ViewGroup viewGroup) {
-        super(view);
+    public FrsNoListItemViewHolder(View view2, ViewGroup viewGroup) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, viewGroup};
+            Object[] objArr = {view2, viewGroup};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,14 +143,14 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f32296g = new Rect();
+        this.g = new Rect();
         this.i = new a(this, 2921397);
-        this.f32291b = view;
+        this.b = view2;
         this.a = viewGroup;
-        this.f32292c = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f0906c9);
-        this.f32294e = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f0908b5);
-        this.f32293d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091586);
-        SkinManager.setImageResource(this.f32294e, R.drawable.new_pic_emotion_06);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908bd);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091581);
+        SkinManager.setImageResource(this.e, R.drawable.new_pic_emotion_06);
         this.i.setTag(j);
         MessageManager.getInstance().registerListener(this.i);
         f();
@@ -172,31 +158,31 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
 
     public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.f32291b == null || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.b == null || this.a == null) {
             return;
         }
-        if (this.f32295f <= 0) {
-            this.f32295f = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.f <= 0) {
+            this.f = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (i == Integer.MAX_VALUE && this.f32297h == Integer.MAX_VALUE) {
+        if (i == Integer.MAX_VALUE && this.h == Integer.MAX_VALUE) {
             return;
         }
-        this.f32297h = i;
-        if (this.a.getLocalVisibleRect(this.f32296g)) {
-            int i2 = this.f32296g.bottom;
-            int abs = Math.abs(this.f32292c.getTop());
-            int abs2 = i2 - Math.abs(this.f32292c.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.f32292c.getLayoutParams();
+        this.h = i;
+        if (this.a.getLocalVisibleRect(this.g)) {
+            int i2 = this.g.bottom;
+            int abs = Math.abs(this.c.getTop());
+            int abs2 = i2 - Math.abs(this.c.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                int i3 = this.f32295f;
+                int i3 = this.f;
                 if (abs < i3) {
                     marginLayoutParams.topMargin = i3;
-                    this.f32292c.setLayoutParams(marginLayoutParams);
+                    this.c.setLayoutParams(marginLayoutParams);
                 } else if (abs == i3) {
                     if (abs2 > i3) {
                         marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
-                        this.f32292c.setLayoutParams(marginLayoutParams);
+                        this.c.setLayoutParams(marginLayoutParams);
                     }
                 } else if (abs > i3) {
                     if (abs2 < i3) {
@@ -206,29 +192,29 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                     } else if (abs2 > i3) {
                         marginLayoutParams.topMargin = (abs + abs2) / 2;
                     }
-                    this.f32292c.setLayoutParams(marginLayoutParams);
+                    this.c.setLayoutParams(marginLayoutParams);
                 }
             }
         }
     }
 
     public final void f() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f32291b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view2 = this.b) == null) {
             return;
         }
-        view.addOnLayoutChangeListener(new b(this));
+        view2.addOnLayoutChangeListener(new b(this));
     }
 
-    public final boolean g(View view) {
+    public final boolean g(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            return view.getGlobalVisibleRect(this.f32296g);
+            return view2.getGlobalVisibleRect(this.g);
         }
         return invokeL.booleanValue;
     }

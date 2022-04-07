@@ -26,13 +26,11 @@ import com.baidu.util.LogUtil;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f25261b;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +47,7 @@ public final class j {
             }
         }
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f25261b = "";
+        b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -61,8 +59,8 @@ public final class j {
                 obj2 = obj.getClass().getMethod(str, clsArr).invoke(obj, objArr);
                 LogUtil.logD("Utility", "Method \"" + str + "\" invoked success!");
                 return obj2;
-            } catch (Exception e2) {
-                LogUtil.logD("Utility", "Method \"" + str + "\" invoked failed: " + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.logD("Utility", "Method \"" + str + "\" invoked failed: " + e.getMessage());
                 return obj2;
             }
         }
@@ -75,8 +73,8 @@ public final class j {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             try {
                 return g.a(new File(b(context, str).applicationInfo.publicSourceDir));
-            } catch (Exception e2) {
-                LogUtil.logE("Utility", "error" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.logE("Utility", "error" + e.getMessage());
                 return "";
             }
         }
@@ -105,8 +103,8 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(268435457);
-                    String str = f25261b;
-                    if (TextUtils.isEmpty(f25261b)) {
+                    String str = b;
+                    if (TextUtils.isEmpty(b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -117,10 +115,10 @@ public final class j {
                 LogUtil.logD("Utility", "启动系统安装界面");
                 context.startActivity(intent);
                 a2.a(a3.c(), "0", a3.b(), "a9", "0", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", "");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 LogUtil.logE("Utility", "启动系统安装界面失败");
-                a2.a(a3.c(), "0", a3.b(), "a9", "1", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", e2.toString());
+                a2.a(a3.c(), "0", a3.b(), "a9", "1", (System.currentTimeMillis() / 1000) + "", "", "startSystemInstallUI", e.toString());
             }
         }
     }
@@ -128,7 +126,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f25261b = str;
+            b = str;
         }
     }
 
@@ -189,11 +187,11 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             Context applicationContext = context.getApplicationContext();
-            ActivityManager.RunningTaskInfo e2 = e(applicationContext);
-            if (e2 == null) {
+            ActivityManager.RunningTaskInfo e = e(applicationContext);
+            if (e == null) {
                 return false;
             }
-            return TextUtils.equals(applicationContext.getPackageName(), e2.baseActivity.getPackageName());
+            return TextUtils.equals(applicationContext.getPackageName(), e.baseActivity.getPackageName());
         }
         return invokeL.booleanValue;
     }
@@ -255,8 +253,8 @@ public final class j {
                         context.getApplicationContext().deleteFile(str);
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

@@ -3,19 +3,15 @@ package com.kwad.sdk.core.webview.jshandler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
+    public b b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f40017b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f40018b;
+        public int b;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -25,12 +21,12 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             com.kwad.sdk.utils.t.a(jSONObject, "width", this.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "height", this.f40018b);
+            com.kwad.sdk.utils.t.a(jSONObject, "height", this.b);
             return jSONObject;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(a aVar);
     }
@@ -46,18 +42,18 @@ public class d implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public void a(b bVar) {
-        this.f40017b = bVar;
+        this.b = bVar;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         a aVar = new a();
-        b bVar = this.f40017b;
+        b bVar = this.b;
         if (bVar != null) {
             bVar.a(aVar);
         } else {
-            aVar.a = this.a.f39983d.getWidth();
-            aVar.f40018b = this.a.f39983d.getHeight();
+            aVar.a = this.a.d.getWidth();
+            aVar.b = this.a.d.getHeight();
         }
         cVar.a(aVar);
     }

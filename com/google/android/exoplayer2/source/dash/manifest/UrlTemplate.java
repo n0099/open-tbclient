@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class UrlTemplate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BANDWIDTH = "Bandwidth";
@@ -68,7 +68,7 @@ public final class UrlTemplate {
             int i2 = 0;
             while (i < str.length()) {
                 int indexOf = str.indexOf("$", i);
-                char c2 = 65535;
+                char c = 65535;
                 if (indexOf == -1) {
                     strArr[i2] = strArr[i2] + str.substring(i);
                     i = str.length();
@@ -99,19 +99,19 @@ public final class UrlTemplate {
                         if (hashCode != -1950496919) {
                             if (hashCode != 2606829) {
                                 if (hashCode == 38199441 && substring.equals(BANDWIDTH)) {
-                                    c2 = 1;
+                                    c = 1;
                                 }
                             } else if (substring.equals(TIME)) {
-                                c2 = 2;
+                                c = 2;
                             }
                         } else if (substring.equals(NUMBER)) {
-                            c2 = 0;
+                            c = 0;
                         }
-                        if (c2 == 0) {
+                        if (c == 0) {
                             iArr[i2] = 2;
-                        } else if (c2 == 1) {
+                        } else if (c == 1) {
                             iArr[i2] = 3;
-                        } else if (c2 == 2) {
+                        } else if (c == 2) {
                             iArr[i2] = 4;
                         } else {
                             throw new IllegalArgumentException("Invalid template: " + str);

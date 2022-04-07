@@ -210,9 +210,9 @@ public abstract class FragmentManager {
             }
         }
 
-        public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull View view, @Nullable Bundle bundle) {
+        public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull View view2, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048588, this, fragmentManager, fragment, view, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(1048588, this, fragmentManager, fragment, view2, bundle) == null) {
             }
         }
 
@@ -596,9 +596,9 @@ public abstract class FragmentManager {
                             fragment.setHideReplaced(false);
                         } else {
                             ViewGroup viewGroup = fragment.mContainer;
-                            View view = fragment.mView;
-                            viewGroup.startViewTransition(view);
-                            loadAnimation.animator.addListener(new AnimatorListenerAdapter(this, viewGroup, view, fragment) { // from class: androidx.fragment.app.FragmentManager.5
+                            View view2 = fragment.mView;
+                            viewGroup.startViewTransition(view2);
+                            loadAnimation.animator.addListener(new AnimatorListenerAdapter(this, viewGroup, view2, fragment) { // from class: androidx.fragment.app.FragmentManager.5
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ FragmentManager this$0;
@@ -611,7 +611,7 @@ public abstract class FragmentManager {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, viewGroup, view, fragment};
+                                        Object[] objArr = {this, viewGroup, view2, fragment};
                                         interceptable2.invokeUnInit(65536, newInitContext);
                                         int i = newInitContext.flag;
                                         if ((i & 1) != 0) {
@@ -623,7 +623,7 @@ public abstract class FragmentManager {
                                     }
                                     this.this$0 = this;
                                     this.val$container = viewGroup;
-                                    this.val$animatingView = view;
+                                    this.val$animatingView = view2;
                                     this.val$fragment = fragment;
                                 }
 
@@ -634,11 +634,11 @@ public abstract class FragmentManager {
                                         this.val$container.endViewTransition(this.val$animatingView);
                                         animator2.removeListener(this);
                                         Fragment fragment2 = this.val$fragment;
-                                        View view2 = fragment2.mView;
-                                        if (view2 == null || !fragment2.mHidden) {
+                                        View view3 = fragment2.mView;
+                                        if (view3 == null || !fragment2.mHidden) {
                                             return;
                                         }
-                                        view2.setVisibility(8);
+                                        view3.setVisibility(8);
                                     }
                                 }
                             });
@@ -865,29 +865,29 @@ public abstract class FragmentManager {
     }
 
     @NonNull
-    public static <F extends Fragment> F findFragment(@NonNull View view) {
+    public static <F extends Fragment> F findFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view)) == null) {
-            F f2 = (F) findViewFragment(view);
-            if (f2 != null) {
-                return f2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view2)) == null) {
+            F f = (F) findViewFragment(view2);
+            if (f != null) {
+                return f;
             }
-            throw new IllegalStateException("View " + view + " does not have a Fragment set");
+            throw new IllegalStateException("View " + view2 + " does not have a Fragment set");
         }
         return (F) invokeL.objValue;
     }
 
     @NonNull
-    public static FragmentManager findFragmentManager(@NonNull View view) {
+    public static FragmentManager findFragmentManager(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, view)) == null) {
-            Fragment findViewFragment = findViewFragment(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, view2)) == null) {
+            Fragment findViewFragment = findViewFragment(view2);
             if (findViewFragment != null) {
                 return findViewFragment.getChildFragmentManager();
             }
-            Context context = view.getContext();
+            Context context = view2.getContext();
             FragmentActivity fragmentActivity = null;
             while (true) {
                 if (!(context instanceof ContextWrapper)) {
@@ -902,23 +902,23 @@ public abstract class FragmentManager {
             if (fragmentActivity != null) {
                 return fragmentActivity.getSupportFragmentManager();
             }
-            throw new IllegalStateException("View " + view + " is not within a subclass of FragmentActivity.");
+            throw new IllegalStateException("View " + view2 + " is not within a subclass of FragmentActivity.");
         }
         return (FragmentManager) invokeL.objValue;
     }
 
     @Nullable
-    public static Fragment findViewFragment(@NonNull View view) {
+    public static Fragment findViewFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, view)) == null) {
-            while (view != null) {
-                Fragment viewFragment = getViewFragment(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, view2)) == null) {
+            while (view2 != null) {
+                Fragment viewFragment = getViewFragment(view2);
                 if (viewFragment != null) {
                     return viewFragment;
                 }
-                ViewParent parent = view.getParent();
-                view = parent instanceof View ? (View) parent : null;
+                ViewParent parent = view2.getParent();
+                view2 = parent instanceof View ? (View) parent : null;
             }
             return null;
         }
@@ -979,11 +979,11 @@ public abstract class FragmentManager {
     }
 
     @Nullable
-    public static Fragment getViewFragment(@NonNull View view) {
+    public static Fragment getViewFragment(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view)) == null) {
-            Object tag = view.getTag(R$id.fragment_container_view_tag);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view2)) == null) {
+            Object tag = view2.getTag(R$id.fragment_container_view_tag);
             if (tag instanceof Fragment) {
                 return (Fragment) tag;
             }
@@ -1159,14 +1159,14 @@ public abstract class FragmentManager {
             if (fragmentHostCallback != null) {
                 try {
                     fragmentHostCallback.onDump(GlideException.IndentedAppendable.INDENT, null, printWriter, new String[0]);
-                } catch (Exception e2) {
-                    Log.e("FragmentManager", "Failed dumping state", e2);
+                } catch (Exception e) {
+                    Log.e("FragmentManager", "Failed dumping state", e);
                 }
             } else {
                 try {
                     dump(GlideException.IndentedAppendable.INDENT, null, printWriter, new String[0]);
-                } catch (Exception e3) {
-                    Log.e("FragmentManager", "Failed dumping state", e3);
+                } catch (Exception e2) {
+                    Log.e("FragmentManager", "Failed dumping state", e2);
                 }
             }
             throw runtimeException;
@@ -1361,9 +1361,9 @@ public abstract class FragmentManager {
             }
             for (Fragment fragment : this.mFragmentStore.getActiveFragments()) {
                 if (fragment != null && fragment.mView != null && fragment.mIsNewlyAdded && backStackRecord.interactsWith(fragment.mContainerId)) {
-                    float f2 = fragment.mPostponedAlpha;
-                    if (f2 > 0.0f) {
-                        fragment.mView.setAlpha(f2);
+                    float f = fragment.mPostponedAlpha;
+                    if (f > 0.0f) {
+                        fragment.mView.setAlpha(f);
                     }
                     if (z3) {
                         fragment.mPostponedAlpha = 0.0f;
@@ -2027,9 +2027,9 @@ public abstract class FragmentManager {
             if (fragment.mView != null) {
                 Fragment findFragmentUnder = this.mFragmentStore.findFragmentUnder(fragment);
                 if (findFragmentUnder != null) {
-                    View view = findFragmentUnder.mView;
+                    View view2 = findFragmentUnder.mView;
                     ViewGroup viewGroup = fragment.mContainer;
-                    int indexOfChild = viewGroup.indexOfChild(view);
+                    int indexOfChild = viewGroup.indexOfChild(view2);
                     int indexOfChild2 = viewGroup.indexOfChild(fragment.mView);
                     if (indexOfChild2 < indexOfChild) {
                         viewGroup.removeViewAt(indexOfChild2);
@@ -2037,9 +2037,9 @@ public abstract class FragmentManager {
                     }
                 }
                 if (fragment.mIsNewlyAdded && fragment.mContainer != null) {
-                    float f2 = fragment.mPostponedAlpha;
-                    if (f2 > 0.0f) {
-                        fragment.mView.setAlpha(f2);
+                    float f = fragment.mPostponedAlpha;
+                    if (f > 0.0f) {
+                        fragment.mView.setAlpha(f);
                     }
                     fragment.mPostponedAlpha = 0.0f;
                     fragment.mIsNewlyAdded = false;
@@ -2180,9 +2180,9 @@ public abstract class FragmentManager {
                             if (fragment.mView != null && this.mHost.onShouldSaveFragmentState(fragment) && fragment.mSavedViewState == null) {
                                 fragmentStateManager.saveViewState();
                             }
-                            View view = fragment.mView;
-                            if (view != null && (viewGroup = fragment.mContainer) != null) {
-                                viewGroup.endViewTransition(view);
+                            View view2 = fragment.mView;
+                            if (view2 != null && (viewGroup = fragment.mContainer) != null) {
+                                viewGroup.endViewTransition(view2);
                                 fragment.mView.clearAnimation();
                                 if (!fragment.isRemovingParent()) {
                                     if (this.mCurState > -1 && !this.mDestroyed && fragment.mView.getVisibility() == 0 && fragment.mPostponedAlpha >= 0.0f) {
@@ -2190,12 +2190,12 @@ public abstract class FragmentManager {
                                     }
                                     fragment.mPostponedAlpha = 0.0f;
                                     ViewGroup viewGroup2 = fragment.mContainer;
-                                    View view2 = fragment.mView;
+                                    View view3 = fragment.mView;
                                     if (animationOrAnimator != null) {
                                         fragment.setStateAfterAnimating(min);
                                         FragmentAnim.animateRemoveFragment(fragment, animationOrAnimator, this.mFragmentTransitionCallback);
                                     }
-                                    viewGroup2.removeView(view2);
+                                    viewGroup2.removeView(view3);
                                     if (viewGroup2 != fragment.mContainer) {
                                         return;
                                     }

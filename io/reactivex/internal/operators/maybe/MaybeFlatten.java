@@ -26,9 +26,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public static final long serialVersionUID = 4375739915521278546L;
         public transient /* synthetic */ FieldHolder $fh;
         public final MaybeObserver<? super R> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45310d;
+        public Disposable d;
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
         /* loaded from: classes8.dex */
@@ -112,7 +110,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
-                this.f45310d.dispose();
+                this.d.dispose();
             }
         }
 
@@ -142,8 +140,8 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45310d, disposable)) {
-                this.f45310d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -158,9 +156,9 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
                         return;
                     }
                     maybeSource.subscribe(new InnerObserver(this));
-                } catch (Exception e2) {
-                    Exceptions.throwIfFatal(e2);
-                    this.actual.onError(e2);
+                } catch (Exception e) {
+                    Exceptions.throwIfFatal(e);
+                    this.actual.onError(e);
                 }
             }
         }

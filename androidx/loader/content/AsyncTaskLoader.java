@@ -60,11 +60,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // androidx.loader.content.ModernAsyncTask
-        public void onCancelled(D d2) {
+        public void onCancelled(D d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d) == null) {
                 try {
-                    this.this$0.dispatchOnCancelled(this, d2);
+                    this.this$0.dispatchOnCancelled(this, d);
                 } finally {
                     this.mDone.countDown();
                 }
@@ -72,11 +72,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // androidx.loader.content.ModernAsyncTask
-        public void onPostExecute(D d2) {
+        public void onPostExecute(D d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, d2) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, d) == null) {
                 try {
-                    this.this$0.dispatchOnLoadComplete(this, d2);
+                    this.this$0.dispatchOnLoadComplete(this, d);
                 } finally {
                     this.mDone.countDown();
                 }
@@ -110,11 +110,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
                 try {
                     return (D) this.this$0.onLoadInBackground();
-                } catch (OperationCanceledException e2) {
+                } catch (OperationCanceledException e) {
                     if (isCancelled()) {
                         return null;
                     }
-                    throw e2;
+                    throw e;
                 }
             }
             return (D) invokeL.objValue;
@@ -148,10 +148,10 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    public void dispatchOnCancelled(AsyncTaskLoader<D>.LoadTask loadTask, D d2) {
+    public void dispatchOnCancelled(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadTask, d2) == null) {
-            onCanceled(d2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadTask, d) == null) {
+            onCanceled(d);
             if (this.mCancellingTask == loadTask) {
                 rollbackContentChanged();
                 this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
@@ -162,18 +162,18 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    public void dispatchOnLoadComplete(AsyncTaskLoader<D>.LoadTask loadTask, D d2) {
+    public void dispatchOnLoadComplete(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadTask, d2) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadTask, d) == null) {
             if (this.mTask != loadTask) {
-                dispatchOnCancelled(loadTask, d2);
+                dispatchOnCancelled(loadTask, d);
             } else if (isAbandoned()) {
-                onCanceled(d2);
+                onCanceled(d);
             } else {
                 commitContentChanged();
                 this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
                 this.mTask = null;
-                deliverResult(d2);
+                deliverResult(d);
             }
         }
     }
@@ -270,9 +270,9 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return invokeV.booleanValue;
     }
 
-    public void onCanceled(@Nullable D d2) {
+    public void onCanceled(@Nullable D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d2) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d) == null) {
         }
     }
 

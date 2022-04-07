@@ -24,13 +24,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static f f43710b;
+    public static f b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,10 +74,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f43710b == null) {
-                    f43710b = new f(com.tencent.open.utils.f.a());
+                if (b == null) {
+                    b = new f(com.tencent.open.utils.f.a());
                 }
-                fVar = f43710b;
+                fVar = b;
             }
             return fVar;
         }
@@ -116,8 +114,8 @@ public class f extends SQLiteOpenHelper {
             }
             try {
                 writableDatabase.delete("via_cgi_report", "type = ?", new String[]{str});
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.ReportDatabaseHelper", "clearReportItem has exception.", e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.ReportDatabaseHelper", "clearReportItem has exception.", e);
             }
         }
     }
@@ -240,8 +238,8 @@ public class f extends SQLiteOpenHelper {
                                     }
                                 } while (!query.moveToNext());
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = query;
                             SLog.e("openSDK_LOG.ReportDatabaseHelper", "getReportItemFromDB has exception.", e);
                             if (cursor != null) {
@@ -262,8 +260,8 @@ public class f extends SQLiteOpenHelper {
                     if (query != null) {
                         query.close();
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             } catch (Throwable th4) {
                 th = th4;

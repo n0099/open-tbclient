@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,26 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public class ShareCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditText f33648b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f33649c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f33650d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f33651e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ShareFromTopicMsgData f33652f;
+    public EditText b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public ShareFromTopicMsgData f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareCardView(Context context, AttributeSet attributeSet) {
@@ -73,18 +63,18 @@ public class ShareCardView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0838, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb8);
-            this.f33651e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
-            this.f33648b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905fc);
-            this.f33649c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
-            this.f33650d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f5);
-            SkinManager.setViewTextColor(this.f33651e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f33648b, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f33650d, R.color.CAM_X0106, 1);
-            this.f33648b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f33648b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cce);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090605);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ff);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fe);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
+            this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
             a();
         }
     }
@@ -92,27 +82,27 @@ public class ShareCardView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f33651e.setText(this.f33652f.getTitle());
-            BdLog.e("mData.getImageUrl()的图片URL" + this.f33652f.getImageUrl());
-            this.f33649c.setTag(this.f33652f.getImageUrl());
-            BdLog.e("mData.getContent()的Content" + this.f33652f.getContent());
-            this.f33650d.setText(this.f33652f.getContent());
+            this.e.setText(this.f.getTitle());
+            BdLog.e("mData.getImageUrl()的图片URL" + this.f.getImageUrl());
+            this.c.setTag(this.f.getImageUrl());
+            BdLog.e("mData.getContent()的Content" + this.f.getContent());
+            this.d.setText(this.f.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33648b : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EditText editText = this.f33648b;
+            EditText editText = this.b;
             if (editText != null) {
-                return m.charSequence2String(editText.getText(), null);
+                return ni.charSequence2String(editText.getText(), null);
             }
             return null;
         }
@@ -122,7 +112,7 @@ public class ShareCardView extends LinearLayout {
     public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, shareFromTopicMsgData) == null) {
-            this.f33652f = shareFromTopicMsgData;
+            this.f = shareFromTopicMsgData;
             c();
         }
     }

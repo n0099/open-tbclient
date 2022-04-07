@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MediaData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXT_TYPE_XIAOYING = 12;
@@ -211,8 +211,8 @@ public class MediaData extends OrmObject implements Serializable {
                     this.original_url = this.pic_url;
                 }
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.toString());
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 

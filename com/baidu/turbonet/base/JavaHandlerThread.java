@@ -12,23 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JavaHandlerThread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HandlerThread a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f37640b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f37641c;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ JavaHandlerThread c;
 
         public a(JavaHandlerThread javaHandlerThread, long j, long j2) {
             Interceptable interceptable = $ic;
@@ -45,34 +41,28 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f37641c = javaHandlerThread;
+            this.c = javaHandlerThread;
             this.a = j;
-            this.f37640b = j2;
+            this.b = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37641c.nativeInitializeThread(this.a, this.f37640b);
+                this.c.nativeInitializeThread(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f37642b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f37643c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f37644d;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ JavaHandlerThread d;
 
         public b(JavaHandlerThread javaHandlerThread, long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
@@ -89,21 +79,21 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f37644d = javaHandlerThread;
+            this.d = javaHandlerThread;
             this.a = j;
-            this.f37642b = j2;
-            this.f37643c = z;
+            this.b = j2;
+            this.c = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37644d.nativeStopThread(this.a, this.f37642b);
-                if (this.f37643c) {
+                this.d.nativeStopThread(this.a, this.b);
+                if (this.c) {
                     return;
                 }
-                this.f37644d.a.quit();
+                this.d.a.quit();
             }
         }
     }

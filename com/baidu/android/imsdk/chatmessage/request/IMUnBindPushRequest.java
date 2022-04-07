@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,9 +125,9 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
                 if (i2 == 0) {
                     BindStateManager.clearUnBindInfo(this.mContext);
                 }
-            } catch (JSONException e2) {
-                LogUtils.e("IMUnBindPushRequest", e2.getMessage(), e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e("IMUnBindPushRequest", e.getMessage(), e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
             }

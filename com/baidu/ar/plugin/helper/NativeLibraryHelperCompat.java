@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NativeLibraryHelperCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,17 +83,17 @@ public class NativeLibraryHelperCompat {
                     return -1;
                 }
                 return ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "copyNativeBinaries", invokeStaticMethod, file2, str)).intValue();
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return -1;
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return -1;
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchMethodException e3) {
                 e3.printStackTrace();
                 return -1;
-            } catch (NoSuchMethodException e4) {
+            } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
-                return -1;
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
                 return -1;
             }
         }
@@ -106,17 +106,17 @@ public class NativeLibraryHelperCompat {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, file2)) == null) {
             try {
                 return ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "copyNativeBinariesIfNeededLI", file, file2)).intValue();
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return -1;
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return -1;
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchMethodException e3) {
                 e3.printStackTrace();
                 return -1;
-            } catch (NoSuchMethodException e4) {
+            } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
-                return -1;
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
                 return -1;
             }
         }

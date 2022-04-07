@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetRequestParam implements IHeaderMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte DATA_TYPE_JSON = 1;
@@ -46,13 +46,13 @@ public class NetRequestParam implements IHeaderMap {
     public String mUrl;
 
     /* renamed from: com.baidu.searchbox.v8engine.net.NetRequestParam$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,11 +90,11 @@ public class NetRequestParam implements IHeaderMap {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setDataType(byte b2) {
+        public Builder setDataType(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2)) == null) {
-                this.mNetRequestParam.mDataType = b2;
+            if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+                this.mNetRequestParam.mDataType = b;
                 return this;
             }
             return (Builder) invokeB.objValue;
@@ -112,11 +112,11 @@ public class NetRequestParam implements IHeaderMap {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMethod(byte b2) {
+        public Builder setMethod(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(1048580, this, b2)) == null) {
-                this.mNetRequestParam.mMethod = b2;
+            if (interceptable == null || (invokeB = interceptable.invokeB(1048580, this, b)) == null) {
+                this.mNetRequestParam.mMethod = b;
                 return this;
             }
             return (Builder) invokeB.objValue;
@@ -132,11 +132,11 @@ public class NetRequestParam implements IHeaderMap {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setResponseType(byte b2) {
+        public Builder setResponseType(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(1048582, this, b2)) == null) {
-                this.mNetRequestParam.mResponseType = b2;
+            if (interceptable == null || (invokeB = interceptable.invokeB(1048582, this, b)) == null) {
+                this.mNetRequestParam.mResponseType = b;
                 return this;
             }
             return (Builder) invokeB.objValue;
@@ -153,7 +153,7 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class HeaderMap implements IHeaderMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,11 +320,11 @@ public class NetRequestParam implements IHeaderMap {
 
     private native void nativeSetData(long j, String str);
 
-    private native void nativeSetDataType(long j, byte b2);
+    private native void nativeSetDataType(long j, byte b);
 
-    private native void nativeSetMethod(long j, byte b2);
+    private native void nativeSetMethod(long j, byte b);
 
-    private native void nativeSetResponseType(long j, byte b2);
+    private native void nativeSetResponseType(long j, byte b);
 
     private native void nativeSetUrl(long j, String str);
 
@@ -467,15 +467,15 @@ public class NetRequestParam implements IHeaderMap {
         return (NetRequestParam) invokeL.objValue;
     }
 
-    public NetRequestParam setDataType(byte b2) {
+    public NetRequestParam setDataType(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(1048589, this, b2)) == null) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(1048589, this, b)) == null) {
             this.mDirty = true;
-            this.mDataType = b2;
+            this.mDataType = b;
             long j = this.mNativePtr;
             if (j != 0) {
-                nativeSetDataType(j, b2);
+                nativeSetDataType(j, b);
             }
             return this;
         }
@@ -489,15 +489,15 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    public NetRequestParam setMethod(byte b2) {
+    public NetRequestParam setMethod(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(1048591, this, b2)) == null) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(1048591, this, b)) == null) {
             this.mDirty = true;
-            this.mMethod = b2;
+            this.mMethod = b;
             long j = this.mNativePtr;
             if (j != 0) {
-                nativeSetMethod(j, b2);
+                nativeSetMethod(j, b);
             }
             return this;
         }
@@ -511,15 +511,15 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    public NetRequestParam setResponseType(byte b2) {
+    public NetRequestParam setResponseType(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(1048593, this, b2)) == null) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(1048593, this, b)) == null) {
             this.mDirty = true;
-            this.mResponseType = b2;
+            this.mResponseType = b;
             long j = this.mNativePtr;
             if (j != 0) {
-                nativeSetResponseType(j, b2);
+                nativeSetResponseType(j, b);
             }
             return this;
         }

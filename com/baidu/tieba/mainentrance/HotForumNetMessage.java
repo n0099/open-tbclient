@@ -1,6 +1,5 @@
 package com.baidu.tieba.mainentrance;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HotForumNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class HotForumNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.lyo = Integer.valueOf(this.lyo);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             HotForumReqIdl.Builder builder2 = new HotForumReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -10,7 +10,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,8 +79,8 @@ public final class q {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             InsideNotificationItem insideNotificationItem = new InsideNotificationItem();
             try {
-            } catch (JSONException e2) {
-                p.a("MessageConvertUtil", "notify msg pack to obj error", e2);
+            } catch (JSONException e) {
+                p.a("MessageConvertUtil", "notify msg pack to obj error", e);
             }
             if (TextUtils.isEmpty(str)) {
                 p.a("MessageConvertUtil", "notify msg pack to obj is null");

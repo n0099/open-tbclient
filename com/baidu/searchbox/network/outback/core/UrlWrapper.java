@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
 import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UrlWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -374,8 +374,8 @@ public class UrlWrapper {
             }
             try {
                 return new URL(this.url);
-            } catch (MalformedURLException e2) {
-                throw new RuntimeException(e2);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
             }
         }
         return (URL) invokeV.objValue;

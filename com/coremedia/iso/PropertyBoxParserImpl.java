@@ -20,7 +20,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static String[] EMPTY_STRING_ARRAY;
@@ -87,17 +87,17 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                 }
                 try {
                     resourceAsStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e3) {
-                throw new RuntimeException(e3);
+            } catch (IOException e2) {
+                throw new RuntimeException(e2);
             }
         } catch (Throwable th2) {
             try {
                 resourceAsStream.close();
-            } catch (IOException e4) {
-                e4.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
             }
             throw th2;
         }
@@ -131,16 +131,16 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                     return (Box) cls.getConstructor(clsArr).newInstance(objArr);
                 }
                 return (Box) cls.newInstance();
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e2) {
                 throw new RuntimeException(e2);
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 throw new RuntimeException(e3);
-            } catch (InstantiationException e4) {
+            } catch (NoSuchMethodException e4) {
                 throw new RuntimeException(e4);
-            } catch (NoSuchMethodException e5) {
+            } catch (InvocationTargetException e5) {
                 throw new RuntimeException(e5);
-            } catch (InvocationTargetException e6) {
-                throw new RuntimeException(e6);
             }
         }
         return (Box) invokeLLL.objValue;

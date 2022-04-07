@@ -15,12 +15,8 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class c {
     public static int a = 8;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile c f43059b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f43060c;
+    public static volatile c b;
+    public a<Integer, Bitmap> c;
 
     /* loaded from: classes7.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
@@ -38,9 +34,9 @@ public class c {
     }
 
     public c() {
-        this.f43060c = null;
+        this.c = null;
         int i = a;
-        this.f43060c = new a<>(i, i / 2);
+        this.c = new a<>(i, i / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -58,18 +54,18 @@ public class c {
     }
 
     public static c a() {
-        if (f43059b == null) {
+        if (b == null) {
             synchronized (c.class) {
-                if (f43059b == null) {
-                    f43059b = new c();
+                if (b == null) {
+                    b = new c();
                 }
             }
         }
-        return f43059b;
+        return b;
     }
 
     public Bitmap a(int i) {
-        return this.f43060c.get(Integer.valueOf(i));
+        return this.c.get(Integer.valueOf(i));
     }
 
     public void a(final int i, final String str) {
@@ -95,7 +91,7 @@ public class c {
                 ByteArrayInputStream byteArrayInputStream2;
                 Throwable th;
                 InputStream inputStream;
-                Exception e2;
+                Exception e;
                 int i2 = 4;
                 i2 = 4;
                 i2 = 4;
@@ -113,19 +109,19 @@ public class c {
                             byteArrayOutputStream = c.b(inputStream);
                             try {
                                 byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                            } catch (Exception e3) {
+                            } catch (Exception e2) {
                                 byteArrayInputStream2 = null;
-                                e2 = e3;
+                                e = e2;
                                 byteArrayInputStream = null;
                             } catch (Throwable th2) {
                                 byteArrayInputStream2 = null;
                                 th = th2;
                                 byteArrayInputStream = null;
                             }
-                        } catch (Exception e4) {
+                        } catch (Exception e3) {
                             byteArrayInputStream = null;
                             byteArrayInputStream2 = null;
-                            e2 = e4;
+                            e = e3;
                             byteArrayOutputStream = null;
                         } catch (Throwable th3) {
                             byteArrayInputStream = null;
@@ -142,17 +138,17 @@ public class c {
                                 int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                 options.inSampleSize = c.a(a3, a3, options);
                                 options.inJustDecodeBounds = false;
-                                c.this.f43060c.put(Integer.valueOf(i), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                c.this.c.put(Integer.valueOf(i), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                 f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
-                            } catch (Exception e5) {
-                                e2 = e5;
-                                e2.printStackTrace();
+                            } catch (Exception e4) {
+                                e = e4;
+                                e.printStackTrace();
                                 i2 = new Closeable[]{inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2};
                                 f.a((Closeable[]) i2);
                             }
-                        } catch (Exception e6) {
+                        } catch (Exception e5) {
                             byteArrayInputStream2 = null;
-                            e2 = e6;
+                            e = e5;
                         } catch (Throwable th4) {
                             byteArrayInputStream2 = null;
                             th = th4;
@@ -167,11 +163,11 @@ public class c {
                     } catch (Throwable th5) {
                         th = th5;
                     }
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                     byteArrayOutputStream = null;
                     byteArrayInputStream = null;
                     byteArrayInputStream2 = null;
-                    e2 = e7;
+                    e = e6;
                     inputStream = null;
                 } catch (Throwable th6) {
                     byteArrayOutputStream = null;

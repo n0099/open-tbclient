@@ -2,14 +2,13 @@ package com.baidu.searchbox.datacollector.growth.model;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ActiveData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +16,7 @@ public class ActiveData {
     public JSONObject mExtend;
     public String mType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public class ActiveData {
                     return;
                 }
             }
-            this.type = GrowthConstant.UBC_VALUE_TYPE_DEFAULT;
+            this.type = "active";
             this.channel = str;
         }
 

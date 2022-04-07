@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,10 +77,10 @@ public final class p extends Handler {
                 } else {
                     Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                q.f38676g = r2;
+                q.g = r2;
                 Context context = q.a;
-                synchronized (q.f38673d) {
-                    q.f38673d.notify();
+                synchronized (q.d) {
+                    q.d.notify();
                 }
                 return;
             } else {
@@ -96,9 +96,9 @@ public final class p extends Handler {
         query = oVar.a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
-        q.f38676g = r2;
+        q.g = r2;
         Context context2 = q.a;
-        synchronized (q.f38673d) {
+        synchronized (q.d) {
         }
     }
 }

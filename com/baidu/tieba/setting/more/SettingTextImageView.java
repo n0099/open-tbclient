@@ -19,23 +19,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SettingTextImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f35903b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f35904c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HeadImageView f35905d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f35906e;
+    public LinearLayout b;
+    public TextView c;
+    public HeadImageView d;
+    public ImageView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -65,7 +57,7 @@ public class SettingTextImageView extends FrameLayout {
     public void a() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (headImageView = this.f35905d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (headImageView = this.d) == null) {
             return;
         }
         headImageView.setVisibility(0);
@@ -74,7 +66,7 @@ public class SettingTextImageView extends FrameLayout {
     public void b() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (headImageView = this.f35905d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (headImageView = this.d) == null) {
             return;
         }
         headImageView.setVisibility(8);
@@ -83,29 +75,29 @@ public class SettingTextImageView extends FrameLayout {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f040548});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040581, R.attr.obfuscated_res_0x7f040582, R.attr.obfuscated_res_0x7f040583, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f040586});
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
             if (string != null) {
-                this.f35904c.setText(string);
+                this.c.setText(string);
             }
             if (color > -1) {
-                this.f35904c.setTextColor(color);
+                this.c.setTextColor(color);
             }
-            this.f35903b.setClickable(false);
-            this.f35903b.setFocusable(false);
+            this.b.setClickable(false);
+            this.b.setFocusable(false);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d076e, (ViewGroup) this, true);
-            this.f35903b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
-            this.f35904c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
-            this.f35905d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
-            this.f35906e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a3);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0765, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e0e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ab);
         }
     }
 
@@ -119,9 +111,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            SkinManager.setViewTextColor(this.f35904c, R.color.CAM_X0105, 1);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35906e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            this.f35905d.invalidate();
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            this.d.invalidate();
         }
     }
 
@@ -129,9 +121,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             if (z) {
-                this.f35905d.J(str, 26, false);
+                this.d.K(str, 26, false);
             } else {
-                this.f35905d.J(str, 12, false);
+                this.d.K(str, 12, false);
             }
         }
     }
@@ -139,7 +131,7 @@ public class SettingTextImageView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f35904c.setText(str);
+            this.c.setText(str);
         }
     }
 

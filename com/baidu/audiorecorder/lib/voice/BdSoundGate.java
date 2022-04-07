@@ -1,6 +1,5 @@
 package com.baidu.audiorecorder.lib.voice;
 
-import c.a.h.a.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,17 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.hq;
+/* loaded from: classes.dex */
 public class BdSoundGate {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f24838c;
+    public static BdSoundGate c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f24839b;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,17 +53,17 @@ public class BdSoundGate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f24838c == null) {
-                f24838c = new BdSoundGate();
+            if (c == null) {
+                c = new BdSoundGate();
             }
-            return f24838c;
+            return c;
         }
         return (BdSoundGate) invokeV.objValue;
     }
 
     private native void close(int i);
 
-    private native int getChanger(int i, float f2, float f3, float f4);
+    private native int getChanger(int i, float f, float f2, float f3);
 
     private native int through(int i, short[] sArr, short[] sArr2);
 
@@ -76,21 +72,21 @@ public class BdSoundGate {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24839b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void c(int i, float f2, float f3, float f4) {
+    public void c(int i, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.f24839b = i;
-            this.a = getChanger(i, f2, f3, f4);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.b = i;
+            this.a = getChanger(i, f, f2, f3);
         }
     }
 
     public void d(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            b().c(i, 0.0f, d.a(i2), 0.0f);
+            b().c(i, 0.0f, hq.a(i2), 0.0f);
         }
     }
 

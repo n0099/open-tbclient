@@ -38,10 +38,10 @@ public class AllCapsTransformationMethod implements TransformationMethod {
     }
 
     @Override // android.text.method.TransformationMethod
-    public CharSequence getTransformation(CharSequence charSequence, View view) {
+    public CharSequence getTransformation(CharSequence charSequence, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, charSequence, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, charSequence, view2)) == null) {
             if (charSequence != null) {
                 return charSequence.toString().toUpperCase(this.mLocale);
             }
@@ -51,9 +51,9 @@ public class AllCapsTransformationMethod implements TransformationMethod {
     }
 
     @Override // android.text.method.TransformationMethod
-    public void onFocusChanged(View view, CharSequence charSequence, boolean z, int i, Rect rect) {
+    public void onFocusChanged(View view2, CharSequence charSequence, boolean z, int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, charSequence, Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, charSequence, Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
         }
     }
 }

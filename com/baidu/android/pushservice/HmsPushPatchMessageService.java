@@ -16,7 +16,7 @@ import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HmsPushPatchMessageService extends HmsMessageService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class HmsPushPatchMessageService extends HmsMessageService {
                 intent.putExtra("IS_HMS_PASS_MSG_KEY", true);
                 intent.putExtra("HMS_PASS_MSG_VALUE_KEY", data);
                 m.a(intent, context.getApplicationContext());
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -103,8 +103,8 @@ public class HmsPushPatchMessageService extends HmsMessageService {
                         return;
                     }
                     e.a((Context) this, str);
-                } catch (Exception e2) {
-                    new b.c(this).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(this).a(Log.getStackTraceString(e)).a();
                 }
             }
         }

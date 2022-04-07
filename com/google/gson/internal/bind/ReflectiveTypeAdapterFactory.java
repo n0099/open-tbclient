@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final FieldNamingStrategy fieldNamingPolicy;
     public final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,10 +89,10 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                     }
                     jsonReader.endObject();
                     return construct;
-                } catch (IllegalAccessException e2) {
-                    throw new AssertionError(e2);
-                } catch (IllegalStateException e3) {
-                    throw new JsonSyntaxException(e3);
+                } catch (IllegalAccessException e) {
+                    throw new AssertionError(e);
+                } catch (IllegalStateException e2) {
+                    throw new JsonSyntaxException(e2);
                 }
             }
             return (T) invokeL.objValue;
@@ -115,14 +115,14 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         }
                     }
                     jsonWriter.endObject();
-                } catch (IllegalAccessException e2) {
-                    throw new AssertionError(e2);
+                } catch (IllegalAccessException e) {
+                    throw new AssertionError(e);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class BoundField {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

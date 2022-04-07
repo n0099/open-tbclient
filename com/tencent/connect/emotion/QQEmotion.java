@@ -22,7 +22,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QQEmotion extends BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,8 +102,8 @@ public class QQEmotion extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f43645c.getAppId();
-                String openId = this.f43645c.getOpenId();
+                String appId = this.c.getAppId();
+                String openId = this.c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }

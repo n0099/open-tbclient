@@ -10,7 +10,6 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import c.a.e0.j.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
@@ -19,28 +18,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.u91;
+/* loaded from: classes2.dex */
 public class HostMarketView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public TextView b;
+    public SwitchButton c;
+    public PayChannelEntity d;
+    public c e;
+    public boolean f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f28299b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public SwitchButton f28300c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public PayChannelEntity f28301d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f28302e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f28303f;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +63,8 @@ public class HostMarketView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements c.a.e0.j.e.a {
+    /* loaded from: classes2.dex */
+    public class b implements u91 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -97,28 +87,28 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // c.a.e0.j.e.a
-        public void a(a.C0129a c0129a) {
+        @Override // com.repackage.u91
+        public void a(u91.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0129a) == null) {
-                this.a.f28302e.b(c0129a);
-                if (c0129a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.a.e.b(aVar);
+                if (aVar == null) {
                     return;
                 }
-                if (c0129a.a != 0) {
-                    this.a.f28300c.i();
-                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0854), 0).show();
+                if (aVar.a != 0) {
+                    this.a.c.i();
+                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0855), 0).show();
                 }
-                this.a.f28301d.setIsSelected(this.a.f28300c.isChecked() ? 1 : 0);
+                this.a.d.setIsSelected(this.a.c.isChecked() ? 1 : 0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, c.a.e0.j.e.a aVar);
+        void a(boolean z, PayChannelEntity payChannelEntity, u91 u91Var);
 
-        void b(a.C0129a c0129a);
+        void b(u91.a aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -145,11 +135,11 @@ public class HostMarketView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a6, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09202b);
-            this.f28299b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd9);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091e27);
-            this.f28300c = switchButton;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a3, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092012);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091e13);
+            this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }
     }
@@ -157,54 +147,54 @@ public class HostMarketView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f28301d == null) {
+            if (this.d == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.a.setText(this.f28301d.getDisplayName());
-            this.f28299b.setText(this.f28301d.getPayText());
-            if (!TextUtils.isEmpty(this.f28301d.getDisplayColor())) {
+            this.a.setText(this.d.getDisplayName());
+            this.b.setText(this.d.getPayText());
+            if (!TextUtils.isEmpty(this.d.getDisplayColor())) {
                 try {
-                    this.f28299b.setTextColor(Color.parseColor(this.f28301d.getDisplayColor()));
+                    this.b.setTextColor(Color.parseColor(this.d.getDisplayColor()));
                 } catch (Exception unused) {
                 }
             }
-            if (this.f28303f) {
-                this.f28300c.setVisibility(4);
+            if (this.f) {
+                this.c.setVisibility(4);
                 return;
             }
-            this.f28300c.setVisibility(0);
-            if (this.f28301d.getIsSelected() == 1) {
-                this.f28300c.setChecked(true);
+            this.c.setVisibility(0);
+            if (this.d.getIsSelected() == 1) {
+                this.c.setChecked(true);
             } else {
-                this.f28300c.setChecked(false);
+                this.c.setChecked(false);
             }
         }
     }
 
     public final void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f28302e == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.e == null) {
             return;
         }
-        this.f28301d.setIsSelected(this.f28300c.isChecked() ? 1 : 0);
-        this.f28302e.a(z, this.f28301d, new b(this));
+        this.d.setIsSelected(this.c.isChecked() ? 1 : 0);
+        this.e.a(z, this.d, new b(this));
     }
 
     public void setListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f28302e = cVar;
+            this.e = cVar;
         }
     }
 
     public void update(PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, payChannelEntity) == null) {
-            this.f28301d = payChannelEntity;
+            this.d = payChannelEntity;
             if (payChannelEntity != null) {
-                this.f28303f = payChannelEntity.getIsSelected() == 1;
+                this.f = payChannelEntity.getIsSelected() == 1;
             }
             f();
         }
@@ -250,7 +240,7 @@ public class HostMarketView extends FrameLayout {
                 return;
             }
         }
-        this.f28303f = false;
+        this.f = false;
         e(context);
     }
 }

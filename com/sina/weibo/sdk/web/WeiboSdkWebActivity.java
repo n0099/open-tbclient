@@ -279,9 +279,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.webViewClient.closeWeb();
                         this.this$0.closeActivity();
                     }
@@ -311,11 +311,11 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(3, this));
             layoutParams4.topMargin = UIUtils.dip2px(55, this);
             relativeLayout.addView(this.loadingBar, layoutParams4);
-            View view = new View(this);
-            view.setBackgroundResource(getResources().getIdentifier("weibosdk_common_shadow_top", ResourceManager.DRAWABLE, getPackageName()));
+            View view2 = new View(this);
+            view2.setBackgroundResource(getResources().getIdentifier("weibosdk_common_shadow_top", ResourceManager.DRAWABLE, getPackageName()));
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(3, this));
             layoutParams5.topMargin = UIUtils.dip2px(55, this);
-            relativeLayout.addView(view, layoutParams5);
+            relativeLayout.addView(view2, layoutParams5);
             LinearLayout linearLayout = new LinearLayout(this);
             this.retryLayout = linearLayout;
             linearLayout.setOrientation(1);
@@ -367,9 +367,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         this.this$0.pageStatus = 0;
                         this.this$0.showDefaultPage();
                         this.this$0.webView.reload();
@@ -409,8 +409,8 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         if (interceptable == null || interceptable.invokeLL(65551, null, webView, str) == null) {
             try {
                 WebView.class.getDeclaredMethod("removeJavascriptInterface", String.class).invoke(webView, str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

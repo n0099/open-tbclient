@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,8 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public DiskPicHeader mDiskPicHeader;
     public BitmapFactory.Options mOptions;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
@@ -168,8 +168,8 @@ public class DiskEmotionOperate extends DiskFileOperate {
                 }
                 try {
                     this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.mOptions);
-                } catch (Error e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Error e) {
+                    BdLog.e(e.getMessage());
                 }
                 return this.mBitmap != null;
             }
@@ -207,7 +207,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (isGif() || !n.A(bArr)) {
+            if (isGif() || !oi.A(bArr)) {
                 return;
             }
             setGif(true);

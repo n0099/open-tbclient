@@ -33,17 +33,17 @@ public class FloatArrayEvaluator implements TypeEvaluator<float[]> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
-    public float[] evaluate(float f2, float[] fArr, float[] fArr2) {
+    public float[] evaluate(float f, float[] fArr, float[] fArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), fArr, fArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), fArr, fArr2})) == null) {
             float[] fArr3 = this.mArray;
             if (fArr3 == null) {
                 fArr3 = new float[fArr.length];
             }
             for (int i = 0; i < fArr3.length; i++) {
-                float f3 = fArr[i];
-                fArr3[i] = f3 + ((fArr2[i] - f3) * f2);
+                float f2 = fArr[i];
+                fArr3[i] = f2 + ((fArr2[i] - f2) * f);
             }
             return fArr3;
         }

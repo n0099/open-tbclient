@@ -19,22 +19,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Rect f25821d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Rect f25822e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f25823f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f25824g;
+    public final Rect d;
+    public final Rect e;
+    public int f;
+    public int g;
 
     public HeaderScrollingViewBehavior() {
         Interceptable interceptable = $ic;
@@ -49,9 +41,9 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 return;
             }
         }
-        this.f25821d = new Rect();
-        this.f25822e = new Rect();
-        this.f25823f = 0;
+        this.d = new Rect();
+        this.e = new Rect();
+        this.f = 0;
     }
 
     public static int N(int i) {
@@ -61,51 +53,51 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     }
 
     @Override // com.baidu.live.framework.appbar.ViewOffsetBehavior
-    public void F(CoordinatorLayout coordinatorLayout, View view, int i) {
+    public void F(CoordinatorLayout coordinatorLayout, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, coordinatorLayout, view, i) == null) {
-            View H = H(coordinatorLayout.l(view));
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, coordinatorLayout, view2, i) == null) {
+            View H = H(coordinatorLayout.l(view2));
             if (H != null) {
-                CoordinatorLayout.e eVar = (CoordinatorLayout.e) view.getLayoutParams();
-                Rect rect = this.f25821d;
+                CoordinatorLayout.e eVar = (CoordinatorLayout.e) view2.getLayoutParams();
+                Rect rect = this.d;
                 rect.set(coordinatorLayout.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, H.getBottom() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, (coordinatorLayout.getWidth() - coordinatorLayout.getPaddingRight()) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin, ((coordinatorLayout.getHeight() + H.getBottom()) - coordinatorLayout.getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin);
                 WindowInsetsCompat lastWindowInsets = coordinatorLayout.getLastWindowInsets();
-                if (lastWindowInsets != null && ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(view)) {
+                if (lastWindowInsets != null && ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(view2)) {
                     rect.left += lastWindowInsets.getSystemWindowInsetLeft();
                     rect.right -= lastWindowInsets.getSystemWindowInsetRight();
                 }
-                Rect rect2 = this.f25822e;
-                GravityCompat.apply(N(eVar.f25835c), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i);
+                Rect rect2 = this.e;
+                GravityCompat.apply(N(eVar.c), view2.getMeasuredWidth(), view2.getMeasuredHeight(), rect, rect2, i);
                 int I = I(H);
-                view.layout(rect2.left, rect2.top - I, rect2.right, rect2.bottom - I);
-                this.f25823f = rect2.top - H.getBottom();
+                view2.layout(rect2.left, rect2.top - I, rect2.right, rect2.bottom - I);
+                this.f = rect2.top - H.getBottom();
                 return;
             }
-            super.F(coordinatorLayout, view, i);
-            this.f25823f = 0;
+            super.F(coordinatorLayout, view2, i);
+            this.f = 0;
         }
     }
 
     public abstract View H(List<View> list);
 
-    public final int I(View view) {
+    public final int I(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-            if (this.f25824g == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            if (this.g == 0) {
                 return 0;
             }
-            float J = J(view);
-            int i = this.f25824g;
+            float J = J(view2);
+            int i = this.g;
             return MathUtils.clamp((int) (J * i), 0, i);
         }
         return invokeL.intValue;
     }
 
-    public float J(View view) {
+    public float J(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
             return 1.0f;
         }
         return invokeL.floatValue;
@@ -114,40 +106,40 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     public final int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25824g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public int L(View view) {
+    public int L(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) ? view.getMeasuredHeight() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) ? view2.getMeasuredHeight() : invokeL.intValue;
     }
 
     public final int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25823f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.intValue;
     }
 
     public final void O(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.f25824g = i;
+            this.g = i;
         }
     }
 
     @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
-    public boolean m(CoordinatorLayout coordinatorLayout, View view, int i, int i2, int i3, int i4) {
+    public boolean m(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         View H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int i5 = view.getLayoutParams().height;
-            if ((i5 == -1 || i5 == -2) && (H = H(coordinatorLayout.l(view))) != null) {
-                if (ViewCompat.getFitsSystemWindows(H) && !ViewCompat.getFitsSystemWindows(view)) {
-                    ViewCompat.setFitsSystemWindows(view, true);
-                    if (ViewCompat.getFitsSystemWindows(view)) {
-                        view.requestLayout();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            int i5 = view2.getLayoutParams().height;
+            if ((i5 == -1 || i5 == -2) && (H = H(coordinatorLayout.l(view2))) != null) {
+                if (ViewCompat.getFitsSystemWindows(H) && !ViewCompat.getFitsSystemWindows(view2)) {
+                    ViewCompat.setFitsSystemWindows(view2, true);
+                    if (ViewCompat.getFitsSystemWindows(view2)) {
+                        view2.requestLayout();
                         return true;
                     }
                 }
@@ -155,7 +147,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 if (size == 0) {
                     size = coordinatorLayout.getHeight();
                 }
-                coordinatorLayout.D(view, i, i2, View.MeasureSpec.makeMeasureSpec((size - H.getMeasuredHeight()) + L(H), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
+                coordinatorLayout.D(view2, i, i2, View.MeasureSpec.makeMeasureSpec((size - H.getMeasuredHeight()) + L(H), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
                 return true;
             }
             return false;
@@ -182,8 +174,8 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 return;
             }
         }
-        this.f25821d = new Rect();
-        this.f25822e = new Rect();
-        this.f25823f = 0;
+        this.d = new Rect();
+        this.e = new Rect();
+        this.f = 0;
     }
 }

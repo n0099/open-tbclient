@@ -43,9 +43,9 @@ public class FaultHidingSink extends ForwardingSink {
         }
         try {
             super.close();
-        } catch (IOException e2) {
+        } catch (IOException e) {
             this.hasErrors = true;
-            onException(e2);
+            onException(e);
         }
     }
 
@@ -57,9 +57,9 @@ public class FaultHidingSink extends ForwardingSink {
         }
         try {
             super.flush();
-        } catch (IOException e2) {
+        } catch (IOException e) {
             this.hasErrors = true;
-            onException(e2);
+            onException(e);
         }
     }
 
@@ -79,9 +79,9 @@ public class FaultHidingSink extends ForwardingSink {
             }
             try {
                 super.write(buffer, j);
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 this.hasErrors = true;
-                onException(e2);
+                onException(e);
             }
         }
     }

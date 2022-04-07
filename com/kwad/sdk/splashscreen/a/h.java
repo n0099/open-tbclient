@@ -4,18 +4,16 @@ import android.content.Context;
 import android.widget.Toast;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.c f41261b;
+    public com.kwad.sdk.core.download.a.c b;
 
     public static String b(Context context) {
         try {
             return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -42,9 +40,9 @@ public class h extends Presenter {
                     q = ((ResContext) h.this.q()).getDelegatedContext();
                 }
                 if (q != null) {
-                    String b2 = h.b(q);
-                    if (b2 != null) {
-                        str = b2 + ":已开始下载";
+                    String b = h.b(q);
+                    if (b != null) {
+                        str = b + ":已开始下载";
                     } else {
                         str = "已开始下载";
                     }
@@ -64,15 +62,15 @@ public class h extends Presenter {
             public void onProgressUpdate(int i) {
             }
         };
-        this.f41261b = cVar;
-        this.a.f41333g.a(cVar);
+        this.b = cVar;
+        this.a.g.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        com.kwad.sdk.core.download.a.c cVar = this.f41261b;
+        com.kwad.sdk.core.download.a.c cVar = this.b;
         if (cVar != null) {
-            this.a.f41333g.b(cVar);
+            this.a.g.b(cVar);
         }
     }
 }

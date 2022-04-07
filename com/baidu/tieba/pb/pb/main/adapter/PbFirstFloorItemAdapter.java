@@ -5,9 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.p.c;
-import c.a.p0.w2.i.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,44 +23,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bs7;
+import com.repackage.ho;
+import com.repackage.oi;
+import com.repackage.vu4;
 import tbclient.ApkDetail;
 import tbclient.Item;
-/* loaded from: classes5.dex */
-public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemViewHolder> {
+/* loaded from: classes3.dex */
+public class PbFirstFloorItemAdapter extends ho<bs7, PbFirstFloorItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class PbFirstFloorItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
+        public ItemCardView b;
+        public View c;
+        public final /* synthetic */ PbFirstFloorItemAdapter d;
 
-        /* renamed from: b  reason: collision with root package name */
-        public ItemCardView f35014b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f35015c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorItemAdapter f35016d;
-
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ i a;
+            public final /* synthetic */ bs7 a;
+            public final /* synthetic */ PbFirstFloorItemViewHolder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PbFirstFloorItemViewHolder f35017b;
-
-            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, i iVar) {
+            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, bs7 bs7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {pbFirstFloorItemViewHolder, iVar};
+                    Object[] objArr = {pbFirstFloorItemViewHolder, bs7Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -73,24 +66,24 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
                         return;
                     }
                 }
-                this.f35017b = pbFirstFloorItemViewHolder;
-                this.a = iVar;
+                this.b = pbFirstFloorItemViewHolder;
+                this.a = bs7Var;
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     int intValue = this.a.a.button_link_type.intValue();
                     ApkDetail apkDetail = this.a.a.apk_detail;
-                    int a = c.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
+                    int a = vu4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(this.a.a);
-                    ItemCardHelper.q(this.f35017b.f35014b.getPosition(), this.a.a.item_id.longValue(), this.f35017b.f35014b.z(itemData), this.a.f19830b, a, "", 2);
+                    ItemCardHelper.q(this.b.b.getPosition(), this.a.a.item_id.longValue(), this.b.b.z(itemData), this.a.b, a, "", 2);
                     Item item = this.a.a;
                     ItemClickJumpUtil.itemClickJump(item.forum_name, String.valueOf(item.item_id), 9, 9);
                     StatisticItem statisticItem = new StatisticItem("c14071");
-                    statisticItem.param("tid", this.a.f19830b);
+                    statisticItem.param("tid", this.a.b);
                     statisticItem.param("obj_locate", this.a.a.item_id.longValue());
                     TiebaStatic.log(statisticItem);
                 }
@@ -98,13 +91,13 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PbFirstFloorItemViewHolder(PbFirstFloorItemAdapter pbFirstFloorItemAdapter, View view) {
-            super(view);
+        public PbFirstFloorItemViewHolder(PbFirstFloorItemAdapter pbFirstFloorItemAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbFirstFloorItemAdapter, view};
+                Object[] objArr = {pbFirstFloorItemAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,47 +108,47 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
                     return;
                 }
             }
-            this.f35016d = pbFirstFloorItemAdapter;
-            ViewGroup viewGroup = (ViewGroup) view;
-            this.f35015c = viewGroup.getChildAt(0);
+            this.d = pbFirstFloorItemAdapter;
+            ViewGroup viewGroup = (ViewGroup) view2;
+            this.c = viewGroup.getChildAt(0);
             this.a = (TextView) viewGroup.getChildAt(1);
-            this.f35014b = (ItemCardView) viewGroup.getChildAt(2);
+            this.b = (ItemCardView) viewGroup.getChildAt(2);
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.f35015c, R.color.CAM_X0203);
+                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
                 SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
-                this.f35014b.G();
+                this.b.G();
             }
         }
 
-        public void e(i iVar) {
+        public void e(bs7 bs7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) {
-                if (iVar != null) {
-                    this.a.setText(this.f35016d.a.getText(R.string.obfuscated_res_0x7f0f0f69));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs7Var) == null) {
+                if (bs7Var != null) {
+                    this.a.setText(this.d.a.getText(R.string.obfuscated_res_0x7f0f0f6e));
                     ItemData itemData = new ItemData();
-                    itemData.parseProto(iVar.a);
-                    this.f35014b.setData(itemData, 17, iVar.f19830b);
-                    this.f35014b.setOnClickListener(new a(this, iVar));
+                    itemData.parseProto(bs7Var.a);
+                    this.b.setData(itemData, 17, bs7Var.b);
+                    this.b.setOnClickListener(new a(this, bs7Var));
                 }
-                if (this.f35016d.i != null) {
-                    this.f35014b.setOnClickListenerOfRightBtn(this.f35016d.i);
+                if (this.d.i != null) {
+                    this.b.setOnClickListenerOfRightBtn(this.d.i);
                 }
             }
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,10 +170,10 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
             }
         }
     }
@@ -208,14 +201,14 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // c.a.d.o.e.a
-    public /* bridge */ /* synthetic */ View S(int i, View view, ViewGroup viewGroup, i iVar, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
-        c0(i, view, viewGroup, iVar, pbFirstFloorItemViewHolder);
-        return view;
+    @Override // com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, bs7 bs7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+        c0(i, view2, viewGroup, bs7Var, pbFirstFloorItemViewHolder);
+        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: b0 */
     public PbFirstFloorItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -224,27 +217,27 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
             LinearLayout linearLayout = new LinearLayout(this.a);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int f2 = n.f(this.a, R.dimen.M_W_X007);
-            int f3 = n.f(this.a, R.dimen.T_X09);
-            int f4 = n.f(this.a, R.dimen.M_H_X005);
-            int f5 = n.f(this.a, R.dimen.M_H_X003);
-            View view = new View(this.a);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, n.f(this.a, R.dimen.tbds1));
-            layoutParams.leftMargin = f2;
-            layoutParams.rightMargin = f2;
-            linearLayout.addView(view, layoutParams);
+            int f = oi.f(this.a, R.dimen.M_W_X007);
+            int f2 = oi.f(this.a, R.dimen.T_X09);
+            int f3 = oi.f(this.a, R.dimen.M_H_X005);
+            int f4 = oi.f(this.a, R.dimen.M_H_X003);
+            View view2 = new View(this.a);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, oi.f(this.a, R.dimen.tbds1));
+            layoutParams.leftMargin = f;
+            layoutParams.rightMargin = f;
+            linearLayout.addView(view2, layoutParams);
             TextView textView = new TextView(this.a);
-            textView.setTextSize(0, f3);
+            textView.setTextSize(0, f2);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = f2;
-            layoutParams2.topMargin = f4;
-            layoutParams2.bottomMargin = f5;
+            layoutParams2.leftMargin = f;
+            layoutParams2.topMargin = f3;
+            layoutParams2.bottomMargin = f4;
             linearLayout.addView(textView, layoutParams2);
             ItemCardView itemCardView = new ItemCardView(this.a);
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.leftMargin = f2;
-            layoutParams3.rightMargin = f2;
-            layoutParams3.bottomMargin = f4;
+            layoutParams3.leftMargin = f;
+            layoutParams3.rightMargin = f;
+            layoutParams3.bottomMargin = f3;
             itemCardView.setPosition(5);
             linearLayout.addView(itemCardView, layoutParams3);
             itemCardView.setIsShowRightBtn(true);
@@ -254,19 +247,19 @@ public class PbFirstFloorItemAdapter extends c.a.d.o.e.a<i, PbFirstFloorItemView
         return (PbFirstFloorItemViewHolder) invokeL.objValue;
     }
 
-    public View c0(int i, View view, ViewGroup viewGroup, i iVar, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, bs7 bs7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, iVar, pbFirstFloorItemViewHolder})) == null) {
-            if (iVar != null && iVar.a != null) {
-                pbFirstFloorItemViewHolder.e(iVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bs7Var, pbFirstFloorItemViewHolder})) == null) {
+            if (bs7Var != null && bs7Var.a != null) {
+                pbFirstFloorItemViewHolder.e(bs7Var);
             }
             pbFirstFloorItemViewHolder.d();
             StatisticItem statisticItem = new StatisticItem("c14070");
-            statisticItem.param("tid", iVar.f19830b);
-            statisticItem.param("obj_locate", iVar.a.item_id.longValue());
+            statisticItem.param("tid", bs7Var.b);
+            statisticItem.param("obj_locate", bs7Var.a.item_id.longValue());
             TiebaStatic.log(statisticItem);
-            return view;
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

@@ -11,19 +11,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
+    public Runnable b;
+    public CustomMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Runnable f31379b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f31380c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +47,12 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.E0();
+                this.a.D0();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +84,8 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.a.removeCallbacks(this.a.f31379b);
-                this.a.a.postDelayed(this.a.f31379b, 500L);
+                this.a.a.removeCallbacks(this.a.b);
+                this.a.a.postDelayed(this.a.b, 500L);
             }
         }
     }
@@ -108,18 +104,18 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
             }
         }
         this.a = new Handler();
-        this.f31379b = new a(this);
-        this.f31380c = new b(this, 2921414);
+        this.b = new a(this);
+        this.c = new b(this, 2921414);
     }
 
-    public abstract void E0();
+    public abstract void D0();
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            MessageManager.getInstance().registerListener(this.f31380c);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
@@ -128,11 +124,11 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.f31380c);
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 
-    public void q() {
+    public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }

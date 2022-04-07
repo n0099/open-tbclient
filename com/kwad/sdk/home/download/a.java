@@ -11,53 +11,39 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static volatile a l;
-
-    /* renamed from: e  reason: collision with root package name */
-    public File f40562e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public File f40563f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public File f40564g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public File f40565h;
+    public File e;
+    public File f;
+    public File g;
+    public File h;
     public File i;
     public Stack<HomeApkBannerData> a = new Stack<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    public Stack<HomeApkBannerData> f40559b = new Stack<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f40560c = new HashMap();
+    public Stack<HomeApkBannerData> b = new Stack<>();
+    public Map<String, Integer> c = new HashMap();
     public int j = 0;
     public boolean k = false;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f40561d = aq.d(KsAdSDKImpl.get().getContext());
+    public String d = aq.d(KsAdSDKImpl.get().getContext());
 
     public a() {
-        File file = new File(this.f40561d);
+        File file = new File(this.d);
         if (!file.exists()) {
             file.mkdir();
         }
-        this.f40562e = new File(this.f40561d + File.separator + "download_uninstall");
-        File file2 = new File(this.f40561d + File.separator + "download_uninstall_apk_data");
-        this.f40564g = file2;
+        this.e = new File(this.d + File.separator + "download_uninstall");
+        File file2 = new File(this.d + File.separator + "download_uninstall_apk_data");
+        this.g = file2;
         if (!file2.exists()) {
-            this.f40564g.mkdir();
+            this.g.mkdir();
         }
-        File file3 = new File(this.f40561d + File.separator + "install_unopen_apk_data");
-        this.f40565h = file3;
+        File file3 = new File(this.d + File.separator + "install_unopen_apk_data");
+        this.h = file3;
         if (!file3.exists()) {
-            this.f40565h.mkdir();
+            this.h.mkdir();
         }
-        this.f40563f = new File(this.f40561d + File.separator + "install_unopen");
-        this.i = new File(this.f40561d + File.separator + "app_has_show_banner_counts");
+        this.f = new File(this.d + File.separator + "install_unopen");
+        this.i = new File(this.d + File.separator + "app_has_show_banner_counts");
     }
 
     public static a a() {
@@ -72,7 +58,7 @@ public class a {
     }
 
     private File a(HomeApkBannerData homeApkBannerData, boolean z) {
-        String path = (z ? this.f40564g : this.f40565h).getPath();
+        String path = (z ? this.g : this.h).getPath();
         return new File(path + File.separator + homeApkBannerData.mAdTemplateUniqueId);
     }
 
@@ -94,8 +80,8 @@ public class a {
                 } catch (Throwable th) {
                     throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 objectOutputStream = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -105,7 +91,7 @@ public class a {
                 return;
             }
             this.a.push(convertAdTemplateToHomeApkBannerData);
-            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f40562e));
+            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.e));
             try {
                 objectOutputStream3.writeObject(this.a);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(a(convertAdTemplateToHomeApkBannerData, true)));
@@ -114,22 +100,22 @@ public class a {
                     try {
                         objectOutputStream3.close();
                         objectOutputStream.close();
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                         str = "HomeApkBannerDataManager";
-                        str2 = " addApkDownloadedData close e" + e3;
+                        str2 = " addApkDownloadedData close e" + e2;
                         com.kwad.sdk.core.d.a.a(str, str2);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     objectOutputStream2 = objectOutputStream3;
                     try {
                         com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addApkDownloadedData e" + e);
                         if (objectOutputStream2 != null) {
                             try {
                                 objectOutputStream2.close();
-                            } catch (Exception e5) {
+                            } catch (Exception e4) {
                                 str = "HomeApkBannerDataManager";
-                                str2 = " addApkDownloadedData close e" + e5;
+                                str2 = " addApkDownloadedData close e" + e4;
                                 com.kwad.sdk.core.d.a.a(str, str2);
                             }
                         }
@@ -141,8 +127,8 @@ public class a {
                         if (objectOutputStream2 != null) {
                             try {
                                 objectOutputStream2.close();
-                            } catch (Exception e6) {
-                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addApkDownloadedData close e" + e6);
+                            } catch (Exception e5) {
+                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addApkDownloadedData close e" + e5);
                                 throw th;
                             }
                         }
@@ -160,8 +146,8 @@ public class a {
                     }
                     throw th;
                 }
-            } catch (Exception e7) {
-                e = e7;
+            } catch (Exception e6) {
+                e = e6;
                 objectOutputStream = null;
             } catch (Throwable th5) {
                 th = th5;
@@ -181,7 +167,7 @@ public class a {
     public void b(AdTemplate adTemplate) {
         ObjectOutputStream objectOutputStream;
         Throwable th;
-        Exception e2;
+        Exception e;
         String str;
         String str2;
         synchronized (a.class) {
@@ -199,28 +185,28 @@ public class a {
             }
             if (z) {
                 try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f40562e));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.e));
                     try {
                         try {
                             objectOutputStream.writeObject(this.a);
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeApkDownloadedData e" + e2);
+                        } catch (Exception e2) {
+                            e = e2;
+                            com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeApkDownloadedData e" + e);
                             if (objectOutputStream != null) {
                                 try {
                                     objectOutputStream.close();
-                                } catch (Exception e4) {
+                                } catch (Exception e3) {
                                     str = "HomeApkBannerDataManager";
-                                    str2 = " removeApkDownloadedData close e" + e4;
+                                    str2 = " removeApkDownloadedData close e" + e3;
                                     com.kwad.sdk.core.d.a.a(str, str2);
                                 }
                             }
                         }
                         try {
                             objectOutputStream.close();
-                        } catch (Exception e5) {
+                        } catch (Exception e4) {
                             str = "HomeApkBannerDataManager";
-                            str2 = " removeApkDownloadedData close e" + e5;
+                            str2 = " removeApkDownloadedData close e" + e4;
                             com.kwad.sdk.core.d.a.a(str, str2);
                         }
                     } catch (Throwable th2) {
@@ -228,15 +214,15 @@ public class a {
                         if (objectOutputStream != null) {
                             try {
                                 objectOutputStream.close();
-                            } catch (Exception e6) {
-                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeApkDownloadedData close e" + e6);
+                            } catch (Exception e5) {
+                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeApkDownloadedData close e" + e5);
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                     objectOutputStream = null;
-                    e2 = e7;
+                    e = e6;
                 } catch (Throwable th3) {
                     objectOutputStream = null;
                     th = th3;
@@ -266,8 +252,8 @@ public class a {
                 } catch (Throwable th) {
                     throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 objectOutputStream = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -276,32 +262,32 @@ public class a {
             if (convertAdTemplateToHomeApkBannerData == null) {
                 return;
             }
-            this.f40559b.push(convertAdTemplateToHomeApkBannerData);
-            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f40563f));
+            this.b.push(convertAdTemplateToHomeApkBannerData);
+            ObjectOutputStream objectOutputStream3 = new ObjectOutputStream(new FileOutputStream(this.f));
             try {
-                objectOutputStream3.writeObject(this.f40559b);
+                objectOutputStream3.writeObject(this.b);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(a(convertAdTemplateToHomeApkBannerData, false)));
                 try {
                     objectOutputStream.writeObject(adTemplate);
                     try {
                         objectOutputStream3.close();
                         objectOutputStream.close();
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                         str = "HomeApkBannerDataManager";
-                        str2 = " addInstalledData close e" + e3;
+                        str2 = " addInstalledData close e" + e2;
                         com.kwad.sdk.core.d.a.a(str, str2);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     objectOutputStream2 = objectOutputStream3;
                     try {
                         com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addInstalledData e" + e);
                         if (objectOutputStream2 != null) {
                             try {
                                 objectOutputStream2.close();
-                            } catch (Exception e5) {
+                            } catch (Exception e4) {
                                 str = "HomeApkBannerDataManager";
-                                str2 = " addInstalledData close e" + e5;
+                                str2 = " addInstalledData close e" + e4;
                                 com.kwad.sdk.core.d.a.a(str, str2);
                             }
                         }
@@ -313,8 +299,8 @@ public class a {
                         if (objectOutputStream2 != null) {
                             try {
                                 objectOutputStream2.close();
-                            } catch (Exception e6) {
-                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addInstalledData close e" + e6);
+                            } catch (Exception e5) {
+                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " addInstalledData close e" + e5);
                                 throw th;
                             }
                         }
@@ -332,8 +318,8 @@ public class a {
                     }
                     throw th;
                 }
-            } catch (Exception e7) {
-                e = e7;
+            } catch (Exception e6) {
+                e = e6;
                 objectOutputStream = null;
             } catch (Throwable th5) {
                 th = th5;
@@ -349,13 +335,13 @@ public class a {
     public void d(AdTemplate adTemplate) {
         ObjectOutputStream objectOutputStream;
         Throwable th;
-        Exception e2;
+        Exception e;
         String str;
         String str2;
         synchronized (a.class) {
             HomeApkBannerData convertAdTemplateToHomeApkBannerData = HomeApkBannerData.convertAdTemplateToHomeApkBannerData(adTemplate);
             boolean z = false;
-            Iterator<HomeApkBannerData> it = this.f40559b.iterator();
+            Iterator<HomeApkBannerData> it = this.b.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                     it.remove();
@@ -364,28 +350,28 @@ public class a {
             }
             if (z) {
                 try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f40563f));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f));
                     try {
                         try {
-                            objectOutputStream.writeObject(this.f40559b);
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData e" + e2);
+                            objectOutputStream.writeObject(this.b);
+                        } catch (Exception e2) {
+                            e = e2;
+                            com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData e" + e);
                             if (objectOutputStream != null) {
                                 try {
                                     objectOutputStream.close();
-                                } catch (Exception e4) {
+                                } catch (Exception e3) {
                                     str = "HomeApkBannerDataManager";
-                                    str2 = " removeInstalledData close e" + e4;
+                                    str2 = " removeInstalledData close e" + e3;
                                     com.kwad.sdk.core.d.a.a(str, str2);
                                 }
                             }
                         }
                         try {
                             objectOutputStream.close();
-                        } catch (Exception e5) {
+                        } catch (Exception e4) {
                             str = "HomeApkBannerDataManager";
-                            str2 = " removeInstalledData close e" + e5;
+                            str2 = " removeInstalledData close e" + e4;
                             com.kwad.sdk.core.d.a.a(str, str2);
                         }
                     } catch (Throwable th2) {
@@ -393,15 +379,15 @@ public class a {
                         if (objectOutputStream != null) {
                             try {
                                 objectOutputStream.close();
-                            } catch (Exception e6) {
-                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData close e" + e6);
+                            } catch (Exception e5) {
+                                com.kwad.sdk.core.d.a.a("HomeApkBannerDataManager", " removeInstalledData close e" + e5);
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                     objectOutputStream = null;
-                    e2 = e7;
+                    e = e6;
                 } catch (Throwable th3) {
                     objectOutputStream = null;
                     th = th3;

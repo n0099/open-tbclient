@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry;
@@ -58,10 +58,10 @@ public abstract class ProtectionSpecificHeader {
             if (cls != null) {
                 try {
                     newInstance = cls.newInstance();
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                } catch (InstantiationException e2) {
                     throw new RuntimeException(e2);
-                } catch (InstantiationException e3) {
-                    throw new RuntimeException(e3);
                 }
             } else {
                 newInstance = null;

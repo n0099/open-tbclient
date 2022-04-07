@@ -20,8 +20,8 @@ public final class CompletableDeferredKt {
     /* JADX WARN: Multi-variable type inference failed */
     @ExperimentalCoroutinesApi
     public static final <T> boolean completeWith(CompletableDeferred<T> completableDeferred, Object obj) {
-        Throwable m695exceptionOrNullimpl = Result.m695exceptionOrNullimpl(obj);
-        return m695exceptionOrNullimpl == null ? completableDeferred.complete(obj) : completableDeferred.completeExceptionally(m695exceptionOrNullimpl);
+        Throwable m691exceptionOrNullimpl = Result.m691exceptionOrNullimpl(obj);
+        return m691exceptionOrNullimpl == null ? completableDeferred.complete(obj) : completableDeferred.completeExceptionally(m691exceptionOrNullimpl);
     }
 
     public static final <T> CompletableDeferred<T> CompletableDeferred(T t) {

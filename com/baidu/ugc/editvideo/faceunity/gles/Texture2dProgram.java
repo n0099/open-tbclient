@@ -3,7 +3,6 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,10 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tb9;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Texture2dProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
@@ -64,7 +64,7 @@ public class Texture2dProgram {
     public int muTexOffsetLoc;
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class Texture2dProgram {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ProgramType {
         public static final /* synthetic */ ProgramType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -302,7 +302,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            c.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            tb9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -441,10 +441,10 @@ public class Texture2dProgram {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mProgramType : (ProgramType) invokeV.objValue;
     }
 
-    public int hexCharToDecimal(char c2) {
+    public int hexCharToDecimal(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c2)})) == null) ? (c2 < 'A' || c2 > 'F') ? c2 - '0' : (c2 + '\n') - 65 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) ? (c < 'A' || c > 'F') ? c - '0' : (c + '\n') - 65 : invokeCommon.intValue;
     }
 
     public int hexToDecimal(String str) {
@@ -490,37 +490,37 @@ public class Texture2dProgram {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c.c("Grafika", "deleting program " + this.mProgramHandle);
+            tb9.c("Grafika", "deleting program " + this.mProgramHandle);
             GLES20.glDeleteProgram(this.mProgramHandle);
             this.mProgramHandle = -1;
         }
     }
 
-    public void setAlpha(float f2) {
+    public void setAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.mAlpha = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.mAlpha = f;
         }
     }
 
-    public void setDistance(float f2) {
+    public void setDistance(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.mDistance = f2;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
+            this.mDistance = f;
         }
     }
 
-    public void setDxDy(float f2, float f3) {
+    public void setDxDy(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mDx = f2;
-            this.mDy = f3;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mDx = f;
+            this.mDy = f2;
         }
     }
 
-    public void setHumanSegMaskParams(int i, String str, float f2) {
+    public void setHumanSegMaskParams(int i, String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
             this.mMaskMode = i;
             if (TextUtils.isEmpty(str) || str.length() < 6) {
                 return;
@@ -541,16 +541,16 @@ public class Texture2dProgram {
                 fArr[1] = 0.0f;
                 fArr[2] = 0.0f;
             }
-            this.mMaskColor[3] = f2;
+            this.mMaskColor[3] = f;
         }
     }
 
-    public void setKernel(float[] fArr, float f2) {
+    public void setKernel(float[] fArr, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048590, this, fArr, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048590, this, fArr, f) == null) {
             if (fArr.length == 9) {
                 System.arraycopy(fArr, 0, this.mKernel, 0, 9);
-                this.mColorAdjust = f2;
+                this.mColorAdjust = f;
                 return;
             }
             throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
@@ -583,11 +583,11 @@ public class Texture2dProgram {
     public void setTexSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            float f2 = 1.0f / i;
-            float f3 = 1.0f / i2;
+            float f = 1.0f / i;
+            float f2 = 1.0f / i2;
+            float f3 = -f;
             float f4 = -f2;
-            float f5 = -f3;
-            this.mTexOffset = new float[]{f4, f5, 0.0f, f5, f2, f5, f4, 0.0f, 0.0f, 0.0f, f2, 0.0f, f4, f3, 0.0f, f3, f2, f3};
+            this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
         }
     }
 

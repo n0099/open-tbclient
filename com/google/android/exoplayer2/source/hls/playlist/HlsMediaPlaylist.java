@@ -13,7 +13,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class HlsMediaPlaylist extends HlsPlaylist {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PLAYLIST_TYPE_EVENT = 2;
@@ -37,11 +37,11 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     public final int version;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface PlaylistType {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Segment implements Comparable<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

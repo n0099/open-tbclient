@@ -11,7 +11,6 @@ import com.baidu.location.Jni;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,12 +42,10 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f25910f = "0";
+    public static String f = "0";
     public static d j;
     public transient /* synthetic */ FieldHolder $fh;
     public a A;
@@ -66,24 +63,12 @@ public class d {
     public List<Byte> M;
     public boolean N;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Location f25911b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Location f25912c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public StringBuilder f25913d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f25914e;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f25915g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public double f25916h;
+    public Location b;
+    public Location c;
+    public StringBuilder d;
+    public long e;
+    public int g;
+    public double h;
     public double i;
     public int k;
     public double l;
@@ -102,14 +87,12 @@ public class d {
     public int y;
     public long z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.location.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f25917b;
+        public final /* synthetic */ d b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -126,7 +109,7 @@ public class d {
                     return;
                 }
             }
-            this.f25917b = dVar;
+            this.b = dVar;
             this.a = null;
             this.k = new HashMap();
         }
@@ -135,7 +118,7 @@ public class d {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26072h = "http://loc.map.baidu.com/cc.php";
+                this.h = "http://loc.map.baidu.com/cc.php";
                 String encode = Jni.encode(this.a);
                 this.a = null;
                 this.k.put("q", encode);
@@ -158,9 +141,9 @@ public class d {
                 if (z && (str = this.j) != null) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        jSONObject.put("prod", com.baidu.location.e.b.f26049e);
+                        jSONObject.put("prod", com.baidu.location.e.b.e);
                         jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
-                        this.f25917b.e(jSONObject.toString());
+                        this.b.e(jSONObject.toString());
                     } catch (Exception unused) {
                     }
                 }
@@ -225,18 +208,18 @@ public class d {
         this.G = 0L;
         this.H = 500;
         this.a = 0L;
-        this.f25911b = null;
-        this.f25912c = null;
-        this.f25913d = null;
-        this.f25914e = 0L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = 0L;
         this.I = null;
         this.J = new byte[4];
         this.K = null;
         this.L = 0;
         this.M = null;
         this.N = false;
-        this.f25915g = 0;
-        this.f25916h = 116.22345545d;
+        this.g = 0;
+        this.h = 116.22345545d;
         this.i = 40.245667323d;
         this.I = new Handler();
     }
@@ -268,7 +251,7 @@ public class d {
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("POST");
                 httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
-                httpsURLConnection.setRequestProperty("connection", IntentConfig.CLOSE);
+                httpsURLConnection.setRequestProperty("connection", "close");
                 httpsURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
                 if (file == null || !file.exists()) {
                     return "0";
@@ -405,7 +388,7 @@ public class d {
             return;
         }
         this.N = true;
-        d(com.baidu.location.e.b.f26049e);
+        d(com.baidu.location.e.b.e);
         j();
         d();
     }
@@ -545,14 +528,14 @@ public class d {
                 } catch (Exception unused) {
                 }
             }
-            this.K = a(com.baidu.location.e.b.f26049e + ":" + com.baidu.location.e.b.a().f26054c);
+            this.K = a(com.baidu.location.e.b.e + ":" + com.baidu.location.e.b.a().c);
         }
     }
 
     private void d(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, location) == null) {
-            this.f25914e = System.currentTimeMillis();
+            this.e = System.currentTimeMillis();
             b((int) (location.getTime() / 1000));
             b((int) (location.getLongitude() * 1000000.0d));
             b((int) (location.getLatitude() * 1000000.0d));
@@ -560,7 +543,7 @@ public class d {
             int i2 = !location.hasSpeed();
             this.M.add(Byte.valueOf(i > 0 ? (byte) 32 : (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
             this.M.add(Byte.valueOf(i2 > 0 ? Byte.MIN_VALUE : (byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
-            this.f25911b = location;
+            this.b = location;
         }
     }
 
@@ -628,24 +611,24 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65556, this, location) == null) || location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.f25911b.getLongitude()) * 1000000.0d);
-        int latitude = (int) ((location.getLatitude() - this.f25911b.getLatitude()) * 1000000.0d);
+        int longitude = (int) ((location.getLongitude() - this.b.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.b.getLatitude()) * 1000000.0d);
         int i = !location.hasBearing();
         int i2 = !location.hasSpeed();
-        char c2 = longitude > 0 ? (char) 0 : (char) 1;
+        char c = longitude > 0 ? (char) 0 : (char) 1;
         int abs = Math.abs(longitude);
-        char c3 = latitude > 0 ? (char) 0 : (char) 1;
+        char c2 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.f25912c = null;
-            this.f25912c = this.f25911b;
+            this.c = null;
+            this.c = this.b;
         }
-        this.f25911b = location;
-        if (location != null && this.f25912c != null && location.getTime() > this.f25912c.getTime() && this.f25911b.getTime() - this.f25912c.getTime() < 5000) {
-            long time = this.f25911b.getTime() - this.f25912c.getTime();
+        this.b = location;
+        if (location != null && this.c != null && location.getTime() > this.c.getTime() && this.b.getTime() - this.c.getTime() < 5000) {
+            long time = this.b.getTime() - this.c.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.f25911b.getAltitude(), this.f25911b.getLongitude(), this.f25912c.getLatitude(), this.f25912c.getLongitude(), fArr);
-            double speed = ((fArr[0] - (this.f25912c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
+            Location.distanceBetween(this.b.getAltitude(), this.b.getLongitude(), this.c.getLatitude(), this.c.getLongitude(), fArr);
+            double speed = ((fArr[0] - (this.c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
             if (speed > this.F) {
                 this.F = (float) speed;
             }
@@ -655,10 +638,10 @@ public class d {
         this.M.add(Byte.valueOf((byte) (abs2 & 255)));
         this.M.add(Byte.valueOf((byte) ((abs2 & 65280) >> 8)));
         if (i > 0) {
-            bearing = c3 > 0 ? (byte) 96 : (byte) 32;
+            bearing = c2 > 0 ? (byte) 96 : (byte) 32;
         } else {
             bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
-            if (c3 > 0) {
+            if (c2 > 0) {
                 bearing = (byte) (bearing | 64);
             }
         }
@@ -706,7 +689,7 @@ public class d {
                     int readInt2 = randomAccessFile2.readInt();
                     byte[] bArr = new byte[readInt2];
                     randomAccessFile2.read(bArr, 0, readInt2);
-                    if (new String(bArr).contains(com.baidu.location.e.b.f26049e)) {
+                    if (new String(bArr).contains(com.baidu.location.e.b.e)) {
                         break;
                     }
                     i++;
@@ -829,10 +812,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             this.M = null;
-            this.f25914e = 0L;
+            this.e = 0L;
             this.L = 0;
-            this.f25911b = null;
-            this.f25912c = null;
+            this.b = null;
+            this.c = null;
             this.E = 0.0f;
             this.F = 0.0f;
         }
@@ -840,7 +823,7 @@ public class d {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.f25914e == 0 || System.currentTimeMillis() - this.f25914e < this.p * 1000) {
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.e == 0 || System.currentTimeMillis() - this.e < this.p * 1000) {
             return;
         }
         if (com.baidu.location.f.getServiceContext().getSharedPreferences("loc_navi_mode", 4).getBoolean("is_navi_on", false)) {
@@ -848,12 +831,12 @@ public class d {
         } else if (this.n == 1 && !f()) {
             g();
         } else {
-            if (com.baidu.location.e.b.f26049e.equals("com.ubercab.driver")) {
+            if (com.baidu.location.e.b.e.equals("com.ubercab.driver")) {
                 if (e()) {
                     g();
                     return;
                 }
-            } else if (!a(com.baidu.location.e.b.f26049e, com.baidu.location.f.getServiceContext())) {
+            } else if (!a(com.baidu.location.e.b.e, com.baidu.location.f.getServiceContext())) {
                 g();
                 return;
             }
@@ -893,19 +876,19 @@ public class d {
 
     private void i() {
         List<Byte> list;
-        byte b2;
+        byte b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             this.M.add((byte) 0);
             this.M.add((byte) 0);
-            if (f25910f.equals("0")) {
+            if (f.equals("0")) {
                 list = this.M;
-                b2 = -82;
+                b = -82;
             } else {
                 list = this.M;
-                b2 = -66;
+                b = -66;
             }
-            list.add(Byte.valueOf(b2));
+            list.add(Byte.valueOf(b));
             this.M.add((byte) 0);
             this.M.add(Byte.valueOf(this.J[0]));
             this.M.add(Byte.valueOf(this.J[1]));

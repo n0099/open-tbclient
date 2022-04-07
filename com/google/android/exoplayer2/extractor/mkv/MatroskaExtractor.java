@@ -45,7 +45,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MatroskaExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_STATE_DATA = 2;
@@ -243,11 +243,11 @@ public final class MatroskaExtractor implements Extractor {
     public final ParsableByteArray vorbisNumPageSamples;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface Flags {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class InnerEbmlReaderOutput implements EbmlReaderOutput {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,10 +288,10 @@ public final class MatroskaExtractor implements Extractor {
         }
 
         @Override // com.google.android.exoplayer2.extractor.mkv.EbmlReaderOutput
-        public void floatElement(int i, double d2) throws ParserException {
+        public void floatElement(int i, double d) throws ParserException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
-                this.this$0.floatElement(i, d2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
+                this.this$0.floatElement(i, d);
             }
         }
 
@@ -334,7 +334,7 @@ public final class MatroskaExtractor implements Extractor {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Track {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_MAX_CLL = 1000;
@@ -557,7 +557,7 @@ public final class MatroskaExtractor implements Extractor {
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public void initializeOutput(ExtractorOutput extractorOutput, int i) throws ParserException {
-            char c2;
+            char c;
             String str;
             List<byte[]> singletonList;
             String str2;
@@ -577,213 +577,213 @@ public final class MatroskaExtractor implements Extractor {
                 switch (str4.hashCode()) {
                     case -2095576542:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MPEG4_AP)) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -2095575984:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MPEG4_SP)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1985379776:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_ACM)) {
-                            c2 = 22;
+                            c = 22;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1784763192:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_TRUEHD)) {
-                            c2 = 17;
+                            c = 17;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1730367663:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_VORBIS)) {
-                            c2 = '\n';
+                            c = '\n';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1482641358:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MP2)) {
-                            c2 = '\r';
+                            c = '\r';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1482641357:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MP3)) {
-                            c2 = 14;
+                            c = 14;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1373388978:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_FOURCC)) {
-                            c2 = '\b';
+                            c = '\b';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -933872740:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_DVBSUB)) {
-                            c2 = DecodedBitStreamParser.FS;
+                            c = DecodedBitStreamParser.FS;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -538363189:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MPEG4_ASP)) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -538363109:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_H264)) {
-                            c2 = 6;
+                            c = 6;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -425012669:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_VOBSUB)) {
-                            c2 = 26;
+                            c = 26;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -356037306:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_DTS_LOSSLESS)) {
-                            c2 = 20;
+                            c = 20;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 62923557:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_AAC)) {
-                            c2 = '\f';
+                            c = '\f';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 62923603:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_AC3)) {
-                            c2 = 15;
+                            c = 15;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 62927045:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_DTS)) {
-                            c2 = 18;
+                            c = 18;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 82338133:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_VP8)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 82338134:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_VP9)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 99146302:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_PGS)) {
-                            c2 = 27;
+                            c = 27;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 444813526:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_THEORA)) {
-                            c2 = '\t';
+                            c = '\t';
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 542569478:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_DTS_EXPRESS)) {
-                            c2 = 19;
+                            c = 19;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 725957860:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_PCM_INT_LIT)) {
-                            c2 = 23;
+                            c = 23;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 738597099:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_ASS)) {
-                            c2 = 25;
+                            c = 25;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 855502857:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_H265)) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1422270023:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_SUBRIP)) {
-                            c2 = 24;
+                            c = 24;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1809237540:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_MPEG2)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1950749482:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_E_AC3)) {
-                            c2 = 16;
+                            c = 16;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1950789798:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_FLAC)) {
-                            c2 = 21;
+                            c = 21;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 1951062397:
                         if (str4.equals(MatroskaExtractor.CODEC_ID_OPUS)) {
-                            c2 = 11;
+                            c = 11;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
                 String str5 = MimeTypes.AUDIO_UNKNOWN;
-                switch (c2) {
+                switch (c) {
                     case 0:
                         str = "video/x-vnd.on2.vp8";
                         str5 = str;
@@ -1463,7 +1463,7 @@ public final class MatroskaExtractor implements Extractor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void binaryElement(int i, int i2, ExtractorInput extractorInput) throws IOException, InterruptedException {
-        char c2;
+        char c;
         int i3;
         int i4;
         int[] iArr;
@@ -1520,7 +1520,7 @@ public final class MatroskaExtractor implements Extractor {
         if (this.blockState == 1) {
             readScratch(extractorInput, 3);
             int i7 = (this.scratch.data[2] & 6) >> 1;
-            byte b2 = 255;
+            byte b = 255;
             if (i7 == 0) {
                 this.blockLacingSampleCount = 1;
                 int[] ensureArrayCapacity = ensureArrayCapacity(this.blockLacingSampleSizes, 1);
@@ -1581,13 +1581,13 @@ public final class MatroskaExtractor implements Extractor {
                                 if ((this.scratch.data[i16] & i18) != 0) {
                                     i8 += i17;
                                     readScratch(extractorInput, i8);
-                                    long j2 = (~i18) & this.scratch.data[i16] & b2;
+                                    long j2 = (~i18) & this.scratch.data[i16] & b;
                                     int i19 = i16 + 1;
                                     j = j2;
                                     while (i19 < i8) {
-                                        b2 = 255;
+                                        b = 255;
                                         i19++;
-                                        j = (j << 8) | (this.scratch.data[i19] & b2);
+                                        j = (j << 8) | (this.scratch.data[i19] & b);
                                     }
                                     if (i13 > 0) {
                                         j -= (1 << ((i17 * 7) + 6)) - 1;
@@ -1595,7 +1595,7 @@ public final class MatroskaExtractor implements Extractor {
                                 } else {
                                     i17++;
                                     i6 = 1;
-                                    b2 = 255;
+                                    b = 255;
                                 }
                             }
                             long j3 = j;
@@ -1612,9 +1612,9 @@ public final class MatroskaExtractor implements Extractor {
                             i13++;
                             i5 = 0;
                             i6 = 1;
-                            b2 = 255;
+                            b = 255;
                         } else {
-                            c2 = 1;
+                            c = 1;
                             this.blockLacingSampleSizes[i15 - 1] = ((i2 - this.blockTrackNumberLength) - i8) - i14;
                             break;
                         }
@@ -1623,9 +1623,9 @@ public final class MatroskaExtractor implements Extractor {
             } else {
                 throw new ParserException("Lacing only supported in SimpleBlocks.");
             }
-            c2 = 1;
+            c = 1;
             byte[] bArr5 = this.scratch.data;
-            this.blockTimeUs = this.clusterTimecodeUs + scaleTimecodeToUs((bArr5[c2] & 255) | (bArr5[0] << 8));
+            this.blockTimeUs = this.clusterTimecodeUs + scaleTimecodeToUs((bArr5[c] & 255) | (bArr5[0] << 8));
             this.blockFlags = ((this.scratch.data[2] & 8) == 8 ? Integer.MIN_VALUE : 0) | ((track.type == 2 || (i == 163 && (this.scratch.data[2] & 128) == 128)) ? 1 : 0);
             this.blockState = 2;
             this.blockLacingSampleIndex = 0;
@@ -1716,48 +1716,48 @@ public final class MatroskaExtractor implements Extractor {
         }
     }
 
-    public void floatElement(int i, double d2) {
+    public void floatElement(int i, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
             if (i == 181) {
-                this.currentTrack.sampleRate = (int) d2;
+                this.currentTrack.sampleRate = (int) d;
             } else if (i != 17545) {
                 switch (i) {
                     case ID_PRIMARY_R_CHROMATICITY_X /* 21969 */:
-                        this.currentTrack.primaryRChromaticityX = (float) d2;
+                        this.currentTrack.primaryRChromaticityX = (float) d;
                         return;
                     case ID_PRIMARY_R_CHROMATICITY_Y /* 21970 */:
-                        this.currentTrack.primaryRChromaticityY = (float) d2;
+                        this.currentTrack.primaryRChromaticityY = (float) d;
                         return;
                     case ID_PRIMARY_G_CHROMATICITY_X /* 21971 */:
-                        this.currentTrack.primaryGChromaticityX = (float) d2;
+                        this.currentTrack.primaryGChromaticityX = (float) d;
                         return;
                     case ID_PRIMARY_G_CHROMATICITY_Y /* 21972 */:
-                        this.currentTrack.primaryGChromaticityY = (float) d2;
+                        this.currentTrack.primaryGChromaticityY = (float) d;
                         return;
                     case ID_PRIMARY_B_CHROMATICITY_X /* 21973 */:
-                        this.currentTrack.primaryBChromaticityX = (float) d2;
+                        this.currentTrack.primaryBChromaticityX = (float) d;
                         return;
                     case ID_PRIMARY_B_CHROMATICITY_Y /* 21974 */:
-                        this.currentTrack.primaryBChromaticityY = (float) d2;
+                        this.currentTrack.primaryBChromaticityY = (float) d;
                         return;
                     case ID_WHITE_POINT_CHROMATICITY_X /* 21975 */:
-                        this.currentTrack.whitePointChromaticityX = (float) d2;
+                        this.currentTrack.whitePointChromaticityX = (float) d;
                         return;
                     case ID_WHITE_POINT_CHROMATICITY_Y /* 21976 */:
-                        this.currentTrack.whitePointChromaticityY = (float) d2;
+                        this.currentTrack.whitePointChromaticityY = (float) d;
                         return;
                     case ID_LUMNINANCE_MAX /* 21977 */:
-                        this.currentTrack.maxMasteringLuminance = (float) d2;
+                        this.currentTrack.maxMasteringLuminance = (float) d;
                         return;
                     case ID_LUMNINANCE_MIN /* 21978 */:
-                        this.currentTrack.minMasteringLuminance = (float) d2;
+                        this.currentTrack.minMasteringLuminance = (float) d;
                         return;
                     default:
                         return;
                 }
             } else {
-                this.durationTimecode = (long) d2;
+                this.durationTimecode = (long) d;
             }
         }
     }

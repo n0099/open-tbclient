@@ -105,15 +105,15 @@ public class DrawerArrowDrawable extends Drawable {
         obtainStyledAttributes.recycle();
     }
 
-    public static float lerp(float f2, float f3, float f4) {
+    public static float lerp(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 + ((f3 - f2) * f4) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + ((f2 - f) * f3) : invokeCommon.floatValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             Rect bounds = getBounds();
@@ -122,31 +122,31 @@ public class DrawerArrowDrawable extends Drawable {
             if (i != 0 && (i == 1 || (i == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
                 z = true;
             }
-            float f3 = this.mArrowHeadLength;
-            float lerp = lerp(this.mBarLength, (float) Math.sqrt(f3 * f3 * 2.0f), this.mProgress);
+            float f2 = this.mArrowHeadLength;
+            float lerp = lerp(this.mBarLength, (float) Math.sqrt(f2 * f2 * 2.0f), this.mProgress);
             float lerp2 = lerp(this.mBarLength, this.mArrowShaftLength, this.mProgress);
             float round = Math.round(lerp(0.0f, this.mMaxCutForBarSize, this.mProgress));
             float lerp3 = lerp(0.0f, ARROW_HEAD_ANGLE, this.mProgress);
             float lerp4 = lerp(z ? 0.0f : -180.0f, z ? 180.0f : 0.0f, this.mProgress);
-            double d2 = lerp;
-            double d3 = lerp3;
+            double d = lerp;
+            double d2 = lerp3;
             boolean z2 = z;
-            float round2 = (float) Math.round(Math.cos(d3) * d2);
-            float round3 = (float) Math.round(d2 * Math.sin(d3));
+            float round2 = (float) Math.round(Math.cos(d2) * d);
+            float round3 = (float) Math.round(d * Math.sin(d2));
             this.mPath.rewind();
             float lerp5 = lerp(this.mBarGap + this.mPaint.getStrokeWidth(), -this.mMaxCutForBarSize, this.mProgress);
-            float f4 = (-lerp2) / 2.0f;
-            this.mPath.moveTo(f4 + round, 0.0f);
+            float f3 = (-lerp2) / 2.0f;
+            this.mPath.moveTo(f3 + round, 0.0f);
             this.mPath.rLineTo(lerp2 - (round * 2.0f), 0.0f);
-            this.mPath.moveTo(f4, lerp5);
+            this.mPath.moveTo(f3, lerp5);
             this.mPath.rLineTo(round2, round3);
-            this.mPath.moveTo(f4, -lerp5);
+            this.mPath.moveTo(f3, -lerp5);
             this.mPath.rLineTo(round2, -round3);
             this.mPath.close();
             canvas.save();
             float strokeWidth = this.mPaint.getStrokeWidth();
             float height = bounds.height() - (3.0f * strokeWidth);
-            canvas.translate(bounds.centerX(), ((((int) (height - (2.0f * f2))) / 4) * 2) + (strokeWidth * 1.5f) + this.mBarGap);
+            canvas.translate(bounds.centerX(), ((((int) (height - (2.0f * f))) / 4) * 2) + (strokeWidth * 1.5f) + this.mBarGap);
             if (this.mSpin) {
                 canvas.rotate(lerp4 * (this.mVerticalMirror ^ z2 ? -1 : 1));
             } else if (z2) {
@@ -253,40 +253,40 @@ public class DrawerArrowDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setArrowHeadLength(float f2) {
+    public void setArrowHeadLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || this.mArrowHeadLength == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048591, this, f) == null) || this.mArrowHeadLength == f) {
             return;
         }
-        this.mArrowHeadLength = f2;
+        this.mArrowHeadLength = f;
         invalidateSelf();
     }
 
-    public void setArrowShaftLength(float f2) {
+    public void setArrowShaftLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048592, this, f2) == null) || this.mArrowShaftLength == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048592, this, f) == null) || this.mArrowShaftLength == f) {
             return;
         }
-        this.mArrowShaftLength = f2;
+        this.mArrowShaftLength = f;
         invalidateSelf();
     }
 
-    public void setBarLength(float f2) {
+    public void setBarLength(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f2) == null) || this.mBarLength == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || this.mBarLength == f) {
             return;
         }
-        this.mBarLength = f2;
+        this.mBarLength = f;
         invalidateSelf();
     }
 
-    public void setBarThickness(float f2) {
+    public void setBarThickness(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048594, this, f2) == null) || this.mPaint.getStrokeWidth() == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048594, this, f) == null) || this.mPaint.getStrokeWidth() == f) {
             return;
         }
-        this.mPaint.setStrokeWidth(f2);
-        this.mMaxCutForBarSize = (float) ((f2 / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
+        this.mPaint.setStrokeWidth(f);
+        this.mMaxCutForBarSize = (float) ((f / 2.0f) * Math.cos(ARROW_HEAD_ANGLE));
         invalidateSelf();
     }
 
@@ -317,21 +317,21 @@ public class DrawerArrowDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setGapSize(float f2) {
+    public void setGapSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048598, this, f2) == null) || f2 == this.mBarGap) {
+        if (!(interceptable == null || interceptable.invokeF(1048598, this, f) == null) || f == this.mBarGap) {
             return;
         }
-        this.mBarGap = f2;
+        this.mBarGap = f;
         invalidateSelf();
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048599, this, f2) == null) || this.mProgress == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048599, this, f) == null) || this.mProgress == f) {
             return;
         }
-        this.mProgress = f2;
+        this.mProgress = f;
         invalidateSelf();
     }
 

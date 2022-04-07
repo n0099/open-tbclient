@@ -16,6 +16,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebvttCueParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char CHAR_AMPERSAND = '&';
@@ -60,7 +61,7 @@ public final class WebvttCueParser {
     public transient /* synthetic */ FieldHolder $fh;
     public final StringBuilder textBuilder;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class StartTag {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] NO_CLASSES;
@@ -144,7 +145,7 @@ public final class WebvttCueParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class StyleMatch implements Comparable<StyleMatch> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,38 +214,38 @@ public final class WebvttCueParser {
     }
 
     public static void applyEntity(String str, SpannableStringBuilder spannableStringBuilder) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, spannableStringBuilder) == null) {
             int hashCode = str.hashCode();
             if (hashCode == 3309) {
                 if (str.equals(ENTITY_GREATER_THAN)) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 3464) {
                 if (str.equals(ENTITY_LESS_THAN)) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 96708) {
                 if (hashCode == 3374865 && str.equals(ENTITY_NON_BREAK_SPACE)) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals(ENTITY_AMPERSAND)) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 spannableStringBuilder.append('<');
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 spannableStringBuilder.append('>');
-            } else if (c2 == 2) {
+            } else if (c == 2) {
                 spannableStringBuilder.append(CHAR_SPACE);
-            } else if (c2 != 3) {
+            } else if (c != 3) {
                 Log.w(TAG, "ignoring unsupported entity: '&" + str + ";'");
             } else {
                 spannableStringBuilder.append('&');
@@ -253,7 +254,7 @@ public final class WebvttCueParser {
     }
 
     public static void applySpansForTag(String str, StartTag startTag, SpannableStringBuilder spannableStringBuilder, List<WebvttCssStyle> list, List<StyleMatch> list2) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, startTag, spannableStringBuilder, list, list2) == null) {
             int i = startTag.position;
@@ -262,41 +263,41 @@ public final class WebvttCueParser {
             int hashCode = str2.hashCode();
             if (hashCode == 0) {
                 if (str2.equals("")) {
-                    c2 = 6;
+                    c = 6;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 105) {
                 if (str2.equals("i")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 3314158) {
                 if (str2.equals(TAG_LANG)) {
-                    c2 = 4;
+                    c = 4;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 98) {
                 if (str2.equals("b")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 99) {
                 if (str2.equals("c")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 117) {
                 if (hashCode == 118 && str2.equals("v")) {
-                    c2 = 5;
+                    c = 5;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str2.equals("u")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     spannableStringBuilder.setSpan(new StyleSpan(1), i, length, 33);
                     break;
@@ -400,42 +401,42 @@ public final class WebvttCueParser {
 
     public static boolean isSupportedTag(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode == 98) {
                 if (str.equals("b")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 99) {
                 if (str.equals("c")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 105) {
                 if (str.equals("i")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 3314158) {
                 if (str.equals(TAG_LANG)) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 117) {
                 if (hashCode == 118 && str.equals("v")) {
-                    c2 = 5;
+                    c = 5;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("u")) {
-                    c2 = 4;
+                    c = 4;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            return c2 == 0 || c2 == 1 || c2 == 2 || c2 == 3 || c2 == 4 || c2 == 5;
+            return c == 0 || c == 1 || c == 2 || c == 3 || c == 4 || c == 5;
         }
         return invokeL.booleanValue;
     }
@@ -559,47 +560,47 @@ public final class WebvttCueParser {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int parsePositionAnchor(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             switch (str.hashCode()) {
                 case -1364013995:
                     if (str.equals("center")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1074341483:
-                    if (str.equals("middle")) {
-                        c2 = 2;
+                    if (str.equals(NativeConstants.MIDDLE)) {
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 100571:
                     if (str.equals("end")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 109757538:
                     if (str.equals("start")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 != 0) {
-                if (c2 == 1 || c2 == 2) {
+            if (c != 0) {
+                if (c == 1 || c == 2) {
                     return 1;
                 }
-                if (c2 != 3) {
+                if (c != 3) {
                     Log.w(TAG, "Invalid anchor value: " + str);
                     return Integer.MIN_VALUE;
                 }
@@ -627,63 +628,63 @@ public final class WebvttCueParser {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static Layout.Alignment parseTextAlignment(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
             switch (str.hashCode()) {
                 case -1364013995:
                     if (str.equals("center")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1074341483:
-                    if (str.equals("middle")) {
-                        c2 = 3;
+                    if (str.equals(NativeConstants.MIDDLE)) {
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 100571:
                     if (str.equals("end")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3317767:
                     if (str.equals("left")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 108511772:
                     if (str.equals("right")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 109757538:
                     if (str.equals("start")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0 || c2 == 1) {
+            if (c == 0 || c == 1) {
                 return Layout.Alignment.ALIGN_NORMAL;
             }
-            if (c2 == 2 || c2 == 3) {
+            if (c == 2 || c == 3) {
                 return Layout.Alignment.ALIGN_CENTER;
             }
-            if (c2 != 4 && c2 != 5) {
+            if (c != 4 && c != 5) {
                 Log.w(TAG, "Invalid alignment value: " + str);
                 return null;
             }

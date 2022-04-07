@@ -19,59 +19,59 @@ public final class UArraysKt___UArraysJvmKt$asList$3 extends AbstractList<UByte>
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public final /* bridge */ boolean contains(Object obj) {
         if (obj instanceof UByte) {
-            return m1179contains7apg3OU(((UByte) obj).m759unboximpl());
+            return m1175contains7apg3OU(((UByte) obj).m755unboximpl());
         }
         return false;
     }
 
     /* renamed from: contains-7apg3OU  reason: not valid java name */
-    public boolean m1179contains7apg3OU(byte b2) {
-        return UByteArray.m763contains7apg3OU(this.$this_asList, b2);
+    public boolean m1175contains7apg3OU(byte b) {
+        return UByteArray.m759contains7apg3OU(this.$this_asList, b);
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public /* bridge */ /* synthetic */ Object get(int i) {
-        return UByte.m704boximpl(m1180getw2LRezQ(i));
+        return UByte.m700boximpl(m1176getw2LRezQ(i));
     }
 
     /* renamed from: get-w2LRezQ  reason: not valid java name */
-    public byte m1180getw2LRezQ(int i) {
-        return UByteArray.m767getw2LRezQ(this.$this_asList, i);
+    public byte m1176getw2LRezQ(int i) {
+        return UByteArray.m763getw2LRezQ(this.$this_asList, i);
     }
 
     @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
     public int getSize() {
-        return UByteArray.m768getSizeimpl(this.$this_asList);
+        return UByteArray.m764getSizeimpl(this.$this_asList);
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object obj) {
         if (obj instanceof UByte) {
-            return m1181indexOf7apg3OU(((UByte) obj).m759unboximpl());
+            return m1177indexOf7apg3OU(((UByte) obj).m755unboximpl());
         }
         return -1;
     }
 
     /* renamed from: indexOf-7apg3OU  reason: not valid java name */
-    public int m1181indexOf7apg3OU(byte b2) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, b2);
+    public int m1177indexOf7apg3OU(byte b) {
+        return ArraysKt___ArraysKt.indexOf(this.$this_asList, b);
     }
 
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return UByteArray.m770isEmptyimpl(this.$this_asList);
+        return UByteArray.m766isEmptyimpl(this.$this_asList);
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int lastIndexOf(Object obj) {
         if (obj instanceof UByte) {
-            return m1182lastIndexOf7apg3OU(((UByte) obj).m759unboximpl());
+            return m1178lastIndexOf7apg3OU(((UByte) obj).m755unboximpl());
         }
         return -1;
     }
 
     /* renamed from: lastIndexOf-7apg3OU  reason: not valid java name */
-    public int m1182lastIndexOf7apg3OU(byte b2) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, b2);
+    public int m1178lastIndexOf7apg3OU(byte b) {
+        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, b);
     }
 }

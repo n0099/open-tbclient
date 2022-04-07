@@ -17,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AudioMsg extends RichMediaMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AudioMsg> CREATOR;
@@ -90,8 +90,8 @@ public class AudioMsg extends RichMediaMsg {
                 jSONObject.put("format", i);
                 jSONObject.put("duration", i2);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(this.TAG, "getAudioContent Json", e2);
+            } catch (JSONException e) {
+                LogUtils.e(this.TAG, "getAudioContent Json", e);
                 return "";
             }
         }
@@ -107,10 +107,10 @@ public class AudioMsg extends RichMediaMsg {
                 this.mRemoteUrl = decode;
                 jSONObject.put("url", decode);
                 this.mjsonContent = jSONObject.toString();
-            } catch (UnsupportedEncodingException e2) {
+            } catch (UnsupportedEncodingException e) {
+                LogUtils.e(this.TAG, "transCodeUrl:", e);
+            } catch (JSONException e2) {
                 LogUtils.e(this.TAG, "transCodeUrl:", e2);
-            } catch (JSONException e3) {
-                LogUtils.e(this.TAG, "transCodeUrl:", e3);
             }
         }
     }
@@ -151,8 +151,8 @@ public class AudioMsg extends RichMediaMsg {
                     transCodeUrl(jSONObject);
                 }
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }

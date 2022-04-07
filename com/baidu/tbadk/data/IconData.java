@@ -15,7 +15,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Icon;
 import tbclient.TshowInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class IconData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String meizhi_icon_name = "meizhi_level";
@@ -86,8 +86,8 @@ public class IconData extends OrmObject implements Serializable {
             this.icon = jSONObject.optString("icon");
             this.name = jSONObject.optString("name");
             this.url = jSONObject.optString("url");
-        } catch (Exception e2) {
-            BdLog.e(e2.toString());
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 

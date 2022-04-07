@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
@@ -27,7 +27,7 @@ public class VideoReceiver extends BroadcastReceiver {
     public int mLastVolume;
     public final VideoReceiverListener mListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i);
 
@@ -88,8 +88,8 @@ public class VideoReceiver extends BroadcastReceiver {
         int i = this.mLastVolume;
         try {
             i = audioManager.getStreamVolume(3);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         if (i != this.mLastVolume) {
             this.mLastVolume = i;
@@ -104,70 +104,70 @@ public class VideoReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
             return;
         }
-        char c2 = 65535;
+        char c = 65535;
         switch (action.hashCode()) {
             case -2128145023:
                 if (action.equals("android.intent.action.SCREEN_OFF")) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
                 break;
             case -1940635523:
                 if (action.equals("android.media.VOLUME_CHANGED_ACTION")) {
-                    c2 = '\b';
+                    c = '\b';
                     break;
                 }
                 break;
             case -1676458352:
                 if (action.equals("android.intent.action.HEADSET_PLUG")) {
-                    c2 = 4;
+                    c = 4;
                     break;
                 }
                 break;
             case -1538406691:
                 if (action.equals("android.intent.action.BATTERY_CHANGED")) {
-                    c2 = 7;
+                    c = 7;
                     break;
                 }
                 break;
             case -1454123155:
                 if (action.equals("android.intent.action.SCREEN_ON")) {
-                    c2 = 2;
+                    c = 2;
                     break;
                 }
                 break;
             case -1172645946:
                 if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
                 break;
             case -549244379:
                 if (action.equals("android.media.AUDIO_BECOMING_NOISY")) {
-                    c2 = 5;
+                    c = 5;
                     break;
                 }
                 break;
             case -403228793:
                 if (action.equals("android.intent.action.CLOSE_SYSTEM_DIALOGS")) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
                 break;
             case 158859398:
                 if (action.equals("android.intent.action.CONFIGURATION_CHANGED")) {
-                    c2 = '\t';
+                    c = '\t';
                     break;
                 }
                 break;
             case 545516589:
                 if (action.equals("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED")) {
-                    c2 = 6;
+                    c = 6;
                     break;
                 }
                 break;
         }
-        switch (c2) {
+        switch (c) {
             case 0:
                 onConnectChanged();
                 return;

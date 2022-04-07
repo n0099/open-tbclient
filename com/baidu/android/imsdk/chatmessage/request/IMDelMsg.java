@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMDelMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMDelMsg";
@@ -153,9 +153,9 @@ public class IMDelMsg extends Message {
                     jSONObject.put("group_type", 3);
                 }
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, e2.getMessage(), e2);
+            } catch (JSONException e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, e.getMessage(), e);
             }
         }
     }
@@ -200,8 +200,8 @@ public class IMDelMsg extends Message {
                     updateDB(context);
                 }
                 super.handleMessageResult(context, jSONObject, i, str);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "handle IMDelMsg exception :", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "handle IMDelMsg exception :", e);
             }
         }
     }

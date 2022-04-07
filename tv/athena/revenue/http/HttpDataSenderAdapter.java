@@ -13,6 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.repackage.w3a;
+import com.repackage.x3a;
+import com.repackage.y3a;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
@@ -44,31 +47,17 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public String version;
 
     /* loaded from: classes8.dex */
-    public class a extends h.a.a.c.b.a {
+    public class a extends x3a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f45826b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f45827c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ byte[] f45828d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f45829e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f45830f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f45831g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ HttpDataSenderAdapter f45832h;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ byte[] d;
+        public final /* synthetic */ PSCIMessageRequest e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ ArrayList g;
+        public final /* synthetic */ HttpDataSenderAdapter h;
 
         public a(HttpDataSenderAdapter httpDataSenderAdapter, int i, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -85,45 +74,45 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     return;
                 }
             }
-            this.f45832h = httpDataSenderAdapter;
+            this.h = httpDataSenderAdapter;
             this.a = i;
-            this.f45826b = i2;
-            this.f45827c = str;
-            this.f45828d = bArr;
-            this.f45829e = pSCIMessageRequest;
-            this.f45830f = str2;
-            this.f45831g = arrayList;
+            this.b = i2;
+            this.c = str;
+            this.d = bArr;
+            this.e = pSCIMessageRequest;
+            this.f = str2;
+            this.g = arrayList;
         }
 
-        @Override // h.a.a.c.b.a
+        @Override // com.repackage.x3a
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f45827c + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
-                String retryDomain = this.f45832h.getRetryDomain(this.f45830f);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.c + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
+                String retryDomain = this.h.getRetryDomain(this.f);
                 if (!z && !TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                        this.f45832h.sendByHttpPost(retryDomain, this.a, this.f45826b, this.f45827c, this.f45831g, this.f45828d);
+                        this.h.sendByHttpPost(retryDomain, this.a, this.b, this.c, this.g, this.d);
                         return;
-                    } catch (Exception e2) {
-                        RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
+                    } catch (Exception e) {
+                        RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e), new Object[0]);
                     }
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
                 int i = this.a;
-                int i2 = this.f45826b;
-                String str = this.f45827c;
-                int cmd = this.f45829e.getCmd();
+                int i2 = this.b;
+                String str = this.c;
+                int cmd = this.e.getCmd();
                 revenueDataParser.onRequestError(i, i2, str, cmd, -500, "服务请求失败message:" + exc.getMessage());
             }
         }
 
-        @Override // h.a.a.c.b.a
+        @Override // com.repackage.x3a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f45832h.onSuccess(this.a, this.f45826b, this.f45827c, this.f45828d, obj, this.f45829e);
+                this.h.onSuccess(this.a, this.b, this.c, this.d, obj, this.e);
             }
         }
     }
@@ -200,8 +189,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     pSCIMessageResponse.cmd = pSCIMessageRequest.getCmd();
                     RLog.error("HttpDataSenderAdapter", "response.cmd:" + pSCIMessageResponse.cmd, new Object[0]);
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 if (i3 == 200) {
@@ -219,8 +208,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     revenueDataParser2.onRequestError(i, i2, str, cmd2, -500, "服务请求失败code:" + i3);
                     RLog.error("HttpDataSenderAdapter", "sendByHttpPost onRequestError code:" + i3, new Object[0]);
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 RevenueDataParser revenueDataParser3 = RevenueDataParser.INSTANCE;
                 int cmd3 = pSCIMessageRequest.getCmd();
                 revenueDataParser3.onRequestError(i, i2, str, cmd3, -500, "服务请求失败error:" + e.getLocalizedMessage());
@@ -254,7 +243,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            h.a.a.c.a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            w3a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -263,7 +252,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            h.a.a.c.a.f().d(i, i2);
+            w3a.f().d(i, i2);
         }
     }
 
@@ -295,14 +284,14 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             DataSenderConfig dataSenderConfig = this.config;
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
                 RLog.warn("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + this.config.gslbAppId);
-                h.a.a.c.c.a b2 = h.a.a.c.c.a.b();
+                y3a b = y3a.b();
                 DataSenderConfig dataSenderConfig2 = this.config;
-                b2.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
+                b.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
             }
             try {
                 sendByHttpPost(this.httpUrl, i, i2, str, arrayList, bArr);
-            } catch (Exception e2) {
-                RLog.error("HttpDataSenderAdapter", "sendData exeception:" + e2.getLocalizedMessage(), new Object[0]);
+            } catch (Exception e) {
+                RLog.error("HttpDataSenderAdapter", "sendData exeception:" + e.getLocalizedMessage(), new Object[0]);
             }
         }
     }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Utf8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMPLETE = 0;
@@ -67,18 +67,18 @@ public final class Utf8 {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            byte b2 = bArr[i - 1];
+            byte b = bArr[i - 1];
             int i3 = i2 - i;
             if (i3 != 0) {
                 if (i3 != 1) {
                     if (i3 == 2) {
-                        return incompleteStateFor(b2, bArr[i], bArr[i + 1]);
+                        return incompleteStateFor(b, bArr[i], bArr[i + 1]);
                     }
                     throw new AssertionError();
                 }
-                return incompleteStateFor(b2, bArr[i]);
+                return incompleteStateFor(b, bArr[i]);
             }
-            return incompleteStateFor(b2);
+            return incompleteStateFor(b);
         }
         return invokeLII.intValue;
     }
@@ -110,49 +110,49 @@ public final class Utf8 {
                 if (i2 >= i3) {
                     return i;
                 }
-                byte b2 = (byte) i;
-                if (b2 < -32) {
-                    if (b2 >= -62) {
+                byte b = (byte) i;
+                if (b < -32) {
+                    if (b >= -62) {
                         i4 = i2 + 1;
                     }
                     return -1;
-                } else if (b2 < -16) {
-                    byte b3 = (byte) (~(i >> 8));
-                    if (b3 == 0) {
+                } else if (b < -16) {
+                    byte b2 = (byte) (~(i >> 8));
+                    if (b2 == 0) {
                         int i5 = i2 + 1;
-                        byte b4 = bArr[i2];
+                        byte b3 = bArr[i2];
                         if (i5 >= i3) {
-                            return incompleteStateFor(b2, b4);
+                            return incompleteStateFor(b, b3);
                         }
                         i2 = i5;
-                        b3 = b4;
+                        b2 = b3;
                     }
-                    if (b3 <= -65 && ((b2 != -32 || b3 >= -96) && (b2 != -19 || b3 < -96))) {
+                    if (b2 <= -65 && ((b != -32 || b2 >= -96) && (b != -19 || b2 < -96))) {
                         i4 = i2 + 1;
                     }
                     return -1;
                 } else {
-                    byte b5 = (byte) (~(i >> 8));
-                    byte b6 = 0;
-                    if (b5 == 0) {
+                    byte b4 = (byte) (~(i >> 8));
+                    byte b5 = 0;
+                    if (b4 == 0) {
                         int i6 = i2 + 1;
-                        b5 = bArr[i2];
+                        b4 = bArr[i2];
                         if (i6 >= i3) {
-                            return incompleteStateFor(b2, b5);
+                            return incompleteStateFor(b, b4);
                         }
                         i2 = i6;
                     } else {
-                        b6 = (byte) (i >> 16);
+                        b5 = (byte) (i >> 16);
                     }
-                    if (b6 == 0) {
+                    if (b5 == 0) {
                         int i7 = i2 + 1;
-                        b6 = bArr[i2];
+                        b5 = bArr[i2];
                         if (i7 >= i3) {
-                            return incompleteStateFor(b2, b5, b6);
+                            return incompleteStateFor(b, b4, b5);
                         }
                         i2 = i7;
                     }
-                    if (b5 <= -65 && (((b2 << 28) + (b5 + 112)) >> 30) == 0 && b6 <= -65) {
+                    if (b4 <= -65 && (((b << 28) + (b4 + 112)) >> 30) == 0 && b5 <= -65) {
                         i4 = i2 + 1;
                     }
                     return -1;
@@ -170,25 +170,25 @@ public final class Utf8 {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i, i2)) == null) {
             while (i < i2) {
                 int i3 = i + 1;
-                byte b2 = bArr[i];
-                if (b2 < 0) {
-                    if (b2 < -32) {
+                byte b = bArr[i];
+                if (b < 0) {
+                    if (b < -32) {
                         if (i3 >= i2) {
-                            return b2;
+                            return b;
                         }
-                        if (b2 >= -62) {
+                        if (b >= -62) {
                             i = i3 + 1;
                             if (bArr[i3] > -65) {
                             }
                         }
                         return -1;
-                    } else if (b2 >= -16) {
+                    } else if (b >= -16) {
                         if (i3 >= i2 - 2) {
                             return incompleteStateFor(bArr, i3, i2);
                         }
                         int i4 = i3 + 1;
-                        byte b3 = bArr[i3];
-                        if (b3 <= -65 && (((b2 << 28) + (b3 + 112)) >> 30) == 0) {
+                        byte b2 = bArr[i3];
+                        if (b2 <= -65 && (((b << 28) + (b2 + 112)) >> 30) == 0) {
                             int i5 = i4 + 1;
                             if (bArr[i4] <= -65) {
                                 i3 = i5 + 1;
@@ -201,8 +201,8 @@ public final class Utf8 {
                         return incompleteStateFor(bArr, i3, i2);
                     } else {
                         int i6 = i3 + 1;
-                        byte b4 = bArr[i3];
-                        if (b4 <= -65 && ((b2 != -32 || b4 >= -96) && (b2 != -19 || b4 < -96))) {
+                        byte b3 = bArr[i3];
+                        if (b3 <= -65 && ((b != -32 || b3 >= -96) && (b != -19 || b3 < -96))) {
                             i = i6 + 1;
                             if (bArr[i6] > -65) {
                             }

@@ -1,13 +1,14 @@
 package com.meizu.cloud.pushsdk.notification;
 
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.repackage.rm9;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MPushMessage implements Serializable {
     public static final String TAG = "MPushMessage";
     public String clickType;
@@ -29,8 +30,8 @@ public class MPushMessage implements Serializable {
                 String next = keys.next();
                 hashMap.put(next, jSONObject.getString(next));
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return hashMap;
     }
@@ -62,17 +63,17 @@ public class MPushMessage implements Serializable {
                         if (jSONObject3 != null) {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
-                    } catch (JSONException e2) {
-                        c.h.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
+                    } catch (JSONException e) {
+                        rm9.d(TAG, "parameter parse error message " + e.getMessage());
                     }
                     jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
-        } catch (JSONException e3) {
-            c.h.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
+        } catch (JSONException e2) {
+            rm9.d(TAG, "parse push message error " + e2.getMessage());
         }
-        c.h.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
+        rm9.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 

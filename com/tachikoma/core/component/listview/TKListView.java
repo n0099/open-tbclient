@@ -24,7 +24,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKListView extends TKBase<ListView> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,17 +59,17 @@ public class TKListView extends TKBase<ListView> implements ILifeCycle {
         }
     }
 
-    public void addHeaderView(View view) {
+    public void addHeaderView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.mList.addHeaderView(view);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.mList.addHeaderView(view2);
         }
     }
 
-    public void addHeaderView(View view, Object obj, boolean z) {
+    public void addHeaderView(View view2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, view, obj, z) == null) {
-            this.mList.addHeaderView(view, obj, z);
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, view2, obj, z) == null) {
+            this.mList.addHeaderView(view2, obj, z);
         }
     }
 
@@ -158,22 +158,22 @@ public class TKListView extends TKBase<ListView> implements ILifeCycle {
         }
     }
 
-    public boolean removeFooterView(View view) {
+    public boolean removeFooterView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, view)) == null) ? this.mList.removeFooterView(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, view2)) == null) ? this.mList.removeFooterView(view2) : invokeL.booleanValue;
     }
 
-    public boolean removeHeaderView(View view) {
+    public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view)) == null) ? this.mList.removeHeaderView(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) ? this.mList.removeHeaderView(view2) : invokeL.booleanValue;
     }
 
-    public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
+    public boolean requestChildRectangleOnScreen(View view2, Rect rect, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048593, this, view, rect, z)) == null) ? this.mList.requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048593, this, view2, rect, z)) == null) ? this.mList.requestChildRectangleOnScreen(view2, rect, z) : invokeLLZ.booleanValue;
     }
 
     public void setAdapter(V8Object v8Object) {

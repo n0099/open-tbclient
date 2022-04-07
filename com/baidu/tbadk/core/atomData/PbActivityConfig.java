@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.k1;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.bq4;
+/* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -234,8 +234,8 @@ public class PbActivityConfig extends IntentConfig {
                 if (!TextUtils.isEmpty(queryParameter2)) {
                     pbActivityConfig.setHighLightPostId(queryParameter2);
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
             return pbActivityConfig;
         }
@@ -338,8 +338,8 @@ public class PbActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().G())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().G());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().I())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().I());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -803,13 +803,13 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(k1 k1Var) {
+    public void setRecomData(bq4 bq4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, k1Var) == null) || (intent = getIntent()) == null || k1Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, bq4Var) == null) || (intent = getIntent()) == null || bq4Var == null) {
             return;
         }
-        k1Var.c(intent);
+        bq4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

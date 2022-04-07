@@ -22,16 +22,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public static Class a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Class f25403b;
+    public static Class b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +42,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,18 +53,18 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
                 List list = (List) CyberClassLoader.b(obj, "nativeLibraryDirectories").get(obj);
                 list.add(0, file);
-                Method b2 = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class, File.class, List.class});
+                Method b = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class, File.class, List.class});
                 ArrayList arrayList = new ArrayList();
                 list.addAll((List) CyberClassLoader.b(obj, "systemNativeLibraryDirectories").get(obj));
                 Object[] objArr = {list, null, arrayList};
-                Field b3 = CyberClassLoader.b(obj, "nativeLibraryPathElements");
-                b3.setAccessible(true);
-                b3.set(obj, (Object[]) b2.invoke(obj, objArr));
+                Field b2 = CyberClassLoader.b(obj, "nativeLibraryPathElements");
+                b2.setAccessible(true);
+                b2.set(obj, (Object[]) b.invoke(obj, objArr));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,17 +75,17 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
                 List list = (List) CyberClassLoader.b(obj, "nativeLibraryDirectories").get(obj);
                 list.add(0, file);
-                Method b2 = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class});
+                Method b = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class});
                 list.addAll((List) CyberClassLoader.b(obj, "systemNativeLibraryDirectories").get(obj));
                 Object[] objArr = {list};
-                Field b3 = CyberClassLoader.b(obj, "nativeLibraryPathElements");
-                b3.setAccessible(true);
-                b3.set(obj, (Object[]) b2.invoke(obj, objArr));
+                Field b2 = CyberClassLoader.b(obj, "nativeLibraryPathElements");
+                b2.setAccessible(true);
+                b2.set(obj, (Object[]) b.invoke(obj, objArr));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,12 +94,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
                 String path = file.getPath();
-                Field b2 = CyberClassLoader.b(classLoader, "libPath");
-                b2.set(classLoader, ((String) b2.get(classLoader)) + ':' + path);
-                Field b3 = CyberClassLoader.b(classLoader, "libraryPathElements");
-                List list = (List) b3.get(classLoader);
+                Field b = CyberClassLoader.b(classLoader, "libPath");
+                b.set(classLoader, ((String) b.get(classLoader)) + ':' + path);
+                Field b2 = CyberClassLoader.b(classLoader, "libraryPathElements");
+                List list = (List) b2.get(classLoader);
                 list.add(0, path);
-                b3.set(classLoader, list);
+                b2.set(classLoader, list);
             }
         }
     }
@@ -174,7 +172,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static void a() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            if (a == null || f25403b == null) {
+            if (a == null || b == null) {
                 Class<?> cls = Class.forName("dalvik.system.DexPathList");
                 a = cls;
                 Class<?>[] declaredClasses = cls.getDeclaredClasses();
@@ -186,12 +184,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                     }
                     Class<?> cls2 = declaredClasses[i];
                     if (cls2.getSimpleName().equals("Element")) {
-                        f25403b = cls2;
+                        b = cls2;
                         break;
                     }
                     i++;
                 }
-                if (f25403b == null) {
+                if (b == null) {
                     throw new AndroidRuntimeException("DexPathList$Element not found!");
                 }
             }
@@ -246,7 +244,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 a();
                 String replace = new File(str).getName().replace(".so", ".dex");
                 DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-                Constructor<?> constructor = f25403b.getConstructors()[0];
+                Constructor<?> constructor = b.getConstructors()[0];
                 int length = constructor.getParameterTypes().length;
                 if (length == 4) {
                     newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -255,16 +253,16 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 } else {
                     newInstance = constructor.newInstance(new File(str), null, loadDex);
                 }
-                Object newInstance2 = Array.newInstance(f25403b, 1);
+                Object newInstance2 = Array.newInstance(b, 1);
                 Array.set(newInstance2, 0, newInstance);
                 Object a2 = a(BaseDexClassLoader.class, this, "pathList");
                 a(a, a2, "dexElements", newInstance2);
                 if (Build.VERSION.SDK_INT >= 19) {
                     a(a, a2, "dexElementsSuppressedExceptions", (Object) null);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throw new AndroidRuntimeException(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new AndroidRuntimeException(e);
             }
         }
     }
@@ -279,10 +277,10 @@ public class CyberClassLoader extends BaseDexClassLoader {
         for (String str : strArr) {
             try {
                 a(classLoader, new File(str));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 sb = new StringBuilder();
                 sb.append("addNativeLibraryDirectories:");
-                th = e2.toString();
+                th = e.toString();
                 sb.append(th);
                 CyberLog.e("CyberClassLoader", sb.toString());
             } catch (Throwable th2) {

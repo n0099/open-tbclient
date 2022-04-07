@@ -13,7 +13,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class JsonParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,12 +49,12 @@ public final class JsonParser {
                     throw new JsonSyntaxException("Did not consume the entire document.");
                 }
                 return parse;
-            } catch (MalformedJsonException e2) {
-                throw new JsonSyntaxException(e2);
-            } catch (IOException e3) {
-                throw new JsonIOException(e3);
-            } catch (NumberFormatException e4) {
-                throw new JsonSyntaxException(e4);
+            } catch (MalformedJsonException e) {
+                throw new JsonSyntaxException(e);
+            } catch (IOException e2) {
+                throw new JsonIOException(e2);
+            } catch (NumberFormatException e3) {
+                throw new JsonSyntaxException(e3);
             }
         }
         return (JsonElement) invokeL.objValue;
@@ -69,10 +69,10 @@ public final class JsonParser {
             try {
                 try {
                     return Streams.parse(jsonReader);
-                } catch (OutOfMemoryError e2) {
+                } catch (OutOfMemoryError e) {
+                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e);
+                } catch (StackOverflowError e2) {
                     throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e2);
-                } catch (StackOverflowError e3) {
-                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e3);
                 }
             } finally {
                 jsonReader.setLenient(isLenient);

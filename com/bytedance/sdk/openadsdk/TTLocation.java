@@ -1,16 +1,14 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TTLocation implements LocationProvider {
     public double a;
+    public double b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public double f38220b;
-
-    public TTLocation(double d2, double d3) {
+    public TTLocation(double d, double d2) {
         this.a = 0.0d;
-        this.f38220b = 0.0d;
-        this.a = d2;
-        this.f38220b = d3;
+        this.b = 0.0d;
+        this.a = d;
+        this.b = d2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.LocationProvider
@@ -20,14 +18,14 @@ public class TTLocation implements LocationProvider {
 
     @Override // com.bytedance.sdk.openadsdk.LocationProvider
     public double getLongitude() {
-        return this.f38220b;
+        return this.b;
     }
 
-    public void setLatitude(double d2) {
-        this.a = d2;
+    public void setLatitude(double d) {
+        this.a = d;
     }
 
-    public void setLongitude(double d2) {
-        this.f38220b = d2;
+    public void setLongitude(double d) {
+        this.b = d;
     }
 }

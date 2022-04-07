@@ -41,7 +41,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -364,8 +364,8 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                     return;
                                 }
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                             ((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).mMultiSrcStatData.dfstat = 1;
                         }
                     }
@@ -433,12 +433,12 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                         httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
                     }
                     httpDNSCacheInfo.mStatus = optInt;
-                } catch (MalformedURLException e2) {
-                    e2.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 }
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -465,8 +465,8 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                             treeSet.add(httpDNSInfo);
                         }
                     }
-                } catch (MalformedURLException e2) {
-                    e2.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 }
             } else {
                 Iterator<HttpDNSInfo> it = httpDNSCacheInfo.mBackupHttpDNSInfoSet.iterator();

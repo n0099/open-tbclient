@@ -167,10 +167,10 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void setAnchorView(@NonNull View view) {
+    public void setAnchorView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            this.mAnchorView = view;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            this.mAnchorView = view2;
         }
     }
 
@@ -235,13 +235,13 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view) {
-        this(context, menuBuilder, view, false, R$attr.popupMenuStyle, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
+        this(context, menuBuilder, view2, false, R$attr.popupMenuStyle, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view};
+            Object[] objArr = {context, menuBuilder, view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -256,13 +256,13 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i) {
-        this(context, menuBuilder, view, z, i, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
+        this(context, menuBuilder, view2, z, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i)};
+            Object[] objArr = {context, menuBuilder, view2, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -283,12 +283,12 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i, @StyleRes int i2) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context, menuBuilder, view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -332,7 +332,7 @@ public class MenuPopupHelper implements MenuHelper {
         };
         this.mContext = context;
         this.mMenu = menuBuilder;
-        this.mAnchorView = view;
+        this.mAnchorView = view2;
         this.mOverflowOnly = z;
         this.mPopupStyleAttr = i;
         this.mPopupStyleRes = i2;

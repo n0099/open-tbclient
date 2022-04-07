@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface AudioRendererEventListener {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

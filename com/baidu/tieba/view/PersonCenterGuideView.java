@@ -24,40 +24,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f36926b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f36927c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f36928d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f36929e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RotateAnimation f36930f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f36931g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public AnimationSet f36932h;
+    public TbImageView b;
+    public TextView c;
+    public ImageView d;
+    public View e;
+    public RotateAnimation f;
+    public AlphaAnimation g;
+    public AnimationSet h;
     public ObjectAnimator i;
     public ObjectAnimator j;
     public AnimatorSet k;
     public Animation.AnimationListener l;
     public final CustomMessageListener m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +91,7 @@ public class PersonCenterGuideView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,9 +127,9 @@ public class PersonCenterGuideView extends RelativeLayout {
             }
             this.a.a = true;
             this.a.setVisibility(0);
-            this.a.f36929e.setVisibility(4);
-            this.a.f36926b.startAnimation(this.a.f36932h);
-            c.a.o0.r.j0.b.k().u("has_shown_person_center_guide", this.a.a);
+            this.a.e.setVisibility(4);
+            this.a.b.startAnimation(this.a.h);
+            wt4.k().u("has_shown_person_center_guide", this.a.a);
         }
     }
 
@@ -177,15 +164,15 @@ public class PersonCenterGuideView extends RelativeLayout {
             if (animatorSet != null) {
                 animatorSet.cancel();
             }
-            AnimationSet animationSet = this.f36932h;
+            AnimationSet animationSet = this.h;
             if (animationSet != null) {
                 animationSet.cancel();
             }
-            RotateAnimation rotateAnimation = this.f36930f;
+            RotateAnimation rotateAnimation = this.f;
             if (rotateAnimation != null) {
                 rotateAnimation.cancel();
             }
-            AlphaAnimation alphaAnimation = this.f36931g;
+            AlphaAnimation alphaAnimation = this.g;
             if (alphaAnimation != null) {
                 alphaAnimation.cancel();
             }
@@ -203,47 +190,47 @@ public class PersonCenterGuideView extends RelativeLayout {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b3, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091782);
-            this.f36926b = tbImageView;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b0, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09177f);
+            this.b = tbImageView;
             tbImageView.setIsRound(true);
-            this.f36929e = findViewById(R.id.obfuscated_res_0x7f091785);
-            this.f36927c = (TextView) findViewById(R.id.obfuscated_res_0x7f091784);
-            this.f36928d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091783);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091782);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091781);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091780);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f36930f = rotateAnimation;
+            this.f = rotateAnimation;
             rotateAnimation.setDuration(660L);
-            this.f36930f.setAnimationListener(this.l);
+            this.f.setAnimationListener(this.l);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            this.f36931g = alphaAnimation;
+            this.g = alphaAnimation;
             alphaAnimation.setDuration(660L);
             AnimationSet animationSet = new AnimationSet(true);
-            this.f36932h = animationSet;
-            animationSet.addAnimation(this.f36930f);
-            this.f36932h.addAnimation(this.f36931g);
-            this.a = c.a.o0.r.j0.b.k().h("has_shown_person_center_guide", false);
+            this.h = animationSet;
+            animationSet.addAnimation(this.f);
+            this.h.addAnimation(this.g);
+            this.a = wt4.k().h("has_shown_person_center_guide", false);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setImageResource(this.f36926b, R.drawable.person_center_head_guide_circle);
-            SkinManager.setImageResource(this.f36928d, R.drawable.icon_topbar_close_white_n);
-            SkinManager.setViewTextColor(this.f36927c, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.f36929e, R.drawable.person_center_header_guide_tip_bg);
+            SkinManager.setImageResource(this.b, R.drawable.person_center_head_guide_circle);
+            SkinManager.setImageResource(this.d, R.drawable.icon_topbar_close_white_n);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.e, R.drawable.person_center_header_guide_tip_bg);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f36929e.setVisibility(0);
+            this.e.setVisibility(0);
             if (this.i == null) {
-                this.i = ObjectAnimator.ofFloat(this.f36929e, AnimationProperty.TRANSLATE_X, -this.f36927c.getWidth(), 0.0f);
+                this.i = ObjectAnimator.ofFloat(this.e, AnimationProperty.TRANSLATE_X, -this.c.getWidth(), 0.0f);
             }
             if (this.k == null) {
-                this.j = ObjectAnimator.ofFloat(this.f36929e, AnimationProperty.OPACITY, 0.0f, 1.0f);
+                this.j = ObjectAnimator.ofFloat(this.e, AnimationProperty.OPACITY, 0.0f, 1.0f);
             }
             if (this.k == null) {
                 AnimatorSet animatorSet = new AnimatorSet();

@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_FORM_OTHER_DEVICE = 2;
@@ -410,8 +410,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     }
                 }
                 jSONObject.put("content", jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -495,16 +495,16 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
                         jSONObject2.put("stargroupext", this.mjsonStarExtra);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     jSONObject = jSONObject2;
-                    e = e2;
+                    e = e;
                     LogUtils.e(TAG, "getMsgContent Json", e);
                     jSONObject2 = jSONObject;
                     if (jSONObject2 != null) {
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 jSONObject = null;
             }
             if (jSONObject2 != null) {
@@ -611,8 +611,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             }
             try {
                 return new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 100;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -632,8 +632,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     return jSONObject.optInt("sub_app_identity", -1) == 16;
                 }
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -695,8 +695,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             }
             try {
                 return new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -778,8 +778,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     }
                     setSenderUid(jSONObject.optString("buid"));
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "parseJsonString", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "parseJsonString", e);
                 }
             }
             return false;
@@ -818,8 +818,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         setTriggerReasonn(jSONObject.optLong(Constants.EXTRA_TRIGGER_REASON));
                     }
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "parseJsonString", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "parseJsonString", e);
                 }
             }
             return false;
@@ -853,8 +853,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         jSONObject.put("stargroupext", this.mjsonStarExtra);
                     }
                     this.mjsonContent = jSONObject.toString();
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "getMsgContent Json", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "getMsgContent Json", e);
                 }
             }
             parseExt();
@@ -1194,8 +1194,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                         if (jSONObject.has("sub_app_identity") && jSONObject.optInt("sub_app_identity") == 6) {
                             return true;
                         }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -1216,8 +1216,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                 jSONObject.put("time", getMsgTime());
                 jSONObject.put("status", getStatus());
                 jSONObject.put("error", getTipsCode());
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "toJsonString exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "toJsonString exception ", e);
             }
             return jSONObject.toString();
         }

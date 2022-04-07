@@ -3,7 +3,6 @@ package com.baidu.browser.sailor;
 import android.content.Context;
 import android.net.http.SslError;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k.b.b.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,13 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes3.dex */
-public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
+import com.repackage.ly;
+/* loaded from: classes.dex */
+public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, ly {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class DownloadTaskType {
         public static final /* synthetic */ DownloadTaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface IDownloadTaskListener extends INoProGuard {
         void onDownloadCancel(String str, long j, long j2, String str2);
 

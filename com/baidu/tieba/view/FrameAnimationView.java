@@ -7,9 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.l.d;
-import c.a.d.f.m.e;
-import c.a.d.f.p.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -18,8 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fo;
+import com.repackage.ig;
+import com.repackage.ni;
+import com.repackage.pg;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrameAnimationView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +34,7 @@ public class FrameAnimationView extends TbImageView {
     public Rect y0;
     public List<String> z0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +62,9 @@ public class FrameAnimationView extends TbImageView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.a.D0);
+                pg.a().removeCallbacks(this.a.D0);
                 if (this.a.z0 != null) {
-                    this.a.S();
+                    this.a.T();
                 }
             }
         }
@@ -106,12 +107,12 @@ public class FrameAnimationView extends TbImageView {
             }
             String frameUrl = getFrameUrl();
             this.v0++;
-            if (!m.isEmpty(frameUrl)) {
-                c.a.d.o.d.a aVar = (c.a.d.o.d.a) d.h().n(frameUrl, 10, new Object[0]);
-                if (aVar != null) {
-                    return aVar.p();
+            if (!ni.isEmpty(frameUrl)) {
+                fo foVar = (fo) ig.h().n(frameUrl, 10, new Object[0]);
+                if (foVar != null) {
+                    return foVar.p();
                 }
-                d.h().m(frameUrl, 10, null, this.C0);
+                ig.h().m(frameUrl, 10, null, this.C0);
             }
             return null;
         }
@@ -131,7 +132,7 @@ public class FrameAnimationView extends TbImageView {
         return (String) invokeV.objValue;
     }
 
-    public final void S() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.z0 == null) {
             return;
@@ -142,10 +143,10 @@ public class FrameAnimationView extends TbImageView {
             this.x0.set(0, 0, frameBitmap.getWidth(), this.w0.getHeight());
         }
         invalidate();
-        e.a().postDelayed(this.D0, this.A0);
+        pg.a().postDelayed(this.D0, this.A0);
     }
 
-    public final boolean T(List<String> list) {
+    public final boolean U(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -163,18 +164,18 @@ public class FrameAnimationView extends TbImageView {
         return invokeL.booleanValue;
     }
 
-    public void U() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.z0 == null) {
             return;
         }
-        S();
+        T();
     }
 
-    public void V() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e.a().removeCallbacks(this.D0);
+            pg.a().removeCallbacks(this.D0);
         }
     }
 
@@ -186,7 +187,7 @@ public class FrameAnimationView extends TbImageView {
             if (this.B0) {
                 return;
             }
-            U();
+            V();
         }
     }
 
@@ -195,7 +196,7 @@ public class FrameAnimationView extends TbImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            V();
+            W();
         }
     }
 
@@ -220,10 +221,10 @@ public class FrameAnimationView extends TbImageView {
         }
         this.B0 = false;
         this.A0 = i;
-        if (T(list)) {
+        if (U(list)) {
             return;
         }
-        e.a().removeCallbacks(this.D0);
+        pg.a().removeCallbacks(this.D0);
         this.z0 = list;
         this.v0 = 0;
     }
@@ -263,11 +264,11 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || m.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || ni.isEmpty(str)) {
             return;
         }
         this.B0 = true;
-        J(str, 10, false);
+        K(str, 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

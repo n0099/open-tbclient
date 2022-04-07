@@ -17,17 +17,13 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class w extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f38652b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Button f38653c;
+    public TextView b;
+    public Button c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w(Context context) {
@@ -97,8 +93,8 @@ public abstract class w extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f38653c);
-            arrayList.add(this.f38652b);
+            arrayList.add(this.c);
+            arrayList.add(this.b);
             arrayList.add(this.a);
             return arrayList;
         }
@@ -108,7 +104,7 @@ public abstract class w extends NativeAdContainer {
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
-            this.f38652b.setText(nativeUnifiedADData.getTitle());
+            this.b.setText(nativeUnifiedADData.getTitle());
             this.a.setText(nativeUnifiedADData.getDesc());
             nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
             b(nativeUnifiedADData);
@@ -123,28 +119,28 @@ public abstract class w extends NativeAdContainer {
             if (nativeUnifiedADData.isAppAd()) {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
-                    button = this.f38653c;
-                    i = R.string.obfuscated_res_0x7f0f075a;
+                    button = this.c;
+                    i = R.string.obfuscated_res_0x7f0f075f;
                 } else if (appStatus == 1) {
-                    button = this.f38653c;
-                    i = R.string.obfuscated_res_0x7f0f0761;
+                    button = this.c;
+                    i = R.string.obfuscated_res_0x7f0f0766;
                 } else if (appStatus == 2) {
-                    button = this.f38653c;
-                    i = R.string.obfuscated_res_0x7f0f0765;
+                    button = this.c;
+                    i = R.string.obfuscated_res_0x7f0f076a;
                 } else if (appStatus == 4) {
-                    this.f38653c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
+                    this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
-                    button = this.f38653c;
-                    i = R.string.obfuscated_res_0x7f0f075d;
+                    button = this.c;
+                    i = R.string.obfuscated_res_0x7f0f0762;
                 } else if (appStatus == 16) {
-                    button = this.f38653c;
-                    i = R.string.obfuscated_res_0x7f0f075f;
+                    button = this.c;
+                    i = R.string.obfuscated_res_0x7f0f0764;
                 }
                 button.setText(i);
             }
-            button = this.f38653c;
-            i = R.string.obfuscated_res_0x7f0f0766;
+            button = this.c;
+            i = R.string.obfuscated_res_0x7f0f076b;
             button.setText(i);
         }
     }
@@ -154,9 +150,9 @@ public abstract class w extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
-            this.f38652b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f3);
-            this.f38653c = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.c = (Button) findViewById(R.id.obfuscated_res_0x7f09009c);
         }
     }
 }

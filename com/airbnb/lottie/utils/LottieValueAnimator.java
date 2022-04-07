@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieValueAnimator extends BaseLottieAnimator implements Choreographer.FrameCallback {
     @Nullable
     public LottieComposition composition;
@@ -37,8 +37,8 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         if (this.composition == null) {
             return;
         }
-        float f2 = this.frame;
-        if (f2 < this.minFrame || f2 > this.maxFrame) {
+        float f = this.frame;
+        if (f < this.minFrame || f > this.maxFrame) {
             throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.minFrame), Float.valueOf(this.maxFrame), Float.valueOf(this.frame)));
         }
     }
@@ -65,13 +65,13 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         L.beginSection("LottieValueAnimator#doFrame");
         long j2 = this.lastFrameTimeNs;
         float frameDurationNs = ((float) (j2 != 0 ? j - j2 : 0L)) / getFrameDurationNs();
-        float f2 = this.frame;
+        float f = this.frame;
         if (isReversed()) {
             frameDurationNs = -frameDurationNs;
         }
-        float f3 = f2 + frameDurationNs;
-        this.frame = f3;
-        boolean z = !MiscUtils.contains(f3, getMinFrame(), getMaxFrame());
+        float f2 = f + frameDurationNs;
+        this.frame = f2;
+        boolean z = !MiscUtils.contains(f2, getMinFrame(), getMaxFrame());
         this.frame = MiscUtils.clamp(this.frame, getMinFrame(), getMaxFrame());
         this.lastFrameTimeNs = j;
         notifyUpdate();
@@ -155,8 +155,8 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         if (lottieComposition == null) {
             return 0.0f;
         }
-        float f2 = this.maxFrame;
-        return f2 == 2.1474836E9f ? lottieComposition.getEndFrame() : f2;
+        float f = this.maxFrame;
+        return f == 2.1474836E9f ? lottieComposition.getEndFrame() : f;
     }
 
     public float getMinFrame() {
@@ -164,8 +164,8 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         if (lottieComposition == null) {
             return 0.0f;
         }
-        float f2 = this.minFrame;
-        return f2 == -2.1474836E9f ? lottieComposition.getStartFrame() : f2;
+        float f = this.minFrame;
+        return f == -2.1474836E9f ? lottieComposition.getStartFrame() : f;
     }
 
     public float getSpeed() {
@@ -229,37 +229,37 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         } else {
             setMinAndMaxFrames((int) lottieComposition.getStartFrame(), (int) lottieComposition.getEndFrame());
         }
-        float f2 = this.frame;
+        float f = this.frame;
         this.frame = 0.0f;
-        setFrame((int) f2);
+        setFrame((int) f);
         notifyUpdate();
     }
 
-    public void setFrame(float f2) {
-        if (this.frame == f2) {
+    public void setFrame(float f) {
+        if (this.frame == f) {
             return;
         }
-        this.frame = MiscUtils.clamp(f2, getMinFrame(), getMaxFrame());
+        this.frame = MiscUtils.clamp(f, getMinFrame(), getMaxFrame());
         this.lastFrameTimeNs = 0L;
         notifyUpdate();
     }
 
-    public void setMaxFrame(float f2) {
-        setMinAndMaxFrames(this.minFrame, f2);
+    public void setMaxFrame(float f) {
+        setMinAndMaxFrames(this.minFrame, f);
     }
 
-    public void setMinAndMaxFrames(float f2, float f3) {
-        if (f2 <= f3) {
+    public void setMinAndMaxFrames(float f, float f2) {
+        if (f <= f2) {
             LottieComposition lottieComposition = this.composition;
             float startFrame = lottieComposition == null ? -3.4028235E38f : lottieComposition.getStartFrame();
             LottieComposition lottieComposition2 = this.composition;
             float endFrame = lottieComposition2 == null ? Float.MAX_VALUE : lottieComposition2.getEndFrame();
-            this.minFrame = MiscUtils.clamp(f2, startFrame, endFrame);
-            this.maxFrame = MiscUtils.clamp(f3, startFrame, endFrame);
-            setFrame((int) MiscUtils.clamp(this.frame, f2, f3));
+            this.minFrame = MiscUtils.clamp(f, startFrame, endFrame);
+            this.maxFrame = MiscUtils.clamp(f2, startFrame, endFrame);
+            setFrame((int) MiscUtils.clamp(this.frame, f, f2));
             return;
         }
-        throw new IllegalArgumentException(String.format("minFrame (%s) must be <= maxFrame (%s)", Float.valueOf(f2), Float.valueOf(f3)));
+        throw new IllegalArgumentException(String.format("minFrame (%s) must be <= maxFrame (%s)", Float.valueOf(f), Float.valueOf(f2)));
     }
 
     public void setMinFrame(int i) {
@@ -276,8 +276,8 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         reverseAnimationSpeed();
     }
 
-    public void setSpeed(float f2) {
-        this.speed = f2;
+    public void setSpeed(float f) {
+        this.speed = f;
     }
 
     @MainThread

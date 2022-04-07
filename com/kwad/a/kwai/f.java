@@ -21,14 +21,12 @@ import java.util.Collections;
 import java.util.List;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f implements c, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final FileChannel f39072b;
+    public final FileChannel b;
 
     public f(File file) {
         Interceptable interceptable = $ic;
@@ -49,7 +47,7 @@ public class f implements c, Closeable {
         if (file == null || !file.exists()) {
             throw new IllegalArgumentException("File is null or does not exist");
         }
-        this.f39072b = new FileInputStream(file).getChannel();
+        this.b = new FileInputStream(file).getChannel();
     }
 
     private long a(c.b bVar, long j, long j2) {
@@ -57,11 +55,11 @@ public class f implements c, Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bVar, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             for (long j3 = 0; j3 < j; j3++) {
-                c.AbstractC1943c a = bVar.a(j3);
+                c.AbstractC0283c a = bVar.a(j3);
                 if (a.a == 1) {
-                    long j4 = a.f39070c;
-                    if (j4 <= j2 && j2 <= a.f39071d + j4) {
-                        return (j2 - j4) + a.f39069b;
+                    long j4 = a.c;
+                    if (j4 <= j2 && j2 <= a.d + j4) {
+                        return (j2 - j4) + a.b;
                     }
                 }
             }
@@ -74,16 +72,16 @@ public class f implements c, Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f39072b.position(0L);
+            this.b.position(0L);
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             if (c(allocate, 0L) == 1179403647) {
-                short e2 = e(allocate, 4L);
+                short e = e(allocate, 4L);
                 boolean z = e(allocate, 5L) == 2;
-                if (e2 == 1) {
+                if (e == 1) {
                     return new d(z, this);
                 }
-                if (e2 == 2) {
+                if (e == 2) {
                     return new e(z, this);
                 }
                 throw new IllegalStateException("Invalid class type!");
@@ -102,11 +100,11 @@ public class f implements c, Closeable {
         StringBuilder sb = new StringBuilder();
         while (true) {
             long j2 = 1 + j;
-            short e2 = e(byteBuffer, j);
-            if (e2 == 0) {
+            short e = e(byteBuffer, j);
+            if (e == 0) {
                 return sb.toString();
             }
-            sb.append((char) e2);
+            sb.append((char) e);
             j = j2;
         }
     }
@@ -118,7 +116,7 @@ public class f implements c, Closeable {
             byteBuffer.limit(i);
             long j2 = 0;
             while (j2 < i) {
-                int read = this.f39072b.read(byteBuffer, j + j2);
+                int read = this.b.read(byteBuffer, j + j2);
                 if (read == -1) {
                     throw new EOFException();
                 }
@@ -143,12 +141,12 @@ public class f implements c, Closeable {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f39072b.position(0L);
+            this.b.position(0L);
             ArrayList arrayList = new ArrayList();
             c.b a = a();
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(a.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-            long j2 = a.f39066f;
+            long j2 = a.f;
             int i = 0;
             if (j2 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
                 j2 = a.a(0).a;
@@ -159,9 +157,9 @@ public class f implements c, Closeable {
                     j = 0;
                     break;
                 }
-                c.AbstractC1943c a2 = a.a(j3);
+                c.AbstractC0283c a2 = a.a(j3);
                 if (a2.a == 2) {
-                    j = a2.f39069b;
+                    j = a2.b;
                     break;
                 }
                 j3++;
@@ -176,9 +174,9 @@ public class f implements c, Closeable {
                 long j5 = j;
                 long j6 = a3.a;
                 if (j6 == 1) {
-                    arrayList2.add(Long.valueOf(a3.f39061b));
+                    arrayList2.add(Long.valueOf(a3.b));
                 } else if (j6 == 5) {
-                    j4 = a3.f39061b;
+                    j4 = a3.b;
                 }
                 i++;
                 if (a3.a == 0) {
@@ -212,7 +210,7 @@ public class f implements c, Closeable {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f39072b.close();
+            this.b.close();
         }
     }
 

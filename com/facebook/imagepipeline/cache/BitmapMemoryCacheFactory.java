@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,39 +8,25 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+/* loaded from: classes2.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29387b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29388c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f29389d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f29390e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f29391f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f29392g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public RectF f29393h;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public Paint g;
+    public RectF h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CommonTagView(Context context) {
@@ -66,12 +52,12 @@ public class CommonTagView extends TextView {
     public final void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f04018b, R.attr.obfuscated_res_0x7f040624});
-            this.f29387b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
-            this.f29388c = obtainStyledAttributes.getColor(0, -16777216);
-            this.f29389d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f040662});
+            this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
+            this.c = obtainStyledAttributes.getColor(0, -16777216);
+            this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? n0.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? n0.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? n0.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? n0.f(context, 1.0f) : getPaddingBottom());
+            setPadding(getPaddingLeft() == 0 ? ae3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ae3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ae3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ae3.f(context, 1.0f) : getPaddingBottom());
             b(context);
         }
     }
@@ -80,8 +66,8 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.f29392g = new Paint();
-            this.f29393h = new RectF();
+            this.g = new Paint();
+            this.h = new RectF();
         }
     }
 
@@ -90,23 +76,23 @@ public class CommonTagView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f29390e) {
-                this.f29392g.setStyle(Paint.Style.STROKE);
-                this.f29392g.setAntiAlias(true);
-                this.f29392g.setStrokeWidth(this.f29387b);
-                if (this.f29391f && this.f29388c != getCurrentTextColor()) {
-                    this.f29388c = getCurrentTextColor();
+            if (this.e) {
+                this.g.setStyle(Paint.Style.STROKE);
+                this.g.setAntiAlias(true);
+                this.g.setStrokeWidth(this.b);
+                if (this.f && this.c != getCurrentTextColor()) {
+                    this.c = getCurrentTextColor();
                 }
-                this.f29392g.setColor(this.f29388c);
-                RectF rectF = this.f29393h;
-                int i = this.f29387b;
+                this.g.setColor(this.c);
+                RectF rectF = this.h;
+                int i = this.b;
                 rectF.left = i * 0.5f;
                 rectF.top = i * 0.5f;
-                rectF.right = getMeasuredWidth() - (this.f29387b * 0.5f);
-                this.f29393h.bottom = getMeasuredHeight() - (this.f29387b * 0.5f);
-                RectF rectF2 = this.f29393h;
-                int i2 = this.f29389d;
-                canvas.drawRoundRect(rectF2, i2, i2, this.f29392g);
+                rectF.right = getMeasuredWidth() - (this.b * 0.5f);
+                this.h.bottom = getMeasuredHeight() - (this.b * 0.5f);
+                RectF rectF2 = this.h;
+                int i2 = this.d;
+                canvas.drawRoundRect(rectF2, i2, i2, this.g);
             }
         }
     }
@@ -151,8 +137,8 @@ public class CommonTagView extends TextView {
                 return;
             }
         }
-        this.f29390e = true;
-        this.f29391f = true;
+        this.e = true;
+        this.f = true;
         a(context, attributeSet, i);
     }
 }

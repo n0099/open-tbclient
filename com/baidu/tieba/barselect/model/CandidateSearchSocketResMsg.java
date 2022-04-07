@@ -1,20 +1,20 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.p0.e0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rv5;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a candidateData;
+    public rv5 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchSocketResMsg() {
@@ -48,9 +48,9 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
             setErrorString(searchResIdl.error.errmsg);
         }
         if (searchResIdl.data.uid.longValue() != 0) {
-            a aVar = new a();
-            this.candidateData = aVar;
-            aVar.a(searchResIdl.data);
+            rv5 rv5Var = new rv5();
+            this.candidateData = rv5Var;
+            rv5Var.a(searchResIdl.data);
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }

@@ -19,13 +19,13 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BlockingFlowableNext<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<? extends T> source;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class NextIterator<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
                         throw ExceptionHelper.wrapOrThrow(error);
                     }
                     throw new IllegalStateException("Should not reach here");
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     this.observer.dispose();
-                    this.error = e2;
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    this.error = e;
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             return invokeV.booleanValue;
@@ -137,7 +137,7 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class NextSubscriber<T> extends DisposableSubscriber<Notification<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f implements IHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -181,8 +181,8 @@ public class f implements IHttpRequest {
                     this.qK.re = this.qY;
                 }
                 return this.qK;
-            } catch (MalformedURLException e2) {
-                throw new HttpException(3, e2);
+            } catch (MalformedURLException e) {
+                throw new HttpException(3, e);
             }
         }
         return (g) invokeV.objValue;
@@ -363,8 +363,8 @@ public class f implements IHttpRequest {
                 if (eM != null) {
                     this.qZ = executor.a(eM, aVar, this.qN);
                 }
-            } catch (HttpException e2) {
-                this.qZ = executor.a(e2, aVar);
+            } catch (HttpException e) {
+                this.qZ = executor.a(e, aVar);
             }
         }
     }

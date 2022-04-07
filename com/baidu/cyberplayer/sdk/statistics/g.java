@@ -11,14 +11,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<f> f25473b;
+    public List<f> b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class g {
             }
         }
         this.a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f25473b = new ArrayList();
+        this.b = new ArrayList();
     }
 
     public JSONObject a() throws JSONException {
@@ -46,12 +44,12 @@ public class g {
             if (cVar != null) {
                 cVar.a(jSONObject);
             }
-            if (this.f25473b != null) {
+            if (this.b != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < this.f25473b.size(); i++) {
+                for (int i = 0; i < this.b.size(); i++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("type", this.f25473b.get(i).a());
-                    if (this.f25473b.get(i).a(jSONObject2) != null) {
+                    jSONObject2.put("type", this.b.get(i).a());
+                    if (this.b.get(i).a(jSONObject2) != null) {
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -70,10 +68,10 @@ public class g {
             c cVar = this.a;
             if (cVar != null && i == 24322) {
                 cVar.a(new e(i, str, str2));
-            } else if (this.f25473b != null) {
+            } else if (this.b != null) {
                 e eVar = new e(i, str, str2);
-                for (int i2 = 0; i2 < this.f25473b.size(); i2++) {
-                    f fVar = this.f25473b.get(i2);
+                for (int i2 = 0; i2 < this.b.size(); i2++) {
+                    f fVar = this.b.get(i2);
                     if (fVar.a() == i) {
                         fVar.a(eVar);
                         return;
@@ -81,7 +79,7 @@ public class g {
                 }
                 f fVar2 = new f(i);
                 fVar2.a(eVar);
-                this.f25473b.add(fVar2);
+                this.b.add(fVar2);
             }
         }
     }
@@ -93,7 +91,7 @@ public class g {
             if (cVar != null) {
                 cVar.b();
             }
-            List<f> list = this.f25473b;
+            List<f> list = this.b;
             if (list != null) {
                 list.clear();
             }

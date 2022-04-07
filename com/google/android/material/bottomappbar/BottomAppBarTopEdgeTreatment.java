@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.ShapePath;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANGLE_LEFT = 180;
@@ -26,12 +26,12 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
     public float horizontalOffset;
     public float roundedCornerRadius;
 
-    public BottomAppBarTopEdgeTreatment(float f2, float f3, float f4) {
+    public BottomAppBarTopEdgeTreatment(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,9 +41,9 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
                 return;
             }
         }
-        this.fabMargin = f2;
-        this.roundedCornerRadius = f3;
-        setCradleVerticalOffset(f4);
+        this.fabMargin = f;
+        this.roundedCornerRadius = f2;
+        setCradleVerticalOffset(f3);
         this.horizontalOffset = 0.0f;
     }
 
@@ -54,35 +54,35 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f2, float f3, float f4, @NonNull ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), shapePath}) == null) {
-            float f5 = this.fabDiameter;
-            if (f5 == 0.0f) {
-                shapePath.lineTo(f2, 0.0f);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
+            float f4 = this.fabDiameter;
+            if (f4 == 0.0f) {
+                shapePath.lineTo(f, 0.0f);
                 return;
             }
-            float f6 = ((this.fabMargin * 2.0f) + f5) / 2.0f;
-            float f7 = f4 * this.roundedCornerRadius;
-            float f8 = f3 + this.horizontalOffset;
-            float f9 = (this.cradleVerticalOffset * f4) + ((1.0f - f4) * f6);
-            if (f9 / f6 >= 1.0f) {
-                shapePath.lineTo(f2, 0.0f);
+            float f5 = ((this.fabMargin * 2.0f) + f4) / 2.0f;
+            float f6 = f3 * this.roundedCornerRadius;
+            float f7 = f2 + this.horizontalOffset;
+            float f8 = (this.cradleVerticalOffset * f3) + ((1.0f - f3) * f5);
+            if (f8 / f5 >= 1.0f) {
+                shapePath.lineTo(f, 0.0f);
                 return;
             }
-            float f10 = f6 + f7;
-            float f11 = f9 + f7;
-            float sqrt = (float) Math.sqrt((f10 * f10) - (f11 * f11));
-            float f12 = f8 - sqrt;
-            float f13 = f8 + sqrt;
-            float degrees = (float) Math.toDegrees(Math.atan(sqrt / f11));
-            float f14 = 90.0f - degrees;
-            shapePath.lineTo(f12, 0.0f);
-            float f15 = f7 * 2.0f;
-            shapePath.addArc(f12 - f7, 0.0f, f12 + f7, f15, 270.0f, degrees);
-            shapePath.addArc(f8 - f6, (-f6) - f9, f8 + f6, f6 - f9, 180.0f - f14, (f14 * 2.0f) - 180.0f);
-            shapePath.addArc(f13 - f7, 0.0f, f13 + f7, f15, 270.0f - degrees, degrees);
-            shapePath.lineTo(f2, 0.0f);
+            float f9 = f5 + f6;
+            float f10 = f8 + f6;
+            float sqrt = (float) Math.sqrt((f9 * f9) - (f10 * f10));
+            float f11 = f7 - sqrt;
+            float f12 = f7 + sqrt;
+            float degrees = (float) Math.toDegrees(Math.atan(sqrt / f10));
+            float f13 = 90.0f - degrees;
+            shapePath.lineTo(f11, 0.0f);
+            float f14 = f6 * 2.0f;
+            shapePath.addArc(f11 - f6, 0.0f, f11 + f6, f14, 270.0f, degrees);
+            shapePath.addArc(f7 - f5, (-f5) - f8, f7 + f5, f5 - f8, 180.0f - f13, (f13 * 2.0f) - 180.0f);
+            shapePath.addArc(f12 - f6, 0.0f, f12 + f6, f14, 270.0f - degrees, degrees);
+            shapePath.lineTo(f, 0.0f);
         }
     }
 
@@ -112,43 +112,43 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.horizontalOffset : invokeV.floatValue;
     }
 
-    public void setCradleVerticalOffset(@FloatRange(from = 0.0d) float f2) {
+    public void setCradleVerticalOffset(@FloatRange(from = 0.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            if (f2 >= 0.0f) {
-                this.cradleVerticalOffset = f2;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            if (f >= 0.0f) {
+                this.cradleVerticalOffset = f;
                 return;
             }
             throw new IllegalArgumentException("cradleVerticalOffset must be positive.");
         }
     }
 
-    public void setFabCradleMargin(float f2) {
+    public void setFabCradleMargin(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.fabMargin = f2;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.fabMargin = f;
         }
     }
 
-    public void setFabCradleRoundedCornerRadius(float f2) {
+    public void setFabCradleRoundedCornerRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.roundedCornerRadius = f2;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.roundedCornerRadius = f;
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setFabDiameter(float f2) {
+    public void setFabDiameter(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.fabDiameter = f2;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.fabDiameter = f;
         }
     }
 
-    public void setHorizontalOffset(float f2) {
+    public void setHorizontalOffset(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.horizontalOffset = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.horizontalOffset = f;
         }
     }
 }

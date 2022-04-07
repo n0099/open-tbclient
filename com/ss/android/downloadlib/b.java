@@ -24,12 +24,8 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b implements com.ss.android.downloadad.api.b {
     public static String a = "b";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile b f42870b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public g f42871c = g.a(j.getContext());
+    public static volatile b b;
+    public g c = g.a(j.getContext());
 
     public static DownloadEventConfig c() {
         return new AdDownloadEventConfig.Builder().setClickButtonTag("landing_h5_download_ad_button").setClickItemTag("landing_h5_download_ad_button").setClickStartLabel("click_start_detail").setClickPauseLabel("click_pause_detail").setClickContinueLabel("click_continue_detail").setClickInstallLabel("click_install_detail").setClickOpenLabel("click_open_detail").setStorageDenyLabel("storage_deny_detail").setDownloadScene(1).setIsEnableClickEvent(false).setIsEnableNoChargeClickEvent(true).setIsEnableV3Event(false).build();
@@ -46,7 +42,7 @@ public class b implements com.ss.android.downloadad.api.b {
         } else if (context == null || TextUtils.isEmpty(downloadModel.getDownloadUrl())) {
             return null;
         } else {
-            this.f42871c.a(context, i, downloadStatusChangeListener, downloadModel);
+            this.c.a(context, i, downloadStatusChangeListener, downloadModel);
             boolean z3 = true;
             final DownloadEventConfig downloadEventConfig2 = (DownloadEventConfig) l.a(downloadEventConfig, c());
             final DownloadController downloadController2 = (DownloadController) l.a(downloadController, b());
@@ -56,26 +52,26 @@ public class b implements com.ss.android.downloadad.api.b {
                 z3 = z4;
             }
             if (z3) {
-                this.f42871c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
+                this.c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
                 return null;
             }
             String str2 = a;
             k.a(str2, "tryStartDownload show dialog appName:" + downloadModel.getDownloadUrl(), null);
-            Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(new b.InterfaceC2035b() { // from class: com.ss.android.downloadlib.b.2
-                @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+            Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(new b.InterfaceC0579b() { // from class: com.ss.android.downloadlib.b.2
+                @Override // com.ss.android.download.api.model.b.InterfaceC0579b
                 public void a(DialogInterface dialogInterface) {
-                    b.this.f42871c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
+                    b.this.c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_confirm", downloadModel, downloadEventConfig2, downloadController2);
                     dialogInterface.dismiss();
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+                @Override // com.ss.android.download.api.model.b.InterfaceC0579b
                 public void b(DialogInterface dialogInterface) {
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", downloadModel, downloadEventConfig2, downloadController2);
                     dialogInterface.dismiss();
                 }
 
-                @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+                @Override // com.ss.android.download.api.model.b.InterfaceC0579b
                 public void c(DialogInterface dialogInterface) {
                     com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", downloadModel, downloadEventConfig2, downloadController2);
                 }
@@ -86,14 +82,14 @@ public class b implements com.ss.android.downloadad.api.b {
     }
 
     public static b a() {
-        if (f42870b == null) {
+        if (b == null) {
             synchronized (b.class) {
-                if (f42870b == null) {
-                    f42870b = new b();
+                if (b == null) {
+                    b = new b();
                 }
             }
         }
-        return f42870b;
+        return b;
     }
 
     @Override // com.ss.android.downloadad.api.b
@@ -114,14 +110,14 @@ public class b implements com.ss.android.downloadad.api.b {
 
     @Override // com.ss.android.downloadad.api.b
     public boolean a(Context context, long j, String str, DownloadStatusChangeListener downloadStatusChangeListener, int i) {
-        com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
-        if (d2 != null) {
-            this.f42871c.a(context, i, downloadStatusChangeListener, d2.af());
+        com.ss.android.downloadad.api.a.b d = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (d != null) {
+            this.c.a(context, i, downloadStatusChangeListener, d.af());
             return true;
         }
         DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
         if (a2 != null) {
-            this.f42871c.a(context, i, downloadStatusChangeListener, a2);
+            this.c.a(context, i, downloadStatusChangeListener, a2);
             return true;
         }
         return false;
@@ -129,16 +125,16 @@ public class b implements com.ss.android.downloadad.api.b {
 
     public void a(long j, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
         DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
-        com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
-        if (a2 == null && d2 != null) {
-            a2 = d2.af();
+        com.ss.android.downloadad.api.a.b d = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (a2 == null && d != null) {
+            a2 = d.af();
         }
         if (a2 == null) {
             return;
         }
         if (downloadEventConfig != null && downloadController != null && !(downloadEventConfig instanceof com.ss.android.download.api.download.c) && !(downloadController instanceof com.ss.android.download.api.download.b)) {
             downloadEventConfig.setDownloadScene(1);
-            this.f42871c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, downloadController);
+            this.c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, downloadController);
             return;
         }
         a(j);
@@ -146,39 +142,39 @@ public class b implements com.ss.android.downloadad.api.b {
 
     public void a(long j) {
         DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
-        com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
-        if (a2 == null && d2 != null) {
-            a2 = d2.af();
+        com.ss.android.downloadad.api.a.b d = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (a2 == null && d != null) {
+            a2 = d.af();
         }
         if (a2 == null) {
             return;
         }
         DownloadEventConfig b2 = com.ss.android.downloadlib.addownload.b.f.a().b(j);
-        DownloadController c2 = com.ss.android.downloadlib.addownload.b.f.a().c(j);
+        DownloadController c = com.ss.android.downloadlib.addownload.b.f.a().c(j);
         if (b2 instanceof com.ss.android.download.api.download.c) {
             b2 = null;
         }
-        if (c2 instanceof com.ss.android.download.api.download.b) {
-            c2 = null;
+        if (c instanceof com.ss.android.download.api.download.b) {
+            c = null;
         }
-        if (d2 == null) {
+        if (d == null) {
             if (b2 == null) {
                 b2 = c();
             }
-            if (c2 == null) {
-                c2 = b();
+            if (c == null) {
+                c = b();
             }
         } else {
             if (b2 == null) {
-                b2 = new AdDownloadEventConfig.Builder().setClickButtonTag(d2.j()).setRefer(d2.i()).setIsEnableV3Event(d2.m()).setIsEnableClickEvent(false).setClickStartLabel("click_start_detail").setClickPauseLabel("click_pause_detail").setClickContinueLabel("click_continue_detail").setClickInstallLabel("click_install_detail").setStorageDenyLabel("storage_deny_detail").build();
+                b2 = new AdDownloadEventConfig.Builder().setClickButtonTag(d.j()).setRefer(d.i()).setIsEnableV3Event(d.m()).setIsEnableClickEvent(false).setClickStartLabel("click_start_detail").setClickPauseLabel("click_pause_detail").setClickContinueLabel("click_continue_detail").setClickInstallLabel("click_install_detail").setStorageDenyLabel("storage_deny_detail").build();
             }
-            if (c2 == null) {
-                c2 = d2.ah();
+            if (c == null) {
+                c = d.ah();
             }
         }
         DownloadEventConfig downloadEventConfig = b2;
         downloadEventConfig.setDownloadScene(1);
-        this.f42871c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, c2);
+        this.c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, c);
     }
 
     public boolean b(long j) {
@@ -208,9 +204,9 @@ public class b implements com.ss.android.downloadad.api.b {
                 downloadController2 = b();
             }
             com.ss.android.downloadlib.addownload.b.e eVar = new com.ss.android.downloadlib.addownload.b.e(downloadModel.getId(), downloadModel, (DownloadEventConfig) l.a(downloadEventConfig, c()), downloadController2);
-            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.f42774b);
-            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.f42775c);
-            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.f42776d);
+            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.b);
+            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.c);
+            com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.d);
             if (l.a(downloadModel) && com.ss.android.socialbase.downloader.g.a.c().b("app_link_opt") == 1 && com.ss.android.downloadlib.b.a.a(eVar)) {
                 return true;
             }

@@ -2,9 +2,10 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,20 +23,16 @@ public class a implements Parcelable {
         }
     };
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42154b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f42155c;
+    public int b;
+    public int c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
         this.a = parcel.readInt();
-        this.f42154b = parcel.readInt();
-        this.f42155c = parcel.readInt();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -52,13 +49,13 @@ public class a implements Parcelable {
                 if (!jSONObject.isNull("cacheNum")) {
                     aVar.c(jSONObject.getInt("cacheNum"));
                 }
-            } catch (JSONException e2) {
-                str = " parse control message error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = " parse control message error " + e.getMessage();
             }
             return aVar;
         }
         str = "no control message can parse ";
-        c.h.a.a.a.b("ctl", str);
+        rm9.b("ctl", str);
         return aVar;
     }
 
@@ -71,11 +68,11 @@ public class a implements Parcelable {
     }
 
     public void b(int i) {
-        this.f42154b = i;
+        this.b = i;
     }
 
     public void c(int i) {
-        this.f42155c = i;
+        this.c = i;
     }
 
     @Override // android.os.Parcelable
@@ -84,13 +81,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.a + ", cached=" + this.f42154b + ", cacheNum=" + this.f42155c + '}';
+        return "Control{pushType=" + this.a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.a);
-        parcel.writeInt(this.f42154b);
-        parcel.writeInt(this.f42155c);
+        parcel.writeInt(this.b);
+        parcel.writeInt(this.c);
     }
 }

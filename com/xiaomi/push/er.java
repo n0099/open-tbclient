@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -24,14 +24,14 @@ public final class er {
     public static final String f315a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m339a();
+        boolean m335a();
     }
 
     static {
@@ -104,10 +104,10 @@ public final class er {
                                     break;
                                 }
                                 i++;
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 i = i2;
-                                com.xiaomi.channel.commonutils.logger.b.m112a("check service err : " + e.getMessage());
+                                com.xiaomi.channel.commonutils.logger.b.m108a("check service err : " + e.getMessage());
                                 if (i != 0) {
                                 }
                                 int i3 = Build.VERSION.SDK_INT;
@@ -117,10 +117,10 @@ public final class er {
                         }
                         i = i2;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                if (i != 0 && t.m682a(applicationContext)) {
+                if (i != 0 && t.m678a(applicationContext)) {
                     throw new RuntimeException("Should export service: " + f315a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
                 int i32 = Build.VERSION.SDK_INT;
@@ -155,7 +155,7 @@ public final class er {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
                 if (f314a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("timer is not initialized");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("timer is not initialized");
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
@@ -165,7 +165,7 @@ public final class er {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m338a() {
+    public static synchronized boolean m334a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -173,7 +173,7 @@ public final class er {
                 if (f314a == null) {
                     return false;
                 }
-                return f314a.m339a();
+                return f314a.m335a();
             }
         }
         return invokeV.booleanValue;

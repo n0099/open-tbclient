@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.d$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -97,20 +97,20 @@ public class d extends c {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
-            String e2 = kVar.e();
-            String h2 = kVar.h();
+            String e = kVar.e();
+            String h = kVar.h();
             int i2 = kVar.i();
-            int b2 = kVar.b();
+            int b = kVar.b();
             byte[] k = kVar.k();
-            String f2 = kVar.f();
-            PublicMsg a = i.a(this.a, h2, e2, bArr);
+            String f = kVar.f();
+            PublicMsg a = i.a(this.a, h, e, bArr);
             if (a == null || TextUtils.isEmpty(a.mDescription)) {
                 i = 2;
             } else {
-                com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.a, e2);
-                if (TextUtils.isEmpty(f2) || !m.b(this.a, f2)) {
+                com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.a, e);
+                if (TextUtils.isEmpty(f) || !m.b(this.a, f)) {
                     if (a2.a() == com.baidu.android.pushservice.a.c.a) {
-                        f2 = a2.a.b();
+                        f = a2.a.b();
                     }
                     m.a(this.a, a);
                     i = 1;
@@ -123,15 +123,15 @@ public class d extends c {
                             if (TextUtils.isEmpty(a.mTitle)) {
                                 a.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                             }
-                            e.a(this.a, a, h2, e2, i2, k, bArr, b2, kVar.c());
-                            String str = h2 + " is showing Notification!";
-                        } catch (PackageManager.NameNotFoundException e3) {
-                            new b.c(this.a).a(Log.getStackTraceString(e3)).a();
+                            e.a(this.a, a, h, e, i2, k, bArr, b, kVar.c());
+                            String str = h + " is showing Notification!";
+                        } catch (PackageManager.NameNotFoundException e2) {
+                            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                             i = 8;
                         }
                     }
                 }
-                a.mPkgName = f2;
+                a.mPkgName = f;
                 m.a(this.a, a);
                 i = 1;
                 if (AnonymousClass1.a[a2.a().ordinal()] == 1) {

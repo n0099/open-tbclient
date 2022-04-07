@@ -14,9 +14,7 @@ import java.security.MessageDigest;
 public class e extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.i.e";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f42596b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +30,7 @@ public class e extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f42596b = f.f42567b;
+        b = f.b;
     }
 
     public e() {
@@ -69,8 +67,8 @@ public class e extends com.sdk.base.framework.f.a {
                     sb.append(hexString);
                 }
                 return sb.toString();
-            } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(a, "encrypt", e2.getMessage(), f42596b);
+            } catch (Exception e) {
+                com.sdk.base.framework.f.a.a(a, "encrypt", e.getMessage(), b);
                 return null;
             }
         }

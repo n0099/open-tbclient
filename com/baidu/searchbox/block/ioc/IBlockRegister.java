@@ -2,7 +2,7 @@ package com.baidu.searchbox.block.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.block.impl.BlockInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IBlockRegister {
     boolean checkEnable();
 

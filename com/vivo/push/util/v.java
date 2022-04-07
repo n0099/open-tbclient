@@ -16,20 +16,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class v implements d {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f43966b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43967c;
+    public static final String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public File f43968d;
+    public File d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +39,8 @@ public final class v implements d {
             }
         }
         a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-        f43966b = a + File.separator + "config.txt";
-        f43967c = "SdcardCache";
+        b = a + File.separator + "config.txt";
+        c = "SdcardCache";
     }
 
     public v() {
@@ -72,14 +66,14 @@ public final class v implements d {
                 File file = new File(a);
                 boolean mkdirs = !file.exists() ? file.mkdirs() : true;
                 if (mkdirs) {
-                    File file2 = new File(f43966b);
-                    this.f43968d = file2;
+                    File file2 = new File(b);
+                    this.d = file2;
                     if (!file2.exists()) {
                         try {
-                            this.f43968d.createNewFile();
+                            this.d.createNewFile();
                             return true;
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                             return false;
                         }
                     }
@@ -97,7 +91,7 @@ public final class v implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             Properties a2 = a();
-            String str3 = f43966b;
+            String str3 = b;
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
@@ -106,8 +100,8 @@ public final class v implements d {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 a2.store(fileOutputStream, (String) null);
@@ -116,8 +110,8 @@ public final class v implements d {
                     fileOutputStream.close();
                 } catch (Exception unused) {
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
@@ -157,7 +151,7 @@ public final class v implements d {
     public static Properties a() {
         InterceptResult invokeV;
         BufferedInputStream bufferedInputStream;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (Properties) invokeV.objValue;
@@ -165,13 +159,13 @@ public final class v implements d {
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f43966b));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(b));
             try {
                 try {
                     properties.load(bufferedInputStream);
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
                 }
             } catch (Throwable th) {
                 th = th;
@@ -184,9 +178,9 @@ public final class v implements d {
                 }
                 throw th;
             }
-        } catch (Exception e4) {
+        } catch (Exception e3) {
             bufferedInputStream = null;
-            e2 = e4;
+            e = e3;
         } catch (Throwable th2) {
             th = th2;
             if (bufferedInputStream2 != null) {

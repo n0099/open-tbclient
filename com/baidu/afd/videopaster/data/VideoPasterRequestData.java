@@ -5,8 +5,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.e.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -27,11 +25,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.tp;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VideoPasterRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
@@ -63,13 +63,13 @@ public class VideoPasterRequestData extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPasterRequestData(a aVar) {
+    public VideoPasterRequestData(tp tpVar) {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tpVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,19 +82,19 @@ public class VideoPasterRequestData extends HttpMessage {
         }
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
-        addParam("pid", aVar.g());
+        addParam("pid", tpVar.g());
         addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "1");
-        String ext = getExt(aVar);
+        String ext = getExt(tpVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.b()));
-        addParam(TbConfig.SW_APID, String.valueOf(aVar.f()));
-        addParam("sh", String.valueOf(aVar.e()));
+        addParam("flr", String.valueOf(tpVar.a()));
+        addParam(TbConfig.SW_APID, String.valueOf(tpVar.f()));
+        addParam("sh", String.valueOf(tpVar.e()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.b()));
-        addParam("ft", aVar.c());
+        addParam("fc", String.valueOf(tpVar.a()));
+        addParam("ft", tpVar.b());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -109,7 +109,7 @@ public class VideoPasterRequestData extends HttpMessage {
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(l.I()));
+            addParam("net_type", String.valueOf(mi.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam(HttpRequest.ANDROID_ID, androidId());
         }
@@ -146,15 +146,15 @@ public class VideoPasterRequestData extends HttpMessage {
         return (JSONObject) invokeLL.objValue;
     }
 
-    public static String getExt(a aVar) {
+    public static String getExt(tp tpVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aVar)) == null) {
-            if (aVar == null || aVar.d() == null || aVar.d().isEmpty()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tpVar)) == null) {
+            if (tpVar == null || tpVar.c() == null || tpVar.c().isEmpty()) {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, String> entry : aVar.d().entrySet()) {
+            for (Map.Entry<String, String> entry : tpVar.c().entrySet()) {
                 jSONArray.put(create(entry.getKey(), entry.getValue()));
             }
             return jSONArray.toString();

@@ -15,62 +15,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SlideableGridView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f29687b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29688c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f29689d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f29690e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f29691f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ViewPager f29692g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public PointPageIndicator f29693h;
+    public a b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public ViewPager g;
+    public PointPageIndicator h;
     public int[] i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public abstract int a(int i);
 
-        public abstract View b(int i, int i2, View view, ViewGroup viewGroup);
+        public abstract View b(int i, int i2, View view2, ViewGroup viewGroup);
 
         public abstract int c();
 
         public abstract int d(int i);
 
-        public abstract void e(int i, int i2, View view);
+        public abstract void e(int i, int i2, View view2);
 
         public abstract void f(SlideableGridView slideableGridView);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends PagerAdapterImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Context f29694c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SlideableGridView f29695d;
+        public Context c;
+        public final /* synthetic */ SlideableGridView d;
 
         public b(SlideableGridView slideableGridView, Context context) {
             Interceptable interceptable = $ic;
@@ -87,15 +69,15 @@ public class SlideableGridView extends LinearLayout {
                     return;
                 }
             }
-            this.f29695d = slideableGridView;
-            this.f29694c = context;
+            this.d = slideableGridView;
+            this.c = context;
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
-        public void b(View view, int i) {
+        public void b(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
-                ((GridPageView) view).a(this.f29695d.f29687b.a(i), i);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+                ((GridPageView) view2).a(this.d.b.a(i), i);
             }
         }
 
@@ -104,10 +86,10 @@ public class SlideableGridView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                GridPageView gridPageView = new GridPageView(this.f29694c);
-                gridPageView.setGridItemAdapter(this.f29695d.f29687b);
-                SlideableGridView slideableGridView = this.f29695d;
-                gridPageView.setPadding(slideableGridView.f29688c, slideableGridView.f29690e, slideableGridView.f29689d, slideableGridView.f29691f);
+                GridPageView gridPageView = new GridPageView(this.c);
+                gridPageView.setGridItemAdapter(this.d.b);
+                SlideableGridView slideableGridView = this.d;
+                gridPageView.setPadding(slideableGridView.c, slideableGridView.e, slideableGridView.d, slideableGridView.f);
                 return gridPageView;
             }
             return (View) invokeLI.objValue;
@@ -118,7 +100,7 @@ public class SlideableGridView extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                a aVar = this.f29695d.f29687b;
+                a aVar = this.d.b;
                 if (aVar != null) {
                     return aVar.c();
                 }
@@ -138,7 +120,7 @@ public class SlideableGridView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c extends ViewPager.SimpleOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +148,7 @@ public class SlideableGridView extends LinearLayout {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.f29693h.b(i);
+                this.a.h.b(i);
             }
         }
     }
@@ -195,37 +177,37 @@ public class SlideableGridView extends LinearLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e2 = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f0800fc, R.drawable.obfuscated_res_0x7f0800fd);
-            e2.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
-            this.f29693h = e2;
+            PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f0800fc, R.drawable.obfuscated_res_0x7f0800fd);
+            e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
+            this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c8);
             this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c9);
-            addView(this.f29693h, e());
+            addView(this.h, e());
         }
     }
 
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ViewPager g2 = g(context);
-            this.f29692g = g2;
-            g2.setOffscreenPageLimit(0);
-            this.f29692g.setOnPageChangeListener(new c(this));
-            this.f29692g.setOverScrollMode(2);
-            addView(this.f29692g, i());
+            ViewPager g = g(context);
+            this.g = g;
+            g.setOffscreenPageLimit(0);
+            this.g.setOnPageChangeListener(new c(this));
+            this.g.setOverScrollMode(2);
+            addView(this.g, i());
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = this.f29687b;
+            a aVar = this.b;
             int c2 = aVar == null ? 0 : aVar.c();
             boolean z = c2 > 1;
             int i = !z ? this.i[0] : this.i[1];
-            this.f29693h.c(c2);
-            this.f29693h.setVisibility(z ? 0 : 4);
-            this.f29693h.getLayoutParams().height = i;
+            this.h.c(c2);
+            this.h.setVisibility(z ? 0 : 4);
+            this.h.getLayoutParams().height = i;
         }
     }
 
@@ -259,13 +241,13 @@ public class SlideableGridView extends LinearLayout {
     public a getGridItemAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29687b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (a) invokeV.objValue;
     }
 
     public PointPageIndicator getPageindicator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29693h : (PointPageIndicator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (PointPageIndicator) invokeV.objValue;
     }
 
     public int h() {
@@ -304,28 +286,28 @@ public class SlideableGridView extends LinearLayout {
     public void setCurrentPage(int i) {
         ViewPager viewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (viewPager = this.f29692g) == null || this.f29693h == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (viewPager = this.g) == null || this.h == null) {
             return;
         }
         viewPager.setCurrentItem(i);
-        this.f29693h.b(i);
+        this.h.b(i);
     }
 
     public void setGridItemAdapter(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.f29687b = aVar;
+            this.b = aVar;
             if (aVar != null) {
                 aVar.f(this);
                 b bVar = this.a;
                 if (bVar == null) {
                     b bVar2 = new b(this, getContext());
                     this.a = bVar2;
-                    this.f29692g.setAdapter(bVar2);
+                    this.g.setAdapter(bVar2);
                 } else {
                     bVar.notifyDataSetChanged();
                 }
-                this.f29693h.c(aVar.c());
+                this.h.c(aVar.c());
             } else {
                 b bVar3 = this.a;
                 if (bVar3 != null) {
@@ -339,17 +321,17 @@ public class SlideableGridView extends LinearLayout {
     public void setGridViewPading(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) {
-            this.f29688c = i;
-            this.f29689d = i3;
-            this.f29690e = i2;
-            this.f29691f = i4;
+            this.c = i;
+            this.d = i3;
+            this.e = i2;
+            this.f = i4;
         }
     }
 
     public void setIndicatorColor(int i, int i2) {
         PointPageIndicator pointPageIndicator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) || (pointPageIndicator = this.f29693h) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) || (pointPageIndicator = this.h) == null) {
             return;
         }
         pointPageIndicator.e(i, i2);
@@ -406,8 +388,8 @@ public class SlideableGridView extends LinearLayout {
                 return;
             }
         }
-        this.f29692g = null;
-        this.f29693h = null;
+        this.g = null;
+        this.h = null;
         this.i = new int[2];
         k(context);
     }

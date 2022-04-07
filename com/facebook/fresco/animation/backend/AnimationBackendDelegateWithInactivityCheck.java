@@ -14,7 +14,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -32,7 +32,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public final MonotonicClock mMonotonicClock;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface InactivityListener {
         void onInactive();
     }

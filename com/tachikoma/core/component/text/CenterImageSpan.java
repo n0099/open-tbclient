@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CenterImageSpan extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +76,10 @@ public class CenterImageSpan extends ImageSpan {
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable cachedDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (cachedDrawable = getCachedDrawable(paint)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (cachedDrawable = getCachedDrawable(paint)) == null) {
             return;
         }
         if (paint instanceof TextPaint) {
@@ -87,7 +87,7 @@ public class CenterImageSpan extends ImageSpan {
         }
         int fontMetricsInt = paint.getFontMetricsInt(this.mFm);
         canvas.save();
-        canvas.translate(f2 + this.mMarginLeft, i4 + this.mFm.ascent + ((fontMetricsInt - (cachedDrawable.getBounds().bottom - cachedDrawable.getBounds().top)) / 2) + this.mOffsetY);
+        canvas.translate(f + this.mMarginLeft, i4 + this.mFm.ascent + ((fontMetricsInt - (cachedDrawable.getBounds().bottom - cachedDrawable.getBounds().top)) / 2) + this.mOffsetY);
         cachedDrawable.draw(canvas);
         canvas.restore();
     }
@@ -152,31 +152,31 @@ public class CenterImageSpan extends ImageSpan {
         return (CenterImageSpan) invokeL.objValue;
     }
 
-    public CenterImageSpan setMarginLeft(float f2) {
+    public CenterImageSpan setMarginLeft(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-            this.mMarginLeft = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            this.mMarginLeft = f;
             return this;
         }
         return (CenterImageSpan) invokeF.objValue;
     }
 
-    public CenterImageSpan setMarginRight(float f2) {
+    public CenterImageSpan setMarginRight(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) {
-            this.mMarginRight = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
+            this.mMarginRight = f;
             return this;
         }
         return (CenterImageSpan) invokeF.objValue;
     }
 
-    public CenterImageSpan setOffsetY(float f2) {
+    public CenterImageSpan setOffsetY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2)) == null) {
-            this.mOffsetY = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+            this.mOffsetY = f;
             return this;
         }
         return (CenterImageSpan) invokeF.objValue;

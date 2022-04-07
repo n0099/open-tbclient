@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static Object a(InputStream inputStream) {
         ObjectInputStream objectInputStream;
@@ -20,8 +20,8 @@ public class d {
                     Object readObject = objectInputStream.readObject();
                     a((Closeable) objectInputStream);
                     return readObject;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     com.kwad.sdk.core.d.a.a(e);
                     a((Closeable) objectInputStream);
                     return null;
@@ -32,8 +32,8 @@ public class d {
                 a((Closeable) objectInputStream2);
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             objectInputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -54,8 +54,8 @@ public class d {
 
     public static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 sb.append('0');
             }
@@ -88,8 +88,8 @@ public class d {
         try {
             try {
                 objectOutputStream = new ObjectOutputStream(outputStream);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
         } catch (Throwable th) {
             th = th;
@@ -99,8 +99,8 @@ public class d {
             objectOutputStream.flush();
             a(objectOutputStream);
             return true;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             objectOutputStream2 = objectOutputStream;
             com.kwad.sdk.core.d.a.a(e);
             a(objectOutputStream2);

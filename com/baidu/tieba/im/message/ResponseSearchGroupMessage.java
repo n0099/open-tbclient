@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import c.a.d.f.d.l;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;
@@ -9,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseSearchGroupMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<l.b<String>> cacheList;
+    public List<qe.b<String>> cacheList;
     public long gid;
     public List<BaseGroupData> searchResult;
 
@@ -43,7 +43,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
         this.cacheList = new ArrayList();
     }
 
-    public List<l.b<String>> getCacheList() {
+    public List<qe.b<String>> getCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cacheList : (List) invokeV.objValue;
@@ -61,7 +61,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.searchResult : (List) invokeV.objValue;
     }
 
-    public void setCacheList(List<l.b<String>> list) {
+    public void setCacheList(List<qe.b<String>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.cacheList = list;

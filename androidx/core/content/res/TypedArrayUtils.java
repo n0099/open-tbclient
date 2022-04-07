@@ -138,10 +138,10 @@ public class TypedArrayUtils {
         return (ComplexColorCompat) invokeCommon.objValue;
     }
 
-    public static float getNamedFloat(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, float f2) {
+    public static float getNamedFloat(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Float.valueOf(f2)})) == null) ? !hasAttribute(xmlPullParser, str) ? f2 : typedArray.getFloat(i, f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i), Float.valueOf(f)})) == null) ? !hasAttribute(xmlPullParser, str) ? f : typedArray.getFloat(i, f) : invokeCommon.floatValue;
     }
 
     public static int getNamedInt(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i, int i2) {

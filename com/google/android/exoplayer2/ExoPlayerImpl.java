@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ExoPlayerImpl implements ExoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ExoPlayerImpl";

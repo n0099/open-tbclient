@@ -1,8 +1,5 @@
 package com.opensource.svgaplayer.proto;
 
-import c.k.a.c;
-import c.k.a.d;
-import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,13 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pn9;
+import com.repackage.qn9;
+import com.repackage.un9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<MovieParams> ADAPTER;
@@ -36,7 +36,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<MovieParams, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,21 +79,21 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder viewBoxHeight(Float f2) {
+        public Builder viewBoxHeight(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f2)) == null) {
-                this.viewBoxHeight = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f)) == null) {
+                this.viewBoxHeight = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder viewBoxWidth(Float f2) {
+        public Builder viewBoxWidth(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f2)) == null) {
-                this.viewBoxWidth = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f)) == null) {
+                this.viewBoxWidth = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -109,7 +109,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,56 +136,56 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public MovieParams decode(c cVar) throws IOException {
+        public MovieParams decode(pn9 pn9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, cVar)) != null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, pn9Var)) != null) {
                 return (MovieParams) invokeL.objValue;
             }
             Builder builder = new Builder();
-            long c2 = cVar.c();
+            long c = pn9Var.c();
             while (true) {
-                int f2 = cVar.f();
-                if (f2 == -1) {
-                    cVar.d(c2);
+                int f = pn9Var.f();
+                if (f == -1) {
+                    pn9Var.d(c);
                     return builder.build();
-                } else if (f2 == 1) {
-                    builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
-                } else if (f2 == 2) {
-                    builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(cVar));
-                } else if (f2 == 3) {
-                    builder.fps(ProtoAdapter.INT32.decode(cVar));
-                } else if (f2 != 4) {
-                    FieldEncoding g2 = cVar.g();
-                    builder.addUnknownField(f2, g2, g2.rawProtoAdapter().decode(cVar));
+                } else if (f == 1) {
+                    builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(pn9Var));
+                } else if (f == 2) {
+                    builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(pn9Var));
+                } else if (f == 3) {
+                    builder.fps(ProtoAdapter.INT32.decode(pn9Var));
+                } else if (f != 4) {
+                    FieldEncoding g = pn9Var.g();
+                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(pn9Var));
                 } else {
-                    builder.frames(ProtoAdapter.INT32.decode(cVar));
+                    builder.frames(ProtoAdapter.INT32.decode(pn9Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(d dVar, MovieParams movieParams) throws IOException {
+        public void encode(qn9 qn9Var, MovieParams movieParams) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, movieParams) == null) {
-                Float f2 = movieParams.viewBoxWidth;
-                if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qn9Var, movieParams) == null) {
+                Float f = movieParams.viewBoxWidth;
+                if (f != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 1, f);
                 }
-                Float f3 = movieParams.viewBoxHeight;
-                if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
+                Float f2 = movieParams.viewBoxHeight;
+                if (f2 != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 2, f2);
                 }
                 Integer num = movieParams.fps;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(dVar, 3, num);
+                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 3, num);
                 }
                 Integer num2 = movieParams.frames;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(dVar, 4, num2);
+                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 4, num2);
                 }
-                dVar.k(movieParams.unknownFields());
+                qn9Var.k(movieParams.unknownFields());
             }
         }
 
@@ -195,10 +195,10 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, movieParams)) == null) {
-                Float f2 = movieParams.viewBoxWidth;
-                int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
-                Float f3 = movieParams.viewBoxHeight;
-                int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
+                Float f = movieParams.viewBoxWidth;
+                int encodedSizeWithTag = f != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f) : 0;
+                Float f2 = movieParams.viewBoxHeight;
+                int encodedSizeWithTag2 = encodedSizeWithTag + (f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f2) : 0);
                 Integer num = movieParams.fps;
                 int encodedSizeWithTag3 = encodedSizeWithTag2 + (num != null ? ProtoAdapter.INT32.encodedSizeWithTag(3, num) : 0);
                 Integer num2 = movieParams.frames;
@@ -243,13 +243,13 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MovieParams(Float f2, Float f3, Integer num, Integer num2) {
-        this(f2, f3, num, num2, ByteString.EMPTY);
+    public MovieParams(Float f, Float f2, Integer num, Integer num2) {
+        this(f, f2, num, num2, ByteString.EMPTY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, f3, num, num2};
+            Object[] objArr = {f, f2, num, num2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -272,7 +272,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             }
             if (obj instanceof MovieParams) {
                 MovieParams movieParams = (MovieParams) obj;
-                return unknownFields().equals(movieParams.unknownFields()) && a.f(this.viewBoxWidth, movieParams.viewBoxWidth) && a.f(this.viewBoxHeight, movieParams.viewBoxHeight) && a.f(this.fps, movieParams.fps) && a.f(this.frames, movieParams.frames);
+                return unknownFields().equals(movieParams.unknownFields()) && un9.f(this.viewBoxWidth, movieParams.viewBoxWidth) && un9.f(this.viewBoxHeight, movieParams.viewBoxHeight) && un9.f(this.fps, movieParams.fps) && un9.f(this.frames, movieParams.frames);
             }
             return false;
         }
@@ -286,10 +286,10 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             int i = this.hashCode;
             if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
-                Float f2 = this.viewBoxWidth;
-                int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
-                Float f3 = this.viewBoxHeight;
-                int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
+                Float f = this.viewBoxWidth;
+                int hashCode2 = (hashCode + (f != null ? f.hashCode() : 0)) * 37;
+                Float f2 = this.viewBoxHeight;
+                int hashCode3 = (hashCode2 + (f2 != null ? f2.hashCode() : 0)) * 37;
                 Integer num = this.fps;
                 int hashCode4 = (hashCode3 + (num != null ? num.hashCode() : 0)) * 37;
                 Integer num2 = this.frames;
@@ -332,13 +332,13 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MovieParams(Float f2, Float f3, Integer num, Integer num2, ByteString byteString) {
+    public MovieParams(Float f, Float f2, Integer num, Integer num2, ByteString byteString) {
         super(ADAPTER, byteString);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, f3, num, num2, byteString};
+            Object[] objArr = {f, f2, num, num2, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -350,8 +350,8 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                 return;
             }
         }
-        this.viewBoxWidth = f2;
-        this.viewBoxHeight = f3;
+        this.viewBoxWidth = f;
+        this.viewBoxHeight = f2;
         this.fps = num;
         this.frames = num2;
     }

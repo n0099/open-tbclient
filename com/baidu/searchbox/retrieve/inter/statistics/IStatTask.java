@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.inter.statistics;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IStatTask {
     public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(StatConstants.VALUE_FROM_RETRIEVE, "stat");
 

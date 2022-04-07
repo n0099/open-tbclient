@@ -5,7 +5,7 @@ import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BatchReportResult extends BaseResultData implements com.kwad.sdk.core.b {
     public long interval;
 

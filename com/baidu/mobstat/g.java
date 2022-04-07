@@ -8,31 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f27403b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final g f27404c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final g f27405d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final g f27406e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final g f27407f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final g f27408g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final g f27409h;
+    public static final g b;
+    public static final g c;
+    public static final g d;
+    public static final g e;
+    public static final g f;
+    public static final g g;
+    public static final g h;
     public static final g i;
     public static final /* synthetic */ g[] k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,16 +38,16 @@ public final class g {
             }
         }
         a = new g("AP_LIST", 0);
-        f27403b = new g("APP_USER_LIST", 1);
-        f27404c = new g("APP_SYS_LIST", 2);
-        f27405d = new g("APP_TRACE_CURRENT", 3);
-        f27406e = new g("APP_TRACE_HIS", 4);
-        f27407f = new g("APP_CHANGE", 5);
-        f27408g = new g("APP_APK", 6);
-        f27409h = new g("LAST_SEND", 7);
+        b = new g("APP_USER_LIST", 1);
+        c = new g("APP_SYS_LIST", 2);
+        d = new g("APP_TRACE_CURRENT", 3);
+        e = new g("APP_TRACE_HIS", 4);
+        f = new g("APP_CHANGE", 5);
+        g = new g("APP_APK", 6);
+        h = new g("LAST_SEND", 7);
         g gVar = new g("LAST_UPDATE", 8);
         i = gVar;
-        k = new g[]{a, f27403b, f27404c, f27405d, f27406e, f27407f, f27408g, f27409h, gVar};
+        k = new g[]{a, b, c, d, e, f, g, h, gVar};
     }
 
     public g(String str, int i2) {

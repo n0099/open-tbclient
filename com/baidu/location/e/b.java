@@ -11,34 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f26049e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f26050f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f26051g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f26052h;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
     public static int i;
     public static b j;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26053b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26054c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26055d;
+    public String b;
+    public String c;
+    public String d;
     public boolean k;
 
     static {
@@ -70,9 +56,9 @@ public class b {
             }
         }
         this.a = null;
-        this.f26053b = null;
-        this.f26054c = null;
-        this.f26055d = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
         this.k = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
@@ -106,7 +92,7 @@ public class b {
     */
     public String a(boolean z, String str) {
         InterceptResult invokeZL;
-        String c2;
+        String c;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
@@ -114,15 +100,15 @@ public class b {
             stringBuffer.append("&sdk=");
             stringBuffer.append(7.93f);
             if (z) {
-                if (k.f26083g.equals("all")) {
+                if (k.g.equals("all")) {
                     stringBuffer.append("&addr=allj");
                 }
                 if (k.i) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.f26084h || k.k || k.l || k.j) {
+                if (k.h || k.k || k.l || k.j) {
                     stringBuffer.append("&sema=");
-                    if (k.f26084h) {
+                    if (k.h) {
                         stringBuffer.append("aptag|");
                     }
                     if (k.j) {
@@ -148,28 +134,28 @@ public class b {
                     stringBuffer.append(j2);
                 }
             }
-            if (this.f26054c != null) {
+            if (this.c != null) {
                 stringBuffer.append("&cu=");
-                stringBuffer.append(this.f26054c);
+                stringBuffer.append(this.c);
                 String str3 = this.a;
-                str2 = (str3 == null || str3.equals("NULL") || this.f26054c.contains(new StringBuffer(this.a).reverse().toString())) ? "&Aim=" : "&Aim=";
-                if (this.f26053b != null) {
+                str2 = (str3 == null || str3.equals("NULL") || this.c.contains(new StringBuffer(this.a).reverse().toString())) ? "&Aim=" : "&Aim=";
+                if (this.b != null) {
                     stringBuffer.append("&snd=");
-                    stringBuffer.append(this.f26053b);
+                    stringBuffer.append(this.b);
                 }
-                if (this.f26055d != null) {
+                if (this.d != null) {
                     stringBuffer.append("&Aid=");
-                    stringBuffer.append(this.f26055d);
+                    stringBuffer.append(this.d);
                 }
                 stringBuffer.append("&fw=");
                 stringBuffer.append(com.baidu.location.f.getFrameVersion());
                 stringBuffer.append("&lt=1");
                 stringBuffer.append("&mb=");
                 stringBuffer.append(Build.MODEL);
-                c2 = k.c();
-                if (c2 != null) {
+                c = k.c();
+                if (c != null) {
                     stringBuffer.append("&laip=");
-                    stringBuffer.append(c2);
+                    stringBuffer.append(c);
                 }
                 stringBuffer.append("&resid=");
                 stringBuffer.append("12");
@@ -188,17 +174,17 @@ public class b {
             str2 = "&im=";
             stringBuffer.append(str2);
             stringBuffer.append(this.a);
-            if (this.f26053b != null) {
+            if (this.b != null) {
             }
-            if (this.f26055d != null) {
+            if (this.d != null) {
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
             stringBuffer.append("&lt=1");
             stringBuffer.append("&mb=");
             stringBuffer.append(Build.MODEL);
-            c2 = k.c();
-            if (c2 != null) {
+            c = k.c();
+            if (c != null) {
             }
             stringBuffer.append("&resid=");
             stringBuffer.append("12");
@@ -217,24 +203,24 @@ public class b {
             return;
         }
         try {
-            this.f26054c = CommonParam.getCUID(context);
+            this.c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f26054c = null;
+            this.c = null;
         }
         try {
-            f26049e = context.getPackageName();
+            e = context.getPackageName();
         } catch (Exception unused2) {
-            f26049e = null;
+            e = null;
         }
-        k.o = "" + this.f26054c;
+        k.o = "" + this.c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f26050f = str;
-            f26049e = str2;
+            f = str;
+            e = str2;
         }
     }
 }

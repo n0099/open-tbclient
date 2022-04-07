@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JsonDataParerUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -47,9 +47,9 @@ public class JsonDataParerUtil {
                             str2 = string2;
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getCHOrderId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getCHOrderId--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
                 }
             }
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , chorderId =%s", str, str2));
@@ -70,9 +70,9 @@ public class JsonDataParerUtil {
                     }
                     RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChOrderidByPayload =null ", new Object[0]));
                     return "";
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--getChOrderidByPayload data =%s , Exception =%s", str, e2.getMessage()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--getChOrderidByPayload data =%s , Exception =%s", str, e.getMessage()));
                 }
             }
             RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChOrderidByPayload data =%s , getPayLoad =%s", str, ""));
@@ -92,9 +92,9 @@ public class JsonDataParerUtil {
                     if (string != null && !string.equals("")) {
                         str2 = new JSONObject(string).getString("challengeExtension");
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChallengeExtension--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getChallengeExtension--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()));
                 }
             }
             RLog.debug("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---getChallengeExtension data =%s , purchaseTime =%s", str, str2));
@@ -114,9 +114,9 @@ public class JsonDataParerUtil {
                     if (string != null) {
                         str2 = string;
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
                 }
             }
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
@@ -137,9 +137,9 @@ public class JsonDataParerUtil {
                     }
                     RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad =null ", new Object[0]), new Object[0]);
                     return "";
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.warn("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPayLoad--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()));
                 }
             }
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , getPayLoad =%s", str, ""));
@@ -159,9 +159,9 @@ public class JsonDataParerUtil {
                     if (string != null) {
                         str2 = string;
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --productId--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --productId--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
                 }
             }
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
@@ -176,8 +176,8 @@ public class JsonDataParerUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, list)) == null) {
             for (PurchaseInfo purchaseInfo : list) {
                 try {
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 if (str == new JSONObject(purchaseInfo.data).optString(AdUploadHttpRequest.KEY_PRODUCT_ID)) {
                     return purchaseInfo;
@@ -196,9 +196,9 @@ public class JsonDataParerUtil {
             if (str != null) {
                 try {
                     j = new JSONObject(str).getLong("purchaseTime");
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
                 }
                 RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
                 return j;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoadingUtil {
     public static /* synthetic */ Interceptable $ic;
     public static Toast mToast;
@@ -51,11 +51,11 @@ public class LoadingUtil {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c9, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c4, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c8, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c3, (ViewGroup) null);
             }
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd8)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc7)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;

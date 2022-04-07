@@ -28,7 +28,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LoaderManager {
     public static final boolean DEBUG = false;
     public static final int LOAD_STATE_ERROR_ASYNC_LOAD = -7;
@@ -186,12 +186,12 @@ public class LoaderManager {
                 Field declaredField = Class.forName(next).getDeclaredField("$ic");
                 declaredField.setAccessible(true);
                 declaredField.set(null, interceptableDelegate);
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchFieldException e3) {
                 e3.printStackTrace();
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
             }
         }
     }

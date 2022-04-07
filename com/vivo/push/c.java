@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,12 +47,12 @@ public final class c implements Handler.Callback {
             int i = message.what;
             if (i == 1) {
                 com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-                atomicInteger = this.a.f43825f;
+                atomicInteger = this.a.f;
                 if (atomicInteger.get() == 2) {
                     this.a.a(1);
                 }
             } else if (i == 2) {
-                atomicInteger2 = this.a.f43825f;
+                atomicInteger2 = this.a.f;
                 if (atomicInteger2.get() == 4) {
                     this.a.f();
                 }

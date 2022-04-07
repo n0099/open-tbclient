@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public final class f extends g {
                 if (str.startsWith("rtsp:")) {
                     try {
                         context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     return true;
                 } else if (str.startsWith("ftp://")) {
@@ -62,8 +62,8 @@ public final class f extends g {
             intent2.putExtra("android.intent.extra.TEXT", parse.getBody());
             try {
                 context.startActivity(intent2);
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             return true;
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MemoryTrimType {
     public static final /* synthetic */ MemoryTrimType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,12 +42,12 @@ public final class MemoryTrimType {
         $VALUES = new MemoryTrimType[]{OnCloseToDalvikHeapLimit, OnSystemMemoryCriticallyLowWhileAppInForeground, OnSystemLowMemoryWhileAppInForeground, OnSystemLowMemoryWhileAppInBackground, memoryTrimType};
     }
 
-    public MemoryTrimType(String str, int i, double d2) {
+    public MemoryTrimType(String str, int i, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Double.valueOf(d2)};
+            Object[] objArr = {str, Integer.valueOf(i), Double.valueOf(d)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -60,7 +60,7 @@ public final class MemoryTrimType {
                 return;
             }
         }
-        this.mSuggestedTrimRatio = d2;
+        this.mSuggestedTrimRatio = d;
     }
 
     public static MemoryTrimType valueOf(String str) {

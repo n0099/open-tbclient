@@ -19,7 +19,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "QuicPreConnect";
@@ -79,8 +79,8 @@ public class QuicPreConnect implements INoProGuard, INetListener {
                         bdNetTask.setNet(bdNet);
                         bdNetTask.setUrl(getUrl(context));
                         bdNet.start(bdNetTask, false);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }

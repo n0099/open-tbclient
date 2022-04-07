@@ -8,15 +8,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.h;
-import c.a.d.f.p.o;
-import c.a.d.f.p.t;
-import c.a.d.j.k.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ii;
+import com.repackage.lg;
+import com.repackage.pi;
+import com.repackage.ui;
+import com.repackage.xm;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,13 +31,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,17 +98,13 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f23885b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f23886c;
+        public String b;
+        public int c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -124,8 +120,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f23885b = null;
-            this.f23886c = 0;
+            this.b = null;
+            this.c = 0;
         }
     }
 
@@ -160,14 +156,14 @@ public final class Util {
             a aVar = new a();
             if (inputStream != null && file != null) {
                 if (file.exists()) {
-                    h.n(file);
+                    ii.n(file);
                 }
                 FileOutputStream fileOutputStream2 = null;
                 try {
                     try {
                         fileOutputStream = new FileOutputStream(file);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -184,23 +180,23 @@ public final class Util {
                     fileOutputStream.flush();
                     fileOutputStream.close();
                     aVar.a = true;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f23885b = e.toString();
-                    c.a.d.f.m.a.d(fileOutputStream2);
+                    aVar.b = e.toString();
+                    lg.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
                     th = th2;
                     fileOutputStream2 = fileOutputStream;
-                    c.a.d.f.m.a.d(fileOutputStream2);
+                    lg.d(fileOutputStream2);
                     throw th;
                 }
-                c.a.d.f.m.a.d(fileOutputStream2);
+                lg.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f23885b = "illegal_param";
+            aVar.b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -213,8 +209,8 @@ public final class Util {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 return statFs.getAvailableBlocks() * statFs.getBlockSize();
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return 0L;
             }
         }
@@ -260,32 +256,20 @@ public final class Util {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            PluginSetting v = PluginPackageManager.u().v(str);
-            if (v == null || (str2 = v.apkPath) == null || str2.length() <= 4) {
+            PluginSetting q = PluginPackageManager.p().q(str);
+            if (q == null || (str2 = q.apkPath) == null || str2.length() <= 4) {
                 return null;
             }
-            String str3 = v.apkPath;
+            String str3 = q.apkPath;
             return new File(str3.substring(0, str3.length() - 4));
         }
         return (File) invokeL.objValue;
     }
 
-    public static String f(PluginSetting pluginSetting) {
+    public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pluginSetting)) == null) {
-            if (pluginSetting == null) {
-                return null;
-            }
-            return pluginSetting.packageName + Constant.FILE.SUFFIX.BUNDLE_SUFFIX + "_" + pluginSetting.tempVersionCode;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -294,22 +278,10 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static String h(PluginSetting pluginSetting) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pluginSetting)) == null) {
-            if (pluginSetting == null) {
-                return null;
-            }
-            return i() + File.separator + f(pluginSetting);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static File i() {
+    public static File g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 File dir = BdBaseApplication.getInst().getDir("plugins", 0);
                 if (!dir.exists()) {
@@ -318,19 +290,19 @@ public final class Util {
                     }
                 }
                 return dir;
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return null;
             }
         }
         return (File) invokeV.objValue;
     }
 
-    public static String j(ApplicationInfo applicationInfo) {
+    public static String h(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return null;
             }
@@ -339,11 +311,11 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static String k(ApplicationInfo applicationInfo) {
+    public static String i(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return null;
             }
@@ -352,11 +324,11 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static boolean l(ApplicationInfo applicationInfo) {
+    public static boolean j(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return false;
             }
@@ -365,10 +337,10 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean m() {
+    public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
                 String property = System.getProperty("java.vm.version");
                 if (property != null) {
@@ -382,11 +354,11 @@ public final class Util {
         return invokeV.booleanValue;
     }
 
-    public static boolean n(ApplicationInfo applicationInfo) {
+    public static boolean l(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return false;
             }
@@ -395,11 +367,11 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean o(ApplicationInfo applicationInfo) {
+    public static boolean m(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return false;
             }
@@ -408,10 +380,10 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean p() {
+    public static boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             try {
                 return Build.VERSION.class.getField("PREVIEW_SDK_INT").getInt(null) > 0;
             } catch (Exception unused) {
@@ -421,25 +393,25 @@ public final class Util {
         return invokeV.booleanValue;
     }
 
-    public static final boolean q(long j) {
+    public static final boolean o(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j)) == null) {
-            long c2 = c();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) {
+            long c = c();
             if (j <= 0) {
-                return c2 <= 0 || c2 >= 31457280;
+                return c <= 0 || c >= 31457280;
             }
             long j2 = j * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
-            return (j2 <= 31457280 ? j2 : 31457280L) < c2;
+            return (j2 <= 31457280 ? j2 : 31457280L) < c;
         }
         return invokeJ.booleanValue;
     }
 
-    public static boolean r(ApplicationInfo applicationInfo) {
+    public static boolean p(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, applicationInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, applicationInfo)) == null) {
             if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                 return false;
             }
@@ -448,10 +420,10 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static int s(byte[] bArr, int i) {
+    public static int q(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, bArr, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, bArr, i)) == null) {
             if (bArr == null) {
                 return 0;
             }
@@ -460,10 +432,10 @@ public final class Util {
         return invokeLI.intValue;
     }
 
-    public static f t(InputStream inputStream) throws IOException {
+    public static xm r(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, inputStream)) == null) {
             if (inputStream == null) {
                 return null;
             }
@@ -471,19 +443,19 @@ public final class Util {
             if (inputStream.read(new byte[4]) == -1 || inputStream.read(bArr, 0, 26) == -1) {
                 return null;
             }
-            int s = s(bArr, 6);
-            int s2 = s(bArr, 8);
-            f fVar = new f();
-            fVar.b(((s2 >> 9) & 127) + 1980, (s2 >> 5) & 15, s2 & 31, (s >> 11) & 31, (s >> 5) & 63, (s & 31) << 1);
-            return fVar;
+            int q = q(bArr, 6);
+            int q2 = q(bArr, 8);
+            xm xmVar = new xm();
+            xmVar.b(((q2 >> 9) & 127) + 1980, (q2 >> 5) & 15, q2 & 31, (q >> 11) & 31, (q >> 5) & 63, (q & 31) << 1);
+            return xmVar;
         }
-        return (f) invokeL.objValue;
+        return (xm) invokeL.objValue;
     }
 
-    public static String u(InputStream inputStream, byte[] bArr) {
+    public static String s(InputStream inputStream, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, inputStream, bArr)) == null) {
             String str = null;
             if (inputStream == null) {
                 return null;
@@ -502,13 +474,13 @@ public final class Util {
                         }
                         messageDigest.update(bArr2, 0, read);
                     }
-                    str = t.a(messageDigest.digest());
-                } catch (Exception e2) {
-                    BdLog.e(e2.toString());
+                    str = ui.a(messageDigest.digest());
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
                 }
                 return str;
             } finally {
-                o.e(inputStream);
+                pi.e(inputStream);
             }
         }
         return (String) invokeLL.objValue;

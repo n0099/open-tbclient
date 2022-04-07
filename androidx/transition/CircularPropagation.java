@@ -30,13 +30,13 @@ public class CircularPropagation extends VisibilityPropagation {
         this.mPropagationSpeed = 3.0f;
     }
 
-    public static float distance(float f2, float f3, float f4, float f5) {
+    public static float distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f3 - f;
             float f6 = f4 - f2;
-            float f7 = f5 - f3;
-            return (float) Math.sqrt((f6 * f6) + (f7 * f7));
+            return (float) Math.sqrt((f5 * f5) + (f6 * f6));
         }
         return invokeCommon.floatValue;
     }
@@ -81,11 +81,11 @@ public class CircularPropagation extends VisibilityPropagation {
         return invokeLLLL.longValue;
     }
 
-    public void setPropagationSpeed(float f2) {
+    public void setPropagationSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            if (f2 != 0.0f) {
-                this.mPropagationSpeed = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            if (f != 0.0f) {
+                this.mPropagationSpeed = f;
                 return;
             }
             throw new IllegalArgumentException("propagationSpeed may not be 0");

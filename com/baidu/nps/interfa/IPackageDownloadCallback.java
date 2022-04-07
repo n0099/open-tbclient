@@ -1,5 +1,5 @@
 package com.baidu.nps.interfa;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IPackageDownloadCallback {
     void onPackageDownloadFail(String str, int i, String str2);
 

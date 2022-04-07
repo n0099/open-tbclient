@@ -3,11 +3,11 @@ package com.kwad.sdk.utils;
 import android.os.Handler;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class bc extends Handler {
     public WeakReference<a> a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Message message);
     }
@@ -20,8 +20,8 @@ public class bc extends Handler {
     public void handleMessage(Message message) {
         a aVar;
         try {
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
         if (this.a == null || (aVar = this.a.get()) == null) {
             return;

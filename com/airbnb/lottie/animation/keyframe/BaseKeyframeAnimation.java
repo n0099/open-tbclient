@@ -8,7 +8,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class BaseKeyframeAnimation<K, A> {
     public final KeyframesWrapper<K> keyframesWrapper;
     @Nullable
@@ -21,12 +21,12 @@ public abstract class BaseKeyframeAnimation<K, A> {
     public float cachedStartDelayProgress = -1.0f;
     public float cachedEndProgress = -1.0f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface AnimationListener {
         void onValueChanged();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class EmptyKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public EmptyKeyframeWrapper() {
         }
@@ -47,7 +47,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isCachedValueEnabled(float f2) {
+        public boolean isCachedValueEnabled(float f) {
             throw new IllegalStateException("not implemented");
         }
 
@@ -57,12 +57,12 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isValueChanged(float f2) {
+        public boolean isValueChanged(float f) {
             return false;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface KeyframesWrapper<T> {
         Keyframe<T> getCurrentKeyframe();
 
@@ -72,14 +72,14 @@ public abstract class BaseKeyframeAnimation<K, A> {
         @FloatRange(from = 0.0d, to = 1.0d)
         float getStartDelayProgress();
 
-        boolean isCachedValueEnabled(float f2);
+        boolean isCachedValueEnabled(float f);
 
         boolean isEmpty();
 
-        boolean isValueChanged(float f2);
+        boolean isValueChanged(float f);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class KeyframesWrapperImpl<T> implements KeyframesWrapper<T> {
         public Keyframe<T> cachedCurrentKeyframe = null;
         public float cachedInterpolatedProgress = -1.0f;
@@ -91,15 +91,15 @@ public abstract class BaseKeyframeAnimation<K, A> {
             this.keyframes = list;
         }
 
-        private Keyframe<T> findKeyframe(float f2) {
+        private Keyframe<T> findKeyframe(float f) {
             List<? extends Keyframe<T>> list = this.keyframes;
             Keyframe<T> keyframe = list.get(list.size() - 1);
-            if (f2 >= keyframe.getStartProgress()) {
+            if (f >= keyframe.getStartProgress()) {
                 return keyframe;
             }
             for (int size = this.keyframes.size() - 2; size >= 1; size--) {
                 Keyframe<T> keyframe2 = this.keyframes.get(size);
-                if (this.currentKeyframe != keyframe2 && keyframe2.containsProgress(f2)) {
+                if (this.currentKeyframe != keyframe2 && keyframe2.containsProgress(f)) {
                     return keyframe2;
                 }
             }
@@ -124,12 +124,12 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isCachedValueEnabled(float f2) {
-            if (this.cachedCurrentKeyframe == this.currentKeyframe && this.cachedInterpolatedProgress == f2) {
+        public boolean isCachedValueEnabled(float f) {
+            if (this.cachedCurrentKeyframe == this.currentKeyframe && this.cachedInterpolatedProgress == f) {
                 return true;
             }
             this.cachedCurrentKeyframe = this.currentKeyframe;
-            this.cachedInterpolatedProgress = f2;
+            this.cachedInterpolatedProgress = f;
             return false;
         }
 
@@ -139,16 +139,16 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isValueChanged(float f2) {
-            if (this.currentKeyframe.containsProgress(f2)) {
+        public boolean isValueChanged(float f) {
+            if (this.currentKeyframe.containsProgress(f)) {
                 return !this.currentKeyframe.isStatic();
             }
-            this.currentKeyframe = findKeyframe(f2);
+            this.currentKeyframe = findKeyframe(f);
             return true;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class SingleKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public float cachedInterpolatedProgress = -1.0f;
         @NonNull
@@ -174,11 +174,11 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isCachedValueEnabled(float f2) {
-            if (this.cachedInterpolatedProgress == f2) {
+        public boolean isCachedValueEnabled(float f) {
+            if (this.cachedInterpolatedProgress == f) {
                 return true;
             }
-            this.cachedInterpolatedProgress = f2;
+            this.cachedInterpolatedProgress = f;
             return false;
         }
 
@@ -188,7 +188,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
 
         @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.KeyframesWrapper
-        public boolean isValueChanged(float f2) {
+        public boolean isValueChanged(float f) {
             return !this.keyframe.isStatic();
         }
     }
@@ -267,7 +267,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         return value;
     }
 
-    public abstract A getValue(Keyframe<K> keyframe, float f2);
+    public abstract A getValue(Keyframe<K> keyframe, float f);
 
     public void notifyListeners() {
         for (int i = 0; i < this.listeners.size(); i++) {
@@ -279,20 +279,20 @@ public abstract class BaseKeyframeAnimation<K, A> {
         this.isDiscrete = true;
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         if (this.keyframesWrapper.isEmpty()) {
             return;
         }
-        if (f2 < getStartDelayProgress()) {
-            f2 = getStartDelayProgress();
-        } else if (f2 > getEndProgress()) {
-            f2 = getEndProgress();
+        if (f < getStartDelayProgress()) {
+            f = getStartDelayProgress();
+        } else if (f > getEndProgress()) {
+            f = getEndProgress();
         }
-        if (f2 == this.progress) {
+        if (f == this.progress) {
             return;
         }
-        this.progress = f2;
-        if (this.keyframesWrapper.isValueChanged(f2)) {
+        this.progress = f;
+        if (this.keyframesWrapper.isValueChanged(f)) {
             notifyListeners();
         }
     }

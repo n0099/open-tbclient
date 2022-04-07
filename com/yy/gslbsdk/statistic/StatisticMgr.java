@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisticMgr {
     public static /* synthetic */ Interceptable $ic;
     public static StatisticMgr sInstance;
@@ -24,7 +24,7 @@ public class StatisticMgr {
     public Map<String, StatisticInfo> mMapStatistic;
     public IGslbStatistic mStatistic;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IGslbStatistic {
         void onStatistic(Map<String, String> map);
     }

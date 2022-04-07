@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.v.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,14 +16,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.fc0;
+/* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f25785b;
+    public TextView b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveSearchGuideView(@NonNull Context context) {
@@ -50,26 +48,26 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051f, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ad);
-            this.f25785b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ae);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051a, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a2);
         }
     }
 
     public void b(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f25785b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.b) == null) {
             return;
         }
-        textView.setTextColor(f.e().a(getContext(), false, "color_search_guide"));
+        textView.setTextColor(fc0.e().a(getContext(), false, "color_search_guide"));
         if (Config.TRACE_VISIT_RECENT_DAY.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d19);
-            this.f25785b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d17);
-        } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
             this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1a);
-            this.f25785b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
-            this.f25785b.setTextColor(-1);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
+        } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1b);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d19);
+            this.b.setTextColor(-1);
         }
     }
 

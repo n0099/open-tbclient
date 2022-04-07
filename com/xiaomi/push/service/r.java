@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class r extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,10 +52,10 @@ public final class r extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                y.a(this.f950a, y.a(this.a.b(), this.a.m493a()));
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f950a.a(10, e2);
+                y.a(this.f950a, y.a(this.a.b(), this.a.m489a()));
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f950a.a(10, e);
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class a {
             try {
                 byte[] decode = Base64.decode(str, 0);
                 return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-            } catch (Exception e2) {
-                e2.getMessage();
+            } catch (Exception e) {
+                e.getMessage();
                 return null;
             }
         }
@@ -79,10 +79,10 @@ public class a {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static Bitmap a(Bitmap bitmap, float f2) {
+    public static Bitmap a(Bitmap bitmap, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, bitmap, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, bitmap, f)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -90,7 +90,7 @@ public class a {
             Paint paint = new Paint();
             Canvas canvas = new Canvas(createBitmap);
             ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setScale(f2, f2, f2, 1.0f);
+            colorMatrix.setScale(f, f, f, 1.0f);
             paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
             canvas.drawBitmap(bitmap, new Matrix(), paint);
             return createBitmap;

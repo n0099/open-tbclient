@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LC_UPDATE_FAIL = "com.baidu.clientupdate.RSA.STATUS_FAIL";
@@ -56,7 +56,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     public TextView mTitleView;
     public LinearLayout mTransBgView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,15 +157,15 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09120b);
-            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091203);
-            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f09120a);
-            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f091208);
-            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f091207);
-            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f091205);
-            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f091204);
-            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f091206);
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f091209);
+            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091200);
+            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f8);
+            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ff);
+            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fd);
+            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f0911fc);
+            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fa);
+            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f0911f9);
+            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fb);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fe);
             this.mTransBgView.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.mClientUpdateInfo;
             if (clientUpdateInfo != null) {
@@ -252,14 +252,14 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            super.onClick(view);
-            if (view == this.mCancelView) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            super.onClick(view2);
+            if (view2 == this.mCancelView) {
                 finish();
-            } else if (view == this.mConfirmView && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f04e5);
+            } else if (view2 == this.mConfirmView && update()) {
+                showToast(R.string.obfuscated_res_0x7f0f04ec);
                 finish();
             }
         }
@@ -271,7 +271,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d003f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0041);
             initData(bundle);
             initView();
             registerReceiver();

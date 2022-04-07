@@ -15,7 +15,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DnsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class DnsHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (this.j) {
-                DnsParseResult b2 = b.b(str, true);
-                if (b2 != null) {
-                    return b2.getIpList();
+                DnsParseResult b = b.b(str, true);
+                if (b != null) {
+                    return b.getIpList();
                 }
                 throw new UnknownHostException(str);
             }
@@ -112,8 +112,8 @@ public class DnsHelper {
             if (this.j) {
                 return b.getParseResult(str);
             }
-            Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
-            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
+            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
+            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h), 0, com.baidu.searchbox.dns.b.b.b(h) ? 5 : 1, DnsUtil.stackType);
         }
         return (DnsParseResult) invokeL.objValue;
     }
@@ -125,8 +125,8 @@ public class DnsHelper {
             if (this.j) {
                 return b.b(str, true);
             }
-            Map<String, List<String>> h2 = com.baidu.searchbox.dns.b.b.h(str);
-            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h2), 0, com.baidu.searchbox.dns.b.b.b(h2) ? 5 : 1, DnsUtil.stackType);
+            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
+            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h), 0, com.baidu.searchbox.dns.b.b.b(h) ? 5 : 1, DnsUtil.stackType);
         }
         return (DnsParseResult) invokeL.objValue;
     }

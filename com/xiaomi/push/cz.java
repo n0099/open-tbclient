@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class cz {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
@@ -31,31 +31,31 @@ public /* synthetic */ class cz {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[hf.f44322b.ordinal()] = 2;
+            a[hf.b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[hf.f44323c.ordinal()] = 3;
+            a[hf.c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[hf.f44324d.ordinal()] = 4;
+            a[hf.d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[hf.f44325e.ordinal()] = 5;
+            a[hf.e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hf.f44326f.ordinal()] = 6;
+            a[hf.f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            a[hf.f44327g.ordinal()] = 7;
+            a[hf.g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            a[hf.f44328h.ordinal()] = 8;
+            a[hf.h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {

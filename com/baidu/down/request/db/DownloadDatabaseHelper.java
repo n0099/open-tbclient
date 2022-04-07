@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
             try {
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS downloads");
                 sQLiteDatabase.execSQL("CREATE TABLE downloads(_id INTEGER PRIMARY KEY AUTOINCREMENT,uri TEXT, name TEXT, path TEXT, data TEXT, mimetype TEXT, etag TEXT, tasktype INTEGER, status INTEGER DEFAULT 0, lastmodification BIGINT DEFAULT " + System.currentTimeMillis() + StringUtil.ARRAY_ELEMENT_SEPARATOR + DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES + " BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES + " BIGINT DEFAULT 0, " + DownloadDataConstants.Columns.COLUMN_PROGRESS_MAP + " TEXT, retry_count INTEGER DEFAULT 0);");
-            } catch (SQLException e2) {
-                throw e2;
+            } catch (SQLException e) {
+                throw e;
             }
         }
     }

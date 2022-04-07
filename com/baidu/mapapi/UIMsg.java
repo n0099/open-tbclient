@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UIMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UI_TIP_AR_ENTERING = "正在进入实景模式...";
@@ -59,7 +59,7 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class NetDetectedType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NETYPE_2G = 2;
@@ -90,7 +90,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIGPSStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GPS_DEVICE_DISABLED = 0;
@@ -120,7 +120,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIHttpType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADD_FLS = 10;
@@ -155,7 +155,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIOffType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_DATARUN_EXCEPTION = -1;
@@ -195,7 +195,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class WalkNaviMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_PB_DATA_OK = 2008;
@@ -233,7 +233,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d_ResultType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADDR_LIST = 23;
@@ -292,7 +292,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class f_FUN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUN_ID_GBS = 13;
@@ -471,7 +471,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class k_event {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MV_MAP_ADDLOGOBJ = 4108;
@@ -548,7 +548,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class l_ErrorNo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
@@ -588,7 +588,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class m_AppUI {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CELLDATA_UPLOAD_REQ = 507;

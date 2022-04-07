@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKLineIndicator implements TKPagerIndicatorDecoration.IIndicatorRender {
     public static /* synthetic */ Interceptable $ic;
     public static final float DP;
@@ -50,20 +50,20 @@ public class TKLineIndicator implements TKPagerIndicatorDecoration.IIndicatorRen
     }
 
     @Override // com.tachikoma.core.component.listview.TKPagerIndicatorDecoration.IIndicatorRender
-    public void drawHighlights(float f2, float f3, float f4, float f5, int i, int i2, Paint paint, Canvas canvas) {
+    public void drawHighlights(float f, float f2, float f3, float f4, int i, int i2, Paint paint, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), paint, canvas}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i), Integer.valueOf(i2), paint, canvas}) == null) {
             paint.setColor(-1);
-            canvas.drawLine(f2, f3, f4, f5, paint);
+            canvas.drawLine(f, f2, f3, f4, paint);
         }
     }
 
     @Override // com.tachikoma.core.component.listview.TKPagerIndicatorDecoration.IIndicatorRender
-    public void drawInactiveIndicators(float f2, float f3, float f4, float f5, Paint paint, Canvas canvas) {
+    public void drawInactiveIndicators(float f, float f2, float f3, float f4, Paint paint, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), paint, canvas}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), paint, canvas}) == null) {
             paint.setColor(1728053247);
-            canvas.drawLine(f2, f3, f4, f5, paint);
+            canvas.drawLine(f, f2, f3, f4, paint);
         }
     }
 

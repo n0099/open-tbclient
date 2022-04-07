@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CfgFileUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALT_SERVICE = "alt_service";
@@ -127,18 +127,18 @@ public class CfgFileUtils implements INoProGuard {
                     String str3 = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
                     try {
                         fileInputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return str3;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     e.printStackTrace();
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
@@ -148,14 +148,14 @@ public class CfgFileUtils implements INoProGuard {
                 if (r6 != 0) {
                     try {
                         r6.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 return null;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             fileInputStream = null;
         } catch (Throwable unused2) {
             r6 = 0;
@@ -207,25 +207,25 @@ public class CfgFileUtils implements INoProGuard {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 fileOutputStream.write(bArr);
                 try {
                     fileOutputStream.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
             } catch (Throwable th2) {
@@ -234,8 +234,8 @@ public class CfgFileUtils implements INoProGuard {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;

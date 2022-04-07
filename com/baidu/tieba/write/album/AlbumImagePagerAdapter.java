@@ -19,20 +19,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f37277b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<ImageFileInfo> f37278c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map<Integer, Boolean> f37279d;
+    public LayoutInflater b;
+    public List<ImageFileInfo> c;
+    public Map<Integer, Boolean> d;
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -49,25 +43,25 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f37279d = new HashMap();
+        this.d = new HashMap();
         this.a = baseFragmentActivity;
-        this.f37277b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.b = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     public ImageFileInfo b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (ImageFileInfo) ListUtils.getItem(this.f37278c, i) : (ImageFileInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (ImageFileInfo) ListUtils.getItem(this.c, i) : (ImageFileInfo) invokeI.objValue;
     }
 
     public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.f37279d.get(Integer.valueOf(i)) == null) {
+            if (this.d.get(Integer.valueOf(i)) == null) {
                 return false;
             }
-            return this.f37279d.get(Integer.valueOf(i)).booleanValue();
+            return this.d.get(Integer.valueOf(i)).booleanValue();
         }
         return invokeI.booleanValue;
     }
@@ -75,7 +69,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public void d(List<ImageFileInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f37278c = list;
+            this.c = list;
             notifyDataSetChanged();
         }
     }
@@ -92,7 +86,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f37278c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.c) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -100,24 +94,24 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            View inflate = this.f37277b.inflate(R.layout.obfuscated_res_0x7f0d0116, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090367);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0118, (ViewGroup) null);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090372);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fe6);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd1);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);
             tbImageView2.setGifIconSupport(false);
             tbImageView2.setLongIconSupport(false);
-            ImageFileInfo b2 = b(i);
-            if (b2 != null) {
-                tbImageView2.K(b2.getFilePath(), 35, false, true);
-                tbImageView.J(b2.getFilePath(), 36, false);
-                this.f37279d.put(Integer.valueOf(i), Boolean.TRUE);
+            ImageFileInfo b = b(i);
+            if (b != null) {
+                tbImageView2.L(b.getFilePath(), 35, false, true);
+                tbImageView.K(b.getFilePath(), 36, false);
+                this.d.put(Integer.valueOf(i), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);
             SkinManager.setBackgroundColor(inflate, R.color.CAM_X0201);
@@ -127,9 +121,9 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view2, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 }

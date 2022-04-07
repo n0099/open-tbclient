@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ShaderConfig implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShaderConfig> CREATOR;
@@ -27,7 +27,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public List<ShaderParams> vParams;
     public String vertexShader;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<ShaderConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,17 +121,17 @@ public class ShaderConfig implements Parcelable, Cloneable {
         return (ShaderConfig) invokeV.objValue;
     }
 
-    public static ShaderConfig getGaussianBlurHShaderConfig(float f2) {
+    public static ShaderConfig getGaussianBlurHShaderConfig(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.vertexShader = "defaultGaussianBlur";
             ArrayList arrayList = new ArrayList();
             shaderConfig.vParams = arrayList;
             arrayList.add(new ShaderParams(ShaderParams.IMAGE_WIDTH));
             shaderConfig.vParams.add(new ShaderParams(ShaderParams.IMAGE_HEIGHT));
-            shaderConfig.vParams.add(new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f2}));
+            shaderConfig.vParams.add(new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
             shaderConfig.vParams.add(new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{0.0f}));
             shaderConfig.fragmentShader = "defaultGaussianBlur";
             return shaderConfig;
@@ -139,10 +139,10 @@ public class ShaderConfig implements Parcelable, Cloneable {
         return (ShaderConfig) invokeF.objValue;
     }
 
-    public static ShaderConfig getGaussianBlurVShaderConfig(float f2) {
+    public static ShaderConfig getGaussianBlurVShaderConfig(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.vertexShader = "defaultGaussianBlur";
             ArrayList arrayList = new ArrayList();
@@ -150,7 +150,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
             arrayList.add(new ShaderParams(ShaderParams.IMAGE_WIDTH));
             shaderConfig.vParams.add(new ShaderParams(ShaderParams.IMAGE_HEIGHT));
             shaderConfig.vParams.add(new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{0.0f}));
-            shaderConfig.vParams.add(new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f2}));
+            shaderConfig.vParams.add(new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
             shaderConfig.fragmentShader = "defaultGaussianBlur";
             return shaderConfig;
         }
@@ -209,8 +209,8 @@ public class ShaderConfig implements Parcelable, Cloneable {
                     shaderConfig.textures = arrayList3;
                 }
                 return shaderConfig;
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return getDefaultShaderConfig();
             }
         }

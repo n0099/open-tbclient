@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DaysOfWeekAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CALENDAR_DAY_STYLE;
@@ -97,17 +97,17 @@ public class DaysOfWeekAdapter extends BaseAdapter {
     @Override // android.widget.Adapter
     @Nullable
     @SuppressLint({"WrongConstant"})
-    public View getView(int i, @Nullable View view, @NonNull ViewGroup viewGroup) {
+    public View getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
-            TextView textView = (TextView) view;
-            if (view == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, viewGroup, false);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            TextView textView = (TextView) view2;
+            if (view2 == null) {
+                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0571, viewGroup, false);
             }
             this.calendar.set(7, positionToDayOfWeek(i));
             textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
-            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0aef), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
+            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0af1), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
             return textView;
         }
         return (View) invokeILL.objValue;

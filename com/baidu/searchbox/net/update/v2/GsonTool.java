@@ -33,7 +33,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -59,7 +59,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -244,8 +244,8 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                 jSONObject.put("successCount", this.mSuccessCount);
                 jSONObject.put("versionFilterCount", this.mVersionFilterCount);
                 return jSONObject;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -285,8 +285,8 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                 this.mSuccessCount++;
             }
             this.mArrayInfo.put(jSONObject);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -360,8 +360,8 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     if (typeAdapter == null) {
                         try {
                             typeAdapter = gson.getAdapter(TypeToken.get(commandListener.getDataType()));
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                             collectInfo(nextName + "/" + nextName2, (ActionData) null, false);
                         }
                     }

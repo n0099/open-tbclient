@@ -47,7 +47,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SubsamplingScaleImageView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EASE_IN_OUT_QUAD = 2;
@@ -138,7 +138,7 @@ public class SubsamplingScaleImageView extends View {
     public PointF vTranslateStart;
     public boolean zoomEnabled;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,9 +188,9 @@ public class SubsamplingScaleImageView extends View {
                     }
                     this.bitmap = decoderFactory.make().decode(context, this.source);
                     return Integer.valueOf(subsamplingScaleImageView.getExifOrientation(uri));
-                } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to load bitmap", e2);
-                    this.exception = e2;
+                } catch (Exception e) {
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to load bitmap", e);
+                    this.exception = e;
                     return null;
                 }
             }
@@ -223,7 +223,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -291,7 +291,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +322,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,13 +378,13 @@ public class SubsamplingScaleImageView extends View {
                         decodeRegion = imageRegionDecoder.decodeRegion(tile.fileSRect, tile.sampleSize);
                     }
                     return decodeRegion;
-                } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to decode tile", e2);
-                    this.exception = e2;
+                } catch (Exception e) {
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to decode tile", e);
+                    this.exception = e;
                     return null;
-                } catch (OutOfMemoryError e3) {
-                    e3.printStackTrace();
-                    this.exception = new Exception(e3.getMessage());
+                } catch (OutOfMemoryError e2) {
+                    e2.printStackTrace();
+                    this.exception = new Exception(e2.getMessage());
                     return null;
                 }
             }
@@ -413,7 +413,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -470,9 +470,9 @@ public class SubsamplingScaleImageView extends View {
                         i2 = subsamplingScaleImageView.sRegion.height();
                     }
                     return new int[]{i, i2, exifOrientation};
-                } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to initialise bitmap decoder", e2);
-                    this.exception = e2;
+                } catch (Exception e) {
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to initialise bitmap decoder", e);
+                    this.exception = e;
                     return null;
                 }
             }
@@ -623,19 +623,19 @@ public class SubsamplingScaleImageView extends View {
         this.quickScaleThreshold = TypedValue.applyDimension(1, 20.0f, context.getResources().getDisplayMetrics());
     }
 
-    private int calculateInSampleSize(float f2) {
+    private int calculateInSampleSize(float f) {
         InterceptResult invokeF;
         int round;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(65579, this, f2)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(65579, this, f)) != null) {
             return invokeF.intValue;
         }
         if (this.minimumTileDpi > 0) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            f2 *= this.minimumTileDpi / ((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f);
+            f *= this.minimumTileDpi / ((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f);
         }
-        int sWidth = (int) (sWidth() * f2);
-        int sHeight = (int) (sHeight() * f2);
+        int sWidth = (int) (sWidth() * f);
+        int sHeight = (int) (sHeight() * f);
         if (sWidth == 0 || sHeight == 0) {
             return 32;
         }
@@ -717,13 +717,13 @@ public class SubsamplingScaleImageView extends View {
     }
 
     @SuppressLint({"FloatMath"})
-    private float distance(float f2, float f3, float f4, float f5) {
+    private float distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            float f6 = f2 - f3;
-            float f7 = f4 - f5;
-            return FloatMath.sqrt((f6 * f6) + (f7 * f7));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f - f2;
+            float f6 = f3 - f4;
+            return FloatMath.sqrt((f5 * f5) + (f6 * f6));
         }
         return invokeCommon.floatValue;
     }
@@ -762,45 +762,45 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    private float ease(int i, long j, float f2, float f3, long j2) {
+    private float ease(int i, long j, float f, float f2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j2)})) == null) {
             if (i != 1) {
                 if (i == 2) {
-                    return easeInOutQuad(j, f2, f3, j2);
+                    return easeInOutQuad(j, f, f2, j2);
                 }
                 throw new IllegalStateException("Unexpected easing type: " + i);
             }
-            return easeOutQuad(j, f2, f3, j2);
+            return easeOutQuad(j, f, f2, j2);
         }
         return invokeCommon.floatValue;
     }
 
-    private float easeInOutQuad(long j, float f2, float f3, long j2) {
+    private float easeInOutQuad(long j, float f, float f2, long j2) {
         InterceptResult invokeCommon;
-        float f4;
+        float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f5 = ((float) j) / (((float) j2) / 2.0f);
-            if (f5 < 1.0f) {
-                f4 = (f3 / 2.0f) * f5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j), Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j2)})) == null) {
+            float f4 = ((float) j) / (((float) j2) / 2.0f);
+            if (f4 < 1.0f) {
+                f3 = (f2 / 2.0f) * f4;
             } else {
-                float f6 = f5 - 1.0f;
-                f4 = (-f3) / 2.0f;
-                f5 = (f6 * (f6 - 2.0f)) - 1.0f;
+                float f5 = f4 - 1.0f;
+                f3 = (-f2) / 2.0f;
+                f4 = (f5 * (f5 - 2.0f)) - 1.0f;
             }
-            return (f4 * f5) + f2;
+            return (f3 * f4) + f;
         }
         return invokeCommon.floatValue;
     }
 
-    private float easeOutQuad(long j, float f2, float f3, long j2) {
+    private float easeOutQuad(long j, float f, float f2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f4 = ((float) j) / ((float) j2);
-            return ((-f3) * f4 * (f4 - 2.0f)) + f2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j), Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j2)})) == null) {
+            float f3 = ((float) j) / ((float) j2);
+            return ((-f2) * f3 * (f3 - 2.0f)) + f;
         }
         return invokeCommon.floatValue;
     }
@@ -850,17 +850,17 @@ public class SubsamplingScaleImageView extends View {
                 pointF.x = Math.max(pointF.x, -sWidth);
                 pointF.y = Math.max(pointF.y, -sHeight);
             }
-            float f2 = 0.5f;
+            float f = 0.5f;
             float paddingLeft = (getPaddingLeft() > 0 || getPaddingRight() > 0) ? getPaddingLeft() / (getPaddingLeft() + getPaddingRight()) : 0.5f;
             if (getPaddingTop() > 0 || getPaddingBottom() > 0) {
-                f2 = getPaddingTop() / (getPaddingTop() + getPaddingBottom());
+                f = getPaddingTop() / (getPaddingTop() + getPaddingBottom());
             }
             if (this.panLimit == 3 && isReady()) {
                 max = Math.max(0, getWidth() / 2);
                 max2 = Math.max(0, getHeight() / 2);
             } else if (z) {
                 max = Math.max(0.0f, (getWidth() - sWidth) * paddingLeft);
-                max3 = Math.max(0.0f, (getHeight() - sHeight) * f2);
+                max3 = Math.max(0.0f, (getHeight() - sHeight) * f);
                 pointF.x = Math.min(pointF.x, max);
                 pointF.y = Math.min(pointF.y, max3);
                 scaleAndTranslate.scale = limitedScale;
@@ -1039,22 +1039,22 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PointF limitedSCenter(float f2, float f3, float f4, PointF pointF) {
+    public PointF limitedSCenter(float f, float f2, float f3, PointF pointF) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), pointF})) == null) {
-            PointF vTranslateForSCenter = vTranslateForSCenter(f2, f3, f4);
-            pointF.set(((getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2)) - vTranslateForSCenter.x) / f4, ((getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2)) - vTranslateForSCenter.y) / f4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), pointF})) == null) {
+            PointF vTranslateForSCenter = vTranslateForSCenter(f, f2, f3);
+            pointF.set(((getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2)) - vTranslateForSCenter.x) / f3, ((getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2)) - vTranslateForSCenter.y) / f3);
             return pointF;
         }
         return (PointF) invokeCommon.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public float limitedScale(float f2) {
+    public float limitedScale(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65598, this, f2)) == null) ? Math.min(this.maxScale, Math.max(minScale(), f2)) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65598, this, f)) == null) ? Math.min(this.maxScale, Math.max(minScale(), f)) : invokeF.floatValue;
     }
 
     private float minScale() {
@@ -1068,9 +1068,9 @@ public class SubsamplingScaleImageView extends View {
                 return Math.max((getWidth() - paddingLeft) / sWidth(), (getHeight() - paddingBottom) / sHeight());
             }
             if (i == 3) {
-                float f2 = this.minScale;
-                if (f2 > 0.0f) {
-                    return f2;
+                float f = this.minScale;
+                if (f > 0.0f) {
+                    return f;
                 }
             }
             return Math.min((getWidth() - paddingLeft) / sWidth(), (getHeight() - paddingBottom) / sHeight());
@@ -1168,13 +1168,13 @@ public class SubsamplingScaleImageView extends View {
     }
 
     private void preDraw() {
-        Float f2;
+        Float f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65604, this) == null) || getWidth() == 0 || getHeight() == 0 || this.sWidth <= 0 || this.sHeight <= 0) {
             return;
         }
-        if (this.sPendingCenter != null && (f2 = this.pendingScale) != null) {
-            float floatValue = f2.floatValue();
+        if (this.sPendingCenter != null && (f = this.pendingScale) != null) {
+            float floatValue = f.floatValue();
             this.scale = floatValue;
             if (floatValue != this.norScale) {
                 this.norScale = floatValue;
@@ -1393,19 +1393,19 @@ public class SubsamplingScaleImageView extends View {
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                     if (this.this$0.mIScrollDistanceCallBack != null) {
-                        this.this$0.mIScrollDistanceCallBack.onMove(motionEvent, motionEvent2, this.this$0.vTranslate, f2, f3);
+                        this.this$0.mIScrollDistanceCallBack.onMove(motionEvent, motionEvent2, this.this$0.vTranslate, f, f2);
                     }
-                    if (this.this$0.panEnabled && this.this$0.readySent && this.this$0.vTranslate != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f2) > 500.0f || Math.abs(f3) > 500.0f) && !this.this$0.isZooming))) {
-                        PointF pointF = new PointF(this.this$0.vTranslate.x + (f2 * 0.25f), this.this$0.vTranslate.y + (f3 * 0.25f));
+                    if (this.this$0.panEnabled && this.this$0.readySent && this.this$0.vTranslate != null && motionEvent != null && motionEvent2 != null && ((Math.abs(motionEvent.getX() - motionEvent2.getX()) > 50.0f || Math.abs(motionEvent.getY() - motionEvent2.getY()) > 50.0f) && ((Math.abs(f) > 500.0f || Math.abs(f2) > 500.0f) && !this.this$0.isZooming))) {
+                        PointF pointF = new PointF(this.this$0.vTranslate.x + (f * 0.25f), this.this$0.vTranslate.y + (f2 * 0.25f));
                         new AnimationBuilder(this.this$0, new PointF(((this.this$0.getWidth() / 2) - pointF.x) / this.this$0.scale, ((this.this$0.getHeight() / 2) - pointF.y) / this.this$0.scale), (AnimationBuilder) null).withEasing(1).withPanLimited(false).start();
                         return true;
                     }
-                    return super.onFling(motionEvent, motionEvent2, f2, f3);
+                    return super.onFling(motionEvent, motionEvent2, f, f2);
                 }
                 return invokeCommon.booleanValue;
             }
@@ -1423,17 +1423,17 @@ public class SubsamplingScaleImageView extends View {
         });
     }
 
-    private void setMatrixArray(float[] fArr, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
+    private void setMatrixArray(float[] fArr, float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65611, this, new Object[]{fArr, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) {
-            fArr[0] = f2;
-            fArr[1] = f3;
-            fArr[2] = f4;
-            fArr[3] = f5;
-            fArr[4] = f6;
-            fArr[5] = f7;
-            fArr[6] = f8;
-            fArr[7] = f9;
+        if (interceptable == null || interceptable.invokeCommon(65611, this, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)}) == null) {
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
+            fArr[3] = f4;
+            fArr[4] = f5;
+            fArr[5] = f6;
+            fArr[6] = f7;
+            fArr[7] = f8;
         }
     }
 
@@ -1447,28 +1447,28 @@ public class SubsamplingScaleImageView extends View {
         return (Rect) invokeLL.objValue;
     }
 
-    private float sourceToViewX(float f2) {
+    private float sourceToViewX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65613, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65613, this, f)) == null) {
             PointF pointF = this.vTranslate;
             if (pointF == null) {
                 return Float.NaN;
             }
-            return (f2 * this.scale) + pointF.x;
+            return (f * this.scale) + pointF.x;
         }
         return invokeF.floatValue;
     }
 
-    private float sourceToViewY(float f2) {
+    private float sourceToViewY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65614, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65614, this, f)) == null) {
             PointF pointF = this.vTranslate;
             if (pointF == null) {
                 return Float.NaN;
             }
-            return (f2 * this.scale) + pointF.y;
+            return (f * this.scale) + pointF.y;
         }
         return invokeF.floatValue;
     }
@@ -1482,45 +1482,45 @@ public class SubsamplingScaleImageView extends View {
         return invokeL.booleanValue;
     }
 
-    private PointF vTranslateForSCenter(float f2, float f3, float f4) {
+    private PointF vTranslateForSCenter(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65616, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65616, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int paddingLeft = getPaddingLeft() + (((getWidth() - getPaddingRight()) - getPaddingLeft()) / 2);
             int paddingTop = getPaddingTop() + (((getHeight() - getPaddingBottom()) - getPaddingTop()) / 2);
             if (this.satTemp == null) {
                 this.satTemp = new ScaleAndTranslate(0.0f, new PointF(0.0f, 0.0f), null);
             }
-            this.satTemp.scale = f4;
-            this.satTemp.vTranslate.set(paddingLeft - (f2 * f4), paddingTop - (f3 * f4));
+            this.satTemp.scale = f3;
+            this.satTemp.vTranslate.set(paddingLeft - (f * f3), paddingTop - (f2 * f3));
             fitToBounds(true, this.satTemp);
             return this.satTemp.vTranslate;
         }
         return (PointF) invokeCommon.objValue;
     }
 
-    private float viewToSourceX(float f2) {
+    private float viewToSourceX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65617, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65617, this, f)) == null) {
             PointF pointF = this.vTranslate;
             if (pointF == null) {
                 return Float.NaN;
             }
-            return (f2 - pointF.x) / this.scale;
+            return (f - pointF.x) / this.scale;
         }
         return invokeF.floatValue;
     }
 
-    private float viewToSourceY(float f2) {
+    private float viewToSourceY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65618, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65618, this, f)) == null) {
             PointF pointF = this.vTranslate;
             if (pointF == null) {
                 return Float.NaN;
             }
-            return (f2 - pointF.y) / this.scale;
+            return (f - pointF.y) / this.scale;
         }
         return invokeF.floatValue;
     }
@@ -1537,24 +1537,24 @@ public class SubsamplingScaleImageView extends View {
         return (AnimationBuilder) invokeL.objValue;
     }
 
-    public AnimationBuilder animateScale(float f2) {
+    public AnimationBuilder animateScale(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
             if (isReady()) {
-                return new AnimationBuilder(this, f2, (AnimationBuilder) null);
+                return new AnimationBuilder(this, f, (AnimationBuilder) null);
             }
             return null;
         }
         return (AnimationBuilder) invokeF.objValue;
     }
 
-    public AnimationBuilder animateScaleAndCenter(float f2, PointF pointF) {
+    public AnimationBuilder animateScaleAndCenter(float f, PointF pointF) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), pointF})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), pointF})) == null) {
             if (isReady()) {
-                return new AnimationBuilder(this, f2, pointF, (AnimationBuilder) null);
+                return new AnimationBuilder(this, f, pointF, (AnimationBuilder) null);
             }
             return null;
         }
@@ -1666,7 +1666,7 @@ public class SubsamplingScaleImageView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Bitmap bitmap;
-        float f2;
+        float f;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, canvas) == null) {
@@ -1681,7 +1681,7 @@ public class SubsamplingScaleImageView extends View {
             if (checkReady()) {
                 preDraw();
                 int i2 = 1;
-                char c2 = 0;
+                char c = 0;
                 if (this.anim != null) {
                     long currentTimeMillis = System.currentTimeMillis() - this.anim.time;
                     boolean z = currentTimeMillis > this.anim.duration;
@@ -1712,7 +1712,7 @@ public class SubsamplingScaleImageView extends View {
                         }
                         min2 = i3;
                         i2 = 1;
-                        c2 = 0;
+                        c = 0;
                     }
                     for (Map.Entry<Integer, List<Tile>> entry2 : this.tileMap.entrySet()) {
                         if (entry2.getKey().intValue() == min2 || z2) {
@@ -1753,33 +1753,33 @@ public class SubsamplingScaleImageView extends View {
                                 }
                                 min2 = i;
                                 i2 = 1;
-                                c2 = 0;
+                                c = 0;
                             }
                         }
                     }
                     if (this.debug) {
                         StringBuilder sb = new StringBuilder("Scale: ");
                         Object[] objArr = new Object[i2];
-                        objArr[c2] = Float.valueOf(this.scale);
+                        objArr[c] = Float.valueOf(this.scale);
                         sb.append(String.format("%.2f", objArr));
                         canvas.drawText(sb.toString(), 5.0f, 15.0f, this.debugPaint);
                         StringBuilder sb2 = new StringBuilder("Translate: ");
                         Object[] objArr2 = new Object[i2];
-                        objArr2[c2] = Float.valueOf(this.vTranslate.x);
+                        objArr2[c] = Float.valueOf(this.vTranslate.x);
                         sb2.append(String.format("%.2f", objArr2));
                         sb2.append(":");
                         Object[] objArr3 = new Object[i2];
-                        objArr3[c2] = Float.valueOf(this.vTranslate.y);
+                        objArr3[c] = Float.valueOf(this.vTranslate.y);
                         sb2.append(String.format("%.2f", objArr3));
                         canvas.drawText(sb2.toString(), 5.0f, 35.0f, this.debugPaint);
                         PointF center = getCenter();
                         StringBuilder sb3 = new StringBuilder("Source center: ");
                         Object[] objArr4 = new Object[i2];
-                        objArr4[c2] = Float.valueOf(center.x);
+                        objArr4[c] = Float.valueOf(center.x);
                         sb3.append(String.format("%.2f", objArr4));
                         sb3.append(":");
                         Object[] objArr5 = new Object[i2];
-                        objArr5[c2] = Float.valueOf(center.y);
+                        objArr5[c] = Float.valueOf(center.y);
                         sb3.append(String.format("%.2f", objArr5));
                         canvas.drawText(sb3.toString(), 5.0f, 55.0f, this.debugPaint);
                         Anim anim = this.anim;
@@ -1798,26 +1798,26 @@ public class SubsamplingScaleImageView extends View {
                     return;
                 }
                 if (this.bitmap != null) {
-                    float f3 = this.scale;
+                    float f2 = this.scale;
                     if (this.preview) {
-                        f3 *= this.sWidth / bitmap.getWidth();
-                        f2 = this.scale * (this.sHeight / this.bitmap.getHeight());
+                        f2 *= this.sWidth / bitmap.getWidth();
+                        f = this.scale * (this.sHeight / this.bitmap.getHeight());
                     } else {
-                        f2 = f3;
+                        f = f2;
                     }
                     if (this.matrix == null) {
                         this.matrix = new Matrix();
                     }
                     this.matrix.reset();
-                    this.matrix.postScale(f3, f2);
+                    this.matrix.postScale(f2, f);
                     this.matrix.postRotate(getOrientation());
                     Matrix matrix = this.matrix;
                     PointF pointF = this.vTranslate;
                     matrix.postTranslate(pointF.x, pointF.y);
                     if (getOrientation() == 180) {
                         Matrix matrix2 = this.matrix;
-                        float f4 = this.scale;
-                        matrix2.postTranslate(this.sWidth * f4, f4 * this.sHeight);
+                        float f3 = this.scale;
+                        matrix2.postTranslate(this.sWidth * f3, f3 * this.sHeight);
                     } else if (getOrientation() == 90) {
                         this.matrix.postTranslate(this.scale * this.sHeight, 0.0f);
                     } else if (getOrientation() == 270) {
@@ -1948,16 +1948,16 @@ public class SubsamplingScaleImageView extends View {
                                             this.vTranslateStart.set(this.vTranslate);
                                         } else if (this.panEnabled) {
                                             PointF pointF2 = this.vCenterStart;
-                                            float f2 = pointF2.x;
+                                            float f = pointF2.x;
                                             PointF pointF3 = this.vTranslateStart;
-                                            float f3 = f2 - pointF3.x;
-                                            float f4 = pointF2.y - pointF3.y;
-                                            float f5 = this.scale;
-                                            float f6 = this.scaleStart;
-                                            float f7 = f4 * (f5 / f6);
+                                            float f2 = f - pointF3.x;
+                                            float f3 = pointF2.y - pointF3.y;
+                                            float f4 = this.scale;
+                                            float f5 = this.scaleStart;
+                                            float f6 = f3 * (f4 / f5);
                                             PointF pointF4 = this.vTranslate;
-                                            pointF4.x = x - (f3 * (f5 / f6));
-                                            pointF4.y = y - f7;
+                                            pointF4.x = x - (f2 * (f4 / f5));
+                                            pointF4.y = y - f6;
                                         } else if (this.sRequestedCenter != null) {
                                             this.vTranslate.x = (getWidth() / 2) - (this.scale * this.sRequestedCenter.x);
                                             this.vTranslate.y = (getHeight() / 2) - (this.scale * this.sRequestedCenter.y);
@@ -1985,14 +1985,14 @@ public class SubsamplingScaleImageView extends View {
                                         this.scale = max;
                                         if (this.panEnabled) {
                                             PointF pointF5 = this.vCenterStart;
-                                            float f8 = pointF5.x;
+                                            float f7 = pointF5.x;
                                             PointF pointF6 = this.vTranslateStart;
-                                            float f9 = pointF5.y;
-                                            float f10 = this.scaleStart;
-                                            float f11 = (f9 - pointF6.y) * (max / f10);
+                                            float f8 = pointF5.y;
+                                            float f9 = this.scaleStart;
+                                            float f10 = (f8 - pointF6.y) * (max / f9);
                                             PointF pointF7 = this.vTranslate;
-                                            pointF7.x = f8 - ((f8 - pointF6.x) * (max / f10));
-                                            pointF7.y = f9 - f11;
+                                            pointF7.x = f7 - ((f7 - pointF6.x) * (max / f9));
+                                            pointF7.y = f8 - f10;
                                         } else if (this.sRequestedCenter != null) {
                                             this.vTranslate.x = (getWidth() / 2) - (this.scale * this.sRequestedCenter.x);
                                             this.vTranslate.y = (getHeight() / 2) - (this.scale * this.sRequestedCenter.y);
@@ -2018,12 +2018,12 @@ public class SubsamplingScaleImageView extends View {
                                         this.vTranslate.x = this.vTranslateStart.x + (motionEvent.getX() - this.vCenterStart.x);
                                         this.vTranslate.y = this.vTranslateStart.y + (motionEvent.getY() - this.vCenterStart.y);
                                         PointF pointF8 = this.vTranslate;
-                                        float f12 = pointF8.x;
-                                        float f13 = pointF8.y;
+                                        float f11 = pointF8.x;
+                                        float f12 = pointF8.y;
                                         fitToBounds(true);
-                                        boolean z3 = f12 != this.vTranslate.x;
+                                        boolean z3 = f11 != this.vTranslate.x;
                                         boolean z4 = z3 && abs3 > abs4 && !this.isPanning;
-                                        boolean z5 = f13 == this.vTranslate.y && abs4 > 15.0f;
+                                        boolean z5 = f12 == this.vTranslate.y && abs4 > 15.0f;
                                         if (!z4 && (!z3 || z5 || this.isPanning)) {
                                             this.isPanning = true;
                                         } else if (i > 0) {
@@ -2181,10 +2181,10 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setDoubleTapZoomScale(float f2) {
+    public final void setDoubleTapZoomScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
-            this.doubleTapZoomScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048607, this, f) == null) {
+            this.doubleTapZoomScale = f;
         }
     }
 
@@ -2213,17 +2213,17 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public void setInitScale(float f2) {
+    public void setInitScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048614, this, f2) == null) {
-            this.mInitScale = Float.valueOf(f2);
+        if (interceptable == null || interceptable.invokeF(1048614, this, f) == null) {
+            this.mInitScale = Float.valueOf(f);
         }
     }
 
-    public final void setMaxScale(float f2) {
+    public final void setMaxScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
-            this.maxScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048615, this, f) == null) {
+            this.maxScale = f;
         }
     }
 
@@ -2235,10 +2235,10 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setMinScale(float f2) {
+    public final void setMinScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048617, this, f2) == null) {
-            this.minScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048617, this, f) == null) {
+            this.minScale = f;
         }
     }
 
@@ -2369,11 +2369,11 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setScaleAndCenter(float f2, PointF pointF) {
+    public final void setScaleAndCenter(float f, PointF pointF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Float.valueOf(f2), pointF}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Float.valueOf(f), pointF}) == null) {
             this.anim = null;
-            this.pendingScale = Float.valueOf(f2);
+            this.pendingScale = Float.valueOf(f);
             this.sPendingCenter = pointF;
             this.sRequestedCenter = pointF;
             invalidate();
@@ -2421,31 +2421,31 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final PointF sourceToViewCoord(float f2, float f3) {
+    public final PointF sourceToViewCoord(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? sourceToViewCoord(f2, f3, new PointF()) : (PointF) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? sourceToViewCoord(f, f2, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    public final PointF viewToSourceCoord(float f2, float f3) {
+    public final PointF viewToSourceCoord(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? viewToSourceCoord(f2, f3, new PointF()) : (PointF) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? viewToSourceCoord(f, f2, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float scale;
         public PointF vTranslate;
 
-        public ScaleAndTranslate(float f2, PointF pointF) {
+        public ScaleAndTranslate(float f, PointF pointF) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2), pointF};
+                Object[] objArr = {Float.valueOf(f), pointF};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -2455,12 +2455,12 @@ public class SubsamplingScaleImageView extends View {
                     return;
                 }
             }
-            this.scale = f2;
+            this.scale = f;
             this.vTranslate = pointF;
         }
 
-        public /* synthetic */ ScaleAndTranslate(float f2, PointF pointF, ScaleAndTranslate scaleAndTranslate) {
-            this(f2, pointF);
+        public /* synthetic */ ScaleAndTranslate(float f, PointF pointF, ScaleAndTranslate scaleAndTranslate) {
+            this(f, pointF);
         }
     }
 
@@ -2545,33 +2545,33 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final PointF sourceToViewCoord(float f2, float f3, PointF pointF) {
+    public final PointF sourceToViewCoord(float f, float f2, PointF pointF) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), pointF})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pointF})) == null) {
             if (this.vTranslate == null) {
                 return null;
             }
-            pointF.set(sourceToViewX(f2), sourceToViewY(f3));
+            pointF.set(sourceToViewX(f), sourceToViewY(f2));
             return pointF;
         }
         return (PointF) invokeCommon.objValue;
     }
 
-    public final PointF viewToSourceCoord(float f2, float f3, PointF pointF) {
+    public final PointF viewToSourceCoord(float f, float f2, PointF pointF) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048637, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), pointF})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048637, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pointF})) == null) {
             if (this.vTranslate == null) {
                 return null;
             }
-            pointF.set(viewToSourceX(f2), viewToSourceY(f3));
+            pointF.set(viewToSourceX(f), viewToSourceY(f2));
             return pointF;
         }
         return (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2611,7 +2611,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class AnimationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2689,11 +2689,11 @@ public class SubsamplingScaleImageView extends View {
                 this.this$0.anim.time = System.currentTimeMillis();
                 PointF pointF3 = this.vFocus;
                 if (pointF3 != null) {
-                    float f2 = pointF3.x - (this.this$0.anim.sCenterStart.x * limitedScale);
-                    float f3 = this.vFocus.y - (this.this$0.anim.sCenterStart.y * limitedScale);
-                    ScaleAndTranslate scaleAndTranslate = new ScaleAndTranslate(limitedScale, new PointF(f2, f3), null);
+                    float f = pointF3.x - (this.this$0.anim.sCenterStart.x * limitedScale);
+                    float f2 = this.vFocus.y - (this.this$0.anim.sCenterStart.y * limitedScale);
+                    ScaleAndTranslate scaleAndTranslate = new ScaleAndTranslate(limitedScale, new PointF(f, f2), null);
                     this.this$0.fitToBounds(true, scaleAndTranslate);
-                    this.this$0.anim.vFocusEnd = new PointF(this.vFocus.x + (scaleAndTranslate.vTranslate.x - f2), this.vFocus.y + (scaleAndTranslate.vTranslate.y - f3));
+                    this.this$0.anim.vFocusEnd = new PointF(this.vFocus.x + (scaleAndTranslate.vTranslate.x - f), this.vFocus.y + (scaleAndTranslate.vTranslate.y - f2));
                 }
                 this.this$0.invalidate();
             }
@@ -2736,12 +2736,12 @@ public class SubsamplingScaleImageView extends View {
             this(subsamplingScaleImageView, pointF);
         }
 
-        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2) {
+        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2)};
+                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -2756,21 +2756,21 @@ public class SubsamplingScaleImageView extends View {
             this.easing = 2;
             this.interruptible = true;
             this.panLimited = true;
-            this.targetScale = f2;
+            this.targetScale = f;
             this.targetSCenter = subsamplingScaleImageView.getCenter();
             this.vFocus = null;
         }
 
-        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2, AnimationBuilder animationBuilder) {
-            this(subsamplingScaleImageView, f2);
+        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f, AnimationBuilder animationBuilder) {
+            this(subsamplingScaleImageView, f);
         }
 
-        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2, PointF pointF) {
+        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f, PointF pointF) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2), pointF};
+                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f), pointF};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -2785,21 +2785,21 @@ public class SubsamplingScaleImageView extends View {
             this.easing = 2;
             this.interruptible = true;
             this.panLimited = true;
-            this.targetScale = f2;
+            this.targetScale = f;
             this.targetSCenter = pointF;
             this.vFocus = null;
         }
 
-        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2, PointF pointF, AnimationBuilder animationBuilder) {
-            this(subsamplingScaleImageView, f2, pointF);
+        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f, PointF pointF, AnimationBuilder animationBuilder) {
+            this(subsamplingScaleImageView, f, pointF);
         }
 
-        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2, PointF pointF, PointF pointF2) {
+        public AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f, PointF pointF, PointF pointF2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2), pointF, pointF2};
+                Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f), pointF, pointF2};
                 interceptable.invokeUnInit(65538, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -2814,13 +2814,13 @@ public class SubsamplingScaleImageView extends View {
             this.easing = 2;
             this.interruptible = true;
             this.panLimited = true;
-            this.targetScale = f2;
+            this.targetScale = f;
             this.targetSCenter = pointF;
             this.vFocus = pointF2;
         }
 
-        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f2, PointF pointF, PointF pointF2, AnimationBuilder animationBuilder) {
-            this(subsamplingScaleImageView, f2, pointF, pointF2);
+        public /* synthetic */ AnimationBuilder(SubsamplingScaleImageView subsamplingScaleImageView, float f, PointF pointF, PointF pointF2, AnimationBuilder animationBuilder) {
+            this(subsamplingScaleImageView, f, pointF, pointF2);
         }
     }
 
@@ -2840,10 +2840,10 @@ public class SubsamplingScaleImageView extends View {
             this.satTemp.scale = this.scale;
             this.satTemp.vTranslate.set(this.vTranslate);
             fitToBounds(z, this.satTemp);
-            float f2 = this.satTemp.scale;
-            this.scale = f2;
+            float f = this.satTemp.scale;
+            this.scale = f;
             if (this.norScale == 0.0f) {
-                this.norScale = f2;
+                this.norScale = f;
             }
             this.vTranslate.set(this.satTemp.vTranslate);
             if (z2) {

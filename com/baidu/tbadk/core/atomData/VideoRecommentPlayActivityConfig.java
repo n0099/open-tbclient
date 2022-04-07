@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -72,7 +72,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class PersonalPageParams implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String IDENTIFER_FROM_THREAD_TAB = "15";

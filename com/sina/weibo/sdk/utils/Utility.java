@@ -53,8 +53,8 @@ public class Utility {
                         } else if (split.length == 1) {
                             bundle.putString(URLDecoder.decode(split[0], "UTF-8"), "");
                         }
-                    } catch (UnsupportedEncodingException e2) {
-                        e2.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
                     }
                 }
             }

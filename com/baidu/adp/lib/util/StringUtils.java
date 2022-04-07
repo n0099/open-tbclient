@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
@@ -92,10 +92,10 @@ public class StringUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? handleDate(str, "yyyy-MM-dd HH:mm") : (Date) invokeL.objValue;
     }
 
-    public static boolean isChinese(char c2) {
+    public static boolean isChinese(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c2)})) == null) ? Pattern.compile("[一-龥]").matcher(String.valueOf(c2)).find() : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) ? Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find() : invokeCommon.booleanValue;
     }
 
     public static boolean isJSONArray(String str) {

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "subs";
@@ -30,7 +30,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public List<SampleEntry> entries;
     public long entryCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SampleEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         public int subsampleCount;
         public List<SubsampleEntry> subsampleEntries;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public static class SubsampleEntry {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

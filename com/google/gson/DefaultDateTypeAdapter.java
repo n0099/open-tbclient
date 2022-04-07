@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
@@ -71,8 +71,8 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
                 }
                 try {
                     return ISO8601Utils.parse(str, new ParsePosition(0));
-                } catch (ParseException e2) {
-                    throw new JsonSyntaxException(str, e2);
+                } catch (ParseException e) {
+                    throw new JsonSyntaxException(str, e);
                 }
             }
         }

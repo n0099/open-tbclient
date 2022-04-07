@@ -23,22 +23,16 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static InterfaceC1958a f39512b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f39513c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f39514d;
+    public static InterfaceC0298a b;
+    public static boolean c;
+    public static boolean d;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1958a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0298a {
         @WorkerThread
         void a(String str);
     }
@@ -52,9 +46,9 @@ public class a {
     public static String a(Context context) {
         if (!ao.i() || TextUtils.isEmpty(ao.j())) {
             if (TextUtils.isEmpty(a)) {
-                String e2 = as.e(context);
-                a = e2;
-                if (TextUtils.isEmpty(e2)) {
+                String e = as.e(context);
+                a = e;
+                if (TextUtils.isEmpty(e)) {
                     if (ao.i() || b.a(2048L)) {
                         return a;
                     }
@@ -76,8 +70,8 @@ public class a {
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
             return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "unknown");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return null;
         }
     }
@@ -88,7 +82,7 @@ public class a {
         }
         c(context);
         if (com.kwad.sdk.g.a.a()) {
-            com.kwad.sdk.g.a.a(context, new a.InterfaceC1984a() { // from class: com.kwad.sdk.core.f.a.1
+            com.kwad.sdk.g.a.a(context, new a.InterfaceC0324a() { // from class: com.kwad.sdk.core.f.a.1
             });
         } else if (com.kwad.sdk.g.b.a()) {
             com.kwad.sdk.g.b.a(context, new b.a() { // from class: com.kwad.sdk.core.f.a.2
@@ -97,11 +91,11 @@ public class a {
     }
 
     public static void c(Context context) {
-        if (!TextUtils.isEmpty(a) || context == null || f39513c) {
+        if (!TextUtils.isEmpty(a) || context == null || c) {
             return;
         }
-        f39513c = true;
-        if (context == null || f39514d) {
+        c = true;
+        if (context == null || d) {
             return;
         }
         final Context applicationContext = context.getApplicationContext();
@@ -281,12 +275,12 @@ public class a {
                 }
                 com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.a);
                 if (TextUtils.isEmpty(a.a)) {
-                    boolean unused3 = a.f39514d = true;
+                    boolean unused3 = a.d = true;
                 } else {
                     as.i(applicationContext, a.a);
                 }
                 a.h();
-                boolean unused4 = a.f39513c = false;
+                boolean unused4 = a.c = false;
             }
         });
     }
@@ -302,9 +296,9 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC1958a interfaceC1958a = f39512b;
-        if (interfaceC1958a != null) {
-            interfaceC1958a.a(a);
+        InterfaceC0298a interfaceC0298a = b;
+        if (interfaceC0298a != null) {
+            interfaceC0298a.a(a);
         }
     }
 }

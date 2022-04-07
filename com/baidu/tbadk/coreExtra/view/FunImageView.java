@@ -7,8 +7,6 @@ import android.view.ViewParent;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.p0.g1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -17,17 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.cs6;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FunImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30394b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f30395c;
+    public int b;
+    public String c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunImageView(@NonNull Context context) {
@@ -54,11 +50,11 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup i = b.j().i(context);
+            ViewGroup i = cs6.j().i(context);
             this.a = i;
             if (i != null) {
                 SkinManager.setBackgroundColor(i, R.color.CAM_X0101, 0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.k(context), -2);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.k(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
                 addView(this.a, layoutParams);
@@ -83,13 +79,13 @@ public class FunImageView extends RelativeLayout {
     public int getCurIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30394b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public String getCurUrlTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30395c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public ViewGroup getFunAdView() {
@@ -101,8 +97,8 @@ public class FunImageView extends RelativeLayout {
     public void setCurUrlTagAndIndex(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.f30395c = str;
-            this.f30394b = i;
+            this.c = str;
+            this.b = i;
         }
     }
 

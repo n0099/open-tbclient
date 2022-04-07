@@ -67,7 +67,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.addContentView(view, layoutParams);
+                generatePluginAppCompatActivity.addContentView(view2, layoutParams);
             } else {
-                super.addContentView(view, layoutParams);
+                super.addContentView(view2, layoutParams);
             }
         }
     }
@@ -1141,14 +1141,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048657, this, contextMenu, view, contextMenuInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048657, this, contextMenu, view2, contextMenuInfo) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+                generatePluginAppCompatActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
             } else {
-                super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+                super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
             }
         }
     }
@@ -1251,15 +1251,15 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048666, this, view, str, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048666, this, view2, str, context, attributeSet)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                return generatePluginAppCompatActivity.onCreateView(view, str, context, attributeSet);
+                return generatePluginAppCompatActivity.onCreateView(view2, str, context, attributeSet);
             }
-            return super.onCreateView(view, str, context, attributeSet);
+            return super.onCreateView(view2, str, context, attributeSet);
         }
         return (View) invokeLLLL.objValue;
     }
@@ -1667,15 +1667,15 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048702, this, i, view, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048702, this, i, view2, menu)) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                return generatePluginAppCompatActivity.onPreparePanel(i, view, menu);
+                return generatePluginAppCompatActivity.onPreparePanel(i, view2, menu);
             }
-            return super.onPreparePanel(i, view, menu);
+            return super.onPreparePanel(i, view2, menu);
         }
         return invokeILL.booleanValue;
     }
@@ -1998,14 +1998,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // android.app.Activity
-    public void openContextMenu(View view) {
+    public void openContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048731, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048731, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.openContextMenu(view);
+                generatePluginAppCompatActivity.openContextMenu(view2);
             } else {
-                super.openContextMenu(view);
+                super.openContextMenu(view2);
             }
         }
     }
@@ -2076,14 +2076,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // android.app.Activity
-    public void registerForContextMenu(View view) {
+    public void registerForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048737, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048737, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.registerForContextMenu(view);
+                generatePluginAppCompatActivity.registerForContextMenu(view2);
             } else {
-                super.registerForContextMenu(view);
+                super.registerForContextMenu(view2);
             }
         }
     }
@@ -2778,22 +2778,22 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // android.app.Activity
-    public void unregisterForContextMenu(View view) {
+    public void unregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048805, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048805, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.unregisterForContextMenu(view);
+                generatePluginAppCompatActivity.unregisterForContextMenu(view2);
             } else {
-                super.unregisterForContextMenu(view);
+                super.unregisterForContextMenu(view2);
             }
         }
     }
 
-    public void zeusSuperAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void zeusSuperAddContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048806, this, view, layoutParams) == null) {
-            super.addContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048806, this, view2, layoutParams) == null) {
+            super.addContentView(view2, layoutParams);
         }
     }
 
@@ -2827,8 +2827,8 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
                 Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", Class.forName("android.app.Activity$TranslucentConversionListener"), ActivityOptions.class);
                 declaredMethod.setAccessible(true);
                 return ((Boolean) declaredMethod.invoke(this, translucentConversionListener, activityOptions)).booleanValue();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -3297,10 +3297,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         }
     }
 
-    public void zeusSuperOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void zeusSuperOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048886, this, contextMenu, view, contextMenuInfo) == null) {
-            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (interceptable == null || interceptable.invokeLLL(1048886, this, contextMenu, view2, contextMenuInfo) == null) {
+            super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
 
@@ -3347,10 +3347,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048894, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
     }
 
-    public View zeusSuperOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    public View zeusSuperOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048895, this, view, str, context, attributeSet)) == null) ? super.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048895, this, view2, str, context, attributeSet)) == null) ? super.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     public void zeusSuperOnDestroy() {
@@ -3551,10 +3551,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (interceptable == null || (invokeL = interceptable.invokeL(1048930, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
-    public boolean zeusSuperOnPreparePanel(int i, View view, Menu menu) {
+    public boolean zeusSuperOnPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048931, this, i, view, menu)) == null) ? super.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048931, this, i, view2, menu)) == null) ? super.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     public void zeusSuperOnProvideAssistContent(AssistContent assistContent) {
@@ -3720,10 +3720,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (interceptable == null || (invokeL = interceptable.invokeL(1048958, this, callback)) == null) ? super.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
     }
 
-    public void zeusSuperOpenContextMenu(View view) {
+    public void zeusSuperOpenContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048960, this, view) == null) {
-            super.openContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048960, this, view2) == null) {
+            super.openContextMenu(view2);
         }
     }
 
@@ -3762,10 +3762,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         }
     }
 
-    public void zeusSuperRegisterForContextMenu(View view) {
+    public void zeusSuperRegisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048966, this, view) == null) {
-            super.registerForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048966, this, view2) == null) {
+            super.registerForContextMenu(view2);
         }
     }
 
@@ -4117,10 +4117,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         }
     }
 
-    public void zeusSuperUnregisterForContextMenu(View view) {
+    public void zeusSuperUnregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1049032, this, view) == null) {
-            super.unregisterForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1049032, this, view2) == null) {
+            super.unregisterForContextMenu(view2);
         }
     }
 
@@ -4216,10 +4216,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048959, this, callback, i)) == null) ? super.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
-    public void zeusSuperSetContentView(View view) {
+    public void zeusSuperSetContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048974, this, view) == null) {
-            super.setContentView(view);
+        if (interceptable == null || interceptable.invokeL(1048974, this, view2) == null) {
+            super.setContentView(view2);
         }
     }
 
@@ -4304,10 +4304,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1049023, this, intent, bundle)) == null) ? super.startNextMatchingActivity(intent, bundle) : invokeLL.booleanValue;
     }
 
-    public void zeusSuperSetContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void zeusSuperSetContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048975, this, view, layoutParams) == null) {
-            super.setContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048975, this, view2, layoutParams) == null) {
+            super.setContentView(view2, layoutParams);
         }
     }
 
@@ -4460,14 +4460,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048745, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048745, this, view2) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.setContentView(view);
+                generatePluginAppCompatActivity.setContentView(view2);
             } else {
-                super.setContentView(view);
+                super.setContentView(view2);
             }
         }
     }
@@ -4632,14 +4632,14 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048746, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048746, this, view2, layoutParams) == null) {
             GeneratePluginAppCompatActivity generatePluginAppCompatActivity = this.mTargetActivity;
             if (generatePluginAppCompatActivity != null) {
-                generatePluginAppCompatActivity.setContentView(view, layoutParams);
+                generatePluginAppCompatActivity.setContentView(view2, layoutParams);
             } else {
-                super.setContentView(view, layoutParams);
+                super.setContentView(view2, layoutParams);
             }
         }
     }

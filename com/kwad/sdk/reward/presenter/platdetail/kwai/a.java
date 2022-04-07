@@ -13,29 +13,15 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.a.h;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends g implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f41069b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f41070c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f41071d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AdInfo f41072e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f41073f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f41074g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f41075h = false;
+    public TextView b;
+    public ImageView c;
+    public AdTemplate d;
+    public AdInfo e;
+    public com.kwad.sdk.core.download.a.b f;
+    public ImageView g;
+    public boolean h = false;
     public final com.kwad.sdk.contentalliance.detail.video.d i = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j, long j2) {
@@ -48,7 +34,7 @@ public class a extends g implements View.OnClickListener {
             } else {
                 a.this.e();
                 a.this.s();
-                bb.a(a.this.f41074g, 0, 0, 0, bb.a(a.this.q(), 1.0f));
+                bb.a(a.this.g, 0, 0, 0, bb.a(a.this.q(), 1.0f));
             }
         }
     };
@@ -61,12 +47,12 @@ public class a extends g implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public long a(long j) {
-        return Math.min(com.kwad.sdk.core.response.a.a.p(this.f41072e), j);
+        return Math.min(com.kwad.sdk.core.response.a.a.p(this.e), j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        this.f41069b.setText(String.valueOf(i));
+        this.b.setText(String.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,13 +61,13 @@ public class a extends g implements View.OnClickListener {
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.f41069b.setVisibility(8);
+                a.this.b.setVisibility(8);
             }
         });
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                a.this.f41069b.setAlpha(1.0f - ((Float) valueAnimator.getAnimatedValue()).floatValue());
+                a.this.b.setAlpha(1.0f - ((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
         ofFloat.start();
@@ -89,29 +75,29 @@ public class a extends g implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
-        if (this.f41075h) {
+        if (this.h) {
             return;
         }
-        this.f41075h = true;
+        this.h = true;
         if (f() || g()) {
-            bb.a(this.f41074g, bb.a(q(), 40.0f), 0, 0, bb.a(q(), 1.0f));
+            bb.a(this.g, bb.a(q(), 40.0f), 0, 0, bb.a(q(), 1.0f));
         }
-        this.f41070c.setAlpha(0.0f);
-        this.f41070c.setVisibility(0);
-        this.f41070c.setOnClickListener(this);
+        this.c.setAlpha(0.0f);
+        this.c.setVisibility(0);
+        this.c.setOnClickListener(this);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.5
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.f41069b.setVisibility(8);
+                a.this.b.setVisibility(8);
             }
         });
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.6
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                a.this.f41069b.setAlpha(1.0f - floatValue);
-                a.this.f41070c.setAlpha(floatValue);
+                a.this.b.setAlpha(1.0f - floatValue);
+                a.this.c.setAlpha(floatValue);
             }
         });
         ofFloat.start();
@@ -119,12 +105,12 @@ public class a extends g implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        ((g) this).a.f40742b.e();
+        ((g) this).a.b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        com.kwad.sdk.reward.a.d dVar = ((g) this).a.f40743c;
+        com.kwad.sdk.reward.a.d dVar = ((g) this).a.c;
         if (dVar != null) {
             dVar.a();
         }
@@ -132,21 +118,21 @@ public class a extends g implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
-        com.kwad.sdk.core.report.a.a(this.f41071d, 41, ((g) this).a.j.getTouchCoords(), ((g) this).a.f40745e);
-        ((g) this).a.f40742b.a();
+        com.kwad.sdk.core.report.a.a(this.d, 41, ((g) this).a.j.getTouchCoords(), ((g) this).a.e);
+        ((g) this).a.b.a();
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((g) this).a.f40747g;
-        this.f41071d = adTemplate;
+        AdTemplate adTemplate = ((g) this).a.g;
+        this.d = adTemplate;
         AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f41072e = j;
-        this.f41073f = ((g) this).a.l;
-        this.f41069b.setText(String.valueOf(a(com.kwad.sdk.core.response.a.a.b(j))));
-        this.f41069b.setVisibility(0);
-        this.f41069b.setAlpha(1.0f);
+        this.e = j;
+        this.f = ((g) this).a.l;
+        this.b.setText(String.valueOf(a(com.kwad.sdk.core.response.a.a.b(j))));
+        this.b.setVisibility(0);
+        this.b.setAlpha(1.0f);
         com.kwad.sdk.reward.d.a().a(this.j);
         ((g) this).a.k.a(this.i);
     }
@@ -156,22 +142,22 @@ public class a extends g implements View.OnClickListener {
         super.c();
         com.kwad.sdk.reward.d.a().b(this.j);
         ((g) this).a.k.b(this.i);
-        this.f41070c.setVisibility(8);
-        this.f41075h = false;
+        this.c.setVisibility(8);
+        this.h = false;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f41069b = (TextView) a(R.id.obfuscated_res_0x7f091167);
-        this.f41070c = (ImageView) a(R.id.obfuscated_res_0x7f091066);
-        this.f41074g = (ImageView) a(R.id.obfuscated_res_0x7f09117c);
+        this.b = (TextView) a(R.id.obfuscated_res_0x7f091160);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f09105f);
+        this.g = (ImageView) a(R.id.obfuscated_res_0x7f091175);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.f41070c) {
-            com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.f41071d).a(this.f41073f).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.7
+    public void onClick(View view2) {
+        if (view2 == this.c) {
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.d).a(this.f).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.7
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     a.this.t();

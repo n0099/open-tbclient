@@ -49,7 +49,7 @@ public class e {
         ZipInputStream zipInputStream3;
         ZipFile zipFile3;
         ZipInputStream zipInputStream4;
-        int b2;
+        int b;
         long j;
         a aVar = null;
         aVar = null;
@@ -158,15 +158,15 @@ public class e {
                         try {
                             aVar2.a(zipInputStream3);
                             do {
-                                b2 = aVar2.b();
-                                if (b2 == 1) {
+                                b = aVar2.b();
+                                if (b == 1) {
                                     throw new c("已达到END_DOCUMENT");
                                 }
-                            } while (b2 != 2);
-                            int e2 = aVar2.e();
+                            } while (b != 2);
+                            int e = aVar2.e();
                             String str2 = null;
                             String str3 = null;
-                            for (int i = 0; i != e2; i++) {
+                            for (int i = 0; i != e; i++) {
                                 if (PushManager.APP_VERSION_NAME.equals(aVar2.a(i))) {
                                     str2 = a(aVar2, i);
                                 } else if (PushManager.APP_VERSION_CODE.equals(aVar2.a(i))) {
@@ -271,8 +271,8 @@ public class e {
     }
 
     public static void a(@NonNull String str, @NonNull String str2) {
-        com.ss.android.socialbase.downloader.d.b g2 = com.ss.android.socialbase.downloader.downloader.c.g();
-        if (g2 == null) {
+        com.ss.android.socialbase.downloader.d.b g = com.ss.android.socialbase.downloader.downloader.c.g();
+        if (g == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -280,16 +280,16 @@ public class e {
             jSONObject.put("message", str2);
         } catch (JSONException unused) {
         }
-        g2.a(str, jSONObject, null, null);
+        g.a(str, jSONObject, null, null);
     }
 
     public static String a(a aVar, int i) {
-        int b2 = aVar.b(i);
-        int c2 = aVar.c(i);
-        if (b2 == 3) {
+        int b = aVar.b(i);
+        int c = aVar.c(i);
+        if (b == 3) {
             return aVar.d(i);
         }
-        return b2 == 2 ? String.format("?%s%08X", a(c2), Integer.valueOf(c2)) : (b2 < 16 || b2 > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c2), Integer.valueOf(b2)) : String.valueOf(c2);
+        return b == 2 ? String.format("?%s%08X", a(c), Integer.valueOf(c)) : (b < 16 || b > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b)) : String.valueOf(c);
     }
 
     public static String a(Context context, PackageInfo packageInfo, String str) {
@@ -301,8 +301,8 @@ public class e {
         applicationInfo.publicSourceDir = str;
         try {
             return applicationInfo.loadLabel(context.getPackageManager()).toString();
-        } catch (OutOfMemoryError e2) {
-            a("getPackageInfo::fail_load_label", e2.getMessage());
+        } catch (OutOfMemoryError e) {
+            a("getPackageInfo::fail_load_label", e.getMessage());
             return null;
         }
     }

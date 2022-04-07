@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.i0;
+import com.repackage.my9;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -97,7 +97,7 @@ public class VideoFileRenderer implements VideoSink {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.eglBase = i0.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
+                        this.this$0.eglBase = my9.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
                         this.this$0.eglBase.createDummyPbufferSurface();
                         this.this$0.eglBase.makeCurrent();
                         this.this$0.yuvConverter = new YuvConverter();
@@ -119,19 +119,19 @@ public class VideoFileRenderer implements VideoSink {
             int i = videoFrame.getRotation() % 180 == 0 ? this.outputFileWidth : this.outputFileHeight;
             int i2 = videoFrame.getRotation() % 180 == 0 ? this.outputFileHeight : this.outputFileWidth;
             float width = buffer.getWidth() / buffer.getHeight();
-            float f2 = i / i2;
+            float f = i / i2;
             int width2 = buffer.getWidth();
             int height = buffer.getHeight();
-            if (f2 > width) {
-                height = (int) (height * (width / f2));
+            if (f > width) {
+                height = (int) (height * (width / f));
             } else {
-                width2 = (int) (width2 * (f2 / width));
+                width2 = (int) (width2 * (f / width));
             }
             VideoFrame.Buffer cropAndScale = buffer.cropAndScale((buffer.getWidth() - width2) / 2, (buffer.getHeight() - height) / 2, width2, height, i, i2);
             videoFrame.release();
             final VideoFrame.I420Buffer i420 = cropAndScale.toI420();
             cropAndScale.release();
-            this.fileThreadHandler.post(new Runnable() { // from class: f.c.d0
+            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.hy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,8 +158,8 @@ public class VideoFileRenderer implements VideoSink {
             this.videoOutFile.close();
             Logging.d(TAG, "Video written to disk as " + this.outputFileName + ". The number of frames is " + this.frameCount + " and the dimensions of the frames are " + this.outputFileWidth + "x" + this.outputFileHeight + ".");
             this.fileThread.quit();
-        } catch (IOException e2) {
-            throw new RuntimeException("Error closing output file", e2);
+        } catch (IOException e) {
+            throw new RuntimeException("Error closing output file", e);
         }
     }
 
@@ -170,8 +170,8 @@ public class VideoFileRenderer implements VideoSink {
             this.videoOutFile.write("FRAME\n".getBytes(Charset.forName("US-ASCII")));
             this.videoOutFile.write(this.outputFrameBuffer.array(), this.outputFrameBuffer.arrayOffset(), this.outputFrameSize);
             this.frameCount++;
-        } catch (IOException e2) {
-            throw new RuntimeException("Error writing video to disk", e2);
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing video to disk", e);
         }
     }
 
@@ -180,7 +180,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoFrame) == null) {
             videoFrame.retain();
-            this.renderThreadHandler.post(new Runnable() { // from class: f.c.c0
+            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.gy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             final CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.renderThreadHandler.post(new Runnable() { // from class: f.c.b0
+            this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.fy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +212,7 @@ public class VideoFileRenderer implements VideoSink {
                 }
             });
             ThreadUtils.awaitUninterruptibly(countDownLatch);
-            this.fileThreadHandler.post(new Runnable() { // from class: f.c.a0
+            this.fileThreadHandler.post(new Runnable() { // from class: com.repackage.ey9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,9 +226,9 @@ public class VideoFileRenderer implements VideoSink {
             });
             try {
                 this.fileThread.join();
-            } catch (InterruptedException e2) {
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                Logging.e(TAG, "Interrupted while waiting for the write to disk to complete.", e2);
+                Logging.e(TAG, "Interrupted while waiting for the write to disk to complete.", e);
             }
         }
     }

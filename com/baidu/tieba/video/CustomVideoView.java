@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CustomVideoView extends VideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36390b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomVideoView(Context context) {
@@ -41,10 +39,10 @@ public class CustomVideoView extends VideoView {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (this.f36390b == 0 && this.a == 0) {
+            if (this.b == 0 && this.a == 0) {
                 super.onMeasure(i, i2);
             } else {
-                setMeasuredDimension(this.a, this.f36390b);
+                setMeasuredDimension(this.a, this.b);
             }
         }
     }
@@ -52,7 +50,7 @@ public class CustomVideoView extends VideoView {
     public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f36390b = i;
+            this.b = i;
         }
     }
 

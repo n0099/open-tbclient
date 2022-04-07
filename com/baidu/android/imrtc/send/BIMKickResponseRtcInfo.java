@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickResponseRtcInfo";
@@ -55,8 +55,8 @@ public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
             BIMKickResponseRtcInfo bIMKickResponseRtcInfo = new BIMKickResponseRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 bIMKickResponseRtcInfo.setBIMKickedStatus(new JSONObject(str2).optInt("status"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickResponseRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickResponseRtcInfo toRtcInfo Exception ", e);
             }
             return bIMKickResponseRtcInfo;
         }
@@ -74,8 +74,8 @@ public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
                 jSONObject.put("status", this.mKickedStatus);
                 LogUtils.d(TAG, "BIMKickResponseRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickResponseRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickResponseRtcInfo Exception ", e);
                 return "";
             }
         }

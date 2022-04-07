@@ -12,29 +12,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BasicSeperateBaMemberItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34435b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f34436c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f34437d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34438e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f34439f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f34440g;
+    public View b;
+    public View c;
+    public TbImageView d;
+    public TextView e;
+    public TextView f;
+    public TbImageView g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicSeperateBaMemberItemView(Context context) {
@@ -61,13 +49,13 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f0, this);
-            this.f34435b = inflate;
-            this.f34436c = inflate.findViewById(R.id.obfuscated_res_0x7f091362);
-            this.f34437d = (TbImageView) this.f34435b.findViewById(R.id.obfuscated_res_0x7f091ef4);
-            this.f34438e = (TextView) this.f34435b.findViewById(R.id.obfuscated_res_0x7f092244);
-            this.f34439f = (TextView) this.f34435b.findViewById(R.id.obfuscated_res_0x7f09223d);
-            this.f34440g = (TbImageView) this.f34435b.findViewById(R.id.obfuscated_res_0x7f09190d);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ed, this);
+            this.b = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f091357);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee0);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092228);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092221);
+            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091900);
         }
     }
 

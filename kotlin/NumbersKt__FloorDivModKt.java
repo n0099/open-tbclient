@@ -7,73 +7,73 @@ import kotlin.internal.InlineOnly;
 public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int floorDiv(byte b2, byte b3) {
-        int i = b2 / b3;
-        return ((b2 ^ b3) >= 0 || b3 * i == b2) ? i : i - 1;
+    public static final int floorDiv(byte b, byte b2) {
+        int i = b / b2;
+        return ((b ^ b2) >= 0 || b2 * i == b) ? i : i - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final byte mod(byte b2, byte b3) {
-        int i = b2 % b3;
-        return (byte) (i + (b3 & (((i ^ b3) & ((-i) | i)) >> 31)));
+    public static final byte mod(byte b, byte b2) {
+        int i = b % b2;
+        return (byte) (i + (b2 & (((i ^ b2) & ((-i) | i)) >> 31)));
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int floorDiv(byte b2, short s) {
-        int i = b2 / s;
-        return ((b2 ^ s) >= 0 || s * i == b2) ? i : i - 1;
+    public static final int floorDiv(byte b, short s) {
+        int i = b / s;
+        return ((b ^ s) >= 0 || s * i == b) ? i : i - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final short mod(byte b2, short s) {
-        int i = b2 % s;
+    public static final short mod(byte b, short s) {
+        int i = b % s;
         return (short) (i + (s & (((i ^ s) & ((-i) | i)) >> 31)));
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int floorDiv(byte b2, int i) {
-        int i2 = b2 / i;
-        return ((b2 ^ i) >= 0 || i * i2 == b2) ? i2 : i2 - 1;
+    public static final int floorDiv(byte b, int i) {
+        int i2 = b / i;
+        return ((b ^ i) >= 0 || i * i2 == b) ? i2 : i2 - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int mod(byte b2, int i) {
-        int i2 = b2 % i;
+    public static final int mod(byte b, int i) {
+        int i2 = b % i;
         return i2 + (i & (((i2 ^ i) & ((-i2) | i2)) >> 31));
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final long floorDiv(byte b2, long j) {
-        long j2 = b2;
+    public static final long floorDiv(byte b, long j) {
+        long j2 = b;
         long j3 = j2 / j;
         return ((j2 ^ j) >= 0 || j * j3 == j2) ? j3 : j3 - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final long mod(byte b2, long j) {
-        long j2 = b2 % j;
+    public static final long mod(byte b, long j) {
+        long j2 = b % j;
         return j2 + (j & (((j2 ^ j) & ((-j2) | j2)) >> 63));
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int floorDiv(short s, byte b2) {
-        int i = s / b2;
-        return ((s ^ b2) >= 0 || b2 * i == s) ? i : i - 1;
+    public static final int floorDiv(short s, byte b) {
+        int i = s / b;
+        return ((s ^ b) >= 0 || b * i == s) ? i : i - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final byte mod(short s, byte b2) {
-        int i = s % b2;
-        return (byte) (i + (b2 & (((i ^ b2) & ((-i) | i)) >> 31)));
+    public static final byte mod(short s, byte b) {
+        int i = s % b;
+        return (byte) (i + (b & (((i ^ b) & ((-i) | i)) >> 31)));
     }
 
     @SinceKotlin(version = "1.5")
@@ -121,16 +121,16 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final int floorDiv(int i, byte b2) {
-        int i2 = i / b2;
-        return ((i ^ b2) >= 0 || b2 * i2 == i) ? i2 : i2 - 1;
+    public static final int floorDiv(int i, byte b) {
+        int i2 = i / b;
+        return ((i ^ b) >= 0 || b * i2 == i) ? i2 : i2 - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final byte mod(int i, byte b2) {
-        int i2 = i % b2;
-        return (byte) (i2 + (b2 & (((i2 ^ b2) & ((-i2) | i2)) >> 31)));
+    public static final byte mod(int i, byte b) {
+        int i2 = i % b;
+        return (byte) (i2 + (b & (((i2 ^ b) & ((-i2) | i2)) >> 31)));
     }
 
     @SinceKotlin(version = "1.5")
@@ -178,17 +178,17 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final long floorDiv(long j, byte b2) {
-        long j2 = b2;
+    public static final long floorDiv(long j, byte b) {
+        long j2 = b;
         long j3 = j / j2;
         return ((j ^ j2) >= 0 || j2 * j3 == j) ? j3 : j3 - 1;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final byte mod(long j, byte b2) {
+    public static final byte mod(long j, byte b) {
         long j2;
-        long j3 = j % b2;
+        long j3 = j % b;
         return (byte) (j3 + (j2 & (((j3 ^ j2) & ((-j3) | j3)) >> 63)));
     }
 
@@ -240,30 +240,30 @@ public class NumbersKt__FloorDivModKt extends NumbersKt__BigIntegersKt {
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final float mod(float f2, float f3) {
-        float f4 = f2 % f3;
-        return (f4 == ((float) 0.0d) || Math.signum(f4) == Math.signum(f3)) ? f4 : f4 + f3;
+    public static final float mod(float f, float f2) {
+        float f3 = f % f2;
+        return (f3 == ((float) 0.0d) || Math.signum(f3) == Math.signum(f2)) ? f3 : f3 + f2;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final double mod(float f2, double d2) {
-        double d3 = f2 % d2;
+    public static final double mod(float f, double d) {
+        double d2 = f % d;
+        return (d2 == 0.0d || Math.signum(d2) == Math.signum(d)) ? d2 : d2 + d;
+    }
+
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    public static final double mod(double d, float f) {
+        double d2 = f;
+        double d3 = d % d2;
         return (d3 == 0.0d || Math.signum(d3) == Math.signum(d2)) ? d3 : d3 + d2;
     }
 
     @SinceKotlin(version = "1.5")
     @InlineOnly
-    public static final double mod(double d2, float f2) {
-        double d3 = f2;
-        double d4 = d2 % d3;
-        return (d4 == 0.0d || Math.signum(d4) == Math.signum(d3)) ? d4 : d4 + d3;
-    }
-
-    @SinceKotlin(version = "1.5")
-    @InlineOnly
-    public static final double mod(double d2, double d3) {
-        double d4 = d2 % d3;
-        return (d4 == 0.0d || Math.signum(d4) == Math.signum(d3)) ? d4 : d4 + d3;
+    public static final double mod(double d, double d2) {
+        double d3 = d % d2;
+        return (d3 == 0.0d || Math.signum(d3) == Math.signum(d2)) ? d3 : d3 + d2;
     }
 }

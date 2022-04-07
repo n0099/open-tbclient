@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.metadata.id3.CommentFrame;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class GaplessInfoHolder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GAPLESS_COMMENT_ID = "iTunSMPB";

@@ -72,8 +72,8 @@ public class AtomicFile {
             fileOutputStream.close();
             this.mBaseName.delete();
             this.mBackupName.renameTo(this.mBaseName);
-        } catch (IOException e2) {
-            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e2);
+        } catch (IOException e) {
+            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e);
         }
     }
 
@@ -86,8 +86,8 @@ public class AtomicFile {
         try {
             fileOutputStream.close();
             this.mBackupName.delete();
-        } catch (IOException e2) {
-            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e2);
+        } catch (IOException e) {
+            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e);
         }
     }
 

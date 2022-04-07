@@ -34,7 +34,7 @@ public final class ViewStubCompat extends View {
 
     /* loaded from: classes.dex */
     public interface OnInflateListener {
-        void onInflate(ViewStubCompat viewStubCompat, View view);
+        void onInflate(ViewStubCompat viewStubCompat, View view2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -172,9 +172,9 @@ public final class ViewStubCompat extends View {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             WeakReference<View> weakReference = this.mInflatedViewRef;
             if (weakReference != null) {
-                View view = weakReference.get();
-                if (view != null) {
-                    view.setVisibility(i);
+                View view2 = weakReference.get();
+                if (view2 != null) {
+                    view2.setVisibility(i);
                     return;
                 }
                 throw new IllegalStateException("setVisibility called on un-referenced view");

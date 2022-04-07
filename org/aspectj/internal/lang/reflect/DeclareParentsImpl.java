@@ -44,9 +44,9 @@ public class DeclareParentsImpl implements DeclareParents {
         this.parentsString = str2;
         try {
             this.parents = StringToType.commaSeparatedListToTypeArray(str2, ajType.getJavaClass());
-        } catch (ClassNotFoundException e2) {
+        } catch (ClassNotFoundException e) {
             this.parentsError = true;
-            this.firstMissingTypeName = e2.getMessage();
+            this.firstMissingTypeName = e.getMessage();
         }
     }
 

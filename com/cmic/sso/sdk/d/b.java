@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class b {
             String str2 = "";
             try {
                 a a = aVar.a();
-                String b2 = f.b(context);
+                String b = f.b(context);
                 a.e(str);
                 a.x(aVar.b("loginMethod", ""));
                 if (aVar.b("isCacheScrip", false)) {
@@ -81,8 +81,8 @@ public class b {
                     a.r("pgw");
                 }
                 a.j(f.a(context));
-                if (!TextUtils.isEmpty(b2)) {
-                    str2 = b2;
+                if (!TextUtils.isEmpty(b)) {
+                    str2 = b;
                 }
                 a.k(str2);
                 a.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
@@ -110,8 +110,8 @@ public class b {
                 }
                 c.a("SendLog", "登录日志");
                 a(a.b(), aVar);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -154,12 +154,12 @@ public class b {
                 public void a(String str, String str2, JSONObject jSONObject2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject2) == null) {
-                        com.cmic.sso.sdk.a.a b2 = this.a.a.b();
+                        com.cmic.sso.sdk.a.a b = this.a.a.b();
                         HashMap hashMap = new HashMap();
                         if (!str.equals("103000")) {
-                            if (b2.l() != 0 && b2.k() != 0) {
+                            if (b.l() != 0 && b.k() != 0) {
                                 int a = k.a("logFailTimes", 0) + 1;
-                                if (a >= b2.k()) {
+                                if (a >= b.k()) {
                                     hashMap.put("logFailTimes", 0);
                                     hashMap.put("logCloseTime", Long.valueOf(System.currentTimeMillis()));
                                 } else {

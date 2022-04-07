@@ -45,10 +45,10 @@ public class NativeLibrary {
                 try {
                     System.loadLibrary(str);
                     return true;
-                } catch (UnsatisfiedLinkError e2) {
+                } catch (UnsatisfiedLinkError e) {
                     String str3 = NativeLibrary.TAG;
-                    Logging.e(str3, "Failed to load native library: " + str, e2);
-                    Logging.e(NativeLibrary.TAG, "force treat as OK.", e2);
+                    Logging.e(str3, "Failed to load native library: " + str, e);
+                    Logging.e(NativeLibrary.TAG, "force treat as OK.", e);
                     return true;
                 }
             }

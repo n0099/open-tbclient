@@ -10,7 +10,7 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class p extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;

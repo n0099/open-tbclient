@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class OfficialNotificationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +55,12 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     private void initViewById() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ae5);
-            this.mFragmentContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
+            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.mFragmentContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906da);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1311));
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1319));
         }
     }
 
@@ -93,7 +93,7 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0142);
+            setContentView(R.layout.obfuscated_res_0x7f0d0144);
             initViewById();
             initFragment();
         }

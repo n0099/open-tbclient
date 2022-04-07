@@ -6,8 +6,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.a0.a;
-import c.a.p0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -18,12 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ks4;
+import com.repackage.qh5;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j mLogoActivityDelegate;
+    public qh5 mLogoActivityDelegate;
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,11 +86,11 @@ public class LogoActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             setUseStyleImmersiveSticky(false);
             super.onCreate(bundle);
-            j jVar = new j(this);
-            this.mLogoActivityDelegate = jVar;
-            jVar.e(bundle);
+            qh5 qh5Var = new qh5(this);
+            this.mLogoActivityDelegate = qh5Var;
+            qh5Var.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            a.m();
+            ks4.m();
         }
     }
 
@@ -102,7 +102,7 @@ public class LogoActivity extends BaseFragmentActivity {
             super.onDestroy();
             this.mLogoActivityDelegate.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            a.n();
+            ks4.n();
         }
     }
 
@@ -124,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            a.m();
+            ks4.m();
         }
     }
 

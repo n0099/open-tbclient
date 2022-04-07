@@ -31,25 +31,25 @@ public class GhostViewUtils {
     }
 
     @Nullable
-    public static GhostView addGhost(@NonNull View view, @NonNull ViewGroup viewGroup, @Nullable Matrix matrix) {
+    public static GhostView addGhost(@NonNull View view2, @NonNull ViewGroup viewGroup, @Nullable Matrix matrix) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view, viewGroup, matrix)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, viewGroup, matrix)) == null) {
             if (Build.VERSION.SDK_INT == 28) {
-                return GhostViewPlatform.addGhost(view, viewGroup, matrix);
+                return GhostViewPlatform.addGhost(view2, viewGroup, matrix);
             }
-            return GhostViewPort.addGhost(view, viewGroup, matrix);
+            return GhostViewPort.addGhost(view2, viewGroup, matrix);
         }
         return (GhostView) invokeLLL.objValue;
     }
 
-    public static void removeGhost(View view) {
+    public static void removeGhost(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
             if (Build.VERSION.SDK_INT == 28) {
-                GhostViewPlatform.removeGhost(view);
+                GhostViewPlatform.removeGhost(view2);
             } else {
-                GhostViewPort.removeGhost(view);
+                GhostViewPort.removeGhost(view2);
             }
         }
     }

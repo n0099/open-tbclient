@@ -44,8 +44,8 @@ public final class ObservableLift<R, T> extends AbstractObservableWithUpstream<T
             try {
                 Observer<? super Object> apply = this.operator.apply(observer);
                 this.source.subscribe((Observer) ObjectHelper.requireNonNull(apply, "Operator " + this.operator + " returned a null Observer"));
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

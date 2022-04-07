@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOnChangeListener<S>, T extends BaseOnSliderTouchListener<S>> extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -145,7 +145,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class AccessibilityEventSender implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AccessibilityHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,21 +222,21 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 if (i == this.slider.getValues().size() - 1) {
-                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a90);
+                    return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a92);
                 }
-                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a91) : "";
+                return i == 0 ? this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0a93) : "";
             }
             return (String) invokeI.objValue;
         }
 
         @Override // androidx.customview.widget.ExploreByTouchHelper
-        public int getVirtualViewAt(float f2, float f3) {
+        public int getVirtualViewAt(float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 for (int i = 0; i < this.slider.getValues().size(); i++) {
                     this.slider.updateBoundsForVirturalViewId(i, this.virtualViewBounds);
-                    if (this.virtualViewBounds.contains((int) f2, (int) f3)) {
+                    if (this.virtualViewBounds.contains((int) f, (int) f2)) {
                         return i;
                     }
                 }
@@ -327,7 +327,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SliderState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SliderState> CREATOR;
@@ -452,7 +452,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface TooltipDrawableFactory {
         TooltipDrawable createTooltipDrawable();
     }
@@ -471,7 +471,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             }
         }
         TAG = BaseSlider.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100379;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f10037a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -533,11 +533,11 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            float f2 = this.stepSize;
-            if (f2 == 0.0f) {
+            float f = this.stepSize;
+            if (f == 0.0f) {
                 return 1.0f;
             }
-            return f2;
+            return f;
         }
         return invokeV.floatValue;
     }
@@ -551,10 +551,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             if (fArr == null || fArr.length != min * 2) {
                 this.ticksCoordinates = new float[min * 2];
             }
-            float f2 = this.trackWidth / (min - 1);
+            float f = this.trackWidth / (min - 1);
             for (int i = 0; i < min * 2; i += 2) {
                 float[] fArr2 = this.ticksCoordinates;
-                fArr2[i] = this.trackSidePadding + ((i / 2) * f2);
+                fArr2[i] = this.trackSidePadding + ((i / 2) * f);
                 fArr2[i + 1] = calculateTop();
             }
         }
@@ -636,9 +636,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         if (interceptable == null || interceptable.invokeLII(65557, this, canvas, i, i2) == null) {
             float[] activeRange = getActiveRange();
             int i3 = this.trackSidePadding;
-            float f2 = i;
-            float f3 = i2;
-            canvas.drawLine(i3 + (activeRange[0] * f2), f3, i3 + (activeRange[1] * f2), f3, this.activeTrackPaint);
+            float f = i;
+            float f2 = i2;
+            canvas.drawLine(i3 + (activeRange[0] * f), f2, i3 + (activeRange[1] * f), f2, this.activeTrackPaint);
         }
     }
 
@@ -647,17 +647,17 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65558, this, canvas, i, i2) == null) {
             float[] activeRange = getActiveRange();
-            float f2 = i;
-            float f3 = this.trackSidePadding + (activeRange[1] * f2);
-            if (f3 < i3 + i) {
-                float f4 = i2;
-                canvas.drawLine(f3, f4, i3 + i, f4, this.inactiveTrackPaint);
+            float f = i;
+            float f2 = this.trackSidePadding + (activeRange[1] * f);
+            if (f2 < i3 + i) {
+                float f3 = i2;
+                canvas.drawLine(f2, f3, i3 + i, f3, this.inactiveTrackPaint);
             }
             int i4 = this.trackSidePadding;
-            float f5 = i4 + (activeRange[0] * f2);
-            if (f5 > i4) {
-                float f6 = i2;
-                canvas.drawLine(i4, f6, f5, f6, this.inactiveTrackPaint);
+            float f4 = i4 + (activeRange[0] * f);
+            if (f4 > i4) {
+                float f5 = i2;
+                canvas.drawLine(i4, f5, f4, f5, this.inactiveTrackPaint);
             }
         }
     }
@@ -733,14 +733,14 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String formatValue(float f2) {
+    public String formatValue(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65563, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65563, this, f)) == null) {
             if (hasLabelFormatter()) {
-                return this.formatter.getFormattedValue(f2);
+                return this.formatter.getFormattedValue(f);
             }
-            return String.format(((float) ((int) f2)) == f2 ? "%.0f" : "%.2f", Float.valueOf(f2));
+            return String.format(((float) ((int) f)) == f ? "%.0f" : "%.2f", Float.valueOf(f));
         }
         return (String) invokeF.objValue;
     }
@@ -761,13 +761,13 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         return (float[]) invokeV.objValue;
     }
 
-    private float getClampedValue(int i, float f2) {
+    private float getClampedValue(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             int i2 = i + 1;
             int i3 = i - 1;
-            return MathUtils.clamp(f2, i3 < 0 ? this.valueFrom : this.values.get(i3).floatValue(), i2 >= this.values.size() ? this.valueTo : this.values.get(i2).floatValue());
+            return MathUtils.clamp(f, i3 < 0 ? this.valueFrom : this.values.get(i3).floatValue(), i2 >= this.values.size() ? this.valueTo : this.values.get(i2).floatValue());
         }
         return invokeCommon.floatValue;
     }
@@ -787,9 +787,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             if (isRtl()) {
                 snapPosition = 1.0d - snapPosition;
             }
-            float f2 = this.valueTo;
-            float f3 = this.valueFrom;
-            return (float) ((snapPosition * (f2 - f3)) + f3);
+            float f = this.valueTo;
+            float f2 = this.valueFrom;
+            return (float) ((snapPosition * (f - f2)) + f2);
         }
         return invokeV.floatValue;
     }
@@ -798,13 +798,13 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            float f2 = this.touchPosition;
+            float f = this.touchPosition;
             if (isRtl()) {
-                f2 = 1.0f - f2;
+                f = 1.0f - f;
             }
-            float f3 = this.valueTo;
-            float f4 = this.valueFrom;
-            return (f2 * (f3 - f4)) + f4;
+            float f2 = this.valueTo;
+            float f3 = this.valueFrom;
+            return (f * (f2 - f3)) + f3;
         }
         return invokeV.floatValue;
     }
@@ -836,10 +836,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     private void loadResources(@NonNull Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65571, this, resources) == null) {
-            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070463);
-            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070461);
-            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070462);
-            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07045b);
+            this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07046d);
+            this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07046b);
+            this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07046c);
+            this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070465);
         }
     }
 
@@ -887,13 +887,13 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         return invokeI.booleanValue;
     }
 
-    private float normalizeValue(float f2) {
+    private float normalizeValue(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65575, this, f2)) == null) {
-            float f3 = this.valueFrom;
-            float f4 = (f2 - f3) / (this.valueTo - f3);
-            return isRtl() ? 1.0f - f4 : f4;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65575, this, f)) == null) {
+            float f2 = this.valueFrom;
+            float f3 = (f - f2) / (this.valueTo - f2);
+            return isRtl() ? 1.0f - f3 : f3;
         }
         return invokeF.floatValue;
     }
@@ -963,19 +963,19 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f100391)) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, context, typedArray)) == null) ? TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f100392)) : (TooltipDrawable) invokeLL.objValue;
     }
 
-    public static int pivotIndex(float[] fArr, float f2) {
+    public static int pivotIndex(float[] fArr, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65580, null, fArr, f2)) == null) ? Math.round(f2 * ((fArr.length / 2) - 1)) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65580, null, fArr, f)) == null) ? Math.round(f * ((fArr.length / 2) - 1)) : invokeLF.intValue;
     }
 
     private void processAttributes(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65581, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f04026c, R.attr.obfuscated_res_0x7f040371, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f04062c, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040631, R.attr.obfuscated_res_0x7f040636, R.attr.obfuscated_res_0x7f040637, R.attr.obfuscated_res_0x7f040638, R.attr.obfuscated_res_0x7f04065d, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f04065f, R.attr.obfuscated_res_0x7f040660}, i, DEF_STYLE_RES, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402b4, R.attr.obfuscated_res_0x7f0402b5, R.attr.obfuscated_res_0x7f0403ad, R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f04066a, R.attr.obfuscated_res_0x7f04066d, R.attr.obfuscated_res_0x7f04066f, R.attr.obfuscated_res_0x7f040674, R.attr.obfuscated_res_0x7f040675, R.attr.obfuscated_res_0x7f040676, R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069c, R.attr.obfuscated_res_0x7f04069d, R.attr.obfuscated_res_0x7f04069e}, i, DEF_STYLE_RES, new int[0]);
             this.valueFrom = obtainStyledAttributes.getFloat(3, 0.0f);
             this.valueTo = obtainStyledAttributes.getFloat(4, 1.0f);
             setValues(Float.valueOf(this.valueFrom));
@@ -985,18 +985,18 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i3 = hasValue ? 15 : 16;
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, i2);
             if (colorStateList == null) {
-                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079e);
+                colorStateList = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607a7);
             }
             setTrackInactiveTintList(colorStateList);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i3);
             if (colorStateList2 == null) {
-                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079b);
+                colorStateList2 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607a4);
             }
             setTrackActiveTintList(colorStateList2);
             this.thumbDrawable.setFillColor(MaterialResources.getColorStateList(context, obtainStyledAttributes, 9));
             ColorStateList colorStateList3 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 5);
             if (colorStateList3 == null) {
-                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079c);
+                colorStateList3 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607a5);
             }
             setHaloTintList(colorStateList3);
             boolean hasValue2 = obtainStyledAttributes.hasValue(12);
@@ -1004,12 +1004,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
             int i5 = hasValue2 ? 12 : 13;
             ColorStateList colorStateList4 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i4);
             if (colorStateList4 == null) {
-                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079d);
+                colorStateList4 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607a6);
             }
             setTickInactiveTintList(colorStateList4);
             ColorStateList colorStateList5 = MaterialResources.getColorStateList(context, obtainStyledAttributes, i5);
             if (colorStateList5 == null) {
-                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06079a);
+                colorStateList5 = AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0607a3);
             }
             setTickActiveTintList(colorStateList5);
             setThumbRadius(obtainStyledAttributes.getDimensionPixelSize(11, 0));
@@ -1038,11 +1038,11 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    private void setValueForLabel(TooltipDrawable tooltipDrawable, float f2) {
+    private void setValueForLabel(TooltipDrawable tooltipDrawable, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65583, this, tooltipDrawable, f2) == null) {
-            tooltipDrawable.setText(formatValue(f2));
-            int normalizeValue = (this.trackSidePadding + ((int) (normalizeValue(f2) * this.trackWidth))) - (tooltipDrawable.getIntrinsicWidth() / 2);
+        if (interceptable == null || interceptable.invokeLF(65583, this, tooltipDrawable, f) == null) {
+            tooltipDrawable.setText(formatValue(f));
+            int normalizeValue = (this.trackSidePadding + ((int) (normalizeValue(f) * this.trackWidth))) - (tooltipDrawable.getIntrinsicWidth() / 2);
             int calculateTop = calculateTop() - (this.labelPadding + this.thumbRadius);
             tooltipDrawable.setBounds(normalizeValue, calculateTop - tooltipDrawable.getIntrinsicHeight(), tooltipDrawable.getIntrinsicWidth() + normalizeValue, calculateTop);
             Rect rect = new Rect(tooltipDrawable.getBounds());
@@ -1079,35 +1079,35 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         return (interceptable == null || (invokeV = interceptable.invokeV(65585, this)) == null) ? this.forceDrawCompatHalo || Build.VERSION.SDK_INT < 21 || !(getBackground() instanceof RippleDrawable) : invokeV.booleanValue;
     }
 
-    private boolean snapActiveThumbToValue(float f2) {
+    private boolean snapActiveThumbToValue(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65586, this, f2)) == null) ? snapThumbToValue(this.activeThumbIdx, f2) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65586, this, f)) == null) ? snapThumbToValue(this.activeThumbIdx, f) : invokeF.booleanValue;
     }
 
-    private double snapPosition(float f2) {
+    private double snapPosition(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65587, this, f2)) == null) {
-            float f3 = this.stepSize;
-            if (f3 > 0.0f) {
-                int i = (int) ((this.valueTo - this.valueFrom) / f3);
-                return Math.round(f2 * i) / i;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65587, this, f)) == null) {
+            float f2 = this.stepSize;
+            if (f2 > 0.0f) {
+                int i = (int) ((this.valueTo - this.valueFrom) / f2);
+                return Math.round(f * i) / i;
             }
-            return f2;
+            return f;
         }
         return invokeF.doubleValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean snapThumbToValue(int i, float f2) {
+    public boolean snapThumbToValue(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
-            if (Math.abs(f2 - this.values.get(i).floatValue()) < 1.0E-4d) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            if (Math.abs(f - this.values.get(i).floatValue()) < 1.0E-4d) {
                 return false;
             }
-            this.values.set(i, Float.valueOf(getClampedValue(i, f2)));
+            this.values.set(i, Float.valueOf(getClampedValue(i, f)));
             this.focusedThumbIdx = i;
             dispatchOnChangedFromUser(i);
             return true;
@@ -1186,39 +1186,39 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    private boolean valueLandsOnTick(float f2) {
+    private boolean valueLandsOnTick(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65596, this, f2)) == null) {
-            double doubleValue = new BigDecimal(Float.toString(f2)).subtract(new BigDecimal(Float.toString(this.valueFrom))).divide(new BigDecimal(Float.toString(this.stepSize)), MathContext.DECIMAL64).doubleValue();
+        if (interceptable == null || (invokeF = interceptable.invokeF(65596, this, f)) == null) {
+            double doubleValue = new BigDecimal(Float.toString(f)).subtract(new BigDecimal(Float.toString(this.valueFrom))).divide(new BigDecimal(Float.toString(this.stepSize)), MathContext.DECIMAL64).doubleValue();
             return Math.abs(((double) Math.round(doubleValue)) - doubleValue) < 1.0E-4d;
         }
         return invokeF.booleanValue;
     }
 
-    private float valueToX(float f2) {
+    private float valueToX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65597, this, f2)) == null) ? (normalizeValue(f2) * this.trackWidth) + this.trackSidePadding : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65597, this, f)) == null) ? (normalizeValue(f) * this.trackWidth) + this.trackSidePadding : invokeF.floatValue;
     }
 
     private void warnAboutFloatingPointError() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65598, this) == null) {
-            float f2 = this.stepSize;
-            if (f2 == 0.0f) {
+            float f = this.stepSize;
+            if (f == 0.0f) {
                 return;
             }
+            if (((int) f) != f) {
+                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f)));
+            }
+            float f2 = this.valueFrom;
             if (((int) f2) != f2) {
-                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "stepSize", Float.valueOf(f2)));
+                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f2)));
             }
-            float f3 = this.valueFrom;
+            float f3 = this.valueTo;
             if (((int) f3) != f3) {
-                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueFrom", Float.valueOf(f3)));
-            }
-            float f4 = this.valueTo;
-            if (((int) f4) != f4) {
-                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f4)));
+                Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERRROR, "valueTo", Float.valueOf(f3)));
             }
         }
     }
@@ -1665,9 +1665,9 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, motionEvent)) == null) {
             if (isEnabled()) {
                 float x = motionEvent.getX();
-                float f2 = (x - this.trackSidePadding) / this.trackWidth;
-                this.touchPosition = f2;
-                float max = Math.max(0.0f, f2);
+                float f = (x - this.trackSidePadding) / this.trackWidth;
+                this.touchPosition = f;
+                float max = Math.max(0.0f, f);
                 this.touchPosition = max;
                 this.touchPosition = Math.min(1.0f, max);
                 int actionMasked = motionEvent.getActionMasked();
@@ -1856,26 +1856,26 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    public void setStepSize(float f2) {
+    public void setStepSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048631, this, f2) == null) {
-            if (f2 >= 0.0f) {
-                if (this.stepSize != f2) {
-                    this.stepSize = f2;
+        if (interceptable == null || interceptable.invokeF(1048631, this, f) == null) {
+            if (f >= 0.0f) {
+                if (this.stepSize != f) {
+                    this.stepSize = f;
                     this.dirtyConfig = true;
                     postInvalidate();
                     return;
                 }
                 return;
             }
-            throw new IllegalArgumentException(String.format(EXCEPTION_ILLEGAL_STEP_SIZE, Float.toString(f2), Float.toString(this.valueFrom), Float.toString(this.valueTo)));
+            throw new IllegalArgumentException(String.format(EXCEPTION_ILLEGAL_STEP_SIZE, Float.toString(f), Float.toString(this.valueFrom), Float.toString(this.valueTo)));
         }
     }
 
-    public void setThumbElevation(float f2) {
+    public void setThumbElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
-            this.thumbDrawable.setElevation(f2);
+        if (interceptable == null || interceptable.invokeF(1048632, this, f) == null) {
+            this.thumbDrawable.setElevation(f);
         }
     }
 
@@ -1979,19 +1979,19 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         }
     }
 
-    public void setValueFrom(float f2) {
+    public void setValueFrom(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048644, this, f2) == null) {
-            this.valueFrom = f2;
+        if (interceptable == null || interceptable.invokeF(1048644, this, f) == null) {
+            this.valueFrom = f;
             this.dirtyConfig = true;
             postInvalidate();
         }
     }
 
-    public void setValueTo(float f2) {
+    public void setValueTo(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048645, this, f2) == null) {
-            this.valueTo = f2;
+        if (interceptable == null || interceptable.invokeF(1048645, this, f) == null) {
+            this.valueTo = f;
             this.dirtyConfig = true;
             postInvalidate();
         }
@@ -2018,7 +2018,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040567);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2040,12 +2040,12 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     /* JADX INFO: Access modifiers changed from: private */
     public float calculateStepIncrement(int i) {
         InterceptResult invokeI;
+        float f;
         float f2;
-        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i)) == null) {
             float calculateStepIncrement = calculateStepIncrement();
-            return (this.valueTo - this.valueFrom) / calculateStepIncrement <= i ? calculateStepIncrement : Math.round(f2 / f3) * calculateStepIncrement;
+            return (this.valueTo - this.valueFrom) / calculateStepIncrement <= i ? calculateStepIncrement : Math.round(f / f2) * calculateStepIncrement;
         }
         return invokeI.floatValue;
     }
@@ -2136,7 +2136,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f04026b, R.attr.obfuscated_res_0x7f04026c, R.attr.obfuscated_res_0x7f040371, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f04062c, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040631, R.attr.obfuscated_res_0x7f040636, R.attr.obfuscated_res_0x7f040637, R.attr.obfuscated_res_0x7f040638, R.attr.obfuscated_res_0x7f04065d, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f04065f, R.attr.obfuscated_res_0x7f040660}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
+                    TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.this$0.getContext(), this.val$attrs, new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f0402b4, R.attr.obfuscated_res_0x7f0402b5, R.attr.obfuscated_res_0x7f0403ad, R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f04066a, R.attr.obfuscated_res_0x7f04066d, R.attr.obfuscated_res_0x7f04066f, R.attr.obfuscated_res_0x7f040674, R.attr.obfuscated_res_0x7f040675, R.attr.obfuscated_res_0x7f040676, R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069c, R.attr.obfuscated_res_0x7f04069d, R.attr.obfuscated_res_0x7f04069e}, this.val$defStyleAttr, BaseSlider.DEF_STYLE_RES, new int[0]);
                     TooltipDrawable parseLabelDrawable = BaseSlider.parseLabelDrawable(this.this$0.getContext(), obtainStyledAttributes);
                     obtainStyledAttributes.recycle();
                     return parseLabelDrawable;

@@ -2,23 +2,23 @@ package com.baidu.tieba.recapp.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.b2.o.c;
-import c.a.p0.l3.j0.b.g;
-import c.a.p0.l3.j0.b.h;
-import c.a.p0.l3.n;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.repackage.fc8;
+import com.repackage.gc8;
+import com.repackage.t98;
+import com.repackage.uc7;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
-public interface IHomeAdVideoView extends n {
-    @Override // c.a.p0.l3.n
+/* loaded from: classes4.dex */
+public interface IHomeAdVideoView extends t98 {
+    @Override // com.repackage.t98
     /* synthetic */ void autoPlay(int i);
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ boolean canPlay();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ long getCurrentPosition();
 
     /* synthetic */ int getHeight();
@@ -27,31 +27,31 @@ public interface IHomeAdVideoView extends n {
 
     /* synthetic */ void getLocationInWindow(int[] iArr);
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ int getPlayStatus();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ String getPlayUrl();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ View getVideoContainer();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ boolean isPlayStarted();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ boolean isPlaying();
 
     int jump2DownloadDetailPage();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ void release();
 
     void setAdInfo(AdCard adCard);
 
-    void setData(VideoInfo videoInfo, g gVar, int i, int i2, int i3, int i4);
+    void setData(VideoInfo videoInfo, fc8 fc8Var, int i, int i2, int i3, int i4);
 
-    void setDownloadCallback(c cVar);
+    void setDownloadCallback(uc7 uc7Var);
 
     void setOnClickListener(View.OnClickListener onClickListener);
 
@@ -63,12 +63,12 @@ public interface IHomeAdVideoView extends n {
 
     void setVideoScalingMode(int i);
 
-    void setVideoTailFrameData(h hVar);
+    void setVideoTailFrameData(gc8 gc8Var);
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ void startPlay();
 
-    @Override // c.a.p0.l3.n
+    @Override // com.repackage.t98
     /* synthetic */ void stopPlay();
 
     void updateTailFrameView(AdvertAppInfo advertAppInfo);

@@ -9,9 +9,7 @@ import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile c f42921b;
+    public static volatile c b;
     public SQLiteDatabase a;
 
     public c() {
@@ -23,14 +21,14 @@ public class c {
     }
 
     public static c a() {
-        if (f42921b == null) {
+        if (b == null) {
             synchronized (c.class) {
-                if (f42921b == null) {
-                    f42921b = new c();
+                if (b == null) {
+                    b = new c();
                 }
             }
         }
-        return f42921b;
+        return b;
     }
 
     public boolean b() {
@@ -52,8 +50,8 @@ public class c {
                 return;
             }
             this.a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -76,8 +74,8 @@ public class c {
                     cursor.close();
                 }
                 return z;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 if (cursor != null) {
                     cursor.close();
                 }
@@ -99,8 +97,8 @@ public class c {
         }
         try {
             optString = new JSONObject(str).optString("req_id");
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         if (TextUtils.isEmpty(optString)) {
             return;

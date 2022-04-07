@@ -22,18 +22,14 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
-
-    /* renamed from: c  reason: collision with root package name */
-    public static a f38411c;
+    public static a c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.c.c.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Context f38412b;
+    public final Context b;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +61,7 @@ public class a {
                 return;
             }
         }
-        this.f38412b = context.getApplicationContext();
+        this.b = context.getApplicationContext();
         this.a = com.cmic.sso.sdk.c.c.a.a();
     }
 
@@ -86,12 +82,8 @@ public class a {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f38413b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f38414c;
+                public final /* synthetic */ b b;
+                public final /* synthetic */ a c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -108,16 +100,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f38414c = this;
+                    this.c = this;
                     this.a = aVar;
-                    this.f38413b = bVar;
+                    this.b = bVar;
                 }
 
                 @Override // com.cmic.sso.sdk.c.c.d
                 public void a(String str, String str2, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.f38414c.a(this.a, this.f38413b, str, str2, jSONObject);
+                        this.c.a(this.a, this.b, str, str2, jSONObject);
                     }
                 }
             });
@@ -128,14 +120,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f38411c == null) {
+            if (c == null) {
                 synchronized (a.class) {
-                    if (f38411c == null) {
-                        f38411c = new a(context);
+                    if (c == null) {
+                        c = new a(context);
                     }
                 }
             }
-            return f38411c;
+            return c;
         }
         return (a) invokeL.objValue;
     }
@@ -146,9 +138,9 @@ public class a {
             com.cmic.sso.sdk.e.c.b("AuthnBusiness", "LoginCheck method start");
             int c2 = aVar.c("logintype");
             if (aVar.b("isCacheScrip", false)) {
-                String b2 = aVar.b("securityphone", "");
+                String b = aVar.b("securityphone", "");
                 if (c2 == 3) {
-                    bVar.a("103000", "true", aVar, c.a(b2));
+                    bVar.a("103000", "true", aVar, c.a(b));
                     return;
                 } else {
                     b(aVar, bVar);
@@ -170,13 +162,13 @@ public class a {
                 com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
                 try {
                     bArr = UUID.randomUUID().toString().substring(0, 16).getBytes(IMAudioTransRequest.CHARSET);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             byte[] a = com.cmic.sso.sdk.e.a.a();
             aVar.a(b.a.a, bArr);
-            aVar.a(b.a.f38415b, a);
+            aVar.a(b.a.b, a);
             aVar.a("authType", "3");
         }
     }
@@ -184,8 +176,8 @@ public class a {
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            String packageName = this.f38412b.getPackageName();
-            String a = com.cmic.sso.sdk.e.d.a(l.a(this.f38412b, packageName));
+            String packageName = this.b.getPackageName();
+            String a = com.cmic.sso.sdk.e.d.a(l.a(this.b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a);
         }
@@ -198,7 +190,7 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(com.cmic.sso.sdk.a aVar, b bVar, String str, String str2, JSONObject jSONObject) {
-        String b2;
+        String b;
         String str3;
         JSONObject jSONObject2;
         String str4;
@@ -211,21 +203,21 @@ public class a {
             if ("103000".equals(str)) {
                 String optString2 = jSONObject.optString("resultdata");
                 if (TextUtils.isEmpty(optString2)) {
-                    b2 = jSONObject.toString();
+                    b = jSONObject.toString();
                 } else {
-                    b2 = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.a), optString2, aVar.a(b.a.f38415b));
+                    b = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.a), optString2, aVar.a(b.a.b));
                 }
                 String str7 = null;
                 try {
-                    jSONObject3 = new JSONObject(b2);
+                    jSONObject3 = new JSONObject(b);
                     try {
                         optString = jSONObject3.optString("phonescrip");
-                    } catch (JSONException e2) {
-                        e = e2;
+                    } catch (JSONException e) {
+                        e = e;
                         str4 = null;
                     }
-                } catch (JSONException e3) {
-                    e = e3;
+                } catch (JSONException e2) {
+                    e = e2;
                     str3 = null;
                     jSONObject2 = null;
                     str4 = null;
@@ -240,8 +232,8 @@ public class a {
                         k.a("securityphone", str4);
                         str5 = str4;
                         str6 = optString;
-                    } catch (JSONException e4) {
-                        e = e4;
+                    } catch (JSONException e3) {
+                        e = e3;
                         str3 = str7;
                         str7 = optString;
                         jSONObject2 = jSONObject3;
@@ -257,8 +249,8 @@ public class a {
                         if (jSONObject3 != null) {
                         }
                     }
-                } catch (JSONException e5) {
-                    e = e5;
+                } catch (JSONException e4) {
+                    e = e4;
                     str4 = null;
                     str7 = optString;
                     jSONObject2 = jSONObject3;
@@ -280,7 +272,7 @@ public class a {
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
                 if (jSONObject3 != null) {
-                    h.a(this.f38412b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    h.a(this.b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;

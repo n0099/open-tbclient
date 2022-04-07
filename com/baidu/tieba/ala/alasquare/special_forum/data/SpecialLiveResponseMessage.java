@@ -1,8 +1,5 @@
 package com.baidu.tieba.ala.alasquare.special_forum.data;
 
-import c.a.p0.c0.f.g.c.a;
-import c.a.p0.c0.f.g.c.h;
-import c.a.p0.c0.f.g.c.i;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -12,14 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qq5;
+import com.repackage.xq5;
+import com.repackage.yq5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h mData;
+    public xq5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpecialLiveResponseMessage() {
@@ -47,13 +47,13 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.mData = new h();
+            this.mData = new xq5();
             jSONObject.optInt("concern_live_show");
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
-                a aVar = new a();
-                aVar.a(optJSONObject);
-                this.mData.a = aVar;
+                qq5 qq5Var = new qq5();
+                qq5Var.a(optJSONObject);
+                this.mData.a = qq5Var;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -66,27 +66,27 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                         arrayList.add(specialLiveTabInfo);
                     }
                 }
-                this.mData.f13082b = arrayList;
+                this.mData.b = arrayList;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.f13084d = alaUserInfoData;
+                this.mData.d = alaUserInfoData;
             }
-            this.mData.f13083c = jSONObject.optInt("is_like") == 1;
+            this.mData.c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
-                i iVar = new i();
-                iVar.a(optJSONObject3);
-                this.mData.f13085e = iVar;
+                yq5 yq5Var = new yq5();
+                yq5Var.a(optJSONObject3);
+                this.mData.e = yq5Var;
             }
         }
     }
 
-    public h getData() {
+    public xq5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (xq5) invokeV.objValue;
     }
 }

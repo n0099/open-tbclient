@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class am extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class am extends Handler {
             if (i == 0) {
                 bVar.a();
             } else if (i == 1) {
-                bVar.mo284c();
+                bVar.mo280c();
             }
             super.handleMessage(message);
         }

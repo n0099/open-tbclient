@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class IterativeBoxBlurFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IterativeBoxBlurFilter";
@@ -46,9 +46,9 @@ public abstract class IterativeBoxBlurFilter {
             Preconditions.checkArgument(i > 0);
             try {
                 fastBoxBlur(bitmap, i, i2);
-            } catch (OutOfMemoryError e2) {
+            } catch (OutOfMemoryError e) {
                 FLog.e(TAG, String.format(null, "OOM: %d iterations on %dx%d with %d radius", Integer.valueOf(i), Integer.valueOf(bitmap.getWidth()), Integer.valueOf(bitmap.getHeight()), Integer.valueOf(i2)));
-                throw e2;
+                throw e;
             }
         }
     }

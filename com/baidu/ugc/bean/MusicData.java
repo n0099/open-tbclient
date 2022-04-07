@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MusicData extends MusicBaseBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MUSIC_DATA_KEY = "musicData";
@@ -109,8 +109,8 @@ public class MusicData extends MusicBaseBean {
             try {
                 jSONObject = new JSONObject(str);
                 musicData = new MusicData();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
@@ -153,8 +153,8 @@ public class MusicData extends MusicBaseBean {
                 musicData.isPlayedExceptH5 = jSONObject.optBoolean("isPlayedExceptH5", false);
                 musicData.isMusicCompilation = jSONObject.optInt("music_compilation", 0) == 1;
                 return musicData;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 musicData2 = musicData;
                 e.printStackTrace();
                 return musicData2;
@@ -236,8 +236,8 @@ public class MusicData extends MusicBaseBean {
                 jSONObject.put("played_web", musicData.played_web);
                 jSONObject.put("isPlayedExceptH5", musicData.isPlayedExceptH5);
                 jSONObject.put("music_compilation", musicData.isMusicCompilation);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }
@@ -265,8 +265,8 @@ public class MusicData extends MusicBaseBean {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, musicData.startPosition);
                 jSONObject.put("refrain_info", jSONObject2.toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }
@@ -316,8 +316,8 @@ public class MusicData extends MusicBaseBean {
                     }
                     return (parseLong + parseLong2) * 1000;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return 0L;
         }

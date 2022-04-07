@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -95,30 +95,42 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                 if (DEBUG) {
                     Log.d(TAG, "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
-                double d2 = calculateAverageLaunchTime;
-                Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d2, 2.0d), (float) Math.pow(d2, 3.0d), (float) Math.pow(d2, 4.0d)}));
+                double d = calculateAverageLaunchTime;
+                Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d, 2.0d), (float) Math.pow(d, 3.0d), (float) Math.pow(d, 4.0d)}));
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Float f2 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                Float f = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
                     Log.d(TAG, "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "predictByLRModel Result: " + f2);
+                    Log.d(TAG, "predictByLRModel Result: " + f);
                 }
-                if (f2.floatValue() < 0.0f) {
-                    f2 = Float.valueOf(0.0f);
+                if (f.floatValue() < 0.0f) {
+                    f = Float.valueOf(0.0f);
                 }
-                if (f2.floatValue() > 1.0f) {
-                    f2 = Float.valueOf(1.0f);
+                if (f.floatValue() > 1.0f) {
+                    f = Float.valueOf(1.0f);
                 }
-                float floatValue = f2.floatValue();
+                float floatValue = f.floatValue();
                 try {
                     inferenceWrapper.close();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return floatValue;
             } catch (InferenceException unused4) {
+                inferenceWrapper2 = inferenceWrapper;
+                if (inferenceWrapper2 != null) {
+                    try {
+                        inferenceWrapper2.close();
+                    } catch (Exception e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return -1.0f;
+            } catch (ModelLoadException unused5) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -130,7 +142,7 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                     }
                 }
                 return -1.0f;
-            } catch (ModelLoadException unused5) {
+            } catch (IllegalStateException unused6) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -142,7 +154,8 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                     }
                 }
                 return -1.0f;
-            } catch (IllegalStateException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -150,19 +163,6 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                     } catch (Exception e5) {
                         if (DEBUG) {
                             e5.printStackTrace();
-                        }
-                    }
-                }
-                return -1.0f;
-            } catch (Throwable th2) {
-                th = th2;
-                inferenceWrapper2 = inferenceWrapper;
-                if (inferenceWrapper2 != null) {
-                    try {
-                        inferenceWrapper2.close();
-                    } catch (Exception e6) {
-                        if (DEBUG) {
-                            e6.printStackTrace();
                         }
                     }
                 }
@@ -177,11 +177,11 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
+            float f = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
             if (DEBUG) {
-                Log.d(TAG, "getLaunchSpeedScore : " + f2);
+                Log.d(TAG, "getLaunchSpeedScore : " + f);
             }
-            return f2;
+            return f;
         }
         return invokeV.floatValue;
     }
@@ -256,14 +256,14 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                 }
                 return false;
             }
-            float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
-            if (Math.abs(predictByLRModel - f2) > 0.03f) {
+            float f = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
+            if (Math.abs(predictByLRModel - f) > 0.03f) {
                 DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_LAUNCH_SPEED_SCORE, predictByLRModel);
                 if (DEBUG) {
                     Log.d(TAG, "launch speed score updated.  launchSpeedScore:" + predictByLRModel);
                 }
             } else if (DEBUG) {
-                Log.d(TAG, "launch speed score diff insignificant : launchSpeedScore:" + predictByLRModel + "  launchSpeedScoreCache:" + f2);
+                Log.d(TAG, "launch speed score diff insignificant : launchSpeedScore:" + predictByLRModel + "  launchSpeedScoreCache:" + f);
             }
             DeviceInfoSharedPreferenceWrapper.getInstance().putLong(SP_KEY_LAUNCH_SCORE_TIME, System.currentTimeMillis());
             return true;

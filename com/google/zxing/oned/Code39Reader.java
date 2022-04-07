@@ -24,7 +24,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Code39Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
@@ -76,7 +76,7 @@ public final class Code39Reader extends OneDReader {
     public static String decodeExtended(CharSequence charSequence) throws FormatException {
         InterceptResult invokeL;
         int i;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
@@ -93,15 +93,15 @@ public final class Code39Reader extends OneDReader {
                         if (charAt != '%') {
                             if (charAt != '+') {
                                 if (charAt != '/') {
-                                    c2 = 0;
+                                    c = 0;
                                 } else if (charAt2 >= 'A' && charAt2 <= 'O') {
                                     i = charAt2 - ' ';
                                 } else if (charAt2 != 'Z') {
                                     throw FormatException.getFormatInstance();
                                 } else {
-                                    c2 = ':';
+                                    c = ':';
                                 }
-                                sb.append(c2);
+                                sb.append(c);
                             } else if (charAt2 < 'A' || charAt2 > 'Z') {
                                 throw FormatException.getFormatInstance();
                             } else {
@@ -119,8 +119,8 @@ public final class Code39Reader extends OneDReader {
                     } else {
                         i = charAt2 - '@';
                     }
-                    c2 = (char) i;
-                    sb.append(c2);
+                    c = (char) i;
+                    sb.append(c);
                 }
                 i2++;
             }
@@ -285,8 +285,8 @@ public final class Code39Reader extends OneDReader {
                         } else {
                             sb = sb2.toString();
                         }
-                        float f2 = i;
-                        return new Result(sb, null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i4 / 2.0f), f2)}, BarcodeFormat.CODE_39);
+                        float f = i;
+                        return new Result(sb, null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f), new ResultPoint(nextSet + (i4 / 2.0f), f)}, BarcodeFormat.CODE_39);
                     }
                     throw NotFoundException.getNotFoundInstance();
                 }

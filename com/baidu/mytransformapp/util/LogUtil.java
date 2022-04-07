@@ -18,7 +18,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INTERVAL = 50;
@@ -83,8 +83,8 @@ public class LogUtil {
                 jSONObject.put("page", jSONObject2);
                 jSONObject.put("value", jSONObject3);
                 uBCManager.onEvent(LOG_ID, jSONObject);
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

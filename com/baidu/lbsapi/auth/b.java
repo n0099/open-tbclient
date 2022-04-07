@@ -15,12 +15,12 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,14 +111,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String packageName = context.getPackageName();
-            String[] b2 = b(context, packageName);
-            if (b2 == null || b2.length <= 0) {
+            String[] b = b(context, packageName);
+            if (b == null || b.length <= 0) {
                 return null;
             }
-            int length = b2.length;
+            int length = b.length;
             String[] strArr = new String[length];
             for (int i = 0; i < length; i++) {
-                strArr[i] = b2[i] + ";" + packageName;
+                strArr[i] = b[i] + ";" + packageName;
                 if (com.baidu.lbsapi.auth.a.a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
                 }

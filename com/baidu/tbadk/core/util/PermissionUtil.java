@@ -5,20 +5,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.collection.ArrayMap;
-import c.a.d.f.j.c.a;
-import c.a.d.f.p.n;
-import c.a.o0.c1.l;
-import c.a.o0.c1.r;
-import c.a.o0.j0.b;
-import c.a.p0.n4.h;
-import c.a.r0.c0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
@@ -42,15 +34,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aa;
+import com.repackage.ac5;
+import com.repackage.ag;
+import com.repackage.gc5;
+import com.repackage.i55;
+import com.repackage.ii0;
+import com.repackage.kh;
+import com.repackage.l30;
+import com.repackage.nb;
+import com.repackage.nh;
+import com.repackage.o55;
+import com.repackage.oi;
+import com.repackage.oj;
+import com.repackage.s49;
+import com.repackage.ts8;
+import com.repackage.ub1;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PermissionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isAgreePrivacyPolicy;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static b mAgreePrivacyPolicyEventListener;
+    public static i55 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,7 +75,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new b<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new i55<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,11 +94,11 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.o0.j0.b
+            @Override // com.repackage.i55
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, privacyPolicyEvent)) == null) {
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, privacyPolicyEvent)) == null) {
                     if (privacyPolicyEvent == null) {
                         return true;
                     }
@@ -106,26 +115,26 @@ public class PermissionUtil {
                         return true;
                     }
                     boolean unused2 = PermissionUtil.isSdkInited = PermissionUtil.isAgreePrivacyPolicy;
-                    a.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    a.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                    ag.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    ag.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
                     PermissionUtil.initUBC();
                     BdStatisticsManager.getInstance().setCommonDataMac(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
                     BdStatisticsManager.getInstance().setCuid(TbadkCoreApplication.getInst().getCuid());
                     BdStatisticsManager.getInstance().setCuidGalaxy2(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    c.a.d.f.n.n.b.m().o(TbadkCoreApplication.getInst().getCuid());
-                    c.a.d.f.n.n.b.m().p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-                    c.a.d.f.n.m.a.o().p();
+                    nh.m().o(TbadkCoreApplication.getInst().getCuid());
+                    nh.m().p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    kh.o().p();
                     FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921554));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
                     if (SapiAccountManager.getInstance() != null) {
                         SapiAccountManager.getInstance().setAgreeDangerousProtocol(true);
                     }
-                    h.c().b();
+                    ts8.c().b();
                     if (TbadkCoreApplication.getInst().isMainProcess(false) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                        c.a.a0.h.b.c();
+                        ii0.c();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, null));
                     return true;
@@ -159,8 +168,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, "android.permission.CAMERA");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -182,8 +191,8 @@ public class PermissionUtil {
                         }
                     }
                     return z;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -210,14 +219,14 @@ public class PermissionUtil {
                 }
                 try {
                     z = ContextCompat.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     z = false;
                 }
                 try {
                     z2 = checkLocationForGoogle(context);
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     BdLog.e(e.getMessage());
                     z2 = false;
                     if (z2) {
@@ -243,8 +252,8 @@ public class PermissionUtil {
                         return true;
                     }
                     return ContextCompat.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -268,8 +277,8 @@ public class PermissionUtil {
                         }
                     }
                     return false;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -288,8 +297,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, str);
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -308,8 +317,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -328,8 +337,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -348,8 +357,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, "android.permission.RECORD_AUDIO");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -368,12 +377,12 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.RECORD_AUDIO")) {
-                    n.M(providerContext, R.string.obfuscated_res_0x7f0f0f5f);
+                    oi.M(providerContext, R.string.obfuscated_res_0x7f0f0f64);
                     return true;
                 }
                 return false;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return false;
             }
         }
@@ -405,8 +414,8 @@ public class PermissionUtil {
                 }
                 try {
                     return ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                     return false;
                 }
             }
@@ -425,12 +434,12 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    n.M(providerContext, R.string.obfuscated_res_0x7f0f157e);
+                    oi.M(providerContext, R.string.obfuscated_res_0x7f0f1585);
                     return true;
                 }
                 return false;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return false;
             }
         }
@@ -443,18 +452,18 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (!LaunchCacheOidSwitch.getIsOn()) {
-                    return c.a.p.b.e(context).f();
+                    return l30.e(context).f();
                 }
-                String q = c.a.o0.r.j0.b.k().q("key_last_cached_oid", "");
+                String q = wt4.k().q("key_last_cached_oid", "");
                 try {
                     if (TextUtils.isEmpty(q)) {
-                        q = c.a.p.b.e(context).f();
-                        c.a.o0.r.j0.b.k().y("key_last_cached_oid", q);
+                        q = l30.e(context).f();
+                        wt4.k().y("key_last_cached_oid", q);
                         return q;
                     }
                     return q;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return q;
                 }
             }
@@ -469,7 +478,7 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (localMacAddress == null) {
-                    localMacAddress = l.d().e(context);
+                    localMacAddress = ac5.d().e(context);
                 }
                 return localMacAddress;
             }
@@ -482,8 +491,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65559, null) == null) && isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (c.a.g0.b.a.a.g()) {
-                c0.a();
+            if (ub1.g()) {
+                s49.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }
@@ -497,7 +506,7 @@ public class PermissionUtil {
             if (isAgreePrivacyPolicy) {
                 return true;
             }
-            if (!c.a.o0.r.j0.b.k().h("key_secret_is_show", false) && !c.a.o0.r.j0.b.k().h("key_secret_is_show_new", false)) {
+            if (!wt4.k().h("key_secret_is_show", false) && !wt4.k().h("key_secret_is_show_new", false)) {
                 z = false;
             }
             isAgreePrivacyPolicy = z;
@@ -515,7 +524,7 @@ public class PermissionUtil {
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            c.a.o0.j0.h.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+            o55.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
@@ -546,8 +555,8 @@ public class PermissionUtil {
             try {
                 ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
                 return true;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return true;
             }
         }
@@ -559,8 +568,8 @@ public class PermissionUtil {
         if (interceptable == null || interceptable.invokeLI(65565, null, activity, i) == null) {
             try {
                 ActivityCompat.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -582,8 +591,8 @@ public class PermissionUtil {
             try {
                 ActivityCompat.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
                 return true;
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return true;
             }
         }
@@ -635,8 +644,8 @@ public class PermissionUtil {
         if (interceptable == null || interceptable.invokeLI(65570, null, activity, i) == null) {
             try {
                 ActivityCompat.requestPermissions(activity, new String[]{"android.permission.CAMERA"}, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -658,8 +667,8 @@ public class PermissionUtil {
         if (interceptable == null || interceptable.invokeLI(65573, null, activity, i) == null) {
             try {
                 ActivityCompat.requestPermissions(activity, new String[]{"android.permission.READ_PHONE_STATE"}, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -668,7 +677,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65574, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            c.a.o0.r.j0.b.k().u("key_secret_is_show_new", z);
+            wt4.k().u("key_secret_is_show_new", z);
             if (TbadkCoreApplication.getIntent() != null) {
                 String dataString = TbadkCoreApplication.getIntent().getDataString();
                 if (!TextUtils.isEmpty(dataString)) {
@@ -677,18 +686,18 @@ public class PermissionUtil {
                 }
             }
             GrowthStatsUtil.statisticActivity();
-            c.a.o0.j0.h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+            o55.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
             CloudControlManager.getInstance().requestCloudControl("0");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
             arrayList.add(new BasicNameValuePair("cuid", TbadkCoreApplication.getUniqueIdentifier()));
-            c.a.d.c.e.c.h.f(arrayList);
-            c.a.d.f.r.h.j().w(arrayList);
+            aa.f(arrayList);
+            oj.j().w(arrayList);
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
             BdSocketLinkService.startService(true, "privacy agree");
-            c.a.d.e.a.b().a("permissionAgree", new Runnable() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+            nb.b().a("permissionAgree", new Runnable() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -714,16 +723,16 @@ public class PermissionUtil {
                     }
                 }
             });
-            r.g().q();
+            gc5.g().q();
         }
     }
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65575, null, z) == null) && z && c.a.o0.r.j0.b.k().h("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65575, null, z) == null) && z && wt4.k().h("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            c.a.o0.r.j0.b.k().u("key_secret_is_show_new", true);
-            c.a.o0.r.j0.b.k().D("key_secret_is_show");
+            wt4.k().u("key_secret_is_show_new", true);
+            wt4.k().D("key_secret_is_show");
         }
     }
 

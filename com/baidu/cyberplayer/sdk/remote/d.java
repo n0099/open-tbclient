@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C1753a implements d {
+        /* loaded from: classes.dex */
+        public static class C0093a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1753a(IBinder iBinder) {
+            public C0093a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -258,7 +258,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1753a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C0093a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }
@@ -313,9 +313,9 @@ public interface d extends IInterface {
                         return true;
                     case 7:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                        boolean b2 = b(parcel.readInt(), parcel.readInt(), parcel.readString());
+                        boolean b = b(parcel.readInt(), parcel.readInt(), parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeInt(b2 ? 1 : 0);
+                        parcel2.writeInt(b ? 1 : 0);
                         return true;
                     case 8:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
@@ -327,9 +327,9 @@ public interface d extends IInterface {
                         return true;
                     case 9:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerListener");
-                        boolean c2 = c(parcel.readInt(), parcel.readInt(), parcel.readString());
+                        boolean c = c(parcel.readInt(), parcel.readInt(), parcel.readString());
                         parcel2.writeNoException();
-                        parcel2.writeInt(c2 ? 1 : 0);
+                        parcel2.writeInt(c ? 1 : 0);
                         return true;
                     default:
                         return super.onTransact(i, parcel, parcel2, i2);

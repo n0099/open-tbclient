@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BusLineSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IBusLineSearch a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26369b;
+    public boolean b;
 
     public BusLineSearch() {
         Interceptable interceptable = $ic;
@@ -32,7 +30,7 @@ public class BusLineSearch extends l {
                 return;
             }
         }
-        this.f26369b = false;
+        this.b = false;
         this.a = new c();
     }
 
@@ -48,10 +46,10 @@ public class BusLineSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26369b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
             return;
         }
-        this.f26369b = true;
+        this.b = true;
         this.a.a();
         BMapManager.destroy();
     }

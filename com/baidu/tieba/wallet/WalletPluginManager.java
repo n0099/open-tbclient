@@ -3,7 +3,6 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -17,9 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vm4;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WalletPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -28,7 +28,7 @@ public class WalletPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public IWalletPlugin mIWalletPlugin;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;
@@ -119,10 +119,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.accessWalletEntry(this.val$context, this.val$jumpData);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -171,10 +171,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
                                     this.this$0.mIWalletPlugin.init();
                                 }
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -232,10 +232,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doBaiduLBSPay(this.val$context, this.val$params, this.val$message, this.val$tag);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -288,10 +288,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doBaiduNovelPay(this.val$context, this.val$payOrder);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -346,10 +346,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doBaiduPay(this.val$context, this.val$payOrder, this.val$tag);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -402,10 +402,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doBindCard(this.val$context, this.val$paramsMap);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -454,10 +454,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
                                     this.this$0.mIWalletPlugin.init();
                                 }
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -511,10 +511,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doYYPay(this.val$payload, this.val$iDxmProxyCallback);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -567,10 +567,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.gotoWalletService(this.val$context, this.val$id);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -584,7 +584,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iInvokeCallback) == null) {
-            if (e.c().contains("Host") && e.c().contains("-Wallet")) {
+            if (vm4.c().contains("Host") && vm4.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;
@@ -639,12 +639,12 @@ public class WalletPluginManager {
                 if (iInvokeCallback != null) {
                     iInvokeCallback.onResult(14, null, null);
                 }
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 e3.printStackTrace();
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -697,10 +697,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.openH5Module(this.val$context, this.val$url);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -749,10 +749,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.registerIntent();
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -803,10 +803,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.startWallet(this.val$context);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }
@@ -875,10 +875,10 @@ public class WalletPluginManager {
                                     this.this$0.mIWalletPlugin.init();
                                 }
                                 this.this$0.mIWalletPlugin.doAliPay(this.val$context, this.val$payOrder, this.val$tag);
-                            } catch (IllegalAccessException e2) {
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (InstantiationException e2) {
                                 e2.printStackTrace();
-                            } catch (InstantiationException e3) {
-                                e3.printStackTrace();
                             }
                         }
                     }

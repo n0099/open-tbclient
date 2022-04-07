@@ -11,27 +11,13 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f42663b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f42664c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final boolean f42665d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final long f42666e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final String f42667f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final long f42668g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final JSONObject f42669h;
+    public final String b;
+    public final String c;
+    public final boolean d;
+    public final long e;
+    public final String f;
+    public final long g;
+    public final JSONObject h;
     public final JSONObject i;
     public final List<String> j;
     public final int k;
@@ -44,24 +30,12 @@ public class c {
     /* loaded from: classes7.dex */
     public static class a {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f42670b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f42671c;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f42673e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f42674f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public long f42675g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public JSONObject f42676h;
+        public String b;
+        public String c;
+        public long e;
+        public String f;
+        public long g;
+        public JSONObject h;
         public JSONObject i;
         public Map<String, Object> j;
         public List<String> k;
@@ -70,9 +44,7 @@ public class c {
         public String n;
         public String p;
         public JSONObject q;
-
-        /* renamed from: d  reason: collision with root package name */
-        public boolean f42672d = false;
+        public boolean d = false;
         public boolean o = false;
 
         public a a(boolean z) {
@@ -81,12 +53,12 @@ public class c {
         }
 
         public a b(String str) {
-            this.f42671c = str;
+            this.c = str;
             return this;
         }
 
         public a c(String str) {
-            this.f42674f = str;
+            this.f = str;
             return this;
         }
 
@@ -96,27 +68,27 @@ public class c {
         }
 
         public a a(String str) {
-            this.f42670b = str;
+            this.b = str;
             return this;
         }
 
         public a b(long j) {
-            this.f42675g = j;
+            this.g = j;
             return this;
         }
 
         public a a(long j) {
-            this.f42673e = j;
+            this.e = j;
             return this;
         }
 
         public a b(boolean z) {
-            this.f42672d = z;
+            this.d = z;
             return this;
         }
 
         public a a(JSONObject jSONObject) {
-            this.f42676h = jSONObject;
+            this.h = jSONObject;
             return this;
         }
 
@@ -145,55 +117,55 @@ public class c {
                 this.a = BaseConstants.CATEGORY_UMENG;
             }
             JSONObject jSONObject = new JSONObject();
-            if (this.f42676h == null) {
-                this.f42676h = new JSONObject();
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
             try {
                 if (this.j != null && !this.j.isEmpty()) {
                     for (Map.Entry<String, Object> entry : this.j.entrySet()) {
-                        if (!this.f42676h.has(entry.getKey())) {
-                            this.f42676h.putOpt(entry.getKey(), entry.getValue());
+                        if (!this.h.has(entry.getKey())) {
+                            this.h.putOpt(entry.getKey(), entry.getValue());
                         }
                     }
                 }
                 if (this.o) {
-                    this.p = this.f42671c;
+                    this.p = this.c;
                     JSONObject jSONObject2 = new JSONObject();
                     this.q = jSONObject2;
-                    if (this.f42672d) {
-                        jSONObject2.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f42676h.toString());
+                    if (this.d) {
+                        jSONObject2.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.h.toString());
                     } else {
-                        Iterator<String> keys = this.f42676h.keys();
+                        Iterator<String> keys = this.h.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();
-                            this.q.put(next, this.f42676h.get(next));
+                            this.q.put(next, this.h.get(next));
                         }
                     }
                     this.q.put("category", this.a);
-                    this.q.put("tag", this.f42670b);
-                    this.q.put("value", this.f42673e);
-                    this.q.put("ext_value", this.f42675g);
+                    this.q.put("tag", this.b);
+                    this.q.put("value", this.e);
+                    this.q.put("ext_value", this.g);
                     if (!TextUtils.isEmpty(this.n)) {
                         this.q.put(TiebaStatic.Params.REFER, this.n);
                     }
                     if (this.i != null) {
                         this.q = com.ss.android.download.api.c.b.a(this.i, this.q);
                     }
-                    if (this.f42672d) {
-                        if (!this.q.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f42674f)) {
-                            this.q.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f42674f);
+                    if (this.d) {
+                        if (!this.q.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f)) {
+                            this.q.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f);
                         }
                         this.q.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
                     }
                 }
-                if (this.f42672d) {
-                    jSONObject.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f42676h.toString());
-                    if (!jSONObject.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f42674f)) {
-                        jSONObject.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f42674f);
+                if (this.d) {
+                    jSONObject.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.h.toString());
+                    if (!jSONObject.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f)) {
+                        jSONObject.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f);
                     }
                     jSONObject.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
                 } else {
-                    jSONObject.put("extra", this.f42676h);
+                    jSONObject.put("extra", this.h);
                 }
                 if (!TextUtils.isEmpty(this.n)) {
                     jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
@@ -201,9 +173,9 @@ public class c {
                 if (this.i != null) {
                     jSONObject = com.ss.android.download.api.c.b.a(this.i, jSONObject);
                 }
-                this.f42676h = jSONObject;
-            } catch (Exception e2) {
-                j.s().a(e2, "DownloadEventModel build");
+                this.h = jSONObject;
+            } catch (Exception e) {
+                j.s().a(e, "DownloadEventModel build");
             }
             return new c(this);
         }
@@ -211,13 +183,13 @@ public class c {
 
     public c(a aVar) {
         this.a = aVar.a;
-        this.f42663b = aVar.f42670b;
-        this.f42664c = aVar.f42671c;
-        this.f42665d = aVar.f42672d;
-        this.f42666e = aVar.f42673e;
-        this.f42667f = aVar.f42674f;
-        this.f42668g = aVar.f42675g;
-        this.f42669h = aVar.f42676h;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.e = aVar.e;
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
         this.i = aVar.i;
         this.j = aVar.k;
         this.k = aVar.l;
@@ -233,31 +205,31 @@ public class c {
     }
 
     public String b() {
-        return this.f42663b;
+        return this.b;
     }
 
     public String c() {
-        return this.f42664c;
+        return this.c;
     }
 
     public boolean d() {
-        return this.f42665d;
+        return this.d;
     }
 
     public long e() {
-        return this.f42666e;
+        return this.e;
     }
 
     public String f() {
-        return this.f42667f;
+        return this.f;
     }
 
     public long g() {
-        return this.f42668g;
+        return this.g;
     }
 
     public JSONObject h() {
-        return this.f42669h;
+        return this.h;
     }
 
     public JSONObject i() {
@@ -293,19 +265,19 @@ public class c {
         sb.append("category: ");
         sb.append(this.a);
         sb.append("\ttag: ");
-        sb.append(this.f42663b);
+        sb.append(this.b);
         sb.append("\tlabel: ");
-        sb.append(this.f42664c);
+        sb.append(this.c);
         sb.append("\nisAd: ");
-        sb.append(this.f42665d);
+        sb.append(this.d);
         sb.append("\tadId: ");
-        sb.append(this.f42666e);
+        sb.append(this.e);
         sb.append("\tlogExtra: ");
-        sb.append(this.f42667f);
+        sb.append(this.f);
         sb.append("\textValue: ");
-        sb.append(this.f42668g);
+        sb.append(this.g);
         sb.append("\nextJson: ");
-        sb.append(this.f42669h);
+        sb.append(this.h);
         sb.append("\nparamsJson: ");
         sb.append(this.i);
         sb.append("\nclickTrackUrl: ");

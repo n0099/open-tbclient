@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService a;
@@ -42,13 +42,13 @@ public class n {
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
             try {
                 a.execute(aVar);
-            } catch (Exception e2) {
-                aVar.a.uncaughtException(Thread.currentThread(), e2);
+            } catch (Exception e) {
+                aVar.a.uncaughtException(Thread.currentThread(), e);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,12 +131,8 @@ public class n {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f38490b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f38491c;
+                public final /* synthetic */ Context b;
+                public final /* synthetic */ a c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,9 +149,9 @@ public class n {
                             return;
                         }
                     }
-                    this.f38491c = this;
+                    this.c = this;
                     this.a = aVar;
-                    this.f38490b = context;
+                    this.b = context;
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -163,7 +159,7 @@ public class n {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
                         this.a.a().a.add(th);
-                        AuthnHelper.getInstance(this.f38490b).callBackResult("200025", "发生未知错误", this.a, null);
+                        AuthnHelper.getInstance(this.b).callBackResult("200025", "发生未知错误", this.a, null);
                     }
                 }
             };

@@ -2,8 +2,6 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.n0.a.a;
-import c.a.n0.a.p2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.de3;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,7 +34,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        DEBUG = a.a;
+        DEBUG = tg1.a;
     }
 
     public SwanAppErrorDialog() {
@@ -61,10 +61,10 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = q0.c0(this);
+            int c0 = de3.c0(this);
             super.onCreate(bundle);
-            q0.g(this, c0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ac);
+            de3.g(this, c0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.mMessage = textView;
             textView.setGravity(17);
         }

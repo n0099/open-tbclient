@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class InterActiveMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<InterActiveMsg> CREATOR;
@@ -109,8 +109,8 @@ public class InterActiveMsg extends NormalMsg {
                         str = optJSONObject.optString("level1");
                     }
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "getRecommendDescription JSONException", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getRecommendDescription JSONException", e);
             }
             return TextUtils.isEmpty(str) ? IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC : str;
         }
@@ -153,8 +153,8 @@ public class InterActiveMsg extends NormalMsg {
             try {
                 this.mTemplate = new JSONObject(getJsonContent()).optInt(MediaTrackConfig.AE_IMPORT_TEMPLATE);
                 return true;
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "parseJsonString JSONException", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "parseJsonString JSONException", e);
                 return false;
             }
         }

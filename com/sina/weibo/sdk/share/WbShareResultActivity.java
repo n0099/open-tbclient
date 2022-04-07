@@ -36,8 +36,8 @@ public class WbShareResultActivity extends BaseActivity {
             LogUtil.i("Share", "startShareResultActivity");
             try {
                 intent = getIntent();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) == 0) {
                 finish();

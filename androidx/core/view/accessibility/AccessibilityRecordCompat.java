@@ -398,10 +398,10 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setSource(View view) {
+    public void setSource(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, view) == null) {
-            this.mRecord.setSource(view);
+        if (interceptable == null || interceptable.invokeL(1048620, this, view2) == null) {
+            this.mRecord.setSource(view2);
         }
     }
 
@@ -461,18 +461,18 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setSource(View view, int i) {
+    public void setSource(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048621, this, view, i) == null) {
-            setSource(this.mRecord, view, i);
+        if (interceptable == null || interceptable.invokeLI(1048621, this, view2, i) == null) {
+            setSource(this.mRecord, view2, i);
         }
     }
 
-    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i) {
+    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view, i) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view2, i) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        accessibilityRecord.setSource(view, i);
+        accessibilityRecord.setSource(view2, i);
     }
 }

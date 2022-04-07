@@ -60,12 +60,12 @@ public interface SupportSQLiteOpenHelper {
                         if (!new File(str).delete()) {
                             Log.e(TAG, "Could not delete the database file " + str);
                         }
-                    } catch (Exception e2) {
-                        Log.e(TAG, "error while deleting corrupted database file", e2);
+                    } catch (Exception e) {
+                        Log.e(TAG, "error while deleting corrupted database file", e);
                     }
                 }
-            } catch (Exception e3) {
-                Log.w(TAG, "delete failed: ", e3);
+            } catch (Exception e2) {
+                Log.w(TAG, "delete failed: ", e2);
             }
         }
 

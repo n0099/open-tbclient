@@ -24,7 +24,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RtcLogReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_HOST = "https://rtc-log.cdn.bcebos.com/collect?message=";

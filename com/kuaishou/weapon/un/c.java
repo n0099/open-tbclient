@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f38801b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +45,10 @@ public class c extends FileObserver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.class) {
                     if (!l1.a(this.a.a)) {
-                        l1.c(this.a.f38801b, this.a.a);
+                        l1.c(this.a.b, this.a.a);
                         l1.a(this.a.a, Boolean.TRUE);
                         b.a(new File(this.a.a));
-                        b.a(new File(this.a.a), new File(this.a.f38801b));
+                        b.a(new File(this.a.a), new File(this.a.b));
                     }
                 }
             }
@@ -77,7 +75,7 @@ public class c extends FileObserver {
             }
         }
         this.a = str;
-        this.f38801b = str2;
+        this.b = str2;
     }
 
     public boolean a() {
@@ -85,7 +83,7 @@ public class c extends FileObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                File file = new File(this.f38801b);
+                File file = new File(this.b);
                 if (file.exists()) {
                     file.delete();
                     return true;

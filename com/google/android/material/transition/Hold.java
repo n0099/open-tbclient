@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Hold extends Visibility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,17 +35,17 @@ public final class Hold extends Visibility {
 
     @Override // androidx.transition.Visibility
     @NonNull
-    public Animator onAppear(@NonNull ViewGroup viewGroup, @NonNull View view, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
+    public Animator onAppear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, viewGroup, view, transitionValues, transitionValues2)) == null) ? ValueAnimator.ofFloat(0.0f) : (Animator) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, viewGroup, view2, transitionValues, transitionValues2)) == null) ? ValueAnimator.ofFloat(0.0f) : (Animator) invokeLLLL.objValue;
     }
 
     @Override // androidx.transition.Visibility
     @NonNull
-    public Animator onDisappear(@NonNull ViewGroup viewGroup, @NonNull View view, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
+    public Animator onDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view, transitionValues, transitionValues2)) == null) ? ValueAnimator.ofFloat(0.0f) : (Animator) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2, transitionValues, transitionValues2)) == null) ? ValueAnimator.ofFloat(0.0f) : (Animator) invokeLLLL.objValue;
     }
 }

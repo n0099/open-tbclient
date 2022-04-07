@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "PacDownload";
@@ -152,8 +152,8 @@ public class PacDownload implements IResourceTask, INetListener {
                         bdNetTask.setNet(bdNet);
                         bdNetTask.setUrl(getUrl(context, false));
                         bdNet.start(bdNetTask, false);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -188,8 +188,8 @@ public class PacDownload implements IResourceTask, INetListener {
                     bdNetTask.setNet(bdNet);
                     bdNetTask.setUrl(getUrl(context, true));
                     bdNet.start(bdNetTask, false);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -354,8 +354,8 @@ public class PacDownload implements IResourceTask, INetListener {
                 CfgFileUtils.set(CfgFileUtils.KEY_PAC_DATA, str);
                 mPacSucced = true;
                 WebSettingsGlobalBlink.setPacData(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

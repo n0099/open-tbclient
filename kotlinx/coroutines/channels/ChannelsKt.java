@@ -136,8 +136,8 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends Collection<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterIndexedTo(receiveChannel, c2, function2, continuation);
+    public static final <E, C extends Collection<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterIndexedTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -151,18 +151,18 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends Collection<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterNotNullTo(receiveChannel, c2, continuation);
+    public static final <E, C extends Collection<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterNotNullTo(receiveChannel, c, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends Collection<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterNotTo(receiveChannel, c2, function1, continuation);
+    public static final <E, C extends Collection<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterNotTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends Collection<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterTo(receiveChannel, c2, function1, continuation);
+    public static final <E, C extends Collection<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -211,8 +211,8 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> Object indexOf(ReceiveChannel<? extends E> receiveChannel, E e2, Continuation<? super Integer> continuation) {
-        return ChannelsKt__Channels_commonKt.indexOf(receiveChannel, e2, continuation);
+    public static final <E> Object indexOf(ReceiveChannel<? extends E> receiveChannel, E e, Continuation<? super Integer> continuation) {
+        return ChannelsKt__Channels_commonKt.indexOf(receiveChannel, e, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -231,8 +231,8 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> Object lastIndexOf(ReceiveChannel<? extends E> receiveChannel, E e2, Continuation<? super Integer> continuation) {
-        return ChannelsKt__Channels_commonKt.lastIndexOf(receiveChannel, e2, continuation);
+    public static final <E> Object lastIndexOf(ReceiveChannel<? extends E> receiveChannel, E e, Continuation<? super Integer> continuation) {
+        return ChannelsKt__Channels_commonKt.lastIndexOf(receiveChannel, e, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -256,13 +256,13 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends Collection<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapIndexedNotNullTo(receiveChannel, c2, function2, continuation);
+    public static final <E, R, C extends Collection<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapIndexedNotNullTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends Collection<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapIndexedTo(receiveChannel, c2, function2, continuation);
+    public static final <E, R, C extends Collection<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapIndexedTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -271,13 +271,13 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends Collection<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapNotNullTo(receiveChannel, c2, function1, continuation);
+    public static final <E, R, C extends Collection<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapNotNullTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends Collection<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapTo(receiveChannel, c2, function1, continuation);
+    public static final <E, R, C extends Collection<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -335,8 +335,8 @@ public final class ChannelsKt {
         return ChannelsKt__Channels_commonKt.requireNoNulls(receiveChannel);
     }
 
-    public static final <E> void sendBlocking(SendChannel<? super E> sendChannel, E e2) {
-        ChannelsKt__ChannelsKt.sendBlocking(sendChannel, e2);
+    public static final <E> void sendBlocking(SendChannel<? super E> sendChannel, E e) {
+        ChannelsKt__ChannelsKt.sendBlocking(sendChannel, e);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -370,13 +370,13 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends SendChannel<? super E>> Object toChannel(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.toChannel(receiveChannel, c2, continuation);
+    public static final <E, C extends SendChannel<? super E>> Object toChannel(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.toChannel(receiveChannel, c, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends Collection<? super E>> Object toCollection(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.toCollection(receiveChannel, c2, continuation);
+    public static final <E, C extends Collection<? super E>> Object toCollection(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.toCollection(receiveChannel, c, continuation);
     }
 
     public static final <E> Object toList(ReceiveChannel<? extends E> receiveChannel, Continuation<? super List<? extends E>> continuation) {
@@ -444,23 +444,23 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends SendChannel<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterIndexedTo(receiveChannel, c2, function2, continuation);
+    public static final <E, C extends SendChannel<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterIndexedTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends SendChannel<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterNotNullTo(receiveChannel, c2, continuation);
+    public static final <E, C extends SendChannel<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterNotNullTo(receiveChannel, c, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends SendChannel<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterNotTo(receiveChannel, c2, function1, continuation);
+    public static final <E, C extends SendChannel<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterNotTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, C extends SendChannel<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.filterTo(receiveChannel, c2, function1, continuation);
+    public static final <E, C extends SendChannel<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.filterTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -494,23 +494,23 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapIndexedNotNullTo(receiveChannel, c2, function2, continuation);
+    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapIndexedNotNullTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapIndexedTo(receiveChannel, c2, function2, continuation);
+    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapIndexedTo(receiveChannel, c, function2, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends SendChannel<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapNotNullTo(receiveChannel, c2, function1, continuation);
+    public static final <E, R, C extends SendChannel<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapNotNullTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E, R, C extends SendChannel<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
-        return ChannelsKt__Channels_commonKt.mapTo(receiveChannel, c2, function1, continuation);
+    public static final <E, R, C extends SendChannel<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+        return ChannelsKt__Channels_commonKt.mapTo(receiveChannel, c, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")

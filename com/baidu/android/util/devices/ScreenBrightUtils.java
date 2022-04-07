@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ScreenBrightUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BRIGHT_MIN = 50;
@@ -57,8 +57,8 @@ public class ScreenBrightUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
             if (activity != null) {
-                float f2 = activity.getWindow().getAttributes().screenBrightness;
-                int screenBrightness = f2 < 0.0f ? getScreenBrightness(activity) : (int) (f2 * 255.0f);
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                int screenBrightness = f < 0.0f ? getScreenBrightness(activity) : (int) (f * 255.0f);
                 int i = mBrightLevel;
                 return (i < 0 || screenBrightness > 50) ? screenBrightness : i;
             }
@@ -73,8 +73,8 @@ public class ScreenBrightUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0;
             }
         }
@@ -99,8 +99,8 @@ public class ScreenBrightUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
-            } catch (Settings.SettingNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
                 return false;
             }
         }

@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DBConnection extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBConnection";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,16 @@ public class DBConnection extends SQLiteOpenHelper {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN nickname TEXT");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e);
                 }
                 Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version47And48Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,16 +107,16 @@ public class DBConnection extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktop INTEGER DEFAULT 1");
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktoptime LONG ");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e);
                 }
                 Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Version49And50Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,9 +158,9 @@ public class DBConnection extends SQLiteOpenHelper {
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN groupinfo_version LONG DEFAULT '0'");
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN local_groupinfo_version LONG DEFAULT '0'");
                     sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN avatar TEXT");
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:49->50", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:49->50", e);
                 }
                 Log.d(LogUtils.TAG, "DBConnection onUpgrade:49->50");
             }
@@ -214,9 +214,9 @@ public class DBConnection extends SQLiteOpenHelper {
                         sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_GROUP_MEMBER);
                         i = 0;
                         sQLiteDatabase.setTransactionSuccessful();
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                        LogUtils.e(LogUtils.TAG, "createTable:", e2);
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(LogUtils.TAG, "createTable:", e);
                     }
                 }
                 return i;
@@ -241,9 +241,9 @@ public class DBConnection extends SQLiteOpenHelper {
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupmember");
                         i = 0;
                         sQLiteDatabase.setTransactionSuccessful();
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                        LogUtils.e(LogUtils.TAG, "dropTable:", e2);
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(LogUtils.TAG, "dropTable:", e);
                     }
                 }
                 return i;
@@ -263,9 +263,9 @@ public class DBConnection extends SQLiteOpenHelper {
                 try {
                     boolean enableWriteAheadLogging = sQLiteDatabase.enableWriteAheadLogging();
                     LogUtils.d(TAG, "enableWAL : " + enableWriteAheadLogging);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "onConfigure", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "onConfigure", e);
                 }
             }
         }

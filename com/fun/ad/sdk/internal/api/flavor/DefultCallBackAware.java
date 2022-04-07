@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefultCallBackAware implements CallBackAware {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public class DefultCallBackAware implements CallBackAware {
     }
 
     @Override // com.fun.ad.sdk.internal.api.flavor.CallBackAware
-    public void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, double d2, RippedAd rippedAd, String... strArr) {
+    public void show(FunAdInteractionListener funAdInteractionListener, String str, String str2, String str3, double d, RippedAd rippedAd, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{funAdInteractionListener, str, str2, str3, Double.valueOf(d2), rippedAd, strArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{funAdInteractionListener, str, str2, str3, Double.valueOf(d), rippedAd, strArr}) == null) {
             funAdInteractionListener.onAdShow(str, str2, str3);
         }
     }

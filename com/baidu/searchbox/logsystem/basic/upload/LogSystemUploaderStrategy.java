@@ -33,7 +33,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -44,7 +44,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public boolean mInvalidDirDeleted;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -76,7 +76,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KEEP_ALIVE_TIME = 60000;
@@ -101,7 +101,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_GZIP_TMP = ".gz.tmp";
@@ -228,7 +228,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -390,7 +390,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00ae, code lost:
         if (r7 == 2) goto L46;
      */
     @Nullable
@@ -415,9 +415,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     obtainFilePath.delete();
                 }
                 obtainFilePath.createNewFile();
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (LLog.sDebug) {
-                    Log.d("LSStrategy", e2.getMessage());
+                    Log.d("LSStrategy", e.getMessage());
                 }
             }
             if (obtainFilePath.exists()) {
@@ -449,9 +449,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     }
                     ZipUtils.zip(obtainFilePath, linkedList2);
                     return obtainFilePath;
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                     if (LLog.sDebug) {
-                        Log.d("LSStrategy", e3.getMessage());
+                        Log.d("LSStrategy", e2.getMessage());
                     }
                 }
             }
@@ -625,8 +625,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             } else {
                 try {
                     file.createNewFile();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -786,7 +786,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return (ResponseEntity) invokeL.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";

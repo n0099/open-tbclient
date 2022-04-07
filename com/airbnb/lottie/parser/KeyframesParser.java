@@ -7,11 +7,11 @@ import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class KeyframesParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("k");
 
-    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, LottieComposition lottieComposition, float f2, ValueParser<T> valueParser) throws IOException {
+    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, LottieComposition lottieComposition, float f, ValueParser<T> valueParser) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonReader.Token.STRING) {
             lottieComposition.addWarning("Lottie doesn't support expressions.");
@@ -24,15 +24,15 @@ public class KeyframesParser {
             } else if (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
                 jsonReader.beginArray();
                 if (jsonReader.peek() == JsonReader.Token.NUMBER) {
-                    arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f2, valueParser, false));
+                    arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f, valueParser, false));
                 } else {
                     while (jsonReader.hasNext()) {
-                        arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f2, valueParser, true));
+                        arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f, valueParser, true));
                     }
                 }
                 jsonReader.endArray();
             } else {
-                arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f2, valueParser, false));
+                arrayList.add(KeyframeParser.parse(jsonReader, lottieComposition, f, valueParser, false));
             }
         }
         jsonReader.endObject();

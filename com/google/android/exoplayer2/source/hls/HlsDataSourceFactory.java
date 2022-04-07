@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source.hls;
 
 import com.google.android.exoplayer2.upstream.DataSource;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface HlsDataSourceFactory {
     DataSource createDataSource(int i);
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.V8Value;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Scope extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCOPE_OBJECT = "scopeObject";
@@ -20,7 +20,7 @@ public class Scope extends Mirror {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ScopeType {
         public static final /* synthetic */ ScopeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -135,12 +135,12 @@ public class Scope extends Mirror {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ScopeType.values()[this.v8Object.executeIntegerFunction(SCOPE_TYPE, null)] : (ScopeType) invokeV.objValue;
     }
 
-    public void setVariableValue(String str, double d2) {
+    public void setVariableValue(String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Double.valueOf(d)}) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
             v8Array.push(str);
-            v8Array.push(d2);
+            v8Array.push(d);
             try {
                 this.v8Object.executeVoidFunction(SET_VARIABLE_VALUE, v8Array);
             } finally {

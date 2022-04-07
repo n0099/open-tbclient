@@ -61,146 +61,146 @@ public final class R$id {
     public static final int activity_chooser_view_content = 2131296367;
 
     /* renamed from: add */
-    public static final int obfuscated = 2131296513;
+    public static final int obfuscated = 2131296522;
 
     /* renamed from: alertTitle */
-    public static final int obfuscated = 2131296857;
-    public static final int async = 2131296944;
-    public static final int blocking = 2131297163;
+    public static final int obfuscated = 2131296865;
+    public static final int async = 2131296954;
+    public static final int blocking = 2131297174;
 
     /* renamed from: buttonPanel */
-    public static final int obfuscated = 2131297373;
+    public static final int obfuscated = 2131297381;
 
     /* renamed from: checkbox */
-    public static final int obfuscated = 2131297797;
+    public static final int obfuscated = 2131297807;
 
     /* renamed from: checked */
-    public static final int obfuscated = 2131297802;
-    public static final int chronometer = 2131297866;
+    public static final int obfuscated = 2131297812;
+    public static final int chronometer = 2131297876;
 
     /* renamed from: content */
-    public static final int obfuscated = 2131298007;
+    public static final int obfuscated = 2131298016;
 
     /* renamed from: contentPanel */
-    public static final int obfuscated = 2131298011;
+    public static final int obfuscated = 2131298020;
 
     /* renamed from: custom */
-    public static final int obfuscated = 2131298108;
-    public static final int customPanel = 2131298109;
-    public static final int decor_content_parent = 2131298147;
-    public static final int default_activity_button = 2131298150;
-    public static final int dialog_button = 2131298199;
-    public static final int edit_query = 2131298399;
-    public static final int expand_activities_button = 2131298606;
-    public static final int expanded_menu = 2131298618;
-    public static final int forever = 2131298833;
-    public static final int group_divider = 2131299571;
+    public static final int obfuscated = 2131298117;
+    public static final int customPanel = 2131298118;
+    public static final int decor_content_parent = 2131298156;
+    public static final int default_activity_button = 2131298159;
+    public static final int dialog_button = 2131298208;
+    public static final int edit_query = 2131298407;
+    public static final int expand_activities_button = 2131298613;
+    public static final int expanded_menu = 2131298627;
+    public static final int forever = 2131298840;
+    public static final int group_divider = 2131299578;
 
     /* renamed from: home */
-    public static final int obfuscated = 2131299682;
-    public static final int icon = 2131299846;
-    public static final int icon_group = 2131299864;
+    public static final int obfuscated = 2131299690;
+    public static final int icon = 2131299854;
+    public static final int icon_group = 2131299862;
 
     /* renamed from: image */
-    public static final int obfuscated = 2131299945;
-    public static final int info = 2131300083;
-    public static final int italic = 2131300186;
-    public static final int line1 = 2131300951;
-    public static final int line3 = 2131300953;
+    public static final int obfuscated = 2131299943;
+    public static final int info = 2131300079;
+    public static final int italic = 2131300180;
+    public static final int line1 = 2131300940;
+    public static final int line3 = 2131300942;
 
     /* renamed from: listMode */
-    public static final int obfuscated = 2131300984;
-    public static final int list_item = 2131300988;
+    public static final int obfuscated = 2131300973;
+    public static final int list_item = 2131300977;
 
     /* renamed from: message */
-    public static final int obfuscated = 2131301371;
+    public static final int obfuscated = 2131301364;
 
     /* renamed from: multiply */
-    public static final int obfuscated = 2131301509;
-    public static final int none = 2131301802;
-    public static final int normal = 2131301808;
-    public static final int notification_background = 2131301823;
-    public static final int notification_main_column = 2131301825;
-    public static final int notification_main_column_container = 2131301826;
+    public static final int obfuscated = 2131301502;
+    public static final int none = 2131301797;
+    public static final int normal = 2131301803;
+    public static final int notification_background = 2131301818;
+    public static final int notification_main_column = 2131301820;
+    public static final int notification_main_column_container = 2131301821;
 
     /* renamed from: off */
-    public static final int obfuscated = 2131301857;
+    public static final int obfuscated = 2131301852;
 
     /* renamed from: on */
-    public static final int obfuscated = 2131301878;
+    public static final int obfuscated = 2131301873;
 
     /* renamed from: parentPanel */
-    public static final int obfuscated = 2131301960;
-    public static final int progress_circular = 2131302703;
-    public static final int progress_horizontal = 2131302705;
+    public static final int obfuscated = 2131301954;
+    public static final int progress_circular = 2131302690;
+    public static final int progress_horizontal = 2131302692;
 
     /* renamed from: radio */
-    public static final int obfuscated = 2131302826;
-    public static final int right_icon = 2131303088;
-    public static final int right_side = 2131303094;
+    public static final int obfuscated = 2131302811;
+    public static final int right_icon = 2131303072;
+    public static final int right_side = 2131303078;
 
     /* renamed from: screen */
-    public static final int obfuscated = 2131303420;
-    public static final int scrollIndicatorDown = 2131303431;
-    public static final int scrollIndicatorUp = 2131303432;
+    public static final int obfuscated = 2131303403;
+    public static final int scrollIndicatorDown = 2131303414;
+    public static final int scrollIndicatorUp = 2131303415;
 
     /* renamed from: scrollView */
-    public static final int obfuscated = 2131303433;
-    public static final int search_badge = 2131303450;
-    public static final int search_bar = 2131303451;
-    public static final int search_button = 2131303457;
-    public static final int search_close_btn = 2131303458;
-    public static final int search_edit_frame = 2131303461;
-    public static final int search_go_btn = 2131303472;
-    public static final int search_mag_icon = 2131303487;
-    public static final int search_plate = 2131303488;
-    public static final int search_src_text = 2131303495;
-    public static final int search_voice_btn = 2131303504;
-    public static final int select_dialog_listview = 2131303537;
+    public static final int obfuscated = 2131303416;
+    public static final int search_badge = 2131303433;
+    public static final int search_bar = 2131303434;
+    public static final int search_button = 2131303440;
+    public static final int search_close_btn = 2131303441;
+    public static final int search_edit_frame = 2131303444;
+    public static final int search_go_btn = 2131303455;
+    public static final int search_mag_icon = 2131303470;
+    public static final int search_plate = 2131303471;
+    public static final int search_src_text = 2131303478;
+    public static final int search_voice_btn = 2131303487;
+    public static final int select_dialog_listview = 2131303519;
 
     /* renamed from: shortcut */
-    public static final int obfuscated = 2131303662;
+    public static final int obfuscated = 2131303644;
 
     /* renamed from: spacer */
-    public static final int obfuscated = 2131303755;
-    public static final int split_action_bar = 2131303777;
-    public static final int src_atop = 2131303815;
-    public static final int src_in = 2131303816;
-    public static final int src_over = 2131303817;
-    public static final int submenuarrow = 2131303887;
-    public static final int submit_area = 2131303888;
+    public static final int obfuscated = 2131303736;
+    public static final int split_action_bar = 2131303758;
+    public static final int src_atop = 2131303796;
+    public static final int src_in = 2131303797;
+    public static final int src_over = 2131303798;
+    public static final int submenuarrow = 2131303867;
+    public static final int submit_area = 2131303868;
 
     /* renamed from: tabMode */
-    public static final int obfuscated = 2131303992;
-    public static final int tag_accessibility_actions = 2131304033;
-    public static final int tag_accessibility_clickable_spans = 2131304034;
-    public static final int tag_accessibility_heading = 2131304035;
-    public static final int tag_accessibility_pane_title = 2131304036;
-    public static final int tag_screen_reader_focusable = 2131304102;
-    public static final int tag_transition_group = 2131304116;
-    public static final int tag_unhandled_key_event_manager = 2131304117;
-    public static final int tag_unhandled_key_listeners = 2131304118;
-    public static final int text = 2131304219;
-    public static final int text2 = 2131304220;
-    public static final int textSpacerNoButtons = 2131304224;
-    public static final int textSpacerNoTitle = 2131304225;
-    public static final int time = 2131304443;
-    public static final int title = 2131304491;
-    public static final int titleDividerNoCustom = 2131304493;
-    public static final int title_template = 2131304536;
+    public static final int obfuscated = 2131303972;
+    public static final int tag_accessibility_actions = 2131304013;
+    public static final int tag_accessibility_clickable_spans = 2131304014;
+    public static final int tag_accessibility_heading = 2131304015;
+    public static final int tag_accessibility_pane_title = 2131304016;
+    public static final int tag_screen_reader_focusable = 2131304082;
+    public static final int tag_transition_group = 2131304096;
+    public static final int tag_unhandled_key_event_manager = 2131304097;
+    public static final int tag_unhandled_key_listeners = 2131304098;
+    public static final int text = 2131304199;
+    public static final int text2 = 2131304200;
+    public static final int textSpacerNoButtons = 2131304204;
+    public static final int textSpacerNoTitle = 2131304205;
+    public static final int time = 2131304422;
+    public static final int title = 2131304466;
+    public static final int titleDividerNoCustom = 2131304468;
+    public static final int title_template = 2131304509;
 
     /* renamed from: topPanel */
-    public static final int obfuscated = 2131304606;
+    public static final int obfuscated = 2131304579;
 
     /* renamed from: unchecked */
-    public static final int obfuscated = 2131305063;
+    public static final int obfuscated = 2131305035;
 
     /* renamed from: uniform */
-    public static final int obfuscated = 2131305068;
+    public static final int obfuscated = 2131305040;
 
     /* renamed from: up */
-    public static final int obfuscated = 2131305090;
-    public static final int wrap_content = 2131305626;
+    public static final int obfuscated = 2131305062;
+    public static final int wrap_content = 2131305589;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

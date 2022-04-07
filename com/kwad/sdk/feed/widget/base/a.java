@@ -15,27 +15,19 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, d {
     public f a;
     @NonNull
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f40489b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdInfo f40490c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public InterfaceC1983a f40491d;
+    public AdTemplate b;
+    public AdInfo c;
+    public InterfaceC0323a d;
     @NonNull
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f40492e;
+    public Context e;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1983a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0323a {
         void a();
 
         void b();
@@ -57,35 +49,35 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f40492e = context;
+        this.e = context;
         d();
     }
 
     private void a(ViewGroup viewGroup) {
-        com.kwad.sdk.core.page.widget.a b2 = b(viewGroup);
-        if (b2 == null) {
-            b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
-            viewGroup.addView(b2);
+        com.kwad.sdk.core.page.widget.a b = b(viewGroup);
+        if (b == null) {
+            b = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
+            viewGroup.addView(b);
         }
-        b2.setViewCallback(new a.InterfaceC1965a() { // from class: com.kwad.sdk.feed.widget.base.a.1
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+        b.setViewCallback(new a.InterfaceC0305a() { // from class: com.kwad.sdk.feed.widget.base.a.1
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
-            public void a(View view) {
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+            public void a(View view2) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void b() {
             }
         });
-        b2.setNeedCheckingShow(true);
+        b.setNeedCheckingShow(true);
     }
 
     private com.kwad.sdk.core.page.widget.a b(ViewGroup viewGroup) {
@@ -99,7 +91,7 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     }
 
     private void d() {
-        FrameLayout.inflate(this.f40492e, getLayoutId(), this);
+        FrameLayout.inflate(this.e, getLayoutId(), this);
         setRatio(getHWRatio());
         c();
         this.a = new f(this, 70);
@@ -114,8 +106,8 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f40489b = adTemplate;
-        this.f40490c = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.b = adTemplate;
+        this.c = com.kwad.sdk.core.response.a.d.j(adTemplate);
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
@@ -141,54 +133,54 @@ public abstract class a extends KSFrameLayout implements DialogInterface.OnDismi
     public abstract int getLayoutId();
 
     public void j() {
-        InterfaceC1983a interfaceC1983a;
-        if (!this.f40489b.mPvReported && (interfaceC1983a = this.f40491d) != null) {
-            interfaceC1983a.b();
+        InterfaceC0323a interfaceC0323a;
+        if (!this.b.mPvReported && (interfaceC0323a = this.d) != null) {
+            interfaceC0323a.b();
         }
-        com.kwad.sdk.core.report.a.a(this.f40489b, (JSONObject) null);
+        com.kwad.sdk.core.report.a.a(this.b, (JSONObject) null);
     }
 
     public void k() {
-        com.kwad.sdk.core.report.a.a(this.f40489b, getTouchCoords());
-        InterfaceC1983a interfaceC1983a = this.f40491d;
-        if (interfaceC1983a != null) {
-            interfaceC1983a.a();
+        com.kwad.sdk.core.report.a.a(this.b, getTouchCoords());
+        InterfaceC0323a interfaceC0323a = this.d;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.a();
         }
     }
 
     public void l() {
-        InterfaceC1983a interfaceC1983a = this.f40491d;
-        if (interfaceC1983a != null) {
-            interfaceC1983a.a();
+        InterfaceC0323a interfaceC0323a = this.d;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.a();
         }
     }
 
     public void m() {
-        com.kwad.sdk.core.report.a.a(this.f40489b);
-        InterfaceC1983a interfaceC1983a = this.f40491d;
-        if (interfaceC1983a != null) {
-            interfaceC1983a.c();
+        com.kwad.sdk.core.report.a.a(this.b);
+        InterfaceC0323a interfaceC0323a = this.d;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.c();
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC1983a interfaceC1983a = this.f40491d;
-        if (interfaceC1983a != null) {
-            interfaceC1983a.e();
+        InterfaceC0323a interfaceC0323a = this.d;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.e();
         }
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC1983a interfaceC1983a = this.f40491d;
-        if (interfaceC1983a != null) {
-            interfaceC1983a.d();
+        InterfaceC0323a interfaceC0323a = this.d;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.d();
         }
     }
 
-    public void setInnerAdInteractionListener(InterfaceC1983a interfaceC1983a) {
-        this.f40491d = interfaceC1983a;
+    public void setInnerAdInteractionListener(InterfaceC0323a interfaceC0323a) {
+        this.d = interfaceC0323a;
     }
 
     public void setMargin(int i) {

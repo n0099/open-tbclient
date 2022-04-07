@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Camera {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class Camera {
 
     private native Pose nativeGetPose(long j, long j2);
 
-    private native void nativeGetProjectionMatrix(long j, long j2, float[] fArr, int i, float f2, float f3);
+    private native void nativeGetProjectionMatrix(long j, long j2, float[] fArr, int i, float f, float f2);
 
     private native void nativeGetTextureIntrinsics(long j, long j2, long j3);
 

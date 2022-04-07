@@ -64,8 +64,8 @@ public final class Jdk9Platform extends Platform {
                 List<String> alpnProtocolNames = Platform.alpnProtocolNames(list);
                 this.setProtocolMethod.invoke(sSLParameters, alpnProtocolNames.toArray(new String[alpnProtocolNames.size()]));
                 sSLSocket.setSSLParameters(sSLParameters);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw Util.assertionError("unable to set ssl parameters", e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw Util.assertionError("unable to set ssl parameters", e);
             }
         }
     }
@@ -85,8 +85,8 @@ public final class Jdk9Platform extends Platform {
                     return str;
                 }
                 return null;
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw Util.assertionError("unable to get selected protocols", e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw Util.assertionError("unable to get selected protocols", e);
             }
         }
         return (String) invokeL.objValue;

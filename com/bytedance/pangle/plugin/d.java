@@ -18,7 +18,7 @@ import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.a) || (pluginProvider = g.a().f38133b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
+            if (file.equals(this.a) || (pluginProvider = g.a().b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
                 return;
             }
             PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);
@@ -111,10 +111,10 @@ public final class d implements Runnable {
                         f.a(Zeus.getAppApplication().getAssets().open(concat), new FileOutputStream(file), 0L);
                     }
                 }
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e2) {
                 e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
             }
             a(new File(PluginDirHelper.getDownloadDir()));
             String pushDir = PluginDirHelper.getPushDir();

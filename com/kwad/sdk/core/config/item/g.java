@@ -3,10 +3,10 @@ package com.kwad.sdk.core.config.item;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g extends a<Float> {
-    public g(String str, float f2) {
-        super(str, Float.valueOf(f2));
+    public g(String str, float f) {
+        super(str, Float.valueOf(f));
     }
 
     @Override // com.kwad.sdk.core.config.item.b

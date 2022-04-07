@@ -1,20 +1,20 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import c.a.p0.q1.i.j.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mz6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e mData;
+    public mz6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipSocketResMsg() {
@@ -48,9 +48,9 @@ public class ConcernUnreadTipSocketResMsg extends SocketResponsedMessage {
             setErrorString(unreadTipResIdl.error.errmsg);
         }
         if (unreadTipResIdl.data != null) {
-            e eVar = new e();
-            this.mData = eVar;
-            eVar.b(unreadTipResIdl.data);
+            mz6 mz6Var = new mz6();
+            this.mData = mz6Var;
+            mz6Var.b(unreadTipResIdl.data);
         }
     }
 }

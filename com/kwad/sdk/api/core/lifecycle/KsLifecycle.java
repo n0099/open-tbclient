@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsLifecycle {
     public Lifecycle mBase;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum KsLifeEvent {
         ON_CREATE(Lifecycle.Event.ON_CREATE),
         ON_START(Lifecycle.Event.ON_START),
@@ -43,7 +43,7 @@ public class KsLifecycle {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum KsLifeState {
         DESTROYED(Lifecycle.State.DESTROYED),
         INITIALIZED(Lifecycle.State.DESTROYED),

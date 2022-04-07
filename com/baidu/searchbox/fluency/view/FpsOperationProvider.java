@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @DebugInfoProvider(enable = false, type = "Debug_Fetures")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FpsOperationProvider extends DebugDataGroupProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

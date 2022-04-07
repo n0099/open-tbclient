@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CaptureDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
@@ -31,7 +31,7 @@ public class CaptureDownloadService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadManager mDownloadManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,54 +260,54 @@ public class CaptureDownloadService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) == null) {
             if (intent != null) {
                 String action = intent.getAction();
-                char c2 = 0;
+                char c = 0;
                 int intExtra = intent.getIntExtra("extra_position", 0);
                 RequestTask requestTask = (RequestTask) intent.getSerializableExtra("extra_file_info");
                 String stringExtra = intent.getStringExtra("extra_tag");
                 switch (action.hashCode()) {
                     case -2000112966:
                         if (action.equals("com.baidu.ugc.download.ACTION_CANCEL")) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -1148652932:
                         if (action.equals("com.baidu.ugc.download.ACTION_CANCEL_ALL")) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -929888424:
                         if (action.equals("com.baidu.ugc.download.ACTION_PAUSE_ALL")) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -707184440:
                         break;
                     case 1610061206:
                         if (action.equals("com.baidu.ugc.download.ACTION_PAUSE")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     download(intExtra, requestTask, stringExtra);
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     pause(stringExtra);
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     cancel(stringExtra);
-                } else if (c2 == 3) {
+                } else if (c == 3) {
                     pauseAll();
-                } else if (c2 == 4) {
+                } else if (c == 4) {
                     cancelAll();
                 }
             }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class a implements d {
         byteBuffer.rewind();
         try {
             a(0L);
-        } catch (IOException e2) {
-            throw new RuntimeException(e2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

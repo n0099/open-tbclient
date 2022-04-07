@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.e;
 
 import android.content.ComponentName;
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface b {
     int a();
 

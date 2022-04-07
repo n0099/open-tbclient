@@ -15,36 +15,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.yr4;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EMTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public WeakReference<TextView> f29874b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ViewGroup.MarginLayoutParams f29875c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f29876d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f29877e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f29878f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f29879g;
+        public WeakReference<TextView> b;
+        public ViewGroup.MarginLayoutParams c;
+        public int d;
+        public int e;
+        public int f;
+        public int g;
 
         public a(TextView textView) {
             Interceptable interceptable = $ic;
@@ -61,38 +50,38 @@ public class EMTextView extends TextView {
                     return;
                 }
             }
-            this.f29876d = 0;
-            this.f29877e = 0;
-            this.f29878f = 0;
-            this.f29879g = 0;
-            this.f29874b = new WeakReference<>(textView);
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = 0;
+            this.b = new WeakReference<>(textView);
             d();
         }
 
         public final void a(Paint.FontMetricsInt fontMetricsInt) {
-            ViewGroup.MarginLayoutParams b2;
+            ViewGroup.MarginLayoutParams b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) || (b2 = b()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) || (b = b()) == null) {
                 return;
             }
-            this.f29876d = b2.topMargin;
-            this.f29877e = b2.bottomMargin;
-            this.f29878f = fontMetricsInt.top - fontMetricsInt.ascent;
+            this.d = b.topMargin;
+            this.e = b.bottomMargin;
+            this.f = fontMetricsInt.top - fontMetricsInt.ascent;
             int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            this.f29879g = dimenPixelSize;
-            b2.topMargin += this.f29878f;
-            b2.bottomMargin += dimenPixelSize;
+            this.g = dimenPixelSize;
+            b.topMargin += this.f;
+            b.bottomMargin += dimenPixelSize;
         }
 
         public final ViewGroup.MarginLayoutParams b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                TextView c2 = c();
-                if (c2 == null) {
+                TextView c = c();
+                if (c == null) {
                     return null;
                 }
-                ViewGroup.LayoutParams layoutParams = c2.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = c.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     return (ViewGroup.MarginLayoutParams) layoutParams;
                 }
@@ -105,11 +94,11 @@ public class EMTextView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                WeakReference<TextView> weakReference = this.f29874b;
+                WeakReference<TextView> weakReference = this.b;
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                return this.f29874b.get();
+                return this.b.get();
             }
             return (TextView) invokeV.objValue;
         }
@@ -119,9 +108,9 @@ public class EMTextView extends TextView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
                 f();
-                c.a.o0.r.v.e.a.a(fontMetricsInt, this.a);
-                TextView c2 = c();
-                if (c2 == null || (c2.getGravity() & 112) != 16) {
+                yr4.a(fontMetricsInt, this.a);
+                TextView c = c();
+                if (c == null || (c.getGravity() & 112) != 16) {
                     a(fontMetricsInt);
                 }
             }
@@ -130,29 +119,29 @@ public class EMTextView extends TextView {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                TextView c2 = c();
-                if (c2 != null) {
-                    this.a = (int) c2.getTextSize();
+                TextView c = c();
+                if (c != null) {
+                    this.a = (int) c.getTextSize();
                 }
-                ViewGroup.MarginLayoutParams b2 = b();
-                this.f29875c = b2;
-                if (b2 != null) {
-                    this.f29876d = b2.topMargin;
-                    this.f29877e = b2.bottomMargin;
+                ViewGroup.MarginLayoutParams b = b();
+                this.c = b;
+                if (b != null) {
+                    this.d = b.topMargin;
+                    this.e = b.bottomMargin;
                 }
-                this.f29878f = 0;
-                this.f29879g = 0;
+                this.f = 0;
+                this.g = 0;
             }
         }
 
         public boolean e() {
             InterceptResult invokeV;
-            ViewGroup.MarginLayoutParams b2;
+            ViewGroup.MarginLayoutParams b;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f29875c != null && (b2 = b()) != null && this.f29875c == b2) {
-                    boolean z = this.f29876d + this.f29878f == b2.topMargin;
-                    boolean z2 = this.f29877e + this.f29879g == b2.bottomMargin;
+                if (this.c != null && (b = b()) != null && this.c == b) {
+                    boolean z = this.d + this.f == b.topMargin;
+                    boolean z2 = this.e + this.g == b.bottomMargin;
                     if (z && z2) {
                         return false;
                     }
@@ -169,18 +158,18 @@ public class EMTextView extends TextView {
                     d();
                     return;
                 }
-                ViewGroup.MarginLayoutParams b2 = b();
-                if (b2 == null) {
+                ViewGroup.MarginLayoutParams b = b();
+                if (b == null) {
                     return;
                 }
-                b2.topMargin -= this.f29878f;
-                b2.bottomMargin -= this.f29879g;
-                TextView c2 = c();
-                if (c2 != null) {
-                    this.a = (int) c2.getTextSize();
+                b.topMargin -= this.f;
+                b.bottomMargin -= this.g;
+                TextView c = c();
+                if (c != null) {
+                    this.a = (int) c.getTextSize();
                 }
-                this.f29878f = 0;
-                this.f29879g = 0;
+                this.f = 0;
+                this.g = 0;
             }
         }
     }
@@ -208,10 +197,10 @@ public class EMTextView extends TextView {
 
     @Override // android.widget.TextView
     @Deprecated
-    public void setLineSpacing(float f2, float f3) {
+    public void setLineSpacing(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            super.setLineSpacing(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.setLineSpacing(f, f2);
         }
     }
 

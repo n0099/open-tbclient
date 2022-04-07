@@ -8,41 +8,35 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ab {
     public static Method a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Method f41341b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Field f41342c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f41343d;
+    public static Method b;
+    public static Field c;
+    public static int d;
 
     static {
         try {
             a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        try {
+            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
         try {
-            f41341b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException e3) {
+            c = WindowManager.LayoutParams.class.getField("statusBarColor");
+        } catch (NoSuchFieldException e3) {
             e3.printStackTrace();
         }
         try {
-            f41342c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException e4) {
+            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+        } catch (IllegalAccessException e4) {
             e4.printStackTrace();
-        }
-        try {
-            f41343d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException e5) {
+        } catch (NoSuchFieldException e5) {
             e5.printStackTrace();
-        } catch (NoSuchFieldException e6) {
-            e6.printStackTrace();
         }
     }
 
@@ -51,7 +45,7 @@ public class ab {
     }
 
     public static void a(Activity activity, boolean z, boolean z2) {
-        Method method = f41341b;
+        Method method = b;
         if (method == null) {
             if (z2) {
                 a(activity.getWindow(), z);
@@ -61,32 +55,32 @@ public class ab {
         }
         try {
             method.invoke(activity, Boolean.valueOf(z));
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e2) {
             e2.printStackTrace();
-        } catch (InvocationTargetException e3) {
-            e3.printStackTrace();
         }
     }
 
-    public static void a(View view, boolean z) {
-        int systemUiVisibility = view.getSystemUiVisibility();
-        int i = z ? f41343d | systemUiVisibility : (~f41343d) & systemUiVisibility;
+    public static void a(View view2, boolean z) {
+        int systemUiVisibility = view2.getSystemUiVisibility();
+        int i = z ? d | systemUiVisibility : (~d) & systemUiVisibility;
         if (i != systemUiVisibility) {
-            view.setSystemUiVisibility(i);
+            view2.setSystemUiVisibility(i);
         }
     }
 
     public static void a(Window window, int i) {
         WindowManager.LayoutParams attributes = window.getAttributes();
-        Field field = f41342c;
+        Field field = c;
         if (field != null) {
             try {
                 if (field.getInt(attributes) != i) {
-                    f41342c.set(attributes, Integer.valueOf(i));
+                    c.set(attributes, Integer.valueOf(i));
                     window.setAttributes(attributes);
                 }
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -117,14 +111,14 @@ public class ab {
                 return true;
             }
             return false;
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
             return false;
-        } catch (IllegalArgumentException e3) {
+        } catch (NoSuchFieldException e3) {
             e3.printStackTrace();
-            return false;
-        } catch (NoSuchFieldException e4) {
-            e4.printStackTrace();
             return false;
         } catch (Throwable th) {
             th.printStackTrace();

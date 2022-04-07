@@ -11,7 +11,7 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public PublicKey a;
 
@@ -34,8 +34,8 @@ public final class c {
             }
             try {
                 return a(str, new FileInputStream(file));
-            } catch (Exception e2) {
-                com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginChecker", "Verify false, sign: " + str + ", error:" + e2);
+            } catch (Exception e) {
+                com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginChecker", "Verify false, sign: " + str + ", error:" + e);
                 return false;
             }
         } else {
@@ -69,8 +69,8 @@ public final class c {
             } finally {
                 try {
                     inputStream.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -79,8 +79,8 @@ public final class c {
     public static PublicKey a(String str) throws Exception {
         try {
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
-        } catch (Exception e2) {
-            throw new Exception("Init public key failed", e2);
+        } catch (Exception e) {
+            throw new Exception("Init public key failed", e);
         }
     }
 }

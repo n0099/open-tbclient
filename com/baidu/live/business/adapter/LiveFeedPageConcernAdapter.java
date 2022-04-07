@@ -10,9 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.v.b.d.c.d;
-import c.a.v.f.g.j;
-import c.a.v.i.f;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
@@ -26,61 +23,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.repackage.fc0;
+import com.repackage.j90;
+import com.repackage.ob0;
+import com.repackage.p90;
+import com.repackage.ub0;
+import com.repackage.y90;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public LayoutInflater b;
+    public List<p90> c;
+    public Context d;
+    public boolean e;
+    public String f;
+    public float[] g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f25698b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<d> f25699c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f25700d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f25701e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f25702f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float[] f25703g;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public LottieAnimationView f25704b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public SimpleDraweeView f25705c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f25706d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public ImageView f25707e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f25708f;
+        public LottieAnimationView b;
+        public SimpleDraweeView c;
+        public TextView d;
+        public ImageView e;
+        public String f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(View view) {
-            super(view);
+        public ViewHolder(View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,21 +72,17 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                     return;
                 }
             }
-            this.f25708f = "";
+            this.f = "";
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f25709b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ LiveFeedPageConcernAdapter f25710c;
+        public final /* synthetic */ ViewHolder b;
+        public final /* synthetic */ LiveFeedPageConcernAdapter c;
 
         public a(LiveFeedPageConcernAdapter liveFeedPageConcernAdapter, int i, ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
@@ -122,31 +99,31 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                     return;
                 }
             }
-            this.f25710c = liveFeedPageConcernAdapter;
+            this.c = liveFeedPageConcernAdapter;
             this.a = i;
-            this.f25709b = viewHolder;
+            this.b = viewHolder;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 LiveFeedPageSdk.m("FollowItemClick: position: " + this.a);
                 int i = this.a;
-                if (i < 0 || i >= this.f25710c.f25699c.size() || this.f25710c.f25699c.get(this.a) == null) {
+                if (i < 0 || i >= this.c.c.size() || this.c.c.get(this.a) == null) {
                     return;
                 }
-                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((d) this.f25710c.f25699c.get(this.a)).f21435d);
-                d dVar = (d) this.f25710c.f25699c.get(this.a);
-                String str = this.f25710c.f25701e ? "chenjinshi" : "zhibopindao";
-                if (dVar.a) {
-                    LiveFeedPageSdk.f().g().invokeScheme(this.f25709b.itemView.getContext(), dVar.f21435d);
-                    c.a.v.b.c.a.j(this.f25710c.f25700d, this.f25710c.a, str);
+                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((p90) this.c.c.get(this.a)).d);
+                p90 p90Var = (p90) this.c.c.get(this.a);
+                String str = this.c.e ? "chenjinshi" : "zhibopindao";
+                if (p90Var.a) {
+                    LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), p90Var.d);
+                    j90.j(this.c.d, this.c.a, str);
                     return;
                 }
-                LiveFeedPageSdk.f().g().invokeScheme(this.f25709b.itemView.getContext(), dVar.f21435d);
-                LiveHostInfo liveHostInfo = dVar.f21436e;
-                c.a.v.b.c.a.h(this.f25710c.f25700d, this.f25710c.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.a + 1, dVar.f21434c, dVar.f21433b, dVar.f21437f);
+                LiveFeedPageSdk.f().g().invokeScheme(this.b.itemView.getContext(), p90Var.d);
+                LiveHostInfo liveHostInfo = p90Var.e;
+                j90.h(this.c.d, this.c.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.a + 1, p90Var.c, p90Var.b, p90Var.f);
             }
         }
     }
@@ -166,28 +143,28 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                 return;
             }
         }
-        this.f25699c = new ArrayList();
-        this.f25700d = context;
+        this.c = new ArrayList();
+        this.d = context;
         this.a = str;
-        this.f25701e = z;
-        this.f25698b = LayoutInflater.from(context);
-        this.f25702f = f.e().o();
-        float a2 = c.a.v.b.f.a.a(this.f25700d, 8.0f);
-        this.f25703g = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
+        this.e = z;
+        this.b = LayoutInflater.from(context);
+        this.f = fc0.e().o();
+        float a2 = y90.a(this.d, 8.0f);
+        this.g = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25699c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.size() : invokeV.intValue;
     }
 
     public final void h(@NonNull ViewHolder viewHolder) {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) && (lottieAnimationView = viewHolder.f25704b) != null && lottieAnimationView.isAnimating()) {
-            viewHolder.f25704b.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) && (lottieAnimationView = viewHolder.b) != null && lottieAnimationView.isAnimating()) {
+            viewHolder.b.cancelAnimation();
         }
     }
 
@@ -196,9 +173,9 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lottieAnimationView) == null) || lottieAnimationView == null) {
             return;
         }
-        if (this.f25701e) {
+        if (this.e) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
-        } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
+        } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(fc0.e().o()) && !"dark".equals(fc0.e().o())) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
         } else {
             lottieAnimationView.setAnimation("live_feed_page_shinning_night.json");
@@ -209,73 +186,73 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: j */
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        d dVar;
+        p90 p90Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (dVar = (d) c.a.v.f.g.d.b(this.f25699c, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (p90Var = (p90) ob0.b(this.c, i)) == null) {
             return;
         }
-        if (dVar.f21438g) {
-            String str = this.f25701e ? "chenjinshi" : "zhibopindao";
-            if (dVar.a) {
-                c.a.v.b.c.a.k(this.f25700d, this.a, str);
+        if (p90Var.g) {
+            String str = this.e ? "chenjinshi" : "zhibopindao";
+            if (p90Var.a) {
+                j90.k(this.d, this.a, str);
             } else {
-                LiveHostInfo liveHostInfo = dVar.f21436e;
-                c.a.v.b.c.a.i(this.f25700d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i + 1, dVar.f21434c, dVar.f21433b, dVar.f21437f);
+                LiveHostInfo liveHostInfo = p90Var.e;
+                j90.i(this.d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i + 1, p90Var.c, p90Var.b, p90Var.f);
             }
-            dVar.f21438g = false;
+            p90Var.g = false;
         }
-        if (dVar.a) {
+        if (p90Var.a) {
             h(viewHolder);
-            if (this.f25701e) {
-                viewHolder.f25707e.setImageResource(R.drawable.obfuscated_res_0x7f080d0e);
-            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
-                viewHolder.f25707e.setImageResource(R.drawable.obfuscated_res_0x7f080d0d);
+            if (this.e) {
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0f);
+            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(fc0.e().o()) && !"dark".equals(fc0.e().o())) {
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0e);
             } else {
-                viewHolder.f25707e.setImageResource(R.drawable.obfuscated_res_0x7f080d0f);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d10);
             }
-            viewHolder.f25707e.setVisibility(0);
-            viewHolder.f25704b.setVisibility(8);
-            viewHolder.f25706d.setVisibility(8);
-            viewHolder.f25705c.setVisibility(8);
+            viewHolder.e.setVisibility(0);
+            viewHolder.b.setVisibility(8);
+            viewHolder.d.setVisibility(8);
+            viewHolder.c.setVisibility(8);
         } else {
-            viewHolder.f25707e.setVisibility(8);
-            viewHolder.f25704b.setVisibility(0);
-            viewHolder.f25706d.setVisibility(0);
-            viewHolder.f25705c.setVisibility(0);
-            LiveHostInfo liveHostInfo2 = dVar.f21436e;
+            viewHolder.e.setVisibility(8);
+            viewHolder.b.setVisibility(0);
+            viewHolder.d.setVisibility(0);
+            viewHolder.c.setVisibility(0);
+            LiveHostInfo liveHostInfo2 = p90Var.e;
             if (liveHostInfo2 != null) {
-                viewHolder.f25705c.setImageURI(liveHostInfo2.avatar);
+                viewHolder.c.setImageURI(liveHostInfo2.avatar);
             }
-            viewHolder.f25706d.setTextColor(f.e().a(this.f25700d, this.f25701e, "color_white3"));
+            viewHolder.d.setTextColor(fc0.e().a(this.d, this.e, "color_white3"));
         }
-        LiveHostInfo liveHostInfo3 = dVar.f21436e;
+        LiveHostInfo liveHostInfo3 = p90Var.e;
         if (liveHostInfo3 != null) {
-            if (j.a(liveHostInfo3.name)) {
+            if (ub0.a(liveHostInfo3.name)) {
                 viewHolder.a.setText(R.string.obfuscated_res_0x7f0f09fa);
             } else {
-                viewHolder.a.setText(dVar.f21436e.name);
+                viewHolder.a.setText(p90Var.e.name);
             }
-            viewHolder.a.setTextColor(f.e().a(this.f25700d, this.f25701e, "color_1F1F1F"));
+            viewHolder.a.setTextColor(fc0.e().a(this.d, this.e, "color_1F1F1F"));
         }
         viewHolder.itemView.setOnClickListener(new a(this, i, viewHolder));
-        viewHolder.f25705c.getHierarchy().setPlaceholderImage(f.e().j(this.f25701e), ScalingUtils.ScaleType.FIT_XY);
-        if (this.f25701e) {
-            viewHolder.f25705c.getHierarchy().setUseGlobalColorFilter(false);
+        viewHolder.c.getHierarchy().setPlaceholderImage(fc0.e().j(this.e), ScalingUtils.ScaleType.FIT_XY);
+        if (this.e) {
+            viewHolder.c.getHierarchy().setUseGlobalColorFilter(false);
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(f.e().a(this.f25700d, this.f25701e, "color_FF3333"));
-        gradientDrawable.setCornerRadii(this.f25703g);
-        gradientDrawable.setStroke(c.a.v.b.f.a.a(this.f25700d, 1.0f), f.e().a(this.f25700d, this.f25701e, "color_white1"));
-        viewHolder.f25706d.setBackgroundDrawable(gradientDrawable);
-        this.f25702f = f.e().o();
-        if (j.a(viewHolder.f25708f) || viewHolder.f25708f.equals(this.f25702f)) {
+        gradientDrawable.setColor(fc0.e().a(this.d, this.e, "color_FF3333"));
+        gradientDrawable.setCornerRadii(this.g);
+        gradientDrawable.setStroke(y90.a(this.d, 1.0f), fc0.e().a(this.d, this.e, "color_white1"));
+        viewHolder.d.setBackgroundDrawable(gradientDrawable);
+        this.f = fc0.e().o();
+        if (ub0.a(viewHolder.f) || viewHolder.f.equals(this.f)) {
             return;
         }
-        viewHolder.f25708f = this.f25702f;
-        if (viewHolder.f25704b.isAnimating()) {
-            viewHolder.f25704b.cancelAnimation();
+        viewHolder.f = this.f;
+        if (viewHolder.b.isAnimating()) {
+            viewHolder.b.cancelAnimation();
         }
-        i(viewHolder.f25704b);
+        i(viewHolder.b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -285,16 +262,16 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = this.f25698b.inflate(R.layout.obfuscated_res_0x7f0d0514, viewGroup, false);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d050f, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c8);
-            viewHolder.f25706d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ee);
-            viewHolder.f25707e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909fc);
-            viewHolder.f25704b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902e9);
-            viewHolder.f25705c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902e8);
-            viewHolder.f25708f = this.f25702f;
-            i(viewHolder.f25704b);
-            viewHolder.f25704b.loop(true);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ab);
+            viewHolder.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f8);
+            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a03);
+            viewHolder.b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f3);
+            viewHolder.c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f2);
+            viewHolder.f = this.f;
+            i(viewHolder.b);
+            viewHolder.b.loop(true);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;
@@ -333,27 +310,27 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         }
     }
 
-    public void o(List<d> list) {
+    public void o(List<p90> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || c.a.v.f.g.d.c(list)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ob0.c(list)) {
             return;
         }
-        List<d> list2 = this.f25699c;
+        List<p90> list2 = this.c;
         if (list2 != null) {
             list2.clear();
         } else {
-            this.f25699c = new ArrayList();
+            this.c = new ArrayList();
         }
-        this.f25699c.addAll(list);
+        this.c.addAll(list);
         notifyDataSetChanged();
     }
 
     public final void p(@NonNull ViewHolder viewHolder) {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, viewHolder) == null) || (lottieAnimationView = viewHolder.f25704b) == null || lottieAnimationView.getVisibility() != 0 || viewHolder.f25704b.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, viewHolder) == null) || (lottieAnimationView = viewHolder.b) == null || lottieAnimationView.getVisibility() != 0 || viewHolder.b.isAnimating()) {
             return;
         }
-        viewHolder.f25704b.playAnimation();
+        viewHolder.b.playAnimation();
     }
 }

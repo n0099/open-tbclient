@@ -32,9 +32,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kv9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AssistActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_TYPE = "type";
@@ -50,7 +51,7 @@ public final class AssistActivity extends Activity {
     public WebView mWebView;
     public WebViewClient webviewClient;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,16 +76,16 @@ public final class AssistActivity extends Activity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AssistActivity assistActivity = this.a;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,15 +110,15 @@ public final class AssistActivity extends Activity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +191,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(c.n.b.e.d.g(false))) {
+                if (str.startsWith(kv9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -229,11 +230,11 @@ public final class AssistActivity extends Activity {
                         }
                         this.a.finish();
                         return true;
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(c.n.b.e.d.g(true))) {
+                } else if (str.startsWith(kv9.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -285,8 +286,8 @@ public final class AssistActivity extends Activity {
                             }
                         }
                         this.a.finish();
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
                     return true;
                 } else {
@@ -297,7 +298,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,7 +332,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -361,24 +362,20 @@ public final class AssistActivity extends Activity {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 try {
                     this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Paint f44678b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f44679c;
+        public Paint b;
+        public final /* synthetic */ AssistActivity c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -398,12 +395,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f44679c = assistActivity;
+            this.c = assistActivity;
             Paint paint = new Paint();
-            this.f44678b = paint;
+            this.b = paint;
             paint.setColor(-731575);
-            this.f44678b.setAntiAlias(true);
-            this.f44678b.setStyle(Paint.Style.FILL);
+            this.b.setAntiAlias(true);
+            this.b.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i) {
@@ -424,7 +421,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.a / 100.0f) * getWidth(), getHeight(), this.f44678b);
+                canvas.drawRect(0.0f, 0.0f, (this.a / 100.0f) * getWidth(), getHeight(), this.b);
                 super.onDraw(canvas);
             }
         }
@@ -439,7 +436,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -518,7 +515,7 @@ public final class AssistActivity extends Activity {
             this.mFrameLayout.addView(this.mProgressView);
             this.mFrameLayout.addView(this.mTextView);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e1);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e0);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);

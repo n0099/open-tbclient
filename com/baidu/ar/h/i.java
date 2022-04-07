@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static String yb;
@@ -47,21 +47,21 @@ public final class i {
                 try {
                     try {
                         fileOutputStream = new FileOutputStream(file);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
                 fileOutputStream.flush();
                 fileOutputStream.close();
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
@@ -76,8 +76,8 @@ public final class i {
                     try {
                         fileOutputStream2.flush();
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
@@ -106,8 +106,8 @@ public final class i {
                 file.createNewFile();
                 a(bitmap, file, i);
                 return file.getPath();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -193,8 +193,8 @@ public final class i {
                             k.a(fileInputStream2, fileOutputStream);
                             fileOutputStream.flush();
                             k.closeQuietly(fileInputStream2);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             fileInputStream = fileInputStream2;
                             try {
                                 e.printStackTrace();
@@ -214,15 +214,15 @@ public final class i {
                             k.closeQuietly(fileOutputStream);
                             throw th;
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         fileOutputStream = null;
                     } catch (Throwable th3) {
                         th = th3;
                         fileOutputStream = null;
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     fileOutputStream = null;
                 } catch (Throwable th4) {
                     th = th4;
@@ -290,10 +290,10 @@ public final class i {
         if (interceptable != null && (invokeL = interceptable.invokeL(65545, null, file)) != null) {
             return (String) invokeL.objValue;
         }
-        ?? g2 = g(file);
+        ?? g = g(file);
         FileInputStream fileInputStream2 = null;
         try {
-            if (g2 != 0) {
+            if (g != 0) {
                 try {
                     fileInputStream = new FileInputStream(file);
                     try {
@@ -301,25 +301,25 @@ public final class i {
                         k.closeQuietly(fileInputStream);
                         try {
                             fileInputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                         return a;
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                         e.printStackTrace();
                         k.closeQuietly(fileInputStream);
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         return null;
                     }
-                } catch (IOException e5) {
-                    e = e5;
+                } catch (IOException e4) {
+                    e = e4;
                     fileInputStream = null;
                 } catch (Throwable th) {
                     th = th;
@@ -327,8 +327,8 @@ public final class i {
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
                         }
                     }
                     throw th;
@@ -337,7 +337,7 @@ public final class i {
             return null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream2 = g2;
+            fileInputStream2 = g;
         }
     }
 

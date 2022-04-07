@@ -16,7 +16,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebpSupportStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTENDED_WEBP_HEADER_LENGTH = 21;
@@ -80,8 +80,8 @@ public class WebpSupportStatus {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException("ASCII not found!", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("ASCII not found!", e);
             }
         }
         return (byte[]) invokeL.objValue;

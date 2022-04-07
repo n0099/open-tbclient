@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ab {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -16,24 +16,12 @@ public class ab {
 
     /* renamed from: a  reason: collision with other field name */
     public static final boolean f85a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f44084b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final boolean f44085c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final boolean f44086d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static boolean f44087e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44088f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f44089g;
+    public static final boolean b;
+    public static final boolean c;
+    public static final boolean d;
+    public static boolean e;
+    public static final boolean f;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,16 +43,16 @@ public class ab {
         boolean contains = str.contains("2A2FE0D7");
         f85a = contains;
         boolean z = false;
-        f44084b = contains || "DEBUG".equalsIgnoreCase(f84a);
-        f44085c = "LOGABLE".equalsIgnoreCase(f84a);
-        f44086d = f84a.contains("YY");
-        f44087e = f84a.equalsIgnoreCase("TEST");
-        f44088f = "BETA".equalsIgnoreCase(f84a);
+        b = contains || "DEBUG".equalsIgnoreCase(f84a);
+        c = "LOGABLE".equalsIgnoreCase(f84a);
+        d = f84a.contains("YY");
+        e = f84a.equalsIgnoreCase("TEST");
+        f = "BETA".equalsIgnoreCase(f84a);
         String str2 = f84a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f44089g = z;
+        g = z;
         a = 1;
         if (f84a.equalsIgnoreCase("SANDBOX")) {
             i = 2;
@@ -91,7 +79,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m181a() {
+    public static boolean m177a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a == 2 : invokeV.booleanValue;

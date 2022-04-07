@@ -4,15 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import c.a.p0.a;
-import c.a.p0.x.g.e;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.lj5;
+import com.repackage.rg5;
+/* loaded from: classes3.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,17 +48,17 @@ public class AppNotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String extractPackageName;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || a.h().y()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || rg5.h().y()) {
             return;
         }
         if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
             String extractPackageName2 = extractPackageName(intent);
             if (extractPackageName2 != null) {
-                e.d().e(context, extractPackageName2);
+                lj5.d().e(context, extractPackageName2);
             }
         } else if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction()) || (extractPackageName = extractPackageName(intent)) == null) {
         } else {
-            e.d().q(context, extractPackageName);
+            lj5.d().q(context, extractPackageName);
         }
     }
 }

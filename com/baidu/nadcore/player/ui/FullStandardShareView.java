@@ -12,13 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FullStandardShareView extends BaseVideoPlayEndUI implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageTextView f27602b;
+    public ImageTextView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FullStandardShareView(Context context) {
@@ -46,23 +44,23 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             ImageTextView imageTextView = new ImageTextView(context);
-            this.f27602b = imageTextView;
-            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080dfb, R.string.obfuscated_res_0x7f0f0bab);
-            this.f27602b.b(R.drawable.obfuscated_res_0x7f080e0b);
-            this.f27602b.setOnClickListener(this);
-            return this.f27602b;
+            this.b = imageTextView;
+            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080e05, R.string.obfuscated_res_0x7f0f0bae);
+            this.b.b(R.drawable.obfuscated_res_0x7f080e15);
+            this.b.setOnClickListener(this);
+            return this.b;
         }
         return (View) invokeL.objValue;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         BaseVideoPlayEndUI.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (aVar = this.a) == null) {
             return;
         }
-        aVar.a(view);
+        aVar.a(view2);
     }
 
     @Override // com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI

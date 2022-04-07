@@ -1,9 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import c.a.d.f.m.b;
-import c.a.p0.h0.e0.o;
-import c.a.p0.l3.z;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fa8;
+import com.repackage.hy5;
+import com.repackage.mg;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,16 +22,16 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BannerListData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1630193525564805923L;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public o recomTopicData;
+    public hy5 recomTopicData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Comparator<AdvertAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.e(advertAppInfo.f29820g, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.f29820g, 0) : 0);
+                return (advertAppInfo != null ? mg.e(advertAppInfo.g, 0) : 0) - (advertAppInfo2 != null ? mg.e(advertAppInfo2.g, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -117,10 +117,10 @@ public class BannerListData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public o getRecomTopicData() {
+    public hy5 getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (hy5) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -128,8 +128,8 @@ public class BannerListData implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -137,9 +137,9 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> h2 = z.q().h();
-            if (h2 != null) {
-                h2.clear();
+            List<AdvertAppInfo> h = fa8.q().h();
+            if (h != null) {
+                h.clear();
             }
             if (bannerList == null) {
                 return;
@@ -151,13 +151,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.s(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (h2 != null) {
-                            h2.add(advertAppInfo);
+                        if (h != null) {
+                            h.add(advertAppInfo);
                         }
                     }
                 }
             }
-            z.q().g();
+            fa8.q().g();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
@@ -205,8 +205,8 @@ public class BannerListData implements Serializable {
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

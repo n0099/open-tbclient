@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PickerView extends FormItemBaseView implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePicker.OnTimeChangedListener, DialogInterface.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     public int y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35743f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
@@ -181,18 +181,18 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
             if (super.g(bVar)) {
                 FormCard.e eVar = (FormCard.e) bVar;
                 this.v = eVar.a;
-                String str = eVar.f35706b;
+                String str = eVar.b;
                 this.C = str;
                 this.t.setText(str);
                 this.t.setTextSize(0, this.j);
-                ((ViewGroup.MarginLayoutParams) this.t.getLayoutParams()).leftMargin = this.f35740c;
+                ((ViewGroup.MarginLayoutParams) this.t.getLayoutParams()).leftMargin = this.c;
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.u.getLayoutParams();
-                int i = this.f35740c;
+                int i = this.c;
                 marginLayoutParams.width = i;
                 marginLayoutParams.rightMargin = i;
                 int i2 = this.v;
                 if (i2 == 6) {
-                    String[] strArr = eVar.f35712d;
+                    String[] strArr = eVar.d;
                     if (strArr == null || strArr.length <= 0) {
                         return false;
                     }
@@ -241,7 +241,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Drawable drawable = this.f35739b.getDrawable(R.drawable.obfuscated_res_0x7f080581);
+            Drawable drawable = this.b.getDrawable(R.drawable.obfuscated_res_0x7f08057f);
             ImageView imageView = new ImageView(this.a);
             this.u = imageView;
             imageView.setBackgroundDrawable(drawable);
@@ -325,9 +325,9 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
             int i = this.v;
             if (i == 6) {
                 String[] strArr = this.B;
@@ -348,7 +348,7 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 timePicker.setDescendantFocusability(393216);
                 timePicker.setOnTimeChangedListener(this);
                 timePicker.setIs24HourView(Boolean.TRUE);
-                o(new AlertDialog.Builder(this.a).setView(timePicker).setPositiveButton(R.string.obfuscated_res_0x7f0f04d6, this).setNegativeButton(R.string.obfuscated_res_0x7f0f04d1, this).show());
+                o(new AlertDialog.Builder(this.a).setView(timePicker).setPositiveButton(R.string.obfuscated_res_0x7f0f04dd, this).setNegativeButton(R.string.obfuscated_res_0x7f0f04d8, this).show());
             }
         }
     }

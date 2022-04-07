@@ -47,7 +47,7 @@ import java.io.File;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.PreviewCallback, TextureView.SurfaceTextureListener, IVideoRecordProcess {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEVICE_CHECK_RESULT_CALLBACK_PASS = 1;
@@ -119,7 +119,7 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
     public int mTextureHeight;
     public int mTextureWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class BuildDataRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -700,16 +700,16 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
     public void getPreviewDetectRect(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) {
-            float f2 = i / 2;
-            float f3 = f2 - (0.33f * f2);
-            float f4 = i2 / 2;
-            float f5 = i3 / 2;
-            float f6 = f5 - (0.1f * f5);
-            if (f4 <= f3) {
-                f3 = f4;
+            float f = i / 2;
+            float f2 = f - (0.33f * f);
+            float f3 = i2 / 2;
+            float f4 = i3 / 2;
+            float f5 = f4 - (0.1f * f4);
+            if (f3 <= f2) {
+                f2 = f3;
             }
-            float f7 = (0.2f * f3) + f3;
-            this.mDetectRect.set((int) (f4 - f3), (int) (f6 - f7), (int) (f4 + f3), (int) (f6 + f7));
+            float f6 = (0.2f * f2) + f2;
+            this.mDetectRect.set((int) (f3 - f2), (int) (f5 - f6), (int) (f3 + f2), (int) (f5 + f6));
         }
     }
 
@@ -861,7 +861,7 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
                     */
                     public void run() {
                         Pair<Integer, Object> callSync;
-                        char c2;
+                        char c;
                         int i;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
@@ -915,14 +915,14 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
                                     if (this.this$0.mConfig.getDeviceCheckFlag() && this.this$0.mDeviceCheckTimeout > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.this$0.mFaceAuthId, Integer.valueOf(this.this$0.mDeviceCheckTimeout))) != null && ((Integer) callSync.first).intValue() == 0) {
                                         int intValue = ((Integer) callSync.second).intValue();
                                         if (intValue == 1) {
-                                            c2 = 1;
+                                            c = 1;
                                         } else if (intValue == 2) {
-                                            c2 = 65534;
+                                            c = 65534;
                                         }
                                         if (!this.this$0.mCancel) {
                                             return;
                                         }
-                                        if (c2 != 65534 && (c2 == 1 || !this.this$0.mConfig.getUnknownContinueFlag())) {
+                                        if (c != 65534 && (c == 1 || !this.this$0.mConfig.getUnknownContinueFlag())) {
                                             i = 1;
                                             if (this.this$0.mCallback != null && this.this$0.mActivity != null) {
                                                 this.this$0.mActivity.runOnUiThread(new Runnable(this, i) { // from class: com.baidu.sofire.facesrc.VideoRecordTextureProcess.1.2
@@ -960,7 +960,7 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
                                                     }
                                                 });
                                             }
-                                            if (c2 != 65534) {
+                                            if (c != 65534) {
                                                 this.this$0.processEnd(-3);
                                                 return;
                                             } else if (i == -1) {
@@ -1014,13 +1014,13 @@ public class VideoRecordTextureProcess implements Camera.ErrorCallback, Camera.P
                                                 }
                                             });
                                         }
-                                        if (c2 != 65534) {
+                                        if (c != 65534) {
                                         }
                                     }
                                 } else {
                                     FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.this$0.mFaceAuthId, Integer.valueOf(this.this$0.mDeviceCheckTimeout));
                                 }
-                                c2 = 65535;
+                                c = 65535;
                                 if (!this.this$0.mCancel) {
                                 }
                             } else {

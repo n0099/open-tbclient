@@ -1,5 +1,5 @@
 package com.baidu.ar.audio;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface VolumeListener {
     void onRealtimeVolume(int i);
 }

@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class CustomToast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TOAST_DURATION = 2000;
@@ -126,8 +126,8 @@ public class CustomToast {
         if (toast != null && toast.getView() != null) {
             try {
                 mToast.setText(trim);
-            } catch (RuntimeException e2) {
-                BdLog.e(e2);
+            } catch (RuntimeException e) {
+                BdLog.e(e);
                 Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                 mToast = makeText;
                 makeText.setText(trim);
@@ -160,7 +160,7 @@ public class CustomToast {
     public void showToast(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            showToast(str, i, n.d(BdBaseApplication.getInst().getApp(), 100.0f));
+            showToast(str, i, oi.d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
     }
 

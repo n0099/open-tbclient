@@ -11,7 +11,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.service.bk;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class aa extends bk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,18 +49,18 @@ public final class aa extends bk.a {
         if (interceptable == null || interceptable.invokeL(1048576, this, bkVar) == null) {
             com.xiaomi.push.ax a = com.xiaomi.push.ax.a(this.a);
             String a2 = bkVar.a("MSAID", "msaid");
-            String str = a.a() + a.mo191b() + a.c() + a.d();
+            String str = a.a() + a.mo187b() + a.c() + a.d();
             if (TextUtils.isEmpty(str) || TextUtils.equals(a2, str)) {
                 return;
             }
             bkVar.a("MSAID", "msaid", str);
             ie ieVar = new ie();
-            ieVar.b(this.f852a.f44583d);
-            ieVar.c(hp.f44364g.f490a);
+            ieVar.b(this.f852a.d);
+            ieVar.c(hp.g.f490a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
-            a.a(ieVar.m508a());
-            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f852a.f44583d, ieVar, hf.i));
+            a.a(ieVar.m504a());
+            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f852a.d, ieVar, hf.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);
         }

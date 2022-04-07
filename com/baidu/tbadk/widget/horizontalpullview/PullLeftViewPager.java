@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PullLeftViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public class PullLeftViewPager extends BdBaseViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager
-    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).h()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (view2 != this && (view2 instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view2).h()) {
                 return true;
             }
-            return super.canScroll(view, z, i, i2, i3);
+            return super.canScroll(view2, z, i, i2, i3);
         }
         return invokeCommon.booleanValue;
     }

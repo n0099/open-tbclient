@@ -421,9 +421,9 @@ public final class Http2Connection implements Closeable {
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
                                         this.this$1.this$0.listener.onStream(this.val$newStream);
-                                    } catch (IOException e2) {
+                                    } catch (IOException e) {
                                         Platform platform = Platform.get();
-                                        platform.log(4, "Http2Connection.Listener failure for " + this.this$1.this$0.hostname, e2);
+                                        platform.log(4, "Http2Connection.Listener failure for " + this.this$1.this$0.hostname, e);
                                         try {
                                             this.val$newStream.close(ErrorCode.PROTOCOL_ERROR);
                                         } catch (IOException unused) {
@@ -1325,8 +1325,8 @@ public final class Http2Connection implements Closeable {
             try {
                 shutdown(errorCode);
                 e = null;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             synchronized (this) {
                 if (!this.streams.isEmpty()) {
@@ -1338,24 +1338,24 @@ public final class Http2Connection implements Closeable {
                 for (Http2Stream http2Stream : http2StreamArr) {
                     try {
                         http2Stream.close(errorCode2);
-                    } catch (IOException e3) {
+                    } catch (IOException e2) {
                         if (e != null) {
-                            e = e3;
+                            e = e2;
                         }
                     }
                 }
             }
             try {
                 this.writer.close();
-            } catch (IOException e4) {
+            } catch (IOException e3) {
                 if (e == null) {
-                    e = e4;
+                    e = e3;
                 }
             }
             try {
                 this.socket.close();
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e4) {
+                e = e4;
             }
             this.writerExecutor.shutdown();
             this.pushExecutor.shutdown();

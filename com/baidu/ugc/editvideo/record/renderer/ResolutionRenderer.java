@@ -1,13 +1,13 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.pf0;
+/* loaded from: classes4.dex */
 public class ResolutionRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,22 +35,22 @@ public class ResolutionRenderer extends MediaBaseRenderer {
         this.mDuration = 200;
     }
 
-    private void checkRatio(float f2) {
+    private void checkRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65537, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65537, this, f) == null) {
             int i = this.mSurfaceViewWidth;
             this.mResolutionWidth = i;
-            this.mResolutionHeight = (int) (i * f2);
+            this.mResolutionHeight = (int) (i * f);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(e eVar, int i, float[] fArr) {
+    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i, fArr) == null) || this.mRatio == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, pf0Var, i, fArr) == null) || this.mRatio == 0.0f) {
             return;
         }
         if (!(this.mResolutionWidth == this.mSurfaceViewWidth && this.mResolutionHeight == this.mSurfaceViewHeight) && (i2 = (this.mSurfaceViewHeight - this.mResolutionHeight) / 2) > 1) {
@@ -62,20 +62,20 @@ public class ResolutionRenderer extends MediaBaseRenderer {
                 this.mProgress = (((float) currentTimeMillis) * 1.0f) / i5;
             }
             GLES20.glEnable(3089);
-            float f2 = this.mProgress;
-            if (f2 != 1.0f) {
+            float f = this.mProgress;
+            if (f != 1.0f) {
                 int i6 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.466f) / 0.5f);
-                i3 = (int) (i6 + ((((int) ((i2 * 0.466f) / 0.5f)) - i6) * f2));
+                i3 = (int) (i6 + ((((int) ((i2 * 0.466f) / 0.5f)) - i6) * f));
             } else {
                 i3 = (int) ((i2 * 0.466f) / 0.5f);
             }
             GLES20.glScissor(0, this.mSurfaceViewHeight - i3, this.mResolutionWidth, i3);
             GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
             GLES20.glClear(16640);
-            float f3 = this.mProgress;
-            if (f3 != 1.0f) {
+            float f2 = this.mProgress;
+            if (f2 != 1.0f) {
                 int i7 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.53400004f) / 0.5f);
-                i4 = (int) (i7 + ((((int) ((i2 * 0.53400004f) / 0.5f)) - i7) * f3));
+                i4 = (int) (i7 + ((((int) ((i2 * 0.53400004f) / 0.5f)) - i7) * f2));
             } else {
                 i4 = (int) ((i2 * 0.53400004f) / 0.5f);
             }
@@ -87,12 +87,12 @@ public class ResolutionRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setResolutionRatio(float f2) {
+    public void setResolutionRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            super.setResolutionRatio(f2);
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            super.setResolutionRatio(f);
             this.mLastResolutionHeight = this.mResolutionHeight;
-            checkRatio(f2);
+            checkRatio(f);
             if (this.mLastResolutionHeight != this.mResolutionHeight) {
                 this.mProgress = 0.0f;
                 this.mLastTimeStamp = System.currentTimeMillis();

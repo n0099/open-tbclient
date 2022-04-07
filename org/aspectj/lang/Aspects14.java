@@ -77,10 +77,10 @@ public class Aspects14 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
             try {
                 return getSingletonOrThreadAspectOf(cls).invoke(null, EMPTY_OBJECT_ARRAY);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return invokeL.objValue;
@@ -121,8 +121,8 @@ public class Aspects14 {
     public static /* synthetic */ Class class$(String str) {
         try {
             return Class.forName(str);
-        } catch (ClassNotFoundException e2) {
-            throw new NoClassDefFoundError(e2.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new NoClassDefFoundError(e.getMessage());
         }
     }
 
@@ -207,10 +207,10 @@ public class Aspects14 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) {
             try {
                 return getPerObjectAspectOf(cls).invoke(null, obj);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return invokeLL.objValue;
@@ -222,10 +222,10 @@ public class Aspects14 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, cls2)) == null) {
             try {
                 return getPerTypeWithinAspectOf(cls).invoke(null, cls2);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return invokeLL.objValue;

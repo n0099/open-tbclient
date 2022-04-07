@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GrantWebActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "/passport/grantweb";
@@ -143,7 +143,7 @@ public class GrantWebActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 if (d() && c()) {
                     init();
                     setupViews();
@@ -449,9 +449,7 @@ public class GrantWebActivity extends BaseActivity {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GrantWebActivity f28425b;
+                public final /* synthetic */ GrantWebActivity b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -468,7 +466,7 @@ public class GrantWebActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f28425b = this;
+                    this.b = this;
                     this.a = z3;
                 }
 
@@ -479,7 +477,7 @@ public class GrantWebActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
-                        this.f28425b.finish();
+                        this.b.finish();
                     }
                 }
 
@@ -488,7 +486,7 @@ public class GrantWebActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f28425b.e();
+                        this.b.e();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;

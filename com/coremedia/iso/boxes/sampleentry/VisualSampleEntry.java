@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -228,10 +228,10 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         }
     }
 
-    public void setHorizresolution(double d2) {
+    public void setHorizresolution(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.horizresolution = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.horizresolution = d;
         }
     }
 
@@ -242,10 +242,10 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         }
     }
 
-    public void setVertresolution(double d2) {
+    public void setVertresolution(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.vertresolution = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.vertresolution = d;
         }
     }
 

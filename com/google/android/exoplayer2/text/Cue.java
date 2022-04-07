@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Cue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANCHOR_TYPE_END = 2;
@@ -34,23 +34,23 @@ public class Cue {
     public final boolean windowColorSet;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface AnchorType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface LineType {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cue(Bitmap bitmap, float f2, int i, float f3, int i2, float f4, float f5) {
-        this(null, null, bitmap, f3, 0, i2, f2, i, f4, f5, false, -16777216);
+    public Cue(Bitmap bitmap, float f, int i, float f2, int i2, float f3, float f4) {
+        this(null, null, bitmap, f2, 0, i2, f, i, f3, f4, false, -16777216);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {bitmap, Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Integer.valueOf(i2), Float.valueOf(f4), Float.valueOf(f5)};
+            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -86,13 +86,13 @@ public class Cue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cue(CharSequence charSequence, Layout.Alignment alignment, float f2, int i, int i2, float f3, int i3, float f4) {
-        this(charSequence, alignment, f2, i, i2, f3, i3, f4, false, -16777216);
+    public Cue(CharSequence charSequence, Layout.Alignment alignment, float f, int i, int i2, float f2, int i3, float f3) {
+        this(charSequence, alignment, f, i, i2, f2, i3, f3, false, -16777216);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4)};
+            Object[] objArr = {charSequence, alignment, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -107,13 +107,13 @@ public class Cue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cue(CharSequence charSequence, Layout.Alignment alignment, float f2, int i, int i2, float f3, int i3, float f4, boolean z, int i4) {
-        this(charSequence, alignment, null, f2, i, i2, f3, i3, f4, Float.MIN_VALUE, z, i4);
+    public Cue(CharSequence charSequence, Layout.Alignment alignment, float f, int i, int i2, float f2, int i3, float f3, boolean z, int i4) {
+        this(charSequence, alignment, null, f, i, i2, f2, i3, f3, Float.MIN_VALUE, z, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4), Boolean.valueOf(z), Integer.valueOf(i4)};
+            Object[] objArr = {charSequence, alignment, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Boolean.valueOf(z), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -127,12 +127,12 @@ public class Cue {
         }
     }
 
-    public Cue(CharSequence charSequence, Layout.Alignment alignment, Bitmap bitmap, float f2, int i, int i2, float f3, int i3, float f4, float f5, boolean z, int i4) {
+    public Cue(CharSequence charSequence, Layout.Alignment alignment, Bitmap bitmap, float f, int i, int i2, float f2, int i3, float f3, float f4, boolean z, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {charSequence, alignment, bitmap, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4), Float.valueOf(f5), Boolean.valueOf(z), Integer.valueOf(i4)};
+            Object[] objArr = {charSequence, alignment, bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Integer.valueOf(i4)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -145,13 +145,13 @@ public class Cue {
         this.text = charSequence;
         this.textAlignment = alignment;
         this.bitmap = bitmap;
-        this.line = f2;
+        this.line = f;
         this.lineType = i;
         this.lineAnchor = i2;
-        this.position = f3;
+        this.position = f2;
         this.positionAnchor = i3;
-        this.size = f4;
-        this.bitmapHeight = f5;
+        this.size = f3;
+        this.bitmapHeight = f4;
         this.windowColorSet = z;
         this.windowColor = i4;
     }

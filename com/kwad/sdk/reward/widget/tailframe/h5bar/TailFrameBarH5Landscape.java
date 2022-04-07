@@ -13,15 +13,11 @@ import com.kwad.sdk.core.response.a.a;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TailFrameBarH5Landscape extends LinearLayout {
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f41219b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f41220c;
+    public TextView b;
+    public ValueAnimator c;
 
     public TailFrameBarH5Landscape(Context context) {
         this(context, null);
@@ -37,45 +33,45 @@ public class TailFrameBarH5Landscape extends LinearLayout {
     }
 
     private void a(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0481, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091150);
-        this.f41219b = (TextView) findViewById(R.id.obfuscated_res_0x7f091151);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d047c, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091149);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09114a);
     }
 
     private void b() {
-        if (this.f41220c != null) {
+        if (this.c != null) {
             a();
-            this.f41220c.start();
+            this.c.start();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-        this.f41220c = ofFloat;
+        this.c = ofFloat;
         ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-        this.f41220c.setRepeatCount(-1);
-        this.f41220c.setRepeatMode(1);
-        this.f41220c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5Landscape.1
+        this.c.setRepeatCount(-1);
+        this.c.setRepeatMode(1);
+        this.c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5Landscape.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5Landscape.this.f41219b.setScaleY(floatValue);
-                TailFrameBarH5Landscape.this.f41219b.setScaleX(floatValue);
+                TailFrameBarH5Landscape.this.b.setScaleY(floatValue);
+                TailFrameBarH5Landscape.this.b.setScaleX(floatValue);
             }
         });
-        this.f41220c.start();
+        this.c.start();
     }
 
     public void a() {
-        ValueAnimator valueAnimator = this.f41220c;
+        ValueAnimator valueAnimator = this.c;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             return;
         }
-        this.f41220c.cancel();
-        this.f41220c.end();
+        this.c.cancel();
+        this.c.end();
     }
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = d.j(adTemplate);
         this.a.setText(a.s(j));
-        this.f41219b.setText(a.A(j));
+        this.b.setText(a.A(j));
         b();
     }
 }

@@ -19,29 +19,15 @@ import com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait;
 import com.kwad.sdk.reward.widget.actionbar.ActionBarH5;
 import com.kwad.sdk.utils.az;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends g {
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f41037b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ActionBarAppLandscape f41038c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ActionBarAppPortrait f41039d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ActionBarH5 f41040e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f41041f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AdInfo f41042g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f41043h;
+    public KsLogoView b;
+    public ActionBarAppLandscape c;
+    public ActionBarAppPortrait d;
+    public ActionBarH5 e;
+    public AdTemplate f;
+    public AdInfo g;
+    public com.kwad.sdk.core.download.a.b h;
     public RewardActionBarControl i;
     public boolean k;
     @Nullable
@@ -69,10 +55,10 @@ public class a extends g {
         }
     };
 
-    private void a(final View view, int i) {
+    private void a(final View view2, int i) {
         e();
-        view.setVisibility(0);
-        ValueAnimator a = az.a(view, 0, i);
+        view2.setVisibility(0);
+        ValueAnimator a = az.a(view2, 0, i);
         this.l = a;
         a.setInterpolator(new DecelerateInterpolator(2.0f));
         this.l.setDuration(300L);
@@ -80,16 +66,16 @@ public class a extends g {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                view.setVisibility(0);
+                view2.setVisibility(0);
             }
         });
         this.l.start();
     }
 
-    private void b(final View view, int i) {
+    private void b(final View view2, int i) {
         e();
-        view.setVisibility(0);
-        ValueAnimator a = az.a(view, i, 0);
+        view2.setVisibility(0);
+        ValueAnimator a = az.a(view2, i, 0);
         this.l = a;
         a.setInterpolator(new DecelerateInterpolator(2.0f));
         this.l.setDuration(300L);
@@ -97,7 +83,7 @@ public class a extends g {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                view.setVisibility(8);
+                view2.setVisibility(8);
             }
         });
         this.l.start();
@@ -109,10 +95,10 @@ public class a extends g {
             return;
         }
         this.j = true;
-        this.f41037b.setVisibility(0);
-        if (!com.kwad.sdk.core.response.a.a.B(this.f41042g)) {
+        this.b.setVisibility(0);
+        if (!com.kwad.sdk.core.response.a.a.B(this.g)) {
             f(z);
-        } else if (((g) this).a.f40746f == 1) {
+        } else if (((g) this).a.f == 1) {
             d(z);
         } else {
             e(z);
@@ -121,47 +107,47 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        View view;
+        View view2;
         LinearLayout linearLayout;
         if (this.j) {
             this.j = false;
-            this.f41037b.setVisibility(8);
-            if (com.kwad.sdk.core.response.a.a.B(this.f41042g)) {
-                if (((g) this).a.f40746f == 1) {
+            this.b.setVisibility(8);
+            if (com.kwad.sdk.core.response.a.a.B(this.g)) {
+                if (((g) this).a.f == 1) {
                     if (!z) {
-                        linearLayout = this.f41038c;
+                        linearLayout = this.c;
                         linearLayout.setVisibility(8);
                         return;
                     }
-                    view = this.f41038c;
+                    view2 = this.c;
                 } else if (!z) {
-                    linearLayout = this.f41039d;
+                    linearLayout = this.d;
                     linearLayout.setVisibility(8);
                     return;
                 } else {
-                    view = this.f41039d;
+                    view2 = this.d;
                 }
             } else if (!z) {
-                this.f41040e.setVisibility(8);
+                this.e.setVisibility(8);
                 return;
             } else {
-                view = this.f41040e;
+                view2 = this.e;
             }
-            b(view, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            b(view2, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         }
     }
 
     private void d(boolean z) {
-        this.f41038c.a(this.f41041f, this.f41043h, new ActionBarAppLandscape.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.4
+        this.c.a(this.f, this.h, new ActionBarAppLandscape.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.4
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f41038c, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.c, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f41038c.setVisibility(0);
+            this.c.setVisibility(0);
         }
     }
 
@@ -174,42 +160,42 @@ public class a extends g {
     }
 
     private void e(boolean z) {
-        this.f41039d.a(this.f41041f, this.f41043h, new ActionBarAppPortrait.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.5
+        this.d.a(this.f, this.h, new ActionBarAppPortrait.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.5
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f41039d, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.d, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f41039d.setVisibility(0);
+            this.d.setVisibility(0);
         }
     }
 
     private void f(boolean z) {
-        this.f41040e.a(this.f41041f, new ActionBarH5.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.6
+        this.e.a(this.f, new ActionBarH5.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.a.6
             @Override // com.kwad.sdk.reward.widget.actionbar.ActionBarH5.a
             public void a(boolean z2) {
                 a.this.a(z2);
             }
         });
         if (z) {
-            a(this.f41040e, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
+            a(this.e, com.kwad.sdk.a.kwai.a.a(q(), 90.0f));
         } else {
-            this.f41040e.setVisibility(0);
+            this.e.setVisibility(0);
         }
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((g) this).a.f40747g;
-        this.f41041f = adTemplate;
-        this.f41042g = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f41037b.a(this.f41041f);
+        AdTemplate adTemplate = ((g) this).a.g;
+        this.f = adTemplate;
+        this.g = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.b.a(this.f);
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f41043h = aVar.l;
+        this.h = aVar.l;
         RewardActionBarControl rewardActionBarControl = aVar.n;
         this.i = rewardActionBarControl;
         rewardActionBarControl.a(this.m);
@@ -229,9 +215,9 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f41037b = (KsLogoView) a(R.id.obfuscated_res_0x7f091020);
-        this.f41038c = (ActionBarAppLandscape) a(R.id.obfuscated_res_0x7f091174);
-        this.f41039d = (ActionBarAppPortrait) a(R.id.obfuscated_res_0x7f091175);
-        this.f41040e = (ActionBarH5) a(R.id.obfuscated_res_0x7f091176);
+        this.b = (KsLogoView) a(R.id.obfuscated_res_0x7f091019);
+        this.c = (ActionBarAppLandscape) a(R.id.obfuscated_res_0x7f09116d);
+        this.d = (ActionBarAppPortrait) a(R.id.obfuscated_res_0x7f09116e);
+        this.e = (ActionBarH5) a(R.id.obfuscated_res_0x7f09116f);
     }
 }

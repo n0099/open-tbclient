@@ -1,7 +1,5 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.d.f.f.a;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class FunAdSdkSwitch extends a {
+import com.repackage.wt4;
+import com.repackage.xe;
+/* loaded from: classes3.dex */
+public class FunAdSdkSwitch extends xe {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "bear_wxb_download";
     public static final int TYPE_OFF = 0;
@@ -40,17 +40,17 @@ public class FunAdSdkSwitch extends a {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.k().l("pref_key_fun_ad_sdk_enable", 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wt4.k().l("pref_key_fun_ad_sdk_enable", 1) == 1 : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FunAdSdkSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class FunAdSdkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class FunAdSdkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

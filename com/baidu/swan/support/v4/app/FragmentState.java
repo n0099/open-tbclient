@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import c.a.n0.r.a.a.l;
-import c.a.n0.r.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.de4;
+import com.repackage.fe4;
+/* loaded from: classes2.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FragmentState> CREATOR;
@@ -32,7 +32,7 @@ public final class FragmentState implements Parcelable {
     public Bundle mSavedFragmentState;
     public final String mTag;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<FragmentState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,14 +102,14 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.f29700f;
+        this.mIndex = fragment.f;
         this.mFromLayout = fragment.o;
         this.mFragmentId = fragment.w;
         this.mContainerId = fragment.x;
         this.mTag = fragment.y;
         this.mRetainInstance = fragment.B;
         this.mDetached = fragment.A;
-        this.mArguments = fragment.f29702h;
+        this.mArguments = fragment.h;
     }
 
     @Override // android.os.Parcelable
@@ -122,26 +122,26 @@ public final class FragmentState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Fragment instantiate(l lVar, Fragment fragment) {
+    public Fragment instantiate(de4 de4Var, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, de4Var, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context context = lVar.getContext();
+            Context context = de4Var.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
             }
-            this.mInstance = Fragment.X(context, this.mClassName, this.mArguments);
+            this.mInstance = Fragment.Y(context, this.mClassName, this.mArguments);
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(context.getClassLoader());
-                this.mInstance.f29698d = this.mSavedFragmentState;
+                this.mInstance.d = this.mSavedFragmentState;
             }
-            this.mInstance.i1(this.mIndex, fragment);
+            this.mInstance.j1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.o = this.mFromLayout;
             fragment3.q = true;
@@ -150,8 +150,8 @@ public final class FragmentState implements Parcelable {
             fragment3.y = this.mTag;
             fragment3.B = this.mRetainInstance;
             fragment3.A = this.mDetached;
-            fragment3.s = lVar.f9312e;
-            if (n.x) {
+            fragment3.s = de4Var.e;
+            if (fe4.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }
             return this.mInstance;

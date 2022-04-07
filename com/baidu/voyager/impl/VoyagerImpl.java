@@ -3,10 +3,6 @@ package com.baidu.voyager.impl;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.g0.b.a.a;
-import c.a.x0.a.g.b;
-import c.a.x0.b.c;
-import c.a.x0.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,15 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.voyager.impl.IVoyagerCallback;
+import com.repackage.ce9;
+import com.repackage.de9;
+import com.repackage.ld9;
+import com.repackage.nd9;
+import com.repackage.ub1;
+import com.repackage.vd9;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class VoyagerImpl implements d {
+/* loaded from: classes4.dex */
+public class VoyagerImpl implements de9 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f37826b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class VoyagerImpl implements d {
                 return;
             }
         }
-        f37826b = AppConfig.isDebug();
+        b = AppConfig.isDebug();
     }
 
     public VoyagerImpl() {
@@ -58,29 +58,29 @@ public class VoyagerImpl implements d {
         }
     }
 
-    @Override // c.a.x0.b.d
-    public void a(String str, String str2, int i, c cVar) {
+    @Override // com.repackage.de9
+    public void a(String str, String str2, int i, ce9 ce9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, cVar) == null) {
-            if (a.g()) {
-                c.a.x0.a.a.m().s(str, str2, cVar);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, str, str2, i, ce9Var) == null) {
+            if (ub1.g()) {
+                ld9.m().s(str, str2, ce9Var);
                 return;
             }
             try {
-                IVoyagerService b2 = b.b();
+                IVoyagerService b2 = vd9.b();
                 if (b2 != null) {
-                    b2.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, cVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
+                    b2.uploadZipFileWithCallback(str, str2, i, new IVoyagerCallback.Stub(this, ce9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ c val$uploadListener;
+                        public final /* synthetic */ ce9 val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, cVar};
+                                Object[] objArr = {this, ce9Var};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -91,7 +91,7 @@ public class VoyagerImpl implements d {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = cVar;
+                            this.val$uploadListener = ce9Var;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -103,12 +103,12 @@ public class VoyagerImpl implements d {
                                     if (!TextUtils.isEmpty(str4)) {
                                         jSONObject = new JSONObject(str4);
                                     }
-                                } catch (JSONException e2) {
-                                    if (VoyagerImpl.f37826b) {
-                                        e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    if (VoyagerImpl.b) {
+                                        e.printStackTrace();
                                     }
                                 }
-                                c.a.x0.a.a.m().j(false, str3, jSONObject, this.val$uploadListener);
+                                ld9.m().j(false, str3, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -123,101 +123,101 @@ public class VoyagerImpl implements d {
                                 if (!TextUtils.isEmpty(str4)) {
                                     jSONObject = new JSONObject(str4);
                                 }
-                            } catch (JSONException e2) {
-                                if (VoyagerImpl.f37826b) {
-                                    e2.printStackTrace();
+                            } catch (JSONException e) {
+                                if (VoyagerImpl.b) {
+                                    e.printStackTrace();
                                 }
                             }
-                            c.a.x0.a.a.m().j(true, str3, jSONObject, this.val$uploadListener);
+                            ld9.m().j(true, str3, jSONObject, this.val$uploadListener);
                         }
                     });
-                } else if (f37826b) {
+                } else if (b) {
                     Log.e("VoyagerImpl", "voyager get remote service empty.");
                 }
-            } catch (RemoteException e2) {
-                if (f37826b) {
-                    e2.printStackTrace();
+            } catch (RemoteException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    @Override // c.a.x0.b.d
+    @Override // com.repackage.de9
     public void b(List<String> list, String str, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), jSONObject}) == null) {
-            g(list, str, j, 0, c.a.x0.a.b.b.f().c(str), jSONObject);
+            g(list, str, j, 0, nd9.f().c(str), jSONObject);
         }
     }
 
-    @Override // c.a.x0.b.d
+    @Override // com.repackage.de9
     public void c(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, jSONObject) == null) {
-            i(str, str2, 0, c.a.x0.a.b.b.f().c(str2), jSONObject);
+            i(str, str2, 0, nd9.f().c(str2), jSONObject);
         }
     }
 
-    @Override // c.a.x0.b.d
-    public void d(String str, String str2, c cVar) {
+    @Override // com.repackage.de9
+    public void d(String str, String str2, ce9 ce9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, cVar) == null) {
-            a(str, str2, c.a.x0.a.b.b.f().c(str2), cVar);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, ce9Var) == null) {
+            a(str, str2, nd9.f().c(str2), ce9Var);
         }
     }
 
-    @Override // c.a.x0.b.d
-    public void e(List<String> list, String str, long j, c cVar) {
+    @Override // com.repackage.de9
+    public void e(List<String> list, String str, long j, ce9 ce9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, str, Long.valueOf(j), cVar}) == null) {
-            h(list, str, j, c.a.x0.a.b.b.f().c(str), cVar);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, str, Long.valueOf(j), ce9Var}) == null) {
+            h(list, str, j, nd9.f().c(str), ce9Var);
         }
     }
 
     public void g(List<String> list, String str, long j, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (a.g()) {
-                c.a.x0.a.a.m().p(list, str, j, i, i2, jSONObject);
+            if (ub1.g()) {
+                ld9.m().p(list, str, j, i, i2, jSONObject);
                 return;
             }
             try {
-                IVoyagerService b2 = b.b();
+                IVoyagerService b2 = vd9.b();
                 if (b2 != null) {
                     b2.uploadFileList(list, str, j, i, i2, jSONObject.toString());
-                } else if (f37826b) {
+                } else if (b) {
                     Log.e("VoyagerImpl", "voyager get remote service empty.");
                 }
-            } catch (RemoteException e2) {
-                if (f37826b) {
-                    e2.printStackTrace();
+            } catch (RemoteException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public void h(List<String> list, String str, long j, int i, c cVar) {
+    public void h(List<String> list, String str, long j, int i, ce9 ce9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), cVar}) == null) {
-            if (a.g()) {
-                c.a.x0.a.a.m().q(list, str, j, i, cVar);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), ce9Var}) == null) {
+            if (ub1.g()) {
+                ld9.m().q(list, str, j, i, ce9Var);
                 return;
             }
             try {
-                IVoyagerService b2 = b.b();
+                IVoyagerService b2 = vd9.b();
                 if (b2 != null) {
-                    b2.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, cVar) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
+                    b2.uploadFileListWithCallback(list, str, j, i, new IVoyagerCallback.Stub(this, ce9Var) { // from class: com.baidu.voyager.impl.VoyagerImpl.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ VoyagerImpl this$0;
-                        public final /* synthetic */ c val$uploadListener;
+                        public final /* synthetic */ ce9 val$uploadListener;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, cVar};
+                                Object[] objArr = {this, ce9Var};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -228,7 +228,7 @@ public class VoyagerImpl implements d {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$uploadListener = cVar;
+                            this.val$uploadListener = ce9Var;
                         }
 
                         @Override // com.baidu.voyager.impl.IVoyagerCallback
@@ -240,12 +240,12 @@ public class VoyagerImpl implements d {
                                     if (!TextUtils.isEmpty(str3)) {
                                         jSONObject = new JSONObject(str3);
                                     }
-                                } catch (JSONException e2) {
-                                    if (VoyagerImpl.f37826b) {
-                                        e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    if (VoyagerImpl.b) {
+                                        e.printStackTrace();
                                     }
                                 }
-                                c.a.x0.a.a.m().j(false, str2, jSONObject, this.val$uploadListener);
+                                ld9.m().j(false, str2, jSONObject, this.val$uploadListener);
                             }
                         }
 
@@ -260,20 +260,20 @@ public class VoyagerImpl implements d {
                                 if (!TextUtils.isEmpty(str3)) {
                                     jSONObject = new JSONObject(str3);
                                 }
-                            } catch (JSONException e2) {
-                                if (VoyagerImpl.f37826b) {
-                                    e2.printStackTrace();
+                            } catch (JSONException e) {
+                                if (VoyagerImpl.b) {
+                                    e.printStackTrace();
                                 }
                             }
-                            c.a.x0.a.a.m().j(true, str2, jSONObject, this.val$uploadListener);
+                            ld9.m().j(true, str2, jSONObject, this.val$uploadListener);
                         }
                     });
-                } else if (f37826b) {
+                } else if (b) {
                     Log.e("VoyagerImpl", "voyager get remote service empty.");
                 }
-            } catch (RemoteException e2) {
-                if (f37826b) {
-                    e2.printStackTrace();
+            } catch (RemoteException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -282,20 +282,20 @@ public class VoyagerImpl implements d {
     public void i(String str, String str2, int i, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            if (a.g()) {
-                c.a.x0.a.a.m().r(str, str2, i, i2, jSONObject);
+            if (ub1.g()) {
+                ld9.m().r(str, str2, i, i2, jSONObject);
                 return;
             }
             try {
-                IVoyagerService b2 = b.b();
+                IVoyagerService b2 = vd9.b();
                 if (b2 != null) {
                     b2.uploadZipFile(str, str2, i, i2, jSONObject.toString());
-                } else if (f37826b) {
+                } else if (b) {
                     Log.e("VoyagerImpl", "voyager get remote service empty.");
                 }
-            } catch (RemoteException e2) {
-                if (f37826b) {
-                    e2.printStackTrace();
+            } catch (RemoteException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }

@@ -9,9 +9,7 @@ public final class f<Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Data[] f42503b;
+    public final Data[] b;
 
     public f(c cVar, Data... dataArr) {
         Interceptable interceptable = $ic;
@@ -29,6 +27,6 @@ public final class f<Data> {
             }
         }
         this.a = cVar;
-        this.f42503b = dataArr;
+        this.b = dataArr;
     }
 }

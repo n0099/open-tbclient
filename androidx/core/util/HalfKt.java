@@ -26,11 +26,11 @@ public final class HalfKt {
     }
 
     @RequiresApi(26)
-    public static final Half toHalf(float f2) {
+    public static final Half toHalf(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) {
-            Half valueOf = Half.valueOf(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            Half valueOf = Half.valueOf(f);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Half.valueOf(this)");
             return valueOf;
         }
@@ -50,11 +50,11 @@ public final class HalfKt {
     }
 
     @RequiresApi(26)
-    public static final Half toHalf(double d2) {
+    public static final Half toHalf(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d2)})) == null) {
-            Half valueOf = Half.valueOf((float) d2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            Half valueOf = Half.valueOf((float) d);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Half.valueOf(this)");
             return valueOf;
         }

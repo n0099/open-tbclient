@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BindingBenchmark {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final V8Engine mEngine;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class JavaObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class BindingBenchmark {
         }
 
         @JavascriptInterface
-        public void function(int i, double d2, String str, Object obj, JSEvent jSEvent) {
+        public void function(int i, double d, String str, Object obj, JSEvent jSEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2), str, obj, jSEvent}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), str, obj, jSEvent}) == null) {
             }
         }
     }
@@ -242,9 +242,9 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public void testDouble(double d2) {
+    public void testDouble(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
         }
     }
 

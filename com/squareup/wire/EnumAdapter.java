@@ -108,9 +108,9 @@ public final class EnumAdapter<E extends ProtoEnum> {
         return (E) invokeI.objValue;
     }
 
-    public int toInt(E e2) {
+    public int toInt(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) ? e2.getValue() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) ? e.getValue() : invokeL.intValue;
     }
 }

@@ -16,13 +16,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static List<String> f38138b;
+    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public final class c {
                 return;
             }
         }
-        f38138b = new CopyOnWriteArrayList();
+        b = new CopyOnWriteArrayList();
     }
 
     public static String a() {
@@ -107,8 +105,8 @@ public final class c {
                         return runningAppProcessInfo.processName;
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             String a2 = a();
             a = a2;

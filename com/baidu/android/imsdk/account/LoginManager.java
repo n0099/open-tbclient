@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,9 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LoginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -34,7 +34,7 @@ public class LoginManager {
     public volatile LoginState mLoginState;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LoginState {
         public static final /* synthetic */ LoginState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -192,10 +192,10 @@ public class LoginManager {
             String str = this.TAG;
             LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
             if (z) {
-                Handler handler = a.f21226c;
+                Handler handler = p70.c;
                 if (handler != null) {
                     handler.removeCallbacks(this.imLoginRunable);
-                    a.f21226c.postDelayed(this.imLoginRunable, 3000L);
+                    p70.c.postDelayed(this.imLoginRunable, 3000L);
                 }
             } else if (loginType == 1) {
                 BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -222,8 +222,8 @@ public class LoginManager {
         while (it.hasNext()) {
             try {
                 it.next().onLoginResult(i, str);
-            } catch (Error e2) {
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Error e) {
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -333,11 +333,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f21228e);
+                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + p70.e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (a.f21228e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (p70.e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i);
-                    } else if (!a.f21228e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!p70.e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }
@@ -404,8 +404,8 @@ public class LoginManager {
                         while (it.hasNext()) {
                             try {
                                 it.next().onLogoutResult(i, str, AccountManagerImpl.getInstance(mContext).getLoginType());
-                            } catch (Error e2) {
-                                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                            } catch (Error e) {
+                                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                             }
                         }
                         this.mLoginListeners.clear();

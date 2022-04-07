@@ -43,24 +43,24 @@ public class PatternPathMotion extends PathMotion {
         this.mOriginalPatternPath = this.mPatternPath;
     }
 
-    public static float distance(float f2, float f3) {
+    public static float distance(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (float) Math.sqrt((f2 * f2) + (f3 * f3)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (float) Math.sqrt((f * f) + (f2 * f2)) : invokeCommon.floatValue;
     }
 
     @Override // androidx.transition.PathMotion
-    public Path getPath(float f2, float f3, float f4, float f5) {
+    public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f3 - f;
             float f6 = f4 - f2;
-            float f7 = f5 - f3;
-            float distance = distance(f6, f7);
-            double atan2 = Math.atan2(f7, f6);
+            float distance = distance(f5, f6);
+            double atan2 = Math.atan2(f6, f5);
             this.mTempMatrix.setScale(distance, distance);
             this.mTempMatrix.postRotate((float) Math.toDegrees(atan2));
-            this.mTempMatrix.postTranslate(f2, f3);
+            this.mTempMatrix.postTranslate(f, f2);
             Path path = new Path();
             this.mPatternPath.transform(this.mTempMatrix, path);
             return path;
@@ -80,20 +80,20 @@ public class PatternPathMotion extends PathMotion {
             PathMeasure pathMeasure = new PathMeasure(path, false);
             float[] fArr = new float[2];
             pathMeasure.getPosTan(pathMeasure.getLength(), fArr, null);
-            float f2 = fArr[0];
-            float f3 = fArr[1];
+            float f = fArr[0];
+            float f2 = fArr[1];
             pathMeasure.getPosTan(0.0f, fArr, null);
-            float f4 = fArr[0];
-            float f5 = fArr[1];
-            if (f4 == f2 && f5 == f3) {
+            float f3 = fArr[0];
+            float f4 = fArr[1];
+            if (f3 == f && f4 == f2) {
                 throw new IllegalArgumentException("pattern must not end at the starting point");
             }
-            this.mTempMatrix.setTranslate(-f4, -f5);
+            this.mTempMatrix.setTranslate(-f3, -f4);
+            float f5 = f - f3;
             float f6 = f2 - f4;
-            float f7 = f3 - f5;
-            float distance = 1.0f / distance(f6, f7);
+            float distance = 1.0f / distance(f5, f6);
             this.mTempMatrix.postScale(distance, distance);
-            this.mTempMatrix.postRotate((float) Math.toDegrees(-Math.atan2(f7, f6)));
+            this.mTempMatrix.postRotate((float) Math.toDegrees(-Math.atan2(f6, f5)));
             path.transform(this.mTempMatrix, this.mPatternPath);
             this.mOriginalPatternPath = path;
         }

@@ -136,21 +136,21 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (ByteString) invokeL.objValue;
     }
 
-    public static int decodeHexDigit(char c2) {
+    public static int decodeHexDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < '0' || c2 > '9') {
-                char c3 = 'a';
-                if (c2 < 'a' || c2 > 'f') {
-                    c3 = 'A';
-                    if (c2 < 'A' || c2 > 'F') {
-                        throw new IllegalArgumentException("Unexpected hex digit: " + c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
+                        throw new IllegalArgumentException("Unexpected hex digit: " + c);
                     }
                 }
-                return (c2 - c3) + 10;
+                return (c - c2) + 10;
             }
-            return c2 - '0';
+            return c - '0';
         }
         return invokeCommon.intValue;
     }
@@ -161,8 +161,8 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             try {
                 return of(MessageDigest.getInstance(str).digest(this.data));
-            } catch (NoSuchAlgorithmException e2) {
-                throw new AssertionError(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new AssertionError(e);
             }
         }
         return (ByteString) invokeL.objValue;
@@ -205,10 +205,10 @@ public class ByteString implements Serializable, Comparable<ByteString> {
                 Mac mac = Mac.getInstance(str);
                 mac.init(new SecretKeySpec(byteString.toByteArray(), str));
                 return of(mac.doFinal(this.data));
-            } catch (InvalidKeyException e2) {
-                throw new IllegalArgumentException(e2);
-            } catch (NoSuchAlgorithmException e3) {
-                throw new AssertionError(e3);
+            } catch (InvalidKeyException e) {
+                throw new IllegalArgumentException(e);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new AssertionError(e2);
             }
         }
         return (ByteString) invokeLL.objValue;
@@ -346,12 +346,12 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             byte[] bArr = this.data;
             char[] cArr = new char[bArr.length * 2];
             int i = 0;
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 int i2 = i + 1;
                 char[] cArr2 = HEX_DIGITS;
-                cArr[i] = cArr2[(b2 >> 4) & 15];
+                cArr[i] = cArr2[(b >> 4) & 15];
                 i = i2 + 1;
-                cArr[i2] = cArr2[b2 & 15];
+                cArr[i2] = cArr2[b & 15];
             }
             return new String(cArr);
         }
@@ -466,14 +466,14 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             if (i >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i];
-            if (b2 >= 65 && b2 <= 90) {
+            byte b = bArr[i];
+            if (b >= 65 && b <= 90) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i] = (byte) (b2 + 32);
+                bArr2[i] = (byte) (b + 32);
                 for (int i2 = i + 1; i2 < bArr2.length; i2++) {
-                    byte b3 = bArr2[i2];
-                    if (b3 >= 65 && b3 <= 90) {
-                        bArr2[i2] = (byte) (b3 + 32);
+                    byte b2 = bArr2[i2];
+                    if (b2 >= 65 && b2 <= 90) {
+                        bArr2[i2] = (byte) (b2 + 32);
                     }
                 }
                 return new ByteString(bArr2);
@@ -494,14 +494,14 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             if (i >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i];
-            if (b2 >= 97 && b2 <= 122) {
+            byte b = bArr[i];
+            if (b >= 97 && b <= 122) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i] = (byte) (b2 - 32);
+                bArr2[i] = (byte) (b - 32);
                 for (int i2 = i + 1; i2 < bArr2.length; i2++) {
-                    byte b3 = bArr2[i2];
-                    if (b3 >= 97 && b3 <= 122) {
-                        bArr2[i2] = (byte) (b3 - 32);
+                    byte b2 = bArr2[i2];
+                    if (b2 >= 97 && b2 <= 122) {
+                        bArr2[i2] = (byte) (b2 - 32);
                     }
                 }
                 return new ByteString(bArr2);

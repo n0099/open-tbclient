@@ -1,24 +1,16 @@
 package com.kwad.sdk.reward.presenter;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends com.kwad.sdk.reward.g {
     @NonNull
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f40987b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f40988c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f40989d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.contentalliance.detail.video.d f40990e = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.e.1
+    public com.kwad.sdk.reward.a.b b;
+    public com.kwad.sdk.reward.c.a c;
+    public long d;
+    public final com.kwad.sdk.contentalliance.detail.video.d e = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.e.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(int i, int i2) {
-            e.this.f40987b.a(i, i2);
+            e.this.b.a(i, i2);
             e.this.h();
         }
 
@@ -27,20 +19,20 @@ public class e extends com.kwad.sdk.reward.g {
             if (((com.kwad.sdk.reward.g) e.this).a.u) {
                 return;
             }
-            e.this.f40989d = j2;
+            e.this.d = j2;
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
-            e.this.f40987b.c();
+            e.this.b.c();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
             if (((com.kwad.sdk.reward.g) e.this).a.r && ((com.kwad.sdk.reward.g) e.this).a.u) {
-                e.this.f40987b.a(e.this.f40989d);
+                e.this.b.a(e.this.d);
             } else {
-                e.this.f40987b.d();
+                e.this.b.d();
             }
         }
     };
@@ -49,15 +41,15 @@ public class e extends com.kwad.sdk.reward.g {
     public void a() {
         super.a();
         com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.g) this).a;
-        this.f40987b = aVar.f40742b;
+        this.b = aVar.b;
         com.kwad.sdk.reward.c.a aVar2 = aVar.k;
-        this.f40988c = aVar2;
-        aVar2.a(this.f40990e);
+        this.c = aVar2;
+        aVar2.a(this.e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f40988c.b(this.f40990e);
+        this.c.b(this.e);
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class d {
     public HashMap<String, Boolean> mH;
     public long mI;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,11 +196,11 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65545, this, bVar) == null) || this.mF == null || (hashMap = this.mG) == null || hashMap.isEmpty()) {
             return;
         }
-        c g2 = g(bVar);
-        if (g2 == null) {
-            g2 = h(bVar);
+        c g = g(bVar);
+        if (g == null) {
+            g = h(bVar);
         }
-        a(g2);
+        a(g);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

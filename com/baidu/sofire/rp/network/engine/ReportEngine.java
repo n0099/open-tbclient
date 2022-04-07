@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReportEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,8 +59,8 @@ public class ReportEngine {
                 if (optInt4 > 0) {
                     sharedPreferenceManager.setReportLastTime(optInt4);
                 }
-                if (jSONObject2.optInt(HttpClientWrap.f27911h) > 0) {
-                    sharedPreferenceManager.setReportOneceLimit(jSONObject2.optInt(HttpClientWrap.f27911h));
+                if (jSONObject2.optInt(HttpClientWrap.h) > 0) {
+                    sharedPreferenceManager.setReportOneceLimit(jSONObject2.optInt(HttpClientWrap.h));
                 }
                 int optInt5 = jSONObject2.optInt(Config.SESSTION_TRACK_START_TIME);
                 if (optInt5 > 0) {

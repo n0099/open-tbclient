@@ -7,13 +7,13 @@ import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public class AlignTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class AlignTextView extends TextView {
             }
             String str = (String) text;
             Layout layout = getLayout();
-            if (!m.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+            if (!ni.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
                 int lineBaseline = layout.getLineBaseline(0) + getPaddingTop();
                 float measureText = getPaint().measureText(str);
                 float paddingLeft = getPaddingLeft();

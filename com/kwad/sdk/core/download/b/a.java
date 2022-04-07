@@ -35,22 +35,18 @@ import com.kwad.sdk.utils.am;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements f {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static c f39457b;
+    public static c b;
     public static HashMap<String, WeakReference<Bitmap>> a = new HashMap<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Handler f39458c = new HandlerC1957a();
+    public static final Handler c = new HandlerC0297a();
 
     /* renamed from: com.kwad.sdk.core.download.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class HandlerC1957a extends Handler {
+    /* loaded from: classes5.dex */
+    public static class HandlerC0297a extends Handler {
         public final SparseArray<Long> a;
 
-        public HandlerC1957a() {
+        public HandlerC0297a() {
             super(Looper.getMainLooper());
             this.a = new SparseArray<>();
         }
@@ -80,30 +76,16 @@ public class a implements f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static String a = "ksad_notification_default_icon";
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f39459b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f39460c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f39461d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f39462e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f39463f;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f39465h;
-
-        /* renamed from: g  reason: collision with root package name */
-        public File f39464g = null;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public int f;
+        public String h;
+        public File g = null;
         public boolean i = false;
 
         public static String a() {
@@ -115,65 +97,65 @@ public class a implements f {
             Object tag = downloadTask.getTag();
             if (tag instanceof DownloadParams) {
                 DownloadParams downloadParams = (DownloadParams) tag;
-                File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(downloadParams.mAppIcon);
-                if (b2 != null && b2.exists()) {
-                    bVar.f39464g = b2;
+                File b = com.kwad.sdk.core.diskcache.a.a.a().b(downloadParams.mAppIcon);
+                if (b != null && b.exists()) {
+                    bVar.g = b;
                 }
-                bVar.f39459b = downloadParams.mAppName;
+                bVar.b = downloadParams.mAppName;
             }
             bVar.i = downloadTask.isPaused();
-            bVar.f39460c = str;
-            bVar.f39465h = str2;
-            bVar.f39461d = a.b(downloadTask.getSmallFileSoFarBytes()) + " / " + a.b(downloadTask.getSmallFileTotalBytes());
-            bVar.f39462e = a.b((long) downloadTask.getSmallFileTotalBytes());
-            bVar.f39463f = (int) ((((float) downloadTask.getSmallFileSoFarBytes()) * 100.0f) / ((float) downloadTask.getSmallFileTotalBytes()));
+            bVar.c = str;
+            bVar.h = str2;
+            bVar.d = a.b(downloadTask.getSmallFileSoFarBytes()) + " / " + a.b(downloadTask.getSmallFileTotalBytes());
+            bVar.e = a.b((long) downloadTask.getSmallFileTotalBytes());
+            bVar.f = (int) ((((float) downloadTask.getSmallFileSoFarBytes()) * 100.0f) / ((float) downloadTask.getSmallFileTotalBytes()));
             return bVar;
         }
 
         public static b b(DownloadParams downloadParams, String str, String str2) {
-            File b2;
+            File b;
             b bVar = new b();
-            bVar.f39459b = downloadParams.mAppName;
-            if (!TextUtils.isEmpty(downloadParams.mAppIcon) && (b2 = com.kwad.sdk.core.diskcache.a.a.a().b(downloadParams.mAppIcon)) != null && b2.exists()) {
-                bVar.f39464g = b2;
+            bVar.b = downloadParams.mAppName;
+            if (!TextUtils.isEmpty(downloadParams.mAppIcon) && (b = com.kwad.sdk.core.diskcache.a.a.a().b(downloadParams.mAppIcon)) != null && b.exists()) {
+                bVar.g = b;
             }
-            bVar.f39460c = str;
-            bVar.f39462e = a.b(downloadParams.mAppSize);
-            bVar.f39465h = str2;
+            bVar.c = str;
+            bVar.e = a.b(downloadParams.mAppSize);
+            bVar.h = str2;
             return bVar;
         }
 
         public String b() {
-            String str = this.f39459b;
+            String str = this.b;
             return str == null ? "" : str;
         }
 
         public String c() {
-            return this.f39461d;
+            return this.d;
         }
 
         public String d() {
-            return this.f39462e;
+            return this.e;
         }
 
         public String e() {
-            return this.f39460c;
+            return this.c;
         }
 
         public File f() {
-            return this.f39464g;
+            return this.g;
         }
 
         public String g() {
-            return "正在下载 " + this.f39463f + "%";
+            return "正在下载 " + this.f + "%";
         }
 
         public int h() {
-            return this.f39463f;
+            return this.f;
         }
 
         public String i() {
-            return this.f39465h;
+            return this.h;
         }
 
         public boolean j() {
@@ -181,22 +163,22 @@ public class a implements f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class c extends BroadcastReceiver {
         private void a(@NonNull Intent intent) {
-            DownloadTask c2 = c(intent);
-            if (c2 == null) {
+            DownloadTask c = c(intent);
+            if (c == null) {
                 return;
             }
-            d.a().f(c2.getId());
+            d.a().f(c.getId());
         }
 
         private void b(@NonNull Intent intent) {
-            DownloadTask c2 = c(intent);
-            if (c2 == null) {
+            DownloadTask c = c(intent);
+            if (c == null) {
                 return;
             }
-            c2.setNotificationRemoved(true);
+            c.setNotificationRemoved(true);
         }
 
         @Nullable
@@ -244,14 +226,14 @@ public class a implements f {
     }
 
     private void a(Context context) {
-        if (f39457b != null || context == null) {
+        if (b != null || context == null) {
             return;
         }
-        f39457b = new c();
+        b = new c();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(RemoteViewBuilder.ProgressRemoteViewImpl.ACTION_CLICK_CONTROL_BTN);
         intentFilter.addAction("com.ksad.action.ACTION_NOTIFICATION_REMOVED");
-        context.registerReceiver(f39457b, intentFilter);
+        context.registerReceiver(b, intentFilter);
     }
 
     private void a(Context context, RemoteViews remoteViews, boolean z, boolean z2, @Nullable PendingIntent pendingIntent, int i, int i2, int i3) {
@@ -260,17 +242,17 @@ public class a implements f {
         if (z2) {
             builder.setDeleteIntent(a(context, "com.ksad.action.ACTION_NOTIFICATION_REMOVED", i));
         }
-        f39458c.removeMessages(i);
-        f39458c.obtainMessage(i, i2, i3, builder.build()).sendToTarget();
+        c.removeMessages(i);
+        c.obtainMessage(i, i2, i3, builder.build()).sendToTarget();
     }
 
     private boolean a(Context context, com.kwad.sdk.core.download.b.b bVar, String str) {
         try {
             bVar.a(a(context, str));
             return true;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            com.kwad.sdk.core.kwai.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.kwai.a.a(e);
             return false;
         }
     }
@@ -279,9 +261,9 @@ public class a implements f {
         try {
             cVar.a(a(context, str));
             return true;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            com.kwad.sdk.core.kwai.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.kwai.a.a(e);
             return false;
         }
     }
@@ -290,9 +272,9 @@ public class a implements f {
         try {
             bVar.a(b(file));
             return true;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            com.kwad.sdk.core.kwai.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.kwai.a.a(e);
             return false;
         }
     }
@@ -301,9 +283,9 @@ public class a implements f {
         try {
             cVar.a(b(file));
             return true;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
-            com.kwad.sdk.core.kwai.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.kwai.a.a(e);
             return false;
         }
     }
@@ -341,8 +323,8 @@ public class a implements f {
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             notificationManager.notify(i, notification);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
@@ -369,8 +351,8 @@ public class a implements f {
 
     public void a(Context context, com.kwad.sdk.core.download.b.b bVar, b bVar2) {
         bVar.a(bVar2.b());
-        File f2 = bVar2.f();
-        if (!((f2 == null || !f2.exists()) ? false : a(bVar, f2))) {
+        File f = bVar2.f();
+        if (!((f == null || !f.exists()) ? false : a(bVar, f))) {
             a(context, bVar, b.a());
         }
         bVar.b(bVar2.e());
@@ -380,8 +362,8 @@ public class a implements f {
 
     public void a(Context context, com.kwad.sdk.core.download.b.c cVar, b bVar) {
         cVar.a(bVar.b());
-        File f2 = bVar.f();
-        if (!((f2 == null || !f2.exists()) ? false : a(cVar, f2))) {
+        File f = bVar.f();
+        if (!((f == null || !f.exists()) ? false : a(cVar, f))) {
             a(context, cVar, b.a());
         }
         cVar.b(bVar.e());
@@ -469,11 +451,11 @@ public class a implements f {
         if (context == null) {
             return;
         }
-        DownloadParams d2 = d(downloadTask);
+        DownloadParams d = d(downloadTask);
         com.kwad.sdk.core.download.b.b a2 = com.kwad.sdk.core.download.b.b.a(context);
         a(context, a2, b.b(downloadTask, "下载完成", "立即安装"));
-        com.kwad.sdk.core.a.a().a(downloadTask.getTargetFilePath(), d2);
-        com.kwad.sdk.core.a.a().a(d2.mPkgname, d2);
+        com.kwad.sdk.core.a.a().a(downloadTask.getTargetFilePath(), d);
+        com.kwad.sdk.core.a.a().a(d.mPkgname, d);
         a(context, a2.a(), false, false, g.a(downloadTask), downloadTask.getId(), 1, 1);
     }
 }

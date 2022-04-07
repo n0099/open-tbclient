@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
@@ -45,6 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +52,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PaManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaManagerImpl";
@@ -356,9 +356,9 @@ public class PaManagerImpl {
                                 }
                             }
                         }
-                    } catch (JSONException e2) {
-                        LogUtils.e(LogUtils.TAG, "json error dealMessage:", e2);
-                        new IMTrack.CrashBuilder(PaManagerImpl.mContext).exception(Log.getStackTraceString(e2)).build();
+                    } catch (JSONException e) {
+                        LogUtils.e(LogUtils.TAG, "json error dealMessage:", e);
+                        new IMTrack.CrashBuilder(PaManagerImpl.mContext).exception(Log.getStackTraceString(e)).build();
                     }
                 }
             }
@@ -415,12 +415,12 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ACCEPT_PUSH, z);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onAcceptPaPushResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -574,12 +574,12 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onIsSubscribedResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j, false);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -718,12 +718,12 @@ public class PaManagerImpl {
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 104);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onQueryScribedPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -787,12 +787,12 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onSearchPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -848,12 +848,12 @@ public class PaManagerImpl {
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, this.val$paId);
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_INFO, paInfo);
                                 try {
-                                    a.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
+                                    p70.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
                                     return;
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     ListenerManager.getInstance().removeListener(this.val$key);
                                     this.this$0.onSubscribePaResult(this.val$key, 1003, Constants.ERROR_MSG_SERVICE_ERROR, this.val$paId);
-                                    LogUtils.e(PaManagerImpl.TAG, "Exception ", e2);
+                                    LogUtils.e(PaManagerImpl.TAG, "Exception ", e);
                                     return;
                                 }
                             }
@@ -994,12 +994,12 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onUnsubscribePaResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }

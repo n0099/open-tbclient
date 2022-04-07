@@ -3,25 +3,25 @@ package com.baidu.ugc.editvideo.player;
 import android.view.Surface;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IPlayer {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerCompletionListener {
         void onCompletion(IPlayer iPlayer);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerErrorListener {
         boolean onError(IPlayer iPlayer, int i, int i2, Exception exc);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerInfoListener {
         boolean onInfo(IPlayer iPlayer, int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerPlayStateListener {
         public static final int STATE_PAUSE = 2;
         public static final int STATE_PLAY = 1;
@@ -29,12 +29,12 @@ public interface IPlayer {
         void onStateChange(IPlayer iPlayer, int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerPreparedListener {
         void onPrepared(IPlayer iPlayer);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayerVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2);
     }
@@ -83,11 +83,11 @@ public interface IPlayer {
 
     void setOnPlayerVideoSizeChangedListener(OnPlayerVideoSizeChangedListener onPlayerVideoSizeChangedListener);
 
-    boolean setPlaybackSpeed(float f2);
+    boolean setPlaybackSpeed(float f);
 
     void setSurface(Surface surface);
 
-    void setVolume(float f2, float f3);
+    void setVolume(float f, float f2);
 
     void start();
 

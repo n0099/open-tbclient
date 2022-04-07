@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ImageViewState implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,12 +17,12 @@ public class ImageViewState implements Serializable {
     public int orientation;
     public float scale;
 
-    public ImageViewState(float f2, PointF pointF, int i) {
+    public ImageViewState(float f, PointF pointF, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), pointF, Integer.valueOf(i)};
+            Object[] objArr = {Float.valueOf(f), pointF, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +32,7 @@ public class ImageViewState implements Serializable {
                 return;
             }
         }
-        this.scale = f2;
+        this.scale = f;
         this.centerX = pointF.x;
         this.centerY = pointF.y;
         this.orientation = i;

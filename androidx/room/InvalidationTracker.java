@@ -391,8 +391,8 @@ public class InvalidationTracker {
                         } finally {
                             closeLock.unlock();
                         }
-                    } catch (SQLiteException | IllegalStateException e2) {
-                        Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
+                    } catch (SQLiteException | IllegalStateException e) {
+                        Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e);
                     }
                     if (this.this$0.ensureInitialization()) {
                         if (this.this$0.mPendingRefresh.compareAndSet(true, false)) {
@@ -630,8 +630,8 @@ public class InvalidationTracker {
                 supportSQLiteDatabase.endTransaction();
                 this.mObservedTableTracker.onSyncCompleted();
                 closeLock.unlock();
-            } catch (SQLiteException | IllegalStateException e2) {
-                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
+            } catch (SQLiteException | IllegalStateException e) {
+                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e);
                 return;
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class z implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,15 +31,15 @@ public class z implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.a.f26325f;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            jVar = this.a.f;
             ab E = jVar.a().E();
             E.a += 1.0f;
-            jVar2 = this.a.f26325f;
+            jVar2 = this.a.f;
             jVar2.a().a(E, 300);
         }
     }

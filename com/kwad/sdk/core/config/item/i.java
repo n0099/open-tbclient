@@ -4,15 +4,13 @@ import android.content.SharedPreferences;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class i extends b<a> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a = TiebaStatic.MAX_COST_VALUE;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f39344b = 90000;
+        public int b = 90000;
     }
 
     public i(String str) {
@@ -21,16 +19,16 @@ public class i extends b<a> {
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences.Editor editor) {
-        String b2;
+        String b;
         String str;
         if (a() == null || a().toJson() == null) {
-            b2 = b();
+            b = b();
             str = "";
         } else {
-            b2 = b();
+            b = b();
             str = a().toJson().toString();
         }
-        editor.putString(b2, str);
+        editor.putString(b, str);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -42,8 +40,8 @@ public class i extends b<a> {
         JSONObject jSONObject = null;
         try {
             jSONObject = new JSONObject(sharedPreferences.getString(b(), ""));
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         if (jSONObject != null) {
             a2.parseJson(jSONObject);

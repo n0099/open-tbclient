@@ -29,7 +29,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FPS = 25;
@@ -55,7 +55,7 @@ public class VideoPlayer {
     public int mVideoHeight;
     public int mVideoWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -64,12 +64,12 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PlayTask implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_PLAY_ERROR = 1;
@@ -82,7 +82,7 @@ public class VideoPlayer {
         public boolean mStopped;
         public Thread mThread;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class LocalHandler extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -202,8 +202,8 @@ public class VideoPlayer {
                         if (localHandler == null) {
                             return;
                         }
-                    } catch (Exception e2) {
-                        boolean sendMessage = this.mLocalHandler != null ? this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(1, e2)) : false;
+                    } catch (Exception e) {
+                        boolean sendMessage = this.mLocalHandler != null ? this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(1, e)) : false;
                         synchronized (this.mStopLock) {
                             this.mStopped = true;
                             this.mStopLock.notifyAll();
@@ -263,7 +263,7 @@ public class VideoPlayer {
 
     /* JADX DEBUG: Multi-variable search result rejected for r27v0, resolved type: android.media.MediaExtractor */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x017e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x017d A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:83:0x014f  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x0154  */
     /* JADX WARN: Type inference failed for: r10v0 */
@@ -302,8 +302,8 @@ public class VideoPlayer {
                             }
                             try {
                                 wait();
-                            } catch (InterruptedException e2) {
-                                e2.printStackTrace();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -416,8 +416,8 @@ public class VideoPlayer {
                 try {
                     this.mFps = trackFormat.getInteger("frame-rate");
                     return;
-                } catch (Exception e2) {
-                    Log.e(TAG, "get frame rate (FPS) failed.", e2);
+                } catch (Exception e) {
+                    Log.e(TAG, "get frame rate (FPS) failed.", e);
                     return;
                 }
             }
@@ -522,13 +522,13 @@ public class VideoPlayer {
             if (mediaCodec != null) {
                 try {
                     mediaCodec.stop();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 try {
                     this.mMediaDecoder.release();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 this.mMediaDecoder = null;
             }
@@ -536,8 +536,8 @@ public class VideoPlayer {
             if (mediaExtractor != null) {
                 try {
                     mediaExtractor.release();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                 }
                 this.mMediaExtractor = null;
             }
@@ -545,8 +545,8 @@ public class VideoPlayer {
             if (surface != null) {
                 try {
                     surface.release();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
                 this.mOutputSurface = null;
             }
@@ -642,8 +642,8 @@ public class VideoPlayer {
                 setDataSource(fileInputStream2.getFD());
                 try {
                     fileInputStream2.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } catch (Throwable th) {
                 th = th;
@@ -651,8 +651,8 @@ public class VideoPlayer {
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 throw th;

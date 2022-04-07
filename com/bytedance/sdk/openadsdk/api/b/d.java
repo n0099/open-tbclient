@@ -1,31 +1,29 @@
 package com.bytedance.sdk.openadsdk.api.b;
 
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f38228b = 4;
+    public static int b = 4;
 
     public static void a(int i) {
-        f38228b = i;
+        b = i;
     }
 
     public static void b(String str, String str2) {
-        if (a && str2 != null && f38228b <= 4) {
+        if (a && str2 != null && b <= 4) {
             Log.i(str, str2);
         }
     }
 
     public static void c(String str, String str2) {
-        if (a && str2 != null && f38228b <= 5) {
+        if (a && str2 != null && b <= 5) {
             Log.w(str, str2);
         }
     }
 
     public static void d(String str, String str2) {
-        if (a && str2 != null && f38228b <= 6) {
+        if (a && str2 != null && b <= 6) {
             Log.e(str, str2);
         }
     }
@@ -36,14 +34,14 @@ public class d {
     }
 
     public static void a(String str, String str2) {
-        if (a && str2 != null && f38228b <= 3) {
+        if (a && str2 != null && b <= 3) {
             Log.d(str, str2);
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
         if (a) {
-            if (!(str2 == null && th == null) && f38228b <= 6) {
+            if (!(str2 == null && th == null) && b <= 6) {
                 Log.e(str, str2, th);
             }
         }
@@ -57,7 +55,7 @@ public class d {
 
     public static void a(String str, String str2, Throwable th) {
         if (a) {
-            if (!(str2 == null && th == null) && f38228b <= 5) {
+            if (!(str2 == null && th == null) && b <= 5) {
                 Log.w(str, str2, th);
             }
         }

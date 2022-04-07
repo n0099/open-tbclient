@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.nps.utils.Constant;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SecurityChecker {
     public static volatile State a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum State {
         INIT,
         DATA_VALID,
@@ -16,20 +16,20 @@ public class SecurityChecker {
         SUCCESS
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Exception exc);
 
         void a(boolean z, State state);
     }
 
-    public static void a(final File file, final a.C1944a c1944a, final a aVar) {
+    public static void a(final File file, final a.C0284a c0284a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
                 State unused = SecurityChecker.a = State.INIT;
                 try {
-                    boolean z = a.C1944a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1944a.this.f39099c);
+                    boolean z = a.C0284a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C0284a.this.c);
                     if (z) {
                         State unused2 = SecurityChecker.a = State.SUCCESS;
                     }
@@ -37,10 +37,10 @@ public class SecurityChecker {
                     if (aVar2 != null) {
                         aVar2.a(z, SecurityChecker.a);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     a aVar3 = aVar;
                     if (aVar3 != null) {
-                        aVar3.a(e2);
+                        aVar3.a(e);
                     }
                 }
             }

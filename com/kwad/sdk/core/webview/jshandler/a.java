@@ -13,71 +13,61 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f39995b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f39996c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<com.kwad.sdk.core.download.a.b> f39997d;
+    public Handler b;
+    public boolean c;
+    public List<com.kwad.sdk.core.download.a.b> d;
     @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public b.c f39998e;
+    public b.c e;
     @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public b.d f39999f;
+    public b.d f;
 
     public a(@NonNull com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.a.b bVar, @Nullable b.c cVar) {
         this(aVar, bVar, cVar, false);
     }
 
     public a(@NonNull com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.a.b bVar, @Nullable b.c cVar, boolean z) {
-        this.f39996c = false;
-        this.f39997d = new ArrayList();
-        this.f39996c = z;
-        this.f39995b = new Handler(Looper.getMainLooper());
+        this.c = false;
+        this.d = new ArrayList();
+        this.c = z;
+        this.b = new Handler(Looper.getMainLooper());
         this.a = aVar;
         if (bVar != null) {
             bVar.a(1);
-            this.f39997d.add(bVar);
+            this.d.add(bVar);
         }
-        this.f39998e = cVar;
+        this.e = cVar;
     }
 
     public a(@NonNull com.kwad.sdk.core.webview.a aVar, @Nullable List<com.kwad.sdk.core.download.a.b> list, @Nullable b.c cVar) {
         this(aVar, null, cVar, false);
         if (list != null) {
-            this.f39997d.addAll(list);
+            this.d.addAll(list);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(b.a aVar) {
-        return aVar.f40012c == 1;
+        return aVar.c == 1;
     }
 
     @Nullable
     public com.kwad.sdk.core.download.a.b a(long j) {
-        List<com.kwad.sdk.core.download.a.b> list = this.f39997d;
+        List<com.kwad.sdk.core.download.a.b> list = this.d;
         if (list == null) {
             return null;
         }
         if (j >= 0 || list.size() != 1) {
-            for (com.kwad.sdk.core.download.a.b bVar : this.f39997d) {
+            for (com.kwad.sdk.core.download.a.b bVar : this.d) {
                 if (com.kwad.sdk.core.response.a.d.y(bVar.e()) == j) {
                     return bVar;
                 }
             }
             return null;
         }
-        return this.f39997d.get(0);
+        return this.d.get(0);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -97,49 +87,49 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
         final b.a aVar = new b.a();
         try {
             aVar.parseJson(new JSONObject(str));
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
-        if (!this.a.f39987h) {
-            if (this.f39998e != null) {
-                handler = this.f39995b;
+        if (!this.a.h) {
+            if (this.e != null) {
+                handler = this.b;
                 runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.f39998e != null) {
-                            a.this.f39998e.a(aVar);
+                        if (a.this.e != null) {
+                            a.this.e.a(aVar);
                         }
                     }
                 };
             }
             cVar.a(null);
         }
-        handler = this.f39995b;
+        handler = this.b;
         runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.a.i) {
                     p.a aVar2 = new p.a();
-                    b.C1973b c1973b = aVar.f40013d;
-                    if (c1973b != null && !TextUtils.isEmpty(c1973b.a)) {
-                        aVar2.f39738h = aVar.f40013d.a;
+                    b.C0313b c0313b = aVar.d;
+                    if (c0313b != null && !TextUtils.isEmpty(c0313b.a)) {
+                        aVar2.h = aVar.d.a;
                     }
-                    AdBaseFrameLayout adBaseFrameLayout = a.this.a.f39981b;
+                    AdBaseFrameLayout adBaseFrameLayout = a.this.a.b;
                     if (adBaseFrameLayout != null) {
-                        aVar2.f39737g = adBaseFrameLayout.getTouchCoords();
+                        aVar2.g = adBaseFrameLayout.getTouchCoords();
                     }
-                    int i = (aVar.f40014e > 0L ? 1 : (aVar.f40014e == 0L ? 0 : -1));
+                    int i = (aVar.e > 0L ? 1 : (aVar.e == 0L ? 0 : -1));
                     com.kwad.sdk.core.webview.a aVar3 = a.this.a;
-                    int a = com.kwad.sdk.core.download.a.a.a(new a.C1956a(a.this.a.f39983d.getContext()).a(i >= 0 ? aVar3.a(aVar.f40014e) : aVar3.a()).a(a.this.a(aVar.f40014e)).a(a.this.a(aVar)).b(a.this.f39996c).a(a.this.a.f39982c).a(aVar.f40012c).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
+                    int a = com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.a.d.getContext()).a(i >= 0 ? aVar3.a(aVar.e) : aVar3.a()).a(a.this.a(aVar.e)).a(a.this.a(aVar)).b(a.this.c).a(a.this.a.c).a(aVar.c).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
                         @Override // com.kwad.sdk.core.download.a.a.b
                         public void a() {
-                            if (a.this.f39998e != null) {
-                                a.this.f39998e.a(aVar);
+                            if (a.this.e != null) {
+                                a.this.e.a(aVar);
                             }
                         }
                     }));
-                    if (a.this.f39999f != null) {
-                        a.this.f39999f.a(a);
+                    if (a.this.f != null) {
+                        a.this.f.a(a);
                     }
                 }
             }
@@ -150,7 +140,7 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f39995b.removeCallbacksAndMessages(null);
-        this.f39998e = null;
+        this.b.removeCallbacksAndMessages(null);
+        this.e = null;
     }
 }

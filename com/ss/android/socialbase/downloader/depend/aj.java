@@ -14,14 +14,12 @@ public interface aj extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aj$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2059a implements aj {
+        public static class C0603a implements aj {
             public static aj a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43219b;
-
-            public C2059a(IBinder iBinder) {
-                this.f43219b = iBinder;
+            public C0603a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aj
@@ -32,7 +30,7 @@ public interface aj extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.f43219b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(i, i2);
                     } else {
                         obtain2.readException();
@@ -45,7 +43,7 @@ public interface aj extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43219b;
+                return this.b;
             }
         }
 
@@ -61,7 +59,7 @@ public interface aj extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof aj)) {
                 return (aj) queryLocalInterface;
             }
-            return new C2059a(iBinder);
+            return new C0603a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -85,7 +83,7 @@ public interface aj extends IInterface {
         }
 
         public static aj a() {
-            return C2059a.a;
+            return C0603a.a;
         }
     }
 }

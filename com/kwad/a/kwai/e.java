@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class e extends c.b {
         this.j = fVar;
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(z ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        this.f39062b = fVar.d(allocate, 16L);
-        this.f39063c = fVar.b(allocate, 32L);
-        this.f39064d = fVar.b(allocate, 40L);
-        this.f39065e = fVar.d(allocate, 54L);
-        this.f39066f = fVar.d(allocate, 56L);
-        this.f39067g = fVar.d(allocate, 58L);
-        this.f39068h = fVar.d(allocate, 60L);
+        this.b = fVar.d(allocate, 16L);
+        this.c = fVar.b(allocate, 32L);
+        this.d = fVar.b(allocate, 40L);
+        this.e = fVar.d(allocate, 54L);
+        this.f = fVar.d(allocate, 56L);
+        this.g = fVar.d(allocate, 58L);
+        this.h = fVar.d(allocate, 60L);
         this.i = fVar.d(allocate, 62L);
     }
 
@@ -52,10 +52,10 @@ public class e extends c.b {
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.AbstractC1943c a(long j) {
+    public c.AbstractC0283c a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new h(this.j, this, j) : (c.AbstractC1943c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new h(this.j, this, j) : (c.AbstractC0283c) invokeJ.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b

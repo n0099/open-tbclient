@@ -1,7 +1,7 @@
 package com.baidu.pass.face.platform;
 
 import com.baidu.pass.face.platform.model.FaceExtInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ILivenessViewCallback {
     void animStop();
 

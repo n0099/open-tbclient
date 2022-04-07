@@ -25,7 +25,7 @@ import com.tachikoma.core.utility.TKColorUtil;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKButton extends TKBase<Button> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,23 +152,23 @@ public class TKButton extends TKBase<Button> {
     }
 
     public void setFontWeight(String str) {
-        Button view;
+        Button view2;
         Typeface typeface;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.equals(str, "bold")) {
-                view = getView();
+                view2 = getView();
                 typeface = getView().getTypeface();
                 i = 1;
             } else if (!TextUtils.equals(str, "normal")) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 typeface = getView().getTypeface();
                 i = 0;
             }
-            view.setTypeface(typeface, i);
+            view2.setTypeface(typeface, i);
         }
     }
 
@@ -198,41 +198,41 @@ public class TKButton extends TKBase<Button> {
     }
 
     public void setTextAlign(String str) {
-        char c2;
-        Button view;
+        char c;
+        Button view2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -1364013995) {
                 if (str.equals("center")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 3317767) {
                 if (hashCode == 108511772 && str.equals("right")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("left")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
-                view = getView();
+            if (c == 0) {
+                view2 = getView();
                 i = 17;
-            } else if (c2 == 1) {
-                view = getView();
+            } else if (c == 1) {
+                view2 = getView();
                 i = 3;
-            } else if (c2 != 2) {
+            } else if (c != 2) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 i = 5;
             }
-            view.setGravity(i);
+            view2.setGravity(i);
         }
     }
 
@@ -244,20 +244,20 @@ public class TKButton extends TKBase<Button> {
     }
 
     public void setTextOverflow(String str) {
-        Button view;
+        Button view2;
         TextUtils.TruncateAt valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             if ("clip".equalsIgnoreCase(str)) {
-                view = getView();
+                view2 = getView();
                 valueOf = null;
             } else if (!"ellipsis".equalsIgnoreCase(str)) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 valueOf = TextUtils.TruncateAt.valueOf("END");
             }
-            view.setEllipsize(valueOf);
+            view2.setEllipsize(valueOf);
         }
     }
 }

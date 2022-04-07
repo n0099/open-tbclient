@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static c a(String str, Map<String, String> map) {
         return a(str, map, true);
@@ -59,14 +59,14 @@ public class a {
                 int responseCode = httpURLConnection2.getResponseCode();
                 cVar.a = responseCode;
                 if (responseCode == 200) {
-                    cVar.f39576b = a(httpURLConnection2.getInputStream());
+                    cVar.b = a(httpURLConnection2.getInputStream());
                 }
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
                 com.kwad.sdk.crash.utils.b.a(outputStream2);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 OutputStream outputStream3 = outputStream2;
                 httpURLConnection = httpURLConnection2;
                 outputStream = outputStream3;
@@ -95,8 +95,8 @@ public class a {
                 com.kwad.sdk.crash.utils.b.a(outputStream);
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             outputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -142,8 +142,8 @@ public class a {
         httpURLConnection2 = null;
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e) {
+            e = e;
             inputStream = null;
         } catch (Throwable th) {
             th = th;
@@ -170,13 +170,13 @@ public class a {
                     sb.append(new String(bArr, 0, read));
                 }
             }
-            cVar.f39576b = sb.toString();
+            cVar.b = sb.toString();
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
             com.kwad.sdk.crash.utils.b.a(inputStream2);
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             InputStream inputStream3 = inputStream2;
             httpURLConnection2 = httpURLConnection;
             inputStream = inputStream3;
@@ -233,31 +233,31 @@ public class a {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            com.kwad.sdk.core.d.a.b(e2);
+                        } catch (IOException e) {
+                            com.kwad.sdk.core.d.a.b(e);
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        com.kwad.sdk.core.d.a.b(e3);
+                    } catch (IOException e2) {
+                        com.kwad.sdk.core.d.a.b(e2);
                     }
                     return str;
-                } catch (IOException e4) {
-                    e = e4;
+                } catch (IOException e3) {
+                    e = e3;
                     com.kwad.sdk.core.d.a.b(e);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e5) {
-                            com.kwad.sdk.core.d.a.b(e5);
+                        } catch (IOException e4) {
+                            com.kwad.sdk.core.d.a.b(e4);
                         }
                     }
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
-                        } catch (IOException e6) {
-                            com.kwad.sdk.core.d.a.b(e6);
+                        } catch (IOException e5) {
+                            com.kwad.sdk.core.d.a.b(e5);
                         }
                     }
                     return null;
@@ -267,21 +267,21 @@ public class a {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e7) {
-                        com.kwad.sdk.core.d.a.b(e7);
+                    } catch (IOException e6) {
+                        com.kwad.sdk.core.d.a.b(e6);
                     }
                 }
                 if (0 != 0) {
                     try {
                         byteArrayOutputStream2.close();
-                    } catch (IOException e8) {
-                        com.kwad.sdk.core.d.a.b(e8);
+                    } catch (IOException e7) {
+                        com.kwad.sdk.core.d.a.b(e7);
                     }
                 }
                 throw th;
             }
-        } catch (IOException e9) {
-            e = e9;
+        } catch (IOException e8) {
+            e = e8;
             byteArrayOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -299,17 +299,17 @@ public class a {
         }
         try {
             return URLEncoder.encode(str, "UTF-8");
-        } catch (UnsupportedEncodingException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (UnsupportedEncodingException e) {
+            com.kwad.sdk.core.d.a.a(e);
             return "";
         }
     }
 
     public static void a(@NonNull c cVar, Exception exc) {
-        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f39577b;
+        f fVar = exc instanceof SocketTimeoutException ? f.a : f.b;
         cVar.a = fVar.n;
-        cVar.f39576b = fVar.o;
-        if (com.kwad.sdk.b.f39154c.booleanValue()) {
+        cVar.b = fVar.o;
+        if (com.kwad.sdk.b.c.booleanValue()) {
             com.kwad.sdk.core.d.a.b(exc);
         }
     }

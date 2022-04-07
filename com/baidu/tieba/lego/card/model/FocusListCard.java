@@ -1,6 +1,5 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hd7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,29 +23,17 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f34207b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f34208c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f34209d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f34210e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f34211f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public long f34212g;
+        public String b;
+        public String c;
+        public int d;
+        public int e;
+        public String f;
+        public long g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,10 +69,10 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = b.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = b.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = b.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = b.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = hd7.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = hd7.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = hd7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = hd7.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
@@ -97,15 +85,15 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f34207b = optJSONArray.getString(1);
+                        aVar.b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f34208c = optJSONArray.getString(2);
+                        aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.f34209d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f34210e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f34211f = optJSONObject.optString("scheme");
-                    aVar.f34212g = optJSONObject.optLong("resourceId");
+                    aVar.d = hd7.b(optJSONObject.optString("focusColor", ""));
+                    aVar.e = hd7.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f = optJSONObject.optString("scheme");
+                    aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

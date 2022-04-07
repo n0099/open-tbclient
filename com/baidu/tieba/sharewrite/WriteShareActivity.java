@@ -13,10 +13,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.s.c.l0;
-import c.a.p0.r3.a;
-import c.a.p0.r3.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -46,8 +42,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kf8;
+import com.repackage.lf8;
+import com.repackage.mf8;
+import com.repackage.oi;
+import com.repackage.qd5;
+import com.repackage.rg;
+import com.repackage.rt4;
+import com.repackage.rx4;
+import com.repackage.yt4;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +63,13 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public WriteData mData;
     public DialogInterface.OnCancelListener mDialogCancelListener;
     public DialogInterface.OnKeyListener mDialogKeyListener;
-    public a.c mFailYesDialogClickListener;
+    public kf8.c mFailYesDialogClickListener;
     public final View.OnFocusChangeListener mFocusChangeListener;
-    public c.a.p0.r3.b mGetForumPrefixModel;
+    public lf8 mGetForumPrefixModel;
     public InputMethodManager mInputManager;
     public boolean mIsGotoVcode;
     public boolean mIsShareSuccess;
-    public a.c mNoDialogClickListener;
+    public kf8.c mNoDialogClickListener;
     public View.OnClickListener mNvBackClickListener;
     public final NewWriteModel.e mOnImageUploadCallback;
     public final NewWriteModel.f mOnPostWriteCallback;
@@ -72,21 +77,21 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public View.OnClickListener mPostContentClickListener;
     public PostPrefixData mPrefixData;
     public String mShareContent;
-    public c.a.p0.r3.a mShareFailDialog;
+    public kf8 mShareFailDialog;
     public String mShareImageUrl;
     public byte[] mShareLocalImageData;
-    public c.a.p0.r3.a mShareSuccessDialog;
+    public kf8 mShareSuccessDialog;
     public String mShareTargetBaName;
     public String mShareTitle;
     public String mShareUrl;
-    public a.c mSuccessYesDialogClickListener;
-    public c.a.p0.r3.c mView;
+    public kf8.c mSuccessYesDialogClickListener;
+    public mf8 mView;
     public NewWriteModel mWriteModel;
     public String packageName;
     public PackageInfo packageinfo;
     public PackageManager pm;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +116,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 WriteShareActivity writeShareActivity = this.a;
                 writeShareActivity.HidenSoftKeyPad(writeShareActivity.mInputManager, this.a.mView.q());
                 WriteShareActivity writeShareActivity2 = this.a;
@@ -123,7 +128,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,9 +153,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.mView.p().requestFocus();
                 WriteShareActivity writeShareActivity = this.a;
                 writeShareActivity.ShowSoftKeyPad(writeShareActivity.mInputManager, this.a.mView.p());
@@ -158,7 +163,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,14 +188,14 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
 
         @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
+        public void onFocusChange(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || this.a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) || this.a.mView == null) {
                 return;
             }
-            if (view == this.a.mView.q() || view == this.a.mView.n() || view == this.a.mView.o()) {
+            if (view2 == this.a.mView.q() || view2 == this.a.mView.n() || view2 == this.a.mView.o()) {
                 if (!z) {
-                    if (view == this.a.mView.q() && this.a.mView.r() != null) {
+                    if (view2 == this.a.mView.q() && this.a.mView.r() != null) {
                         this.a.mView.r().setVisibility(0);
                     }
                 } else {
@@ -198,11 +203,11 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     writeShareActivity.ShowSoftKeyPad(writeShareActivity.mInputManager, this.a.mView.q());
                 }
             }
-            if (view == this.a.mView.p()) {
+            if (view2 == this.a.mView.p()) {
                 if (z) {
                     this.a.mView.p().setHint((CharSequence) null);
                 } else {
-                    this.a.mView.p().setHint(R.string.obfuscated_res_0x7f0f042c);
+                    this.a.mView.p().setHint(R.string.obfuscated_res_0x7f0f0433);
                 }
                 WriteShareActivity writeShareActivity2 = this.a;
                 writeShareActivity2.ShowSoftKeyPad(writeShareActivity2.mInputManager, this.a.mView.q());
@@ -210,8 +215,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements a.c {
+    /* loaded from: classes4.dex */
+    public class d implements kf8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteShareActivity a;
@@ -234,19 +239,19 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.a = writeShareActivity;
         }
 
-        @Override // c.a.p0.r3.a.c
-        public void a(c.a.p0.r3.a aVar) {
+        @Override // com.repackage.kf8.c
+        public void a(kf8 kf8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, kf8Var) == null) {
                 this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageContext().getPageActivity()).createBackSpecialCfg(this.a.mData.getForumName(), FrsActivityConfig.FRS_FROM_WRITESHARE, true, false)));
-                aVar.d();
+                kf8Var.d();
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements a.c {
+    /* loaded from: classes4.dex */
+    public class e implements kf8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteShareActivity a;
@@ -269,22 +274,22 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.a = writeShareActivity;
         }
 
-        @Override // c.a.p0.r3.a.c
-        public void a(c.a.p0.r3.a aVar) {
+        @Override // com.repackage.kf8.c
+        public void a(kf8 kf8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, kf8Var) == null) {
                 WriteShareActivity writeShareActivity = this.a;
                 writeShareActivity.HidenSoftKeyPad(writeShareActivity.mInputManager, this.a.mView.q());
                 WriteShareActivity writeShareActivity2 = this.a;
                 writeShareActivity2.HidenSoftKeyPad(writeShareActivity2.mInputManager, this.a.mView.p());
                 this.a.PostNewMessage();
-                aVar.d();
+                kf8Var.d();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class f implements a.c {
+    /* loaded from: classes4.dex */
+    public class f implements kf8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteShareActivity a;
@@ -307,21 +312,21 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.a = writeShareActivity;
         }
 
-        @Override // c.a.p0.r3.a.c
-        public void a(c.a.p0.r3.a aVar) {
+        @Override // com.repackage.kf8.c
+        public void a(kf8 kf8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.d();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kf8Var) == null) {
+                kf8Var.d();
                 if (!this.a.mIsShareSuccess) {
                     this.a.setResult(0);
                 }
-                c.a.o0.r.f0.b.g(this.a.getPageContext().getPageActivity(), 200, false);
+                rt4.g(this.a.getPageContext().getPageActivity(), 200, false);
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class g implements NewWriteModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +368,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class h implements NewWriteModel.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,9 +393,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.f
-        public void a(boolean z, String str, l0 l0Var, WriteData writeData, AntiData antiData) {
+        public void a(boolean z, String str, rx4 rx4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, l0Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, rx4Var, writeData, antiData}) == null) {
                 this.a.closeLoadingDialog();
                 if (z) {
                     this.a.createShareSuccessDialog();
@@ -399,19 +404,19 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                         this.a.setResult(-1);
                         this.a.mShareSuccessDialog.o();
                     }
-                } else if (l0Var == null || writeData == null || l0Var.c() == null) {
+                } else if (rx4Var == null || writeData == null || rx4Var.c() == null) {
                     this.a.createShareFailDialog();
                     if (this.a.mShareFailDialog != null) {
                         this.a.mIsShareSuccess = false;
                         this.a.mShareFailDialog.o();
                     }
                 } else {
-                    writeData.setVcodeMD5(l0Var.b());
-                    writeData.setVcodeUrl(l0Var.c());
-                    writeData.setVcodeExtra(l0Var.a());
+                    writeData.setVcodeMD5(rx4Var.b());
+                    writeData.setVcodeUrl(rx4Var.c());
+                    writeData.setVcodeExtra(rx4Var.a());
                     this.a.mIsGotoVcode = true;
-                    if (c.a.o0.d1.a.b(l0Var.d())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getPageContext().getPageActivity(), 12006, writeData, false, l0Var.d())));
+                    if (qd5.b(rx4Var.d())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getPageContext().getPageActivity(), 12006, writeData, false, rx4Var.d())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.getPageContext().getPageActivity(), writeData, 12006)));
                     }
@@ -420,7 +425,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class i implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -451,7 +456,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
                 if (i == 4) {
                     if (this.a.mView != null && this.a.mView.s() != null && this.a.mView.s().isShowing()) {
-                        c.a.d.f.m.g.d(this.a.mView.s(), this.a.getPageContext().getPageActivity());
+                        rg.d(this.a.mView.s(), this.a.getPageContext().getPageActivity());
                         return true;
                     }
                     this.a.stopTask();
@@ -460,7 +465,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     } else {
                         this.a.setResult(0);
                     }
-                    c.a.o0.r.f0.b.g(this.a.getPageContext().getPageActivity(), 200, false);
+                    rt4.g(this.a.getPageContext().getPageActivity(), 200, false);
                     this.a.finish();
                     return true;
                 }
@@ -470,8 +475,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class j implements b.InterfaceC1366b {
+    /* loaded from: classes4.dex */
+    public class j implements lf8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteShareActivity a;
@@ -494,7 +499,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.a = writeShareActivity;
         }
 
-        @Override // c.a.p0.r3.b.InterfaceC1366b
+        @Override // com.repackage.lf8.b
         public void a(boolean z, PostPrefixData postPrefixData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, postPrefixData) == null) {
@@ -503,7 +508,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     if (this.a.mPrefixData == null || this.a.mPrefixData.getPrefixs().size() <= 0) {
                         return;
                     }
-                    this.a.mPrefixData.getPrefixs().add(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1584));
+                    this.a.mPrefixData.getPrefixs().add(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
                     if (this.a.mView != null) {
                         this.a.mView.F(this.a.mPrefixData);
                         return;
@@ -515,7 +520,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             }
         }
 
-        @Override // c.a.p0.r3.b.InterfaceC1366b
+        @Override // com.repackage.lf8.b
         public void onFailure() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -525,7 +530,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class k implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -559,7 +564,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class l implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -584,27 +589,25 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.stopTask();
                 if (this.a.mIsShareSuccess) {
                     this.a.setResult(-1);
                 }
-                c.a.o0.r.f0.b.g(this.a.getPageContext().getPageActivity(), 200, false);
+                rt4.g(this.a.getPageContext().getPageActivity(), 200, false);
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class m implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Activity a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WriteShareActivity f35942b;
+        public final /* synthetic */ WriteShareActivity b;
 
         public m(WriteShareActivity writeShareActivity, Activity activity) {
             Interceptable interceptable = $ic;
@@ -621,7 +624,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     return;
                 }
             }
-            this.f35942b = writeShareActivity;
+            this.b = writeShareActivity;
             this.a = null;
             this.a = activity;
         }
@@ -632,8 +635,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
                 return;
             }
-            this.f35942b.setResult(0);
-            c.a.o0.r.f0.b.g(this.a, 200, false);
+            this.b.setResult(0);
+            rt4.g(this.a, 200, false);
             this.a.finish();
         }
     }
@@ -686,7 +689,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.mWriteModel.b0().setVoice(null);
             this.mWriteModel.b0().setVoiceDuringTime(-1);
             if (this.mWriteModel.r0()) {
-                showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f10e8), this.mDialogCancelListener);
+                showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f10f0), this.mDialogCancelListener);
             }
         }
     }
@@ -695,14 +698,14 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void createShareFailDialog() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.mShareFailDialog == null) {
-            c.a.p0.r3.a aVar = new c.a.p0.r3.a(getActivity());
-            this.mShareFailDialog = aVar;
-            aVar.h(R.drawable.obfuscated_res_0x7f080a09);
+            kf8 kf8Var = new kf8(getActivity());
+            this.mShareFailDialog = kf8Var;
+            kf8Var.h(R.drawable.obfuscated_res_0x7f080a10);
             this.mShareFailDialog.m(R.drawable.btn_w_square);
             this.mShareFailDialog.n(R.color.common_color_10039);
-            this.mShareFailDialog.i(R.string.obfuscated_res_0x7f0f1108);
-            this.mShareFailDialog.l(R.string.obfuscated_res_0x7f0f1117, this.mFailYesDialogClickListener);
-            this.mShareFailDialog.j(R.string.obfuscated_res_0x7f0f02ba, this.mNoDialogClickListener);
+            this.mShareFailDialog.i(R.string.obfuscated_res_0x7f0f1110);
+            this.mShareFailDialog.l(R.string.obfuscated_res_0x7f0f111f, this.mFailYesDialogClickListener);
+            this.mShareFailDialog.j(R.string.obfuscated_res_0x7f0f02bb, this.mNoDialogClickListener);
             this.mShareFailDialog.k(this.mDialogKeyListener);
             this.mShareFailDialog.b(getPageContext());
         }
@@ -712,13 +715,13 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void createShareSuccessDialog() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65555, this) == null) && this.mShareSuccessDialog == null) {
-            c.a.p0.r3.a aVar = new c.a.p0.r3.a(getActivity());
-            this.mShareSuccessDialog = aVar;
-            aVar.g(false);
-            this.mShareSuccessDialog.h(R.drawable.obfuscated_res_0x7f080a0d);
-            this.mShareSuccessDialog.i(R.string.obfuscated_res_0x7f0f1109);
-            this.mShareSuccessDialog.l(R.string.obfuscated_res_0x7f0f1138, this.mSuccessYesDialogClickListener);
-            this.mShareSuccessDialog.j(R.string.obfuscated_res_0x7f0f02ba, this.mNoDialogClickListener);
+            kf8 kf8Var = new kf8(getActivity());
+            this.mShareSuccessDialog = kf8Var;
+            kf8Var.g(false);
+            this.mShareSuccessDialog.h(R.drawable.obfuscated_res_0x7f080a14);
+            this.mShareSuccessDialog.i(R.string.obfuscated_res_0x7f0f1111);
+            this.mShareSuccessDialog.l(R.string.obfuscated_res_0x7f0f1140, this.mSuccessYesDialogClickListener);
+            this.mShareSuccessDialog.j(R.string.obfuscated_res_0x7f0f02bb, this.mNoDialogClickListener);
             this.mShareSuccessDialog.k(this.mDialogKeyListener);
             this.mShareSuccessDialog.b(getPageContext());
         }
@@ -776,7 +779,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.mWriteModel = newWriteModel;
             newWriteModel.m0(this.mOnPostWriteCallback);
             this.mWriteModel.j0(this.mOnImageUploadCallback);
-            this.mGetForumPrefixModel = new c.a.p0.r3.b(this, new j(this));
+            this.mGetForumPrefixModel = new lf8(this, new j(this));
             this.mDialogCancelListener = new k(this);
             WriteData writeData = new WriteData();
             this.mData = writeData;
@@ -830,12 +833,12 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08e7);
+            setContentView(R.layout.obfuscated_res_0x7f0d08dd);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            c.a.p0.r3.c cVar = new c.a.p0.r3.c(this);
-            this.mView = cVar;
-            cVar.C(this.mNvBackClickListener);
+            mf8 mf8Var = new mf8(this);
+            this.mView = mf8Var;
+            mf8Var.C(this.mNvBackClickListener);
             this.mView.D(this.mPostClickListener);
             this.mView.B(this.mFocusChangeListener);
             this.mView.E(this.mPostContentClickListener);
@@ -852,10 +855,10 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     }
 
     private void releaseResource() {
-        c.a.p0.r3.c cVar;
+        mf8 mf8Var;
         ShareSDKImageView t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (cVar = this.mView) == null || (t = cVar.t()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (mf8Var = this.mView) == null || (t = mf8Var.t()) == null) {
             return;
         }
         t.setImageBitmap(null);
@@ -922,19 +925,19 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 this.mIsGotoVcode = false;
                 if (i3 == -1) {
                     createShareSuccessDialog();
-                    c.a.p0.r3.a aVar = this.mShareSuccessDialog;
-                    if (aVar != null) {
+                    kf8 kf8Var = this.mShareSuccessDialog;
+                    if (kf8Var != null) {
                         this.mIsShareSuccess = true;
-                        aVar.o();
+                        kf8Var.o();
                     }
                     setResult(-1);
                     return;
                 }
                 createShareFailDialog();
-                c.a.p0.r3.a aVar2 = this.mShareFailDialog;
-                if (aVar2 != null) {
+                kf8 kf8Var2 = this.mShareFailDialog;
+                if (kf8Var2 != null) {
                     this.mIsShareSuccess = false;
-                    aVar2.o();
+                    kf8Var2.o();
                 }
                 setResult(0);
             } else if (i2 != 23008) {
@@ -964,9 +967,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.p0.r3.c cVar = this.mView;
-            if (cVar != null) {
-                cVar.z(i2);
+            mf8 mf8Var = this.mView;
+            if (mf8Var != null) {
+                mf8Var.z(i2);
             }
         }
     }
@@ -986,9 +989,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             initUI();
             if (!shareContentValid) {
                 if (TextUtils.isEmpty(this.mAppKey)) {
-                    shareFailed(R.string.obfuscated_res_0x7f0f111e);
+                    shareFailed(R.string.obfuscated_res_0x7f0f1126);
                 } else {
-                    shareFailed(R.string.obfuscated_res_0x7f0f110e);
+                    shareFailed(R.string.obfuscated_res_0x7f0f1116);
                 }
             } else if (TbadkCoreApplication.isLogin()) {
                 startSelectBarActivity();
@@ -1016,9 +1019,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                c.a.p0.r3.c cVar = this.mView;
-                if (cVar != null && cVar.s() != null && this.mView.s().isShowing()) {
-                    c.a.d.f.m.g.d(this.mView.s(), getPageContext().getPageActivity());
+                mf8 mf8Var = this.mView;
+                if (mf8Var != null && mf8Var.s() != null && this.mView.s().isShowing()) {
+                    rg.d(this.mView.s(), getPageContext().getPageActivity());
                     return true;
                 }
                 stopTask();
@@ -1027,7 +1030,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 } else {
                     setResult(0);
                 }
-                c.a.o0.r.f0.b.g(getPageContext().getPageActivity(), 200, false);
+                rt4.g(getPageContext().getPageActivity(), 200, false);
                 finish();
                 return true;
             }
@@ -1052,8 +1055,8 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onRestoreInstanceState(bundle);
-            c.a.p0.r3.c cVar = this.mView;
-            if (cVar == null || cVar.p() == null || (obj = this.mView.p().getEditableText().toString()) == null) {
+            mf8 mf8Var = this.mView;
+            if (mf8Var == null || mf8Var.p() == null || (obj = this.mView.p().getEditableText().toString()) == null) {
                 return;
             }
             this.mView.p().setText(TbFaceManager.e().j(getPageContext().getContext(), obj));
@@ -1100,7 +1103,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void shareFailed(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            n.J(getPageContext().getContext(), i2);
+            oi.J(getPageContext().getContext(), i2);
             new Handler().postDelayed(new m(this, getPageContext().getPageActivity()), 3500L);
         }
     }
@@ -1110,9 +1113,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, onCancelListener) == null) {
             super.showLoadingDialog(str, onCancelListener);
-            c.a.o0.r.l0.a aVar = this.mWaitingDialog;
-            if (aVar != null) {
-                aVar.g(false);
+            yt4 yt4Var = this.mWaitingDialog;
+            if (yt4Var != null) {
+                yt4Var.g(false);
             }
         }
     }

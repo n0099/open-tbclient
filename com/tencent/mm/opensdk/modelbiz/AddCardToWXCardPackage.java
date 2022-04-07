@@ -17,13 +17,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 import org.json.JSONTokener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddCardToWXCardPackage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.AddCardToWXCardPackage";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,15 +94,15 @@ public class AddCardToWXCardPackage {
                     }
                     jSONStringer.endArray();
                     jSONStringer.endObject();
-                } catch (Exception e2) {
-                    Log.e(AddCardToWXCardPackage.TAG, "Req.toBundle exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    Log.e(AddCardToWXCardPackage.TAG, "Req.toBundle exception:" + e.getMessage());
                 }
                 bundle.putString("_wxapi_add_card_to_wx_card_list", jSONStringer.toString());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,15 +210,15 @@ public class AddCardToWXCardPackage {
                     }
                     jSONStringer.endArray();
                     jSONStringer.endObject();
-                } catch (Exception e2) {
-                    Log.e(AddCardToWXCardPackage.TAG, "Resp.toBundle exception:" + e2.getMessage());
+                } catch (Exception e) {
+                    Log.e(AddCardToWXCardPackage.TAG, "Resp.toBundle exception:" + e.getMessage());
                 }
                 bundle.putString("_wxapi_add_card_to_wx_card_list", jSONStringer.toString());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class WXCardItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

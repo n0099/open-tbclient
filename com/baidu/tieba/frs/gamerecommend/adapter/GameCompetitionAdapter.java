@@ -5,10 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.k.b;
-import c.a.d.f.p.n;
-import c.a.p0.f1.k;
-import c.a.p0.o0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,42 +20,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
+import com.repackage.dg;
+import com.repackage.eg;
+import com.repackage.id6;
+import com.repackage.o26;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
+public class GameCompetitionAdapter extends id6<o26, CardFrsGameCompetitionHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
-    public b<CardFrsGameCompetitionItemView> u;
+    public dg<CardFrsGameCompetitionItemView> u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class CardFrsGameCompetitionHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f32580b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f32581c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public CardFrsGameCompetitionLayout f32582d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f32583e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public View f32584f;
+        public TextView b;
+        public FlexibleHorizontalScrollView c;
+        public CardFrsGameCompetitionLayout d;
+        public View e;
+        public View f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardFrsGameCompetitionHolder(GameCompetitionAdapter gameCompetitionAdapter, View view) {
-            super(view);
+        public CardFrsGameCompetitionHolder(GameCompetitionAdapter gameCompetitionAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameCompetitionAdapter, view};
+                Object[] objArr = {gameCompetitionAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -70,20 +61,20 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090528);
-            this.f32580b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090c3c);
-            this.f32581c = (FlexibleHorizontalScrollView) view.findViewById(R.id.obfuscated_res_0x7f090c3b);
-            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view.findViewById(R.id.obfuscated_res_0x7f090c3a);
-            this.f32582d = cardFrsGameCompetitionLayout;
-            cardFrsGameCompetitionLayout.setItemSpace(n.f(view.getContext(), R.dimen.tbds20));
-            this.f32582d.setItemWidth(((n.f(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.f32583e = view.findViewById(R.id.obfuscated_res_0x7f0907f5);
-            this.f32584f = view.findViewById(R.id.obfuscated_res_0x7f0907f6);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090530);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c49);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c48);
+            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c47);
+            this.d = cardFrsGameCompetitionLayout;
+            cardFrsGameCompetitionLayout.setItemSpace(oi.f(view2.getContext(), R.dimen.tbds20));
+            this.d.setItemWidth(((oi.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907fe);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907ff);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements c.a.d.f.k.c<CardFrsGameCompetitionItemView> {
+    /* loaded from: classes3.dex */
+    public class a implements eg<CardFrsGameCompetitionItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameCompetitionAdapter a;
@@ -108,7 +99,7 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         public /* bridge */ /* synthetic */ CardFrsGameCompetitionItemView a(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView) {
             CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView2 = cardFrsGameCompetitionItemView;
             e(cardFrsGameCompetitionItemView2);
@@ -117,7 +108,7 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         public /* bridge */ /* synthetic */ CardFrsGameCompetitionItemView c(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView) {
             CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView2 = cardFrsGameCompetitionItemView;
             h(cardFrsGameCompetitionItemView2);
@@ -131,7 +122,7 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         /* renamed from: f */
         public void b(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView) {
             Interceptable interceptable = $ic;
@@ -140,7 +131,7 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.k.c
+        @Override // com.repackage.eg
         /* renamed from: g */
         public CardFrsGameCompetitionItemView d() {
             InterceptResult invokeV;
@@ -179,41 +170,41 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
                 return;
             }
         }
-        this.u = new b<>(new a(this), 10, 0);
+        this.u = new dg<>(new a(this), 10, 0);
         this.t = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: n0 */
     public CardFrsGameCompetitionHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d018a, viewGroup, false));
-            cardFrsGameCompetitionHolder.f32582d.setViewPool(this.u);
+            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d018e, viewGroup, false));
+            cardFrsGameCompetitionHolder.d.setViewPool(this.u);
             return cardFrsGameCompetitionHolder;
         }
         return (CardFrsGameCompetitionHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.f1.k, c.a.d.o.e.a
+    @Override // com.repackage.id6, com.repackage.ho
     /* renamed from: o0 */
-    public View S(int i, View view, ViewGroup viewGroup, c cVar, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, o26 o26Var, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, cVar, cardFrsGameCompetitionHolder})) == null) {
-            if (cVar != null && cVar.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o26Var, cardFrsGameCompetitionHolder})) == null) {
+            if (o26Var != null && o26Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameCompetitionHolder.f32580b.setText(cVar.a().title);
-                cardFrsGameCompetitionHolder.f32580b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
-                cardFrsGameCompetitionHolder.f32582d.setPageContext(this.k);
-                cardFrsGameCompetitionHolder.f32582d.setData(cVar.a().sub_nodes);
-                cardFrsGameCompetitionHolder.f32581c.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.f32582d.getChildItemWidth());
+                cardFrsGameCompetitionHolder.b.setText(o26Var.a().title);
+                cardFrsGameCompetitionHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
+                cardFrsGameCompetitionHolder.d.setPageContext(this.k);
+                cardFrsGameCompetitionHolder.d.setData(o26Var.a().sub_nodes);
+                cardFrsGameCompetitionHolder.c.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.d.getChildItemWidth());
                 cardFrsGameCompetitionHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
-                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f32583e, R.color.CAM_X0205);
-                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f32584f, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.e, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f, R.color.CAM_X0205);
             }
             return cardFrsGameCompetitionHolder.b();
         }

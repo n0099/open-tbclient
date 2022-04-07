@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,7 @@ import com.tachikoma.core.utility.UriUtil;
 import java.io.File;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKImage extends TKBase<RoundImageView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -243,8 +244,8 @@ public class TKImage extends TKBase<RoundImageView> {
                                     }
                                 }
                             });
-                        } catch (Exception e2) {
-                            Logger.logE("TKImage TKCDNUrlInner fromJson exception", e2);
+                        } catch (Exception e) {
+                            Logger.logE("TKImage TKCDNUrlInner fromJson exception", e);
                         }
                     }
                 }
@@ -288,8 +289,8 @@ public class TKImage extends TKBase<RoundImageView> {
                         return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new TKCDNUrlInner() : (TKCDNUrlInner) invokeV.objValue;
                     }
                 });
-            } catch (Exception e2) {
-                Logger.logE("TKImage TKCDNUrlInner fromJson exception", e2);
+            } catch (Exception e) {
+                Logger.logE("TKImage TKCDNUrlInner fromJson exception", e);
                 list = null;
             }
             if (list == null || list.isEmpty()) {
@@ -379,11 +380,11 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void onShadowSet(float f2) {
+    public void onShadowSet(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            super.onShadowSet(f2);
-            getView().onShadowSet(f2);
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            super.onShadowSet(f);
+            getView().onShadowSet(f);
         }
     }
 
@@ -413,11 +414,11 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setBorderWidth(double d2) {
+    public void setBorderWidth(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
-            super.setBorderWidth(d2);
-            getView().setBorderWidth(TKConverter.dp2px(Tachikoma.sApplication, (float) d2));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+            super.setBorderWidth(d);
+            getView().setBorderWidth(TKConverter.dp2px(Tachikoma.sApplication, (float) d));
         }
     }
 
@@ -441,60 +442,60 @@ public class TKImage extends TKBase<RoundImageView> {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public void setContentMode(String str) {
-        char c2;
-        RoundImageView view;
+        char c;
+        RoundImageView view2;
         ImageView.ScaleType scaleType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             switch (str.hashCode()) {
                 case -1881872635:
-                    if (str.equals("stretch")) {
-                        c2 = 3;
+                    if (str.equals(CriusAttrConstants.STRETCH)) {
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1008619738:
                     if (str.equals("origin")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 94852023:
                     if (str.equals(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 951526612:
                     if (str.equals("contain")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0) {
-                view = getView();
+            if (c == 0) {
+                view2 = getView();
                 scaleType = ImageView.ScaleType.FIT_START;
-            } else if (c2 == 1) {
-                view = getView();
+            } else if (c == 1) {
+                view2 = getView();
                 scaleType = ImageView.ScaleType.FIT_CENTER;
-            } else if (c2 == 2) {
-                view = getView();
+            } else if (c == 2) {
+                view2 = getView();
                 scaleType = ImageView.ScaleType.CENTER_CROP;
-            } else if (c2 != 3) {
+            } else if (c != 3) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 scaleType = ImageView.ScaleType.FIT_XY;
             }
-            view.setScaleType(scaleType);
+            view2.setScaleType(scaleType);
         }
     }
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bh implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class bh implements ServiceConnection {
                     try {
                         messenger = this.a.f816b;
                         messenger.send(message);
-                    } catch (RemoteException e2) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    } catch (RemoteException e) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
                 list2 = this.a.f814a;

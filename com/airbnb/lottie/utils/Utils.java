@@ -25,7 +25,7 @@ import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 import java.nio.channels.ClosedChannelException;
 import javax.net.ssl.SSLException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Utils {
     public static final int SECOND_IN_NANOS = 1000000000;
     public static final ThreadLocal<PathMeasure> threadLocalPathMeasure = new ThreadLocal<PathMeasure>() { // from class: com.airbnb.lottie.utils.Utils.1
@@ -73,8 +73,8 @@ public final class Utils {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (RuntimeException e2) {
-                throw e2;
+            } catch (RuntimeException e) {
+                throw e;
             } catch (Exception unused) {
             }
         }
@@ -84,10 +84,10 @@ public final class Utils {
         Path path = new Path();
         path.moveTo(pointF.x, pointF.y);
         if (pointF3 != null && pointF4 != null && (pointF3.length() != 0.0f || pointF4.length() != 0.0f)) {
-            float f2 = pointF.x;
-            float f3 = pointF2.x;
-            float f4 = pointF2.y;
-            path.cubicTo(pointF3.x + f2, pointF.y + pointF3.y, f3 + pointF4.x, f4 + pointF4.y, f3, f4);
+            float f = pointF.x;
+            float f2 = pointF2.x;
+            float f3 = pointF2.y;
+            path.cubicTo(pointF3.x + f, pointF.y + pointF3.y, f2 + pointF4.x, f3 + pointF4.y, f2, f3);
         } else {
             path.lineTo(pointF2.x, pointF2.y);
         }
@@ -112,9 +112,9 @@ public final class Utils {
         float[] fArr = threadLocalPoints.get();
         fArr[0] = 0.0f;
         fArr[1] = 0.0f;
-        float f2 = INV_SQRT_2;
-        fArr[2] = f2;
-        fArr[3] = f2;
+        float f = INV_SQRT_2;
+        fArr[2] = f;
+        fArr[3] = f;
         matrix.mapPoints(fArr);
         return (float) Math.hypot(fArr[2] - fArr[0], fArr[3] - fArr[1]);
     }
@@ -129,15 +129,15 @@ public final class Utils {
         return fArr[0] == fArr[2] || fArr[1] == fArr[3];
     }
 
-    public static int hashFor(float f2, float f3, float f4, float f5) {
-        int i = f2 != 0.0f ? (int) (527 * f2) : 17;
+    public static int hashFor(float f, float f2, float f3, float f4) {
+        int i = f != 0.0f ? (int) (527 * f) : 17;
+        if (f2 != 0.0f) {
+            i = (int) (i * 31 * f2);
+        }
         if (f3 != 0.0f) {
             i = (int) (i * 31 * f3);
         }
-        if (f4 != 0.0f) {
-            i = (int) (i * 31 * f4);
-        }
-        return f5 != 0.0f ? (int) (i * 31 * f5) : i;
+        return f4 != 0.0f ? (int) (i * 31 * f4) : i;
     }
 
     public static boolean isAtLeastVersion(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -192,21 +192,21 @@ public final class Utils {
         L.endSection("Utils#saveLayer");
     }
 
-    public static void applyTrimPathIfNeeded(Path path, float f2, float f3, float f4) {
+    public static void applyTrimPathIfNeeded(Path path, float f, float f2, float f3) {
         L.beginSection("applyTrimPathIfNeeded");
         PathMeasure pathMeasure = threadLocalPathMeasure.get();
         Path path2 = threadLocalTempPath.get();
         Path path3 = threadLocalTempPath2.get();
         pathMeasure.setPath(path, false);
         float length = pathMeasure.getLength();
-        if (f2 == 1.0f && f3 == 0.0f) {
+        if (f == 1.0f && f2 == 0.0f) {
             L.endSection("applyTrimPathIfNeeded");
-        } else if (length >= 1.0f && Math.abs((f3 - f2) - 1.0f) >= 0.01d) {
+        } else if (length >= 1.0f && Math.abs((f2 - f) - 1.0f) >= 0.01d) {
+            float f4 = f * length;
             float f5 = f2 * length;
             float f6 = f3 * length;
-            float f7 = f4 * length;
-            float min = Math.min(f5, f6) + f7;
-            float max = Math.max(f5, f6) + f7;
+            float min = Math.min(f4, f5) + f6;
+            float max = Math.max(f4, f5) + f6;
             if (min >= length && max >= length) {
                 min = MiscUtils.floorMod(min, length);
                 max = MiscUtils.floorMod(max, length);

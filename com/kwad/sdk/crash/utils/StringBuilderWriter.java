@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.utils;
 
 import java.io.Serializable;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class StringBuilderWriter extends Writer implements Serializable {
     public static final long serialVersionUID = 4424285024471074820L;
     public final StringBuilder builder;
@@ -21,8 +21,8 @@ public class StringBuilderWriter extends Writer implements Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.io.Writer, java.lang.Appendable
-    public Writer append(char c2) {
-        this.builder.append(c2);
+    public Writer append(char c) {
+        this.builder.append(c);
         return this;
     }
 

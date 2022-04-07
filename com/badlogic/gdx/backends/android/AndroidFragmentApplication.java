@@ -12,16 +12,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import c.b.b.c;
-import c.b.b.e;
-import c.b.b.l.a.d;
-import c.b.b.l.a.f;
-import c.b.b.l.a.h;
-import c.b.b.l.a.k;
-import c.b.b.l.a.m;
-import c.b.b.l.a.q;
-import c.b.b.q.g0;
-import c.b.b.q.j;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
@@ -34,39 +24,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a {
+import com.repackage.a1;
+import com.repackage.b1;
+import com.repackage.d1;
+import com.repackage.d2;
+import com.repackage.e8;
+import com.repackage.g2;
+import com.repackage.h7;
+import com.repackage.i2;
+import com.repackage.k2;
+import com.repackage.n2;
+import com.repackage.p2;
+import com.repackage.t2;
+import com.repackage.y0;
+import com.repackage.y6;
+/* loaded from: classes.dex */
+public class AndroidFragmentApplication extends Fragment implements d2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public m f23712b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public d f23713c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public h f23714d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public q f23715e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c f23716f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Handler f23717g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f23718h;
-    public final c.b.b.q.a<Runnable> i;
-    public final c.b.b.q.a<Runnable> j;
-    public final g0<c.b.b.h> k;
-    public final c.b.b.q.a<f> l;
+    public n2 a;
+    public p2 b;
+    public g2 c;
+    public k2 d;
+    public t2 e;
+    public y0 f;
+    public Handler g;
+    public boolean h;
+    public final y6<Runnable> i;
+    public final y6<Runnable> j;
+    public final e8<d1> k;
+    public final y6<i2> l;
     public int m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
     }
 
@@ -83,7 +73,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
                 return;
             }
         }
-        j.a();
+        h7.a();
     }
 
     public AndroidFragmentApplication() {
@@ -99,39 +89,39 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
                 return;
             }
         }
-        this.f23718h = true;
-        this.i = new c.b.b.q.a<>();
-        this.j = new c.b.b.q.a<>();
-        this.k = new g0<>(c.b.b.h.class);
-        this.l = new c.b.b.q.a<>();
+        this.h = true;
+        this.i = new y6<>();
+        this.j = new y6<>();
+        this.k = new e8<>(d1.class);
+        this.l = new y6<>();
         this.m = 2;
     }
 
-    public e C0() {
+    public a1 B0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23713c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (a1) invokeV.objValue;
     }
 
-    public Files D0() {
+    public Files C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23714d : (Files) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Files) invokeV.objValue;
     }
 
-    public Net E0() {
+    public Net D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23715e : (Net) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Net) invokeV.objValue;
     }
 
-    public int F0() {
+    public int E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
-    public final boolean G0() {
+    public final boolean F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -164,31 +154,31 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     }
 
     @Override // com.badlogic.gdx.Application
-    public c getApplicationListener() {
+    public y0 getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23716f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (y0) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
+    @Override // com.repackage.d2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
     }
 
-    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
+    @Override // androidx.fragment.app.Fragment, com.repackage.d2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getActivity() : (Context) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
-    public c.b.b.q.a<Runnable> getExecutedRunnables() {
+    @Override // com.repackage.d2
+    public y6<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : (y6) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -198,32 +188,32 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : (Graphics) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
+    @Override // com.repackage.d2
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f23717g : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.g : (Handler) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
-    public m getInput() {
+    @Override // com.repackage.d2
+    public p2 getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23712b : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.b : (p2) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
-    public g0<c.b.b.h> getLifecycleListeners() {
+    @Override // com.repackage.d2
+    public e8<d1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : (g0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : (e8) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
-    public c.b.b.q.a<Runnable> getRunnables() {
+    @Override // com.repackage.d2
+    public y6<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.i : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.i : (y6) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -233,7 +223,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? Application.ApplicationType.Android : (Application.ApplicationType) invokeV.objValue;
     }
 
-    @Override // c.b.b.l.a.a
+    @Override // com.repackage.d2
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +245,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         if (interceptable == null || interceptable.invokeIIL(1048597, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             synchronized (this.l) {
-                for (int i3 = 0; i3 < this.l.f22717b; i3++) {
+                for (int i3 = 0; i3 < this.l.b; i3++) {
                     this.l.get(i3).onActivityResult(i, i2, intent);
                 }
             }
@@ -284,7 +274,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.f23712b.i(configuration.hardKeyboardHidden == 1);
+            this.b.h(configuration.hardKeyboardHidden == 1);
         }
     }
 
@@ -300,18 +290,18 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            boolean d2 = this.a.d();
-            boolean z = k.w;
-            k.w = true;
+            boolean d = this.a.d();
+            boolean z = n2.w;
+            n2.w = true;
             this.a.u(true);
             this.a.r();
-            this.f23712b.onPause();
-            if (isRemoving() || G0() || getActivity().isFinishing()) {
+            this.b.onPause();
+            if (isRemoving() || F0() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
-            k.w = z;
-            this.a.u(d2);
+            n2.w = z;
+            this.a.u(d);
             this.a.p();
             super.onPause();
         }
@@ -321,21 +311,21 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            c.b.b.f.a = this;
+            b1.a = this;
             getInput();
-            c.b.b.f.f22332c = C0();
-            c.b.b.f.f22333d = D0();
-            c.b.b.f.f22331b = getGraphics();
-            E0();
-            this.f23712b.onResume();
-            k kVar = this.a;
-            if (kVar != null) {
-                kVar.q();
+            b1.c = B0();
+            b1.d = C0();
+            b1.b = getGraphics();
+            D0();
+            this.b.onResume();
+            n2 n2Var = this.a;
+            if (n2Var != null) {
+                n2Var.q();
             }
-            if (!this.f23718h) {
+            if (!this.h) {
                 this.a.t();
             } else {
-                this.f23718h = false;
+                this.h = false;
             }
             super.onResume();
         }
@@ -347,16 +337,16 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         if (interceptable == null || interceptable.invokeL(1048603, this, runnable) == null) {
             synchronized (this.i) {
                 this.i.a(runnable);
-                c.b.b.f.f22331b.c();
+                b1.b.c();
             }
         }
     }
 
-    @Override // c.b.b.l.a.a
+    @Override // com.repackage.d2
     @TargetApi(19)
     public void useImmersiveMode(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && z && F0() >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && z && E0() >= 19) {
             this.a.m().setSystemUiVisibility(5894);
         }
     }

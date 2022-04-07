@@ -86,10 +86,10 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         }
     }
 
-    public static boolean isWhiteSpace(byte b2) {
+    public static boolean isWhiteSpace(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) ? b2 == 9 || b2 == 10 || b2 == 13 || b2 == 32 : invokeB.booleanValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b == 9 || b == 10 || b == 13 || b == 32 : invokeB.booleanValue;
     }
 
     private byte[] resizeBuffer(Context context) {
@@ -130,8 +130,8 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
             if (bArr == null) {
                 return false;
             }
-            for (byte b2 : bArr) {
-                if (this.pad == b2 || isInAlphabet(b2)) {
+            for (byte b : bArr) {
+                if (this.pad == b || isInAlphabet(b)) {
                     return true;
                 }
             }
@@ -223,14 +223,14 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? context.buffer != null : invokeL.booleanValue;
     }
 
-    public abstract boolean isInAlphabet(byte b2);
+    public abstract boolean isInAlphabet(byte b);
 
     public boolean isInAlphabet(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048594, this, bArr, z)) == null) {
-            for (byte b2 : bArr) {
-                if (!isInAlphabet(b2) && (!z || (b2 != this.pad && !isWhiteSpace(b2)))) {
+            for (byte b : bArr) {
+                if (!isInAlphabet(b) && (!z || (b != this.pad && !isWhiteSpace(b)))) {
                     return false;
                 }
             }
@@ -258,12 +258,12 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return invokeCommon.intValue;
     }
 
-    public BaseNCodec(int i, int i2, int i3, int i4, byte b2) {
+    public BaseNCodec(int i, int i2, int i3, int i4, byte b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Byte.valueOf(b2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Byte.valueOf(b)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -278,7 +278,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         this.encodedBlockSize = i2;
         this.lineLength = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
         this.chunkSeparatorLength = i4;
-        this.pad = b2;
+        this.pad = b;
     }
 
     @Override // org.apache.commons.base.BinaryEncoder

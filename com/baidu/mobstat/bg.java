@@ -15,16 +15,12 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f27306b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f27307c;
+    public static volatile boolean b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -42,9 +38,9 @@ public class bg {
                     if (i != 2) {
                         return false;
                     }
-                    return f27307c;
+                    return c;
                 }
-                return f27306b;
+                return b;
             }
             return a;
         }
@@ -63,10 +59,10 @@ public class bg {
             if (i == 0) {
                 a = z;
             } else if (i == 1) {
-                f27306b = z;
+                b = z;
             } else if (i != 2) {
             } else {
-                f27307c = z;
+                c = z;
             }
         }
     }

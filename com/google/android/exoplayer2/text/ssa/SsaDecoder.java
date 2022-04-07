@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SsaDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOGUE_LINE_PREFIX = "Dialogue: ";
@@ -122,7 +122,7 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
     }
 
     private void parseFormatLine(String str) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
             String[] split = TextUtils.split(str.substring(8), ",");
@@ -135,25 +135,25 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
                 int hashCode = lowerInvariant.hashCode();
                 if (hashCode == 100571) {
                     if (lowerInvariant.equals("end")) {
-                        c2 = 1;
+                        c = 1;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else if (hashCode != 3556653) {
                     if (hashCode == 109757538 && lowerInvariant.equals("start")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else {
                     if (lowerInvariant.equals("text")) {
-                        c2 = 2;
+                        c = 2;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     this.formatStartIndex = i;
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     this.formatEndIndex = i;
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     this.formatTextIndex = i;
                 }
             }

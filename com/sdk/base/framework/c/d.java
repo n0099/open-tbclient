@@ -11,9 +11,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f42566b;
+    public long b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -40,7 +38,7 @@ public final class d {
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f42566b = j;
+            this.b = j;
         }
     }
 
@@ -54,14 +52,14 @@ public final class d {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42566b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "_$101005Bean{url='" + this.a + "', time=" + this.f42566b + '}';
+            return "_$101005Bean{url='" + this.a + "', time=" + this.b + '}';
         }
         return (String) invokeV.objValue;
     }

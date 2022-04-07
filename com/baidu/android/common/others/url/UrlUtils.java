@@ -27,7 +27,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class UrlUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern COARSE_WEB_URL;
@@ -138,11 +138,11 @@ public final class UrlUtils {
             }
             try {
                 return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), str2);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return str;
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
                 return str;
             }
         }
@@ -166,8 +166,8 @@ public final class UrlUtils {
             String str2 = null;
             try {
                 str2 = new URL(str).getQuery();
-            } catch (MalformedURLException e2) {
-                Log.e("UrlUtils", e2.toString());
+            } catch (MalformedURLException e) {
+                Log.e("UrlUtils", e.toString());
             }
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -245,8 +245,8 @@ public final class UrlUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             try {
                 return new URL(str).getHost();
-            } catch (MalformedURLException e2) {
-                Log.e("UrlUtils", "Incorrect url: " + e2.getMessage());
+            } catch (MalformedURLException e) {
+                Log.e("UrlUtils", "Incorrect url: " + e.getMessage());
                 return null;
             }
         }
@@ -299,8 +299,8 @@ public final class UrlUtils {
                 String[] split = str2.split("=");
                 try {
                     hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e2) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
                 }
             }
             return hashMap;
@@ -368,8 +368,8 @@ public final class UrlUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
             try {
                 return COARSE_WEB_URL.matcher(str).matches();
-            } catch (Exception e2) {
-                Log.e("UrlUtils", "isValidUrl ： query.matcher failed! " + e2.toString());
+            } catch (Exception e) {
+                Log.e("UrlUtils", "isValidUrl ： query.matcher failed! " + e.toString());
                 return false;
             }
         }

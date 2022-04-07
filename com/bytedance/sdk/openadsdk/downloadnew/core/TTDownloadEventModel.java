@@ -1,26 +1,22 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TTDownloadEventModel {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f38296b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public JSONObject f38297c;
+    public String b;
+    public JSONObject c;
 
     public static TTDownloadEventModel builder() {
         return new TTDownloadEventModel();
     }
 
     public JSONObject getExtJson() {
-        return this.f38297c;
+        return this.c;
     }
 
     public String getLabel() {
-        return this.f38296b;
+        return this.b;
     }
 
     public String getTag() {
@@ -28,12 +24,12 @@ public class TTDownloadEventModel {
     }
 
     public TTDownloadEventModel setExtJson(JSONObject jSONObject) {
-        this.f38297c = jSONObject;
+        this.c = jSONObject;
         return this;
     }
 
     public TTDownloadEventModel setLabel(String str) {
-        this.f38296b = str;
+        this.b = str;
         return this;
     }
 

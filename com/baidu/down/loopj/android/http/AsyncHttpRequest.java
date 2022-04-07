@@ -39,7 +39,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AsyncHttpRequest implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -66,7 +66,7 @@ public class AsyncHttpRequest implements Runnable {
     public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5562528406378234456L;
@@ -87,7 +87,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class HandlerRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4422626752285372402L;
@@ -230,8 +230,8 @@ public class AsyncHttpRequest implements Runnable {
                     if (url2 != null && !url2.equals(url)) {
                         this.responseHandler.sendRedirectMessage(url2);
                     }
-                } catch (RedirectException e2) {
-                    throw e2;
+                } catch (RedirectException e) {
+                    throw e;
                 }
             }
             if (this.responseHandler != null) {
@@ -250,12 +250,12 @@ public class AsyncHttpRequest implements Runnable {
                     }
                 }
             }
-        } catch (IOException e3) {
-            if (e3 instanceof ConnectTimeoutException) {
+        } catch (IOException e2) {
+            if (e2 instanceof ConnectTimeoutException) {
                 this.mICommonRequestHandler.closeConnection();
             }
             if (!this.isInterrupt) {
-                throw e3;
+                throw e2;
             }
         }
     }
@@ -310,10 +310,10 @@ public class AsyncHttpRequest implements Runnable {
                             throw new HandlerCdnRedirectException();
                         }
                     } catch (HandlerRetryException unused2) {
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
                         this.mFailType = 0;
                         processRange(true);
-                        e2.printStackTrace(printWriter);
+                        e.printStackTrace(printWriter);
                         printWriter.append((CharSequence) ("-----" + SystemClock.elapsedRealtime() + "-----\n"));
                         if (!this.responseHandler.mSupportRange) {
                             printWriter.append((CharSequence) "\n### cannot support range!");
@@ -324,19 +324,19 @@ public class AsyncHttpRequest implements Runnable {
                             if (this.mICommonRequestHandler.isHttpRequestNull()) {
                                 throw new HandlerCdnRedirectException();
                             }
-                        } else if (skipHttpsCertificate(e2)) {
+                        } else if (skipHttpsCertificate(e)) {
                             this.mSkipHttpsCertificate = false;
                             this.mICommonRequestHandler.setTlsCertSkip(true);
-                        } else if (this.mHttpRetryStrategyHandler.isAcquireRetryStrategy(this.mNeedAcquiredRetryStrategy, e2, this.mRetryFrequency)) {
+                        } else if (this.mHttpRetryStrategyHandler.isAcquireRetryStrategy(this.mNeedAcquiredRetryStrategy, e, this.mRetryFrequency)) {
                             if (this.mNeedAcquiredRetryStrategy) {
-                                this.mHttpRetryStrategyHandler.setRetryException(e2);
+                                this.mHttpRetryStrategyHandler.setRetryException(e);
                             } else {
                                 this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader("host")));
                             }
                             this.mNeedAcquiredRetryStrategy = false;
                             this.mRequestStage = 2;
                             synchronized (this.responseHandler.mtask) {
-                                this.mHttpRetryStrategyHandler.retryStrategy(e2, new HttpRetryStrategyHandler.OnFetchDataResultListener(this) { // from class: com.baidu.down.loopj.android.http.AsyncHttpRequest.1
+                                this.mHttpRetryStrategyHandler.retryStrategy(e, new HttpRetryStrategyHandler.OnFetchDataResultListener(this) { // from class: com.baidu.down.loopj.android.http.AsyncHttpRequest.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AsyncHttpRequest this$0;
@@ -391,7 +391,7 @@ public class AsyncHttpRequest implements Runnable {
                             this.executionCount = i;
                             int i2 = this.executionMaxCount + 1;
                             this.executionMaxCount = i2;
-                            z = iCommonRequestHandler2.onRetryRequest(e2, i, i2);
+                            z = iCommonRequestHandler2.onRetryRequest(e, i, i2);
                             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
                             if (threadSpeedStat != null) {
                                 threadSpeedStat.drnum++;
@@ -455,8 +455,8 @@ public class AsyncHttpRequest implements Runnable {
                                                     break loop0;
                                                 }
                                             }
-                                        } catch (InterruptedException e3) {
-                                            e3.printStackTrace();
+                                        } catch (InterruptedException e2) {
+                                            e2.printStackTrace();
                                         }
                                     }
                                 } else {
@@ -466,7 +466,7 @@ public class AsyncHttpRequest implements Runnable {
                                 continue;
                             }
                         }
-                    } catch (NullPointerException e4) {
+                    } catch (NullPointerException e3) {
                         this.mFailType = 0;
                         if (this.mRequestStage == 2) {
                             this.mHttpRetryStrategyHandler.setRetryType(4);
@@ -474,7 +474,7 @@ public class AsyncHttpRequest implements Runnable {
                         }
                         this.mICommonRequestHandler.restoreRequest();
                         processRange(true);
-                        IOException iOException = new IOException("NPE in HttpClient" + e4.getMessage());
+                        IOException iOException = new IOException("NPE in HttpClient" + e3.getMessage());
                         iOException.printStackTrace(printWriter);
                         printWriter.append((CharSequence) ("-----" + SystemClock.elapsedRealtime() + "-----\n"));
                         if (!this.responseHandler.mSupportRange) {
@@ -546,8 +546,8 @@ public class AsyncHttpRequest implements Runnable {
             try {
                 j2 = Long.valueOf(str).longValue();
                 Long.valueOf(str2).longValue();
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
             if (z) {
                 j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
@@ -664,7 +664,7 @@ public class AsyncHttpRequest implements Runnable {
                                 return;
                             }
                         }
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         if (this.mThreadSpeedStat != null) {
                             this.mThreadSpeedStat.drs = "f";
                             this.mThreadSpeedStat.downEndTime = SystemClock.elapsedRealtime();
@@ -672,9 +672,9 @@ public class AsyncHttpRequest implements Runnable {
                         if (this.responseHandler != null) {
                             this.responseHandler.sendFinishMessage();
                             if (this.isBinaryRequest) {
-                                this.responseHandler.sendFailureMessage(e2, null, this.mFailType);
+                                this.responseHandler.sendFailureMessage(e, null, this.mFailType);
                             } else {
-                                this.responseHandler.sendFailureMessage(e2, null);
+                                this.responseHandler.sendFailureMessage(e, null);
                             }
                         }
                         if (i == 0) {

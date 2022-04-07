@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchedTaskSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -116,9 +116,9 @@ public class LaunchedTaskSpeedStats {
                 jSONObject.put("duration", this.mEndTimeStamp - this.mStartTimeStamp);
                 jSONObject.put(KEY_START_TIME, this.mStartTimeStamp);
                 jSONObject.put("stage", getSpeedNodeParts(getStatisticsRule().getChildParts()));
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    Log.e(TAG, e2.getMessage());
+                    Log.e(TAG, e.getMessage());
                 }
             }
             return jSONObject;
@@ -143,9 +143,9 @@ public class LaunchedTaskSpeedStats {
                     jSONObject.put(SpeedStatsMainTable.PART, speedNodeParts);
                 }
                 return jSONObject;
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    Log.e(TAG, e2.getMessage());
+                    Log.e(TAG, e.getMessage());
                     return null;
                 }
                 return null;
@@ -167,9 +167,9 @@ public class LaunchedTaskSpeedStats {
                 if (speedNodeJson != null) {
                     try {
                         jSONObject.put(ruleNode.getName(), speedNodeJson);
-                    } catch (JSONException e2) {
+                    } catch (JSONException e) {
                         if (DEBUG) {
-                            Log.e(TAG, e2.getMessage());
+                            Log.e(TAG, e.getMessage());
                         }
                     }
                 }
@@ -283,8 +283,8 @@ public class LaunchedTaskSpeedStats {
                     jSONObject.put("page", this.mUbcPage);
                     jSONObject.put("from", this.mUbcFrom);
                     jSONObject.put("ext", getNodePart());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {

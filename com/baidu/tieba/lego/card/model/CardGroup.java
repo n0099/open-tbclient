@@ -1,7 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b2.o.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tc7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CardGroup extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class CardGroup extends BaseCardInfo {
         this.mCards = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-            if (optJSONObject != null && (j = b.j(optJSONObject)) != null) {
+            if (optJSONObject != null && (j = tc7.j(optJSONObject)) != null) {
                 j.setGroupId(this.itemId);
                 this.mCards.add((BaseCardInfo) j);
             }

@@ -9,8 +9,6 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
-import c.a.d.f.p.n;
-import c.a.p0.l3.z;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -27,18 +25,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fa8;
+import com.repackage.jl8;
+import com.repackage.oi;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public c.a.p0.a4.o0.a o;
+    public jl8 o;
     public XiubaTbJsBridge p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,11 +67,11 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.G(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.H(str2, jsPromptResult) : invokeLLLLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,9 +126,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        c.a.p0.a4.o0.a aVar = new c.a.p0.a4.o0.a();
-        this.o = aVar;
-        aVar.a(new XiubaTbJsBridge(this.i));
+        jl8 jl8Var = new jl8();
+        this.o = jl8Var;
+        jl8Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -142,7 +143,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         this.n.setLayoutParams(layoutParams);
     }
 
-    public View D() {
+    public View E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -161,10 +162,10 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            D();
+            E();
             if (this.p == null) {
                 this.p = new XiubaTbJsBridge(this.i);
             }
@@ -178,14 +179,14 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: F */
-    public void t(ImmersiveWebViewCard immersiveWebViewCard, int i) {
+    /* renamed from: G */
+    public void u(ImmersiveWebViewCard immersiveWebViewCard, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, immersiveWebViewCard, i) != null) || TextUtils.isEmpty(immersiveWebViewCard.getPageUrl()) || this.n == null) {
         }
     }
 
-    public final boolean G(String str, JsPromptResult jsPromptResult) {
+    public final boolean H(String str, JsPromptResult jsPromptResult) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, jsPromptResult)) == null) {
@@ -198,8 +199,8 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                     return this.p.dealJsInterface(optString, optString2, optString3, jsPromptResult);
                 }
                 return false;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -208,8 +209,8 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: H */
-    public void u(ImmersiveWebViewCard immersiveWebViewCard) {
+    /* renamed from: I */
+    public void v(ImmersiveWebViewCard immersiveWebViewCard) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, immersiveWebViewCard) == null) || this.n == null) {
             return;
@@ -217,7 +218,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (immersiveWebViewCard.getHeight() > 0) {
             setWebviewHeight(immersiveWebViewCard.getHeight());
         } else {
-            setWebviewHeight(n.i(getContext()));
+            setWebviewHeight(oi.i(getContext()));
         }
         if (immersiveWebViewCard.mHasShown) {
             return;
@@ -225,17 +226,17 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.n, immersiveWebViewCard.getPageUrl());
         }
-        z.q().l().d(immersiveWebViewCard.getShowExtra(), this.a);
+        fa8.q().l().d(immersiveWebViewCard.getShowExtra(), this.a);
         immersiveWebViewCard.mHasShown = true;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cc, (ViewGroup) null);
-            E();
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cd, (ViewGroup) null);
+            F();
             return this.m;
         }
         return (View) invokeV.objValue;

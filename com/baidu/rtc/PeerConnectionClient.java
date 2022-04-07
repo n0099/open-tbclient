@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.j0;
+import com.repackage.ny9;
 import java.io.File;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -64,7 +64,7 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT = "googAutoGainControl";
@@ -140,7 +140,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public int videoWidth;
     public int videokbps;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class PCObserver implements PeerConnection.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +245,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onConnectionChange(PeerConnection.PeerConnectionState peerConnectionState) {
-            j0.$default$onConnectionChange(this, peerConnectionState);
+            ny9.$default$onConnectionChange(this, peerConnectionState);
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -474,7 +474,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onTrack(RtpTransceiver rtpTransceiver) {
-            j0.$default$onTrack(this, rtpTransceiver);
+            ny9.$default$onTrack(this, rtpTransceiver);
         }
 
         public void setConnection(JanusConnection janusConnection) {
@@ -486,7 +486,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface PeerConnectionEvents {
         void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger);
 
@@ -519,7 +519,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -608,7 +608,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SDPObserver implements SdpObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -782,7 +782,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -845,7 +845,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -975,8 +975,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     this.videoCapturerStopped = true;
                     this.videoCapturer.dispose();
                     this.videoCapturer = null;
-                } catch (InterruptedException e2) {
-                    throw new RuntimeException(e2);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
             Log.d(TAG, "Closing video source.");
@@ -1148,8 +1148,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 MediaCodecInfo mediaCodecInfo = null;
                 try {
                     mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
-                } catch (IllegalArgumentException e2) {
-                    Logging.e(TAG, "Cannot retrieve encoder codec info", e2);
+                } catch (IllegalArgumentException e) {
+                    Logging.e(TAG, "Cannot retrieve encoder codec info", e);
                 }
                 if (mediaCodecInfo != null && mediaCodecInfo.isEncoder() && mediaCodecInfo.getName().startsWith(MediaCodecVideoDecoder.supportedHisiH264HighProfileHwCodecPrefix)) {
                     z = true;
@@ -1467,10 +1467,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 });
                 this.executor.shutdown();
                 this.executor.awaitTermination(200L, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException e2) {
-                Log.d(TAG, "pc close interrupted exception:" + e2.getMessage());
-            } catch (Exception e3) {
-                Log.d(TAG, "pc close exception:" + e3.getMessage());
+            } catch (InterruptedException e) {
+                Log.d(TAG, "pc close interrupted exception:" + e.getMessage());
+            } catch (Exception e2) {
+                Log.d(TAG, "pc close exception:" + e2.getMessage());
             }
         }
     }
@@ -1740,11 +1740,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                             try {
                                 this.this$0.createMediaConstraintsInternal();
                                 this.this$0.createPeerConnectionInternal(this.val$renderEGLContext, this.val$handleId);
-                            } catch (Exception e2) {
+                            } catch (Exception e) {
                                 PeerConnectionClient peerConnectionClient = this.this$0;
-                                peerConnectionClient.reportError("Failed to create peer connection: " + e2.getMessage());
+                                peerConnectionClient.reportError("Failed to create peer connection: " + e.getMessage());
                                 ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
-                                throw e2;
+                                throw e;
                             }
                         }
                     }
@@ -1872,8 +1872,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     }
                     this.statsTimer.schedule(timerTask2, 0L, i);
                     return;
-                } catch (Exception e2) {
-                    Log.e(TAG, "Can not schedule statistics timer", e2);
+                } catch (Exception e) {
+                    Log.e(TAG, "Can not schedule statistics timer", e);
                     return;
                 }
             }
@@ -2407,7 +2407,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable() { // from class: c.a.h0.a
+                this.executor.execute(new Runnable() { // from class: com.repackage.ic1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

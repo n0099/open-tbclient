@@ -21,8 +21,6 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.f;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -34,7 +32,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.du4;
+import com.repackage.gz6;
+import com.repackage.oi;
+import com.repackage.pg;
+/* loaded from: classes3.dex */
 public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] I;
@@ -48,27 +50,13 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public final Animation G;
     public Runnable H;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f33378b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f33379c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f33380d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f33381e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f33382f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final NestedScrollingParentHelper f33383g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final NestedScrollingChildHelper f33384h;
+    public View b;
+    public boolean c;
+    public int d;
+    public float e;
+    public float f;
+    public final NestedScrollingParentHelper g;
+    public final NestedScrollingChildHelper h;
     public final int[] i;
     public final int[] j;
     public boolean k;
@@ -88,7 +76,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public int y;
     public boolean z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +115,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +145,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = this.a;
-                if (bigdaySwipeRefreshLayout.f33379c) {
+                if (bigdaySwipeRefreshLayout.c) {
                     bigdaySwipeRefreshLayout.A();
                     BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout2 = this.a;
                     bigdaySwipeRefreshLayout2.l = bigdaySwipeRefreshLayout2.s.getView().getTop();
@@ -182,8 +170,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements f.j {
+    /* loaded from: classes3.dex */
+    public class c implements du4.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BigdaySwipeRefreshLayout a;
@@ -206,7 +194,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.a = bigdaySwipeRefreshLayout;
         }
 
-        @Override // c.a.o0.r.l0.f.j
+        @Override // com.repackage.du4.j
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -221,7 +209,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
         }
 
-        @Override // c.a.o0.r.l0.f.j
+        @Override // com.repackage.du4.j
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -230,7 +218,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,15 +243,15 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
 
         @Override // android.view.animation.Animation
-        public void applyTransformation(float f2, Transformation transformation) {
+        public void applyTransformation(float f, Transformation transformation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                this.a.setAnimationProgress(1.0f - f2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                this.a.setAnimationProgress(1.0f - f);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +298,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +346,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class g extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -383,10 +371,10 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
 
         @Override // android.view.animation.Animation
-        public void applyTransformation(float f2, Transformation transformation) {
+        public void applyTransformation(float f, Transformation transformation) {
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
                 BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = this.a;
                 if (bigdaySwipeRefreshLayout.s == null) {
                     return;
@@ -398,12 +386,12 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                 }
                 BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout2 = this.a;
                 int i2 = bigdaySwipeRefreshLayout2.u;
-                this.a.G((i2 + ((int) ((i - i2) * f2))) - bigdaySwipeRefreshLayout2.s.getView().getTop(), false);
+                this.a.G((i2 + ((int) ((i - i2) * f))) - bigdaySwipeRefreshLayout2.s.getView().getTop(), false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class h extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -428,19 +416,19 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
 
         @Override // android.view.animation.Animation
-        public void applyTransformation(float f2, Transformation transformation) {
+        public void applyTransformation(float f, Transformation transformation) {
             BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout;
             k kVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) || (kVar = (bigdaySwipeRefreshLayout = this.a).s) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) || (kVar = (bigdaySwipeRefreshLayout = this.a).s) == null) {
                 return;
             }
             int i = bigdaySwipeRefreshLayout.u;
-            this.a.G((i + ((int) ((-i) * f2))) - kVar.getView().getTop(), false);
+            this.a.G((i + ((int) ((-i) * f))) - kVar.getView().getTop(), false);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class i extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -465,15 +453,15 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
 
         @Override // android.view.animation.Animation
-        public void applyTransformation(float f2, Transformation transformation) {
+        public void applyTransformation(float f, Transformation transformation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                this.a.w(f2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                this.a.w(f);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -511,7 +499,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface k extends BdSwipeRefreshLayout.i {
         void h();
 
@@ -600,8 +588,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (kVar != null) {
                 kVar.getView().setVisibility(8);
                 k kVar2 = this.s;
-                if (kVar2 instanceof c.a.o0.r.l0.f) {
-                    ((c.a.o0.r.l0.f) kVar2).I();
+                if (kVar2 instanceof du4) {
+                    ((du4) kVar2).I();
                 }
                 setColorViewAlpha(255);
                 G(this.v - this.l, true);
@@ -617,7 +605,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                 ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.A;
             }
             j(this.l, null, 400);
-            this.f33379c = false;
+            this.c = false;
             this.a = 4;
         }
     }
@@ -629,14 +617,14 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    public final void F(boolean z, boolean z2, f.i iVar) {
+    public final void F(boolean z, boolean z2, du4.i iVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), iVar}) == null) || this.f33379c == z) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), iVar}) == null) || this.c == z) {
             return;
         }
         q(z);
         n();
-        this.f33379c = z;
+        this.c = z;
         if (z) {
             h(this.l, this.D);
         } else {
@@ -652,9 +640,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
         kVar.getView().bringToFront();
         ViewCompat.offsetTopAndBottom(this.s.getView(), i2);
-        View view = this.f33378b;
-        if (view != null) {
-            ViewCompat.offsetTopAndBottom(view, i2);
+        View view2 = this.b;
+        if (view2 != null) {
+            ViewCompat.offsetTopAndBottom(view2, i2);
         }
         this.l = this.s.getView().getTop();
         if (!z || Build.VERSION.SDK_INT >= 11) {
@@ -668,7 +656,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
             float f3 = this.n;
-            int i2 = this.f33380d;
+            int i2 = this.d;
             if (f2 - f3 <= i2 || this.o) {
                 return;
             }
@@ -696,28 +684,28 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.f33384h.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.h.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f33384h.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.h.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.f33384h.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.h.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.f33384h.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.h.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup
@@ -735,7 +723,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public int getNestedScrollAxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f33383g.getNestedScrollAxes() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.g.getNestedScrollAxes() : invokeV.intValue;
     }
 
     public k getProgressView() {
@@ -767,7 +755,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f33384h.hasNestedScrollingParent() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.h.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
     public final void i(int i2, Animation.AnimationListener animationListener) {
@@ -790,7 +778,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f33384h.isNestedScrollingEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     public void j(int i2, Animation.AnimationListener animationListener, int i3) {
@@ -812,13 +800,13 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ViewCompat.canScrollVertically(this.f33378b, -1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ViewCompat.canScrollVertically(this.b, -1) : invokeV.booleanValue;
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f33379c = false;
+            this.c = false;
             j(this.l, new f(this), 200);
             if ((getLayoutParams() instanceof FrameLayout.LayoutParams) && ((FrameLayout.LayoutParams) getLayoutParams()).topMargin == 0) {
                 ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = this.A;
@@ -826,7 +814,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
     }
 
-    public final void m(f.i iVar) {
+    public final void m(du4.i iVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048599, this, iVar) == null) || this.s == null) {
             return;
@@ -834,12 +822,12 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         this.a = 3;
         if (iVar != null && u()) {
             k kVar = this.s;
-            if (kVar instanceof c.a.o0.r.l0.f) {
-                ((c.a.o0.r.l0.f) kVar).R(iVar);
+            if (kVar instanceof du4) {
+                ((du4) kVar).R(iVar);
                 setExecuteMsgAnimation(true);
                 this.s.d();
-                c.a.d.f.m.e.a().removeCallbacks(this.H);
-                c.a.d.f.m.e.a().postDelayed(this.H, 3000L);
+                pg.a().removeCallbacks(this.H);
+                pg.a().postDelayed(this.H, 3000L);
                 return;
             }
         }
@@ -850,12 +838,12 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.f33378b == null) {
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.b == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 k kVar = this.s;
                 if (kVar == null || !childAt.equals(kVar.getView())) {
-                    this.f33378b = childAt;
+                    this.b = childAt;
                     return;
                 }
             }
@@ -869,7 +857,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             return;
         }
         this.a = 4;
-        this.f33379c = false;
+        this.c = false;
         kVar.getView().clearAnimation();
         this.s.onFinish();
         if (this.B) {
@@ -946,11 +934,11 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                 if (getChildCount() == 0) {
                     return;
                 }
-                if (this.f33378b == null) {
+                if (this.b == null) {
                     n();
                 }
-                View view = this.f33378b;
-                if (view == null) {
+                View view2 = this.b;
+                if (view2 == null) {
                     return;
                 }
                 int paddingLeft = getPaddingLeft();
@@ -959,7 +947,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                 } else {
                     paddingTop = (getPaddingTop() + this.l) - this.v;
                 }
-                view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
+                view2.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
                 k kVar = this.s;
                 if (kVar != null) {
                     int measuredWidth2 = kVar.getView().getMeasuredWidth();
@@ -970,9 +958,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
                             kVar2.getView().layout(paddingLeft, 0, measuredWidth2 + paddingLeft, measuredHeight2);
                             return;
                         }
-                        View view2 = kVar2.getView();
+                        View view3 = kVar2.getView();
                         int i6 = this.l;
-                        view2.layout(paddingLeft, i6, measuredWidth2 + paddingLeft, measuredHeight2 + i6);
+                        view3.layout(paddingLeft, i6, measuredWidth2 + paddingLeft, measuredHeight2 + i6);
                     }
                 }
             }
@@ -984,21 +972,21 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048605, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f33378b == null) {
+            if (this.b == null) {
                 n();
             }
-            View view = this.f33378b;
-            if (view == null) {
+            View view2 = this.b;
+            if (view2 == null) {
                 return;
             }
-            view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+            view2.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
             k kVar = this.s;
             if (kVar != null) {
                 if (this.B) {
-                    kVar.getView().measure(View.MeasureSpec.makeMeasureSpec(n.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.C, 1073741824));
+                    kVar.getView().measure(View.MeasureSpec.makeMeasureSpec(oi.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.C, 1073741824));
                     this.v = -this.C;
                 } else {
-                    kVar.getView().measure(View.MeasureSpec.makeMeasureSpec(n.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.y, 1073741824));
+                    kVar.getView().measure(View.MeasureSpec.makeMeasureSpec(oi.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(this.y, 1073741824));
                     this.v = -this.y;
                 }
                 this.t = -1;
@@ -1013,11 +1001,11 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
+    public boolean onNestedFling(View view2, float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             int i3 = this.a;
             if ((i3 == 3 || i3 == 2) && f3 > 0.0f && (i2 = this.l) > this.v) {
                 j(i2, null, 200);
@@ -1028,11 +1016,11 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f2, float f3) {
+    public boolean onNestedPreFling(View view2, float f2, float f3) {
         InterceptResult invokeCommon;
         k kVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int i2 = this.a;
             if (i2 == 3 || i2 == 2 || (kVar = this.s) == null || kVar.getView() == null || this.s.getView().getBottom() <= 0) {
                 return dispatchNestedPreFling(f2, f3);
@@ -1043,24 +1031,24 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
+    public void onNestedPreScroll(View view2, int i2, int i3, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
             if (i3 > 0) {
-                float f2 = this.f33382f;
+                float f2 = this.f;
                 if (f2 > 0.0f) {
                     float f3 = i3;
                     if (f3 > f2) {
                         iArr[1] = i3 - ((int) f2);
-                        this.f33382f = 0.0f;
+                        this.f = 0.0f;
                     } else {
-                        this.f33382f = f2 - f3;
+                        this.f = f2 - f3;
                         iArr[1] = i3;
                     }
-                    v(this.f33382f);
+                    v(this.f);
                 }
             }
-            if (this.s != null && this.z && i3 > 0 && this.f33382f == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
+            if (this.s != null && this.z && i3 > 0 && this.f == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
                 this.s.getView().setVisibility(8);
             }
             int[] iArr2 = this.i;
@@ -1080,48 +1068,48 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
+    public void onNestedScroll(View view2, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             dispatchNestedScroll(i2, i3, i4, i5, this.j);
             int i6 = i5 + this.j[1];
-            if (i6 >= 0 || k() || this.f33379c) {
+            if (i6 >= 0 || k() || this.c) {
                 return;
             }
-            float abs = this.f33382f + Math.abs(i6);
-            this.f33382f = abs;
+            float abs = this.f + Math.abs(i6);
+            this.f = abs;
             v(abs);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i2) {
+    public void onNestedScrollAccepted(View view2, View view3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048610, this, view, view2, i2) == null) {
-            this.f33383g.onNestedScrollAccepted(view, view2, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048610, this, view2, view3, i2) == null) {
+            this.g.onNestedScrollAccepted(view2, view3, i2);
             startNestedScroll(i2 & 2);
-            this.f33382f = 0.0f;
+            this.f = 0.0f;
             this.k = true;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i2) {
+    public boolean onStartNestedScroll(View view2, View view3, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048611, this, view, view2, i2)) == null) ? (!isEnabled() || this.q || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048611, this, view2, view3, i2)) == null) ? (!isEnabled() || this.q || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
+    public void onStopNestedScroll(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, view) == null) {
-            this.f33383g.onStopNestedScroll(view);
+        if (interceptable == null || interceptable.invokeL(1048612, this, view2) == null) {
+            this.g.onStopNestedScroll(view2);
             this.k = false;
-            float f2 = this.f33382f;
+            float f2 = this.f;
             if (f2 > 0.0f) {
                 p(f2);
-                this.f33382f = 0.0f;
+                this.f = 0.0f;
             }
             stopNestedScroll();
         }
@@ -1139,7 +1127,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             if (this.q && actionMasked == 0) {
                 this.q = false;
             }
-            if (!isEnabled() || this.q || k() || this.f33379c || this.k) {
+            if (!isEnabled() || this.q || k() || this.c || this.k) {
                 return false;
             }
             if (actionMasked == 0) {
@@ -1198,7 +1186,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.a = 6;
             this.s.l();
             ((FrameLayout.LayoutParams) getLayoutParams()).topMargin = 0;
-            this.f33379c = false;
+            this.c = false;
             i(this.l, new e(this));
         } else if (this.l - this.v > this.w) {
             E(true, true);
@@ -1216,8 +1204,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.B = false;
             if (u()) {
                 k kVar = this.s;
-                if (kVar instanceof c.a.o0.r.l0.f) {
-                    ((c.a.o0.r.l0.f) kVar).I();
+                if (kVar instanceof du4) {
+                    ((du4) kVar).I();
                 }
             }
         }
@@ -1227,7 +1215,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             n();
-            this.f33379c = false;
+            this.c = false;
             w(1.0f);
             C();
         }
@@ -1237,9 +1225,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-            if (Build.VERSION.SDK_INT >= 21 || !(this.f33378b instanceof AbsListView)) {
-                View view = this.f33378b;
-                if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
+            if (Build.VERSION.SDK_INT >= 21 || !(this.b instanceof AbsListView)) {
+                View view2 = this.b;
+                if (view2 == null || ViewCompat.isNestedScrollingEnabled(view2)) {
                     super.requestDisallowInterceptTouchEvent(z);
                 }
             }
@@ -1270,7 +1258,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void setCustomDistances(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048620, this, i2, i3, i4) == null) {
-            this.f33381e = i3;
+            this.e = i3;
             this.w = i2;
             this.y = i4;
             int i5 = -i4;
@@ -1295,8 +1283,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void setExecuteMsgAnimation(boolean z) {
         k kVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && (kVar = this.s) != null && (kVar instanceof c.a.o0.r.l0.f)) {
-            ((c.a.o0.r.l0.f) kVar).P(z);
+        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && (kVar = this.s) != null && (kVar instanceof du4)) {
+            ((du4) kVar).P(z);
         }
     }
 
@@ -1304,7 +1292,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            this.f33384h.setNestedScrollingEnabled(z);
+            this.h.setNestedScrollingEnabled(z);
         }
     }
 
@@ -1322,8 +1310,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof c.a.p0.q1.i.i.a) {
-                ((c.a.p0.q1.i.i.a) kVar).T(new c(this));
+            if (kVar instanceof gz6) {
+                ((gz6) kVar).T(new c(this));
             }
         }
     }
@@ -1339,21 +1327,21 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
     public boolean startNestedScroll(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) ? this.f33384h.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) ? this.h.startNestedScroll(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            this.f33384h.stopNestedScroll();
+            this.h.stopNestedScroll();
         }
     }
 
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.f33379c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     public boolean u() {
@@ -1361,8 +1349,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
             k kVar = this.s;
-            if (kVar != null && (kVar instanceof c.a.o0.r.l0.f)) {
-                return ((c.a.o0.r.l0.f) kVar).N();
+            if (kVar != null && (kVar instanceof du4)) {
+                return ((du4) kVar).N();
             }
             return false;
         }
@@ -1376,9 +1364,9 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         if (!(interceptable == null || interceptable.invokeF(1048630, this, f2) == null) || this.s == null) {
             return;
         }
-        float min = Math.min(1.0f, Math.abs(f2 / this.f33381e));
+        float min = Math.min(1.0f, Math.abs(f2 / this.e));
         Math.max(min - 0.4d, 0.0d);
-        float abs = Math.abs(f2) - this.f33381e;
+        float abs = Math.abs(f2) - this.e;
         int i3 = this.w;
         if (this.s.j() > 0) {
             i3 = this.s.j();
@@ -1395,7 +1383,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         }
         ViewCompat.setScaleX(this.s.getView(), 1.0f);
         ViewCompat.setScaleY(this.s.getView(), 1.0f);
-        if (!this.f33379c && (i2 = this.a) != 3 && i2 != 6) {
+        if (!this.c && (i2 = this.a) != 3 && i2 != 6) {
             int i5 = this.v;
             int i6 = this.l;
             if (i5 < i6) {
@@ -1445,7 +1433,7 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         kVar.a();
     }
 
-    public void z(f.i iVar) {
+    public void z(du4.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, iVar) == null) {
             if (iVar == null) {
@@ -1478,8 +1466,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             }
         }
         this.a = 4;
-        this.f33379c = false;
-        this.f33381e = -1.0f;
+        this.c = false;
+        this.e = -1.0f;
         this.i = new int[2];
         this.j = new int[2];
         this.p = -1;
@@ -1490,11 +1478,11 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
         this.F = new h(this);
         this.G = new i(this);
         this.H = new j(this);
-        this.f33380d = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.d = ViewConfiguration.get(context).getScaledTouchSlop();
         this.r = new DecelerateInterpolator(2.0f);
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
-        this.f33383g = new NestedScrollingParentHelper(this);
-        this.f33384h = new NestedScrollingChildHelper(this);
+        this.g = new NestedScrollingParentHelper(this);
+        this.h = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, I);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));

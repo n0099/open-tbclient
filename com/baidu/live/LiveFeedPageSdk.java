@@ -4,9 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v.c.b.a;
-import c.a.v.c.b.c;
-import c.a.v.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,31 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.bv9;
+import com.repackage.fc0;
+import com.repackage.ib0;
+import com.repackage.ka0;
+import com.repackage.ma0;
+import com.repackage.ta0;
+/* loaded from: classes2.dex */
 public class LiveFeedPageSdk {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static boolean f25660f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static LiveFeedPageSdk f25661g;
+    public static boolean f;
+    public static LiveFeedPageSdk g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public Context b;
+    public boolean c;
+    public ma0 d;
+    public ka0 e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Context f25662b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f25663c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c f25664d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f25665e;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final LiveFeedPageSdk a;
@@ -110,10 +101,10 @@ public class LiveFeedPageSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f25661g == null) {
-                f25661g = Holder.a;
+            if (g == null) {
+                g = Holder.a;
             }
-            return f25661g;
+            return g;
         }
         return (LiveFeedPageSdk) invokeV.objValue;
     }
@@ -127,7 +118,7 @@ public class LiveFeedPageSdk {
 
     public static void n(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f25660f) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f) {
             Log.i(str, str2);
         }
     }
@@ -135,7 +126,7 @@ public class LiveFeedPageSdk {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25662b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 
     public String b() {
@@ -143,8 +134,8 @@ public class LiveFeedPageSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (g() != null) {
-                String b2 = g().b();
-                return (TextUtils.isEmpty(b2) || "0".equals(b2)) ? g().getCuid() : b2;
+                String b = g().b();
+                return (TextUtils.isEmpty(b) || "0".equals(b)) ? g().getCuid() : b;
             }
             return "";
         }
@@ -163,10 +154,10 @@ public class LiveFeedPageSdk {
         return (String) invokeV.objValue;
     }
 
-    public a d() {
+    public ka0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25665e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (ka0) invokeV.objValue;
     }
 
     public String e() {
@@ -175,72 +166,72 @@ public class LiveFeedPageSdk {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public c g() {
+    public ma0 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25664d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (ma0) invokeV.objValue;
     }
 
     public String h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? c.n.a.a.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? bv9.a(context) : (String) invokeL.objValue;
     }
 
     public void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             this.a = str;
-            f.e().p(str, str2);
+            fc0.e().p(str, str2);
         }
     }
 
-    public void j(c cVar) {
+    public void j(ma0 ma0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f25664d = cVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ma0Var) == null) {
+            this.d = ma0Var;
         }
     }
 
     public void k(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            c.a.v.f.d.c.b(iNetWork);
+            ib0.b(iNetWork);
         }
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f25663c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     public void o(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && context != null && this.f25662b == null) {
-            this.f25662b = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && context != null && this.b == null) {
+            this.b = context.getApplicationContext();
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f25663c = true;
+            this.c = true;
         }
     }
 
     public void q(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, context) == null) || c.a.v.e.a.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, context) == null) || ta0.a() == null) {
             return;
         }
-        c.a.v.e.a.a().a(context, "");
+        ta0.a().a(context, "");
     }
 
     public void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            f.e().r(str);
+            fc0.e().r(str);
         }
     }
 }

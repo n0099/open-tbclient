@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DpRTCSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,8 +105,8 @@ public class DpRTCSession {
                     jSONArray.put(jSONObject3);
                     jSONObject2.put("items", jSONArray);
                     jSONObject = jSONObject2.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 jSONObject2.remove("cuid");
                 CyberLog.i("DpRTCSession", "toJson rtc session = " + jSONObject2.toString());

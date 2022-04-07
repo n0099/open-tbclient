@@ -15,22 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public float b;
+    public int c;
+    public int d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public float f30754b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30755c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30756d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends Scroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +58,8 @@ public class TbViewPager extends ViewPager {
                     Field declaredField = ViewPager.class.getDeclaredField("mScroller");
                     declaredField.setAccessible(true);
                     declaredField.set(viewPager, this);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -74,7 +68,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-                super.startScroll(i, i2, i3, i4, this.a.f30756d);
+                super.startScroll(i, i2, i3, i4, this.a.d);
             }
         }
 
@@ -82,7 +76,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-                super.startScroll(i, i2, i3, i4, this.a.f30756d);
+                super.startScroll(i, i2, i3, i4, this.a.d);
             }
         }
     }
@@ -106,14 +100,14 @@ public class TbViewPager extends ViewPager {
             }
         }
         this.a = false;
-        this.f30756d = 600;
+        this.d = 600;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30755c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+            this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
         }
     }
 
@@ -161,7 +155,7 @@ public class TbViewPager extends ViewPager {
     public int getScrollingDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30756d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -196,15 +190,15 @@ public class TbViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f30754b;
+                    float x = motionEvent.getX() - this.b;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f30755c) {
+                        if (x >= this.c) {
                             d(false);
                         } else {
                             d(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f30755c)) {
+                        if (x <= (-this.c)) {
                             d(false);
                         } else {
                             d(true);
@@ -224,12 +218,12 @@ public class TbViewPager extends ViewPager {
                 }
             }
             d(false);
-            this.f30754b = 0.0f;
+            this.b = 0.0f;
             if (c(motionEvent)) {
             }
         }
         d(true);
-        this.f30754b = motionEvent.getX();
+        this.b = motionEvent.getX();
         if (c(motionEvent)) {
         }
     }
@@ -246,7 +240,7 @@ public class TbViewPager extends ViewPager {
     public void setViewPagerScroll(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f30756d = i;
+            this.d = i;
             new a(this, getContext()).a(this);
         }
     }
@@ -278,7 +272,7 @@ public class TbViewPager extends ViewPager {
             }
         }
         this.a = false;
-        this.f30756d = 600;
+        this.d = 600;
         b();
     }
 }

@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.i0;
+import com.repackage.my9;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -49,7 +49,7 @@ import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_MAINTAINABLE_MS = 50;
@@ -211,10 +211,10 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             }
 
             @Override // com.baidu.rtc.RTCLoadManager.LoadListener
-            public void onLoadProgress(float f2) {
+            public void onLoadProgress(float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                    Logging.d(BRTCPlayerImpl.TAG, "loaded so progress " + f2);
+                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                    Logging.d(BRTCPlayerImpl.TAG, "loaded so progress " + f);
                 }
             }
 
@@ -266,7 +266,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         };
         this.mContext = context.getApplicationContext();
         this.mLocalUserId = Long.valueOf(CommonUtils.randomNumber(10)).longValue();
-        this.mRootEglBase = i0.a();
+        this.mRootEglBase = my9.a();
         this.mReportHandler = RtcReportHandle.getInstance(this.mContext);
         RtcReportHandle.enableMonitor(true, this.mEnablePullQualityMonitor, this.mIsEnableErrorInfoMonitor, false);
         this.mTimeStatistician = new PlayTimeStatistician();
@@ -987,13 +987,13 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     }
 
     @Override // com.baidu.rtc.player.BRTCPlayer
-    public void setVolume(double d2) {
+    public void setVolume(double d) {
         AudioTrack audioTrack;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d2)}) == null) || (audioTrack = this.mAudioTrack) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d)}) == null) || (audioTrack = this.mAudioTrack) == null) {
             return;
         }
-        audioTrack.setVolume(d2);
+        audioTrack.setVolume(d);
     }
 
     @Override // com.baidu.rtc.player.BRTCPlayer
@@ -1058,8 +1058,8 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                 try {
                     mediaEncodeParams = new MediaEncodeParams();
                     Logging.d(TAG, "Use default encode params!");
-                } catch (Exception e2) {
-                    Logging.d(TAG, e2.toString());
+                } catch (Exception e) {
+                    Logging.d(TAG, e.toString());
                     return;
                 }
             }

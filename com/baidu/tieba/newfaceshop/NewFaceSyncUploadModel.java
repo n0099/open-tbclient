@@ -1,6 +1,5 @@
 package com.baidu.tieba.newfaceshop;
 
-import c.a.p0.r2.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.yn7;
+/* loaded from: classes3.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
             httpMessage.addParam("package_ids", str);
             httpMessage.addParam("pkg_update_time", currentTimeMillis);
             sendMessage(httpMessage);
-            d.t(currentTimeMillis);
+            yn7.t(currentTimeMillis);
         }
     }
 }

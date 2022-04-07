@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,11 +147,11 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
                         return;
                     }
                     throw new Exception(this.cmd + " != " + optInt);
-                } catch (JSONException e2) {
-                    RLog.error("GetChargeOrderStatusResponse", "parserResponse error.", e2);
+                } catch (JSONException e) {
+                    RLog.error("GetChargeOrderStatusResponse", "parserResponse error.", e);
                     return;
-                } catch (Exception e3) {
-                    RLog.error("GetChargeOrderStatusResponse", "parserResponse error.", e3);
+                } catch (Exception e2) {
+                    RLog.error("GetChargeOrderStatusResponse", "parserResponse error.", e2);
                     return;
                 }
             }

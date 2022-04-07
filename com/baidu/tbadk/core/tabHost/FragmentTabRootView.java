@@ -12,17 +12,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FragmentTabRootView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Matrix a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Paint f29927b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Rect f29928c;
+    public Paint b;
+    public Rect c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabRootView(Context context) {
@@ -43,8 +39,8 @@ public class FragmentTabRootView extends LinearLayout {
             }
         }
         this.a = new Matrix();
-        this.f29927b = new Paint(6);
-        this.f29928c = new Rect();
+        this.b = new Paint(6);
+        this.c = new Rect();
         a();
     }
 
@@ -52,21 +48,21 @@ public class FragmentTabRootView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawingCacheEnabled(false);
-            this.f29927b.setAntiAlias(true);
-            this.f29927b.setStyle(Paint.Style.FILL);
-            this.f29927b.setColor(-16777216);
-            this.f29927b.setAlpha(0);
+            this.b.setAntiAlias(true);
+            this.b.setStyle(Paint.Style.FILL);
+            this.b.setColor(-16777216);
+            this.b.setAlpha(0);
             setWillNotDraw(false);
         }
     }
 
-    public void b(float f2, float f3, float f4, float f5, float f6, float f7, int i) {
+    public void b(float f, float f2, float f3, float f4, float f5, float f6, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Integer.valueOf(i)}) == null) {
             this.a.reset();
-            this.a.postTranslate(f2, f3);
-            this.a.postScale(f4, f5, f6, f7);
-            this.f29927b.setAlpha(i);
+            this.a.postTranslate(f, f2);
+            this.a.postScale(f3, f4, f5, f6);
+            this.b.setAlpha(i);
             postInvalidateDelayed(16L);
         }
     }
@@ -78,7 +74,7 @@ public class FragmentTabRootView extends LinearLayout {
             super.draw(canvas);
             canvas.save();
             canvas.concat(this.a);
-            canvas.drawRect(this.f29928c, this.f29927b);
+            canvas.drawRect(this.c, this.b);
             canvas.restore();
         }
     }
@@ -88,7 +84,7 @@ public class FragmentTabRootView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.f29928c.set(0, 0, i, i2);
+            this.c.set(0, 0, i, i2);
         }
     }
 
@@ -112,8 +108,8 @@ public class FragmentTabRootView extends LinearLayout {
             }
         }
         this.a = new Matrix();
-        this.f29927b = new Paint(6);
-        this.f29928c = new Rect();
+        this.b = new Paint(6);
+        this.c = new Rect();
         a();
     }
 }

@@ -107,8 +107,8 @@ public class StringsKt__StringBuilderKt extends StringsKt__StringBuilderJVMKt {
 
     @SinceKotlin(version = "1.4")
     @InlineOnly
-    public static final StringBuilder appendLine(StringBuilder sb, char c2) {
-        sb.append(c2);
+    public static final StringBuilder appendLine(StringBuilder sb, char c) {
+        sb.append(c);
         Intrinsics.checkNotNullExpressionValue(sb, "append(value)");
         sb.append('\n');
         Intrinsics.checkNotNullExpressionValue(sb, "append('\\n')");

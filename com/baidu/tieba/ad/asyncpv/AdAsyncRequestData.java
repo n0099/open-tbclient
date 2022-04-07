@@ -3,10 +3,6 @@ package com.baidu.tieba.ad.asyncpv;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
-import c.a.d.f.p.l;
-import c.a.o0.c1.h;
-import c.a.o0.c1.i;
-import c.a.p0.m.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.mobstat.Config;
@@ -26,12 +22,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ci5;
+import com.repackage.gd7;
+import com.repackage.mi;
+import com.repackage.rg5;
+import com.repackage.wb5;
+import com.repackage.xb5;
 import java.util.Map;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,8 +60,8 @@ public class AdAsyncRequestData extends HttpMessage {
         addCommonParams();
         try {
             cookieManager = CookieManager.getInstance();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             cookieManager = null;
         }
         if (cookieManager != null) {
@@ -92,13 +94,13 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(l.I()));
+            addParam("net_type", String.valueOf(mi.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             String sampleId = TbSingleton.getInstance().getSampleId();
             addParam("eid", sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ','));
-            addParam("app_transmit_data", i.a());
+            addParam("app_transmit_data", xb5.a());
         }
     }
 
@@ -123,15 +125,15 @@ public class AdAsyncRequestData extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (a.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(create(AdExtParam.KEY_IADEX, h.e()));
+            if (ci5.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(create(AdExtParam.KEY_IADEX, wb5.e()));
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
-            if (c.a.p0.a.h().y()) {
-                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.1.0.0"));
+            if (rg5.h().y()) {
+                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.3"));
             }
-            if (!c.a.p0.b2.o.k.a.f(map)) {
+            if (!gd7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

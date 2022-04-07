@@ -1,8 +1,6 @@
 package com.baidu.tieba.personExtra;
 
 import android.text.TextUtils;
-import c.a.d.a.f;
-import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,25 +18,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.mg;
+import com.repackage.mi;
+import com.repackage.wa;
 import tbclient.AlaUserInfo;
 import tbclient.BirthdayInfo;
 import tbclient.BusinessAccountInfo;
 import tbclient.Profile.NicknameInfo;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonChangeData a;
+    public b b;
+    public wa c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f35424b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f35425c;
-
-    /* loaded from: classes5.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes3.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeModel a;
@@ -65,15 +63,15 @@ public class PersonChangeModel extends BdBaseModel {
             this.a = personChangeModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
                 if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (this.a.f35424b != null) {
-                            this.a.f35424b.a(responsedMessage.getErrorString());
+                        if (this.a.b != null) {
+                            this.a.b.a(responsedMessage.getErrorString());
                             return;
                         }
                         return;
@@ -86,15 +84,15 @@ public class PersonChangeModel extends BdBaseModel {
                         ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
                         this.a.B(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
                     }
-                    if (this.a.f35424b != null) {
-                        this.a.f35424b.b();
+                    if (this.a.b != null) {
+                        this.a.b.b();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(String str);
 
@@ -102,32 +100,32 @@ public class PersonChangeModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonChangeModel(f fVar, PersonChangeData personChangeData) {
-        super(fVar);
+    public PersonChangeModel(b9 b9Var, PersonChangeData personChangeData) {
+        super(b9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, personChangeData};
+            Object[] objArr = {b9Var, personChangeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f35425c = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.c = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         this.a = personChangeData;
         if (personChangeData == null) {
             this.a = new PersonChangeData();
         }
-        this.f35425c.getHttpMessageListener().setSelfListener(true);
-        this.f35425c.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.f35425c);
+        this.c.getHttpMessageListener().setSelfListener(true);
+        this.c.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.c);
     }
 
     public boolean A() {
@@ -193,7 +191,7 @@ public class PersonChangeModel extends BdBaseModel {
     public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f35424b = bVar;
+            this.b = bVar;
         }
     }
 
@@ -212,14 +210,14 @@ public class PersonChangeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!l.A()) {
-                this.f35424b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c15));
+            if (!mi.A()) {
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

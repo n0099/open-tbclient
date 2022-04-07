@@ -17,9 +17,7 @@ import java.util.TreeMap;
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.j.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f42597b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +33,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f42597b = f.f42567b;
+        b = f.b;
     }
 
     public a() {
@@ -78,8 +76,8 @@ public class a extends com.sdk.base.framework.f.a {
                     stringBuffer.deleteCharAt(stringBuffer.length() - 1);
                 }
                 return e.a(stringBuffer.toString());
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42597b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }

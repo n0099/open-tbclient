@@ -13,17 +13,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.message.d;
 import com.kwai.filedownloader.message.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class MessageSnapshot implements Parcelable, c {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MessageSnapshot> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public final int b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final int f41727b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class NoFieldException extends IllegalStateException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,12 +47,12 @@ public abstract class MessageSnapshot implements Parcelable, c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         MessageSnapshot l();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b extends MessageSnapshot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +162,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C2018d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C0358d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -172,7 +170,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C2019h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C0359h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {
@@ -214,7 +212,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f41727b = i;
+        this.b = i;
     }
 
     public MessageSnapshot(Parcel parcel) {
@@ -232,7 +230,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f41727b = parcel.readInt();
+        this.b = parcel.readInt();
     }
 
     public int a() {
@@ -338,7 +336,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41727b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public boolean n() {
@@ -353,7 +351,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeByte(this.a ? (byte) 1 : (byte) 0);
             parcel.writeByte(b());
-            parcel.writeInt(this.f41727b);
+            parcel.writeInt(this.b);
         }
     }
 }

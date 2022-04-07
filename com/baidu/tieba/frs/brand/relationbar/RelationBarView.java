@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,19 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f32431b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelationBarAdapter f32432c;
+    public RecyclerView b;
+    public RelationBarAdapter c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarView(Context context) {
@@ -57,16 +53,16 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0309, (ViewGroup) this, true);
             setOrientation(1);
-            this.f32431b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090ad0);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090adc);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-            this.f32432c = relationBarAdapter;
-            this.f32431b.setAdapter(relationBarAdapter);
-            this.f32431b.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f32431b.setItemAnimator(new DefaultItemAnimator());
-            int f2 = n.f(context, R.dimen.tbds44);
-            this.f32431b.addItemDecoration(new RelationSpaceItemDecoration(f2, n.f(context, R.dimen.tbds26), f2));
+            this.c = relationBarAdapter;
+            this.b.setAdapter(relationBarAdapter);
+            this.b.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.b.setItemAnimator(new DefaultItemAnimator());
+            int f = oi.f(context, R.dimen.tbds44);
+            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, oi.f(context, R.dimen.tbds26), f));
             b();
         }
     }
@@ -79,7 +75,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         }
         this.a = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f32432c.notifyDataSetChanged();
+        this.c.notifyDataSetChanged();
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -90,8 +86,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f32432c.setData(list);
-            this.f32432c.notifyDataSetChanged();
+            this.c.setData(list);
+            this.c.notifyDataSetChanged();
         }
     }
 

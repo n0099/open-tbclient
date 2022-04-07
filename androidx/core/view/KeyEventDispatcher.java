@@ -133,16 +133,16 @@ public class KeyEventDispatcher {
         return invokeLL.booleanValue;
     }
 
-    public static boolean dispatchBeforeHierarchy(@NonNull View view, @NonNull KeyEvent keyEvent) {
+    public static boolean dispatchBeforeHierarchy(@NonNull View view2, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view, keyEvent)) == null) ? ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view, keyEvent) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, keyEvent)) == null) ? ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view2, keyEvent) : invokeLL.booleanValue;
     }
 
-    public static boolean dispatchKeyEvent(@NonNull Component component, @Nullable View view, @Nullable Window.Callback callback, @NonNull KeyEvent keyEvent) {
+    public static boolean dispatchKeyEvent(@NonNull Component component, @Nullable View view2, @Nullable Window.Callback callback, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, component, view, callback, keyEvent)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, component, view2, callback, keyEvent)) == null) {
             if (component == null) {
                 return false;
             }
@@ -155,7 +155,7 @@ public class KeyEventDispatcher {
             if (callback instanceof Dialog) {
                 return dialogSuperDispatchKeyEventPre28((Dialog) callback, keyEvent);
             }
-            return (view != null && ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view, keyEvent)) || component.superDispatchKeyEvent(keyEvent);
+            return (view2 != null && ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view2, keyEvent)) || component.superDispatchKeyEvent(keyEvent);
         }
         return invokeLLLL.booleanValue;
     }

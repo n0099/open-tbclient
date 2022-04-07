@@ -10,24 +10,12 @@ public final class g {
     /* loaded from: classes7.dex */
     public static class a {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f43096b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Drawable f43097c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f43098d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f43099e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f43100f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public boolean f43101g;
+        public String b;
+        public Drawable c;
+        public String d;
+        public String e;
+        public int f;
+        public boolean g;
 
         public a(String str, String str2, Drawable drawable, String str3, String str4, int i, boolean z) {
             b(str2);
@@ -40,11 +28,11 @@ public final class g {
         }
 
         public Drawable a() {
-            return this.f43097c;
+            return this.c;
         }
 
         public boolean b() {
-            return this.f43101g;
+            return this.g;
         }
 
         public String c() {
@@ -52,19 +40,19 @@ public final class g {
         }
 
         public String d() {
-            return this.f43096b;
+            return this.b;
         }
 
         public String e() {
-            return this.f43098d;
+            return this.d;
         }
 
         public int f() {
-            return this.f43100f;
+            return this.f;
         }
 
         public String g() {
-            return this.f43099e;
+            return this.e;
         }
 
         public String toString() {
@@ -72,23 +60,23 @@ public final class g {
         }
 
         public void a(Drawable drawable) {
-            this.f43097c = drawable;
+            this.c = drawable;
         }
 
         public void b(String str) {
-            this.f43096b = str;
+            this.b = str;
         }
 
         public void c(String str) {
-            this.f43098d = str;
+            this.d = str;
         }
 
         public void d(String str) {
-            this.f43099e = str;
+            this.e = str;
         }
 
         public void a(boolean z) {
-            this.f43101g = z;
+            this.g = z;
         }
 
         public void a(String str) {
@@ -96,7 +84,7 @@ public final class g {
         }
 
         public void a(int i) {
-            this.f43100f = i;
+            this.f = i;
         }
     }
 
@@ -110,8 +98,8 @@ public final class g {
                 return -1;
             }
             return packageInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e2) {
-            e2.printStackTrace();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
             return -1;
         }
     }
@@ -123,8 +111,8 @@ public final class g {
                 return null;
             }
             return a(packageManager, packageManager.getPackageInfo(str, 0));
-        } catch (PackageManager.NameNotFoundException e2) {
-            e2.printStackTrace();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
             return null;
         }
     }

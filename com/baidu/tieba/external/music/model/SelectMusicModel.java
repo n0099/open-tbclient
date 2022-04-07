@@ -1,9 +1,6 @@
 package com.baidu.tieba.external.music.model;
 
 import android.text.TextUtils;
-import c.a.d.a.f;
-import c.a.d.f.p.l;
-import c.a.p0.y0.c.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -23,23 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.m86;
+import com.repackage.mi;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public m86 a;
+    public TbPageContext b;
+    public final HttpMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f32009b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f32010c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +89,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,30 +131,30 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, b bVar) {
+    public SelectMusicModel(TbPageContext tbPageContext, m86 m86Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {tbPageContext, m86Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32010c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f32009b = tbPageContext;
-        this.a = bVar;
+        this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.b = tbPageContext;
+        this.a = m86Var;
         A();
-        this.f32010c.setTag(getUniqueId());
-        this.f32010c.setSelfListener(true);
-        registerListener(this.f32010c);
+        this.c.setTag(getUniqueId());
+        this.c.setSelfListener(true);
+        registerListener(this.c);
     }
 
     public final void A() {
@@ -194,8 +190,8 @@ public class SelectMusicModel extends BdBaseModel {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!l.z()) {
-                this.f32009b.showToast(R.string.obfuscated_res_0x7f0f0c4b);
+            if (!mi.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4e);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PrivacyOperationUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DAY = 86400000;

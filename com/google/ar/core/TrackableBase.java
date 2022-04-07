@@ -6,14 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class TrackableBase implements c.f.b.a.b {
+import com.repackage.xl9;
+/* loaded from: classes5.dex */
+public class TrackableBase implements xl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Session f38709b;
+    public final Session b;
 
     public TrackableBase(long j, Session session) {
         Interceptable interceptable = $ic;
@@ -30,7 +29,7 @@ public class TrackableBase implements c.f.b.a.b {
                 return;
             }
         }
-        this.f38709b = session;
+        this.b = session;
         this.a = j;
     }
 

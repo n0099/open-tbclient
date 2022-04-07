@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implements Transition.ViewAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     public Drawable getCurrentDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((ImageView) this.view).getDrawable() : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((ImageView) this.f1016view).getDrawable() : (Drawable) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
@@ -139,7 +139,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            ((ImageView) this.view).setImageDrawable(drawable);
+            ((ImageView) this.f1016view).setImageDrawable(drawable);
         }
     }
 

@@ -14,14 +14,14 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DataRewinderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public static final DataRewinder.Factory<?> DEFAULT_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Class<?>, DataRewinder.Factory<?>> rewinders;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultRewinder implements DataRewinder<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

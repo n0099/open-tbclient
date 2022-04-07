@@ -30,7 +30,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
@@ -45,7 +45,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     public volatile Executor mCancellationExecutor;
     public Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class OkHttpNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,8 +237,8 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                         ResponseBody body = response.body();
                         try {
                             try {
-                            } catch (Exception e2) {
-                                this.this$0.handleException(call, e2, this.val$callback);
+                            } catch (Exception e) {
+                                this.this$0.handleException(call, e, this.val$callback);
                             }
                             if (!response.isSuccessful()) {
                                 this.this$0.handleException(call, new IOException("Unexpected HTTP code " + response), this.val$callback);
@@ -296,8 +296,8 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                     }
                 }
                 fetchWithRequest(okHttpNetworkFetchState, callback, builder.build());
-            } catch (Exception e2) {
-                callback.onFailure(e2);
+            } catch (Exception e) {
+                callback.onFailure(e);
             }
         }
     }

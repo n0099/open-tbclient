@@ -1,7 +1,6 @@
 package com.baidu.tbadk.editortools.pb;
 
 import android.graphics.Bitmap;
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,23 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+/* loaded from: classes3.dex */
 public class ImageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public String b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f30521b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImageModel f30522b;
+        public final /* synthetic */ ImageModel b;
 
         public a(ImageModel imageModel, String str) {
             Interceptable interceptable = $ic;
@@ -47,7 +43,7 @@ public class ImageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f30522b = imageModel;
+            this.b = imageModel;
             this.a = null;
             this.a = str;
         }
@@ -72,9 +68,9 @@ public class ImageModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f30522b.a = null;
-                if (this.f30522b.mLoadDataCallBack != null) {
-                    this.f30522b.mLoadDataCallBack.c(null);
+                this.b.a = null;
+                if (this.b.mLoadDataCallBack != null) {
+                    this.b.mLoadDataCallBack.c(null);
                 }
                 super.cancel(true);
             }
@@ -94,9 +90,9 @@ public class ImageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
-                this.f30522b.a = null;
-                if (this.f30522b.mLoadDataCallBack != null) {
-                    this.f30522b.mLoadDataCallBack.c(bitmap);
+                this.b.a = null;
+                if (this.b.mLoadDataCallBack != null) {
+                    this.b.mLoadDataCallBack.c(bitmap);
                 }
             }
         }
@@ -114,21 +110,21 @@ public class ImageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f30521b = null;
+        this.b = null;
     }
 
     public boolean D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f30521b = str;
+            this.b = str;
             return loadData();
         }
         return invokeL.booleanValue;
@@ -158,7 +154,7 @@ public class ImageModel extends BdBaseModel {
             if (aVar != null) {
                 aVar.cancel();
             }
-            a aVar2 = new a(this, this.f30521b);
+            a aVar2 = new a(this, this.b);
             this.a = aVar2;
             aVar2.execute(new Object[0]);
             return true;

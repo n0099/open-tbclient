@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AssetDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class AssetDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,8 +80,8 @@ public final class AssetDataSource implements DataSource {
                     if (this.inputStream != null) {
                         this.inputStream.close();
                     }
-                } catch (IOException e2) {
-                    throw new AssetDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new AssetDataSourceException(e);
                 }
             } finally {
                 this.inputStream = null;
@@ -137,8 +137,8 @@ public final class AssetDataSource implements DataSource {
                     return this.bytesRemaining;
                 }
                 throw new EOFException();
-            } catch (IOException e2) {
-                throw new AssetDataSourceException(e2);
+            } catch (IOException e) {
+                throw new AssetDataSourceException(e);
             }
         }
         return invokeL.longValue;
@@ -159,8 +159,8 @@ public final class AssetDataSource implements DataSource {
             if (j != -1) {
                 try {
                     i2 = (int) Math.min(j, i2);
-                } catch (IOException e2) {
-                    throw new AssetDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new AssetDataSourceException(e);
                 }
             }
             int read = this.inputStream.read(bArr, i, i2);

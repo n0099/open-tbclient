@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public final class i {
                 }
                 publicMsg.mPkgContent = jSONObject.getString("pkg_content");
                 return publicMsg;
-            } catch (JSONException e2) {
-                com.baidu.android.pushservice.f.a.a("PublicMsgParser", e2, context.getApplicationContext());
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (JSONException e) {
+                com.baidu.android.pushservice.f.a.a("PublicMsgParser", e, context.getApplicationContext());
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }
@@ -94,8 +94,8 @@ public final class i {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
                     if (!jSONObject2.isNull("adContent")) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                        iVar.f24785e = jSONObject3.getString("notifyTitle");
-                        iVar.f24786f = jSONObject3.getString("content");
+                        iVar.e = jSONObject3.getString("notifyTitle");
+                        iVar.f = jSONObject3.getString("content");
                         if (!jSONObject3.isNull("param")) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                             if (!jSONObject4.isNull("url")) {
@@ -106,24 +106,24 @@ public final class i {
                             } else if (!jSONObject4.isNull("acn")) {
                                 string2 = jSONObject4.getString("acn");
                             }
-                            iVar.f24783c = string2;
+                            iVar.c = string2;
                         }
                     }
                     if (!jSONObject2.isNull("psContent")) {
                         JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                        iVar.f24787g = jSONObject5.getString("notifyTitle");
-                        iVar.f24788h = jSONObject5.getString("content");
+                        iVar.g = jSONObject5.getString("notifyTitle");
+                        iVar.h = jSONObject5.getString("content");
                         if (!jSONObject5.isNull("param")) {
                             JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                             if (!jSONObject6.isNull("url")) {
-                                iVar.f24782b = jSONObject6.getString("url");
+                                iVar.b = jSONObject6.getString("url");
                             }
                             if (!jSONObject6.isNull("intentUri")) {
                                 string = jSONObject6.getString("intentUri");
                             } else if (!jSONObject6.isNull("acn")) {
                                 string = jSONObject6.getString("acn");
                             }
-                            iVar.f24784d = string;
+                            iVar.d = string;
                         }
                     }
                     if (!jSONObject2.isNull("extras")) {
@@ -133,8 +133,8 @@ public final class i {
                         iVar.j = com.baidu.android.pushservice.i.f.a(str.getBytes(), false);
                     }
                 }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             return iVar;
         }

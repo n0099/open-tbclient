@@ -1,5 +1,5 @@
 package com.yxcorp.kuaishou.addfp;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ResponseDfpCallback {
     void onFailed(int i, String str);
 

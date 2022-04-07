@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Collator COLLATOR;
@@ -27,7 +27,7 @@ public class HanziToPinyin {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;
@@ -124,11 +124,11 @@ public class HanziToPinyin {
         char[] cArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            char c2 = UNIHANS[0];
-            String ch = Character.toString(c2);
-            for (char c3 : UNIHANS) {
-                if (c2 != c3) {
-                    String ch2 = Character.toString(c3);
+            char c = UNIHANS[0];
+            String ch = Character.toString(c);
+            for (char c2 : UNIHANS) {
+                if (c != c2) {
+                    String ch2 = Character.toString(c2);
                     if (COLLATOR.compare(ch, ch2) >= 0) {
                         LogUtils.e(LogUtils.TAG, "HanziToPinyin Internal error in Unihan table. The last string \"" + ch + "\" is greater than current string \"" + ch2 + "\".");
                         return false;
@@ -168,15 +168,15 @@ public class HanziToPinyin {
         return (HanziToPinyin) invokeV.objValue;
     }
 
-    private Token getToken(char c2) {
+    private Token getToken(char c) {
         InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c)})) == null) {
             Token token = new Token();
-            String ch = Character.toString(c2);
+            String ch = Character.toString(c);
             token.source = ch;
-            if (c2 < 256) {
+            if (c < 256) {
                 token.type = 1;
                 token.target = ch;
                 return token;

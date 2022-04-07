@@ -8,9 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.l.q;
-import c.a.p0.q1.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
@@ -21,19 +18,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
+import com.repackage.gz;
+import com.repackage.o07;
+import com.repackage.oi;
+import com.repackage.wr4;
+/* loaded from: classes3.dex */
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public EMTextView b;
+    public ImageView c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public EMTextView f33463b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f33464c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,12 +55,12 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.getContext() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.getContext() == null) {
                 return;
             }
-            c.g();
+            o07.g();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -95,70 +92,70 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, n.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, oi.f(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int f2 = n.f(getContext(), R.dimen.M_W_X005);
-            setPadding(f2, 0, f2, 0);
+            int f = oi.f(getContext(), R.dimen.M_W_X005);
+            setPadding(f, 0, f, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0844));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0845));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
-            this.f33463b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0845));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds75));
-            int f3 = n.f(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(f3, n.f(getContext(), R.dimen.M_H_X005), f3, n.f(getContext(), R.dimen.tbds38));
-            int f4 = n.f(getContext(), R.dimen.M_W_X007);
-            this.f33463b.setGravity(16);
-            this.f33463b.setPadding(f4, 0, f4, 0);
-            addView(this.f33463b, layoutParams2);
-            this.f33463b.setOnClickListener(new a(this));
-            this.f33464c = new ImageView(getContext());
+            this.b = eMTextView;
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0846));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, oi.f(getContext(), R.dimen.tbds75));
+            int f2 = oi.f(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(f2, oi.f(getContext(), R.dimen.M_H_X005), f2, oi.f(getContext(), R.dimen.tbds38));
+            int f3 = oi.f(getContext(), R.dimen.M_W_X007);
+            this.b.setGravity(16);
+            this.b.setPadding(f3, 0, f3, 0);
+            addView(this.b, layoutParams2);
+            this.b.setOnClickListener(new a(this));
+            this.c = new ImageView(getContext());
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds57);
-            addView(this.f33464c, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
+            addView(this.c, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
         }
     }
 
-    @Override // c.a.l.q
+    @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(textView);
-                d2.v(R.color.CAM_X0105);
-                d2.z(R.dimen.T_X06);
-                d2.A(R.string.F_X01);
+                wr4 d = wr4.d(textView);
+                d.v(R.color.CAM_X0105);
+                d.z(R.dimen.T_X06);
+                d.A(R.string.F_X01);
             }
-            EMTextView eMTextView = this.f33463b;
+            EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                c.a.o0.r.v.c d3 = c.a.o0.r.v.c.d(eMTextView);
-                d3.v(R.color.CAM_X0302);
-                d3.z(R.dimen.T_X08);
-                d3.A(R.string.F_X01);
-                d3.n(R.string.J_X01);
-                d3.l(R.dimen.L_X02);
-                d3.k(R.color.CAM_X0302);
+                wr4 d2 = wr4.d(eMTextView);
+                d2.v(R.color.CAM_X0302);
+                d2.z(R.dimen.T_X08);
+                d2.A(R.string.F_X01);
+                d2.n(R.string.J_X01);
+                d2.l(R.dimen.L_X02);
+                d2.k(R.color.CAM_X0302);
             }
-            ImageView imageView = this.f33464c;
+            ImageView imageView = this.c;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            c.a.o0.r.v.c d4 = c.a.o0.r.v.c.d(this);
-            d4.n(R.string.J_X06);
-            d4.f(R.color.CAM_X0205);
+            wr4 d3 = wr4.d(this);
+            d3.n(R.string.J_X06);
+            d3.f(R.color.CAM_X0205);
         }
     }
 
     public void setCloseClickListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (imageView = this.f33464c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (imageView = this.c) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);

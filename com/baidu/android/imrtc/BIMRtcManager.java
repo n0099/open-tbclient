@@ -7,7 +7,6 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.msg.BIMRtcNotifyMsg;
 import com.baidu.android.imrtc.msg.BIMRtcSendMsg;
@@ -52,6 +51,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -63,7 +63,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static int BIM_RTC_ACTION_SYNC_SEQID_MAX = 100;
@@ -513,8 +513,8 @@ public class BIMRtcManager {
                 }
                 mActionSyncSeqIdMap.put(str, Integer.valueOf(parseJson.getAction()));
                 LogUtils.d(TAG, ">100 put, " + str2);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "mActionSyncSeqIdMap exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "mActionSyncSeqIdMap exception ", e);
                 mBIMRtcEvent.notifyAction = -4;
                 mBIMRtcEvent.notifySeqId = -4L;
             }
@@ -565,15 +565,15 @@ public class BIMRtcManager {
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
                 creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-                a.g(mContext).f(mContext, creatMethodIntent);
+                p70.g(mContext).f(mContext, creatMethodIntent);
                 trackRequest(bIMRtcInfo, 230, i, "c_send_request", -1);
                 mBIMRtcEvent.sdkAction = i;
                 mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
                 mBIMRtcEvent.sdkRoomId = RtcUtility.getRtcRoomId(mContext);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (iStatusListener != null) {
                     iStatusListener.onResult(-1, "rtcSendEvent exception");
-                    trackRequest(bIMRtcInfo, 230, i, "c_send_response exception", -1, e2.getMessage());
+                    trackRequest(bIMRtcInfo, 230, i, "c_send_response exception", -1, e.getMessage());
                 }
             }
         }
@@ -753,8 +753,8 @@ public class BIMRtcManager {
                         }
                     }
                 }, BIM_RTC_CALL_TIMEOUT_INTERNAL);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "invite timer exception", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "invite timer exception", e);
             }
             rtcSendEvent(bIMInviteRtcInfo, 80, iStatusListener);
         }

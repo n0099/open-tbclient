@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,14 +119,14 @@ public final class f extends com.vivo.push.l {
                 return;
             }
             com.vivo.push.b.j jVar = (com.vivo.push.b.j) oVar;
-            int d2 = jVar.d();
-            int e2 = jVar.e();
-            com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d2 + " ; receiverStatus is " + e2);
-            if (d2 == 2) {
+            int d = jVar.d();
+            int e = jVar.e();
+            com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d + " ; receiverStatus is " + e);
+            if (d == 2) {
                 b(this.a);
-            } else if (d2 == 1) {
+            } else if (d == 1) {
                 a(this.a);
-            } else if (d2 == 0) {
+            } else if (d == 0) {
                 Context context = this.a;
                 Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
                 intent.setPackage(context.getPackageName());
@@ -144,11 +144,11 @@ public final class f extends com.vivo.push.l {
                     com.vivo.push.util.p.a("OnChangePushStatusTask", "defaultService error: can not find push service.");
                 }
             }
-            if (e2 == 2) {
+            if (e == 2) {
                 Context context2 = this.a;
-                List<ResolveInfo> c2 = c(context2);
-                if (c2 != null && c2.size() > 0) {
-                    String str = c2.get(0).activityInfo.name;
+                List<ResolveInfo> c = c(context2);
+                if (c != null && c.size() > 0) {
+                    String str = c.get(0).activityInfo.name;
                     if (TextUtils.isEmpty(str)) {
                         com.vivo.push.util.p.d("OnChangePushStatusTask", "disableReceiver error: className is null. ");
                     } else {
@@ -165,11 +165,11 @@ public final class f extends com.vivo.push.l {
                     com.vivo.push.util.p.a("OnChangePushStatusTask", "disableReceiver error: can not find push service.");
                 }
                 com.vivo.push.sdk.a.a().b();
-            } else if (e2 == 1) {
+            } else if (e == 1) {
                 Context context3 = this.a;
-                List<ResolveInfo> c3 = c(context3);
-                if (c3 != null && c3.size() > 0) {
-                    String str2 = c3.get(0).activityInfo.name;
+                List<ResolveInfo> c2 = c(context3);
+                if (c2 != null && c2.size() > 0) {
+                    String str2 = c2.get(0).activityInfo.name;
                     if (TextUtils.isEmpty(str2)) {
                         com.vivo.push.util.p.d("OnChangePushStatusTask", "enableReceiver error: className is null. ");
                         return;
@@ -185,11 +185,11 @@ public final class f extends com.vivo.push.l {
                     return;
                 }
                 com.vivo.push.util.p.a("OnChangePushStatusTask", "enableReceiver error: can not find push service.");
-            } else if (e2 == 0) {
+            } else if (e == 0) {
                 Context context4 = this.a;
-                List<ResolveInfo> c4 = c(context4);
-                if (c4 != null && c4.size() > 0) {
-                    String str3 = c4.get(0).activityInfo.name;
+                List<ResolveInfo> c3 = c(context4);
+                if (c3 != null && c3.size() > 0) {
+                    String str3 = c3.get(0).activityInfo.name;
                     if (TextUtils.isEmpty(str3)) {
                         com.vivo.push.util.p.d("OnChangePushStatusTask", "defaultReceiver error: className is null. ");
                         return;

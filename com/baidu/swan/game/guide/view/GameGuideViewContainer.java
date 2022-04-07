@@ -11,46 +11,32 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.p2.g0;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+import com.repackage.td3;
+/* loaded from: classes2.dex */
 public class GameGuideViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f29533b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29534c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f29535d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f29536e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f29537f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f29538g;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup.MarginLayoutParams a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameGuideViewContainer f29539b;
+        public final /* synthetic */ GameGuideViewContainer b;
 
         public a(GameGuideViewContainer gameGuideViewContainer, ViewGroup.MarginLayoutParams marginLayoutParams) {
             Interceptable interceptable = $ic;
@@ -67,7 +53,7 @@ public class GameGuideViewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f29539b = gameGuideViewContainer;
+            this.b = gameGuideViewContainer;
             this.a = marginLayoutParams;
         }
 
@@ -76,7 +62,7 @@ public class GameGuideViewContainer extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.rightMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.f29539b.requestLayout();
+                this.b.requestLayout();
             }
         }
     }
@@ -107,11 +93,11 @@ public class GameGuideViewContainer extends FrameLayout {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i4 = this.f29535d;
+            int i4 = this.d;
             int i5 = i4 / 2;
             if (i >= i5) {
                 i2 = (int) (((i4 - i) / i5) * 400.0f);
-                i3 = n0.g(10.0f);
+                i3 = ae3.g(10.0f);
             } else {
                 i2 = (int) ((i / i5) * 400.0f);
                 i3 = i4 - this.a;
@@ -131,31 +117,31 @@ public class GameGuideViewContainer extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f29535d = getContext().getResources().getDisplayMetrics().widthPixels;
-            this.f29534c = getContext().getResources().getDisplayMetrics().heightPixels;
+            this.d = getContext().getResources().getDisplayMetrics().widthPixels;
+            this.c = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.f29535d += g0.c();
+                this.d += td3.c();
             } else {
-                this.f29534c += g0.c();
+                this.c += td3.c();
             }
-            this.f29538g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
     }
 
     public final boolean c(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? Math.sqrt((double) ((i * i) + (i2 * i2))) > ((double) this.f29538g) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? Math.sqrt((double) ((i * i) + (i2 * i2))) > ((double) this.g) : invokeII.booleanValue;
     }
 
     public final int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int g2 = i < n0.g(10.0f) ? n0.g(10.0f) : i;
-            int i2 = this.f29535d;
+            int g = i < ae3.g(10.0f) ? ae3.g(10.0f) : i;
+            int i2 = this.d;
             int i3 = this.a;
-            return i > i2 - i3 ? i2 - i3 : g2;
+            return i > i2 - i3 ? i2 - i3 : g;
         }
         return invokeI.intValue;
     }
@@ -165,8 +151,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             int i2 = i < 0 ? 0 : i;
-            int i3 = this.f29534c;
-            int i4 = this.f29533b;
+            int i3 = this.c;
+            int i4 = this.b;
             return i > i3 - i4 ? i3 - i4 : i2;
         }
         return invokeI.intValue;
@@ -179,12 +165,12 @@ public class GameGuideViewContainer extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 2 && c(((int) motionEvent.getRawX()) - this.f29536e, ((int) motionEvent.getRawY()) - this.f29537f)) {
+                if (action == 2 && c(((int) motionEvent.getRawX()) - this.e, ((int) motionEvent.getRawY()) - this.f)) {
                     return true;
                 }
             } else {
-                this.f29536e = (int) motionEvent.getRawX();
-                this.f29537f = (int) motionEvent.getRawY();
+                this.e = (int) motionEvent.getRawX();
+                this.f = (int) motionEvent.getRawY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -197,7 +183,7 @@ public class GameGuideViewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             this.a = i;
-            this.f29533b = i2;
+            this.b = i2;
         }
     }
 
@@ -209,8 +195,8 @@ public class GameGuideViewContainer extends FrameLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f29536e = (int) motionEvent.getRawX();
-                this.f29537f = (int) motionEvent.getRawY();
+                this.e = (int) motionEvent.getRawX();
+                this.f = (int) motionEvent.getRawY();
                 return true;
             }
             if (action == 1) {
@@ -219,14 +205,14 @@ public class GameGuideViewContainer extends FrameLayout {
             } else if (action == 2) {
                 int rawX = (int) motionEvent.getRawX();
                 int rawY = (int) motionEvent.getRawY();
-                int i = rawX - this.f29536e;
-                int i2 = rawY - this.f29537f;
+                int i = rawX - this.e;
+                int i2 = rawY - this.f;
                 if (c(i, i2)) {
                     marginLayoutParams.rightMargin = d(marginLayoutParams.rightMargin - i);
                     marginLayoutParams.topMargin = e(marginLayoutParams.topMargin + i2);
                     setLayoutParams(marginLayoutParams);
-                    this.f29536e = rawX;
-                    this.f29537f = rawY;
+                    this.e = rawX;
+                    this.f = rawY;
                     return true;
                 }
             } else if (action == 3) {

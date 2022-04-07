@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class BannerRollAnimation {
     public static /* synthetic */ Interceptable $ic;
     public static final BannerRollAnimation Default;
     public static final BannerRollAnimation NoAnimation;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BannerRollAnimation[] f42313b;
+    public static final /* synthetic */ BannerRollAnimation[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,7 +33,7 @@ public final class BannerRollAnimation {
         Default = new BannerRollAnimation("Default", 0, 0);
         BannerRollAnimation bannerRollAnimation = new BannerRollAnimation("NoAnimation", 1, -1);
         NoAnimation = bannerRollAnimation;
-        f42313b = new BannerRollAnimation[]{Default, bannerRollAnimation};
+        b = new BannerRollAnimation[]{Default, bannerRollAnimation};
     }
 
     public BannerRollAnimation(String str, int i, int i2) {
@@ -68,7 +66,7 @@ public final class BannerRollAnimation {
     public static BannerRollAnimation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f42313b.clone() : (BannerRollAnimation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) b.clone() : (BannerRollAnimation[]) invokeV.objValue;
     }
 
     public int value() {

@@ -1,6 +1,5 @@
 package com.baidu.tieba.setting.im.more;
 
-import c.a.p0.p3.b.a.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xd8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetPrivateInfo.GetPrivateInfoResIdl;
 import tbclient.GetPrivateInfo.ResData;
 import tbclient.SimpleUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a privacyData;
+    public xd8 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacySocketMessage() {
@@ -35,13 +35,13 @@ public class ResponsedPrivacySocketMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new a();
+        this.privacyData = new xd8();
     }
 
-    public a getPrivacyData() {
+    public xd8 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.privacyData : (xd8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

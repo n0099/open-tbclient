@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.d.a.f;
-import c.a.o0.r.t.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,8 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class PermissionRequestDialog extends a {
+import com.repackage.b9;
+import com.repackage.dr4;
+/* loaded from: classes3.dex */
+public class PermissionRequestDialog extends dr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -27,7 +27,7 @@ public class PermissionRequestDialog extends a {
     public ViewGroup mRootView;
     public TextView mTitleView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnClickCallback {
         void onClickClose(Activity activity, String str);
 
@@ -62,59 +62,59 @@ public class PermissionRequestDialog extends a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0237, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0238, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921f2);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921f1);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921ef);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d6);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d5);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d3);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03e1);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921f0);
+            textView.setText(R.string.obfuscated_res_0x7f0f03e8);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d4);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f07a5);
+            textView2.setText(R.string.obfuscated_res_0x7f0f07aa);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // c.a.o0.r.t.a
-    public a create(f<?> fVar) {
+    @Override // com.repackage.dr4
+    public dr4 create(b9<?> b9Var) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            super.create(fVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b9Var)) == null) {
+            super.create(b9Var);
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode == -63024214) {
                 if (str.equals("android.permission.ACCESS_COARSE_LOCATION")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 463403621) {
                 if (hashCode == 1831139720 && str.equals("android.permission.RECORD_AUDIO")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("android.permission.CAMERA")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
             String str2 = null;
-            if (c2 == 0) {
-                str2 = fVar.getString(R.string.obfuscated_res_0x7f0f0fb0);
-                string = fVar.getString(R.string.obfuscated_res_0x7f0f0faa);
-            } else if (c2 == 1) {
-                str2 = fVar.getString(R.string.obfuscated_res_0x7f0f0fb2);
-                string = fVar.getString(R.string.obfuscated_res_0x7f0f0fac);
-            } else if (c2 != 2) {
+            if (c == 0) {
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb7);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb1);
+            } else if (c == 1) {
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb9);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb3);
+            } else if (c != 2) {
                 string = null;
             } else {
-                str2 = fVar.getString(R.string.obfuscated_res_0x7f0f0fb1);
-                string = fVar.getString(R.string.obfuscated_res_0x7f0f0fab);
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb8);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fb2);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -142,9 +142,9 @@ public class PermissionRequestDialog extends a {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.this$0.mOnClickCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.this$0.mOnClickCallback == null) {
                         return;
                     }
                     this.this$0.mOnClickCallback.onClickClose(this.this$0.mActivity, this.this$0.mRequestPermission);
@@ -174,9 +174,9 @@ public class PermissionRequestDialog extends a {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.this$0.mOnClickCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.this$0.mOnClickCallback == null) {
                         return;
                     }
                     this.this$0.mOnClickCallback.onClickContinue(this.this$0.mActivity, this.this$0.mRequestPermission);
@@ -184,7 +184,7 @@ public class PermissionRequestDialog extends a {
             });
             return this;
         }
-        return (a) invokeL.objValue;
+        return (dr4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

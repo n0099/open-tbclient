@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.RendererCapabilities;
 import com.google.android.exoplayer2.source.TrackGroupArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class TrackSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InvalidationListener listener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface InvalidationListener {
         void onTrackSelectionsInvalidated();
     }

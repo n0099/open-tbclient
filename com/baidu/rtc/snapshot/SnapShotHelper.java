@@ -12,7 +12,7 @@ import java.io.File;
 import org.webrtc.EglRenderer;
 import org.webrtc.Logging;
 import org.webrtc.SurfaceViewRenderer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SnapShotHelper implements ISnapShot {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SnapShotHelper";
@@ -88,10 +88,10 @@ public class SnapShotHelper implements ISnapShot {
                             if (!file.getParentFile().exists()) {
                                 try {
                                     file.getParentFile().mkdirs();
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     SnapShotCallback snapShotCallback2 = this.val$callback;
                                     if (snapShotCallback2 != null) {
-                                        snapShotCallback2.onSnapShotTake(false, e2.getMessage());
+                                        snapShotCallback2.onSnapShotTake(false, e.getMessage());
                                         return;
                                     }
                                     return;

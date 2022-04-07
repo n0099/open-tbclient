@@ -1,9 +1,5 @@
 package com.badlogic.ashley.core;
 
-import c.b.a.a.d;
-import c.b.a.a.e;
-import c.b.b.q.x;
-import c.b.b.q.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,39 +8,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l0;
+import com.repackage.m0;
+import com.repackage.v0;
+import com.repackage.v7;
+import com.repackage.x7;
+import com.repackage.y6;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
+    public m0 a;
+    public y6<l0> b;
+    public v7<l0> c;
+    public v0<l0> d;
+    public y6<EntityOperation> e;
+    public b f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<d> f23703b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public x<d> f23704c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c.b.a.c.b<d> f23705d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c.b.b.q.a<EntityOperation> f23706e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f23707f;
-
-    /* loaded from: classes3.dex */
-    public static class EntityOperation implements z.a {
+    /* loaded from: classes.dex */
+    public static class EntityOperation implements x7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public d f23708b;
+        public l0 b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -119,11 +109,11 @@ public class EntityManager {
             }
         }
 
-        @Override // c.b.b.q.z.a
+        @Override // com.repackage.x7.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23708b = null;
+                this.b = null;
             }
         }
 
@@ -132,7 +122,7 @@ public class EntityManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -168,8 +158,8 @@ public class EntityManager {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends z<EntityOperation> {
+    /* loaded from: classes.dex */
+    public static class b extends x7<EntityOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,7 +178,7 @@ public class EntityManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.b.b.q.z
+        @Override // com.repackage.x7
         /* renamed from: g */
         public EntityOperation d() {
             InterceptResult invokeV;
@@ -201,12 +191,12 @@ public class EntityManager {
         }
     }
 
-    public EntityManager(e eVar) {
+    public EntityManager(m0 m0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
+            Object[] objArr = {m0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -216,45 +206,45 @@ public class EntityManager {
                 return;
             }
         }
-        this.f23703b = new c.b.b.q.a<>(false, 16);
-        this.f23704c = new x<>();
-        this.f23705d = new c.b.a.c.b<>(this.f23703b);
-        this.f23706e = new c.b.b.q.a<>(false, 16);
-        this.f23707f = new b(null);
-        this.a = eVar;
+        this.b = new y6<>(false, 16);
+        this.c = new v7<>();
+        this.d = new v0<>(this.b);
+        this.e = new y6<>(false, 16);
+        this.f = new b(null);
+        this.a = m0Var;
     }
 
-    public void a(d dVar, boolean z) {
+    public void a(l0 l0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, dVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, l0Var, z) == null) {
             if (z) {
-                EntityOperation e2 = this.f23707f.e();
-                e2.f23708b = dVar;
-                e2.a = EntityOperation.Type.Add;
-                this.f23706e.a(e2);
+                EntityOperation e = this.f.e();
+                e.b = l0Var;
+                e.a = EntityOperation.Type.Add;
+                this.e.a(e);
                 return;
             }
-            b(dVar);
+            b(l0Var);
         }
     }
 
-    public void b(d dVar) {
+    public void b(l0 l0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            if (!this.f23704c.contains(dVar)) {
-                this.f23703b.a(dVar);
-                this.f23704c.add(dVar);
-                this.a.b(dVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
+            if (!this.c.contains(l0Var)) {
+                this.b.a(l0Var);
+                this.c.add(l0Var);
+                this.a.b(l0Var);
                 return;
             }
-            throw new IllegalArgumentException("Entity is already registered " + dVar);
+            throw new IllegalArgumentException("Entity is already registered " + l0Var);
         }
     }
 
-    public c.b.a.c.b<d> c() {
+    public v0<l0> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23705d : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (v0) invokeV.objValue;
     }
 
     public void d() {
@@ -264,59 +254,59 @@ public class EntityManager {
         }
         int i = 0;
         while (true) {
-            c.b.b.q.a<EntityOperation> aVar = this.f23706e;
-            if (i < aVar.f22717b) {
-                EntityOperation entityOperation = aVar.get(i);
+            y6<EntityOperation> y6Var = this.e;
+            if (i < y6Var.b) {
+                EntityOperation entityOperation = y6Var.get(i);
                 int i2 = a.a[entityOperation.a.ordinal()];
                 if (i2 == 1) {
-                    b(entityOperation.f23708b);
+                    b(entityOperation.b);
                 } else if (i2 == 2) {
-                    f(entityOperation.f23708b);
+                    f(entityOperation.b);
                 } else if (i2 != 3) {
                     throw new AssertionError("Unexpected EntityOperation type");
                 } else {
                     while (true) {
-                        c.b.b.q.a<d> aVar2 = this.f23703b;
-                        if (aVar2.f22717b > 0) {
-                            f(aVar2.f());
+                        y6<l0> y6Var2 = this.b;
+                        if (y6Var2.b > 0) {
+                            f(y6Var2.f());
                         }
                     }
                 }
-                this.f23707f.c(entityOperation);
+                this.f.c(entityOperation);
                 i++;
             } else {
-                aVar.clear();
+                y6Var.clear();
                 return;
             }
         }
     }
 
-    public void e(d dVar, boolean z) {
+    public void e(l0 l0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, dVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, l0Var, z) == null) {
             if (z) {
-                if (dVar.f22294c) {
+                if (l0Var.c) {
                     return;
                 }
-                dVar.f22294c = true;
-                EntityOperation e2 = this.f23707f.e();
-                e2.f23708b = dVar;
-                e2.a = EntityOperation.Type.Remove;
-                this.f23706e.a(e2);
+                l0Var.c = true;
+                EntityOperation e = this.f.e();
+                e.b = l0Var;
+                e.a = EntityOperation.Type.Remove;
+                this.e.a(e);
                 return;
             }
-            f(dVar);
+            f(l0Var);
         }
     }
 
-    public void f(d dVar) {
+    public void f(l0 l0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) && this.f23704c.remove(dVar)) {
-            dVar.f22294c = false;
-            dVar.f22295d = true;
-            this.f23703b.j(dVar, true);
-            this.a.a(dVar);
-            dVar.f22295d = false;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, l0Var) == null) && this.c.remove(l0Var)) {
+            l0Var.c = false;
+            l0Var.d = true;
+            this.b.j(l0Var, true);
+            this.a.a(l0Var);
+            l0Var.d = false;
         }
     }
 }

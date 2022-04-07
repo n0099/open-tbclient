@@ -33,8 +33,8 @@ public class b {
                     String next = keys.next();
                     jSONObject2.put(next, jSONObject.get(next));
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
         return jSONObject2;

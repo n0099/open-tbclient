@@ -32,29 +32,15 @@ import java.util.TreeMap;
 /* loaded from: classes7.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f42572d = "com.sdk.base.framework.d.a";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final boolean f42573e;
+    public static final String d = "com.sdk.base.framework.d.a";
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f42574b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42575c;
-
-    /* renamed from: f  reason: collision with root package name */
-    public PInfo f42576f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AInfo f42577g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public SInfo f42578h;
+    public String b;
+    public String c;
+    public PInfo f;
+    public AInfo g;
+    public SInfo h;
     public ArrayList<KInfo> i;
     public com.sdk.base.framework.b.a<T> j;
     public e k;
@@ -72,7 +58,7 @@ public class a<T> {
                 return;
             }
         }
-        f42573e = f.f42567b;
+        e = f.b;
     }
 
     public a() {
@@ -122,7 +108,7 @@ public class a<T> {
                     e = e2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f42572d, e.toString(), Boolean.valueOf(f42573e));
+                    c.b(d, e.toString(), Boolean.valueOf(e));
                     return fVar;
                 }
             } else {
@@ -142,10 +128,10 @@ public class a<T> {
             }
             String a5 = a(dataInfo2, a2);
             try {
-                String b2 = com.sdk.base.framework.f.h.b.b(a4, a + a2);
+                String b = com.sdk.base.framework.f.h.b.b(a4, a + a2);
                 treeMap.put("apiKey", a3);
                 treeMap.put("params", a5);
-                treeMap.put("paramsKey", b2);
+                treeMap.put("paramsKey", b);
                 String a6 = com.sdk.base.framework.f.j.a.a(a3, str2, treeMap);
                 HashMap<String, Object> hashMap = new HashMap<>(16);
                 if (c.b(a6).booleanValue()) {
@@ -165,7 +151,7 @@ public class a<T> {
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
                     g gVar = g.a;
                 } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                    g gVar2 = g.f42589b;
+                    g gVar2 = g.b;
                 }
                 h hVar = new h(this.a, kVar);
                 com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
@@ -177,13 +163,13 @@ public class a<T> {
                     fVar = fVar2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f42572d, e.toString(), Boolean.valueOf(f42573e));
+                    c.b(d, e.toString(), Boolean.valueOf(e));
                     return fVar;
                 }
             } catch (Exception e4) {
                 a(1, 101006, "公钥出错");
-                String str3 = f42572d;
-                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f42573e));
+                String str3 = d;
+                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(e));
                 return null;
             }
         }
@@ -196,11 +182,11 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataInfo, str)) == null) {
             try {
-                if (this.f42577g == null) {
-                    this.f42577g = com.sdk.base.framework.c.a.a(this.a);
+                if (this.g == null) {
+                    this.g = com.sdk.base.framework.c.a.a(this.a);
                 }
-                if (this.f42578h == null) {
-                    this.f42578h = com.sdk.base.framework.c.a.b();
+                if (this.h == null) {
+                    this.h = com.sdk.base.framework.c.a.b();
                 }
                 if (this.i == null) {
                     this.i = com.sdk.base.framework.c.a.a();
@@ -216,15 +202,15 @@ public class a<T> {
                     mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
-                if (this.f42576f == null) {
-                    this.f42576f = com.sdk.base.framework.c.a.c();
+                if (this.f == null) {
+                    this.f = com.sdk.base.framework.c.a.c();
                 }
                 StringBuilder sb = new StringBuilder("{app:");
-                sb.append(this.f42577g);
+                sb.append(this.g);
                 sb.append(",sdk:");
-                sb.append(this.f42578h);
+                sb.append(this.h);
                 sb.append(",device:");
-                sb.append(this.f42576f);
+                sb.append(this.f);
                 sb.append(",sim:");
                 sb.append(arrayList);
                 sb.append(",data:");
@@ -232,7 +218,7 @@ public class a<T> {
                 sb.append("}");
                 str2 = sb.toString();
             } catch (Exception e2) {
-                c.b(f42572d, e2.toString(), Boolean.valueOf(f42573e));
+                c.b(d, e2.toString(), Boolean.valueOf(e));
                 str2 = null;
             }
             return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.a, f.a), str);

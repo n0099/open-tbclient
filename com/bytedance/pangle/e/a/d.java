@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,11 +144,11 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, aVar, i)) == null) {
             int a = aVar.a(i);
-            int b2 = aVar.b(i);
+            int b = aVar.b(i);
             if (a == 3) {
                 return aVar.getAttributeValue(i);
             }
-            return a == 2 ? String.format("?%s%08X", a(b2), Integer.valueOf(b2)) : (a < 16 || a > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(b2), Integer.valueOf(a)) : String.valueOf(b2);
+            return a == 2 ? String.format("?%s%08X", a(b), Integer.valueOf(b)) : (a < 16 || a > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(b), Integer.valueOf(a)) : String.valueOf(b);
         }
         return (String) invokeLI.objValue;
     }

@@ -97,11 +97,11 @@ public class e implements com.ss.android.download.api.a {
                         }
                         return true;
                     }
-                    boolean d2 = d(downloadInfo);
+                    boolean d = d(downloadInfo);
                     if (a.a("disable_delete_dialog", 0) == 1) {
                         return true;
                     }
-                    return d2;
+                    return d;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.af
@@ -144,8 +144,8 @@ public class e implements com.ss.android.download.api.a {
         j.a(com.ss.android.downloadlib.e.c.a());
         try {
             com.ss.android.socialbase.appdownloader.d.j().b(j.u());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         com.ss.android.socialbase.appdownloader.d.j().a(a.a());
         d.a().b(new Runnable() { // from class: com.ss.android.downloadlib.e.3

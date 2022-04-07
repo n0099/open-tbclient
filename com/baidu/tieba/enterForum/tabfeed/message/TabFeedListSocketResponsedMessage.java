@@ -1,7 +1,5 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import c.a.d.o.e.n;
-import c.a.o0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d76;
+import com.repackage.i65;
+import com.repackage.uo;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes5.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
+/* loaded from: classes3.dex */
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements i65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.w0.n.d.a enterForumTabFeedData;
+    public d76 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -43,7 +44,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForumTabFeedData.c() : invokeV.objValue;
     }
 
-    public ArrayList<n> getThreadList() {
+    public ArrayList<uo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.enterForumTabFeedData.e() : (ArrayList) invokeV.objValue;
@@ -66,9 +67,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                c.a.p0.w0.n.d.a aVar = new c.a.p0.w0.n.d.a();
-                this.enterForumTabFeedData = aVar;
-                aVar.g(tabfeedlistResIdl.data);
+                d76 d76Var = new d76();
+                this.enterForumTabFeedData = d76Var;
+                d76Var.g(tabfeedlistResIdl.data);
             }
         }
     }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class DecodedChar extends DecodedObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char FNC1 = '$';
@@ -14,13 +14,13 @@ public final class DecodedChar extends DecodedObject {
     public final char value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DecodedChar(int i, char c2) {
+    public DecodedChar(int i, char c) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Character.valueOf(c2)};
+            Object[] objArr = {Integer.valueOf(i), Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public final class DecodedChar extends DecodedObject {
                 return;
             }
         }
-        this.value = c2;
+        this.value = c;
     }
 
     public char getValue() {

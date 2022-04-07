@@ -57,8 +57,8 @@ public class ChangeScroll extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            transitionValues.values.put(PROPNAME_SCROLL_X, Integer.valueOf(transitionValues.view.getScrollX()));
-            transitionValues.values.put(PROPNAME_SCROLL_Y, Integer.valueOf(transitionValues.view.getScrollY()));
+            transitionValues.values.put(PROPNAME_SCROLL_X, Integer.valueOf(transitionValues.f980view.getScrollX()));
+            transitionValues.values.put(PROPNAME_SCROLL_Y, Integer.valueOf(transitionValues.f980view.getScrollY()));
         }
     }
 
@@ -89,20 +89,20 @@ public class ChangeScroll extends Transition {
             if (transitionValues == null || transitionValues2 == null) {
                 return null;
             }
-            View view = transitionValues2.view;
+            View view2 = transitionValues2.f980view;
             int intValue = ((Integer) transitionValues.values.get(PROPNAME_SCROLL_X)).intValue();
             int intValue2 = ((Integer) transitionValues2.values.get(PROPNAME_SCROLL_X)).intValue();
             int intValue3 = ((Integer) transitionValues.values.get(PROPNAME_SCROLL_Y)).intValue();
             int intValue4 = ((Integer) transitionValues2.values.get(PROPNAME_SCROLL_Y)).intValue();
             if (intValue != intValue2) {
-                view.setScrollX(intValue);
-                objectAnimator = ObjectAnimator.ofInt(view, "scrollX", intValue, intValue2);
+                view2.setScrollX(intValue);
+                objectAnimator = ObjectAnimator.ofInt(view2, "scrollX", intValue, intValue2);
             } else {
                 objectAnimator = null;
             }
             if (intValue3 != intValue4) {
-                view.setScrollY(intValue3);
-                objectAnimator2 = ObjectAnimator.ofInt(view, "scrollY", intValue3, intValue4);
+                view2.setScrollY(intValue3);
+                objectAnimator2 = ObjectAnimator.ofInt(view2, "scrollY", intValue3, intValue4);
             }
             return TransitionUtils.mergeAnimators(objectAnimator, objectAnimator2);
         }

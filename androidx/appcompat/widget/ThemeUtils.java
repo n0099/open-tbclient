@@ -77,13 +77,13 @@ public class ThemeUtils {
         }
     }
 
-    public static void checkAppCompatTheme(@NonNull View view, @NonNull Context context) {
+    public static void checkAppCompatTheme(@NonNull View view2, @NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, context) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R$styleable.AppCompatTheme);
             try {
                 if (!obtainStyledAttributes.hasValue(R$styleable.AppCompatTheme_windowActionBar)) {
-                    Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
+                    Log.e(TAG, "View " + view2.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
                 }
             } finally {
                 obtainStyledAttributes.recycle();
@@ -161,12 +161,12 @@ public class ThemeUtils {
         return (TypedValue) invokeV.objValue;
     }
 
-    public static int getThemeAttrColor(@NonNull Context context, int i, float f2) {
+    public static int getThemeAttrColor(@NonNull Context context, int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Float.valueOf(f)})) == null) {
             int themeAttrColor = getThemeAttrColor(context, i);
-            return ColorUtils.setAlphaComponent(themeAttrColor, Math.round(Color.alpha(themeAttrColor) * f2));
+            return ColorUtils.setAlphaComponent(themeAttrColor, Math.round(Color.alpha(themeAttrColor) * f));
         }
         return invokeCommon.intValue;
     }

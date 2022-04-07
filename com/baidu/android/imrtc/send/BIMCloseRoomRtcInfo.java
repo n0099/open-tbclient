@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCloseRoomRtcInfo";
@@ -60,8 +60,8 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
             BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 bIMCloseRoomRtcInfo.setRoomDuration(new JSONObject(str2).optLong("room_duration"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e);
             }
             return bIMCloseRoomRtcInfo;
         }
@@ -78,8 +78,8 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
                 JSONObject jSONObject = new JSONObject(super.toRtcInfoString());
                 jSONObject.put("room_duration", this.mRoomDuration);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMCloseRoomRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMCloseRoomRtcInfo Exception ", e);
                 return "";
             }
         }

@@ -33,7 +33,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Cea708Decoder extends CeaDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CC_VALID_FLAG = 4;
@@ -126,7 +126,7 @@ public final class Cea708Decoder extends CeaDecoder {
     public final int selectedServiceNumber;
     public final ParsableBitArray serviceBlockPacket;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BORDER_AND_EDGE_TYPE_NONE = 0;
@@ -238,12 +238,12 @@ public final class Cea708Decoder extends CeaDecoder {
             return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? getArgbColorFromCeaColor(i, i2, i3, 0) : invokeIII.intValue;
         }
 
-        public void append(char c2) {
+        public void append(char c) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) != null) {
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) != null) {
                 return;
             }
-            if (c2 == '\n') {
+            if (c == '\n') {
                 this.rolledUpCaptions.add(buildSpannableString());
                 this.captionStringBuilder.clear();
                 if (this.italicsStartPosition != -1) {
@@ -265,7 +265,7 @@ public final class Cea708Decoder extends CeaDecoder {
                     this.rolledUpCaptions.remove(0);
                 }
             } else {
-                this.captionStringBuilder.append(c2);
+                this.captionStringBuilder.append(c);
             }
         }
 
@@ -291,8 +291,8 @@ public final class Cea708Decoder extends CeaDecoder {
         public Cea708Cue build() {
             InterceptResult invokeV;
             Layout.Alignment alignment;
+            float f;
             float f2;
-            float f3;
             int i;
             int i2;
             int i3;
@@ -319,14 +319,14 @@ public final class Cea708Decoder extends CeaDecoder {
                     }
                     Layout.Alignment alignment2 = alignment;
                     if (!this.relativePositioning) {
-                        f2 = this.horizontalAnchor / 99.0f;
-                        f3 = this.verticalAnchor / 99.0f;
+                        f = this.horizontalAnchor / 99.0f;
+                        f2 = this.verticalAnchor / 99.0f;
                     } else {
-                        f2 = this.horizontalAnchor / 209.0f;
-                        f3 = this.verticalAnchor / 74.0f;
+                        f = this.horizontalAnchor / 209.0f;
+                        f2 = this.verticalAnchor / 74.0f;
                     }
+                    float f3 = (f * 0.9f) + 0.05f;
                     float f4 = (f2 * 0.9f) + 0.05f;
-                    float f5 = (f3 * 0.9f) + 0.05f;
                     i = this.anchorId;
                     if (i % 3 != 0) {
                         i2 = 0;
@@ -339,21 +339,21 @@ public final class Cea708Decoder extends CeaDecoder {
                     } else {
                         i4 = i3 / 3 == 1 ? 1 : 2;
                     }
-                    return new Cea708Cue(spannableStringBuilder, alignment2, f5, 0, i2, f4, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
+                    return new Cea708Cue(spannableStringBuilder, alignment2, f4, 0, i2, f3, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
                 }
                 alignment = Layout.Alignment.ALIGN_NORMAL;
                 Layout.Alignment alignment22 = alignment;
                 if (!this.relativePositioning) {
                 }
+                float f32 = (f * 0.9f) + 0.05f;
                 float f42 = (f2 * 0.9f) + 0.05f;
-                float f52 = (f3 * 0.9f) + 0.05f;
                 i = this.anchorId;
                 if (i % 3 != 0) {
                 }
                 i3 = this.anchorId;
                 if (i3 / 3 != 0) {
                 }
-                return new Cea708Cue(spannableStringBuilder, alignment22, f52, 0, i2, f42, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
+                return new Cea708Cue(spannableStringBuilder, alignment22, f42, 0, i2, f32, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
             }
             return (Cea708Cue) invokeV.objValue;
         }
@@ -573,7 +573,7 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DtvCcPacket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

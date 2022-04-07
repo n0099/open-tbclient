@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.Div;
+import com.repackage.tb9;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NinePatchChunk implements Externalizable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DENSITY = 160;
@@ -56,11 +56,11 @@ public class NinePatchChunk implements Externalizable {
         this.padding = new Rect();
     }
 
-    public static void checkDivCount(byte b2) throws DivLengthException {
+    public static void checkDivCount(byte b) throws DivLengthException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(65537, null, b2) == null) {
-            if (b2 == 0 || (b2 & 1) != 0) {
-                throw new DivLengthException("Div count should be aliquot 2 and more then 0, but was: " + ((int) b2));
+        if (interceptable == null || interceptable.invokeB(65537, null, b) == null) {
+            if (b == 0 || (b & 1) != 0) {
+                throw new DivLengthException("Div count should be aliquot 2 and more then 0, but was: " + ((int) b));
             }
         }
     }
@@ -300,8 +300,8 @@ public class NinePatchChunk implements Externalizable {
                     i++;
                 }
                 return true;
-            } catch (Exception e2) {
-                c.g(e2);
+            } catch (Exception e) {
+                tb9.g(e);
                 return true;
             }
         }
@@ -357,10 +357,10 @@ public class NinePatchChunk implements Externalizable {
         if (!z) {
             throw new ChunkNotSerializedException();
         }
+        byte b = order.get();
+        checkDivCount(b);
         byte b2 = order.get();
         checkDivCount(b2);
-        byte b3 = order.get();
-        checkDivCount(b3);
         ninePatchChunk.colors = new int[order.get()];
         order.getInt();
         order.getInt();
@@ -369,11 +369,11 @@ public class NinePatchChunk implements Externalizable {
         ninePatchChunk.padding.top = order.getInt();
         ninePatchChunk.padding.bottom = order.getInt();
         order.getInt();
-        int i2 = b2 >> 1;
+        int i2 = b >> 1;
         ArrayList<Div> arrayList = new ArrayList<>(i2);
         ninePatchChunk.xDivs = arrayList;
         readDivs(i2, order, arrayList);
-        int i3 = b3 >> 1;
+        int i3 = b2 >> 1;
         ArrayList<Div> arrayList2 = new ArrayList<>(i3);
         ninePatchChunk.yDivs = arrayList2;
         readDivs(i3, order, arrayList2);
@@ -504,8 +504,8 @@ public class NinePatchChunk implements Externalizable {
                 this.yDivs = parse.yDivs;
                 this.padding = parse.padding;
                 this.colors = parse.colors;
-            } catch (ChunkNotSerializedException | DivLengthException e2) {
-                c.g(e2);
+            } catch (ChunkNotSerializedException | DivLengthException e) {
+                tb9.g(e);
             }
         }
     }

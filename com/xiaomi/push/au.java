@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;
@@ -36,7 +36,7 @@ public class au {
             a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m112a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m108a("mdid:load lib error " + th);
         }
     }
 
@@ -52,7 +52,7 @@ public class au {
                 }
                 return false;
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("mdid:check error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m108a("mdid:check error " + th);
                 return false;
             }
         }

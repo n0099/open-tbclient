@@ -1,11 +1,11 @@
 package com.baidu.webkit.sdk;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IABTestInterface {
     JSONObject getRawSwitch();
 
-    double getSwitch(String str, double d2);
+    double getSwitch(String str, double d);
 
     int getSwitch(String str, int i);
 

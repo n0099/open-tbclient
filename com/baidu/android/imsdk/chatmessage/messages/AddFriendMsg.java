@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AddFriendMsg extends NotifyMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AddFriendMsg> CREATOR;
@@ -111,11 +111,11 @@ public class AddFriendMsg extends NotifyMsg {
                 this.from = jSONObject.getLong("from");
                 this.description = jSONObject.getString("description");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "parseJsonString", e);
                 return false;
-            } catch (Exception e3) {
-                LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e3);
+            } catch (Exception e2) {
+                LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e2);
                 return false;
             }
         }

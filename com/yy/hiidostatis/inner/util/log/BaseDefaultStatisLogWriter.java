@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LEN = 4194304;
@@ -59,8 +59,8 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
                 if (this.fileWriter != null) {
                     try {
                         this.fileWriter.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
                 try {

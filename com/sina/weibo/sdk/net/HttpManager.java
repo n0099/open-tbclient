@@ -105,8 +105,8 @@ public class HttpManager {
                     }
                 }
                 outputStream.write(("\r\n" + END_MP_BOUNDARY).getBytes());
-            } catch (IOException e2) {
-                throw new WeiboException(e2);
+            } catch (IOException e) {
+                throw new WeiboException(e);
             }
         }
     }
@@ -311,9 +311,9 @@ public class HttpManager {
                                 break;
                             }
                             byteArrayOutputStream.write(bArr, 0, read);
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
                             inputStream2 = inputStream;
-                            e = e2;
+                            e = e;
                             try {
                                 throw new WeiboException(e);
                             } catch (Throwable th) {
@@ -355,17 +355,17 @@ public class HttpManager {
                 } catch (Exception unused4) {
                 }
                 return str;
-            } catch (IOException e3) {
+            } catch (IOException e2) {
                 inputStream2 = inputStream;
-                e = e3;
+                e = e2;
                 byteArrayOutputStream = null;
             } catch (Throwable th3) {
                 inputStream2 = inputStream;
                 th = th3;
                 byteArrayOutputStream = null;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             byteArrayOutputStream = null;
         } catch (Throwable th4) {
             th = th4;
@@ -412,9 +412,9 @@ public class HttpManager {
                         return readConnectResponse;
                     }
                     throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    throw new WeiboException(e2);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw new WeiboException(e);
                 }
             } catch (Throwable th) {
                 if (0 != 0) {

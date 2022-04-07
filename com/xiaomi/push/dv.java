@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class dv {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bm.m224a(str), 2) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bm.m220a(str), 2) : (String) invokeL.objValue;
     }
 
     public static String a(HashMap<String, String> hashMap) {
@@ -43,8 +43,8 @@ public class dv {
                 for (String str : hashMap.keySet()) {
                     jSONObject.put(str, hashMap.get(str));
                 }
-            } catch (JSONException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
             return jSONObject.toString();
         }
@@ -76,8 +76,8 @@ public class dv {
                         hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
                         hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
                         hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
-                    } catch (JSONException e2) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    } catch (JSONException e) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
             }

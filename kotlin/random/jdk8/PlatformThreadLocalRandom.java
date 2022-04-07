@@ -17,8 +17,8 @@ public final class PlatformThreadLocalRandom extends AbstractPlatformRandom {
     }
 
     @Override // kotlin.random.Random
-    public double nextDouble(double d2) {
-        return ThreadLocalRandom.current().nextDouble(d2);
+    public double nextDouble(double d) {
+        return ThreadLocalRandom.current().nextDouble(d);
     }
 
     @Override // kotlin.random.Random

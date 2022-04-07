@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,13 +50,13 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
-    public static void updateTopBottomPadding(@NonNull View view, int i, int i2) {
+    public static void updateTopBottomPadding(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, view, i, i2) == null) {
-            if (ViewCompat.isPaddingRelative(view)) {
-                ViewCompat.setPaddingRelative(view, ViewCompat.getPaddingStart(view), i, ViewCompat.getPaddingEnd(view), i2);
+        if (interceptable == null || interceptable.invokeLII(65538, null, view2, i, i2) == null) {
+            if (ViewCompat.isPaddingRelative(view2)) {
+                ViewCompat.setPaddingRelative(view2, ViewCompat.getPaddingStart(view2), i, ViewCompat.getPaddingEnd(view2), i2);
             } else {
-                view.setPadding(view.getPaddingLeft(), i, view.getPaddingRight(), i2);
+                view2.setPadding(view2.getPaddingLeft(), i, view2.getPaddingRight(), i2);
             }
         }
     }
@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d39);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d38);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d26);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091d25);
         }
     }
 
@@ -158,8 +158,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                     super.onMeasure(i, i2);
                 }
             }
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021c);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021b);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070221);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070220);
             boolean z = false;
             boolean z2 = this.messageView.getLayout().getLineCount() > 1;
             if (!z2 || this.maxInlineActionWidth <= 0 || this.actionView.getMeasuredWidth() <= this.maxInlineActionWidth) {
@@ -180,12 +180,12 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
-    public void updateActionTextColorAlphaIfNeeded(float f2) {
+    public void updateActionTextColorAlphaIfNeeded(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048583, this, f2) == null) || f2 == 1.0f) {
+        if (!(interceptable == null || interceptable.invokeF(1048583, this, f) == null) || f == 1.0f) {
             return;
         }
-        this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016b), this.actionView.getCurrentTextColor(), f2));
+        this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e), this.actionView.getCurrentTextColor(), f));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -207,7 +207,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ab, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f040417});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04008f, R.attr.obfuscated_res_0x7f0400ab, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f040457});
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
         this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();

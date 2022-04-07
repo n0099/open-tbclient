@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -59,8 +59,8 @@ public class c {
                     return true;
                 }
                 return true;
-            } catch (IOException e2) {
-                Log.e("SDKInitializer", "SDCard cache path invalid", e2);
+            } catch (IOException e) {
+                Log.e("SDKInitializer", "SDCard cache path invalid", e);
                 throw new IllegalArgumentException("BDMapSDKException: Provided sdcard cache path invalid can not used.");
             }
         }

@@ -8,27 +8,23 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class c {
     public static String a = "c";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile c f42785b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f42786c;
+    public static volatile c b;
+    public ConcurrentHashMap<Long, Runnable> c;
 
     public c() {
-        this.f42786c = null;
-        this.f42786c = new ConcurrentHashMap<>();
+        this.c = null;
+        this.c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
-        if (f42785b == null) {
+        if (b == null) {
             synchronized (c.class) {
-                if (f42785b == null) {
-                    f42785b = new c();
+                if (b == null) {
+                    b = new c();
                 }
             }
         }
-        return f42785b;
+        return b;
     }
 
     public long b() {
@@ -56,7 +52,7 @@ public class c {
             a(id, true, 1);
         } else if (i != 7) {
         } else {
-            Runnable remove = this.f42786c.remove(Long.valueOf(id));
+            Runnable remove = this.c.remove(Long.valueOf(id));
             if (z) {
                 com.ss.android.downloadlib.d.a.a().a(id, 1);
                 a(id, true, 1);

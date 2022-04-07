@@ -13,7 +13,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.ScaleXY;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AnimatableTransformParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", "r", "o", "so", "eo", "sk", "sa");
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of("k");

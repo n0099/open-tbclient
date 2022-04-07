@@ -8,23 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f38445b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f38446c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f38447d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f38448e;
+    public final String b;
+    public final String c;
+    public String d;
+    public String e;
 
     public d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -41,10 +33,10 @@ public class d extends g {
                 return;
             }
         }
-        this.f38447d = "authz";
+        this.d = "authz";
         this.a = str;
-        this.f38445b = str2;
-        this.f38446c = str3;
+        this.b = str2;
+        this.c = str3;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -67,14 +59,14 @@ public class d extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f38447d = str;
+            this.d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f38448e = str;
+            this.e = str;
         }
     }
 
@@ -85,12 +77,12 @@ public class d extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f38445b);
-                jSONObject.put("data", this.f38446c);
-                jSONObject.put("userCapaid", this.f38448e);
-                jSONObject.put("funcType", this.f38447d);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                jSONObject.put("ver", this.b);
+                jSONObject.put("data", this.c);
+                jSONObject.put("userCapaid", this.e);
+                jSONObject.put("funcType", this.d);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

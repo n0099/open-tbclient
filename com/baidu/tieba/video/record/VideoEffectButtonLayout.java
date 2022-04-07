@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import c.a.p0.n4.l.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -14,36 +13,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, h.b {
+import com.repackage.mu8;
+/* loaded from: classes4.dex */
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, mu8.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f36525b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f36526c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f36527d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f36528e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f36529f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f36530g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f36531h;
+    public ImageView b;
+    public ImageView c;
+    public ImageView d;
+    public LinearLayout e;
+    public LinearLayout f;
+    public LinearLayout g;
+    public LinearLayout h;
     public a i;
     public View j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onClickBeauty();
 
@@ -75,14 +61,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // c.a.p0.n4.l.h.b
+    @Override // com.repackage.mu8.b
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ac0);
-            } else {
                 this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ac1);
+            } else {
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ac2);
             }
         }
     }
@@ -90,19 +76,19 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ef, this);
-            this.f36528e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911ec);
-            this.f36529f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.f36530g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911c2);
-            this.f36531h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec6);
-            this.f36525b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed9);
-            this.f36526c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9f);
-            this.f36527d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb3);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ea, this);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911e1);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911ee);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911b7);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911cf);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec2);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed5);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9a);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eae);
             this.a.setOnClickListener(this);
-            this.f36525b.setOnClickListener(this);
-            this.f36526c.setOnClickListener(this);
-            this.f36527d.setOnClickListener(this);
+            this.b.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.d.setOnClickListener(this);
         }
     }
 
@@ -113,24 +99,24 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || this.i == null) {
             return;
         }
-        int id = view.getId();
-        this.j = view;
+        int id = view2.getId();
+        this.j = view2;
         StatisticItem statisticItem = new StatisticItem("c12495");
-        if (id == R.id.obfuscated_res_0x7f090ec6) {
+        if (id == R.id.obfuscated_res_0x7f090ec2) {
             this.i.onClickMusic();
             statisticItem.param("obj_type", 6);
-        } else if (id == R.id.obfuscated_res_0x7f090ed9) {
+        } else if (id == R.id.obfuscated_res_0x7f090ed5) {
             this.i.onClickSticker();
             statisticItem.param("obj_type", 4);
-        } else if (id == R.id.obfuscated_res_0x7f090e9f) {
+        } else if (id == R.id.obfuscated_res_0x7f090e9a) {
             this.i.onClickBeauty();
             statisticItem.param("obj_type", 3);
-        } else if (id == R.id.obfuscated_res_0x7f090eb3) {
+        } else if (id == R.id.obfuscated_res_0x7f090eae) {
             this.i.onClickFilter();
             statisticItem.param("obj_type", 2);
         }
@@ -150,12 +136,12 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
             if (i == 0) {
                 this.a.setSelected(z);
             } else if (i == 1) {
-                this.f36525b.setSelected(z);
+                this.b.setSelected(z);
             } else if (i == 2) {
-                this.f36526c.setSelected(z);
+                this.c.setSelected(z);
             } else if (i != 3) {
             } else {
-                this.f36527d.setSelected(z);
+                this.d.setSelected(z);
             }
         }
     }
@@ -164,14 +150,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             if (i == 0) {
-                this.f36528e.setVisibility(i2);
+                this.e.setVisibility(i2);
             } else if (i == 1) {
-                this.f36529f.setVisibility(i2);
+                this.f.setVisibility(i2);
             } else if (i == 2) {
-                this.f36530g.setVisibility(i2);
+                this.g.setVisibility(i2);
             } else if (i != 3) {
             } else {
-                this.f36531h.setVisibility(i2);
+                this.h.setVisibility(i2);
             }
         }
     }

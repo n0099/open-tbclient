@@ -29,9 +29,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SingleObserver<? super R> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45342d;
+        public Disposable d;
         public final BiFunction<R, ? super T, R> reducer;
         public R value;
 
@@ -59,7 +57,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45342d.dispose();
+                this.d.dispose();
             }
         }
 
@@ -67,7 +65,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45342d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -105,7 +103,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
                 this.value = (R) ObjectHelper.requireNonNull(this.reducer.apply(r, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f45342d.dispose();
+                this.d.dispose();
                 onError(th);
             }
         }
@@ -113,8 +111,8 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45342d, disposable)) {
-                this.f45342d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

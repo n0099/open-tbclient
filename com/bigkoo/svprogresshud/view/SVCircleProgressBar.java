@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SVCircleProgressBar extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL = 1;
@@ -101,18 +101,18 @@ public class SVCircleProgressBar extends View {
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
             int width = getWidth() / 2;
-            float f2 = width;
-            int i2 = (int) (f2 - (this.roundWidth / 2.0f));
+            float f = width;
+            int i2 = (int) (f - (this.roundWidth / 2.0f));
             this.paint.setAntiAlias(true);
             this.paint.setColor(this.roundColor);
             this.paint.setStyle(Paint.Style.STROKE);
             this.paint.setStrokeWidth(this.roundWidth);
-            canvas.drawCircle(f2, f2, i2, this.paint);
+            canvas.drawCircle(f, f, i2, this.paint);
             this.paint.setStrokeWidth(this.roundWidth);
             this.paint.setColor(this.roundProgressColor);
-            float f3 = width - i2;
-            float f4 = width + i2;
-            RectF rectF = new RectF(f3, f3, f4, f4);
+            float f2 = width - i2;
+            float f3 = width + i2;
+            RectF rectF = new RectF(f2, f2, f3, f3);
             int i3 = this.style;
             if (i3 == 0) {
                 this.paint.setStyle(Paint.Style.STROKE);
@@ -173,10 +173,10 @@ public class SVCircleProgressBar extends View {
         }
     }
 
-    public void setRoundWidth(float f2) {
+    public void setRoundWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.roundWidth = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.roundWidth = f;
         }
     }
 
@@ -221,7 +221,7 @@ public class SVCircleProgressBar extends View {
             }
         }
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405a0, R.attr.obfuscated_res_0x7f0405a1, R.attr.obfuscated_res_0x7f0405a2, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f0405a4});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405de, R.attr.obfuscated_res_0x7f0405df, R.attr.obfuscated_res_0x7f0405e0, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f0405e2});
         this.roundColor = obtainStyledAttributes.getColor(1, -16776961);
         this.roundProgressColor = obtainStyledAttributes.getColor(2, -7829368);
         this.roundWidth = obtainStyledAttributes.getDimension(3, 5.0f);

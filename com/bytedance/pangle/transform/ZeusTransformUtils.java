@@ -47,7 +47,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusTransformUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginContextUtils";
@@ -93,14 +93,14 @@ public class ZeusTransformUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, str)) == null) {
             try {
                 return (Activity) wrapperContext((Activity) MethodUtils.invokeMethod(obj, "getActivity", new Object[0]), str);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (NoSuchMethodException e2) {
                 e2.printStackTrace();
                 return null;
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 e3.printStackTrace();
-                return null;
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
                 return null;
             }
         }
@@ -116,8 +116,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return ((Boolean) MethodUtils.invokeMethod(obj, "bindService", new Object[]{intent, serviceConnection, Integer.valueOf(i)}, new Class[]{Intent.class, ServiceConnection.class, Integer.TYPE})).booleanValue();
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeCommon.booleanValue;
@@ -178,8 +178,8 @@ public class ZeusTransformUtils {
                     return wrapperContext(context, str);
                 }
                 return context instanceof PluginContext ? context : wrapperContext(context, str);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Context) invokeLL.objValue;
@@ -198,8 +198,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return ((Integer) MethodUtils.invokeMethod(obj, "getIdentifier", str, str2, str3)).intValue();
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeLLLLL.intValue;
@@ -212,8 +212,8 @@ public class ZeusTransformUtils {
             try {
                 Resources resources = (Resources) MethodUtils.invokeMethod(obj, "getResources", new Object[0]);
                 return (resources == null || (resources instanceof PluginResources)) ? resources : PluginManager.getInstance().getPlugin(str).mResources;
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Resources) invokeLL.objValue;
@@ -365,8 +365,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Intent) invokeLLLL.objValue;
@@ -388,8 +388,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "requestPermissions", strArr, Integer.valueOf(i));
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -410,8 +410,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "setResult", Integer.valueOf(i), intent);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -425,8 +425,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, WBConstants.SHARE_START_ACTIVITY, intent);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -440,8 +440,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "startActivityForResult", intent, Integer.valueOf(i));
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -455,8 +455,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return (ComponentName) MethodUtils.invokeMethod(obj, "startService", intent);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (ComponentName) invokeLLL.objValue;
@@ -471,8 +471,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return ((Boolean) MethodUtils.invokeMethod(obj, "stopService", intent)).booleanValue();
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeLLL.booleanValue;
@@ -487,8 +487,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "unbindService", serviceConnection);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -502,8 +502,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "unregisterReceiver", pluginBroadcastReceiver);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -644,8 +644,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, WBConstants.SHARE_START_ACTIVITY, new Object[]{intent, bundle}, new Class[]{Intent.class, Bundle.class});
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -659,8 +659,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "startActivityForResult", new Object[]{intent, Integer.valueOf(i), bundle}, new Class[]{Intent.class, Integer.TYPE, Bundle.class});
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -684,8 +684,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, str, handler);
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Intent) invokeCommon.objValue;
@@ -716,8 +716,8 @@ public class ZeusTransformUtils {
             }
             try {
                 MethodUtils.invokeMethod(obj, "setResult", Integer.valueOf(i));
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -745,8 +745,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, Integer.valueOf(i));
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Intent) invokeCommon.objValue;
@@ -774,8 +774,8 @@ public class ZeusTransformUtils {
             }
             try {
                 return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i));
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (Intent) invokeCommon.objValue;

@@ -30,12 +30,12 @@ public final class DurationKt {
 
     @ExperimentalTime
     public static final long durationOf(long j, int i) {
-        return Duration.m1977constructorimpl((j << 1) + i);
+        return Duration.m1973constructorimpl((j << 1) + i);
     }
 
     @ExperimentalTime
     public static final long durationOfMillis(long j) {
-        return Duration.m1977constructorimpl((j << 1) + 1);
+        return Duration.m1973constructorimpl((j << 1) + 1);
     }
 
     @ExperimentalTime
@@ -48,7 +48,7 @@ public final class DurationKt {
 
     @ExperimentalTime
     public static final long durationOfNanos(long j) {
-        return Duration.m1977constructorimpl(j << 1);
+        return Duration.m1973constructorimpl(j << 1);
     }
 
     @ExperimentalTime
@@ -66,7 +66,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.days() function instead.", replaceWith = @ReplaceWith(expression = "Duration.days(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getDays$annotations(double d2) {
+    public static /* synthetic */ void getDays$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.days() function instead.", replaceWith = @ReplaceWith(expression = "Duration.days(this)", imports = {"kotlin.time.Duration"}))
@@ -88,7 +88,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.hours() function instead.", replaceWith = @ReplaceWith(expression = "Duration.hours(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getHours$annotations(double d2) {
+    public static /* synthetic */ void getHours$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.hours() function instead.", replaceWith = @ReplaceWith(expression = "Duration.hours(this)", imports = {"kotlin.time.Duration"}))
@@ -110,7 +110,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.microseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.microseconds(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getMicroseconds$annotations(double d2) {
+    public static /* synthetic */ void getMicroseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.microseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.microseconds(this)", imports = {"kotlin.time.Duration"}))
@@ -132,7 +132,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.milliseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.milliseconds(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getMilliseconds$annotations(double d2) {
+    public static /* synthetic */ void getMilliseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.milliseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.milliseconds(this)", imports = {"kotlin.time.Duration"}))
@@ -154,7 +154,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.minutes() function instead.", replaceWith = @ReplaceWith(expression = "Duration.minutes(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getMinutes$annotations(double d2) {
+    public static /* synthetic */ void getMinutes$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.minutes() function instead.", replaceWith = @ReplaceWith(expression = "Duration.minutes(this)", imports = {"kotlin.time.Duration"}))
@@ -176,7 +176,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.nanoseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.nanoseconds(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getNanoseconds$annotations(double d2) {
+    public static /* synthetic */ void getNanoseconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.nanoseconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.nanoseconds(this)", imports = {"kotlin.time.Duration"}))
@@ -198,7 +198,7 @@ public final class DurationKt {
     @Deprecated(message = "Use Duration.seconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.seconds(this)", imports = {"kotlin.time.Duration"}))
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static /* synthetic */ void getSeconds$annotations(double d2) {
+    public static /* synthetic */ void getSeconds$annotations(double d) {
     }
 
     @Deprecated(message = "Use Duration.seconds() function instead.", replaceWith = @ReplaceWith(expression = "Duration.seconds(this)", imports = {"kotlin.time.Duration"}))
@@ -231,22 +231,22 @@ public final class DurationKt {
         boolean z2;
         int i;
         String str2;
-        long m2013plusLRDsOJo;
+        long m2009plusLRDsOJo;
         int i2;
         boolean z3;
-        long m2013plusLRDsOJo2;
+        long m2009plusLRDsOJo2;
         boolean z4;
         String str3 = str;
         int length = str.length();
         if (length != 0) {
-            long m2037getZEROUwyO8pc = Duration.Companion.m2037getZEROUwyO8pc();
+            long m2033getZEROUwyO8pc = Duration.Companion.m2033getZEROUwyO8pc();
             char charAt = str3.charAt(0);
             int i3 = (charAt == '+' || charAt == '-') ? 1 : 0;
             boolean z5 = i3 > 0;
             boolean z6 = z5 && StringsKt__StringsKt.startsWith$default((CharSequence) str3, (char) SignatureImpl.SEP, false, 2, (Object) null);
             if (length > i3) {
-                char c2 = '0';
-                char c3 = '9';
+                char c = '0';
+                char c2 = '9';
                 if (str3.charAt(i3) == 'P') {
                     int i4 = i3 + 1;
                     if (i4 == length) {
@@ -264,7 +264,7 @@ public final class DurationKt {
                                     break;
                                 }
                                 char charAt2 = str3.charAt(i5);
-                                if (c2 > charAt2 || c3 < charAt2) {
+                                if (c > charAt2 || c2 < charAt2) {
                                     i2 = length;
                                     z3 = z6;
                                     if (!StringsKt__StringsKt.contains$default((CharSequence) "+-.", charAt2, false, 2, (Object) null)) {
@@ -275,8 +275,8 @@ public final class DurationKt {
                                         i5++;
                                         z6 = z3;
                                         length = i2;
-                                        c3 = '9';
-                                        c2 = '0';
+                                        c2 = '9';
+                                        c = '0';
                                     }
                                 } else {
                                     i2 = length;
@@ -300,27 +300,27 @@ public final class DurationKt {
                                         }
                                         int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) substring, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                         if (durationUnitByIsoChar != TimeUnit.SECONDS || indexOf$default <= 0) {
-                                            m2013plusLRDsOJo2 = Duration.m2013plusLRDsOJo(m2037getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
+                                            m2009plusLRDsOJo2 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
                                         } else if (substring != null) {
                                             String substring2 = substring.substring(0, indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                            long m2013plusLRDsOJo3 = Duration.m2013plusLRDsOJo(m2037getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
+                                            long m2009plusLRDsOJo3 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
                                             if (substring == null) {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
                                             String substring3 = substring.substring(indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring3, "(this as java.lang.String).substring(startIndex)");
-                                            m2013plusLRDsOJo2 = Duration.m2013plusLRDsOJo(m2013plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
+                                            m2009plusLRDsOJo2 = Duration.m2009plusLRDsOJo(m2009plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
                                         } else {
                                             throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                         }
-                                        m2037getZEROUwyO8pc = m2013plusLRDsOJo2;
+                                        m2033getZEROUwyO8pc = m2009plusLRDsOJo2;
                                         str3 = str;
                                         timeUnit = durationUnitByIsoChar;
                                         z6 = z3;
                                         length = i2;
-                                        c3 = '9';
-                                        c2 = '0';
+                                        c2 = '9';
+                                        c = '0';
                                     } else {
                                         throw new IllegalArgumentException("Missing unit for value " + substring);
                                     }
@@ -342,7 +342,7 @@ public final class DurationKt {
                     if (!z) {
                         String str4 = "(this as java.lang.String).substring(startIndex)";
                         if (StringsKt__StringsJVMKt.regionMatches(str, i3, "Infinity", 0, Math.max(length - i3, 8), true)) {
-                            m2037getZEROUwyO8pc = Duration.Companion.m2035getINFINITEUwyO8pc();
+                            m2033getZEROUwyO8pc = Duration.Companion.m2031getINFINITEUwyO8pc();
                         } else {
                             boolean z8 = !z5;
                             if (z5 && str.charAt(i3) == '(' && StringsKt___StringsKt.last(str) == ')') {
@@ -398,16 +398,16 @@ public final class DurationKt {
                                             int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) substring4, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                             if (indexOf$default2 <= 0) {
                                                 str2 = str4;
-                                                m2013plusLRDsOJo = Duration.m2013plusLRDsOJo(m2037getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
+                                                m2009plusLRDsOJo = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
                                             } else if (substring4 != null) {
                                                 String substring6 = substring4.substring(0, indexOf$default2);
                                                 Intrinsics.checkNotNullExpressionValue(substring6, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                                                 str2 = str4;
-                                                long m2013plusLRDsOJo4 = Duration.m2013plusLRDsOJo(m2037getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
+                                                long m2009plusLRDsOJo4 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
                                                 if (substring4 != null) {
                                                     String substring7 = substring4.substring(indexOf$default2);
                                                     Intrinsics.checkNotNullExpressionValue(substring7, str2);
-                                                    m2013plusLRDsOJo = Duration.m2013plusLRDsOJo(m2013plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
+                                                    m2009plusLRDsOJo = Duration.m2009plusLRDsOJo(m2009plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
                                                     if (i3 < i) {
                                                         throw new IllegalArgumentException("Fractional component must be last");
                                                     }
@@ -417,7 +417,7 @@ public final class DurationKt {
                                             } else {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
-                                            m2037getZEROUwyO8pc = m2013plusLRDsOJo;
+                                            m2033getZEROUwyO8pc = m2009plusLRDsOJo;
                                             timeUnit2 = durationUnitByShortName;
                                             str4 = str2;
                                             z9 = true;
@@ -436,7 +436,7 @@ public final class DurationKt {
                         throw new IllegalArgumentException();
                     }
                 }
-                return z2 ? Duration.m2029unaryMinusUwyO8pc(m2037getZEROUwyO8pc) : m2037getZEROUwyO8pc;
+                return z2 ? Duration.m2025unaryMinusUwyO8pc(m2033getZEROUwyO8pc) : m2033getZEROUwyO8pc;
             }
             throw new IllegalArgumentException("No components");
         }
@@ -502,16 +502,16 @@ public final class DurationKt {
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-kIfJnKk */
-    public static final long m2060timeskIfJnKk(double d2, long j) {
-        return Duration.m2014timesUwyO8pc(j, d2);
+    public static final long m2056timeskIfJnKk(double d, long j) {
+        return Duration.m2010timesUwyO8pc(j, d);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-mvk6XK0 */
-    public static final long m2061timesmvk6XK0(int i, long j) {
-        return Duration.m2015timesUwyO8pc(j, i);
+    public static final long m2057timesmvk6XK0(int i, long j) {
+        return Duration.m2011timesUwyO8pc(j, i);
     }
 
     @SinceKotlin(version = "1.3")
@@ -552,32 +552,32 @@ public final class DurationKt {
         return toDuration(j, TimeUnit.SECONDS);
     }
 
-    public static final long getDays(double d2) {
-        return toDuration(d2, TimeUnit.DAYS);
+    public static final long getDays(double d) {
+        return toDuration(d, TimeUnit.DAYS);
     }
 
-    public static final long getHours(double d2) {
-        return toDuration(d2, TimeUnit.HOURS);
+    public static final long getHours(double d) {
+        return toDuration(d, TimeUnit.HOURS);
     }
 
-    public static final long getMicroseconds(double d2) {
-        return toDuration(d2, TimeUnit.MICROSECONDS);
+    public static final long getMicroseconds(double d) {
+        return toDuration(d, TimeUnit.MICROSECONDS);
     }
 
-    public static final long getMilliseconds(double d2) {
-        return toDuration(d2, TimeUnit.MILLISECONDS);
+    public static final long getMilliseconds(double d) {
+        return toDuration(d, TimeUnit.MILLISECONDS);
     }
 
-    public static final long getMinutes(double d2) {
-        return toDuration(d2, TimeUnit.MINUTES);
+    public static final long getMinutes(double d) {
+        return toDuration(d, TimeUnit.MINUTES);
     }
 
-    public static final long getNanoseconds(double d2) {
-        return toDuration(d2, TimeUnit.NANOSECONDS);
+    public static final long getNanoseconds(double d) {
+        return toDuration(d, TimeUnit.NANOSECONDS);
     }
 
-    public static final long getSeconds(double d2) {
-        return toDuration(d2, TimeUnit.SECONDS);
+    public static final long getSeconds(double d) {
+        return toDuration(d, TimeUnit.SECONDS);
     }
 
     @SinceKotlin(version = "1.3")
@@ -593,15 +593,15 @@ public final class DurationKt {
 
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static final long toDuration(double d2, TimeUnit unit) {
+    public static final long toDuration(double d, TimeUnit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
-        double convertDurationUnit = DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d2, unit, TimeUnit.NANOSECONDS);
+        double convertDurationUnit = DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d, unit, TimeUnit.NANOSECONDS);
         if (!Double.isNaN(convertDurationUnit)) {
             long roundToLong = MathKt__MathJVMKt.roundToLong(convertDurationUnit);
             if (-4611686018426999999L <= roundToLong && MAX_NANOS >= roundToLong) {
                 return durationOfNanos(roundToLong);
             }
-            return durationOfMillisNormalized(MathKt__MathJVMKt.roundToLong(DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d2, unit, TimeUnit.MILLISECONDS)));
+            return durationOfMillisNormalized(MathKt__MathJVMKt.roundToLong(DurationUnitKt__DurationUnitJvmKt.convertDurationUnit(d, unit, TimeUnit.MILLISECONDS)));
         }
         throw new IllegalArgumentException("Duration value cannot be NaN.".toString());
     }

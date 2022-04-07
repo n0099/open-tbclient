@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,8 +21,8 @@ public class cm {
                         return Os.stat(str).st_size;
                     }
                     return 0L;
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                     return 0L;
                 }
             }

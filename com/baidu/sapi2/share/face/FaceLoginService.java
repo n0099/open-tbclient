@@ -28,7 +28,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceLoginService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SHARE_V2_MAX_ACCOUNT_SIZE = 10;
@@ -216,8 +216,8 @@ public class FaceLoginService {
                     jSONArray.put(jSONObject2);
                 }
                 jSONObject.put("list", jSONArray);
-            } catch (JSONException e2) {
-                Log.i(e2);
+            } catch (JSONException e) {
+                Log.i(e);
             }
             String buildV2FaceUidString = buildV2FaceUidString(linkedHashMap);
             setV2ShareFaceUids(buildV2FaceUidString);

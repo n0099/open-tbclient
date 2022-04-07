@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int THUMBNAIL_SCALE_FACTOR = 2;
@@ -62,9 +62,9 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
                 int i6 = (i3 + i) - 1;
                 int i7 = i3;
                 while (i7 < i5) {
-                    byte b2 = bArr[i7];
+                    byte b = bArr[i7];
                     bArr[i7] = bArr[i6];
-                    bArr[i6] = b2;
+                    bArr[i6] = b;
                     i7++;
                     i6--;
                 }

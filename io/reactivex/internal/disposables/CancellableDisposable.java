@@ -11,7 +11,7 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Cancellable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CancellableDisposable extends AtomicReference<Cancellable> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
@@ -46,9 +46,9 @@ public final class CancellableDisposable extends AtomicReference<Cancellable> im
         }
         try {
             andSet.cancel();
-        } catch (Exception e2) {
-            Exceptions.throwIfFatal(e2);
-            RxJavaPlugins.onError(e2);
+        } catch (Exception e) {
+            Exceptions.throwIfFatal(e);
+            RxJavaPlugins.onError(e);
         }
     }
 

@@ -19,26 +19,26 @@ public abstract class AbstractDoubleTimeSource implements TimeSource {
         public final double startedAt;
         public final AbstractDoubleTimeSource timeSource;
 
-        public DoubleTimeMark(double d2, AbstractDoubleTimeSource abstractDoubleTimeSource, long j) {
-            this.startedAt = d2;
+        public DoubleTimeMark(double d, AbstractDoubleTimeSource abstractDoubleTimeSource, long j) {
+            this.startedAt = d;
             this.timeSource = abstractDoubleTimeSource;
             this.offset = j;
         }
 
         @Override // kotlin.time.TimeMark
         /* renamed from: elapsedNow-UwyO8pc  reason: not valid java name */
-        public long mo1967elapsedNowUwyO8pc() {
-            return Duration.m2012minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
+        public long mo1963elapsedNowUwyO8pc() {
+            return Duration.m2008minusLRDsOJo(DurationKt.toDuration(this.timeSource.read() - this.startedAt, this.timeSource.getUnit()), this.offset);
         }
 
         @Override // kotlin.time.TimeMark
         /* renamed from: plus-LRDsOJo  reason: not valid java name */
-        public TimeMark mo1968plusLRDsOJo(long j) {
-            return new DoubleTimeMark(this.startedAt, this.timeSource, Duration.m2013plusLRDsOJo(this.offset, j));
+        public TimeMark mo1964plusLRDsOJo(long j) {
+            return new DoubleTimeMark(this.startedAt, this.timeSource, Duration.m2009plusLRDsOJo(this.offset, j));
         }
 
-        public /* synthetic */ DoubleTimeMark(double d2, AbstractDoubleTimeSource abstractDoubleTimeSource, long j, DefaultConstructorMarker defaultConstructorMarker) {
-            this(d2, abstractDoubleTimeSource, j);
+        public /* synthetic */ DoubleTimeMark(double d, AbstractDoubleTimeSource abstractDoubleTimeSource, long j, DefaultConstructorMarker defaultConstructorMarker) {
+            this(d, abstractDoubleTimeSource, j);
         }
     }
 
@@ -53,7 +53,7 @@ public abstract class AbstractDoubleTimeSource implements TimeSource {
 
     @Override // kotlin.time.TimeSource
     public TimeMark markNow() {
-        return new DoubleTimeMark(read(), this, Duration.Companion.m2037getZEROUwyO8pc(), null);
+        return new DoubleTimeMark(read(), this, Duration.Companion.m2033getZEROUwyO8pc(), null);
     }
 
     public abstract double read();

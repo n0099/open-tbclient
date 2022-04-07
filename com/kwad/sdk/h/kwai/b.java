@@ -1,5 +1,5 @@
 package com.kwad.sdk.h.kwai;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface b {
     boolean a_();
 }

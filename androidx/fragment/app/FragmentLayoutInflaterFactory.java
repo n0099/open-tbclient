@@ -51,10 +51,10 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
 
     @Override // android.view.LayoutInflater.Factory2
     @Nullable
-    public View onCreateView(@Nullable View view, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
             if (FragmentContainerView.class.getName().equals(str)) {
                 return new FragmentContainerView(context, attributeSet, this.mFragmentManager);
             }
@@ -70,7 +70,7 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
                 if (attributeValue == null || !FragmentFactory.isFragmentClass(context.getClassLoader(), attributeValue)) {
                     return null;
                 }
-                int id = view != null ? view.getId() : 0;
+                int id = view2 != null ? view2.getId() : 0;
                 if (id == -1 && resourceId == -1 && string == null) {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
                 }
@@ -112,10 +112,10 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
                 } else {
                     this.mFragmentManager.moveToState(findFragmentById);
                 }
-                View view2 = findFragmentById.mView;
-                if (view2 != null) {
+                View view3 = findFragmentById.mView;
+                if (view3 != null) {
                     if (resourceId != 0) {
-                        view2.setId(resourceId);
+                        view3.setId(resourceId);
                     }
                     if (findFragmentById.mView.getTag() == null) {
                         findFragmentById.mView.setTag(string);

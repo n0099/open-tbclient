@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RetrieveFileData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_PATH_IV = "1357902468135246";
@@ -28,7 +28,7 @@ public class RetrieveFileData {
     public static final String VERSION = "version";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class RetrieveFileBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,8 +104,8 @@ public class RetrieveFileData {
             String optString3 = jSONObject.optString("version");
             try {
                 longValue = Long.valueOf(jSONObject.optString("expiredTime")).longValue();
-            } catch (Exception e2) {
-                LogUtils.d("FetchFileData", e2.toString());
+            } catch (Exception e) {
+                LogUtils.d("FetchFileData", e.toString());
             }
             if (longValue < System.currentTimeMillis() / 1000) {
                 LogUtils.d("FetchFileData", "retrieve--> 文件回捞命令过期");
@@ -115,8 +115,8 @@ public class RetrieveFileData {
                 try {
                     str = new String(Utility.decrypt(AES_PATH_IV, String.format("aperf_%s", optString3), Base64.decode(optJSONObject.optString("path"), 0)));
                     LogUtils.d("FetchFileData", "解密后的path路径：" + str);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     str = null;
                 }
                 if (!TextUtils.isEmpty(str)) {

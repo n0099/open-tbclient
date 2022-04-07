@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMRtcSendMsg";
@@ -119,8 +119,8 @@ public class BIMRtcSendMsg extends Message {
                 jSONObject.put("rtc_room_id", this.mRoomId);
                 jSONObject.put(RtcConstants.EXTRA_RTC_INFO, this.mRtcInfo);
                 LogUtils.i(TAG, "IMRtcSendMsg body :" + jSONObject.toString());
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "IMRtcSendMsg Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "IMRtcSendMsg Exception ", e);
             }
             return jSONObject;
         }

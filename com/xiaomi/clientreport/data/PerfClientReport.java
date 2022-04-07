@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PerfClientReport extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_VALUE = -1;
@@ -54,8 +54,8 @@ public class PerfClientReport extends a {
                 json.put("perfCounts", this.perfCounts);
                 json.put("perfLatencies", this.perfLatencies);
                 return json;
-            } catch (JSONException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
             }
         }

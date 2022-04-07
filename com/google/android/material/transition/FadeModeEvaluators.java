@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FadeModeEvaluators {
     public static /* synthetic */ Interceptable $ic;
     public static final FadeModeEvaluator CROSS;
@@ -48,10 +48,10 @@ public class FadeModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FadeModeEvaluator
-            public FadeModeResult evaluate(float f2, float f3, float f4) {
+            public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? FadeModeResult.endOnTop(255, TransitionUtils.lerp(0, 255, f3, f4, f2)) : (FadeModeResult) invokeCommon.objValue;
+                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.endOnTop(255, TransitionUtils.lerp(0, 255, f2, f3, f)) : (FadeModeResult) invokeCommon.objValue;
             }
         };
         OUT = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.2
@@ -73,10 +73,10 @@ public class FadeModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FadeModeEvaluator
-            public FadeModeResult evaluate(float f2, float f3, float f4) {
+            public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f3, f4, f2), 255) : (FadeModeResult) invokeCommon.objValue;
+                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), 255) : (FadeModeResult) invokeCommon.objValue;
             }
         };
         CROSS = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.3
@@ -98,10 +98,10 @@ public class FadeModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FadeModeEvaluator
-            public FadeModeResult evaluate(float f2, float f3, float f4) {
+            public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f3, f4, f2), TransitionUtils.lerp(0, 255, f3, f4, f2)) : (FadeModeResult) invokeCommon.objValue;
+                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), TransitionUtils.lerp(0, 255, f2, f3, f)) : (FadeModeResult) invokeCommon.objValue;
             }
         };
         THROUGH = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.4
@@ -123,12 +123,12 @@ public class FadeModeEvaluators {
             }
 
             @Override // com.google.android.material.transition.FadeModeEvaluator
-            public FadeModeResult evaluate(float f2, float f3, float f4) {
+            public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-                    float f5 = ((f4 - f3) * 0.35f) + f3;
-                    return FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f3, f5, f2), TransitionUtils.lerp(0, 255, f5, f4, f2));
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                    float f4 = ((f3 - f2) * 0.35f) + f2;
+                    return FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f4, f), TransitionUtils.lerp(0, 255, f4, f3, f));
                 }
                 return (FadeModeResult) invokeCommon.objValue;
             }

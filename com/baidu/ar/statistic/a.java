@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class a implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sL;
@@ -96,8 +96,8 @@ public final class a implements Cloneable {
                     a az = az(jSONObject.getString("event_id"));
                     az.wi = jSONObject;
                     return az;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -189,8 +189,8 @@ public final class a implements Cloneable {
                         jSONObject.put(next, this.wi.get(next));
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -206,8 +206,8 @@ public final class a implements Cloneable {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 this.wi.putOpt(entry.getKey(), entry.getValue());
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -216,8 +216,8 @@ public final class a implements Cloneable {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 this.wi.putOpt("event_id", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -265,8 +265,8 @@ public final class a implements Cloneable {
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
             try {
                 this.wi.putOpt(str, obj);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -287,11 +287,11 @@ public final class a implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String b2 = b(this);
-            if (b2 == null) {
+            String b = b(this);
+            if (b == null) {
                 return null;
             }
-            return com.baidu.ar.h.l.aT(b2);
+            return com.baidu.ar.h.l.aT(b);
         }
         return (String) invokeV.objValue;
     }
@@ -311,8 +311,8 @@ public final class a implements Cloneable {
             a az = az("");
             try {
                 az.wi = new JSONObject(this.wi.toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return az;
         }
@@ -330,8 +330,8 @@ public final class a implements Cloneable {
         if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
             try {
                 this.wi.putOpt("time", Long.valueOf(j));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

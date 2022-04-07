@@ -2,16 +2,16 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.util.Printer;
-import c.e.b.a.b;
-import c.e.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class LooperContextDispatcher extends b {
+import com.repackage.jl9;
+import com.repackage.rl9;
+/* loaded from: classes2.dex */
+public class LooperContextDispatcher extends jl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,19 +36,19 @@ public class LooperContextDispatcher extends b {
         }
     }
 
-    @Override // c.e.b.a.b
+    @Override // com.repackage.jl9
     public boolean displayNotification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LooperRuntime.getInstance().getLooperUIContext().displayNotification() : invokeV.booleanValue;
     }
 
-    @Override // c.e.b.a.b, c.e.b.a.d
-    public void onBlock(Context context, a aVar) {
+    @Override // com.repackage.jl9, com.repackage.ll9
+    public void onBlock(Context context, rl9 rl9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, aVar) == null) {
-            super.onBlock(context, aVar);
-            LooperRuntime.getInstance().dispatchBlock(context, aVar);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, rl9Var) == null) {
+            super.onBlock(context, rl9Var);
+            LooperRuntime.getInstance().dispatchBlock(context, rl9Var);
         }
     }
 

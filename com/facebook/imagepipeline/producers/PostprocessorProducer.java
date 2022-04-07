@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PostprocessorProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NAME = "PostprocessorProducer";
@@ -34,13 +34,13 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
 
     /* renamed from: com.facebook.imagepipeline.producers.PostprocessorProducer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,9 +170,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                         this.mListener.onProducerFinishWithSuccess(this.mRequestId, PostprocessorProducer.NAME, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
                         maybeNotifyOnNewResult(postprocessInternal, i);
                         CloseableReference.closeSafely(postprocessInternal);
-                    } catch (Exception e2) {
-                        this.mListener.onProducerFinishWithFailure(this.mRequestId, PostprocessorProducer.NAME, e2, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
-                        maybeNotifyOnFailure(e2);
+                    } catch (Exception e) {
+                        this.mListener.onProducerFinishWithFailure(this.mRequestId, PostprocessorProducer.NAME, e, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
+                        maybeNotifyOnFailure(e);
                         CloseableReference.closeSafely((CloseableReference<?>) null);
                     }
                 } catch (Throwable th) {
@@ -375,7 +375,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class RepeatedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> implements RepeatedPostprocessorRunner {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,7 +535,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class SingleUsePostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

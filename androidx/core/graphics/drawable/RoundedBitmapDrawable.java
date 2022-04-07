@@ -86,10 +86,10 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public static boolean isGreaterThanZero(float f2) {
+    public static boolean isGreaterThanZero(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f2)) == null) ? f2 > 0.05f : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f > 0.05f : invokeF.booleanValue;
     }
 
     private void updateCircularCornerRadius() {
@@ -112,8 +112,8 @@ public abstract class RoundedBitmapDrawable extends Drawable {
             return;
         }
         RectF rectF = this.mDstRectF;
-        float f2 = this.mCornerRadius;
-        canvas.drawRoundRect(rectF, f2, f2, this.mPaint);
+        float f = this.mCornerRadius;
+        canvas.drawRoundRect(rectF, f, f, this.mPaint);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -260,18 +260,18 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public void setCornerRadius(float f2) {
+    public void setCornerRadius(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048595, this, f2) == null) || this.mCornerRadius == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048595, this, f) == null) || this.mCornerRadius == f) {
             return;
         }
         this.mIsCircular = false;
-        if (isGreaterThanZero(f2)) {
+        if (isGreaterThanZero(f)) {
             this.mPaint.setShader(this.mBitmapShader);
         } else {
             this.mPaint.setShader(null);
         }
-        this.mCornerRadius = f2;
+        this.mCornerRadius = f;
         invalidateSelf();
     }
 

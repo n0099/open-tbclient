@@ -10,7 +10,7 @@ import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,8 +45,8 @@ public class t {
             try {
                 try {
                     zipInputStream = new ZipInputStream(new CheckedInputStream(new FileInputStream(file), new CRC32()));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -55,8 +55,8 @@ public class t {
                 a(zipInputStream, file2);
                 k.closeQuietly(zipInputStream);
                 return true;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 zipInputStream2 = zipInputStream;
                 e.printStackTrace();
                 k.closeQuietly(zipInputStream2);

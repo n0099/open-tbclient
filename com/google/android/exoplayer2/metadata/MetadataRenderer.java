@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MetadataRenderer extends BaseRenderer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PENDING_METADATA_COUNT = 5;
@@ -35,7 +35,7 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
     public final long[] pendingMetadataTimestamps;
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Output extends MetadataOutput {
     }
 
@@ -163,8 +163,8 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
                             this.pendingMetadata[i] = this.decoder.decode(this.buffer);
                             this.pendingMetadataTimestamps[i] = this.buffer.timeUs;
                             this.pendingMetadataCount++;
-                        } catch (MetadataDecoderException e2) {
-                            throw ExoPlaybackException.createForRenderer(e2, getIndex());
+                        } catch (MetadataDecoderException e) {
+                            throw ExoPlaybackException.createForRenderer(e, getIndex());
                         }
                     }
                 }

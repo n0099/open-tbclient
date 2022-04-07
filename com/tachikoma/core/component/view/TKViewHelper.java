@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class TKViewHelper {
         }
     }
 
-    public static void setBackground(View view, Drawable drawable) {
+    public static void setBackground(View view2, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, view, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.setBackground(drawable);
+                view2.setBackground(drawable);
             } else {
-                view.setBackgroundDrawable(drawable);
+                view2.setBackgroundDrawable(drawable);
             }
         }
     }

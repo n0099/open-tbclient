@@ -17,32 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TabTextView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f25796b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f25797c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f25798d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f25799e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f25800f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public CharSequence f25801g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public CharSequence f25802h;
+    public final int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public CharSequence g;
+    public CharSequence h;
     public boolean i;
     public boolean j;
     public float k;
@@ -100,40 +86,40 @@ public class TabTextView extends AppCompatTextView {
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                             measure(makeMeasureSpec, makeMeasureSpec);
                         }
-                        this.o = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.a, this.f25796b}, (float[]) null, Shader.TileMode.CLAMP);
+                        this.o = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.a, this.b}, (float[]) null, Shader.TileMode.CLAMP);
                     }
                     getPaint().setShader(this.o);
                     return;
                 }
-                int i = this.f25798d;
+                int i = this.d;
                 if (i == 0 || this.i || !this.j) {
                     return;
                 }
                 setTextColor(i);
-                int i2 = this.f25800f;
+                int i2 = this.f;
                 if (i2 != 0) {
                     setBackgroundResource(i2);
                 }
-                if (TextUtils.isEmpty(this.f25802h)) {
+                if (TextUtils.isEmpty(this.h)) {
                     return;
                 }
-                setText(this.f25802h);
+                setText(this.h);
                 return;
             }
             getPaint().setShader(null);
-            int i3 = this.f25797c;
+            int i3 = this.c;
             if (i3 == 0 || this.i || !this.j) {
                 return;
             }
             setTextColor(i3);
-            int i4 = this.f25799e;
+            int i4 = this.e;
             if (i4 != 0) {
                 setBackgroundResource(i4);
             }
-            if (TextUtils.isEmpty(this.f25801g)) {
+            if (TextUtils.isEmpty(this.g)) {
                 return;
             }
-            setText(this.f25801g);
+            setText(this.g);
         }
     }
 
@@ -152,16 +138,16 @@ public class TabTextView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.p) {
             if (z) {
-                float f2 = this.l;
-                if (f2 != -1.0f) {
-                    setTextSize(0, f2);
+                float f = this.l;
+                if (f != -1.0f) {
+                    setTextSize(0, f);
                     return;
                 }
                 return;
             }
-            float f3 = this.k;
-            if (f3 != -1.0f) {
-                setTextSize(0, f3);
+            float f2 = this.k;
+            if (f2 != -1.0f) {
+                setTextSize(0, f2);
             }
         }
     }
@@ -176,11 +162,11 @@ public class TabTextView extends AppCompatTextView {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            float f2 = this.k;
-            if (f2 != -1.0f) {
-                setTextSize(0, f2);
+            float f = this.k;
+            if (f != -1.0f) {
+                setTextSize(0, f);
             }
-            int i = this.f25797c;
+            int i = this.c;
             if (i != 0) {
                 setTextColor(i);
             }
@@ -190,13 +176,13 @@ public class TabTextView extends AppCompatTextView {
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a == -1 || this.f25796b == -1 || !this.i) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a == -1 || this.b == -1 || !this.i) ? false : true : invokeV.booleanValue;
     }
 
-    public void setDefaultTextSize(float f2) {
+    public void setDefaultTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.k = f2;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            this.k = f;
         }
     }
 
@@ -210,21 +196,21 @@ public class TabTextView extends AppCompatTextView {
     public void setNormalBackground(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.f25799e = i;
+            this.e = i;
         }
     }
 
     public void setNormalText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            this.f25801g = charSequence;
+            this.g = charSequence;
         }
     }
 
     public void setSelectedBackground(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f25800f = i;
+            this.f = i;
         }
     }
 
@@ -238,7 +224,7 @@ public class TabTextView extends AppCompatTextView {
     public void setSelectedColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f25798d = i;
+            this.d = i;
         }
     }
 
@@ -252,21 +238,21 @@ public class TabTextView extends AppCompatTextView {
     public void setSelectedText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
-            this.f25802h = charSequence;
+            this.h = charSequence;
         }
     }
 
-    public void setSelectedTextSize(float f2) {
+    public void setSelectedTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.l = f2;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+            this.l = f;
         }
     }
 
     public void setUnSelectedColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f25797c = i;
+            this.c = i;
         }
     }
 
@@ -319,11 +305,11 @@ public class TabTextView extends AppCompatTextView {
         }
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403cd, R.attr.obfuscated_res_0x7f0403d3, R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403ef});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040b, R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f04041e, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040423, R.attr.obfuscated_res_0x7f040424, R.attr.obfuscated_res_0x7f040425, R.attr.obfuscated_res_0x7f040426, R.attr.obfuscated_res_0x7f04042f});
         this.a = obtainStyledAttributes.getColor(7, 0);
-        this.f25796b = obtainStyledAttributes.getColor(1, 0);
-        this.f25798d = obtainStyledAttributes.getColor(4, 0);
-        this.f25797c = obtainStyledAttributes.getColor(2, 0);
+        this.b = obtainStyledAttributes.getColor(1, 0);
+        this.d = obtainStyledAttributes.getColor(4, 0);
+        this.c = obtainStyledAttributes.getColor(2, 0);
         this.k = obtainStyledAttributes.getDimension(0, -1.0f);
         this.l = obtainStyledAttributes.getDimension(5, -1.0f);
         this.m = obtainStyledAttributes.getBoolean(3, true);

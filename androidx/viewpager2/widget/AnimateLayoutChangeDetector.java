@@ -168,12 +168,12 @@ public final class AnimateLayoutChangeDetector {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (!arePagesLaidOutContiguously() || this.mLayoutManager.getChildCount() <= 1) && hasRunningChangingLayoutTransition() : invokeV.booleanValue;
     }
 
-    public static boolean hasRunningChangingLayoutTransition(View view) {
+    public static boolean hasRunningChangingLayoutTransition(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) {
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 LayoutTransition layoutTransition = viewGroup.getLayoutTransition();
                 if (layoutTransition != null && layoutTransition.isChangingLayout()) {
                     return true;

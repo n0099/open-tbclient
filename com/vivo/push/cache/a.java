@@ -15,7 +15,7 @@ import com.vivo.push.util.f;
 import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,8 +63,8 @@ public final class a extends c<com.vivo.push.model.a> {
                     if (split.length >= 2) {
                         try {
                             arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
-                        } catch (Exception e2) {
-                            p.d("AppConfigSettings", "str2Clients E: ".concat(String.valueOf(e2)));
+                        } catch (Exception e) {
+                            p.d("AppConfigSettings", "str2Clients E: ".concat(String.valueOf(e)));
                         }
                     }
                 }
@@ -86,7 +86,7 @@ public final class a extends c<com.vivo.push.model.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (c.a) {
-                for (T t : this.f43883b) {
+                for (T t : this.b) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }
@@ -101,10 +101,10 @@ public final class a extends c<com.vivo.push.model.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            com.vivo.push.model.a c2 = c("push_mode");
-            if (c2 != null && !TextUtils.isEmpty(c2.b())) {
+            com.vivo.push.model.a c = c("push_mode");
+            if (c != null && !TextUtils.isEmpty(c.b())) {
                 try {
-                    return Integer.parseInt(c2.b());
+                    return Integer.parseInt(c.b());
                 } catch (Exception unused) {
                 }
             }

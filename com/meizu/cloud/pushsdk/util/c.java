@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.RSAUtil;
+import com.repackage.rm9;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
@@ -11,7 +12,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static final Charset a = Charset.forName("UTF-8");
 
@@ -22,8 +23,8 @@ public class c {
                     return null;
                 }
                 return new String(a(a(str), b(str2)), a);
-            } catch (Exception e2) {
-                c.h.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
+            } catch (Exception e) {
+                rm9.b("RSAUtils", "decrypt " + e.getMessage());
                 return null;
             }
         }
@@ -35,26 +36,26 @@ public class c {
         String message;
         try {
             return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b(str)));
-        } catch (IOException e2) {
+        } catch (IOException e) {
             sb = new StringBuilder();
             sb.append("loadPublicKey IOException ");
-            message = e2.getMessage();
+            message = e.getMessage();
             sb.append(message);
-            c.h.a.a.a.b("RSAUtils", sb.toString());
+            rm9.b("RSAUtils", sb.toString());
             return null;
-        } catch (NoSuchAlgorithmException e3) {
+        } catch (NoSuchAlgorithmException e2) {
             sb = new StringBuilder();
             sb.append("loadPublicKey NoSuchAlgorithmException ");
-            message = e3.getMessage();
+            message = e2.getMessage();
             sb.append(message);
-            c.h.a.a.a.b("RSAUtils", sb.toString());
+            rm9.b("RSAUtils", sb.toString());
             return null;
-        } catch (InvalidKeySpecException e4) {
+        } catch (InvalidKeySpecException e3) {
             sb = new StringBuilder();
             sb.append("loadPublicKey InvalidKeySpecException ");
-            message = e4.getMessage();
+            message = e3.getMessage();
             sb.append(message);
-            c.h.a.a.a.b("RSAUtils", sb.toString());
+            rm9.b("RSAUtils", sb.toString());
             return null;
         }
     }

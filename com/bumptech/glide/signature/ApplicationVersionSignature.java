@@ -19,7 +19,7 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ApplicationVersionSignature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY;
@@ -63,8 +63,8 @@ public final class ApplicationVersionSignature {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, "Cannot resolve info for" + context.getPackageName(), e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "Cannot resolve info for" + context.getPackageName(), e);
                 return null;
             }
         }

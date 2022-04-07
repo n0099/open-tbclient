@@ -12,16 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.n;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38482b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static long f38483c;
+    public static String b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +42,8 @@ public class h {
             if (TextUtils.isEmpty(a)) {
                 return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
             }
-            c.b("PhoneScripUtils", f38482b + " " + f38483c);
-            return a(f38483c);
+            c.b("PhoneScripUtils", b + " " + c);
+            return a(c);
         }
         return invokeV.booleanValue;
     }
@@ -66,8 +62,8 @@ public class h {
             }
             if (z) {
                 a = null;
-                f38482b = null;
-                f38483c = 0L;
+                b = null;
+                c = 0L;
             }
         }
     }
@@ -96,20 +92,16 @@ public class h {
         c.b("PhoneScripUtils", "save phone scrip simKey = " + str2);
         a = str;
         long j2 = j * 1000;
-        f38483c = System.currentTimeMillis() + j2;
-        c.b("sLifeTime", f38483c + "");
-        f38482b = str2;
+        c = System.currentTimeMillis() + j2;
+        c.b("sLifeTime", c + "");
+        b = str2;
         if (!"operator".equals(str3)) {
             n.a(new n.a(context, str, str2) { // from class: com.cmic.sso.sdk.e.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f38484b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f38485c;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ String c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,8 +119,8 @@ public class h {
                         }
                     }
                     this.a = context;
-                    this.f38484b = str;
-                    this.f38485c = str2;
+                    this.b = str;
+                    this.c = str2;
                 }
 
                 @Override // com.cmic.sso.sdk.e.n.a
@@ -136,14 +128,14 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         c.b("PhoneScripUtils", "start save scrip to sp in sub thread");
-                        h.b(this.a, this.f38484b, h.f38483c, this.f38485c);
+                        h.b(this.a, this.b, h.c, this.c);
                     }
                 }
             });
         } else if (j2 > 3600000) {
-            f38483c = System.currentTimeMillis() + 3600000;
+            c = System.currentTimeMillis() + 3600000;
         } else {
-            f38483c = System.currentTimeMillis() + j2;
+            c = System.currentTimeMillis() + j2;
         }
     }
 
@@ -157,8 +149,8 @@ public class h {
                     c.a("PhoneScripUtils", StringUtil.NULL_STRING);
                     return null;
                 }
-                f38483c = k.a("phonescripstarttime", 0L);
-                f38482b = k.b("pre_sim_key", "");
+                c = k.a("phonescripstarttime", 0L);
+                b = k.b("pre_sim_key", "");
                 String b3 = b.b(context, b2);
                 a = b3;
                 return b3;
@@ -188,8 +180,8 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (!TextUtils.isEmpty(a)) {
-                c.b("PhoneScripUtils", f38482b + " " + f38483c);
-                a2 = f38483c;
+                c.b("PhoneScripUtils", b + " " + c);
+                a2 = c;
             } else {
                 String b2 = k.b("phonescripcache", "");
                 a2 = k.a("phonescripstarttime", 0L);
@@ -209,11 +201,11 @@ public class h {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(f38482b)) {
-                b2 = f38482b;
+            if (!TextUtils.isEmpty(b)) {
+                b2 = b;
             } else {
                 b2 = k.b("pre_sim_key", "");
-                f38482b = b2;
+                b = b2;
             }
             if (TextUtils.isEmpty(b2)) {
                 return 0;

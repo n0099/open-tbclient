@@ -11,7 +11,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";
@@ -67,8 +67,8 @@ public class WebpUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                sb.append((char) b2);
+            for (byte b : bArr) {
+                sb.append((char) b);
             }
             return sb.toString();
         }
@@ -98,11 +98,11 @@ public class WebpUtil {
                 try {
                     try {
                         inputStream.read(bArr);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     if (inputStream != null) {
                         inputStream.close();
                     }
@@ -114,8 +114,8 @@ public class WebpUtil {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         return null;
@@ -127,8 +127,8 @@ public class WebpUtil {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
                             }
                         }
                         return vP8Dimension;
@@ -137,8 +137,8 @@ public class WebpUtil {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
                             }
                         }
                         return vP8LDimension;
@@ -152,8 +152,8 @@ public class WebpUtil {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
                             }
                         }
                         return vP8XDimension;
@@ -164,8 +164,8 @@ public class WebpUtil {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
                     }
                 }
             }
@@ -215,10 +215,10 @@ public class WebpUtil {
         return (Pair) invokeL.objValue;
     }
 
-    public static boolean isBitOne(byte b2, int i) {
+    public static boolean isBitOne(byte b, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)})) == null) ? ((b2 >> (i % 8)) & 1) == 1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) ? ((b >> (i % 8)) & 1) == 1 : invokeCommon.booleanValue;
     }
 
     public static int read3Bytes(InputStream inputStream) throws IOException {

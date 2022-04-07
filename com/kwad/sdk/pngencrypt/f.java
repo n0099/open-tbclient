@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface f {
     int a(byte[] bArr, int i, int i2);
 

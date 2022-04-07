@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.n0.a.p1.k.a;
-import c.a.n0.a.p1.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
+import com.repackage.cy2;
+import com.repackage.ly2;
+import com.repackage.my2;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
+public class SPSwitchPanelLinearLayout extends LinearLayout implements ly2, my2 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29052b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.n0.a.p1.i.b a;
+    public cy2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
                 return;
             }
         }
-        f29052b = c.a.n0.a.a.a;
+        b = tg1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new c.a.n0.a.p1.i.b(this);
+            this.a = new cy2(this);
         }
     }
 
-    @Override // c.a.n0.a.p1.k.a
+    @Override // com.repackage.ly2
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -77,7 +77,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
         }
     }
 
-    @Override // c.a.n0.a.p1.k.a
+    @Override // com.repackage.ly2
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -89,18 +89,18 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (f29052b) {
+            if (b) {
                 Log.d("SPSwitchPanel", "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
             }
-            int[] c2 = this.a.c(i, i2);
-            if (f29052b) {
-                Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c2[1]));
+            int[] c = this.a.c(i, i2);
+            if (b) {
+                Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c[1]));
             }
-            super.onMeasure(c2[0], c2[1]);
+            super.onMeasure(c[0], c[1]);
         }
     }
 
-    @Override // c.a.n0.a.p1.k.b
+    @Override // com.repackage.my2
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -108,7 +108,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
         }
     }
 
-    @Override // c.a.n0.a.p1.k.b
+    @Override // com.repackage.my2
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {

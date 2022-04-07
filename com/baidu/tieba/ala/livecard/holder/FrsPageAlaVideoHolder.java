@@ -1,28 +1,26 @@
 package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
-import c.a.p0.c0.k.e.e;
 import com.baidu.card.AutoLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.kt5;
+/* loaded from: classes3.dex */
 public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public e f31458b;
+    public kt5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaVideoHolder(e eVar) {
-        super(eVar.k());
+    public FrsPageAlaVideoHolder(kt5 kt5Var) {
+        super(kt5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
+            Object[] objArr = {kt5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +31,7 @@ public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
                 return;
             }
         }
-        this.f31458b = eVar;
-        this.a = eVar.O();
+        this.b = kt5Var;
+        this.a = kt5Var.P();
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class OrientationManager extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isScreenOrientationLandscape;
@@ -22,7 +22,7 @@ public class OrientationManager extends OrientationEventListener {
     public Orientation mCurrentOrientation;
     public List<OrientationListener> mListeners;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OrientationListener {
         void onRotateOrientation(Orientation orientation);
     }
@@ -151,8 +151,8 @@ public class OrientationManager extends OrientationEventListener {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 super.disable();
-            } catch (RuntimeException e2) {
-                e2.printStackTrace();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -163,8 +163,8 @@ public class OrientationManager extends OrientationEventListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 super.enable();
-            } catch (RuntimeException e2) {
-                e2.printStackTrace();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
             }
         }
     }

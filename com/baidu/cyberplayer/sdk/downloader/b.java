@@ -20,12 +20,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(String str, long j);
 
@@ -95,8 +95,8 @@ public class b {
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
-                            } catch (Exception e2) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
+                            } catch (Exception e) {
+                                CyberLog.d("Downloader", "disconnect Exception:" + e.toString());
                             }
                         }
                         if (httpURLConnection != null) {
@@ -109,8 +109,8 @@ public class b {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (Exception e3) {
-                                CyberLog.d("Downloader", "disconnect Exception:" + e3.toString());
+                            } catch (Exception e2) {
+                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
                                 throw th;
                             }
                         }
@@ -147,12 +147,8 @@ public class b {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f25363b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f25364c;
+                    public final /* synthetic */ String b;
+                    public final /* synthetic */ a c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -170,15 +166,15 @@ public class b {
                             }
                         }
                         this.a = str4;
-                        this.f25363b = str;
-                        this.f25364c = aVar;
+                        this.b = str;
+                        this.c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.a, this.f25363b, this.f25364c);
+                            b.b(this.a, this.b, this.c);
                         }
                     }
                 });
@@ -217,8 +213,8 @@ public class b {
                     th = th;
                     byteArrayOutputStream = interceptable;
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             if (str == null) {
                 return null;
@@ -245,8 +241,8 @@ public class b {
                 if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 throw th;
@@ -270,14 +266,14 @@ public class b {
                             file.createNewFile();
                         }
                         fileOutputStream = new FileOutputStream(file);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
             try {
                 long a2 = a(str2, fileOutputStream, aVar);
@@ -285,9 +281,9 @@ public class b {
                     aVar.b(str2, a2);
                 }
                 fileOutputStream.close();
-            } catch (Exception e4) {
+            } catch (Exception e3) {
                 fileOutputStream2 = fileOutputStream;
-                e = e4;
+                e = e3;
                 if (aVar != null) {
                     aVar.a(str2, 0L, e.toString());
                 }
@@ -300,8 +296,8 @@ public class b {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;

@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d extends ArrayList<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class d extends ArrayList<a> {
         Closeable closeable;
         Throwable th;
         FileInputStream fileInputStream;
-        Exception e2;
+        Exception e;
         a aG;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.wB <= 0 || (context = this.wn.get()) == null || !context.getFileStreamPath(this.wz).exists()) {
@@ -69,9 +69,9 @@ public class d extends ArrayList<a> {
         }
         try {
             fileInputStream = context.openFileInput(this.wz);
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             closeable = null;
-            e2 = e3;
+            e = e2;
             fileInputStream = null;
         } catch (Throwable th2) {
             closeable = null;
@@ -87,9 +87,9 @@ public class d extends ArrayList<a> {
                         if (nextLine != null && !nextLine.isEmpty() && (aG = a.aG(nextLine)) != null) {
                             add(aG);
                         }
-                    } catch (Exception e4) {
-                        e2 = e4;
-                        e2.printStackTrace();
+                    } catch (Exception e3) {
+                        e = e3;
+                        e.printStackTrace();
                         a(fileInputStream);
                         a(closeable);
                     }
@@ -100,9 +100,9 @@ public class d extends ArrayList<a> {
                     throw th;
                 }
             }
-        } catch (Exception e5) {
+        } catch (Exception e4) {
             closeable = null;
-            e2 = e5;
+            e = e4;
         } catch (Throwable th4) {
             closeable = null;
             th = th4;
@@ -146,8 +146,8 @@ public class d extends ArrayList<a> {
                         fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes(IMAudioTransRequest.CHARSET));
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } finally {
             a(fileOutputStream);

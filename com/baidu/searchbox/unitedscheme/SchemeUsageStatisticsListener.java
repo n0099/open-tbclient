@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -84,8 +84,8 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
                             setDataList(jSONArray, jsinterfaceList);
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jsinterfaceList;
@@ -106,8 +106,8 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
                             setDataList(jSONArray, schemeList);
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return schemeList;
@@ -125,9 +125,9 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
             try {
                 Uri parse = Uri.parse(str);
                 return parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return "";
                 }
                 return "";
@@ -146,8 +146,8 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
                 str = jSONArray.get(i).toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 str = "";
             }
             list.add(str);

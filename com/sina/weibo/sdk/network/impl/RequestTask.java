@@ -96,8 +96,8 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
                         }
                     }
                     this.param.getPostBundle().putAll(bundle);
-                } catch (InterceptException e2) {
-                    requestResult.setE(e2);
+                } catch (InterceptException e) {
+                    requestResult.setE(e);
                     return requestResult;
                 }
             }
@@ -113,8 +113,8 @@ public class RequestTask<T, R> extends AsyncTask<Object, Object, RequestResult> 
                     }
                 } catch (Exception unused) {
                 }
-            } catch (Exception e3) {
-                requestResult.setE(e3);
+            } catch (Exception e2) {
+                requestResult.setE(e2);
             }
             return requestResult;
         }

@@ -11,7 +11,7 @@ import com.xiaomi.push.hf;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class b extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -62,12 +62,12 @@ public class b extends ai.a {
         }
         this.a.a(at.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m507a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m503a());
         try {
-            String c2 = this.a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.a.b(), this.a, hf.i)), this.f902a);
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
+            String c = this.a.c();
+            xMPushService.a(c, ip.a(y.a(c, this.a.b(), this.a, hf.i)), this.f902a);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }
     }
 }

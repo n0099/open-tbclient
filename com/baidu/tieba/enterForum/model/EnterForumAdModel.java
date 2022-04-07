@@ -1,9 +1,6 @@
 package com.baidu.tieba.enterForum.model;
 
 import android.content.Context;
-import c.a.d.a.j;
-import c.a.p0.w0.e.d;
-import c.a.p0.z3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -17,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.f9;
+import com.repackage.l46;
+import com.repackage.ui8;
+import com.repackage.wi8;
+/* loaded from: classes3.dex */
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
+    public l46 a;
+    public boolean b;
+    public HttpMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f31896b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f31897c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +67,7 @@ public class EnterForumAdModel extends BdBaseModel {
                         this.a.mLoadDataCallBack.c(this.a.a);
                     }
                 }
-                this.a.f31896b = false;
+                this.a.b = false;
             }
         }
     }
@@ -88,16 +85,16 @@ public class EnterForumAdModel extends BdBaseModel {
                 return;
             }
         }
-        this.f31896b = false;
-        this.f31897c = new a(this, CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
+        this.b = false;
+        this.c = new a(this, CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
         this.unique_id = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.f31897c);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public d D() {
+    public l46 D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (l46) invokeV.objValue;
     }
 
     public void E() {
@@ -108,13 +105,13 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void F(Context context) {
-        d dVar;
+        l46 l46Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.f31896b || (dVar = this.a) == null || !dVar.a()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (l46Var = this.a) == null || !l46Var.a()) {
             return;
         }
-        c.g().c(j.a(context).getUniqueId(), c.a.p0.z3.a.i("a025", "common_fill", true, 1, 5));
-        this.f31896b = true;
+        wi8.g().c(f9.a(context).getUniqueId(), ui8.g("a025", "common_fill", true, 1, 5));
+        this.b = true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

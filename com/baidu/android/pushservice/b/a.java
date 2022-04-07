@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,14 +31,14 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream b2 = b(context, str);
-            if (b2 == null) {
+            InputStream b = b(context, str);
+            if (b == null) {
                 return a();
             }
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b2, IMAudioTransRequest.CHARSET));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b, IMAudioTransRequest.CHARSET));
                     while (true) {
                         try {
                             try {
@@ -47,8 +47,8 @@ public class a {
                                     break;
                                 }
                                 sb.append(readLine);
-                            } catch (IOException e2) {
-                                new b.c(context).a(Log.getStackTraceString(e2)).a();
+                            } catch (IOException e) {
+                                new b.c(context).a(Log.getStackTraceString(e)).a();
                                 com.baidu.android.pushservice.d.c.a(context, bufferedReader);
                             }
                         } catch (Throwable th) {
@@ -57,14 +57,14 @@ public class a {
                         }
                     }
                     com.baidu.android.pushservice.d.c.a(context, bufferedReader);
-                    com.baidu.android.pushservice.d.c.a(context, b2);
-                } catch (UnsupportedEncodingException e3) {
-                    new b.c(context).a(Log.getStackTraceString(e3)).a();
-                    com.baidu.android.pushservice.d.c.a(context, b2);
+                    com.baidu.android.pushservice.d.c.a(context, b);
+                } catch (UnsupportedEncodingException e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    com.baidu.android.pushservice.d.c.a(context, b);
                 }
                 return sb.toString();
             } catch (Throwable th2) {
-                com.baidu.android.pushservice.d.c.a(context, b2);
+                com.baidu.android.pushservice.d.c.a(context, b);
                 throw th2;
             }
         }
@@ -90,8 +90,8 @@ public class a {
             try {
                 try {
                     bufferedWriter = new BufferedWriter(fileWriter);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -100,9 +100,9 @@ public class a {
                 bufferedWriter.write(str2);
                 com.baidu.android.pushservice.d.c.a(context, bufferedWriter, fileWriter);
                 return true;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 bufferedWriter2 = bufferedWriter;
-                e = e3;
+                e = e2;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 com.baidu.android.pushservice.d.c.a(context, bufferedWriter2, fileWriter);
                 return false;
@@ -112,8 +112,8 @@ public class a {
                 com.baidu.android.pushservice.d.c.a(context, bufferedWriter2, fileWriter);
                 throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
             fileWriter = null;
         } catch (Throwable th3) {
             th = th3;
@@ -131,8 +131,8 @@ public class a {
                     return new FileInputStream(file);
                 }
                 return null;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return null;
             }
         }

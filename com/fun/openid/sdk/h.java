@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,14 +32,14 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             String str = null;
-            if (!((n.f38669b == null || n.a == null) ? false : true)) {
+            if (!((n.b == null || n.a == null) ? false : true)) {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                 }
                 aVar.a(false, null);
                 return;
             }
-            Method method = n.f38670c;
+            Method method = n.c;
             Object obj = n.a;
             if (obj != null && method != null) {
                 try {
@@ -47,8 +47,8 @@ public class h implements f {
                     if (invoke != null) {
                         str = (String) invoke;
                     }
-                } catch (Exception e2) {
-                    Log.e("IdentifierManager", "invoke exception!", e2);
+                } catch (Exception e) {
+                    Log.e("IdentifierManager", "invoke exception!", e);
                 }
             }
             aVar.a(true, str);

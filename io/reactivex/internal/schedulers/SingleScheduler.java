@@ -97,9 +97,9 @@ public final class SingleScheduler extends Scheduler {
                     }
                     scheduledRunnable.setFuture(schedule);
                     return scheduledRunnable;
-                } catch (RejectedExecutionException e2) {
+                } catch (RejectedExecutionException e) {
                     dispose();
-                    RxJavaPlugins.onError(e2);
+                    RxJavaPlugins.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
             }
@@ -174,8 +174,8 @@ public final class SingleScheduler extends Scheduler {
                 }
                 scheduledDirectTask.setFuture(schedule);
                 return scheduledDirectTask;
-            } catch (RejectedExecutionException e2) {
-                RxJavaPlugins.onError(e2);
+            } catch (RejectedExecutionException e) {
+                RxJavaPlugins.onError(e);
                 return EmptyDisposable.INSTANCE;
             }
         }
@@ -201,8 +201,8 @@ public final class SingleScheduler extends Scheduler {
                     }
                     instantPeriodicTask.setFirst(schedule);
                     return instantPeriodicTask;
-                } catch (RejectedExecutionException e2) {
-                    RxJavaPlugins.onError(e2);
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
             }
@@ -210,8 +210,8 @@ public final class SingleScheduler extends Scheduler {
             try {
                 scheduledDirectPeriodicTask.setFuture(this.executor.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                 return scheduledDirectPeriodicTask;
-            } catch (RejectedExecutionException e3) {
-                RxJavaPlugins.onError(e3);
+            } catch (RejectedExecutionException e2) {
+                RxJavaPlugins.onError(e2);
                 return EmptyDisposable.INSTANCE;
             }
         }

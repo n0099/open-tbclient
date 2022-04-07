@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ForumRuleDafultItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067b), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067a));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0687), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0686));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067f), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067e));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0674), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0673));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0680), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067f));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f068c), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f068b));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0684), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0683));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0679), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0678));
         }
     }
 

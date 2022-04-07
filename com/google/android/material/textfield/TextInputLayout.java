@@ -80,7 +80,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TextInputLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_BACKGROUND_FILLED = 1;
@@ -88,7 +88,7 @@ public class TextInputLayout extends LinearLayout {
     public static final int BOX_BACKGROUND_OUTLINE = 2;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100331 = 2131755825;
+    public static final int obfuscated_res_0x7f100332 = 2131755826;
     public static final int END_ICON_CLEAR_TEXT = 2;
     public static final int END_ICON_CUSTOM = -1;
     public static final int END_ICON_DROPDOWN_MENU = 3;
@@ -212,7 +212,7 @@ public class TextInputLayout extends LinearLayout {
     public final RectF tmpRectF;
     public Typeface typeface;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,10 +237,10 @@ public class TextInputLayout extends LinearLayout {
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(@NonNull View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
-                super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
+                super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                 EditText editText = this.layout.getEditText();
                 CharSequence text = editText != null ? editText.getText() : null;
                 CharSequence hint = this.layout.getHint();
@@ -295,27 +295,27 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface BoxBackgroundMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface EndIconMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnEditTextAttachedListener {
         void onEditTextAttached(@NonNull TextInputLayout textInputLayout);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnEndIconChangedListener {
         void onEndIconChanged(@NonNull TextInputLayout textInputLayout, int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -529,9 +529,9 @@ public class TextInputLayout extends LinearLayout {
     private void applyCutoutPadding(@NonNull RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, rectF) == null) {
-            float f2 = rectF.left;
+            float f = rectF.left;
             int i = this.boxLabelCutoutPaddingPx;
-            rectF.left = f2 - i;
+            rectF.left = f - i;
             rectF.top -= i;
             rectF.right += i;
             rectF.bottom += i;
@@ -598,7 +598,7 @@ public class TextInputLayout extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            return this.boxBackgroundMode == 1 ? MaterialColors.layer(MaterialColors.getColor(this, (int) R.attr.obfuscated_res_0x7f04016b, 0), this.boxBackgroundColor) : this.boxBackgroundColor;
+            return this.boxBackgroundMode == 1 ? MaterialColors.layer(MaterialColors.getColor(this, (int) R.attr.obfuscated_res_0x7f04016e, 0), this.boxBackgroundColor) : this.boxBackgroundColor;
         }
         return invokeV.intValue;
     }
@@ -635,24 +635,24 @@ public class TextInputLayout extends LinearLayout {
         return (Rect) invokeL.objValue;
     }
 
-    private int calculateExpandedLabelBottom(@NonNull Rect rect, @NonNull Rect rect2, float f2) {
+    private int calculateExpandedLabelBottom(@NonNull Rect rect, @NonNull Rect rect2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{rect, rect2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{rect, rect2, Float.valueOf(f)})) == null) {
             if (isSingleLineFilledTextField()) {
-                return (int) (rect2.top + f2);
+                return (int) (rect2.top + f);
             }
             return rect.bottom - this.editText.getCompoundPaddingBottom();
         }
         return invokeCommon.intValue;
     }
 
-    private int calculateExpandedLabelTop(@NonNull Rect rect, float f2) {
+    private int calculateExpandedLabelTop(@NonNull Rect rect, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, this, rect, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, this, rect, f)) == null) {
             if (isSingleLineFilledTextField()) {
-                return (int) (rect.centerY() - (f2 / 2.0f));
+                return (int) (rect.centerY() - (f / 2.0f));
             }
             return rect.top + this.editText.getCompoundPaddingTop();
         }
@@ -1099,7 +1099,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f64);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f50);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -1178,7 +1178,7 @@ public class TextInputLayout extends LinearLayout {
     public static void updateCounterContentDescription(@NonNull Context context, @NonNull TextView textView, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65595, null, new Object[]{context, textView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            textView.setContentDescription(context.getString(z ? R.string.obfuscated_res_0x7f0f039e : R.string.obfuscated_res_0x7f0f039d, Integer.valueOf(i), Integer.valueOf(i2)));
+            textView.setContentDescription(context.getString(z ? R.string.obfuscated_res_0x7f0f03a0 : R.string.obfuscated_res_0x7f0f039f, Integer.valueOf(i), Integer.valueOf(i2)));
         }
     }
 
@@ -1408,26 +1408,26 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(@NonNull View view, int i, @NonNull ViewGroup.LayoutParams layoutParams) {
+    public void addView(@NonNull View view2, int i, @NonNull ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, layoutParams) == null) {
-            if (view instanceof EditText) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, layoutParams) == null) {
+            if (view2 instanceof EditText) {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(layoutParams);
                 layoutParams2.gravity = (layoutParams2.gravity & OneKeyLoginResult.ONE_KEY_LOGIN_CODE_JSON_ERROR) | 16;
-                this.inputFrame.addView(view, layoutParams2);
+                this.inputFrame.addView(view2, layoutParams2);
                 this.inputFrame.setLayoutParams(layoutParams);
                 updateInputLayoutMargins();
-                setEditText((EditText) view);
+                setEditText((EditText) view2);
                 return;
             }
-            super.addView(view, i, layoutParams);
+            super.addView(view2, i, layoutParams);
         }
     }
 
     @VisibleForTesting
-    public void animateToExpansionFraction(float f2) {
+    public void animateToExpansionFraction(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048579, this, f2) == null) || this.collapsingTextHelper.getExpansionFraction() == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048579, this, f) == null) || this.collapsingTextHelper.getExpansionFraction() == f) {
             return;
         }
         if (this.animator == null) {
@@ -1467,7 +1467,7 @@ public class TextInputLayout extends LinearLayout {
                 }
             });
         }
-        this.animator.setFloatValues(this.collapsingTextHelper.getExpansionFraction(), f2);
+        this.animator.setFloatValues(this.collapsingTextHelper.getExpansionFraction(), f);
         this.animator.start();
     }
 
@@ -2210,14 +2210,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxCornerRadii(float f2, float f3, float f4, float f5) {
+    public void setBoxCornerRadii(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             MaterialShapeDrawable materialShapeDrawable = this.boxBackground;
-            if (materialShapeDrawable != null && materialShapeDrawable.getTopLeftCornerResolvedSize() == f2 && this.boxBackground.getTopRightCornerResolvedSize() == f3 && this.boxBackground.getBottomRightCornerResolvedSize() == f5 && this.boxBackground.getBottomLeftCornerResolvedSize() == f4) {
+            if (materialShapeDrawable != null && materialShapeDrawable.getTopLeftCornerResolvedSize() == f && this.boxBackground.getTopRightCornerResolvedSize() == f2 && this.boxBackground.getBottomRightCornerResolvedSize() == f4 && this.boxBackground.getBottomLeftCornerResolvedSize() == f3) {
                 return;
             }
-            this.shapeAppearanceModel = this.shapeAppearanceModel.toBuilder().setTopLeftCornerSize(f2).setTopRightCornerSize(f3).setBottomRightCornerSize(f5).setBottomLeftCornerSize(f4).build();
+            this.shapeAppearanceModel = this.shapeAppearanceModel.toBuilder().setTopLeftCornerSize(f).setTopRightCornerSize(f2).setBottomRightCornerSize(f4).setBottomLeftCornerSize(f3).build();
             applyBoxAttributes();
         }
     }
@@ -2300,14 +2300,14 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.counterView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f61);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f4d);
             Typeface typeface = this.typeface;
             if (typeface != null) {
                 this.counterView.setTypeface(typeface);
             }
             this.counterView.setMaxLines(1);
             this.indicatorViewController.addIndicator(this.counterView, 2);
-            MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07046e));
+            MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070478));
             updateCounterTextAppearanceAndColor();
             updateCounter();
         } else {
@@ -2897,8 +2897,8 @@ public class TextInputLayout extends LinearLayout {
             } catch (Exception unused) {
             }
             if (z) {
-                TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001b6);
-                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0606ec));
+                TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001b7);
+                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0606f5));
             }
         }
     }
@@ -3017,7 +3017,7 @@ public class TextInputLayout extends LinearLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04061a);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040658);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3135,7 +3135,7 @@ public class TextInputLayout extends LinearLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100331), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100332), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3185,15 +3185,15 @@ public class TextInputLayout extends LinearLayout {
         this.collapsingTextHelper.setTextSizeInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
         this.collapsingTextHelper.setPositionInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
         this.collapsingTextHelper.setCollapsedTextGravity(BadgeDrawable.TOP_START);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842766, 16842906, 16843088, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0400f0, R.attr.obfuscated_res_0x7f0400f1, R.attr.obfuscated_res_0x7f0400f2, R.attr.obfuscated_res_0x7f0400f3, R.attr.obfuscated_res_0x7f0400f4, R.attr.obfuscated_res_0x7f0400f5, R.attr.obfuscated_res_0x7f0400f6, R.attr.obfuscated_res_0x7f0400fa, R.attr.obfuscated_res_0x7f0400fb, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f0401db, R.attr.obfuscated_res_0x7f0401dc, R.attr.obfuscated_res_0x7f0401dd, R.attr.obfuscated_res_0x7f0401de, R.attr.obfuscated_res_0x7f0401df, R.attr.obfuscated_res_0x7f0401e0, R.attr.obfuscated_res_0x7f0401e5, R.attr.obfuscated_res_0x7f0401e6, R.attr.obfuscated_res_0x7f0401e8, R.attr.obfuscated_res_0x7f0401e9, R.attr.obfuscated_res_0x7f0401ea, R.attr.obfuscated_res_0x7f0401eb, R.attr.obfuscated_res_0x7f0401ec, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f040273, R.attr.obfuscated_res_0x7f040280, R.attr.obfuscated_res_0x7f040281, R.attr.obfuscated_res_0x7f04028a, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f04028c, R.attr.obfuscated_res_0x7f04028d, R.attr.obfuscated_res_0x7f040481, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485, R.attr.obfuscated_res_0x7f040493, R.attr.obfuscated_res_0x7f040494, R.attr.obfuscated_res_0x7f040495, R.attr.obfuscated_res_0x7f0404a1, R.attr.obfuscated_res_0x7f0404a2, R.attr.obfuscated_res_0x7f0404a3, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040581, R.attr.obfuscated_res_0x7f040582, R.attr.obfuscated_res_0x7f040583, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f040599, R.attr.obfuscated_res_0x7f04059a, R.attr.obfuscated_res_0x7f04059b}, i, obfuscated_res_0x7f100331, 18, 16, 31, 35, 39);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842766, 16842906, 16843088, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0400f0, R.attr.obfuscated_res_0x7f0400f1, R.attr.obfuscated_res_0x7f0400f2, R.attr.obfuscated_res_0x7f0400f3, R.attr.obfuscated_res_0x7f0400f4, R.attr.obfuscated_res_0x7f0400f5, R.attr.obfuscated_res_0x7f0400f6, R.attr.obfuscated_res_0x7f0400fa, R.attr.obfuscated_res_0x7f0400fb, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f04019d, R.attr.obfuscated_res_0x7f04019e, R.attr.obfuscated_res_0x7f04019f, R.attr.obfuscated_res_0x7f040217, R.attr.obfuscated_res_0x7f040218, R.attr.obfuscated_res_0x7f040219, R.attr.obfuscated_res_0x7f04021a, R.attr.obfuscated_res_0x7f04021b, R.attr.obfuscated_res_0x7f04021c, R.attr.obfuscated_res_0x7f040252, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040256, R.attr.obfuscated_res_0x7f040257, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f040259, R.attr.obfuscated_res_0x7f04025a, R.attr.obfuscated_res_0x7f0402bb, R.attr.obfuscated_res_0x7f0402bc, R.attr.obfuscated_res_0x7f0402bd, R.attr.obfuscated_res_0x7f0402be, R.attr.obfuscated_res_0x7f0402c9, R.attr.obfuscated_res_0x7f0402ca, R.attr.obfuscated_res_0x7f0402cb, R.attr.obfuscated_res_0x7f0402cc, R.attr.obfuscated_res_0x7f0404c0, R.attr.obfuscated_res_0x7f0404c1, R.attr.obfuscated_res_0x7f0404c2, R.attr.obfuscated_res_0x7f0404c3, R.attr.obfuscated_res_0x7f0404c4, R.attr.obfuscated_res_0x7f0404d1, R.attr.obfuscated_res_0x7f0404d2, R.attr.obfuscated_res_0x7f0404d3, R.attr.obfuscated_res_0x7f0404df, R.attr.obfuscated_res_0x7f0404e0, R.attr.obfuscated_res_0x7f0404e1, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f0405bf, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c1, R.attr.obfuscated_res_0x7f0405c2, R.attr.obfuscated_res_0x7f0405c3, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f0405d8, R.attr.obfuscated_res_0x7f0405d9}, i, obfuscated_res_0x7f100332, 18, 16, 31, 35, 39);
         this.hintEnabled = obtainTintedStyledAttributes.getBoolean(38, true);
         setHint(obtainTintedStyledAttributes.getText(2));
         this.hintAnimationEnabled = obtainTintedStyledAttributes.getBoolean(37, true);
-        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100331).build();
-        this.boxLabelCutoutPaddingPx = context2.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07046b);
+        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100332).build();
+        this.boxLabelCutoutPaddingPx = context2.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070475);
         this.boxCollapsedPaddingTopPx = obtainTintedStyledAttributes.getDimensionPixelOffset(5, 0);
-        this.boxStrokeWidthDefaultPx = obtainTintedStyledAttributes.getDimensionPixelSize(12, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07046c));
-        this.boxStrokeWidthFocusedPx = obtainTintedStyledAttributes.getDimensionPixelSize(13, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07046d));
+        this.boxStrokeWidthDefaultPx = obtainTintedStyledAttributes.getDimensionPixelSize(12, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070476));
+        this.boxStrokeWidthFocusedPx = obtainTintedStyledAttributes.getDimensionPixelSize(13, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070477));
         this.boxStrokeWidthPx = this.boxStrokeWidthDefaultPx;
         float dimension = obtainTintedStyledAttributes.getDimension(9, -1.0f);
         float dimension2 = obtainTintedStyledAttributes.getDimension(8, -1.0f);
@@ -3224,7 +3224,7 @@ public class TextInputLayout extends LinearLayout {
                 this.hoveredFilledBackgroundColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
             } else {
                 this.focusedFilledBackgroundColor = this.defaultFilledBackgroundColor;
-                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f0607c7);
+                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f0607d0);
                 this.disabledFilledBackgroundColor = colorStateList2.getColorForState(new int[]{-16842910}, -1);
                 this.hoveredFilledBackgroundColor = colorStateList2.getColorForState(new int[]{16843623}, -1);
             }
@@ -3242,9 +3242,9 @@ public class TextInputLayout extends LinearLayout {
         }
         ColorStateList colorStateList4 = MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, 10);
         this.focusedStrokeColor = obtainTintedStyledAttributes.getColor(10, 0);
-        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607d9);
-        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607da);
-        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607dd);
+        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607e2);
+        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607e3);
+        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0607e6);
         if (colorStateList4 != null) {
             setBoxStrokeColorStateList(colorStateList4);
         }
@@ -3257,7 +3257,7 @@ public class TextInputLayout extends LinearLayout {
         int resourceId = obtainTintedStyledAttributes.getResourceId(31, 0);
         CharSequence text = obtainTintedStyledAttributes.getText(26);
         boolean z = obtainTintedStyledAttributes.getBoolean(27, false);
-        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) this.endLayout, false);
+        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) this.endLayout, false);
         this.errorIconView = checkableImageButton;
         checkableImageButton.setVisibility(8);
         if (obtainTintedStyledAttributes.hasValue(28)) {
@@ -3269,7 +3269,7 @@ public class TextInputLayout extends LinearLayout {
         if (obtainTintedStyledAttributes.hasValue(30)) {
             setErrorIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(30, -1), null));
         }
-        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f058e));
+        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f0595));
         ViewCompat.setImportantForAccessibility(this.errorIconView, 2);
         this.errorIconView.setClickable(false);
         this.errorIconView.setPressable(false);
@@ -3287,7 +3287,7 @@ public class TextInputLayout extends LinearLayout {
         setCounterMaxLength(obtainTintedStyledAttributes.getInt(15, -1));
         this.counterTextAppearance = obtainTintedStyledAttributes.getResourceId(18, 0);
         this.counterOverflowTextAppearance = obtainTintedStyledAttributes.getResourceId(16, 0);
-        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) this.startLayout, false);
+        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022c, (ViewGroup) this.startLayout, false);
         this.startIconView = checkableImageButton2;
         checkableImageButton2.setVisibility(8);
         setStartIconOnClickListener(null);
@@ -3306,7 +3306,7 @@ public class TextInputLayout extends LinearLayout {
             setStartIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(58, -1), null));
         }
         setBoxBackgroundMode(obtainTintedStyledAttributes.getInt(4, 0));
-        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) this.endIconFrame, false);
+        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) this.endIconFrame, false);
         this.endIconView = checkableImageButton3;
         this.endIconFrame.addView(checkableImageButton3);
         this.endIconView.setVisibility(8);
@@ -3345,14 +3345,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f091f65);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f091f51);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f091f66);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f091f52);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);
@@ -3433,7 +3433,7 @@ public class TextInputLayout extends LinearLayout {
                 if (z != this.counterOverflowed) {
                     updateCounterTextAppearanceAndColor();
                 }
-                this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f039f, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
+                this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03a1, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
             }
             if (this.editText == null || z == this.counterOverflowed) {
                 return;

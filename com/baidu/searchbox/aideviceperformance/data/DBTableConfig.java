@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DBTableConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LaunchTimeDBTable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_LUNCH_TIME_COLUMN = "app_launch_time";
@@ -40,7 +40,7 @@ public class DBTableConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class UserStickinessDBTable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DB_NAME = "behavior_info.db";

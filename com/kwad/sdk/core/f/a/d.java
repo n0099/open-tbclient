@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.heytap.openid.IOpenID;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements d {
         public IBinder a;
 
@@ -28,8 +28,8 @@ public interface d extends IInterface {
                     this.a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.a(e);
                     obtain.recycle();
                     obtain2.recycle();
                     return null;

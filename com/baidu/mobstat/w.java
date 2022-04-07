@@ -8,17 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class w implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public z a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Object f27428b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Class<?> f27429c;
+    public Object b;
+    public Class<?> c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -38,8 +34,8 @@ public class w implements a {
         this.a = z.a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f27428b = obj;
-                this.f27429c = obj.getClass();
+                this.b = obj;
+                this.c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -53,8 +49,8 @@ public class w implements a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
             try {
                 a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 this.a.a(context, jSONObject);
             }
         }
@@ -66,8 +62,8 @@ public class w implements a {
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
             try {
                 a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 this.a.b(context, str);
             }
         }
@@ -79,8 +75,8 @@ public class w implements a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
             try {
                 a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 this.a.a(context, str);
             }
         }
@@ -93,8 +89,8 @@ public class w implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
             try {
                 return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 return this.a.b(context);
             }
         }
@@ -107,8 +103,8 @@ public class w implements a {
         if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
             try {
                 a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 this.a.a(context, j);
             }
         }
@@ -121,8 +117,8 @@ public class w implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             try {
                 return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 return this.a.a(context);
             }
         }
@@ -132,6 +128,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f27429c.getMethod(str, clsArr).invoke(this.f27428b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.c.getMethod(str, clsArr).invoke(this.b, objArr) : (T) invokeLLL.objValue;
     }
 }

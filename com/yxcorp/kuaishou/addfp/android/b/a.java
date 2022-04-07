@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -44,9 +44,9 @@ public final class a {
             synchronized (a.class) {
                 if (TextUtils.isEmpty(a)) {
                     String str = new String(Base64.decode("YW5kcm9pZF9pZA==", 0));
-                    String b2 = b(context, str);
-                    a = b2;
-                    if (TextUtils.isEmpty(b2)) {
+                    String b = b(context, str);
+                    a = b;
+                    if (TextUtils.isEmpty(b)) {
                         String a2 = a(context, str);
                         a = a2;
                         if (TextUtils.isEmpty(a2)) {

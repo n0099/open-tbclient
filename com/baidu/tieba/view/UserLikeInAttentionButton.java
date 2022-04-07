@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.o0.r.l0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -13,15 +12,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
+import com.repackage.mu4;
+import com.repackage.nv4;
+/* loaded from: classes4.dex */
+public class UserLikeInAttentionButton extends TBSpecificationBtn implements nv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void a(View view);
+        void a(View view2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -45,17 +46,17 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
-    public void a(View view) {
+    @Override // com.repackage.nv4
+    public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.o) == null) {
             return;
         }
-        aVar.a(view);
+        aVar.a(view2);
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -63,7 +64,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -71,56 +72,56 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // c.a.o0.r.l0.t.b
+    @Override // com.repackage.nv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                s(true);
+                t(true);
             } else {
-                s(false);
+                t(false);
             }
         }
     }
 
-    public void r(int i) {
+    public void s(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             k();
         }
     }
 
-    public void s(boolean z) {
+    public void setOnClickEvent(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                c.a.o0.r.l0.n.b bVar = new c.a.o0.r.l0.n.b();
-                bVar.p(R.color.CAM_X0613, R.color.CAM_X0103);
-                setConfig(bVar);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68));
-            } else {
-                c.a.o0.r.l0.n.b bVar2 = new c.a.o0.r.l0.n.b();
-                bVar2.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(bVar2);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b));
-            }
-            r(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.o = aVar;
         }
     }
 
-    public void setOnClickEvent(a aVar) {
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.o = aVar;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                mu4 mu4Var = new mu4();
+                mu4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
+                setConfig(mu4Var);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d));
+            } else {
+                mu4 mu4Var2 = new mu4();
+                mu4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(mu4Var2);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c));
+            }
+            s(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -164,9 +165,9 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        c.a.o0.r.l0.n.b bVar = new c.a.o0.r.l0.n.b();
-        bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        setConfig(bVar);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b));
+        mu4 mu4Var = new mu4();
+        mu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        setConfig(mu4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c));
     }
 }

@@ -391,11 +391,11 @@ public final class Cookie {
                     return Long.MIN_VALUE;
                 }
                 return parseLong;
-            } catch (NumberFormatException e2) {
+            } catch (NumberFormatException e) {
                 if (str.matches("-?\\d+")) {
                     return str.startsWith("-") ? Long.MIN_VALUE : Long.MAX_VALUE;
                 }
-                throw e2;
+                throw e;
             }
         }
         return invokeL.longValue;
@@ -535,9 +535,9 @@ public final class Cookie {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), httpUrl, str})) == null) {
             int length = str.length();
-            char c2 = WebvttCueParser.CHAR_SEMI_COLON;
+            char c = WebvttCueParser.CHAR_SEMI_COLON;
             int delimiterOffset = Util.delimiterOffset(str, 0, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-            char c3 = '=';
+            char c2 = '=';
             int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, '=');
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
@@ -560,8 +560,8 @@ public final class Cookie {
             boolean z3 = true;
             boolean z4 = false;
             while (i < length) {
-                int delimiterOffset3 = Util.delimiterOffset(str, i, length, c2);
-                int delimiterOffset4 = Util.delimiterOffset(str, i, delimiterOffset3, c3);
+                int delimiterOffset3 = Util.delimiterOffset(str, i, length, c);
+                int delimiterOffset4 = Util.delimiterOffset(str, i, delimiterOffset3, c2);
                 String trimSubstring3 = Util.trimSubstring(str, i, delimiterOffset4);
                 String trimSubstring4 = delimiterOffset4 < delimiterOffset3 ? Util.trimSubstring(str, delimiterOffset4 + 1, delimiterOffset3) : "";
                 if (trimSubstring3.equalsIgnoreCase("expires")) {
@@ -583,13 +583,13 @@ public final class Cookie {
                         z2 = true;
                     }
                     i = delimiterOffset3 + 1;
-                    c2 = WebvttCueParser.CHAR_SEMI_COLON;
-                    c3 = '=';
+                    c = WebvttCueParser.CHAR_SEMI_COLON;
+                    c2 = '=';
                 }
                 z4 = true;
                 i = delimiterOffset3 + 1;
-                c2 = WebvttCueParser.CHAR_SEMI_COLON;
-                c3 = '=';
+                c = WebvttCueParser.CHAR_SEMI_COLON;
+                c2 = '=';
             }
             long j5 = Long.MIN_VALUE;
             if (j3 != Long.MIN_VALUE) {

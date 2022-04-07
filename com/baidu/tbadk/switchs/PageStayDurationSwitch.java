@@ -1,15 +1,15 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.d.f.f.a;
-import c.a.o0.p0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class PageStayDurationSwitch extends a {
+import com.repackage.xe;
+import com.repackage.z75;
+/* loaded from: classes3.dex */
+public class PageStayDurationSwitch extends xe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +27,15 @@ public class PageStayDurationSwitch extends a {
         }
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            e.b().i(1 == i);
+            z75.b().i(1 == i);
         }
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class PageStayDurationSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PageStayDurationSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class PageStayDurationSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "log_online_smallflow" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.f.a
+    @Override // com.repackage.xe
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

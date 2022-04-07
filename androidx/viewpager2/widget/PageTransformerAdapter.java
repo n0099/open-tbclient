@@ -50,16 +50,16 @@ public final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallbac
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrolled(int i, float f2, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || this.mPageTransformer == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.mPageTransformer == null) {
             return;
         }
-        float f3 = -f2;
+        float f2 = -f;
         for (int i3 = 0; i3 < this.mLayoutManager.getChildCount(); i3++) {
             View childAt = this.mLayoutManager.getChildAt(i3);
             if (childAt != null) {
-                this.mPageTransformer.transformPage(childAt, (this.mLayoutManager.getPosition(childAt) - i) + f3);
+                this.mPageTransformer.transformPage(childAt, (this.mLayoutManager.getPosition(childAt) - i) + f2);
             } else {
                 throw new IllegalStateException(String.format(Locale.US, "LayoutManager returned a null child at pos %d/%d while transforming pages", Integer.valueOf(i3), Integer.valueOf(this.mLayoutManager.getChildCount())));
             }

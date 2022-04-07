@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Encryption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,8 +48,8 @@ public class Encryption {
             }
             try {
                 bArr = stringBuffer.toString().getBytes("UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 bArr = null;
             }
             return new SecretKeySpec(bArr, "AES");
@@ -66,8 +66,8 @@ public class Encryption {
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(2, createKey(Info.PASSWORD), new IvParameterSpec(Info.IV.getBytes()));
                 return new String(cipher.doFinal(decode), IMAudioTransRequest.CHARSET);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PushJobService extends JobService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class PushJobService extends JobService {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
                     this.a.jobFinished(jobParameters, true);
-                    int b2 = i.b(this.a.getApplicationContext(), "key_push_launch_task_level", 0);
-                    if (jobParameters.getJobId() != 1 || b2 == 1) {
+                    int b = i.b(this.a.getApplicationContext(), "key_push_launch_task_level", 0);
+                    if (jobParameters.getJobId() != 1 || b == 1) {
                         return;
                     }
                     com.baidu.android.pushservice.job.a.a(this.a, false, 0);

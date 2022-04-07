@@ -26,19 +26,19 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class IMPushPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.pb.IMPushPb$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
@@ -59,7 +59,7 @@ public final class IMPushPb {
         public Object type_;
         public Object value_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -556,10 +556,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Ack ack2 = (Ack) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Ack ack2 = (Ack) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 ack = ack2;
@@ -857,9 +857,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -1065,10 +1065,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -1077,7 +1077,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -1106,7 +1106,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACK_FIELD_NUMBER = 7;
@@ -1135,7 +1135,7 @@ public final class IMPushPb {
         public Request request_;
         public Ui ui_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1924,10 +1924,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Action action2 = (Action) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Action action2 = (Action) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 action = action2;
@@ -2213,9 +2213,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -2499,10 +2499,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -2511,7 +2511,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -2551,7 +2551,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ActionType implements Internal.EnumLite {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -2707,7 +2707,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
@@ -2724,7 +2724,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -3127,10 +3127,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            AppInfo appInfo2 = (AppInfo) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            AppInfo appInfo2 = (AppInfo) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 appInfo = appInfo2;
@@ -3392,9 +3392,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -3588,10 +3588,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -3600,7 +3600,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -3621,7 +3621,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_INFO_FIELD_NUMBER = 21;
@@ -3648,7 +3648,7 @@ public final class IMPushPb {
         public long timestamp_;
         public long userTimestamp_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -4361,10 +4361,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Common common3 = (Common) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Common common3 = (Common) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 common2 = common3;
@@ -4688,9 +4688,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 } else if (!hasTimestamp()) {
                     this.memoizedIsInitialized = (byte) 0;
                     return false;
@@ -4948,10 +4948,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -4960,7 +4960,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -4999,7 +4999,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -5024,7 +5024,7 @@ public final class IMPushPb {
         public long startTime_;
         public long stopTime_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -5571,10 +5571,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Connection connection2 = (Connection) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Connection connection2 = (Connection) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 connection = connection2;
@@ -5880,9 +5880,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -6100,10 +6100,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -6112,7 +6112,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -6147,7 +6147,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
@@ -6166,7 +6166,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public long timestamp_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -6572,10 +6572,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Crash crash2 = (Crash) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Crash crash2 = (Crash) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 crash = crash2;
@@ -6827,9 +6827,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -7029,10 +7029,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -7041,7 +7041,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -7064,7 +7064,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_FIELD_NUMBER = 4;
@@ -7093,7 +7093,7 @@ public final class IMPushPb {
         public long startTime_;
         public Object table_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -7866,10 +7866,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Db db2 = (Db) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Db db2 = (Db) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 db = db2;
@@ -8295,9 +8295,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -8528,11 +8528,11 @@ public final class IMPushPb {
                                 }
                             }
                             z = true;
-                        } catch (InvalidProtocolBufferException e2) {
-                            throw e2.setUnfinishedMessage(this);
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -8541,7 +8541,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -8590,7 +8590,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUID_FIELD_NUMBER = 4;
@@ -8603,7 +8603,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -8817,10 +8817,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            DeviceID deviceID2 = (DeviceID) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            DeviceID deviceID2 = (DeviceID) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 deviceID = deviceID2;
@@ -8990,9 +8990,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 } else if (!hasCuid()) {
                     this.memoizedIsInitialized = (byte) 0;
                     return false;
@@ -9179,11 +9179,11 @@ public final class IMPushPb {
                                 }
                             }
                             z = true;
-                        } catch (InvalidProtocolBufferException e2) {
-                            throw e2.setUnfinishedMessage(this);
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -9192,7 +9192,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -9201,7 +9201,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOMAIN_FIELD_NUMBER = 4;
@@ -9220,7 +9220,7 @@ public final class IMPushPb {
         public Object port_;
         public Object protocol_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LcpNetInfo, Builder> implements LcpNetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -9714,10 +9714,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            LcpNetInfo lcpNetInfo2 = (LcpNetInfo) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            LcpNetInfo lcpNetInfo2 = (LcpNetInfo) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 lcpNetInfo = lcpNetInfo2;
@@ -10025,9 +10025,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -10227,10 +10227,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -10239,7 +10239,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface LcpNetInfoOrBuilder extends MessageLiteOrBuilder {
         String getDomain();
 
@@ -10266,7 +10266,7 @@ public final class IMPushPb {
         boolean hasProtocol();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
@@ -10283,7 +10283,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public Object productName_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -10643,10 +10643,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            MetaData metaData2 = (MetaData) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            MetaData metaData2 = (MetaData) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 metaData = metaData2;
@@ -10880,9 +10880,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -11076,10 +11076,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -11088,7 +11088,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -11107,7 +11107,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
@@ -11132,7 +11132,7 @@ public final class IMPushPb {
         public Object roomId_;
         public long startMsgid_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -11679,10 +11679,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Msg msg2 = (Msg) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Msg msg2 = (Msg) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 msg = msg2;
@@ -11988,9 +11988,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -12208,10 +12208,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -12220,7 +12220,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -12255,7 +12255,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NET_APN_FIELD_NUMBER = 2;
@@ -12270,7 +12270,7 @@ public final class IMPushPb {
         public Object netApn_;
         public Object netType_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -12582,10 +12582,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            NetInfo netInfo2 = (NetInfo) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            NetInfo netInfo2 = (NetInfo) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 netInfo = netInfo2;
@@ -12801,9 +12801,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -12992,11 +12992,11 @@ public final class IMPushPb {
                                 }
                             }
                             z = true;
-                        } catch (IOException e2) {
-                            throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e3) {
-                        throw e3.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -13005,7 +13005,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -13020,7 +13020,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 16;
@@ -13065,7 +13065,7 @@ public final class IMPushPb {
         public long tokenBegin_;
         public long tokenEnd_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NewConnection, Builder> implements NewConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -14155,10 +14155,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            NewConnection newConnection2 = (NewConnection) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            NewConnection newConnection2 = (NewConnection) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 newConnection = newConnection2;
@@ -14672,9 +14672,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -14979,10 +14979,10 @@ public final class IMPushPb {
                                 }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -14991,7 +14991,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface NewConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -15069,7 +15069,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class OSType implements Internal.EnumLite {
         public static final /* synthetic */ OSType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -15201,7 +15201,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTIONS_FIELD_NUMBER = 132;
@@ -15222,7 +15222,7 @@ public final class IMPushPb {
         public Object sdkName_;
         public long sdkVersion_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -15796,10 +15796,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            PushImClient pushImClient2 = (PushImClient) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            PushImClient pushImClient2 = (PushImClient) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 pushImClient = pushImClient2;
@@ -16060,9 +16060,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 } else if (!hasCommon()) {
                     this.memoizedIsInitialized = (byte) 0;
                     return false;
@@ -16297,10 +16297,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -16312,7 +16312,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i);
 
@@ -16339,7 +16339,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -16364,7 +16364,7 @@ public final class IMPushPb {
         public long responseTime_;
         public long timestamp_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -16955,10 +16955,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Request request2 = (Request) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Request request2 = (Request) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 request = request2;
@@ -17292,9 +17292,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -17513,11 +17513,11 @@ public final class IMPushPb {
                                 }
                             }
                             z = true;
-                        } catch (InvalidProtocolBufferException e2) {
-                            throw e2.setUnfinishedMessage(this);
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -17526,7 +17526,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -17563,7 +17563,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
@@ -17588,7 +17588,7 @@ public final class IMPushPb {
         public int resolutionV_;
         public Object terminalType_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -18183,10 +18183,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            TerminalInfo terminalInfo2 = (TerminalInfo) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            TerminalInfo terminalInfo2 = (TerminalInfo) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 terminalInfo = terminalInfo2;
@@ -18520,9 +18520,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -18743,10 +18743,10 @@ public final class IMPushPb {
                             }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -18755,7 +18755,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -18792,7 +18792,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -18817,7 +18817,7 @@ public final class IMPushPb {
         public Object page_;
         public long startTime_;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -19408,10 +19408,10 @@ public final class IMPushPb {
                                 mergeFrom(parsePartialFrom);
                             }
                             return this;
-                        } catch (InvalidProtocolBufferException e2) {
-                            Ui ui2 = (Ui) e2.getUnfinishedMessage();
+                        } catch (InvalidProtocolBufferException e) {
+                            Ui ui2 = (Ui) e.getUnfinishedMessage();
                             try {
-                                throw e2;
+                                throw e;
                             } catch (Throwable th) {
                                 th = th;
                                 ui = ui2;
@@ -19745,9 +19745,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -19966,11 +19966,11 @@ public final class IMPushPb {
                                 }
                             }
                             z = true;
-                        } catch (InvalidProtocolBufferException e2) {
-                            throw e2.setUnfinishedMessage(this);
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -19979,7 +19979,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 

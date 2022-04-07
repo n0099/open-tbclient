@@ -8,7 +8,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientColorParser implements ValueParser<GradientColor> {
     public int colorPoints;
 
@@ -41,31 +41,31 @@ public class GradientColorParser implements ValueParser<GradientColor> {
     }
 
     @IntRange(from = 0, to = 255)
-    private int getOpacityAtPosition(double d2, double[] dArr, double[] dArr2) {
-        double d3;
+    private int getOpacityAtPosition(double d, double[] dArr, double[] dArr2) {
+        double d2;
         int i = 1;
         while (true) {
             if (i < dArr.length) {
                 int i2 = i - 1;
-                double d4 = dArr[i2];
-                double d5 = dArr[i];
-                if (dArr[i] >= d2) {
-                    d3 = MiscUtils.lerp(dArr2[i2], dArr2[i], MiscUtils.clamp((d2 - d4) / (d5 - d4), 0.0d, 1.0d));
+                double d3 = dArr[i2];
+                double d4 = dArr[i];
+                if (dArr[i] >= d) {
+                    d2 = MiscUtils.lerp(dArr2[i2], dArr2[i], MiscUtils.clamp((d - d3) / (d4 - d3), 0.0d, 1.0d));
                     break;
                 }
                 i++;
             } else {
-                d3 = dArr2[dArr2.length - 1];
+                d2 = dArr2[dArr2.length - 1];
                 break;
             }
         }
-        return (int) (d3 * 255.0d);
+        return (int) (d2 * 255.0d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
-    public GradientColor parse(JsonReader jsonReader, float f2) throws IOException {
+    public GradientColor parse(JsonReader jsonReader, float f) throws IOException {
         ArrayList arrayList = new ArrayList();
         boolean z = jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY;
         if (z) {

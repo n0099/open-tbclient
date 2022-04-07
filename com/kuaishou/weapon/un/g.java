@@ -14,31 +14,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "MIUI";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f38817b = "EMUI";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f38818c = "FLYME";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f38819d = "OPPO";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f38820e = "SMARTISAN";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f38821f = "VIVO";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f38822g = "QIKU";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f38823h = "360";
+    public static final String b = "EMUI";
+    public static final String c = "FLYME";
+    public static final String d = "OPPO";
+    public static final String e = "SMARTISAN";
+    public static final String f = "VIVO";
+    public static final String g = "QIKU";
+    public static final String h = "360";
     public static final String i = "OnePlus";
     public static final String j = "SAMSUNG";
     public static final String k = "ro.miui.ui.version.name";
@@ -235,7 +221,7 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f38823h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(h) : invokeV.booleanValue;
     }
 
     public static boolean d() {

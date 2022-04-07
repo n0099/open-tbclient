@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebvttParserUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern COMMENT;

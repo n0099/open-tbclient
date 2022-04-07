@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AddressEditPresenter extends BasePresenter<IBaseView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDR_CODE = 1004;
@@ -781,8 +781,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 float parseFloat = Float.parseFloat(str);
                 Log.d(TAG, "floatValue=" + parseFloat);
                 return true;
-            } catch (Exception e2) {
-                Log.d(TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.d(TAG, e.getMessage());
                 return false;
             }
         }
@@ -806,8 +806,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     return charSequence;
                 }
                 return null;
-            } catch (Exception e2) {
-                Log.d(TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.d(TAG, e.getMessage());
                 return null;
             }
         }

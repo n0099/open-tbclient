@@ -13,7 +13,7 @@ import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.util.concurrent.atomic.AtomicReference;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DestructorThread {
     public static /* synthetic */ Interceptable $ic;
     public static final a sDestructorList;
@@ -23,7 +23,7 @@ public class DestructorThread {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Destructor extends PhantomReference<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class DestructorThread {
         public abstract void destruct();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class DestructorThread {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class DestructorThread {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class c extends Destructor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

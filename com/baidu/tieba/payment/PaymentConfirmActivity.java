@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import c.a.o0.r.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -42,8 +41,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.au4;
+import com.repackage.dr4;
+import com.repackage.mg;
+import com.repackage.nk8;
+import com.repackage.oi;
+import com.repackage.vq7;
+import com.repackage.wq7;
+import com.repackage.wt4;
+import com.repackage.xq7;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +65,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public boolean mPasswordFreeze;
     public HttpMessageListener mPayListener;
     public PaymentConfirmModel<PaymentConfirmActivity> mPaymentConfirmModel;
-    public c.a.p0.v2.c mPaymentConfirmView;
+    public vq7 mPaymentConfirmView;
     public String mReferPage;
     public PaymentConfirmRequestData mRequestData;
     public HttpMessageListener mRequestPaymentConfirmInfoListener;
@@ -65,7 +73,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public PaymentConfirmInfoData paymentConfirmInfoData;
     public boolean scoresEnough;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,26 +98,22 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 PaymentConfirmActivity paymentConfirmActivity = this.a;
-                paymentConfirmActivity.goToUEGValidate(2270066, paymentConfirmActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ff7));
+                paymentConfirmActivity.goToUEGValidate(2270066, paymentConfirmActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0fff));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements a.e {
+    /* loaded from: classes3.dex */
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f34821b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f34822c;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ PaymentConfirmActivity c;
 
         public b(PaymentConfirmActivity paymentConfirmActivity, int i, String str) {
             Interceptable interceptable = $ic;
@@ -126,23 +130,23 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f34822c = paymentConfirmActivity;
+            this.c = paymentConfirmActivity;
             this.a = i;
-            this.f34821b = str;
+            this.b = str;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                this.f34822c.goToUEGValidate(this.a, this.f34821b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
+                this.c.goToUEGValidate(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements a.e {
+    /* loaded from: classes3.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -165,23 +169,21 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements a.e {
+    /* loaded from: classes3.dex */
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f34823b;
+        public final /* synthetic */ PaymentConfirmActivity b;
 
         public d(PaymentConfirmActivity paymentConfirmActivity, String str) {
             Interceptable interceptable = $ic;
@@ -198,22 +200,22 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f34823b = paymentConfirmActivity;
+            this.b = paymentConfirmActivity;
             this.a = str;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f34823b.getPageContext().getPageActivity(), this.f34823b.getResources().getString(R.string.obfuscated_res_0x7f0f0d70), this.a, true, true, true)));
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageContext().getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0d73), this.a, true, true, true)));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements a.e {
+    /* loaded from: classes3.dex */
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -236,17 +238,17 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -274,16 +276,16 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                c.a.o0.r.j0.b.k().u(this.a.generateSharedPkey("payment_confirm_show"), !z);
+                wt4.k().u(this.a.generateSharedPkey("payment_confirm_show"), !z);
                 if (z) {
                     return;
                 }
-                c.a.o0.r.j0.b.k().w(this.a.generateSharedPkey("payment_confirm_notshow_count"), 0);
+                wt4.k().w(this.a.generateSharedPkey("payment_confirm_notshow_count"), 0);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,23 +310,23 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.mPasswordFreeze) {
                     this.a.showPasswordInputDialog(0, null);
                 } else if (this.a.scoresEnough) {
-                    c.a.p0.v2.d.a("c10292");
+                    wq7.a("c10292");
                     this.a.goToPayment();
                 } else {
-                    c.a.p0.v2.d.a("c10293");
+                    wq7.a("c10293");
                     this.a.goToBuyTdouActivity();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class h extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -381,7 +383,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 } else {
                     String errorString = responsePaymentConfirmInfoMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
                     }
                     this.a.showToast(errorString);
                 }
@@ -389,7 +391,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class i extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -433,14 +435,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 if (!responsePaymentPayMessage.hasError()) {
                     int error = responsePaymentPayMessage.getError();
                     if (error == 0) {
-                        c.a.p0.v2.d.a("c10294");
+                        wq7.a("c10294");
                         PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                         if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                             string = payRequestDataData.getDescribe().getWord();
                         } else {
-                            string = this.a.getString(R.string.obfuscated_res_0x7f0f05ab);
+                            string = this.a.getString(R.string.obfuscated_res_0x7f0f05b2);
                         }
-                        new c.a.o0.r.l0.c().c(string);
+                        new au4().c(string);
                         if (!TextUtils.isEmpty(this.a.mBookId)) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001419));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001420, this.a.mBookId));
@@ -489,21 +491,21 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                                 return;
                             }
                         }
-                        c.a.o0.r.l0.c cVar = new c.a.o0.r.l0.c();
+                        au4 au4Var = new au4();
                         String errorString = responsePaymentPayMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e72);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e76);
                         }
-                        cVar.b(errorString);
+                        au4Var.b(errorString);
                         return;
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -545,7 +547,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class k extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -576,21 +578,21 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.p0.a4.k0.g)) {
-                this.a.mNeedTbean -= c.a.d.f.m.b.e(((c.a.p0.a4.k0.g) customResponsedMessage.getData()).a(), 0);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof nk8)) {
+                this.a.mNeedTbean -= mg.e(((nk8) customResponsedMessage.getData()).a(), 0);
                 if (this.a.mNeedTbean <= 0) {
                     this.a.scoresEnough = true;
                     PaymentConfirmInfoData.GoodsInfo goods_info = this.a.paymentConfirmInfoData.getGoods_info();
                     if (goods_info != null) {
-                        this.a.mPaymentConfirmView.x(goods_info.getTdou_num(), goods_info.getCurrency());
+                        this.a.mPaymentConfirmView.y(goods_info.getTdou_num(), goods_info.getCurrency());
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class l implements a.e {
+    /* loaded from: classes3.dex */
+    public class l implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PaymentConfirmActivity a;
@@ -613,23 +615,21 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a = paymentConfirmActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class m implements a.e {
+    /* loaded from: classes3.dex */
+    public class m implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f34824b;
+        public final /* synthetic */ PaymentConfirmActivity b;
 
         public m(PaymentConfirmActivity paymentConfirmActivity, String str) {
             Interceptable interceptable = $ic;
@@ -646,39 +646,37 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f34824b = paymentConfirmActivity;
+            this.b = paymentConfirmActivity;
             this.a = str;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                String l = this.f34824b.mPaymentConfirmView.l();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
+                String l = this.b.mPaymentConfirmView.l();
                 if (StringUtils.isNull(l)) {
                     return;
                 }
-                this.f34824b.goToPayment(this.a, l, null, null, null, false);
+                this.b.goToPayment(this.a, l, null, null, null, false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class n implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.o0.r.t.a a;
+        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ PaymentConfirmActivity b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PaymentConfirmActivity f34825b;
-
-        public n(PaymentConfirmActivity paymentConfirmActivity, c.a.o0.r.t.a aVar) {
+        public n(PaymentConfirmActivity paymentConfirmActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {paymentConfirmActivity, aVar};
+                Object[] objArr = {paymentConfirmActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -688,8 +686,8 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     return;
                 }
             }
-            this.f34825b = paymentConfirmActivity;
-            this.a = aVar;
+            this.b = paymentConfirmActivity;
+            this.a = dr4Var;
         }
 
         @Override // android.text.TextWatcher
@@ -783,7 +781,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         if (!(interceptable == null || interceptable.invokeCommon(65569, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) || (paymentConfirmInfoData = this.paymentConfirmInfoData) == null || (order_info = paymentConfirmInfoData.getOrder_info()) == null) {
             return;
         }
-        showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0d6c));
+        showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0d6f));
         this.mPaymentConfirmView.i(false);
         PayRequestData payRequestData = new PayRequestData();
         payRequestData.setOrderId(order_info.getOrder_id());
@@ -791,7 +789,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         payRequestData.setOpenId(order_info.getOpen_id());
         payRequestData.setTbs(this.paymentConfirmInfoData.getTbs());
         if (!StringUtils.isNull(str2)) {
-            payRequestData.setPassword(URLEncoder.encode(c.a.p0.v2.e.a.a(str2, str)));
+            payRequestData.setPassword(URLEncoder.encode(xq7.a(str2, str)));
         }
         if (!StringUtils.isNull(str3)) {
             payRequestData.setCaptchaVcodeStr(str3);
@@ -841,10 +839,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     goToBuyTdouActivity();
                     return true;
                 }
-                if (cpath.getTip_exist() == 1 && !c.a.o0.r.j0.b.k().h(generateSharedPkey("payment_confirm_show"), true)) {
-                    int l2 = c.a.o0.r.j0.b.k().l(generateSharedPkey("payment_confirm_notshow_count"), 0);
+                if (cpath.getTip_exist() == 1 && !wt4.k().h(generateSharedPkey("payment_confirm_show"), true)) {
+                    int l2 = wt4.k().l(generateSharedPkey("payment_confirm_notshow_count"), 0);
                     if (l2 < cpath.getTip_days()) {
-                        c.a.o0.r.j0.b.k().w(generateSharedPkey("payment_confirm_notshow_count"), l2 + 1);
+                        wt4.k().w(generateSharedPkey("payment_confirm_notshow_count"), l2 + 1);
                         if (z) {
                             goToPayment();
                             return true;
@@ -883,22 +881,22 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            this.mPaymentConfirmView = new c.a.p0.v2.c(this, this.mBookType == 2, this.currency);
-            this.mPaymentConfirmView.m().setChecked(!c.a.o0.r.j0.b.k().h(generateSharedPkey("payment_confirm_show"), true));
+            this.mPaymentConfirmView = new vq7(this, this.mBookType == 2, this.currency);
+            this.mPaymentConfirmView.m().setChecked(!wt4.k().h(generateSharedPkey("payment_confirm_show"), true));
             this.mPaymentConfirmView.m().setOnCheckedChangeListener(new f(this));
-            this.mPaymentConfirmView.q().setOnClickListener(new g(this));
+            this.mPaymentConfirmView.r().setOnClickListener(new g(this));
         }
     }
 
     private void loadPaymentConfirmData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65575, this) == null) {
-            if (c.a.d.f.p.n.C()) {
+            if (oi.C()) {
                 showLoadingView(this.mPaymentConfirmView.k(), false);
                 this.mPaymentConfirmModel.B(this.mRequestData);
                 return;
             }
-            showNetRefreshViewNoClick(this.mPaymentConfirmView.k(), getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
+            showNetRefreshViewNoClick(this.mPaymentConfirmView.k(), getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
         }
     }
 
@@ -927,7 +925,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public void showOtherErrorDialog(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65578, this, str, str2) == null) {
-            new c.a.o0.r.t.a(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new e(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0d70, new d(this, str2)).create(getPageContext()).show();
+            new dr4(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new e(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0d73, new d(this, str2)).create(getPageContext()).show();
         }
     }
 
@@ -936,10 +934,10 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65579, this, i2, str) == null) {
             ViewGroup p = this.mPaymentConfirmView.p();
-            this.mPaymentConfirmView.u();
-            this.mPaymentConfirmView.w(i2);
-            this.mPaymentConfirmView.d();
-            c.a.o0.r.t.a create = new c.a.o0.r.t.a(getPageContext().getPageActivity()).setContentView(p).setPositiveButton(R.string.obfuscated_res_0x7f0f0f05, new m(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new l(this)).create(getPageContext());
+            this.mPaymentConfirmView.v();
+            this.mPaymentConfirmView.x(i2);
+            this.mPaymentConfirmView.f();
+            dr4 create = new dr4(getPageContext().getPageActivity()).setContentView(p).setPositiveButton(R.string.obfuscated_res_0x7f0f0f09, new m(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new l(this)).create(getPageContext());
             if (i2 <= 0) {
                 create.setYesBtnClickable(false);
                 this.mPaymentConfirmView.h(false);
@@ -973,41 +971,41 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 switch (i2) {
                     case 2270040:
                         if (CurrencySwitchUtil.isYyIsConvert(this.currency)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d7f);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d82);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d72);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d75);
                         }
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0342);
+                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0344);
                         break;
                     case 2270041:
                         if (CurrencySwitchUtil.isYyIsConvert(this.currency)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d7e);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d81);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d6f);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0d72);
                         }
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0342);
+                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0344);
                         break;
                     case 2270042:
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0d71);
-                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0adb);
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0d74);
+                        string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0add);
                         break;
                     default:
                         str2 = "";
                         break;
                 }
-                new c.a.o0.r.t.a(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new c(this)).setPositiveButton(str3, new b(this, i2, str3)).create(getPageContext()).show();
+                new dr4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new c(this)).setPositiveButton(str3, new b(this, i2, str3)).create(getPageContext()).show();
             }
             if (CurrencySwitchUtil.isYyIsConvert(this.currency)) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0d7d);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0d80);
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0d6e);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0d71);
             }
             str = string;
-            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f1104);
+            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f110c);
             String str4 = str;
             str3 = string2;
             str2 = str4;
-            new c.a.o0.r.t.a(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new c(this)).setPositiveButton(str3, new b(this, i2, str3)).create(getPageContext()).show();
+            new dr4(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new c(this)).setPositiveButton(str3, new b(this, i2, str3)).create(getPageContext()).show();
         }
     }
 
@@ -1040,7 +1038,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             initUI();
             register();
             loadPaymentConfirmData();
-            c.a.p0.v2.d.a("c10291");
+            wq7.a("c10291");
         }
     }
 

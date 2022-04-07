@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class NamedRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public abstract class NamedRunnable implements Runnable {
             try {
                 try {
                     execute();
-                } catch (InterruptedException e2) {
-                    interrupted(e2);
+                } catch (InterruptedException e) {
+                    interrupted(e);
                 }
             } finally {
                 Thread.currentThread().setName(name);

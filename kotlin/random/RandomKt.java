@@ -66,9 +66,9 @@ public final class RandomKt {
         }
     }
 
-    public static final void checkRangeBounds(double d2, double d3) {
-        if (!(d3 > d2)) {
-            throw new IllegalArgumentException(boundsErrorMessage(Double.valueOf(d2), Double.valueOf(d3)).toString());
+    public static final void checkRangeBounds(double d, double d2) {
+        if (!(d2 > d)) {
+            throw new IllegalArgumentException(boundsErrorMessage(Double.valueOf(d), Double.valueOf(d2)).toString());
         }
     }
 }

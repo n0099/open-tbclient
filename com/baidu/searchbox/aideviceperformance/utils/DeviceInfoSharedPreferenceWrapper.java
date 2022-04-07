@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceInfoSharedPreferenceWrapper extends UniKV {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SP_FILE_DEFAULT = "com.baidu.searchbox.device_info_sp";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceWrapper$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final DeviceInfoSharedPreferenceWrapper INSTANCE;

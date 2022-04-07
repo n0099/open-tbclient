@@ -27,30 +27,30 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
         public Companion() {
         }
 
-        public final boolean entryEquals$kotlin_stdlib(Map.Entry<?, ?> e2, Object obj) {
-            Intrinsics.checkNotNullParameter(e2, "e");
+        public final boolean entryEquals$kotlin_stdlib(Map.Entry<?, ?> e, Object obj) {
+            Intrinsics.checkNotNullParameter(e, "e");
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                return Intrinsics.areEqual(e2.getKey(), entry.getKey()) && Intrinsics.areEqual(e2.getValue(), entry.getValue());
+                return Intrinsics.areEqual(e.getKey(), entry.getKey()) && Intrinsics.areEqual(e.getValue(), entry.getValue());
             }
             return false;
         }
 
-        public final int entryHashCode$kotlin_stdlib(Map.Entry<?, ?> e2) {
-            Intrinsics.checkNotNullParameter(e2, "e");
-            Object key = e2.getKey();
+        public final int entryHashCode$kotlin_stdlib(Map.Entry<?, ?> e) {
+            Intrinsics.checkNotNullParameter(e, "e");
+            Object key = e.getKey();
             int hashCode = key != null ? key.hashCode() : 0;
-            Object value = e2.getValue();
+            Object value = e.getValue();
             return hashCode ^ (value != null ? value.hashCode() : 0);
         }
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x000a: INVOKE  (r1v0 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getKey():java.lang.Object), ('=' char), (wrap: java.lang.Object : 0x0016: INVOKE  (r3v1 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
-        public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> e2) {
-            Intrinsics.checkNotNullParameter(e2, "e");
+        public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> e) {
+            Intrinsics.checkNotNullParameter(e, "e");
             StringBuilder sb = new StringBuilder();
-            sb.append(e2.getKey());
+            sb.append(e.getKey());
             sb.append('=');
-            sb.append(e2.getValue());
+            sb.append(e.getValue());
             return sb.toString();
         }
 

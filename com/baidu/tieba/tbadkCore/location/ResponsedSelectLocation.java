@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 return new ResponsedSelectLocation(jSONObject.optBoolean("isShowLocation"), jSONObject.optString("name"), jSONObject.optString("address"), jSONObject.optString("screatString"));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -92,8 +92,8 @@ public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
                 jSONObject.put("isShowLocation", this.isShowLocation);
                 jSONObject.put("screatString", this.screatString);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return "";
             }
         }

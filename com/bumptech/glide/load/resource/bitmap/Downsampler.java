@@ -40,7 +40,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -63,7 +63,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -146,13 +146,13 @@ public final class Downsampler {
         this.byteArrayPool = (ArrayPool) Preconditions.checkNotNull(arrayPool);
     }
 
-    public static int adjustTargetDensityForError(double d2) {
+    public static int adjustTargetDensityForError(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2)})) == null) {
-            int densityMultiplier = getDensityMultiplier(d2);
-            int round = round(densityMultiplier * d2);
-            return round((d2 / (round / densityMultiplier)) * round);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d)})) == null) {
+            int densityMultiplier = getDensityMultiplier(d);
+            int round = round(densityMultiplier * d);
+            return round((d / (round / densityMultiplier)) * round);
         }
         return invokeCommon.intValue;
     }
@@ -166,9 +166,9 @@ public final class Downsampler {
             boolean z3 = false;
             try {
                 z3 = ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool).hasAlpha();
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Cannot determine whether the image has alpha or not from header, format " + decodeFormat, e2);
+                    Log.d(TAG, "Cannot determine whether the image has alpha or not from header, format " + decodeFormat, e);
                 }
             }
             Bitmap.Config config = z3 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
@@ -206,10 +206,10 @@ public final class Downsampler {
             if (scaleFactor > 0.0f) {
                 DownsampleStrategy.SampleSizeRounding sampleSizeRounding = downsampleStrategy.getSampleSizeRounding(i2, i3, i4, i5);
                 if (sampleSizeRounding != null) {
-                    float f2 = i2;
-                    float f3 = i3;
-                    int round = i2 / round(scaleFactor * f2);
-                    int round2 = i3 / round(scaleFactor * f3);
+                    float f = i2;
+                    float f2 = i3;
+                    int round = i2 / round(scaleFactor * f);
+                    int round2 = i3 / round(scaleFactor * f2);
                     if (sampleSizeRounding == DownsampleStrategy.SampleSizeRounding.MEMORY) {
                         min = Math.max(round, round2);
                     } else {
@@ -226,8 +226,8 @@ public final class Downsampler {
                     options.inSampleSize = max;
                     if (imageType == ImageHeaderParser.ImageType.JPEG) {
                         float min2 = Math.min(max, 8);
-                        floor = (int) Math.ceil(f2 / min2);
-                        i6 = (int) Math.ceil(f3 / min2);
+                        floor = (int) Math.ceil(f / min2);
+                        i6 = (int) Math.ceil(f2 / min2);
                         int i7 = max / 8;
                         if (i7 > 0) {
                             floor /= i7;
@@ -246,18 +246,18 @@ public final class Downsampler {
                                     floor = i8;
                                 }
                             } else if (Build.VERSION.SDK_INT >= 24) {
-                                float f4 = max;
-                                floor = Math.round(f2 / f4);
-                                i6 = Math.round(f3 / f4);
+                                float f3 = max;
+                                floor = Math.round(f / f3);
+                                i6 = Math.round(f2 / f3);
                             } else {
-                                float f5 = max;
-                                floor = (int) Math.floor(f2 / f5);
-                                floor2 = Math.floor(f3 / f5);
+                                float f4 = max;
+                                floor = (int) Math.floor(f / f4);
+                                floor2 = Math.floor(f2 / f4);
                             }
                         } else {
-                            float f6 = max;
-                            floor = (int) Math.floor(f2 / f6);
-                            floor2 = Math.floor(f3 / f6);
+                            float f5 = max;
+                            floor = (int) Math.floor(f / f5);
+                            floor2 = Math.floor(f2 / f5);
                         }
                         i6 = (int) floor2;
                     }
@@ -311,13 +311,13 @@ public final class Downsampler {
                 downsampler = this;
                 if (downsampler.shouldUsePool(type)) {
                     if (i4 < 0 || i5 < 0 || !z2 || !z4) {
-                        float f2 = isScaling(options) ? options.inTargetDensity / options.inDensity : 1.0f;
+                        float f = isScaling(options) ? options.inTargetDensity / options.inDensity : 1.0f;
                         int i8 = options.inSampleSize;
-                        float f3 = i8;
-                        round = Math.round(((int) Math.ceil(i4 / f3)) * f2);
-                        round2 = Math.round(((int) Math.ceil(i5 / f3)) * f2);
+                        float f2 = i8;
+                        round = Math.round(((int) Math.ceil(i4 / f2)) * f);
+                        round2 = Math.round(((int) Math.ceil(i5 / f2)) * f);
                         if (Log.isLoggable(TAG, 2)) {
-                            Log.v(TAG, "Calculated target [" + round + "x" + round2 + "] for source [" + i4 + "x" + i5 + "], sampleSize: " + i8 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2);
+                            Log.v(TAG, "Calculated target [" + round + "x" + round2 + "] for source [" + i4 + "x" + i5 + "], sampleSize: " + i8 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f);
                         }
                     } else {
                         round = i6;
@@ -372,8 +372,8 @@ public final class Downsampler {
                         inputStream.reset();
                     }
                     return decodeStream;
-                } catch (IllegalArgumentException e2) {
-                    IOException newIoExceptionForInBitmapAssertion = newIoExceptionForInBitmapAssertion(e2, i, i2, str, options);
+                } catch (IllegalArgumentException e) {
+                    IOException newIoExceptionForInBitmapAssertion = newIoExceptionForInBitmapAssertion(e, i, i2, str, options);
                     if (Log.isLoggable(TAG, 3)) {
                         Log.d(TAG, "Failed to decode with inBitmap, trying again without Bitmap re-use", newIoExceptionForInBitmapAssertion);
                     }
@@ -438,14 +438,14 @@ public final class Downsampler {
         return (BitmapFactory.Options) invokeV.objValue;
     }
 
-    public static int getDensityMultiplier(double d2) {
+    public static int getDensityMultiplier(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Double.valueOf(d2)})) == null) {
-            if (d2 > 1.0d) {
-                d2 = 1.0d / d2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Double.valueOf(d)})) == null) {
+            if (d > 1.0d) {
+                d = 1.0d / d;
             }
-            return (int) Math.round(d2 * 2.147483647E9d);
+            return (int) Math.round(d * 2.147483647E9d);
         }
         return invokeCommon.intValue;
     }
@@ -524,10 +524,10 @@ public final class Downsampler {
         }
     }
 
-    public static int round(double d2) {
+    public static int round(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Double.valueOf(d2)})) == null) ? (int) (d2 + 0.5d) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Double.valueOf(d)})) == null) ? (int) (d + 0.5d) : invokeCommon.intValue;
     }
 
     @TargetApi(26)

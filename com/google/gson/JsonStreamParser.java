@@ -16,7 +16,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class JsonStreamParser implements Iterator<JsonElement> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
                 try {
                     try {
                         z = this.parser.peek() != JsonToken.END_DOCUMENT;
-                    } catch (MalformedJsonException e2) {
-                        throw new JsonSyntaxException(e2);
-                    } catch (IOException e3) {
-                        throw new JsonIOException(e3);
+                    } catch (MalformedJsonException e) {
+                        throw new JsonSyntaxException(e);
+                    } catch (IOException e2) {
+                        throw new JsonIOException(e2);
                     }
                 } catch (Throwable th) {
                     throw th;
@@ -106,15 +106,15 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
             if (hasNext()) {
                 try {
                     return Streams.parse(this.parser);
-                } catch (JsonParseException e2) {
-                    if (e2.getCause() instanceof EOFException) {
+                } catch (JsonParseException e) {
+                    if (e.getCause() instanceof EOFException) {
                         throw new NoSuchElementException();
                     }
-                    throw e2;
-                } catch (OutOfMemoryError e3) {
+                    throw e;
+                } catch (OutOfMemoryError e2) {
+                    throw new JsonParseException("Failed parsing JSON source to Json", e2);
+                } catch (StackOverflowError e3) {
                     throw new JsonParseException("Failed parsing JSON source to Json", e3);
-                } catch (StackOverflowError e4) {
-                    throw new JsonParseException("Failed parsing JSON source to Json", e4);
                 }
             }
             throw new NoSuchElementException();

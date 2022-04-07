@@ -5,15 +5,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.o.a.c;
+import com.repackage.rz9;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<c<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<rz9<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<c<T>> ambSubscribers;
+    public final Collection<rz9<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<c<T>> {
     }
 
     public void unsubscribeLosers() {
-        c<T> cVar;
+        rz9<T> rz9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (rz9Var = get()) == null) {
             return;
         }
-        unsubscribeOthers(cVar);
+        unsubscribeOthers(rz9Var);
     }
 
-    public void unsubscribeOthers(c<T> cVar) {
+    public void unsubscribeOthers(rz9<T> rz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            for (c<T> cVar2 : this.ambSubscribers) {
-                if (cVar2 != cVar) {
-                    cVar2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rz9Var) == null) {
+            for (rz9<T> rz9Var2 : this.ambSubscribers) {
+                if (rz9Var2 != rz9Var) {
+                    rz9Var2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import com.airbnb.lottie.LottieDrawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class NullLayer extends BaseLayer {
     public NullLayer(LottieDrawable lottieDrawable, Layer layer) {
         super(lottieDrawable, layer);

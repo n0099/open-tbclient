@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class OggPageHeader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_PAGE_HEADER_SIZE = 27;

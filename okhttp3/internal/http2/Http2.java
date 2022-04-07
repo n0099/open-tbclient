@@ -117,37 +117,37 @@ public final class Http2 {
         }
     }
 
-    public static String formatFlags(byte b2, byte b3) {
+    public static String formatFlags(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            if (b3 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
+            if (b2 == 0) {
                 return "";
             }
-            if (b2 != 2 && b2 != 3) {
-                if (b2 == 4 || b2 == 6) {
-                    return b3 == 1 ? "ACK" : BINARY[b3];
-                } else if (b2 != 7 && b2 != 8) {
+            if (b != 2 && b != 3) {
+                if (b == 4 || b == 6) {
+                    return b2 == 1 ? "ACK" : BINARY[b2];
+                } else if (b != 7 && b != 8) {
                     String[] strArr = FLAGS;
-                    String str = b3 < strArr.length ? strArr[b3] : BINARY[b3];
-                    if (b2 != 5 || (b3 & 4) == 0) {
-                        return (b2 != 0 || (b3 & 32) == 0) ? str : str.replace("PRIORITY", "COMPRESSED");
+                    String str = b2 < strArr.length ? strArr[b2] : BINARY[b2];
+                    if (b != 5 || (b2 & 4) == 0) {
+                        return (b != 0 || (b2 & 32) == 0) ? str : str.replace("PRIORITY", "COMPRESSED");
                     }
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }
             }
-            return BINARY[b3];
+            return BINARY[b2];
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static String frameLog(boolean z, int i, int i2, byte b2, byte b3) {
+    public static String frameLog(boolean z, int i, int i2, byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
             String[] strArr = FRAME_NAMES;
-            String format = b2 < strArr.length ? strArr[b2] : Util.format("0x%02x", Byte.valueOf(b2));
-            String formatFlags = formatFlags(b2, b3);
+            String format = b < strArr.length ? strArr[b] : Util.format("0x%02x", Byte.valueOf(b));
+            String formatFlags = formatFlags(b, b2);
             Object[] objArr = new Object[5];
             objArr[0] = z ? "<<" : ">>";
             objArr[1] = Integer.valueOf(i);

@@ -8,7 +8,7 @@ import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IMultiMediaDataSource {
     public static final int PROGRESS_TOUCH_END = 2;
     public static final int PROGRESS_TOUCH_IGNORE = 4;

@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LruBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config DEFAULT_CONFIG;
@@ -38,14 +38,14 @@ public class LruBitmapPool implements BitmapPool {
     public final LruPoolStrategy strategy;
     public final BitmapTracker tracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class NullBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ThrowingBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,11 +393,11 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public synchronized void setSizeMultiplier(float f2) {
+    public synchronized void setSizeMultiplier(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             synchronized (this) {
-                this.maxSize = Math.round(((float) this.initialMaxSize) * f2);
+                this.maxSize = Math.round(((float) this.initialMaxSize) * f);
                 evict();
             }
         }

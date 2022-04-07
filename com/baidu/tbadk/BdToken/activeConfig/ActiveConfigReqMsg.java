@@ -1,6 +1,5 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.ActiveConfig.ActiveConfigReqIdl;
 import tbclient.ActiveConfig.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ActiveConfigReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LAUNTCH_FROM_HOME_PAGE = 1;
@@ -58,7 +58,7 @@ public class ActiveConfigReqMsg extends NetMessage {
                 } else {
                     builder.is_schema_up = 0;
                 }
-                b0.c(builder, true, true, false);
+                rc5.c(builder, true, true, false);
                 ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

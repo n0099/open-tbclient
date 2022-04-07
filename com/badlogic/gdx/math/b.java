@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,18 +36,18 @@ public final class b {
                 return false;
             }
             int i3 = (i2 + i) - 2;
-            float f2 = fArr[i3];
-            float f3 = fArr[i3 + 1];
-            float f4 = 0.0f;
+            float f = fArr[i3];
+            float f2 = fArr[i3 + 1];
+            float f3 = 0.0f;
             while (i <= i3) {
-                float f5 = fArr[i];
-                float f6 = fArr[i + 1];
-                f4 += (f2 * f6) - (f3 * f5);
+                float f4 = fArr[i];
+                float f5 = fArr[i + 1];
+                f3 += (f * f5) - (f2 * f4);
                 i += 2;
+                f = f4;
                 f2 = f5;
-                f3 = f6;
             }
-            return f4 < 0.0f;
+            return f3 < 0.0f;
         }
         return invokeLII.booleanValue;
     }

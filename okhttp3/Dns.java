@@ -37,9 +37,9 @@ public interface Dns {
                 if (str != null) {
                     try {
                         return Arrays.asList(InetAddress.getAllByName(str));
-                    } catch (NullPointerException e2) {
+                    } catch (NullPointerException e) {
                         UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
-                        unknownHostException.initCause(e2);
+                        unknownHostException.initCause(e);
                         throw unknownHostException;
                     }
                 }

@@ -6,15 +6,11 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f41404b = "";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f41405c = "";
+    public static String b = "";
+    public static String c = "";
 
     public static String a(int i) {
         String str;
@@ -28,13 +24,13 @@ public class p {
             str = a;
             str2 = GrowthConstant.UBC_KEY_AES_KEY;
         } else if (i == 1) {
-            str = f41404b;
+            str = b;
             str2 = "rsa_public_key";
         } else if (i != 2) {
             str = "";
             str2 = str;
         } else {
-            str = f41405c;
+            str = c;
             str2 = "rsa_private_key";
         }
         if (TextUtils.isEmpty(str)) {
@@ -53,9 +49,9 @@ public class p {
                 if (i == 0) {
                     a = a2;
                 } else if (i == 1) {
-                    f41404b = a2;
+                    b = a2;
                 } else if (i == 2) {
-                    f41405c = a2;
+                    c = a2;
                 }
                 return a2;
             }

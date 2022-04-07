@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.pm.IPatchManager;
 import com.baidu.titan.sdk.pm.PatchManagerService;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WorkerService extends JobIntentService {
     public static final String ACTION_CLEAN_PATCH = "action_clean_patch";
     public static final String ACTION_INSTALL_PATCH = "action_install_patch";
@@ -55,7 +55,7 @@ public class WorkerService extends JobIntentService {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class InstallParameter {
         public Bundle extra;
         public int flages;
@@ -87,8 +87,8 @@ public class WorkerService extends JobIntentService {
             Bundle bundle = new Bundle();
             try {
                 iPatchInstallObserver.onPatchInstalled(patchManagerService.installSyncLocked(installParameter.uri, installParameter.extra, bundle), bundle);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         }
     }

@@ -93,8 +93,8 @@ public class FileProvider extends ContentProvider {
                     try {
                         this.mRoots.put(str, file.getCanonicalFile());
                         return;
-                    } catch (IOException e2) {
-                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
                     }
                 }
                 throw new IllegalArgumentException("Name must not be empty");
@@ -229,10 +229,10 @@ public class FileProvider extends ContentProvider {
                     try {
                         pathStrategy = parsePathStrategy(context, str);
                         sCache.put(str, pathStrategy);
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
+                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e);
+                    } catch (XmlPullParserException e2) {
                         throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
-                    } catch (XmlPullParserException e3) {
-                        throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
                     }
                 }
             }

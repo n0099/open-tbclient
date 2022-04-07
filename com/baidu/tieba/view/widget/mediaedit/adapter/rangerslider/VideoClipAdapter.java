@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.q4.n.c.d.d;
-import c.a.p0.q4.n.c.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -23,8 +21,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-/* loaded from: classes6.dex */
-public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements f {
+import com.repackage.ay8;
+import com.repackage.yx8;
+/* loaded from: classes4.dex */
+public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ay8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int k = 1;
     public static int l = 2;
@@ -32,28 +32,14 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public static int n = 4;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f37176b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f37177c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public double f37178d;
+    public int b;
+    public int c;
+    public double d;
     @IntRange(from = 0, to = 2)
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f37179e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f37180f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f37181g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final Context f37182h;
+    public int e;
+    public int f;
+    public int g;
+    public final Context h;
     public SparseArray<Bitmap> i;
     public boolean j;
 
@@ -87,10 +73,10 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 return;
             }
         }
-        this.f37182h = context;
+        this.h = context;
     }
 
-    @Override // c.a.p0.q4.n.c.d.f
+    @Override // com.repackage.ay8
     public void a(int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) || this.j) {
@@ -100,7 +86,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.i = new SparseArray<>();
         }
         this.i.put(i, bitmap);
-        if (this.f37179e == 1) {
+        if (this.e == 1) {
             notifyItemChanged(i);
         } else {
             notifyItemChanged(i + 1);
@@ -122,13 +108,13 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, multiMediaData, i) == null) {
-            int i3 = this.f37176b;
-            int i4 = this.f37177c;
+            int i3 = this.b;
+            int i4 = this.c;
             if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
-            this.f37181g = i;
-            d.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            this.g = i;
+            yx8.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }
@@ -137,27 +123,27 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, vlogEditManager, i) == null) {
-            int i3 = this.f37176b;
-            int i4 = this.f37177c;
+            int i3 = this.b;
+            int i4 = this.c;
             MultiMediaData multiMediaData = (vlogEditManager == null || vlogEditManager.getMultiMediaData(0) == null) ? null : vlogEditManager.getMultiMediaData(0);
             if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
-            this.f37181g = i;
-            d.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            this.g = i;
+            yx8.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }
 
-    public void g(int i, double d2, double d3, double d4, double d5, int i2) {
+    public void g(int i, double d, double d2, double d3, double d4, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Integer.valueOf(i2)}) == null) {
-            this.f37179e = i;
-            this.a = d2;
-            this.f37176b = (int) d3;
-            this.f37177c = (int) d4;
-            this.f37178d = d5;
-            this.f37180f = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Integer.valueOf(i2)}) == null) {
+            this.e = i;
+            this.a = d;
+            this.b = (int) d2;
+            this.c = (int) d3;
+            this.d = d4;
+            this.f = i2;
         }
     }
 
@@ -165,7 +151,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37179e == 1 ? this.f37181g : this.f37181g + 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e == 1 ? this.g : this.g + 2 : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -173,13 +159,13 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (this.f37179e == 1) {
+            if (this.e == 1) {
                 return k;
             }
             if (i == 0) {
                 return m;
             }
-            int i2 = this.f37181g;
+            int i2 = this.g;
             if (i == i2 + 1) {
                 return n;
             }
@@ -203,7 +189,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 if (sparseArray == null) {
                     return;
                 }
-                if (this.f37179e == 1) {
+                if (this.e == 1) {
                     bitmap = sparseArray.get(i);
                 } else {
                     bitmap = sparseArray.get(i - 1);
@@ -213,14 +199,14 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
                 commonRangerSliderHolder.a(bitmap);
                 if (getItemViewType(i) == l) {
-                    commonRangerSliderHolder.b().setLayoutParams(new ViewGroup.LayoutParams((int) this.f37178d, this.f37180f));
-                    i2 = (int) this.f37178d;
+                    commonRangerSliderHolder.b().setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
+                    i2 = (int) this.d;
                 } else {
-                    i2 = this.f37176b;
+                    i2 = this.b;
                 }
                 ViewGroup.LayoutParams layoutParams = commonRangerSliderHolder.a.getLayoutParams();
                 layoutParams.width = i2;
-                layoutParams.height = this.f37177c;
+                layoutParams.height = this.c;
                 commonRangerSliderHolder.a.setLayoutParams(layoutParams);
             } else if (viewHolder instanceof TransparentRangerSliderHolder) {
                 ViewGroup.LayoutParams layoutParams2 = viewHolder.itemView.getLayoutParams();
@@ -237,21 +223,21 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
             if (i != m && i != n) {
                 if (i == k) {
-                    View inflate = LayoutInflater.from(this.f37182h).inflate(R.layout.obfuscated_res_0x7f0d085b, viewGroup, false);
-                    inflate.setLayoutParams(new ViewGroup.LayoutParams(this.f37176b, this.f37180f));
+                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0852, viewGroup, false);
+                    inflate.setLayoutParams(new ViewGroup.LayoutParams(this.b, this.f));
                     return new CommonRangerSliderHolder(inflate);
                 } else if (i == l) {
-                    View inflate2 = LayoutInflater.from(this.f37182h).inflate(R.layout.obfuscated_res_0x7f0d085b, viewGroup, false);
-                    inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.f37178d, this.f37180f));
+                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0852, viewGroup, false);
+                    inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
                     return new CommonRangerSliderHolder(inflate2);
                 } else {
                     return null;
                 }
             }
-            View view = new View(viewGroup.getContext());
-            view.setLayoutParams(new ViewGroup.LayoutParams((int) this.a, -1));
-            view.setBackgroundColor(0);
-            return new TransparentRangerSliderHolder(view);
+            View view2 = new View(viewGroup.getContext());
+            view2.setLayoutParams(new ViewGroup.LayoutParams((int) this.a, -1));
+            view2.setBackgroundColor(0);
+            return new TransparentRangerSliderHolder(view2);
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

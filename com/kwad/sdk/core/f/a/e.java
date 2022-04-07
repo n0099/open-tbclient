@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a implements e {
         public IBinder a;
 
@@ -24,8 +24,8 @@ public interface e extends IInterface {
                     this.a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.a(e);
                     obtain2.recycle();
                     obtain.recycle();
                     return null;

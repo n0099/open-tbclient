@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -44,7 +45,7 @@ public class y {
                 return;
             }
         }
-        a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
+        a = new String[]{"jpg", "png", "bmp", NativeConstants.TYPE_GIF, "webp"};
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */
@@ -73,8 +74,8 @@ public class y {
                         }
                         stringWriter.write(cArr, 0, read);
                     }
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     com.xiaomi.channel.commonutils.logger.b.c("read file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
                     a(inputStreamReader);
                     a(stringWriter);
@@ -87,8 +88,8 @@ public class y {
                 a(stringWriter);
                 throw th;
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             inputStreamReader = null;
         } catch (Throwable th2) {
             th = th2;
@@ -110,12 +111,12 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m684a(File file) {
+    public static void m680a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    m684a(file2);
+                    m680a(file2);
                 }
             } else if (!file.exists()) {
                 return;
@@ -137,8 +138,8 @@ public class y {
                 }
             } catch (FileNotFoundException unused) {
                 a(zipOutputStream2);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 a(zipOutputStream, file2, null, null);
@@ -146,10 +147,10 @@ public class y {
             } catch (FileNotFoundException unused2) {
                 zipOutputStream2 = zipOutputStream;
                 a(zipOutputStream2);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m112a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m108a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -172,8 +173,8 @@ public class y {
             try {
                 try {
                     bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -181,8 +182,8 @@ public class y {
             try {
                 bufferedWriter.write(str);
                 a(bufferedWriter);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedWriter2 = bufferedWriter;
                 com.xiaomi.channel.commonutils.logger.b.c("write file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
                 a(bufferedWriter2);
@@ -240,8 +241,8 @@ public class y {
                                 zipOutputStream.write(bArr, 0, read);
                             }
                             fileInputStream = fileInputStream2;
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             fileInputStream = fileInputStream2;
                             com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
                             a(fileInputStream);
@@ -255,15 +256,15 @@ public class y {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
             }
             a(fileInputStream);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m685a(File file) {
+    public static boolean m681a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {

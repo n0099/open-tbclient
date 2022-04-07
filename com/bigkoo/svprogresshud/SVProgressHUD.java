@@ -25,7 +25,7 @@ import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.bigkoo.svprogresshud.view.SVCircleProgressBar;
 import com.bigkoo.svprogresshud.view.SVProgressDefaultView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SVProgressHUD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DISMISSDELAYED = 1000;
@@ -47,7 +47,7 @@ public class SVProgressHUD {
     public ViewGroup rootView;
 
     /* renamed from: com.bigkoo.svprogresshud.SVProgressHUD$4  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$bigkoo$svprogresshud$SVProgressHUD$SVProgressHUDMaskType;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class SVProgressHUD {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SVProgressHUDMaskType {
         public static final /* synthetic */ SVProgressHUDMaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -242,10 +242,10 @@ public class SVProgressHUD {
             }
 
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                     if (motionEvent.getAction() == 0) {
                         this.this$0.dismiss();
                         this.this$0.setCancelable(false);
@@ -340,7 +340,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091de9);
+            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091dd5);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -370,10 +370,10 @@ public class SVProgressHUD {
                     configMaskType(R.color.obfuscated_res_0x7f060408, true, true);
                     return;
                 case 6:
-                    configMaskType(R.drawable.obfuscated_res_0x7f0802b7, true, false);
+                    configMaskType(R.drawable.obfuscated_res_0x7f0802b8, true, false);
                     return;
                 case 7:
-                    configMaskType(R.drawable.obfuscated_res_0x7f0802b7, true, true);
+                    configMaskType(R.drawable.obfuscated_res_0x7f0802b8, true, true);
                     return;
                 default:
                     return;
@@ -487,7 +487,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04ed, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04e8, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

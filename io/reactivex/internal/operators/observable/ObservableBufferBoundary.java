@@ -248,8 +248,8 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     if (map == null) {
                         return;
                     }
-                    for (C c2 : map.values()) {
-                        this.queue.offer(c2);
+                    for (C c : map.values()) {
+                        this.queue.offer(c);
                     }
                     this.buffers = null;
                     this.done = true;
@@ -284,8 +284,8 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     if (map == null) {
                         return;
                     }
-                    for (C c2 : map.values()) {
-                        c2.add(t);
+                    for (C c : map.values()) {
+                        c.add(t);
                     }
                 }
             }

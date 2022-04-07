@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MessageSyncMsg> CREATOR;
@@ -116,8 +116,8 @@ public class MessageSyncMsg extends NotifyMsg implements Parcelable, NoProGuard 
                 this.updateTime = jSONObject.getInt("update_time");
                 this.msgid = jSONObject.getLong("msgid");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "JSONException", e);
                 return false;
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class d implements Runnable {
             a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
             context = this.a.a;
             g gVar = new g(context);
-            hashMap = this.a.f25595b;
+            hashMap = this.a.b;
             this.a.a(gVar.a(hashMap));
         }
     }

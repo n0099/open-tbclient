@@ -214,7 +214,7 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Flowable<T> implements Publisher<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final int BUFFER_SIZE;
@@ -2120,12 +2120,12 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.SPECIAL)
     @CheckReturnValue
-    public final <E extends Subscriber<? super T>> E subscribeWith(E e2) {
+    public final <E extends Subscriber<? super T>> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048842, this, e2)) == null) {
-            subscribe(e2);
-            return e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048842, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
         return (E) invokeL.objValue;
     }
@@ -5424,8 +5424,8 @@ public abstract class Flowable<T> implements Publisher<T> {
                 Subscriber<? super T> onSubscribe = RxJavaPlugins.onSubscribe(this, flowableSubscriber);
                 ObjectHelper.requireNonNull(onSubscribe, "Plugin returned null Subscriber");
                 subscribeActual(onSubscribe);
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

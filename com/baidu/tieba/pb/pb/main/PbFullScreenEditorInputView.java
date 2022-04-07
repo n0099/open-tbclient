@@ -5,8 +5,6 @@ import android.text.InputFilter;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import c.a.o0.s.c.u;
-import c.a.p0.z0.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
@@ -17,13 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ax4;
+import com.repackage.r86;
+import com.repackage.s86;
+/* loaded from: classes3.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements b.g {
+    /* loaded from: classes3.dex */
+    public class a implements s86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -46,7 +47,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // c.a.p0.z0.b.g
+        @Override // com.repackage.s86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -57,8 +58,8 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements b.g {
+    /* loaded from: classes3.dex */
+    public class b implements s86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -81,7 +82,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // c.a.p0.z0.b.g
+        @Override // com.repackage.s86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -90,8 +91,8 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements b.g {
+    /* loaded from: classes3.dex */
+    public class c implements s86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -114,7 +115,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // c.a.p0.z0.b.g
+        @Override // com.repackage.s86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -166,29 +167,29 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a.p0.z0.b.e(getContext(), str, new a(this));
+        s86.e(getContext(), str, new a(this));
     }
 
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                c.a.p0.z0.b.e(getContext(), str, new b(this));
+                s86.e(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            c.a.p0.z0.b.e(getContext(), str2, new c(this));
+            s86.e(getContext(), str2, new c(this));
         }
     }
 
-    public void m(u uVar) {
+    public void m(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uVar) == null) {
-            if (c.a.p0.z0.a.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13fc);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ax4Var) == null) {
+            if (r86.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
             } else {
-                c.a.p0.z0.b.b(getContext(), uVar, this);
+                s86.b(getContext(), ax4Var, this);
             }
         }
     }

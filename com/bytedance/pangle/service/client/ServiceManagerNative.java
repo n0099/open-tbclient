@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ServiceManagerNative {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ServiceManagerNative sInstance;
@@ -80,9 +80,7 @@ public class ServiceManagerNative {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ServiceConnection a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f38181b;
+                    public final /* synthetic */ ServiceManagerNative b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -99,7 +97,7 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f38181b = this;
+                        this.b = this;
                         this.a = serviceConnection;
                     }
 
@@ -138,9 +136,9 @@ public class ServiceManagerNative {
             hashSet.add(intent.getComponent());
             try {
                 return a.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i, str);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
-                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed!", e2);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed!", e);
                 return false;
             }
         }
@@ -167,8 +165,8 @@ public class ServiceManagerNative {
             }
             try {
                 return b.a(queryServiceFromPlugin.processName).a(intent, str);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -185,8 +183,8 @@ public class ServiceManagerNative {
             }
             try {
                 return b.a(queryServiceFromPlugin.processName).b(intent, str);
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -203,8 +201,8 @@ public class ServiceManagerNative {
         while (it.hasNext()) {
             try {
                 b.a(it.next().processName).a(this.serviceConn2ServiceConn.get(serviceConnection));
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         }
     }

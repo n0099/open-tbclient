@@ -25,7 +25,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UpdateCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_UPDATE_ACTION_NAME = "config";
@@ -100,9 +100,9 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
                     }
                 });
                 return new CloudControlRequestInfo(CLOUD_UPDATE_ACTION_NAME, jSONObject3, null, null);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (AppConfig.isDebug()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 return null;
             }
@@ -135,8 +135,8 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
                 jSONObject.put("items", optJSONArray);
                 jSONObject.put("count", String.format("%s,%s,%s", optString, optString2, optString3));
                 iCloudControlUBCCallBack.setServiceInfo(jSONObject);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

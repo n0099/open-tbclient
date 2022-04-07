@@ -29,12 +29,12 @@ public class GhostViewPlatform implements GhostView {
     public transient /* synthetic */ FieldHolder $fh;
     public final View mGhostView;
 
-    public GhostViewPlatform(@NonNull View view) {
+    public GhostViewPlatform(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,21 +44,21 @@ public class GhostViewPlatform implements GhostView {
                 return;
             }
         }
-        this.mGhostView = view;
+        this.mGhostView = view2;
     }
 
-    public static GhostView addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
+    public static GhostView addGhost(View view2, ViewGroup viewGroup, Matrix matrix) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view, viewGroup, matrix)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, viewGroup, matrix)) == null) {
             fetchAddGhostMethod();
             Method method = sAddGhostMethod;
             if (method != null) {
                 try {
-                    return new GhostViewPlatform((View) method.invoke(null, view, viewGroup, matrix));
+                    return new GhostViewPlatform((View) method.invoke(null, view2, viewGroup, matrix));
                 } catch (IllegalAccessException unused) {
-                } catch (InvocationTargetException e2) {
-                    throw new RuntimeException(e2.getCause());
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e.getCause());
                 }
             }
             return null;
@@ -76,8 +76,8 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("addGhost", View.class, ViewGroup.class, Matrix.class);
             sAddGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve addGhost method", e2);
+        } catch (NoSuchMethodException e) {
+            Log.i(TAG, "Failed to retrieve addGhost method", e);
         }
         sAddGhostMethodFetched = true;
     }
@@ -89,8 +89,8 @@ public class GhostViewPlatform implements GhostView {
         }
         try {
             sGhostViewClass = Class.forName("android.view.GhostView");
-        } catch (ClassNotFoundException e2) {
-            Log.i(TAG, "Failed to retrieve GhostView class", e2);
+        } catch (ClassNotFoundException e) {
+            Log.i(TAG, "Failed to retrieve GhostView class", e);
         }
         sGhostViewClassFetched = true;
     }
@@ -105,32 +105,32 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("removeGhost", View.class);
             sRemoveGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve removeGhost method", e2);
+        } catch (NoSuchMethodException e) {
+            Log.i(TAG, "Failed to retrieve removeGhost method", e);
         }
         sRemoveGhostMethodFetched = true;
     }
 
-    public static void removeGhost(View view) {
+    public static void removeGhost(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, view2) == null) {
             fetchRemoveGhostMethod();
             Method method = sRemoveGhostMethod;
             if (method != null) {
                 try {
-                    method.invoke(null, view);
+                    method.invoke(null, view2);
                 } catch (IllegalAccessException unused) {
-                } catch (InvocationTargetException e2) {
-                    throw new RuntimeException(e2.getCause());
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e.getCause());
                 }
             }
         }
     }
 
     @Override // androidx.transition.GhostView
-    public void reserveEndViewTransition(ViewGroup viewGroup, View view) {
+    public void reserveEndViewTransition(ViewGroup viewGroup, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, viewGroup, view) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewGroup, view2) == null) {
         }
     }
 

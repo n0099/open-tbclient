@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class QueuedMuxer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 65536;
@@ -30,7 +30,7 @@ public class QueuedMuxer {
     public int mVideoTrackIndex;
 
     /* renamed from: com.baidu.searchbox.afx.recode.QueuedMuxer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$recode$QueuedMuxer$SampleType;
         public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class QueuedMuxer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SampleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class QueuedMuxer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SampleType {
         public static final /* synthetic */ SampleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

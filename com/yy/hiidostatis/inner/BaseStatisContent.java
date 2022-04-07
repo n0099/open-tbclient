@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseStatisContent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "act";
@@ -242,10 +242,10 @@ public class BaseStatisContent {
         return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? put(str, String.valueOf(j)) : (String) invokeLJ.objValue;
     }
 
-    public String put(String str, double d2) {
+    public String put(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d2)})) == null) ? put(str, String.valueOf(d2)) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d)})) == null) ? put(str, String.valueOf(d)) : (String) invokeCommon.objValue;
     }
 
     public synchronized String put(String str, String str2) {

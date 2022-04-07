@@ -24,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -81,8 +81,8 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
             if (domainWhiteList.size() == 0) {
                 try {
                     setDomainWhiteList(new JSONArray(PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(KEY_JSNATIVE_DOMAIN_WHITE_LIST, "")));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             domainWhiteList.addAll(Arrays.asList(localDomainList));
@@ -101,8 +101,8 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
                 str = jSONArray.get(i).toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 str = "";
             }
             domainWhiteList.add(str);

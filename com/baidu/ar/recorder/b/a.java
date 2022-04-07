@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -80,8 +80,8 @@ public class a extends b {
                         this.uT = true;
                     }
                     z = true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             c cVar = this.uS;

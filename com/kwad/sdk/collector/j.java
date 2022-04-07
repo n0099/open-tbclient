@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static void a(Context context) {
         try {
@@ -37,9 +37,9 @@ public class j {
         }
         File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
         List<com.kwad.sdk.collector.model.e> a = b.a().a(uploadTargets, obtainUploadConfigFileMaxSize, file.getAbsolutePath() + "/");
-        List<UploadEntryNative> b2 = b(context);
-        if (b2 != null) {
-            a.addAll(b2);
+        List<UploadEntryNative> b = b(context);
+        if (b != null) {
+            a.addAll(b);
             HashSet hashSet = new HashSet(a);
             a.clear();
             a.addAll(hashSet);

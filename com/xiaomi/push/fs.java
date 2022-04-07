@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class fs extends fl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,27 +23,15 @@ public abstract class fs extends fl {
 
     /* renamed from: a  reason: collision with other field name */
     public Socket f392a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public XMPushService f44258b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f44259c;
+    public XMPushService b;
+    public int c;
 
     /* renamed from: c  reason: collision with other field name */
     public String f393c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f44260d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile long f44261e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile long f44262f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile long f44263g;
+    public String d;
+    public volatile long e;
+    public volatile long f;
+    public volatile long g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fs(XMPushService xMPushService, fm fmVar) {
@@ -66,16 +54,16 @@ public abstract class fs extends fl {
         }
         this.a = null;
         this.f393c = null;
-        this.f44261e = 0L;
-        this.f44262f = 0L;
-        this.f44263g = 0L;
-        this.f44258b = xMPushService;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.b = xMPushService;
     }
 
     private void a(fm fmVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, fmVar) == null) {
-            a(fmVar.c(), fmVar.mo370a());
+            a(fmVar.c(), fmVar.mo366a());
         }
     }
 
@@ -136,9 +124,9 @@ public abstract class fs extends fl {
             if (arrayList.isEmpty()) {
                 arrayList.add(str);
             }
-            this.f44263g = 0L;
+            this.g = 0L;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            String m214a = bg.m214a((Context) this.f44258b);
+            String m210a = bg.m210a((Context) this.b);
             StringBuilder sb3 = new StringBuilder();
             Iterator<String> it2 = arrayList.iterator();
             String str15 = "";
@@ -151,19 +139,19 @@ public abstract class fs extends fl {
                 try {
                     try {
                         try {
-                            com.xiaomi.channel.commonutils.logger.b.m112a("begin to connect to " + next);
+                            com.xiaomi.channel.commonutils.logger.b.m108a("begin to connect to " + next);
                             this.f392a = a();
                             it = it2;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             str2 = str14;
                             it = it2;
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         it = it2;
                         coVar = a;
-                        str3 = m214a;
+                        str3 = m210a;
                         str4 = str14;
                         sb = sb3;
                     }
@@ -173,18 +161,18 @@ public abstract class fs extends fl {
                     it = it2;
                 }
                 try {
-                    this.f392a.connect(cq.m268a(next, i), 8000);
-                    com.xiaomi.channel.commonutils.logger.b.m112a("tcp connected");
+                    this.f392a.connect(cq.m264a(next, i), 8000);
+                    com.xiaomi.channel.commonutils.logger.b.m108a("tcp connected");
                     this.f392a.setTcpNoDelay(true);
-                    this.f44260d = next;
+                    this.d = next;
                     a();
                     currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     str2 = str14;
                     sb = sb3;
                     coVar = a;
-                    str3 = m214a;
+                    str3 = m210a;
                     str4 = str2;
                     try {
                         this.a = e;
@@ -201,7 +189,7 @@ public abstract class fs extends fl {
                         gz.a(next, this.a);
                         if (coVar == null) {
                         }
-                        if (TextUtils.equals(str12, bg.m214a((Context) this.f44258b))) {
+                        if (TextUtils.equals(str12, bg.m210a((Context) this.b))) {
                         }
                     } catch (Throwable th2) {
                         th = th2;
@@ -225,13 +213,13 @@ public abstract class fs extends fl {
                         if (coVar2 != null) {
                             coVar2.b(next, System.currentTimeMillis() - currentTimeMillis2, 0L, this.a);
                         }
-                        if (!TextUtils.equals(str7, bg.m214a((Context) this.f44258b))) {
+                        if (!TextUtils.equals(str7, bg.m210a((Context) this.b))) {
                             throw th;
                         }
                         str15 = str13;
                         i2 = i3;
                         z = false;
-                        cs.a().m278c();
+                        cs.a().m274c();
                         int elapsedRealtime2 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                         if (!z) {
                         }
@@ -240,7 +228,7 @@ public abstract class fs extends fl {
                     th = th3;
                     str2 = str14;
                     str5 = str15;
-                    str6 = m214a;
+                    str6 = m210a;
                     sb = sb3;
                     coVar = a;
                     try {
@@ -260,7 +248,7 @@ public abstract class fs extends fl {
                         if (coVar != null) {
                         }
                         str10 = str6;
-                        if (TextUtils.equals(str10, bg.m214a((Context) this.f44258b))) {
+                        if (TextUtils.equals(str10, bg.m210a((Context) this.b))) {
                         }
                     } catch (Throwable th4) {
                         th = th4;
@@ -280,23 +268,23 @@ public abstract class fs extends fl {
                         gz.a(next, this.a);
                         if (coVar2 != null) {
                         }
-                        if (!TextUtils.equals(str7, bg.m214a((Context) this.f44258b))) {
+                        if (!TextUtils.equals(str7, bg.m210a((Context) this.b))) {
                         }
                     }
                 }
                 try {
                     ((fl) this).f374a = currentTimeMillis;
-                    ((fl) this).f383b = m214a;
+                    ((fl) this).f383b = m210a;
                     if (a != null) {
                         str5 = str15;
                         str2 = str14;
-                        str6 = m214a;
+                        str6 = m210a;
                         sb = sb3;
                         coVar = a;
                         try {
                             a.b(next, currentTimeMillis, 0L);
-                        } catch (Exception e5) {
-                            e = e5;
+                        } catch (Exception e4) {
+                            e = e4;
                             next = next;
                             str15 = str5;
                             str3 = str6;
@@ -326,11 +314,11 @@ public abstract class fs extends fl {
                                 str11 = str4;
                                 str12 = str3;
                             }
-                            if (TextUtils.equals(str12, bg.m214a((Context) this.f44258b))) {
+                            if (TextUtils.equals(str12, bg.m210a((Context) this.b))) {
                                 str15 = sb2;
                                 i2 = i3;
                                 z = false;
-                                cs.a().m278c();
+                                cs.a().m274c();
                                 int elapsedRealtime22 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                                 if (!z) {
                                 }
@@ -338,7 +326,7 @@ public abstract class fs extends fl {
                                 str15 = sb2;
                                 a = coVar3;
                                 sb3 = sb;
-                                m214a = str12;
+                                m210a = str12;
                                 i2 = i3;
                                 it2 = it;
                                 str14 = str11;
@@ -376,14 +364,14 @@ public abstract class fs extends fl {
                                 str9 = str8;
                             }
                             str10 = str6;
-                            if (TextUtils.equals(str10, bg.m214a((Context) this.f44258b))) {
+                            if (TextUtils.equals(str10, bg.m210a((Context) this.b))) {
                                 str15 = sb2;
                                 coVar3 = coVar;
                                 str11 = str9;
                                 str12 = str10;
                                 a = coVar3;
                                 sb3 = sb;
-                                m214a = str12;
+                                m210a = str12;
                                 i2 = i3;
                                 it2 = it;
                                 str14 = str11;
@@ -391,7 +379,7 @@ public abstract class fs extends fl {
                                 str15 = sb2;
                                 i2 = i3;
                                 z = false;
-                                cs.a().m278c();
+                                cs.a().m274c();
                                 int elapsedRealtime222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                                 if (!z) {
                                 }
@@ -400,11 +388,11 @@ public abstract class fs extends fl {
                     } else {
                         str2 = str14;
                         str5 = str15;
-                        str6 = m214a;
+                        str6 = m210a;
                         sb = sb3;
                         coVar = a;
                     }
-                    this.f44263g = SystemClock.elapsedRealtime();
+                    this.g = SystemClock.elapsedRealtime();
                     StringBuilder sb5 = new StringBuilder();
                     sb5.append("connected to ");
                     next = next;
@@ -412,13 +400,13 @@ public abstract class fs extends fl {
                         sb5.append(next);
                         sb5.append(" in ");
                         sb5.append(((fl) this).f374a);
-                        com.xiaomi.channel.commonutils.logger.b.m112a(sb5.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m108a(sb5.toString());
                         i2 = i3;
                         str15 = str5;
                         z = true;
                         break;
-                    } catch (Exception e6) {
-                        e = e6;
+                    } catch (Exception e5) {
+                        e = e5;
                         str15 = str5;
                         str3 = str6;
                         str4 = str2;
@@ -436,7 +424,7 @@ public abstract class fs extends fl {
                         gz.a(next, this.a);
                         if (coVar == null) {
                         }
-                        if (TextUtils.equals(str12, bg.m214a((Context) this.f44258b))) {
+                        if (TextUtils.equals(str12, bg.m210a((Context) this.b))) {
                         }
                     } catch (Throwable th6) {
                         th = th6;
@@ -456,16 +444,16 @@ public abstract class fs extends fl {
                         if (coVar != null) {
                         }
                         str10 = str6;
-                        if (TextUtils.equals(str10, bg.m214a((Context) this.f44258b))) {
+                        if (TextUtils.equals(str10, bg.m210a((Context) this.b))) {
                         }
                     }
-                } catch (Exception e7) {
-                    e = e7;
+                } catch (Exception e6) {
+                    e = e6;
                     str2 = str14;
                     sb = sb3;
                     coVar = a;
                     next = next;
-                    str3 = m214a;
+                    str3 = m210a;
                     str4 = str2;
                     this.a = e;
                     com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
@@ -481,26 +469,26 @@ public abstract class fs extends fl {
                     gz.a(next, this.a);
                     if (coVar == null) {
                     }
-                    if (TextUtils.equals(str12, bg.m214a((Context) this.f44258b))) {
+                    if (TextUtils.equals(str12, bg.m210a((Context) this.b))) {
                     }
                 } catch (Throwable th7) {
                     th = th7;
                     str2 = str14;
                     str5 = str15;
-                    str6 = m214a;
+                    str6 = m210a;
                     sb = sb3;
                     coVar = a;
                 }
             }
             sb = sb3;
             z = false;
-            cs.a().m278c();
+            cs.a().m274c();
             int elapsedRealtime2222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
             if (!z) {
                 gz.a(0, ew.i.a(), elapsedRealtime2222, str15, i2);
                 return;
             }
-            gz.a(0, ew.j.a(), elapsedRealtime2222, str15, bg.c(this.f44258b.getApplicationContext()) ? 1 : 0);
+            gz.a(0, ew.j.a(), elapsedRealtime2222, str15, bg.c(this.b.getApplicationContext()) ? 1 : 0);
             throw new fw(sb.toString());
         }
     }
@@ -523,7 +511,7 @@ public abstract class fs extends fl {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44260d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.fl
@@ -555,8 +543,8 @@ public abstract class fs extends fl {
                     this.f392a.close();
                 } catch (Throwable unused) {
                 }
-                this.f44261e = 0L;
-                this.f44262f = 0L;
+                this.e = 0L;
+                this.f = 0L;
             }
         }
     }
@@ -564,20 +552,20 @@ public abstract class fs extends fl {
     public void a(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
-            if (SystemClock.elapsedRealtime() - this.f44263g < 300000) {
-                if (!bg.b(this.f44258b)) {
+            if (SystemClock.elapsedRealtime() - this.g < 300000) {
+                if (!bg.b(this.b)) {
                     return;
                 }
-                int i = this.f44259c + 1;
-                this.f44259c = i;
+                int i = this.c + 1;
+                this.c = i;
                 if (i < 2) {
                     return;
                 }
                 String a = a();
-                com.xiaomi.channel.commonutils.logger.b.m112a("max short conn time reached, sink down current host:" + a);
+                com.xiaomi.channel.commonutils.logger.b.m108a("max short conn time reached, sink down current host:" + a);
                 a(a, 0L, exc);
             }
-            this.f44259c = 0;
+            this.c = 0;
         }
     }
 
@@ -588,11 +576,11 @@ public abstract class fs extends fl {
             return;
         }
         a.b(str, j, 0L, exc);
-        cs.a().m278c();
+        cs.a().m274c();
     }
 
     /* renamed from: a */
-    public abstract void mo357a(boolean z);
+    public abstract void mo353a(boolean z);
 
     @Override // com.xiaomi.push.fl
     public void a(fa[] faVarArr) {
@@ -607,7 +595,7 @@ public abstract class fs extends fl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i, exc) == null) {
             a(i, exc);
-            if ((exc != null || i == 18) && this.f44263g != 0) {
+            if ((exc != null || i == 18) && this.g != 0) {
                 a(exc);
             }
         }
@@ -618,11 +606,11 @@ public abstract class fs extends fl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            mo357a(z);
+            mo353a(z);
             if (z) {
                 return;
             }
-            this.f44258b.a(new ft(this, 13, currentTimeMillis), 10000L);
+            this.b.a(new ft(this, 13, currentTimeMillis), 10000L);
         }
     }
 
@@ -636,7 +624,7 @@ public abstract class fs extends fl {
     public void c(int i, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, exc) == null) {
-            this.f44258b.a(new fu(this, 2, i, exc));
+            this.b.a(new fu(this, 2, i, exc));
         }
     }
 
@@ -645,14 +633,14 @@ public abstract class fs extends fl {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
                 try {
-                    if (!m369c() && !m368b()) {
+                    if (!m365c() && !m364b()) {
                         a(0, 0, (Exception) null);
                         a(((fl) this).f375a);
                         return;
                     }
-                    com.xiaomi.channel.commonutils.logger.b.m112a("WARNING: current xmpp has connected");
-                } catch (IOException e2) {
-                    throw new fw(e2);
+                    com.xiaomi.channel.commonutils.logger.b.m108a("WARNING: current xmpp has connected");
+                } catch (IOException e) {
+                    throw new fw(e);
                 }
             }
         }
@@ -661,14 +649,14 @@ public abstract class fs extends fl {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f44261e = SystemClock.elapsedRealtime();
+            this.e = SystemClock.elapsedRealtime();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f44262f = SystemClock.elapsedRealtime();
+            this.f = SystemClock.elapsedRealtime();
         }
     }
 }

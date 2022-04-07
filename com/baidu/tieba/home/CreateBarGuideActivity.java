@@ -3,7 +3,6 @@ package com.baidu.tieba.home;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.t.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,8 +16,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dr4;
+import com.repackage.mt6;
 import tbclient.UserBfbInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOW_VERSION_ERRCODE = 260211;
@@ -27,9 +28,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback;
     public BfbInfoModel mModel;
-    public c.a.p0.o1.a mView;
+    public mt6 mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements BfbInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,21 +73,19 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements a.e {
+    /* loaded from: classes3.dex */
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.o0.r.t.a a;
+        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ CreateBarGuideActivity b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f33145b;
-
-        public b(CreateBarGuideActivity createBarGuideActivity, c.a.o0.r.t.a aVar) {
+        public b(CreateBarGuideActivity createBarGuideActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, aVar};
+                Object[] objArr = {createBarGuideActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,35 +95,33 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f33145b = createBarGuideActivity;
-            this.a = aVar;
+            this.b = createBarGuideActivity;
+            this.a = dr4Var;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
-                this.f33145b.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f33145b.getPageContext().getPageActivity())));
+                this.b.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.b.getPageContext().getPageActivity())));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements a.e {
+    /* loaded from: classes3.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.o0.r.t.a a;
+        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ CreateBarGuideActivity b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f33146b;
-
-        public c(CreateBarGuideActivity createBarGuideActivity, c.a.o0.r.t.a aVar) {
+        public c(CreateBarGuideActivity createBarGuideActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, aVar};
+                Object[] objArr = {createBarGuideActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -134,14 +131,14 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f33146b = createBarGuideActivity;
-            this.a = aVar;
+            this.b = createBarGuideActivity;
+            this.a = dr4Var;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -168,14 +165,14 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f13e6);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f13ee);
             }
-            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getActivity());
-            aVar.setTitle(str);
-            aVar.setPositiveButton(R.string.obfuscated_res_0x7f0f041a, new b(this, aVar));
-            aVar.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new c(this, aVar));
-            aVar.create(getPageContext());
-            aVar.show();
+            dr4 dr4Var = new dr4(getActivity());
+            dr4Var.setTitle(str);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new b(this, dr4Var));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new c(this, dr4Var));
+            dr4Var.create(getPageContext());
+            dr4Var.show();
         }
     }
 
@@ -184,9 +181,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            c.a.p0.o1.a aVar = this.mView;
-            if (aVar != null) {
-                aVar.f();
+            mt6 mt6Var = this.mView;
+            if (mt6Var != null) {
+                mt6Var.f();
             }
         }
     }
@@ -204,9 +201,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.mModel = bfbInfoModel;
             bfbInfoModel.C(this.mCallback);
-            c.a.p0.o1.a aVar = new c.a.p0.o1.a(this);
-            this.mView = aVar;
-            aVar.e();
+            mt6 mt6Var = new mt6(this);
+            this.mView = mt6Var;
+            mt6Var.e();
             showLoadingView(this.mView.d());
             this.mModel.loadData();
             TiebaStatic.log("c11222");

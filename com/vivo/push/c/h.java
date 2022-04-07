@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public final class h extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
             com.vivo.push.b.t tVar = (com.vivo.push.b.t) oVar;
-            ArrayList<String> d2 = tVar.d();
-            List<String> e2 = tVar.e();
+            ArrayList<String> d = tVar.d();
+            List<String> e = tVar.e();
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             ArrayList arrayList4 = new ArrayList();
-            int h2 = tVar.h();
-            String g2 = tVar.g();
-            if (d2 != null) {
-                for (String str : d2) {
+            int h = tVar.h();
+            String g = tVar.g();
+            if (d != null) {
+                for (String str : d) {
                     if (str.startsWith("ali/")) {
                         arrayList2.add(str.replace("ali/", ""));
                     } else if (str.startsWith("tag/")) {
@@ -53,8 +53,8 @@ public final class h extends z {
                     }
                 }
             }
-            if (e2 != null) {
-                for (String str2 : e2) {
+            if (e != null) {
+                for (String str2 : e) {
                     if (str2.startsWith("ali/")) {
                         arrayList4.add(str2.replace("ali/", ""));
                     } else if (str2.startsWith("tag/")) {
@@ -66,15 +66,15 @@ public final class h extends z {
                 if (arrayList.size() > 0) {
                     com.vivo.push.e.a().b(arrayList);
                 }
-                com.vivo.push.e.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h2);
-                com.vivo.push.m.b(new i(this, h2, arrayList, arrayList3, g2));
+                com.vivo.push.e.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
+                com.vivo.push.m.b(new i(this, h, arrayList, arrayList3, g));
             }
             if (arrayList2.size() > 0 || arrayList4.size() > 0) {
                 if (arrayList2.size() > 0) {
                     com.vivo.push.e.a().c(arrayList2);
                 }
-                com.vivo.push.e.a().a(tVar.g(), h2);
-                com.vivo.push.m.b(new j(this, h2, arrayList2, arrayList4, g2));
+                com.vivo.push.e.a().a(tVar.g(), h);
+                com.vivo.push.m.b(new j(this, h, arrayList2, arrayList4, g));
             }
         }
     }

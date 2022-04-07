@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AesCipher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_CBC_NOPADDING = "AES/CBC/NoPadding";
@@ -59,8 +59,8 @@ public class AesCipher {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
                         return Cipher.getInstance("AES/CBC/NoPadding");
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return (Cipher) invokeV.objValue;

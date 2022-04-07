@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.TextUtils;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,8 +109,8 @@ public class Message {
                 System.arraycopy(bytes, 0, bArr, 0, bytes.length);
                 System.arraycopy(this.content, 0, bArr, bytes.length, this.content.length);
                 return bArr;
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return null;
             }
         }

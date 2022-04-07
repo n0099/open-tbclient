@@ -39,18 +39,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dz8;
+import com.repackage.g55;
+import com.repackage.mg;
+import com.repackage.rt4;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f36256b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +79,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1541);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1548);
                         return 1;
                     }
                 }
@@ -87,7 +89,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,13 +121,13 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    c.a.o0.r.f0.b.d((Activity) data);
+                    rt4.d((Activity) data);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,10 +160,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), 1, true);
+                            rt4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), 2, true);
+                            rt4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -171,24 +173,24 @@ public class MainTabActivityStatic {
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                                 i = -1;
                             } else {
-                                int e2 = c.a.d.f.m.b.e(parse.getQueryParameter("subTabIndex"), 0);
-                                i = e2 == 1 ? 18 : 17;
+                                int e = mg.e(parse.getQueryParameter("subTabIndex"), 0);
+                                i = e == 1 ? 18 : 17;
                                 try {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e2)));
-                                } catch (Exception e3) {
-                                    e = e3;
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e)));
+                                } catch (Exception e2) {
+                                    e = e2;
                                     e.printStackTrace();
                                     if (i != -1) {
                                     }
                                     return 3;
                                 }
                             }
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             i = -1;
                         }
                         if (i != -1) {
-                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), i, true);
+                            rt4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -199,7 +201,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +236,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,17 +268,17 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    c.a.o0.i0.g.c.b().m(c.a.o0.i0.g.c.b().j());
-                    c.a.o0.i0.g.c.b().c();
-                } else if (c.a.o0.i0.g.c.b().i() || !c.a.o0.i0.g.c.b().k()) {
+                    g55.b().m(g55.b().j());
+                    g55.b().c();
+                } else if (g55.b().i() || !g55.b().k()) {
                 } else {
-                    c.a.o0.i0.g.c.b().o();
+                    g55.b().o();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,17 +310,17 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    c.a.o0.i0.g.c.b().m(c.a.o0.i0.g.c.b().j());
-                    c.a.o0.i0.g.c.b().c();
-                } else if (c.a.o0.i0.g.c.b().i() || !c.a.o0.i0.g.c.b().k()) {
+                    g55.b().m(g55.b().j());
+                    g55.b().c();
+                } else if (g55.b().i() || !g55.b().k()) {
                 } else {
-                    c.a.o0.i0.g.c.b().o();
+                    g55.b().o();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,11 +371,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                c.a.p0.s4.i.j(tbPageContext, "", forumWriteData);
+                                dz8.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                c.a.p0.s4.i.j(tbPageContext, str2, forumWriteData2);
+                                dz8.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -387,7 +389,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class h implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -420,7 +422,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +456,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class j implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -561,11 +563,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == a && c2 == f36256b) {
+        if (b2 == a && c2 == b) {
             return;
         }
         a = b2;
-        f36256b = c2;
+        b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

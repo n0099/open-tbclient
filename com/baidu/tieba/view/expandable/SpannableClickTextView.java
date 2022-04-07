@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SpannableClickTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
@@ -136,7 +136,13 @@ public class SpannableClickTextView extends TextView {
     public void setCustomMovementMethod() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean isClickable = isClickable();
+            boolean isLongClickable = isLongClickable();
+            boolean isFocusable = isFocusable();
             setMovementMethod(a.a());
+            setClickable(isClickable);
+            setLongClickable(isLongClickable);
+            setFocusable(isFocusable);
         }
     }
 

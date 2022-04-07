@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class InterestLabelStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,6 @@ public final class InterestLabelStaticAutoGenerateUrlCollectorImpl implements IC
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            arrayList.add("LabelSettingActivityConfig");
             arrayList.add("LabelRecommendActivityConfig");
             hashMap.put("com.baidu.tieba.interestlabel.statics.InterestLabelStatic", arrayList);
             return hashMap;

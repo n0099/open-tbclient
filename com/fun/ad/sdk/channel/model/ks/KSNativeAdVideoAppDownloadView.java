@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.d.a0.d.y;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,32 +23,19 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
+import com.repackage.nk9;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f38582b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f38583c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f38584d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f38585e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f38586f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f38587g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Button f38588h;
+    public TextView b;
+    public FrameLayout c;
+    public ImageView d;
+    public TextView e;
+    public ImageView f;
+    public TextView g;
+    public Button h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoAppDownloadView(Context context) {
@@ -120,7 +106,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            arrayList.add(this.f38588h);
+            arrayList.add(this.h);
             this.a.clear();
             this.a.addAll(arrayList);
             View videoView = ksNativeAd.getVideoView(getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
@@ -129,25 +115,25 @@ public class KSNativeAdVideoAppDownloadView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f38583c.removeAllViews();
-                this.f38583c.addView(videoView);
+                this.c.removeAllViews();
+                this.c.addView(videoView);
             }
-            this.f38584d.setImageBitmap(getSdkLogo());
+            this.d.setImageBitmap(getSdkLogo());
             String adSource = ksNativeAd.getAdSource();
             if (TextUtils.isEmpty(adSource)) {
                 adSource = "快手广告";
             }
-            this.f38585e.setText(adSource);
-            this.f38582b.setText(ksNativeAd.getAdDescription());
+            this.e.setText(adSource);
+            this.b.setText(ksNativeAd.getAdDescription());
             if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-                this.f38586f.setVisibility(8);
+                this.f.setVisibility(8);
             } else {
-                this.f38586f.setVisibility(0);
-                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f38586f);
+                this.f.setVisibility(0);
+                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f);
             }
-            this.f38587g.setText(ksNativeAd.getAppName());
-            this.f38588h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f38588h));
+            this.g.setText(ksNativeAd.getAppName());
+            this.h.setText(ksNativeAd.getActionDescription());
+            ksNativeAd.setDownloadListener(new nk9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 
@@ -156,13 +142,13 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f38582b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
-            this.f38583c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f8);
-            this.f38584d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d1);
-            this.f38585e = (TextView) findViewById(R.id.obfuscated_res_0x7f090085);
-            this.f38586f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090083);
-            this.f38587g = (TextView) findViewById(R.id.obfuscated_res_0x7f090086);
-            this.f38588h = (Button) findViewById(R.id.obfuscated_res_0x7f090082);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090085);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090083);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090086);
+            this.h = (Button) findViewById(R.id.obfuscated_res_0x7f090082);
         }
     }
 
@@ -171,11 +157,11 @@ public class KSNativeAdVideoAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38583c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i5;
             layoutParams.height = (int) (i5 / 1.78f);
-            this.f38583c.setLayoutParams(layoutParams);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 }

@@ -66,8 +66,8 @@ public final class FlowKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m2092catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m2097catch(flow, function3);
+    public static final <T> Flow<T> m2088catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m2093catch(flow, function3);
     }
 
     public static final <T> Object catchImpl(Flow<? extends T> flow, FlowCollector<? super T> flowCollector, Continuation<? super Throwable> continuation) {
@@ -136,8 +136,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: debounce-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m2093debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m2095debounce8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m2089debounce8GFy2Ro(Flow<? extends T> flow, double d) {
+        return FlowKt__DelayKt.m2091debounce8GFy2Ro(flow, d);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
@@ -379,8 +379,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: sample-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m2094sample8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m2096sample8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m2090sample8GFy2Ro(Flow<? extends T> flow, double d) {
+        return FlowKt__DelayKt.m2092sample8GFy2Ro(flow, d);
     }
 
     @ExperimentalCoroutinesApi
@@ -441,8 +441,8 @@ public final class FlowKt {
         return FlowKt__LimitKt.takeWhile(flow, function2);
     }
 
-    public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, C c2, Continuation<? super C> continuation) {
-        return FlowKt__CollectionKt.toCollection(flow, c2, continuation);
+    public static final <T, C extends Collection<? super T>> Object toCollection(Flow<? extends T> flow, C c, Continuation<? super C> continuation) {
+        return FlowKt__CollectionKt.toCollection(flow, c, continuation);
     }
 
     public static final <T> Object toList(Flow<? extends T> flow, List<T> list, Continuation<? super List<? extends T>> continuation) {

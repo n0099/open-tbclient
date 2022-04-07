@@ -13,7 +13,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BdSailorSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,8 +65,8 @@ public final class BdSailorSettings implements INoProGuard {
                     return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(str)).booleanValue();
                 }
                 return false;
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return false;
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "getStaticWebSeting error:".concat(String.valueOf(th)));
@@ -83,8 +83,8 @@ public final class BdSailorSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(str, Boolean.valueOf(z));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
@@ -97,8 +97,8 @@ public final class BdSailorSettings implements INoProGuard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return WebViewFactory.hasProvider() ? (String) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_UA_EMULATE) : "";
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return "";
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "getStaticWebSeting error:".concat(String.valueOf(th)));
@@ -312,8 +312,8 @@ public final class BdSailorSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_PROXY_TYPE, new Integer(proxyType.ordinal()));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }

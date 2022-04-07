@@ -2,7 +2,7 @@ package com.kwad.sdk.core.response.model;
 
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -7038691521398433079L;
     public List<CouponInfo> couponList;

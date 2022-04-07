@@ -28,7 +28,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientFillContent implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static final int CACHE_STEPS_MS = 32;
     public final int cacheSteps;
@@ -136,10 +136,10 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
         GradientColor value3 = this.colorAnimation.getValue();
         int[] applyDynamicColorsIfNeeded = applyDynamicColorsIfNeeded(value3.getColors());
         float[] positions = value3.getPositions();
-        float f2 = value.x;
-        float f3 = value.y;
-        float hypot = (float) Math.hypot(value2.x - f2, value2.y - f3);
-        RadialGradient radialGradient2 = new RadialGradient(f2, f3, hypot <= 0.0f ? 0.001f : hypot, applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
+        float f = value.x;
+        float f2 = value.y;
+        float hypot = (float) Math.hypot(value2.x - f, value2.y - f2);
+        RadialGradient radialGradient2 = new RadialGradient(f, f2, hypot <= 0.0f ? 0.001f : hypot, applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
         this.radialGradientCache.put(gradientHash, radialGradient2);
         return radialGradient2;
     }

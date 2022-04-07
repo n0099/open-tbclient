@@ -75,10 +75,10 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         }
     }
 
-    private void addContentView(View view) {
+    private void addContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, view) == null) {
-            addContentView(view, -1);
+        if (interceptable == null || interceptable.invokeL(65538, this, view2) == null) {
+            addContentView(view2, -1);
         }
     }
 
@@ -322,9 +322,9 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setShortcut(boolean z, char c2) {
+    public void setShortcut(boolean z, char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c)}) == null) {
             int i = (z && this.mItemData.shouldShowShortcut()) ? 0 : 8;
             if (i == 0) {
                 this.mShortcutView.setText(this.mItemData.getShortcutLabel());
@@ -388,14 +388,14 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         obtainStyledAttributes2.recycle();
     }
 
-    private void addContentView(View view, int i) {
+    private void addContentView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65539, this, view2, i) == null) {
             LinearLayout linearLayout = this.mContent;
             if (linearLayout != null) {
-                linearLayout.addView(view, i);
+                linearLayout.addView(view2, i);
             } else {
-                addView(view, i);
+                addView(view2, i);
             }
         }
     }

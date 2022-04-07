@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BoundingBox implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1286036817192127343L;
@@ -61,16 +61,16 @@ public class BoundingBox implements Serializable {
         clr();
     }
 
-    public static final float max(float f2, float f3) {
+    public static final float max(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f2 > f3 ? f2 : f3 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f : f2 : invokeCommon.floatValue;
     }
 
-    public static final float min(float f2, float f3) {
+    public static final float min(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f2 > f3 ? f3 : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f2 : f : invokeCommon.floatValue;
     }
 
     public BoundingBox clr() {
@@ -85,13 +85,13 @@ public class BoundingBox implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, boundingBox)) == null) {
             if (isValid()) {
                 Vector3 vector3 = this.min;
-                float f2 = vector3.x;
+                float f = vector3.x;
                 Vector3 vector32 = boundingBox.min;
-                if (f2 <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z) {
+                if (f <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z) {
                     Vector3 vector33 = this.max;
-                    float f3 = vector33.x;
+                    float f2 = vector33.x;
                     Vector3 vector34 = boundingBox.max;
-                    if (f3 < vector34.x || vector33.y < vector34.y || vector33.z < vector34.z) {
+                    if (f2 < vector34.x || vector33.y < vector34.y || vector33.z < vector34.z) {
                     }
                 }
                 return false;
@@ -171,9 +171,9 @@ public class BoundingBox implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, vector3)) == null) {
-            float f2 = this.min.x;
+            float f = this.min.x;
             Vector3 vector32 = this.max;
-            return vector3.set(f2, vector32.y, vector32.z);
+            return vector3.set(f, vector32.y, vector32.z);
         }
         return (Vector3) invokeL.objValue;
     }
@@ -182,9 +182,9 @@ public class BoundingBox implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, vector3)) == null) {
-            float f2 = this.max.x;
+            float f = this.max.x;
             Vector3 vector32 = this.min;
-            return vector3.set(f2, vector32.y, vector32.z);
+            return vector3.set(f, vector32.y, vector32.z);
         }
         return (Vector3) invokeL.objValue;
     }
@@ -285,9 +285,9 @@ public class BoundingBox implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             Vector3 vector3 = this.min;
-            float f2 = vector3.x;
+            float f = vector3.x;
             Vector3 vector32 = this.max;
-            return f2 <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z;
+            return f <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z;
         }
         return invokeV.booleanValue;
     }
@@ -297,22 +297,22 @@ public class BoundingBox implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, matrix4)) == null) {
             Vector3 vector3 = this.min;
-            float f2 = vector3.x;
-            float f3 = vector3.y;
-            float f4 = vector3.z;
+            float f = vector3.x;
+            float f2 = vector3.y;
+            float f3 = vector3.z;
             Vector3 vector32 = this.max;
-            float f5 = vector32.x;
-            float f6 = vector32.y;
-            float f7 = vector32.z;
+            float f4 = vector32.x;
+            float f5 = vector32.y;
+            float f6 = vector32.z;
             inf();
-            ext(tmpVector.set(f2, f3, f4).mul(matrix4));
-            ext(tmpVector.set(f2, f3, f7).mul(matrix4));
-            ext(tmpVector.set(f2, f6, f4).mul(matrix4));
-            ext(tmpVector.set(f2, f6, f7).mul(matrix4));
-            ext(tmpVector.set(f5, f3, f4).mul(matrix4));
-            ext(tmpVector.set(f5, f3, f7).mul(matrix4));
-            ext(tmpVector.set(f5, f6, f4).mul(matrix4));
-            ext(tmpVector.set(f5, f6, f7).mul(matrix4));
+            ext(tmpVector.set(f, f2, f3).mul(matrix4));
+            ext(tmpVector.set(f, f2, f6).mul(matrix4));
+            ext(tmpVector.set(f, f5, f3).mul(matrix4));
+            ext(tmpVector.set(f, f5, f6).mul(matrix4));
+            ext(tmpVector.set(f4, f2, f3).mul(matrix4));
+            ext(tmpVector.set(f4, f2, f6).mul(matrix4));
+            ext(tmpVector.set(f4, f5, f3).mul(matrix4));
+            ext(tmpVector.set(f4, f5, f6).mul(matrix4));
             return this;
         }
         return (BoundingBox) invokeL.objValue;
@@ -338,17 +338,17 @@ public class BoundingBox implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vector3)) == null) {
             Vector3 vector32 = this.min;
-            float f2 = vector32.x;
-            float f3 = vector3.x;
-            if (f2 <= f3) {
+            float f = vector32.x;
+            float f2 = vector3.x;
+            if (f <= f2) {
                 Vector3 vector33 = this.max;
-                if (vector33.x >= f3) {
-                    float f4 = vector32.y;
-                    float f5 = vector3.y;
-                    if (f4 <= f5 && vector33.y >= f5) {
-                        float f6 = vector32.z;
-                        float f7 = vector3.z;
-                        if (f6 <= f7 && vector33.z >= f7) {
+                if (vector33.x >= f2) {
+                    float f3 = vector32.y;
+                    float f4 = vector3.y;
+                    if (f3 <= f4 && vector33.y >= f4) {
+                        float f5 = vector32.z;
+                        float f6 = vector3.z;
+                        if (f5 <= f6 && vector33.z >= f6) {
                             return true;
                         }
                     }
@@ -364,39 +364,39 @@ public class BoundingBox implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, vector3, vector32)) == null) {
             Vector3 vector33 = this.min;
-            float f2 = vector3.x;
-            float f3 = vector32.x;
-            if (f2 >= f3) {
-                f2 = f3;
+            float f = vector3.x;
+            float f2 = vector32.x;
+            if (f >= f2) {
+                f = f2;
             }
-            float f4 = vector3.y;
-            float f5 = vector32.y;
-            if (f4 >= f5) {
-                f4 = f5;
+            float f3 = vector3.y;
+            float f4 = vector32.y;
+            if (f3 >= f4) {
+                f3 = f4;
             }
-            float f6 = vector3.z;
-            float f7 = vector32.z;
-            if (f6 >= f7) {
-                f6 = f7;
+            float f5 = vector3.z;
+            float f6 = vector32.z;
+            if (f5 >= f6) {
+                f5 = f6;
             }
-            vector33.set(f2, f4, f6);
+            vector33.set(f, f3, f5);
             Vector3 vector34 = this.max;
-            float f8 = vector3.x;
-            float f9 = vector32.x;
-            if (f8 <= f9) {
-                f8 = f9;
+            float f7 = vector3.x;
+            float f8 = vector32.x;
+            if (f7 <= f8) {
+                f7 = f8;
             }
-            float f10 = vector3.y;
-            float f11 = vector32.y;
-            if (f10 <= f11) {
-                f10 = f11;
+            float f9 = vector3.y;
+            float f10 = vector32.y;
+            if (f9 <= f10) {
+                f9 = f10;
             }
-            float f12 = vector3.z;
-            float f13 = vector32.z;
-            if (f12 <= f13) {
-                f12 = f13;
+            float f11 = vector3.z;
+            float f12 = vector32.z;
+            if (f11 <= f12) {
+                f11 = f12;
             }
-            vector34.set(f8, f10, f12);
+            vector34.set(f7, f9, f11);
             this.cnt.set(this.min).add(this.max).m21scl(0.5f);
             this.dim.set(this.max).sub(this.min);
             return this;
@@ -451,14 +451,14 @@ public class BoundingBox implements Serializable {
         set(boundingBox);
     }
 
-    public BoundingBox ext(Vector3 vector3, float f2) {
+    public BoundingBox ext(Vector3 vector3, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, vector3, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, vector3, f)) == null) {
             Vector3 vector32 = this.min;
-            Vector3 vector33 = vector32.set(min(vector32.x, vector3.x - f2), min(this.min.y, vector3.y - f2), min(this.min.z, vector3.z - f2));
+            Vector3 vector33 = vector32.set(min(vector32.x, vector3.x - f), min(this.min.y, vector3.y - f), min(this.min.z, vector3.z - f));
             Vector3 vector34 = this.max;
-            return set(vector33, vector34.set(max(vector34.x, vector3.x + f2), max(this.max.y, vector3.y + f2), max(this.max.z, vector3.z + f2)));
+            return set(vector33, vector34.set(max(vector34.x, vector3.x + f), max(this.max.y, vector3.y + f), max(this.max.z, vector3.z + f)));
         }
         return (BoundingBox) invokeLF.objValue;
     }
@@ -490,13 +490,13 @@ public class BoundingBox implements Serializable {
             Vector3 vector36 = boundingBox.min;
             ext(vector35.set(vector36.x, boundingBox.max.y, vector36.z).mul(matrix4));
             Vector3 vector37 = tmpVector;
-            float f2 = boundingBox.min.x;
+            float f = boundingBox.min.x;
             Vector3 vector38 = boundingBox.max;
-            ext(vector37.set(f2, vector38.y, vector38.z).mul(matrix4));
+            ext(vector37.set(f, vector38.y, vector38.z).mul(matrix4));
             Vector3 vector39 = tmpVector;
-            float f3 = boundingBox.max.x;
+            float f2 = boundingBox.max.x;
             Vector3 vector310 = boundingBox.min;
-            ext(vector39.set(f3, vector310.y, vector310.z).mul(matrix4));
+            ext(vector39.set(f2, vector310.y, vector310.z).mul(matrix4));
             Vector3 vector311 = tmpVector;
             Vector3 vector312 = boundingBox.max;
             ext(vector311.set(vector312.x, boundingBox.min.y, vector312.z).mul(matrix4));
@@ -533,14 +533,14 @@ public class BoundingBox implements Serializable {
         set(vector3, vector32);
     }
 
-    public BoundingBox ext(float f2, float f3, float f4) {
+    public BoundingBox ext(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             Vector3 vector3 = this.min;
-            Vector3 vector32 = vector3.set(min(vector3.x, f2), min(this.min.y, f3), min(this.min.z, f4));
+            Vector3 vector32 = vector3.set(min(vector3.x, f), min(this.min.y, f2), min(this.min.z, f3));
             Vector3 vector33 = this.max;
-            return set(vector32, vector33.set(max(vector33.x, f2), max(this.max.y, f3), max(this.max.z, f4)));
+            return set(vector32, vector33.set(max(vector33.x, f), max(this.max.y, f2), max(this.max.z, f3)));
         }
         return (BoundingBox) invokeCommon.objValue;
     }

@@ -20,7 +20,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
 @Keep
 @SuppressLint({"MissingSuperCall", "NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginApplicationWrapper extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,8 +46,8 @@ public class PluginApplicationWrapper extends Application {
         this.mPluginContext = pluginContext;
         try {
             FieldUtils.writeField(this, "mBase", pluginContext);
-        } catch (IllegalAccessException e2) {
-            e2.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 

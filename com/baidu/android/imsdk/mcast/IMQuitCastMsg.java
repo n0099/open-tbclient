@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQuitCastMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQuitCastMsg";
@@ -76,9 +76,9 @@ public class IMQuitCastMsg extends Message {
                 jSONObject.put("msg_key", this.mMsgKey);
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(IMQuitCastMsg.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(IMQuitCastMsg.class.getSimpleName(), "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -102,8 +102,8 @@ public class IMQuitCastMsg extends Message {
                     if (j > 0) {
                         LogUtils.d(TAG, "quit 直播间，castid信息：" + j);
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
                 }
             }
             int i2 = i;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import f.c.g0;
+import com.repackage.ky9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -76,7 +76,7 @@ public class Camera1Session implements CameraSession {
         }
 
         public /* synthetic */ void b(final byte[] bArr) {
-            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: f.c.c
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.repackage.gx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class Camera1Session implements CameraSession {
                         Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                         this.this$0.firstFrameReported = true;
                     }
-                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: f.c.d
+                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.repackage.hx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,16 +271,16 @@ public class Camera1Session implements CameraSession {
                         }
                         open.setDisplayOrientation(0);
                         createSessionCallback.onDone(new Camera1Session(events, z, context, surfaceTextureHelper, i, open, cameraInfo, findClosestCaptureFormat, nanoTime));
-                    } catch (RuntimeException e2) {
+                    } catch (RuntimeException e) {
                         open.release();
-                        createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e2.getMessage());
+                        createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e.getMessage());
                     }
-                } catch (IOException | RuntimeException e3) {
+                } catch (IOException | RuntimeException e2) {
                     open.release();
-                    createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e3.getMessage());
+                    createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e2.getMessage());
                 }
-            } catch (RuntimeException e4) {
-                createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e4.getMessage());
+            } catch (RuntimeException e3) {
+                createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e3.getMessage());
             }
         }
     }
@@ -310,11 +310,11 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            int b2 = g0.b(this.applicationContext);
+            int b = ky9.b(this.applicationContext);
             if (this.info.facing == 0) {
-                b2 = 360 - b2;
+                b = 360 - b;
             }
-            return (this.info.orientation + b2) % 360;
+            return (this.info.orientation + b) % 360;
         }
         return invokeV.intValue;
     }
@@ -329,7 +329,7 @@ public class Camera1Session implements CameraSession {
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: f.c.e
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.repackage.ix9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -400,9 +400,9 @@ public class Camera1Session implements CameraSession {
             }
             try {
                 this.camera.startPreview();
-            } catch (RuntimeException e2) {
+            } catch (RuntimeException e) {
                 stopInternal();
-                this.events.onCameraError(this, e2.getMessage());
+                this.events.onCameraError(this, e.getMessage());
             }
         }
     }
@@ -460,7 +460,7 @@ public class Camera1Session implements CameraSession {
             camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.constructionTimeNs));
             this.firstFrameReported = true;
         }
-        VideoFrame videoFrame2 = new VideoFrame(g0.a((TextureBufferImpl) videoFrame.getBuffer(), this.info.facing == 1, 0), getFrameOrientation(), videoFrame.getTimestampNs());
+        VideoFrame videoFrame2 = new VideoFrame(ky9.a((TextureBufferImpl) videoFrame.getBuffer(), this.info.facing == 1, 0), getFrameOrientation(), videoFrame.getTimestampNs());
         this.events.onFrameCaptured(this, videoFrame2);
         videoFrame2.release();
     }

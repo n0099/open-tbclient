@@ -8,9 +8,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.o0.r.l0.f;
-import c.a.o0.r.l0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -42,42 +39,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.du4;
+import com.repackage.eu4;
+import com.repackage.i77;
+import com.repackage.mi;
+import com.repackage.ya;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonalGroupFragment extends BaseFragment implements AdapterView.OnItemClickListener, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public g f33875b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.u1.n.a f33876c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public NoDataView f33877d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f33878e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f33879f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f33880g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final c.a.d.c.g.c f33881h;
-    public final c.a.d.c.g.c i;
-    public final c.a.d.c.g.c j;
+    public eu4 b;
+    public i77 c;
+    public NoDataView d;
+    public View e;
+    public boolean f;
+    public int g;
+    public final ya h;
+    public final ya i;
+    public final ya j;
     public final CustomMessageListener k;
     public final CustomMessageListener l;
 
-    /* loaded from: classes5.dex */
-    public class a extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class a extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -108,13 +96,13 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.f33879f = true;
+                this.a.f = true;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements f.g {
+    /* loaded from: classes3.dex */
+    public class b implements du4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -137,19 +125,19 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a = personalGroupFragment;
         }
 
-        @Override // c.a.o0.r.l0.f.g
+        @Override // com.repackage.du4.g
         public void onListPullRefresh(boolean z) {
-            PersonGroupActivity G0;
+            PersonGroupActivity F0;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (G0 = this.a.G0()) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (F0 = this.a.F0()) == null) {
                 return;
             }
-            G0.getMyGroupModel().update();
+            F0.getMyGroupModel().update();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class c extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -188,7 +176,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                     case 103112:
                     case 2001109:
                         if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
-                            this.a.f33879f = true;
+                            this.a.f = true;
                             return;
                         }
                         return;
@@ -199,8 +187,8 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class d extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -231,8 +219,8 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                PersonGroupActivity G0 = this.a.G0();
-                if (this.a.getActivity() == null || this.a.a == null || G0 == null || G0.getMyGroupModel() == null) {
+                PersonGroupActivity F0 = this.a.F0();
+                if (this.a.getActivity() == null || this.a.a == null || F0 == null || F0.getMyGroupModel() == null) {
                     return;
                 }
                 if (socketResponsedMessage.getCmd() == 103003) {
@@ -241,47 +229,47 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
                 if (responseGroupsByUidMessage.getError() != 0) {
                     if (responseGroupsByUidMessage.getError() != 0) {
-                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15) : responseGroupsByUidMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18) : responseGroupsByUidMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
-                if (this.a.f33880g == 1) {
+                if (this.a.g == 1) {
                     groups = responseGroupsByUidMessage.getCommonGroups();
                 }
-                if (!G0.getIsHost()) {
-                    G0.setGroups(responseGroupsByUidMessage.getGroups());
-                    G0.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+                if (!F0.getIsHost()) {
+                    F0.setGroups(responseGroupsByUidMessage.getGroups());
+                    F0.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
                 }
-                G0.updateTabTitle(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+                F0.updateTabTitle(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
                 if (groups != null) {
-                    this.a.f33876c.c(groups);
-                    this.a.f33876c.notifyDataSetChanged();
+                    this.a.c.c(groups);
+                    this.a.c.notifyDataSetChanged();
                     if (groups.size() > 0) {
-                        this.a.f33877d.setVisibility(8);
+                        this.a.d.setVisibility(8);
                         PersonalGroupFragment personalGroupFragment = this.a;
-                        personalGroupFragment.a.removeHeaderView(personalGroupFragment.f33877d);
+                        personalGroupFragment.a.removeHeaderView(personalGroupFragment.d);
                     } else {
-                        this.a.f33877d.setVisibility(0);
+                        this.a.d.setVisibility(0);
                         PersonalGroupFragment personalGroupFragment2 = this.a;
-                        personalGroupFragment2.a.removeHeaderView(personalGroupFragment2.f33877d);
+                        personalGroupFragment2.a.removeHeaderView(personalGroupFragment2.d);
                         PersonalGroupFragment personalGroupFragment3 = this.a;
-                        personalGroupFragment3.a.addHeaderView(personalGroupFragment3.f33877d);
+                        personalGroupFragment3.a.addHeaderView(personalGroupFragment3.d);
                     }
                     this.a.a.setVisibility(0);
                 }
                 if (socketResponsedMessage.getCmd() == 103003) {
-                    this.a.f33879f = false;
-                } else if (socketResponsedMessage.getCmd() != 2001106 || G0.getMyGroupModel() == null) {
+                    this.a.f = false;
+                } else if (socketResponsedMessage.getCmd() != 2001106 || F0.getMyGroupModel() == null) {
                 } else {
-                    G0.getMyGroupModel().update();
+                    F0.getMyGroupModel().update();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,8 +301,8 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                PersonGroupActivity G0 = this.a.G0();
-                if (this.a.getActivity() == null || this.a.a == null || G0 == null || G0.getMyGroupModel() == null) {
+                PersonGroupActivity F0 = this.a.F0();
+                if (this.a.getActivity() == null || this.a.a == null || F0 == null || F0.getMyGroupModel() == null) {
                     return;
                 }
                 ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
@@ -325,37 +313,37 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                     this.a.showToast(responseGroupsByUidLocalMessage.getErrorString());
                     return;
                 }
-                if (G0.getIsHost()) {
+                if (F0.getIsHost()) {
                     List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
-                    if (this.a.f33880g == 1) {
+                    if (this.a.g == 1) {
                         groups = responseGroupsByUidLocalMessage.getCommonGroups();
                     }
-                    G0.updateTabTitle(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
+                    F0.updateTabTitle(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
                     if (groups != null) {
-                        this.a.f33876c.c(groups);
-                        this.a.f33876c.notifyDataSetChanged();
+                        this.a.c.c(groups);
+                        this.a.c.notifyDataSetChanged();
                         if (groups.size() > 0) {
-                            this.a.f33877d.setVisibility(8);
+                            this.a.d.setVisibility(8);
                             PersonalGroupFragment personalGroupFragment = this.a;
-                            personalGroupFragment.a.removeHeaderView(personalGroupFragment.f33877d);
+                            personalGroupFragment.a.removeHeaderView(personalGroupFragment.d);
                         } else {
-                            this.a.f33877d.setVisibility(0);
+                            this.a.d.setVisibility(0);
                             PersonalGroupFragment personalGroupFragment2 = this.a;
-                            personalGroupFragment2.a.removeHeaderView(personalGroupFragment2.f33877d);
+                            personalGroupFragment2.a.removeHeaderView(personalGroupFragment2.d);
                             PersonalGroupFragment personalGroupFragment3 = this.a;
-                            personalGroupFragment3.a.addHeaderView(personalGroupFragment3.f33877d);
+                            personalGroupFragment3.a.addHeaderView(personalGroupFragment3.d);
                         }
                         this.a.a.setVisibility(0);
                     }
                 }
-                if (G0.getMyGroupModel() != null) {
-                    G0.getMyGroupModel().update();
+                if (F0.getMyGroupModel() != null) {
+                    F0.getMyGroupModel().update();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,7 +376,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             GroupNewsPojo p;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && "dismiss_group".equals(p.getCmd())) {
-                this.a.H0(p);
+                this.a.G0(p);
             }
         }
     }
@@ -407,20 +395,20 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             }
         }
         this.a = null;
-        this.f33875b = null;
-        this.f33876c = null;
-        this.f33877d = null;
-        this.f33878e = null;
-        this.f33880g = 0;
-        this.f33881h = new a(this, 0);
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.g = 0;
+        this.h = new a(this, 0);
         this.i = new c(this, 0);
         this.j = new d(this, 0);
         this.k = new e(this, 0);
         this.l = new f(this, 0);
-        this.f33879f = false;
+        this.f = false;
     }
 
-    public PersonGroupActivity G0() {
+    public PersonGroupActivity F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -433,14 +421,14 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         return (PersonGroupActivity) invokeV.objValue;
     }
 
-    public final void H0(GroupNewsPojo groupNewsPojo) {
+    public final void G0(GroupNewsPojo groupNewsPojo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupNewsPojo) == null) || groupNewsPojo == null) {
             return;
         }
         try {
-            if (TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP.equals(new JSONObject(groupNewsPojo.getContent()).getString(TbEnum.SystemMessage.KEY_EVENT_ID)) && l.z()) {
-                this.f33879f = true;
+            if (TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP.equals(new JSONObject(groupNewsPojo.getContent()).getString(TbEnum.SystemMessage.KEY_EVENT_ID)) && mi.z()) {
+                this.f = true;
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -460,12 +448,12 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             registerListener(2001109, this.i);
             registerListener(103104, this.i);
             registerListener(103105, this.i);
-            registerListener(2001126, this.f33881h);
-            registerListener(2001128, this.f33881h);
-            registerListener(2001132, this.f33881h);
-            registerListener(2001133, this.f33881h);
-            registerListener(2001130, this.f33881h);
-            registerListener(2001134, this.f33881h);
+            registerListener(2001126, this.h);
+            registerListener(2001128, this.h);
+            registerListener(2001132, this.h);
+            registerListener(2001133, this.h);
+            registerListener(2001130, this.h);
+            registerListener(2001134, this.h);
             registerListener(2001137, this.l);
         }
     }
@@ -475,30 +463,30 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            c.a.p0.u1.n.a aVar = this.f33876c;
-            if (aVar != null) {
-                aVar.notifyDataSetChanged();
+            i77 i77Var = this.c;
+            if (i77Var != null) {
+                i77Var.notifyDataSetChanged();
             }
-            NoDataView noDataView = this.f33877d;
+            NoDataView noDataView = this.d;
             if (noDataView != null) {
                 SkinManager.setBackgroundColor(noDataView, R.color.CAM_X0201);
             }
             if (isAdded()) {
-                G0().getLayoutMode().j(this.f33878e);
-                this.f33875b.H(i);
+                F0().getLayoutMode().j(this.e);
+                this.b.H(i);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            super.onClick(view);
-            if (view.getId() == R.id.obfuscated_res_0x7f090656) {
-                GroupInfoData groupInfoData = view.getTag() instanceof GroupInfoData ? (GroupInfoData) view.getTag() : null;
-                PersonGroupActivity G0 = G0();
-                if (G0 == null || G0.onGroupSelected(groupInfoData) || groupInfoData == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            super.onClick(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f090660) {
+                GroupInfoData groupInfoData = view2.getTag() instanceof GroupInfoData ? (GroupInfoData) view2.getTag() : null;
+                PersonGroupActivity F0 = F0();
+                if (F0 == null || F0.onGroupSelected(groupInfoData) || groupInfoData == null) {
                     return;
                 }
                 sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getActivity(), groupInfoData.getGroupId(), 1)));
@@ -512,31 +500,31 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         NoDataViewFactory.e d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f33880g = getArguments().getInt("page_type", 0);
+            this.g = getArguments().getInt("page_type", 0);
             getArguments().getInt("page_size", 1);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06be, viewGroup, false);
-            PersonGroupActivity G0 = G0();
-            if (G0 != null && !G0.getIsHost()) {
-                if (this.f33880g == 0) {
-                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e10), G0.getUtype()));
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06bb, viewGroup, false);
+            PersonGroupActivity F0 = F0();
+            if (F0 != null && !F0.getIsHost()) {
+                if (this.g == 0) {
+                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e14), F0.getUtype()));
                 } else {
-                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e0f));
+                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e13));
                 }
             } else {
-                d2 = (G0 == null || !G0.getIsHost()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f07dd), getString(R.string.obfuscated_res_0x7f0f07de));
+                d2 = (F0 == null || !F0.getIsHost()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f07e1), getString(R.string.obfuscated_res_0x7f0f07e2));
             }
-            this.f33877d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07022a)), d2, null);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b2);
-            this.f33875b = new g(getPageContext());
-            this.f33876c = new c.a.p0.u1.n.a(this);
-            this.f33875b.f(new b(this));
-            this.a.setPullRefresh(this.f33875b);
-            this.a.setAdapter((ListAdapter) this.f33876c);
+            this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070235)), d2, null);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ae);
+            this.b = new eu4(getPageContext());
+            this.c = new i77(this);
+            this.b.f(new b(this));
+            this.a.setPullRefresh(this.b);
+            this.a.setAdapter((ListAdapter) this.c);
             this.a.setOnItemClickListener(this);
-            this.f33877d.setVisibility(8);
-            this.a.removeHeaderView(this.f33877d);
-            this.f33878e = inflate.findViewById(R.id.obfuscated_res_0x7f090cf4);
-            if (G0() != null && this.f33880g == G0().getCurrentPageType()) {
+            this.d.setVisibility(8);
+            this.a.removeHeaderView(this.d);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cfb);
+            if (F0() != null && this.g == F0().getCurrentPageType()) {
                 this.a.F();
             }
             return inflate;
@@ -551,22 +539,22 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             MessageManager.getInstance().unRegisterListener(this.j);
             MessageManager.getInstance().unRegisterListener(this.i);
             MessageManager.getInstance().unRegisterListener(this.l);
-            MessageManager.getInstance().unRegisterListener(this.f33881h);
+            MessageManager.getInstance().unRegisterListener(this.h);
             super.onDestroyView();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            GroupInfoData item = this.f33876c.getItem(i);
-            PersonGroupActivity G0 = G0();
-            if (G0 == null || G0.onGroupSelected(item) || item == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            GroupInfoData item = this.c.getItem(i);
+            PersonGroupActivity F0 = F0();
+            if (F0 == null || F0.onGroupSelected(item) || item == null) {
                 return;
             }
-            if (this.f33880g != 1 && !G0.getIsHost()) {
-                if (G0.isCommonGroup(item.getGroupId())) {
+            if (this.g != 1 && !F0.getIsHost()) {
+                if (F0.isCommonGroup(item.getGroupId())) {
                     TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
                     return;
@@ -575,7 +563,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 MessageManager.getInstance().sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getActivity(), item.getGroupId(), 1)));
                 return;
             }
-            if (G0.getIsHost()) {
+            if (F0.getIsHost()) {
                 TiebaStatic.eventStat(getActivity(), "my_group_item", "click", 1, new Object[0]);
             } else {
                 TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
@@ -589,7 +577,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            if (this.f33879f) {
+            if (this.f) {
                 this.a.F();
             }
             onChangeSkinType(TbadkApplication.getInst().getSkinType());
@@ -601,9 +589,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onStart();
-            NoDataView noDataView = this.f33877d;
+            NoDataView noDataView = this.d;
             if (noDataView != null) {
-                noDataView.d(G0().getPageContext());
+                noDataView.d(F0().getPageContext());
             }
         }
     }
@@ -613,7 +601,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStop();
-            NoDataView noDataView = this.f33877d;
+            NoDataView noDataView = this.d;
             if (noDataView != null) {
                 noDataView.e();
             }

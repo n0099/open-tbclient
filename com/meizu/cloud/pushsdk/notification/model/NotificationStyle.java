@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";
@@ -55,8 +56,8 @@ public class NotificationStyle implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b(TAG, "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -84,13 +85,13 @@ public class NotificationStyle implements Parcelable {
                 if (!jSONObject.isNull(BANNER_IMAGE_URL)) {
                     notificationStyle.setBannerImageUrl(jSONObject.getString(BANNER_IMAGE_URL));
                 }
-            } catch (JSONException e2) {
-                str = "parse json obj error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = "parse json obj error " + e.getMessage();
             }
             return notificationStyle;
         }
         str = "no such tag notification_style";
-        c.h.a.a.a.b(TAG, str);
+        rm9.b(TAG, str);
         return notificationStyle;
     }
 

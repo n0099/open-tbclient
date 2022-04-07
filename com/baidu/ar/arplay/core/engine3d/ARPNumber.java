@@ -5,7 +5,7 @@ import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPNumber {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,5 +25,5 @@ public class ARPNumber {
         return (Quaternion) invokeLL.objValue;
     }
 
-    public static native float[] nativeRotationBetweenVector(float f2, float f3, float f4, float f5, float f6, float f7);
+    public static native float[] nativeRotationBetweenVector(float f, float f2, float f3, float f4, float f5, float f6);
 }

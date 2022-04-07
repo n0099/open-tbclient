@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DiskFetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

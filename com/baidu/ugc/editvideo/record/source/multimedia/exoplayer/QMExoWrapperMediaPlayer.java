@@ -5,8 +5,6 @@ import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.b;
-import c.a.v0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,11 +17,13 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.DefaultAMediaPlayer;
 import com.baidu.ugc.editvideo.record.source.MediaInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.repackage.w79;
+import com.repackage.x79;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        c d2 = b.c().d();
-        if (d2 != null) {
-            this.mInnerMediaPlayer = d2.a();
+        x79 d = w79.c().d();
+        if (d != null) {
+            this.mInnerMediaPlayer = d.a();
         }
         if (this.mInnerMediaPlayer == null) {
             this.mInnerMediaPlayer = new DefaultAMediaPlayer();
@@ -260,10 +260,10 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             long currentPosition = getCurrentPosition();
             double duration = getDuration();
-            double d2 = duration - (0.01d * duration);
-            if (currentPosition >= d2) {
+            double d = duration - (0.01d * duration);
+            if (currentPosition >= d) {
                 this.mSeekToEndPosition = currentPosition;
-                currentPosition = (long) d2;
+                currentPosition = (long) d;
             }
             seekToForce(currentPosition);
         }
@@ -468,10 +468,10 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public boolean setPlaybackSpeed(float f2) {
+    public boolean setPlaybackSpeed(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048630, this, f2)) == null) ? this.mInnerMediaPlayer.setPlaybackSpeed(f2) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048630, this, f)) == null) ? this.mInnerMediaPlayer.setPlaybackSpeed(f) : invokeF.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
@@ -491,10 +491,10 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
-            this.mInnerMediaPlayer.setVolume(f2);
+        if (interceptable == null || interceptable.invokeF(1048633, this, f) == null) {
+            this.mInnerMediaPlayer.setVolume(f);
         }
     }
 
@@ -529,10 +529,10 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void setVolume(float f2, float f3) {
+    public void setVolume(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mInnerMediaPlayer.setVolume(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mInnerMediaPlayer.setVolume(f, f2);
         }
     }
 

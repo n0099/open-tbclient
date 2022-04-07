@@ -7,19 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbPageContext<MsglistActivity<?>> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public List<MsgCommonItemAdapter> f33672b;
+        public List<MsgCommonItemAdapter> b;
 
         public a() {
             Interceptable interceptable = $ic;

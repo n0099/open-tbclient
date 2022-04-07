@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class be {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 8;
@@ -17,15 +17,9 @@ public class be {
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f906a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f44566b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f44567c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f44568d;
+    public int b;
+    public int c;
+    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,23 +49,23 @@ public class be {
                 return;
             }
         }
-        this.f44568d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
+        this.d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;
         this.f906a = new byte[256];
-        this.f44567c = 0;
-        this.f44566b = 0;
+        this.c = 0;
+        this.b = 0;
     }
 
-    public static int a(byte b2) {
+    public static int a(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) ? b2 >= 0 ? b2 : b2 + 256 : invokeB.intValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b >= 0 ? b : b + 256 : invokeB.intValue;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f44567c = 0;
-            this.f44566b = 0;
+            this.c = 0;
+            this.b = 0;
         }
     }
 
@@ -82,20 +76,20 @@ public class be {
             for (int i2 = 0; i2 < 256; i2++) {
                 this.f906a[i2] = (byte) i2;
             }
-            this.f44567c = 0;
-            this.f44566b = 0;
+            this.c = 0;
+            this.b = 0;
             while (true) {
-                int i3 = this.f44566b;
+                int i3 = this.b;
                 if (i3 >= i) {
                     break;
                 }
-                int a2 = ((this.f44567c + a(this.f906a[i3])) + a(bArr[this.f44566b % length])) % 256;
-                this.f44567c = a2;
-                a(this.f906a, this.f44566b, a2);
-                this.f44566b++;
+                int a2 = ((this.c + a(this.f906a[i3])) + a(bArr[this.b % length])) % 256;
+                this.c = a2;
+                a(this.f906a, this.b, a2);
+                this.b++;
             }
             if (i != 256) {
-                this.f44568d = ((this.f44567c + a(this.f906a[i])) + a(bArr[i % length])) % 256;
+                this.d = ((this.c + a(this.f906a[i])) + a(bArr[i % length])) % 256;
             }
             if (z) {
                 StringBuilder sb = new StringBuilder();
@@ -110,27 +104,27 @@ public class be {
                 sb.append("   j_");
                 sb.append(i4);
                 sb.append("=");
-                sb.append(this.f44567c);
+                sb.append(this.c);
                 sb.append("   j_");
                 sb.append(i);
                 sb.append("=");
-                sb.append(this.f44568d);
+                sb.append(this.d);
                 sb.append("   S_");
                 sb.append(i4);
                 sb.append("[j_");
                 sb.append(i4);
                 sb.append("]=");
-                sb.append(a(this.f906a[this.f44567c]));
+                sb.append(a(this.f906a[this.c]));
                 sb.append("   S_");
                 sb.append(i4);
                 sb.append("[j_");
                 sb.append(i);
                 sb.append("]=");
-                sb.append(a(this.f906a[this.f44568d]));
+                sb.append(a(this.f906a[this.d]));
                 if (this.f906a[1] != 0) {
                     sb.append("   S[1]!=0");
                 }
-                com.xiaomi.channel.commonutils.logger.b.m112a(sb.toString());
+                com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
             }
         }
     }
@@ -145,9 +139,9 @@ public class be {
     public static void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65542, null, bArr, i, i2) == null) {
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             bArr[i] = bArr[i2];
-            bArr[i2] = b2;
+            bArr[i2] = b;
         }
     }
 
@@ -155,15 +149,15 @@ public class be {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            byte[] m222a = com.xiaomi.push.bj.m222a(str);
+            byte[] m218a = com.xiaomi.push.bj.m218a(str);
             byte[] bytes = str2.getBytes();
-            byte[] bArr = new byte[m222a.length + 1 + bytes.length];
-            for (int i = 0; i < m222a.length; i++) {
-                bArr[i] = m222a[i];
+            byte[] bArr = new byte[m218a.length + 1 + bytes.length];
+            for (int i = 0; i < m218a.length; i++) {
+                bArr[i] = m218a[i];
             }
-            bArr[m222a.length] = 95;
+            bArr[m218a.length] = 95;
             for (int i2 = 0; i2 < bytes.length; i2++) {
-                bArr[m222a.length + 1 + i2] = bytes[i2];
+                bArr[m218a.length + 1 + i2] = bytes[i2];
             }
             return bArr;
         }
@@ -173,7 +167,7 @@ public class be {
     public static byte[] a(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) ? a(bArr, com.xiaomi.push.bj.m222a(str)) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) ? a(bArr, com.xiaomi.push.bj.m218a(str)) : (byte[]) invokeLL.objValue;
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
@@ -185,7 +179,7 @@ public class be {
             beVar.a(bArr);
             beVar.a();
             for (int i = 0; i < bArr2.length; i++) {
-                bArr3[i] = (byte) (bArr2[i] ^ beVar.m652a());
+                bArr3[i] = (byte) (bArr2[i] ^ beVar.m648a());
             }
             return bArr3;
         }
@@ -212,7 +206,7 @@ public class be {
             beVar.a(bArr);
             beVar.a();
             for (int i4 = 0; i4 < i2; i4++) {
-                bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ beVar.m652a());
+                bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ beVar.m648a());
             }
             return bArr3;
         }
@@ -220,17 +214,17 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte m652a() {
+    public byte m648a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = (this.f44566b + 1) % 256;
-            this.f44566b = i;
-            int a2 = (this.f44567c + a(this.f906a[i])) % 256;
-            this.f44567c = a2;
-            a(this.f906a, this.f44566b, a2);
+            int i = (this.b + 1) % 256;
+            this.b = i;
+            int a2 = (this.c + a(this.f906a[i])) % 256;
+            this.c = a2;
+            a(this.f906a, this.b, a2);
             byte[] bArr = this.f906a;
-            return bArr[(a(bArr[this.f44566b]) + a(this.f906a[this.f44567c])) % 256];
+            return bArr[(a(bArr[this.b]) + a(this.f906a[this.c])) % 256];
         }
         return invokeV.byteValue;
     }

@@ -5,14 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f43900b;
+    public final /* synthetic */ e b;
 
     public g(e eVar, e.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public final class g implements IPushActionListener {
                 return;
             }
         }
-        this.f43900b = eVar;
+        this.b = eVar;
         this.a = aVar;
     }
 
@@ -39,17 +37,17 @@ public final class g implements IPushActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 0) {
-                Object[] b2 = this.a.b();
-                if (b2 != null && b2.length != 0) {
-                    this.f43900b.a((String) this.a.b()[0]);
+                Object[] b = this.a.b();
+                if (b != null && b.length != 0) {
+                    this.b.a((String) this.a.b()[0]);
                     return;
                 } else {
                     com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                     return;
                 }
             }
-            this.f43900b.k = null;
-            bVar = this.f43900b.j;
+            this.b.k = null;
+            bVar = this.b.j;
             bVar.b("APP_TOKEN");
         }
     }

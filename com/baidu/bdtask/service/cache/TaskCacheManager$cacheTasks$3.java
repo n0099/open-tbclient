@@ -1,7 +1,5 @@
 package com.baidu.bdtask.service.cache;
 
-import c.a.j.h.b.c.a;
-import c.a.j.h.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,6 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.at;
+import com.repackage.dv;
+import com.repackage.xt;
 import java.nio.charset.Charset;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
@@ -20,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlin.text.Charsets;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +30,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
 
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.service.cache.TaskCacheManager$cacheTasks$3$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AnonymousClass1 extends Lambda implements Function0<String> {
         public static /* synthetic */ Interceptable $ic;
         public static final AnonymousClass1 INSTANCE;
@@ -80,7 +81,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
 
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.service.cache.TaskCacheManager$cacheTasks$3$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AnonymousClass2 extends Lambda implements Function0<String> {
         public static /* synthetic */ Interceptable $ic;
         public final /* synthetic */ String $data;
@@ -118,7 +119,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("fingerprint:");
-                str = this.this$0.this$0.f24946c;
+                str = this.this$0.this$0.c;
                 sb.append(str);
                 sb.append(" save state:");
                 sb.append(this.$data);
@@ -169,19 +170,19 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (m != null) {
                 byte[] bytes = m.getBytes(charset);
                 Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                String newFingerprint = g.b(bytes, false);
-                str = this.this$0.f24946c;
+                String newFingerprint = dv.b(bytes, false);
+                str = this.this$0.c;
                 if (Intrinsics.areEqual(newFingerprint, str)) {
                     DebugTrace.a.c(AnonymousClass1.INSTANCE);
                     return;
                 }
                 b bVar = this.this$0;
                 Intrinsics.checkExpressionValueIsNotNull(newFingerprint, "newFingerprint");
-                bVar.f24946c = newFingerprint;
+                bVar.c = newFingerprint;
                 DebugTrace.a.c(new AnonymousClass2(this, m));
-                a c2 = c.a.j.h.b.b.f3162c.c();
+                xt c = at.c.c();
                 str2 = this.this$0.a;
-                c2.a(m, str2);
+                c.a(m, str2);
                 return;
             }
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");

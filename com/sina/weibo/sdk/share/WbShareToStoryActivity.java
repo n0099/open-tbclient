@@ -160,8 +160,8 @@ public class WbShareToStoryActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.putExtra(WBConstants.Response.ERRCODE, i);
                 setResult(-1, intent);
-            } catch (Exception e2) {
-                LogUtil.v("weibo sdk", e2.toString());
+            } catch (Exception e) {
+                LogUtil.v("weibo sdk", e.toString());
             }
             finish();
         }

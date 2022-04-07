@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForwardingImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingImageOriginListener";
@@ -55,8 +55,8 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
                     if (imageOriginListener != null) {
                         try {
                             imageOriginListener.onImageLoaded(str, i, z);
-                        } catch (Exception e2) {
-                            FLog.e(TAG, "InternalListener exception in onImageLoaded", e2);
+                        } catch (Exception e) {
+                            FLog.e(TAG, "InternalListener exception in onImageLoaded", e);
                         }
                     }
                 }

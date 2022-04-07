@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IKernelLayerReuseHelper {
     boolean attachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str);
 

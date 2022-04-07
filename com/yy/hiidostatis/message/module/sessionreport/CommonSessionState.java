@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommonSessionState implements SessionReport.StatisContentAble {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public class CommonSessionState implements SessionReport.StatisContentAble {
                             String[] split = str3.split("=");
                             try {
                                 statisContent.put(split[0], split[1]);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -111,8 +111,8 @@ public class CommonSessionState implements SessionReport.StatisContentAble {
                         }
                     }
                     arrayList.add(statisContent);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
             return arrayList;

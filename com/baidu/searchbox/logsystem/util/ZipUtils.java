@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class ZipUtils {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (FileNotFoundException e2) {
-            e = e2;
+        } catch (FileNotFoundException e) {
+            e = e;
         }
         try {
             zipOutputStream.setComment(file.getName());
@@ -72,8 +72,8 @@ public class ZipUtils {
                                     zipOutputStream.write(bArr, 0, read);
                                 }
                                 zipOutputStream2 = fileInputStream;
-                            } catch (FileNotFoundException e3) {
-                                e = e3;
+                            } catch (FileNotFoundException e2) {
+                                e = e2;
                                 zipOutputStream2 = fileInputStream;
                                 e.printStackTrace();
                                 Closeables.closeSafely(zipOutputStream2);
@@ -84,8 +84,8 @@ public class ZipUtils {
                                 throw th;
                             }
                         }
-                    } catch (FileNotFoundException e4) {
-                        e = e4;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
                     }
                     Closeables.closeSafely(zipOutputStream2);
                 } catch (Throwable th3) {
@@ -94,8 +94,8 @@ public class ZipUtils {
             }
             zipOutputStream.flush();
             Closeables.closeSafely(zipOutputStream);
-        } catch (FileNotFoundException e5) {
-            e = e5;
+        } catch (FileNotFoundException e4) {
+            e = e4;
             zipOutputStream2 = zipOutputStream;
             if (LLog.sDebug) {
                 e.printStackTrace();
@@ -109,7 +109,7 @@ public class ZipUtils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipSrc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

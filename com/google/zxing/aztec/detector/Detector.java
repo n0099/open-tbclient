@@ -21,7 +21,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXPECTED_CORNER_BITS;
@@ -33,7 +33,7 @@ public final class Detector {
     public int nbLayers;
     public int shift;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,26 +127,26 @@ public final class Detector {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, point, point2)) == null) ? MathUtils.distance(point.getX(), point.getY(), point2.getX(), point2.getY()) : invokeLL.floatValue;
     }
 
-    public static ResultPoint[] expandSquare(ResultPoint[] resultPointArr, float f2, float f3) {
+    public static ResultPoint[] expandSquare(ResultPoint[] resultPointArr, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resultPointArr, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = f3 / (f2 * 2.0f);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resultPointArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float f3 = f2 / (f * 2.0f);
             float x = resultPointArr[0].getX() - resultPointArr[2].getX();
             float y = resultPointArr[0].getY() - resultPointArr[2].getY();
             float x2 = (resultPointArr[0].getX() + resultPointArr[2].getX()) / 2.0f;
             float y2 = (resultPointArr[0].getY() + resultPointArr[2].getY()) / 2.0f;
-            float f5 = x * f4;
-            float f6 = y * f4;
-            ResultPoint resultPoint = new ResultPoint(x2 + f5, y2 + f6);
-            ResultPoint resultPoint2 = new ResultPoint(x2 - f5, y2 - f6);
+            float f4 = x * f3;
+            float f5 = y * f3;
+            ResultPoint resultPoint = new ResultPoint(x2 + f4, y2 + f5);
+            ResultPoint resultPoint2 = new ResultPoint(x2 - f4, y2 - f5);
             float x3 = resultPointArr[1].getX() - resultPointArr[3].getX();
             float y3 = resultPointArr[1].getY() - resultPointArr[3].getY();
             float x4 = (resultPointArr[1].getX() + resultPointArr[3].getX()) / 2.0f;
             float y4 = (resultPointArr[1].getY() + resultPointArr[3].getY()) / 2.0f;
-            float f7 = x3 * f4;
-            float f8 = f4 * y3;
-            return new ResultPoint[]{resultPoint, new ResultPoint(x4 + f7, y4 + f8), resultPoint2, new ResultPoint(x4 - f7, y4 - f8)};
+            float f6 = x3 * f3;
+            float f7 = f3 * y3;
+            return new ResultPoint[]{resultPoint, new ResultPoint(x4 + f6, y4 + f7), resultPoint2, new ResultPoint(x4 - f6, y4 - f7)};
         }
         return (ResultPoint[]) invokeCommon.objValue;
     }
@@ -245,9 +245,9 @@ public final class Detector {
                     i++;
                 }
             }
-            float f2 = i / distance;
-            if (f2 <= 0.1f || f2 >= 0.9f) {
-                return (f2 <= 0.1f) == z ? 1 : -1;
+            float f = i / distance;
+            if (f <= 0.1f || f >= 0.9f) {
+                return (f <= 0.1f) == z ? 1 : -1;
             }
             return 0;
         }
@@ -434,11 +434,11 @@ public final class Detector {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65553, this, bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4)) == null) {
             GridSampler gridSampler = GridSampler.getInstance();
             int dimension = getDimension();
-            float f2 = dimension / 2.0f;
+            float f = dimension / 2.0f;
             int i = this.nbCenterLayers;
-            float f3 = f2 - i;
-            float f4 = f2 + i;
-            return gridSampler.sampleGrid(bitMatrix, dimension, dimension, f3, f3, f4, f3, f4, f4, f3, f4, resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint4.getX(), resultPoint4.getY());
+            float f2 = f - i;
+            float f3 = f + i;
+            return gridSampler.sampleGrid(bitMatrix, dimension, dimension, f2, f2, f3, f2, f3, f3, f2, f3, resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint4.getX(), resultPoint4.getY());
         }
         return (BitMatrix) invokeLLLLL.objValue;
     }
@@ -448,15 +448,15 @@ public final class Detector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65554, this, resultPoint, resultPoint2, i)) == null) {
             float distance = distance(resultPoint, resultPoint2);
-            float f2 = distance / i;
+            float f = distance / i;
             float x = resultPoint.getX();
             float y = resultPoint.getY();
-            float x2 = ((resultPoint2.getX() - resultPoint.getX()) * f2) / distance;
-            float y2 = (f2 * (resultPoint2.getY() - resultPoint.getY())) / distance;
+            float x2 = ((resultPoint2.getX() - resultPoint.getX()) * f) / distance;
+            float y2 = (f * (resultPoint2.getY() - resultPoint.getY())) / distance;
             int i2 = 0;
             for (int i3 = 0; i3 < i; i3++) {
-                float f3 = i3;
-                if (this.image.get(MathUtils.round((f3 * x2) + x), MathUtils.round((f3 * y2) + y))) {
+                float f2 = i3;
+                if (this.image.get(MathUtils.round((f2 * x2) + x), MathUtils.round((f2 * y2) + y))) {
                     i2 |= 1 << ((i - i3) - 1);
                 }
             }

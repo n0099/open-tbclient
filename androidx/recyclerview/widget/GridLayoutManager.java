@@ -343,9 +343,9 @@ public class GridLayoutManager extends LinearLayoutManager {
                 i3 = -1;
             }
             while (i2 != i5) {
-                View view = this.mSet[i2];
-                LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                int spanSize = getSpanSize(recycler, state, getPosition(view));
+                View view2 = this.mSet[i2];
+                LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+                int spanSize = getSpanSize(recycler, state, getPosition(view2));
                 layoutParams.mSpanSize = spanSize;
                 layoutParams.mSpanIndex = i4;
                 i4 += spanSize;
@@ -532,19 +532,19 @@ public class GridLayoutManager extends LinearLayoutManager {
         return invokeLLI.intValue;
     }
 
-    private void guessMeasurement(float f2, int i) {
+    private void guessMeasurement(float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
-            calculateItemBorders(Math.max(Math.round(f2 * this.mSpanCount), i));
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            calculateItemBorders(Math.max(Math.round(f * this.mSpanCount), i));
         }
     }
 
-    private void measureChild(View view, int i, boolean z) {
+    private void measureChild(View view2, int i, boolean z) {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{view, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             Rect rect = layoutParams.mDecorInsets;
             int i4 = rect.top + rect.bottom + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
             int i5 = rect.left + rect.right + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
@@ -558,22 +558,22 @@ public class GridLayoutManager extends LinearLayoutManager {
                 i2 = childMeasureSpec;
                 i3 = childMeasureSpec2;
             }
-            measureChildWithDecorationsAndMargin(view, i3, i2, z);
+            measureChildWithDecorationsAndMargin(view2, i3, i2, z);
         }
     }
 
-    private void measureChildWithDecorationsAndMargin(View view, int i, int i2, boolean z) {
+    private void measureChildWithDecorationsAndMargin(View view2, int i, int i2, boolean z) {
         boolean shouldMeasureChild;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
             if (z) {
-                shouldMeasureChild = shouldReMeasureChild(view, i, i2, layoutParams);
+                shouldMeasureChild = shouldReMeasureChild(view2, i, i2, layoutParams);
             } else {
-                shouldMeasureChild = shouldMeasureChild(view, i, i2, layoutParams);
+                shouldMeasureChild = shouldMeasureChild(view2, i, i2, layoutParams);
             }
             if (shouldMeasureChild) {
-                view.measure(i, i2);
+                view2.measure(i, i2);
             }
         }
     }
@@ -676,27 +676,27 @@ public class GridLayoutManager extends LinearLayoutManager {
             int startAfterPadding = this.mOrientationHelper.getStartAfterPadding();
             int endAfterPadding = this.mOrientationHelper.getEndAfterPadding();
             int i4 = i2 > i ? 1 : -1;
-            View view = null;
             View view2 = null;
+            View view3 = null;
             while (i != i2) {
                 View childAt = getChildAt(i);
                 int position = getPosition(childAt);
                 if (position >= 0 && position < i3 && getSpanIndex(recycler, state, position) == 0) {
                     if (((RecyclerView.LayoutParams) childAt.getLayoutParams()).isItemRemoved()) {
-                        if (view2 == null) {
-                            view2 = childAt;
+                        if (view3 == null) {
+                            view3 = childAt;
                         }
                     } else if (this.mOrientationHelper.getDecoratedStart(childAt) < endAfterPadding && this.mOrientationHelper.getDecoratedEnd(childAt) >= startAfterPadding) {
                         return childAt;
                     } else {
-                        if (view == null) {
-                            view = childAt;
+                        if (view2 == null) {
+                            view2 = childAt;
                         }
                     }
                 }
                 i += i4;
             }
-            return view != null ? view : view2;
+            return view2 != null ? view2 : view3;
         }
         return (View) invokeCommon.objValue;
     }
@@ -841,52 +841,52 @@ public class GridLayoutManager extends LinearLayoutManager {
                 this.mSet[i11] = next;
                 i11++;
             }
-            float f2 = 0.0f;
+            float f = 0.0f;
             assignSpans(recycler, state, i11, z2);
             int i13 = 0;
             int i14 = 0;
             while (i13 < i11) {
-                View view = this.mSet[i13];
+                View view2 = this.mSet[i13];
                 if (layoutState.mScrapList == null) {
                     if (z2) {
-                        addView(view);
+                        addView(view2);
                     } else {
-                        addView(view, r5);
+                        addView(view2, r5);
                     }
                 } else if (z2) {
-                    addDisappearingView(view);
+                    addDisappearingView(view2);
                 } else {
-                    addDisappearingView(view, r5);
+                    addDisappearingView(view2, r5);
                 }
-                calculateItemDecorationsForChild(view, this.mDecorInsets);
-                measureChild(view, modeInOther, (boolean) r5);
-                int decoratedMeasurement = this.mOrientationHelper.getDecoratedMeasurement(view);
+                calculateItemDecorationsForChild(view2, this.mDecorInsets);
+                measureChild(view2, modeInOther, (boolean) r5);
+                int decoratedMeasurement = this.mOrientationHelper.getDecoratedMeasurement(view2);
                 if (decoratedMeasurement > i14) {
                     i14 = decoratedMeasurement;
                 }
-                float decoratedMeasurementInOther2 = (this.mOrientationHelper.getDecoratedMeasurementInOther(view) * 1.0f) / ((LayoutParams) view.getLayoutParams()).mSpanSize;
-                if (decoratedMeasurementInOther2 > f2) {
-                    f2 = decoratedMeasurementInOther2;
+                float decoratedMeasurementInOther2 = (this.mOrientationHelper.getDecoratedMeasurementInOther(view2) * 1.0f) / ((LayoutParams) view2.getLayoutParams()).mSpanSize;
+                if (decoratedMeasurementInOther2 > f) {
+                    f = decoratedMeasurementInOther2;
                 }
                 i13++;
                 r5 = 0;
             }
             if (z) {
-                guessMeasurement(f2, i9);
+                guessMeasurement(f, i9);
                 i14 = 0;
                 for (int i15 = 0; i15 < i11; i15++) {
-                    View view2 = this.mSet[i15];
-                    measureChild(view2, 1073741824, true);
-                    int decoratedMeasurement2 = this.mOrientationHelper.getDecoratedMeasurement(view2);
+                    View view3 = this.mSet[i15];
+                    measureChild(view3, 1073741824, true);
+                    int decoratedMeasurement2 = this.mOrientationHelper.getDecoratedMeasurement(view3);
                     if (decoratedMeasurement2 > i14) {
                         i14 = decoratedMeasurement2;
                     }
                 }
             }
             for (int i16 = 0; i16 < i11; i16++) {
-                View view3 = this.mSet[i16];
-                if (this.mOrientationHelper.getDecoratedMeasurement(view3) != i14) {
-                    LayoutParams layoutParams = (LayoutParams) view3.getLayoutParams();
+                View view4 = this.mSet[i16];
+                if (this.mOrientationHelper.getDecoratedMeasurement(view4) != i14) {
+                    LayoutParams layoutParams = (LayoutParams) view4.getLayoutParams();
                     Rect rect = layoutParams.mDecorInsets;
                     int i17 = rect.top + rect.bottom + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
                     int i18 = rect.left + rect.right + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
@@ -899,7 +899,7 @@ public class GridLayoutManager extends LinearLayoutManager {
                         childMeasureSpec = RecyclerView.LayoutManager.getChildMeasureSpec(spaceForSpanRange, 1073741824, i17, ((ViewGroup.MarginLayoutParams) layoutParams).height, false);
                         i8 = makeMeasureSpec;
                     }
-                    measureChildWithDecorationsAndMargin(view3, i8, childMeasureSpec, true);
+                    measureChildWithDecorationsAndMargin(view4, i8, childMeasureSpec, true);
                 }
             }
             int i19 = 0;
@@ -929,12 +929,12 @@ public class GridLayoutManager extends LinearLayoutManager {
                 i4 = 0;
             }
             while (i19 < i11) {
-                View view4 = this.mSet[i19];
-                LayoutParams layoutParams2 = (LayoutParams) view4.getLayoutParams();
+                View view5 = this.mSet[i19];
+                LayoutParams layoutParams2 = (LayoutParams) view5.getLayoutParams();
                 if (this.mOrientation == 1) {
                     if (isLayoutRTL()) {
                         int paddingLeft = getPaddingLeft() + this.mCachedBorders[this.mSpanCount - layoutParams2.mSpanIndex];
-                        i2 = paddingLeft - this.mOrientationHelper.getDecoratedMeasurementInOther(view4);
+                        i2 = paddingLeft - this.mOrientationHelper.getDecoratedMeasurementInOther(view5);
                         decoratedMeasurementInOther = i3;
                         i6 = paddingLeft;
                         i5 = i4;
@@ -943,12 +943,12 @@ public class GridLayoutManager extends LinearLayoutManager {
                         decoratedMeasurementInOther = i3;
                         i7 = paddingLeft2;
                         i5 = i4;
-                        i6 = this.mOrientationHelper.getDecoratedMeasurementInOther(view4) + paddingLeft2;
-                        layoutDecoratedWithMargins(view4, i7, i5, i6, decoratedMeasurementInOther);
+                        i6 = this.mOrientationHelper.getDecoratedMeasurementInOther(view5) + paddingLeft2;
+                        layoutDecoratedWithMargins(view5, i7, i5, i6, decoratedMeasurementInOther);
                         if (!layoutParams2.isItemRemoved() || layoutParams2.isItemChanged()) {
                             layoutChunkResult.mIgnoreConsumed = true;
                         }
-                        layoutChunkResult.mFocusable |= view4.hasFocusable();
+                        layoutChunkResult.mFocusable |= view5.hasFocusable();
                         i19++;
                         i3 = decoratedMeasurementInOther;
                         i = i6;
@@ -959,14 +959,14 @@ public class GridLayoutManager extends LinearLayoutManager {
                     int paddingTop = getPaddingTop() + this.mCachedBorders[layoutParams2.mSpanIndex];
                     i5 = paddingTop;
                     i6 = i;
-                    decoratedMeasurementInOther = this.mOrientationHelper.getDecoratedMeasurementInOther(view4) + paddingTop;
+                    decoratedMeasurementInOther = this.mOrientationHelper.getDecoratedMeasurementInOther(view5) + paddingTop;
                 }
                 i7 = i2;
-                layoutDecoratedWithMargins(view4, i7, i5, i6, decoratedMeasurementInOther);
+                layoutDecoratedWithMargins(view5, i7, i5, i6, decoratedMeasurementInOther);
                 if (!layoutParams2.isItemRemoved()) {
                 }
                 layoutChunkResult.mIgnoreConsumed = true;
-                layoutChunkResult.mFocusable |= view4.hasFocusable();
+                layoutChunkResult.mFocusable |= view5.hasFocusable();
                 i19++;
                 i3 = decoratedMeasurementInOther;
                 i = i6;
@@ -1001,31 +1001,31 @@ public class GridLayoutManager extends LinearLayoutManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public View onFocusSearchFailed(View view, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
+    public View onFocusSearchFailed(View view2, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         InterceptResult invokeLILL;
         int childCount;
         int i2;
         int i3;
-        View view2;
         View view3;
+        View view4;
         int i4;
         int i5;
         boolean z;
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048594, this, view, i, recycler, state)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048594, this, view2, i, recycler, state)) == null) {
             RecyclerView.Recycler recycler2 = recycler;
             RecyclerView.State state2 = state;
-            View findContainingItemView = findContainingItemView(view);
-            View view4 = null;
+            View findContainingItemView = findContainingItemView(view2);
+            View view5 = null;
             if (findContainingItemView == null) {
                 return null;
             }
             LayoutParams layoutParams = (LayoutParams) findContainingItemView.getLayoutParams();
             int i8 = layoutParams.mSpanIndex;
             int i9 = layoutParams.mSpanSize + i8;
-            if (super.onFocusSearchFailed(view, i, recycler, state) == null) {
+            if (super.onFocusSearchFailed(view2, i, recycler, state) == null) {
                 return null;
             }
             if ((convertFocusDirectionToLayoutDirection(i) == 1) != this.mShouldReverseLayout) {
@@ -1044,7 +1044,7 @@ public class GridLayoutManager extends LinearLayoutManager {
             int i12 = -1;
             int i13 = -1;
             int i14 = 0;
-            View view5 = null;
+            View view6 = null;
             while (i10 != childCount) {
                 int spanGroupIndex2 = getSpanGroupIndex(recycler2, state2, i10);
                 View childAt = getChildAt(i10);
@@ -1054,20 +1054,20 @@ public class GridLayoutManager extends LinearLayoutManager {
                 if (!childAt.hasFocusable() || spanGroupIndex2 == spanGroupIndex) {
                     LayoutParams layoutParams2 = (LayoutParams) childAt.getLayoutParams();
                     int i15 = layoutParams2.mSpanIndex;
-                    view2 = findContainingItemView;
+                    view3 = findContainingItemView;
                     int i16 = layoutParams2.mSpanSize + i15;
                     if (childAt.hasFocusable() && i15 == i8 && i16 == i9) {
                         return childAt;
                     }
-                    if (!(childAt.hasFocusable() && view4 == null) && (childAt.hasFocusable() || view5 != null)) {
-                        view3 = view5;
+                    if (!(childAt.hasFocusable() && view5 == null) && (childAt.hasFocusable() || view6 != null)) {
+                        view4 = view6;
                         int min = Math.min(i16, i9) - Math.max(i15, i8);
                         if (childAt.hasFocusable()) {
                             if (min <= i11) {
                                 if (min == i11) {
                                 }
                             }
-                        } else if (view4 == null) {
+                        } else if (view5 == null) {
                             i4 = i11;
                             i5 = childCount;
                             if (isViewPartiallyVisible(childAt, false, true)) {
@@ -1079,20 +1079,20 @@ public class GridLayoutManager extends LinearLayoutManager {
                                             i12 = layoutParams2.mSpanIndex;
                                             i13 = i7;
                                             i14 = i6;
-                                            view5 = view3;
-                                            view4 = childAt;
+                                            view6 = view4;
+                                            view5 = childAt;
                                             i11 = Math.min(i16, i9) - Math.max(i15, i8);
                                         } else {
                                             int i17 = layoutParams2.mSpanIndex;
                                             i14 = Math.min(i16, i9) - Math.max(i15, i8);
                                             i13 = i17;
                                             i11 = i4;
-                                            view5 = childAt;
+                                            view6 = childAt;
                                         }
                                         i10 += i3;
                                         recycler2 = recycler;
                                         state2 = state;
-                                        findContainingItemView = view2;
+                                        findContainingItemView = view3;
                                         childCount = i5;
                                     }
                                 } else {
@@ -1120,7 +1120,7 @@ public class GridLayoutManager extends LinearLayoutManager {
                         if (z) {
                         }
                     } else {
-                        view3 = view5;
+                        view4 = view6;
                     }
                     i4 = i11;
                     i5 = childCount;
@@ -1129,11 +1129,11 @@ public class GridLayoutManager extends LinearLayoutManager {
                     z = true;
                     if (z) {
                     }
-                } else if (view4 != null) {
+                } else if (view5 != null) {
                     break;
                 } else {
-                    view2 = findContainingItemView;
-                    view3 = view5;
+                    view3 = findContainingItemView;
+                    view4 = view6;
                     i4 = i11;
                     i5 = childCount;
                     i7 = i13;
@@ -1142,25 +1142,25 @@ public class GridLayoutManager extends LinearLayoutManager {
                 i13 = i7;
                 i14 = i6;
                 i11 = i4;
-                view5 = view3;
+                view6 = view4;
                 i10 += i3;
                 recycler2 = recycler;
                 state2 = state;
-                findContainingItemView = view2;
+                findContainingItemView = view3;
                 childCount = i5;
             }
-            return view4 != null ? view4 : view5;
+            return view5 != null ? view5 : view6;
         }
         return (View) invokeLILL.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-    public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.Recycler recycler, RecyclerView.State state, View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public void onInitializeAccessibilityNodeInfoForItem(RecyclerView.Recycler recycler, RecyclerView.State state, View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048595, this, recycler, state, view, accessibilityNodeInfoCompat) == null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeLLLL(1048595, this, recycler, state, view2, accessibilityNodeInfoCompat) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (!(layoutParams instanceof LayoutParams)) {
-                super.onInitializeAccessibilityNodeInfoForItem(view, accessibilityNodeInfoCompat);
+                super.onInitializeAccessibilityNodeInfoForItem(view2, accessibilityNodeInfoCompat);
                 return;
             }
             LayoutParams layoutParams2 = (LayoutParams) layoutParams;

@@ -32,38 +32,34 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<File> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38037b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 4;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final InterfaceC1913a f38038b;
+        public final InterfaceC0253a b;
 
         /* renamed from: com.bytedance.pangle.c.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public interface InterfaceC1913a {
+        /* loaded from: classes4.dex */
+        public interface InterfaceC0253a {
             Object a(File file, DexFile dexFile);
         }
 
         /* renamed from: com.bytedance.pangle.c.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C1914b implements InterfaceC1913a {
+        /* loaded from: classes4.dex */
+        public static class C0254b implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
 
-            public C1914b(Class<?> cls) {
+            public C0254b(Class<?> cls) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +79,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC1913a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -91,8 +87,8 @@ public final class b {
             }
         }
 
-        /* loaded from: classes6.dex */
-        public static class c implements InterfaceC1913a {
+        /* loaded from: classes4.dex */
+        public static class c implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
@@ -117,7 +113,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC1913a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -125,8 +121,8 @@ public final class b {
             }
         }
 
-        /* loaded from: classes6.dex */
-        public static class d implements InterfaceC1913a {
+        /* loaded from: classes4.dex */
+        public static class d implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
@@ -151,7 +147,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC1913a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -175,7 +171,7 @@ public final class b {
         }
 
         public a() {
-            InterfaceC1913a dVar;
+            InterfaceC0253a dVar;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,14 +187,14 @@ public final class b {
             Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
             try {
                 try {
-                    dVar = new C1914b(cls);
+                    dVar = new C0254b(cls);
                 } catch (NoSuchMethodException unused) {
                     dVar = new d(cls);
                 }
             } catch (NoSuchMethodException unused2) {
                 dVar = new c(cls);
             }
-            this.f38038b = dVar;
+            this.b = dVar;
         }
 
         public static void a(ClassLoader classLoader, List<? extends File> list) {
@@ -210,23 +206,23 @@ public final class b {
                 Object[] objArr = new Object[size];
                 for (int i = 0; i < size; i++) {
                     File file = list.get(i);
-                    InterfaceC1913a interfaceC1913a = aVar.f38038b;
+                    InterfaceC0253a interfaceC0253a = aVar.b;
                     String path = file.getPath();
                     File parentFile = file.getParentFile();
                     String name = file.getName();
-                    objArr[i] = interfaceC1913a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - a) + ".dex").getPath(), 0));
+                    objArr[i] = interfaceC0253a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - a) + ".dex").getPath(), 0));
                 }
                 try {
                     b.a(obj, "dexElements", objArr);
-                } catch (NoSuchFieldException e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed find field 'dexElements' attempting 'pathElements'", e2);
+                } catch (NoSuchFieldException e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failed find field 'dexElements' attempting 'pathElements'", e);
                     b.a(obj, "pathElements", objArr);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,8 +231,8 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65536, null, classLoader, list) == null) {
                 int size = list.size();
-                Field b2 = b.b(classLoader, "path");
-                StringBuilder sb = new StringBuilder((String) b2.get(classLoader));
+                Field b = b.b(classLoader, "path");
+                StringBuilder sb = new StringBuilder((String) b.get(classLoader));
                 String[] strArr = new String[size];
                 File[] fileArr = new File[size];
                 ZipFile[] zipFileArr = new ZipFile[size];
@@ -253,7 +249,7 @@ public final class b {
                     zipFileArr[previousIndex] = new ZipFile(next);
                     dexFileArr[previousIndex] = DexFile.loadDex(absolutePath, absolutePath + ".dex", 0);
                 }
-                b2.set(classLoader, sb.toString());
+                b.set(classLoader, sb.toString());
                 b.a(classLoader, "mPaths", strArr);
                 b.a(classLoader, "mFiles", fileArr);
                 b.a(classLoader, "mZips", zipFileArr);
@@ -276,7 +272,7 @@ public final class b {
             }
         }
         a = new HashSet();
-        f38037b = a(System.getProperty("java.vm.version"));
+        b = a(System.getProperty("java.vm.version"));
     }
 
     public static Field b(Object obj, String str) {
@@ -302,7 +298,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, pluginContext) == null) {
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex Installing application");
-            if (f38037b) {
+            if (b) {
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex VM has multidex support, MultiDex support library is disabled.");
             } else if (Build.VERSION.SDK_INT >= 4) {
                 try {
@@ -313,9 +309,9 @@ public final class b {
                     }
                     a(a2, pluginContext, new File(pluginContext.mPlugin.mHostApplicationInfoHookSomeField.sourceDir), "secondary-dexes", a2.packageName);
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginMultiDex install done");
-                } catch (Exception e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDex installation failure", e2);
-                    throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex MultiDex installation failure", e);
+                    throw new RuntimeException("MultiDex installation failed (" + e.getMessage() + ").");
                 }
             } else {
                 throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -388,24 +384,24 @@ public final class b {
                             b(pluginContext);
                             File a2 = a(pluginContext, pluginContext.getDataDir(), str);
                             com.bytedance.pangle.c.a aVar = new com.bytedance.pangle.c.a(file, a2);
-                            IOException e2 = null;
+                            IOException e = null;
                             try {
                                 a(pluginClassLoader, a2, aVar.a(pluginContext, str2, false));
-                            } catch (IOException e3) {
-                                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailed to install extracted secondary dex files, retrying with forced extraction", e3);
+                            } catch (IOException e2) {
+                                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailed to install extracted secondary dex files, retrying with forced extraction", e2);
                                 a(pluginClassLoader, a2, aVar.a(pluginContext, str2, true));
                             }
                             try {
                                 aVar.close();
-                            } catch (IOException e4) {
-                                e2 = e4;
+                            } catch (IOException e3) {
+                                e = e3;
                             }
-                            if (e2 != null) {
-                                throw e2;
+                            if (e != null) {
+                                throw e;
                             }
                         }
-                    } catch (RuntimeException e5) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e5);
+                    } catch (RuntimeException e4) {
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e4);
                     }
                 }
             }
@@ -413,8 +409,8 @@ public final class b {
     }
 
     /* renamed from: com.bytedance.pangle.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C1915b {
+    /* loaded from: classes4.dex */
+    public static final class C0255b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -430,8 +426,8 @@ public final class b {
                     while (it.hasNext()) {
                         ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDex Exception in makeDexElement", (IOException) it.next());
                     }
-                    Field b2 = b.b(obj, "dexElementsSuppressedExceptions");
-                    IOException[] iOExceptionArr2 = (IOException[]) b2.get(obj);
+                    Field b = b.b(obj, "dexElementsSuppressedExceptions");
+                    IOException[] iOExceptionArr2 = (IOException[]) b.get(obj);
                     if (iOExceptionArr2 == null) {
                         iOExceptionArr = (IOException[]) arrayList.toArray(new IOException[arrayList.size()]);
                     } else {
@@ -440,7 +436,7 @@ public final class b {
                         System.arraycopy(iOExceptionArr2, 0, iOExceptionArr3, arrayList.size(), iOExceptionArr2.length);
                         iOExceptionArr = iOExceptionArr3;
                     }
-                    b2.set(obj, iOExceptionArr);
+                    b.set(obj, iOExceptionArr);
                     IOException iOException = new IOException("I/O exception during makeDexElement");
                     iOException.initCause((Throwable) arrayList.get(0));
                     throw iOException;
@@ -461,8 +457,8 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 return context.getApplicationInfo();
-            } catch (RuntimeException e2) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e2);
+            } catch (RuntimeException e) {
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginMultiDexFailure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e);
                 return null;
             }
         }
@@ -503,7 +499,7 @@ public final class b {
         }
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            C1915b.a(classLoader, list, file);
+            C0255b.a(classLoader, list, file);
         } else if (i >= 14) {
             a.a(classLoader, list);
         } else {

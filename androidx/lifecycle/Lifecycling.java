@@ -66,12 +66,12 @@ public class Lifecycling {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, constructor, obj)) == null) {
             try {
                 return constructor.newInstance(obj);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e2) {
                 throw new RuntimeException(e2);
-            } catch (InstantiationException e3) {
+            } catch (InvocationTargetException e3) {
                 throw new RuntimeException(e3);
-            } catch (InvocationTargetException e4) {
-                throw new RuntimeException(e4);
             }
         }
         return (GeneratedAdapter) invokeLL.objValue;
@@ -100,8 +100,8 @@ public class Lifecycling {
                 return declaredConstructor;
             } catch (ClassNotFoundException unused) {
                 return null;
-            } catch (NoSuchMethodException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchMethodException e) {
+                throw new RuntimeException(e);
             }
         }
         return (Constructor) invokeL.objValue;

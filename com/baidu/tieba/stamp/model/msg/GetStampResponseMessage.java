@@ -1,6 +1,5 @@
 package com.baidu.tieba.stamp.model.msg;
 
-import c.a.p0.w3.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uh8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GetStampResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<d> mFetchStampDataList;
+    public List<uh8> mFetchStampDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStampResponseMessage(int i) {
@@ -50,15 +50,15 @@ public class GetStampResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                d dVar = new d();
-                dVar.d(jSONArray.getJSONObject(i2).optString("title"));
-                dVar.c(jSONArray.getJSONObject(i2).optString("pic160"));
-                this.mFetchStampDataList.add(dVar);
+                uh8 uh8Var = new uh8();
+                uh8Var.d(jSONArray.getJSONObject(i2).optString("title"));
+                uh8Var.c(jSONArray.getJSONObject(i2).optString("pic160"));
+                this.mFetchStampDataList.add(uh8Var);
             }
         }
     }
 
-    public List<d> getStampList() {
+    public List<uh8> getStampList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFetchStampDataList : (List) invokeV.objValue;

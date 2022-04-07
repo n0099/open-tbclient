@@ -11,8 +11,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-import c.a.n0.a.a;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,29 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class SwanAppRoundCornerListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final boolean f29329f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final float f29330g;
+    public static final boolean f;
+    public static final float g;
     public transient /* synthetic */ FieldHolder $fh;
     public final Path a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Paint f29331b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final RectF f29332c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float[] f29333d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public PorterDuffXfermode f29334e;
+    public final Paint b;
+    public final RectF c;
+    public float[] d;
+    public PorterDuffXfermode e;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +46,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f29329f = a.a;
-        f29330g = n0.h(11.0f);
+        f = tg1.a;
+        g = ae3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,10 +69,10 @@ public class SwanAppRoundCornerListView extends ListView {
             }
         }
         this.a = new Path();
-        this.f29331b = new Paint(1);
-        this.f29332c = new RectF();
-        float f2 = f29330g;
-        this.f29333d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.b = new Paint(1);
+        this.c = new RectF();
+        float f2 = g;
+        this.d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -93,10 +81,10 @@ public class SwanAppRoundCornerListView extends ListView {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
             canvas.save();
-            this.f29331b.setColor(-1);
-            this.f29331b.setXfermode(this.f29334e);
-            canvas.drawPath(this.a, this.f29331b);
-            this.f29331b.setXfermode(null);
+            this.b.setColor(-1);
+            this.b.setXfermode(this.e);
+            canvas.drawPath(this.a, this.b);
+            this.b.setXfermode(null);
             canvas.restore();
         }
     }
@@ -106,10 +94,10 @@ public class SwanAppRoundCornerListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.f29332c.set(0.0f, 0.0f, i, i2 + 1);
+            this.c.set(0.0f, 0.0f, i, i2 + 1);
             this.a.reset();
-            this.a.addRoundRect(this.f29332c, this.f29333d, Path.Direction.CW);
-            this.f29334e = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+            this.a.addRoundRect(this.c, this.d, Path.Direction.CW);
+            this.e = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
         }
     }
 
@@ -125,14 +113,14 @@ public class SwanAppRoundCornerListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
             if (fArr.length < 8) {
-                if (f29329f) {
+                if (f) {
                     throw new IllegalStateException("radii[] needs 8 values");
                 }
                 return;
             }
-            this.f29333d = new float[8];
+            this.d = new float[8];
             for (int i = 0; i < 8; i++) {
-                this.f29333d[i] = fArr[i];
+                this.d[i] = fArr[i];
             }
         }
     }
@@ -157,10 +145,10 @@ public class SwanAppRoundCornerListView extends ListView {
             }
         }
         this.a = new Path();
-        this.f29331b = new Paint(1);
-        this.f29332c = new RectF();
-        float f2 = f29330g;
-        this.f29333d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.b = new Paint(1);
+        this.c = new RectF();
+        float f2 = g;
+        this.d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -183,9 +171,9 @@ public class SwanAppRoundCornerListView extends ListView {
             }
         }
         this.a = new Path();
-        this.f29331b = new Paint(1);
-        this.f29332c = new RectF();
-        float f2 = f29330g;
-        this.f29333d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.b = new Paint(1);
+        this.c = new RectF();
+        float f2 = g;
+        this.d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 }

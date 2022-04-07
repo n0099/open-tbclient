@@ -2,26 +2,24 @@ package com.baidu.tieba.newfaceshop;
 
 import android.os.Handler;
 import android.os.Looper;
-import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Message a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FaceBaseModel f34654b;
+        public final /* synthetic */ FaceBaseModel b;
 
         public a(FaceBaseModel faceBaseModel, Message message) {
             Interceptable interceptable = $ic;
@@ -38,7 +36,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f34654b = faceBaseModel;
+            this.b = faceBaseModel;
             this.a = message;
         }
 
@@ -46,7 +44,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34654b.sendMessage(this.a);
+                this.b.sendMessage(this.a);
             }
         }
     }
@@ -69,7 +67,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (n.B()) {
+            if (oi.B()) {
                 super.sendMessage(message);
             } else {
                 new Handler(Looper.getMainLooper()).post(new a(this, message));

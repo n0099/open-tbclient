@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class x extends b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static x f43969b;
+    public static x b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public x() {
@@ -37,10 +35,10 @@ public final class x extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (x.class) {
-                if (f43969b == null) {
-                    f43969b = new x();
+                if (b == null) {
+                    b = new x();
                 }
-                xVar = f43969b;
+                xVar = b;
             }
             return xVar;
         }
@@ -63,8 +61,8 @@ public final class x extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] c2 = c(b("com.vivo.push.secure_cache_iv", ""));
-            return (c2 == null || c2.length <= 0) ? new byte[]{34, 32, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 33, 34, 32, 33, 33, 33, 34, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Base64.INTERNAL_PADDING, 32, 32, 32} : c2;
+            byte[] c = c(b("com.vivo.push.secure_cache_iv", ""));
+            return (c == null || c.length <= 0) ? new byte[]{34, 32, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 33, 34, 32, 33, 33, 33, 34, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Base64.INTERNAL_PADDING, 32, 32, 32} : c;
         }
         return (byte[]) invokeV.objValue;
     }
@@ -73,8 +71,8 @@ public final class x extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] c2 = c(b("com.vivo.push.secure_cache_key", ""));
-            return (c2 == null || c2.length <= 0) ? new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 32, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Base64.INTERNAL_PADDING, 34, 33} : c2;
+            byte[] c = c(b("com.vivo.push.secure_cache_key", ""));
+            return (c == null || c.length <= 0) ? new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 32, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Base64.INTERNAL_PADDING, 34, 33} : c;
         }
         return (byte[]) invokeV.objValue;
     }
@@ -96,8 +94,8 @@ public final class x extends b {
                 for (int i2 = 0; i2 < i; i2++) {
                     bArr[i2] = Byte.parseByte(split[i2].trim());
                 }
-            } catch (Exception e2) {
-                p.a("SharePreferenceManager", "getCodeBytes error:" + e2.getMessage());
+            } catch (Exception e) {
+                p.a("SharePreferenceManager", "getCodeBytes error:" + e.getMessage());
             }
             return bArr;
         }

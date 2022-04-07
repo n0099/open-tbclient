@@ -3,7 +3,7 @@ package com.kwad.sdk.collector.model.jni;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.a;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AnalyseTaskNative extends NativeObject implements a {
     public AnalyseTaskNative(AppRunningInfoNative appRunningInfoNative, Set<String> set, long j) {
         String[] strArr = new String[set.size()];

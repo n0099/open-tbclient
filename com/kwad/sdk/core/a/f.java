@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class f {
     public static String a(String str) {
         String doSign;
@@ -27,8 +27,8 @@ public final class f {
         }
         try {
             Collections.sort(arrayList);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
         return arrayList;
     }

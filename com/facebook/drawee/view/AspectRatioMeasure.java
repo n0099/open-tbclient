@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AspectRatioMeasure {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Spec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,15 +55,15 @@ public class AspectRatioMeasure {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 0 || i == -2 : invokeI.booleanValue;
     }
 
-    public static void updateMeasureSpec(Spec spec, float f2, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
+    public static void updateMeasureSpec(Spec spec, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{spec, Float.valueOf(f2), layoutParams, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || f2 <= 0.0f || layoutParams == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{spec, Float.valueOf(f), layoutParams, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || f <= 0.0f || layoutParams == null) {
             return;
         }
         if (shouldAdjust(layoutParams.height)) {
-            spec.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.width) - i) / f2) + i2), spec.height), 1073741824);
+            spec.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.width) - i) / f) + i2), spec.height), 1073741824);
         } else if (shouldAdjust(layoutParams.width)) {
-            spec.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.height) - i2) * f2) + i), spec.width), 1073741824);
+            spec.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.height) - i2) * f) + i), spec.width), 1073741824);
         }
     }
 }

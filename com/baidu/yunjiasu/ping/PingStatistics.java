@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.repackage.a;
 import java.net.InetAddress;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u001a\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0086\b\u0018\u00002\u00020\u0001BE\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\b\u0012\u0006\u0010\n\u001a\u00020\b\u0012\u0006\u0010\u000b\u001a\u00020\b\u0012\u0006\u0010\f\u001a\u00020\b¢\u0006\u0002\u0010\rJ\t\u0010\u0019\u001a\u00020\u0003HÆ\u0003J\t\u0010\u001a\u001a\u00020\u0005HÆ\u0003J\t\u0010\u001b\u001a\u00020\u0005HÆ\u0003J\t\u0010\u001c\u001a\u00020\bHÆ\u0003J\t\u0010\u001d\u001a\u00020\bHÆ\u0003J\t\u0010\u001e\u001a\u00020\bHÆ\u0003J\t\u0010\u001f\u001a\u00020\bHÆ\u0003J\t\u0010 \u001a\u00020\bHÆ\u0003JY\u0010!\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\b\b\u0002\u0010\u0007\u001a\u00020\b2\b\b\u0002\u0010\t\u001a\u00020\b2\b\b\u0002\u0010\n\u001a\u00020\b2\b\b\u0002\u0010\u000b\u001a\u00020\b2\b\b\u0002\u0010\f\u001a\u00020\bHÆ\u0001J\u0013\u0010\"\u001a\u00020#2\b\u0010$\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010%\u001a\u00020&HÖ\u0001J\b\u0010'\u001a\u00020(H\u0016R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u0011\u0010\u000b\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011R\u0011\u0010\n\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0011R\u0011\u0010\t\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0011R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0011R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0016R\u0011\u0010\f\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0011¨\u0006)"}, d2 = {"Lcom/baidu/yunjiasu/ping/PingStatistics;", "", "Address", "Ljava/net/InetAddress;", "PacketsRecv", "", "PacketsSent", "PacketLoss", "", "MinRtt", "MaxRtt", "AvgRtt", "StdDevRtt", "(Ljava/net/InetAddress;JJFFFFF)V", "getAddress", "()Ljava/net/InetAddress;", "getAvgRtt", "()F", "getMaxRtt", "getMinRtt", "getPacketLoss", "getPacketsRecv", "()J", "getPacketsSent", "getStdDevRtt", "component1", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "copy", "equals", "", "other", TTDownloadField.TT_HASHCODE, "", "toString", "", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PingStatistics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,12 +26,12 @@ public final class PingStatistics {
     public final long PacketsSent;
     public final float StdDevRtt;
 
-    public PingStatistics(InetAddress Address, long j, long j2, float f2, float f3, float f4, float f5, float f6) {
+    public PingStatistics(InetAddress Address, long j, long j2, float f, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
+            Object[] objArr = {Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,11 +45,11 @@ public final class PingStatistics {
         this.Address = Address;
         this.PacketsRecv = j;
         this.PacketsSent = j2;
-        this.PacketLoss = f2;
-        this.MinRtt = f3;
-        this.MaxRtt = f4;
-        this.AvgRtt = f5;
-        this.StdDevRtt = f6;
+        this.PacketLoss = f;
+        this.MinRtt = f2;
+        this.MaxRtt = f3;
+        this.AvgRtt = f4;
+        this.StdDevRtt = f5;
     }
 
     public final InetAddress component1() {
@@ -99,12 +100,12 @@ public final class PingStatistics {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.StdDevRtt : invokeV.floatValue;
     }
 
-    public final PingStatistics copy(InetAddress Address, long j, long j2, float f2, float f3, float f4, float f5, float f6) {
+    public final PingStatistics copy(InetAddress Address, long j, long j2, float f, float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             Intrinsics.checkNotNullParameter(Address, "Address");
-            return new PingStatistics(Address, j, j2, f2, f3, f4, f5, f6);
+            return new PingStatistics(Address, j, j2, f, f2, f3, f4, f5);
         }
         return (PingStatistics) invokeCommon.objValue;
     }

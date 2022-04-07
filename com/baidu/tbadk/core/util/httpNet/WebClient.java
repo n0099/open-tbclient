@@ -3,12 +3,8 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.j.b.c;
-import c.a.d.f.j.b.e;
-import c.a.d.f.j.b.f;
-import c.a.d.f.j.b.h;
-import c.a.d.f.l.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -22,13 +18,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
+import com.repackage.gg;
+import com.repackage.lf;
+import com.repackage.nf;
+import com.repackage.of;
+import com.repackage.pf;
+import com.repackage.qf;
+import com.repackage.wt4;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes5.dex */
-public class WebClient implements b.a {
+/* loaded from: classes3.dex */
+public class WebClient implements gg.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFERSIZE = 1024;
     public static final String IMAGEGIF = "image/gif";
@@ -47,13 +50,13 @@ public class WebClient implements b.a {
     public boolean isCrackPic;
     public boolean isGif;
     public boolean isGzip;
-    public volatile c mBdHttpManager2;
-    public f mContext;
+    public volatile lf mBdHttpManager2;
+    public of mContext;
     public ImgHttpClient mHttpClient;
     public boolean mIsRequestSuccess;
     public HashMap<String, String> mPostList;
-    public h mResponse;
-    public e mStat;
+    public qf mResponse;
+    public nf mStat;
     public boolean mT2ASwitchFlag;
     public boolean mUseHttpAutoSwitch;
     public boolean mUseHttpClient;
@@ -90,7 +93,7 @@ public class WebClient implements b.a {
         }
         this.mBdHttpManager2 = null;
         this.mPostList = null;
-        this.mResponse = new h();
+        this.mResponse = new qf();
         this.isGzip = false;
         this.isGif = false;
         this.exception = "";
@@ -116,27 +119,27 @@ public class WebClient implements b.a {
                 stringBuffer.append("thread_id:");
                 stringBuffer.append(Thread.currentThread().getId());
                 for (int i = 0; i < this.mContext.d().size(); i++) {
-                    e eVar = this.mContext.d().get(i);
+                    nf nfVar = this.mContext.d().get(i);
                     stringBuffer.append(" index: ");
                     stringBuffer.append(i);
                     stringBuffer.append("exception:");
-                    stringBuffer.append(eVar.f2152h);
+                    stringBuffer.append(nfVar.h);
                     stringBuffer.append("retry:");
-                    stringBuffer.append(eVar.f2149e);
+                    stringBuffer.append(nfVar.e);
                     stringBuffer.append("connectTime:");
-                    stringBuffer.append(eVar.f2147c);
+                    stringBuffer.append(nfVar.c);
                     stringBuffer.append("downloadSize:");
-                    stringBuffer.append(eVar.f2146b);
+                    stringBuffer.append(nfVar.b);
                     stringBuffer.append("rspTime:");
-                    stringBuffer.append(eVar.f2148d);
+                    stringBuffer.append(nfVar.d);
                     stringBuffer.append("dnsTime:");
-                    stringBuffer.append(eVar.f2151g);
+                    stringBuffer.append(nfVar.g);
                     stringBuffer.append("responsedCode:");
-                    stringBuffer.append(eVar.i);
+                    stringBuffer.append(nfVar.i);
                     stringBuffer.append("allCostTime:");
-                    stringBuffer.append(eVar.f2150f);
+                    stringBuffer.append(nfVar.f);
                     stringBuffer.append("executeStatus:");
-                    stringBuffer.append(eVar.j);
+                    stringBuffer.append(nfVar.j);
                 }
                 if (exc != null) {
                     stringBuffer.append("webclient exception");
@@ -186,88 +189,90 @@ public class WebClient implements b.a {
                         cancel();
                         this.mBdHttpManager2 = null;
                     }
-                    f fVar = new f();
-                    this.mContext = fVar;
-                    fVar.b().t(str);
+                    of ofVar = new of();
+                    this.mContext = ofVar;
+                    ofVar.b().t(str);
                     this.mContext.b().o(UseHttpAutoRetrySwitch.isOn());
+                    pf b = this.mContext.b();
+                    b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.mBdHttpManager2 = new c(this.mContext);
-                    this.mBdHttpManager2.e(RETRYCOUNT, 0, 0);
-                    h c2 = this.mContext.c();
-                    this.mResponse = c2;
-                    if (c2 != null && c2.f2169h != null && (list = c2.f2169h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
+                    this.mBdHttpManager2 = new lf(this.mContext);
+                    this.mBdHttpManager2.d(RETRYCOUNT, 0, 0);
+                    qf c = this.mContext.c();
+                    this.mResponse = c;
+                    if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                         this.needCache = !"no-cache".equals(list.get(0));
                     }
                     byte[] bArr = this.mContext.c().i;
-                    this.responseCode = this.mContext.c().f2163b;
-                    this.errorCode = this.mContext.c().f2164c;
+                    this.responseCode = this.mContext.c().b;
+                    this.errorCode = this.mContext.c().c;
                     this.mIsRequestSuccess = this.mContext.c().b();
                     if (bArr != null) {
                         this.dataSize = bArr.length;
                     } else {
                         this.dataSize = 0;
                     }
-                    if (this.mContext.c().f2165d != null && this.mContext.c().f2165d.toLowerCase().contains("gzip")) {
+                    if (this.mContext.c().d != null && this.mContext.c().d.toLowerCase().contains("gzip")) {
                         this.isGzip = true;
                     }
                     if (!this.mIsRequestSuccess) {
                         buildException(str, null);
                     }
-                    e a = this.mContext.a();
+                    nf a = this.mContext.a();
                     this.mStat = a;
                     if (a != null) {
                         StringBuilder sb = new StringBuilder();
-                        e eVar = this.mStat;
-                        sb.append(eVar.f2152h);
+                        nf nfVar = this.mStat;
+                        sb.append(nfVar.h);
                         sb.append(stringBuffer.toString());
-                        eVar.f2152h = sb.toString();
+                        nfVar.h = sb.toString();
                         StringBuilder sb2 = new StringBuilder();
-                        e eVar2 = this.mStat;
-                        sb2.append(eVar2.f2152h);
+                        nf nfVar2 = this.mStat;
+                        sb2.append(nfVar2.h);
                         sb2.append("_responseCode:");
                         sb2.append(this.responseCode);
-                        eVar2.f2152h = sb2.toString();
+                        nfVar2.h = sb2.toString();
                     }
                     return bArr;
-                } catch (Exception e2) {
-                    stringBuffer.append("httpmanagererr_" + e2.getClass() + "_" + e2.getMessage());
-                    e a2 = this.mContext.a();
+                } catch (Exception e) {
+                    stringBuffer.append("httpmanagererr_" + e.getClass() + "_" + e.getMessage());
+                    nf a2 = this.mContext.a();
                     this.mStat = a2;
                     if (a2 != null) {
                         StringBuilder sb3 = new StringBuilder();
-                        e eVar3 = this.mStat;
-                        sb3.append(eVar3.f2152h);
+                        nf nfVar3 = this.mStat;
+                        sb3.append(nfVar3.h);
                         sb3.append(stringBuffer.toString());
-                        eVar3.f2152h = sb3.toString();
+                        nfVar3.h = sb3.toString();
                         StringBuilder sb4 = new StringBuilder();
-                        e eVar4 = this.mStat;
-                        sb4.append(eVar4.f2152h);
+                        nf nfVar4 = this.mStat;
+                        sb4.append(nfVar4.h);
                         sb4.append("_responseCode:");
                         sb4.append(this.responseCode);
-                        eVar4.f2152h = sb4.toString();
+                        nfVar4.h = sb4.toString();
                         return null;
                     }
                     return null;
                 }
             } catch (Throwable th) {
-                e a3 = this.mContext.a();
+                nf a3 = this.mContext.a();
                 this.mStat = a3;
                 if (a3 != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    e eVar5 = this.mStat;
-                    sb5.append(eVar5.f2152h);
+                    nf nfVar5 = this.mStat;
+                    sb5.append(nfVar5.h);
                     sb5.append(stringBuffer.toString());
-                    eVar5.f2152h = sb5.toString();
+                    nfVar5.h = sb5.toString();
                     StringBuilder sb6 = new StringBuilder();
-                    e eVar6 = this.mStat;
-                    sb6.append(eVar6.f2152h);
+                    nf nfVar6 = this.mStat;
+                    sb6.append(nfVar6.h);
                     sb6.append("_responseCode:");
                     sb6.append(this.responseCode);
-                    eVar6.f2152h = sb6.toString();
+                    nfVar6.h = sb6.toString();
                 }
                 throw th;
             }
@@ -310,7 +315,7 @@ public class WebClient implements b.a {
         this.mPostList.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
     }
 
-    @Override // c.a.d.f.l.b.a
+    @Override // com.repackage.gg.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -343,7 +348,7 @@ public class WebClient implements b.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             byte[] downloadBytesInternal = downloadBytesInternal(str);
             try {
-                return new String(downloadBytesInternal, 0, downloadBytesInternal.length, this.mContext.c().f2165d);
+                return new String(downloadBytesInternal, 0, downloadBytesInternal.length, this.mContext.c().d);
             } catch (Exception unused) {
                 return null;
             }
@@ -351,10 +356,10 @@ public class WebClient implements b.a {
         return (String) invokeL.objValue;
     }
 
-    public h getResponse() {
+    public qf getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResponse : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResponse : (qf) invokeV.objValue;
     }
 
     public boolean isMobileProxy() {
@@ -374,7 +379,7 @@ public class WebClient implements b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (c.a.o0.r.j0.b.k().l("image_no_cache_switch", 0) == 1) {
+            if (wt4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;
@@ -413,7 +418,7 @@ public class WebClient implements b.a {
                         if (this.mHttpClient != null) {
                             cancel();
                         }
-                        this.mContext = new f();
+                        this.mContext = new of();
                         this.mHttpClient = new ImgHttpClient(this.mContext);
                         this.mContext.b().t(str);
                         if (this.mPostList != null) {
@@ -422,14 +427,14 @@ public class WebClient implements b.a {
                             }
                         }
                         this.mHttpClient.getNetDataWithIp(null, null, -1);
-                        h c2 = this.mContext.c();
-                        this.mResponse = c2;
-                        if (c2 != null && c2.f2169h != null && (list = c2.f2169h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
+                        qf c = this.mContext.c();
+                        this.mResponse = c;
+                        if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                             this.needCache = !"no-cache".equals(list.get(0));
                         }
                         byte[] bArr = this.mContext.c().i;
-                        this.responseCode = this.mContext.c().f2163b;
-                        this.errorCode = this.mContext.c().f2164c;
+                        this.responseCode = this.mContext.c().b;
+                        this.errorCode = this.mContext.c().c;
                         this.mIsRequestSuccess = this.mContext.c().b();
                         if (this.mUseHttpAutoSwitch && true == isSwitchNetLib()) {
                             this.mUseHttpClient = false;
@@ -474,30 +479,30 @@ public class WebClient implements b.a {
                                 i++;
                             }
                         }
-                        e a = this.mContext.a();
+                        nf a = this.mContext.a();
                         this.mStat = a;
                         if (a != null) {
                             StringBuilder sb2 = new StringBuilder();
-                            e eVar = this.mStat;
-                            sb2.append(eVar.f2152h);
+                            nf nfVar = this.mStat;
+                            sb2.append(nfVar.h);
                             sb2.append(sb.toString());
-                            eVar.f2152h = sb2.toString();
+                            nfVar.h = sb2.toString();
                             StringBuilder sb3 = new StringBuilder();
-                            e eVar2 = this.mStat;
-                            sb3.append(eVar2.f2152h);
+                            nf nfVar2 = this.mStat;
+                            sb3.append(nfVar2.h);
                             sb3.append("_responseCode:");
                             sb3.append(this.responseCode);
-                            eVar2.f2152h = sb3.toString();
+                            nfVar2.h = sb3.toString();
                             StringBuilder sb4 = new StringBuilder();
-                            e eVar3 = this.mStat;
-                            sb4.append(eVar3.f2152h);
+                            nf nfVar3 = this.mStat;
+                            sb4.append(nfVar3.h);
                             sb4.append("_size:");
                             sb4.append(Integer.toString(this.dataSize));
-                            eVar3.f2152h = sb4.toString();
+                            nfVar3.h = sb4.toString();
                         }
                         return bArr;
-                    } catch (Exception e2) {
-                        sb.append("_httpclienterr_" + e2.getClass() + "_" + e2.getMessage());
+                    } catch (Exception e) {
+                        sb.append("_httpclienterr_" + e.getClass() + "_" + e.getMessage());
                         int size2 = this.mContext.d().size();
                         if (size2 > 0) {
                             sb.append("_ipsize:");
@@ -513,26 +518,26 @@ public class WebClient implements b.a {
                                 i++;
                             }
                         }
-                        e a2 = this.mContext.a();
+                        nf a2 = this.mContext.a();
                         this.mStat = a2;
                         if (a2 != null) {
                             StringBuilder sb5 = new StringBuilder();
-                            e eVar4 = this.mStat;
-                            sb5.append(eVar4.f2152h);
+                            nf nfVar4 = this.mStat;
+                            sb5.append(nfVar4.h);
                             sb5.append(sb.toString());
-                            eVar4.f2152h = sb5.toString();
+                            nfVar4.h = sb5.toString();
                             StringBuilder sb6 = new StringBuilder();
-                            e eVar5 = this.mStat;
-                            sb6.append(eVar5.f2152h);
+                            nf nfVar5 = this.mStat;
+                            sb6.append(nfVar5.h);
                             sb6.append("_responseCode:");
                             sb6.append(this.responseCode);
-                            eVar5.f2152h = sb6.toString();
+                            nfVar5.h = sb6.toString();
                             StringBuilder sb7 = new StringBuilder();
-                            e eVar6 = this.mStat;
-                            sb7.append(eVar6.f2152h);
+                            nf nfVar6 = this.mStat;
+                            sb7.append(nfVar6.h);
                             sb7.append("_size:");
                             sb7.append(Integer.toString(this.dataSize));
-                            eVar6.f2152h = sb7.toString();
+                            nfVar6.h = sb7.toString();
                             return null;
                         }
                         return null;
@@ -553,26 +558,26 @@ public class WebClient implements b.a {
                             i++;
                         }
                     }
-                    e a3 = this.mContext.a();
+                    nf a3 = this.mContext.a();
                     this.mStat = a3;
                     if (a3 != null) {
                         StringBuilder sb8 = new StringBuilder();
-                        e eVar7 = this.mStat;
-                        sb8.append(eVar7.f2152h);
+                        nf nfVar7 = this.mStat;
+                        sb8.append(nfVar7.h);
                         sb8.append(sb.toString());
-                        eVar7.f2152h = sb8.toString();
+                        nfVar7.h = sb8.toString();
                         StringBuilder sb9 = new StringBuilder();
-                        e eVar8 = this.mStat;
-                        sb9.append(eVar8.f2152h);
+                        nf nfVar8 = this.mStat;
+                        sb9.append(nfVar8.h);
                         sb9.append("_responseCode:");
                         sb9.append(this.responseCode);
-                        eVar8.f2152h = sb9.toString();
+                        nfVar8.h = sb9.toString();
                         StringBuilder sb10 = new StringBuilder();
-                        e eVar9 = this.mStat;
-                        sb10.append(eVar9.f2152h);
+                        nf nfVar9 = this.mStat;
+                        sb10.append(nfVar9.h);
                         sb10.append("_size:");
                         sb10.append(Integer.toString(this.dataSize));
-                        eVar9.f2152h = sb10.toString();
+                        nfVar9.h = sb10.toString();
                     }
                     throw th;
                 }
@@ -601,12 +606,12 @@ public class WebClient implements b.a {
                 if (downloadBytesInternal == null) {
                     return null;
                 }
-                if (this.mContext == null || this.mContext.c().f2169h == null) {
+                if (this.mContext == null || this.mContext.c().h == null) {
                     z2 = false;
                 } else {
-                    List<String> list2 = this.mContext.c().f2169h.get("imgsrc");
+                    List<String> list2 = this.mContext.c().h.get("imgsrc");
                     z2 = list2 != null && list2.size() > 0 && (str2 = list2.get(0)) != null && str2.length() > 0;
-                    List<String> list3 = this.mContext.c().f2169h.get("Src-Content-Type");
+                    List<String> list3 = this.mContext.c().h.get("Src-Content-Type");
                     if (list3 != null && list3.size() > 0) {
                         if ("image/gif".equalsIgnoreCase(list3.get(0))) {
                             this.isGif = true;
@@ -614,7 +619,7 @@ public class WebClient implements b.a {
                             this.isGif = false;
                         }
                     }
-                    List<String> list4 = this.mContext.c().f2169h.get("Error-Message");
+                    List<String> list4 = this.mContext.c().h.get("Error-Message");
                     if (list4 != null && list4.size() > 0) {
                         String str3 = list4.get(0);
                         if (!TextUtils.isEmpty(str3) && !str3.equalsIgnoreCase("OK")) {
@@ -624,8 +629,8 @@ public class WebClient implements b.a {
                     }
                 }
                 return this.mIsRequestSuccess ? ((z || z2) && new String(downloadBytesInternal, 0, 23).equalsIgnoreCase(IMAGESECRET)) ? copyOfRange(downloadBytesInternal, 23, downloadBytesInternal.length) : downloadBytesInternal : downloadBytesInternal;
-            } catch (Exception e3) {
-                this.exception += "BDIMAGE DECODE ERROR" + e3.getMessage();
+            } catch (Exception e2) {
+                this.exception += "BDIMAGE DECODE ERROR" + e2.getMessage();
                 return null;
             }
         }

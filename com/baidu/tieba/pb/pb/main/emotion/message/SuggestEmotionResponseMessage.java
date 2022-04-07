@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
-import c.a.p0.w2.m.f.j1.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
@@ -13,16 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zw7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mData;
+    public zw7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -53,8 +53,8 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
                         arrayList.add(jSONArray.getJSONObject(i).optString("keyword"));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -83,8 +83,8 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
                     emotionImageData.setHeight(jSONObject.optInt("height"));
                     emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                     arrayList.add(emotionImageData);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return arrayList;
@@ -116,17 +116,17 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            a aVar = new a();
-            this.mData = aVar;
-            aVar.d(parseImageData(jSONObject.optJSONArray("memes")));
+            zw7 zw7Var = new zw7();
+            this.mData = zw7Var;
+            zw7Var.d(parseImageData(jSONObject.optJSONArray("memes")));
             this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public a getData() {
+    public zw7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (zw7) invokeV.objValue;
     }
 }

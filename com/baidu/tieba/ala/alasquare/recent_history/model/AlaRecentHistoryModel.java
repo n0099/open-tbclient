@@ -21,36 +21,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hq5;
+import com.repackage.iq5;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.p0.c0.f.f.b.b> a;
+    public List<iq5> a;
+    public b b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public BdUniqueId g;
+    public HttpMessageListener h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f31329b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f31330c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f31331d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f31332e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f31333f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f31334g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f31335h;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,20 +69,20 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f31334g) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.g) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (!alaRecentHistoryResponseMessage.isSuccess()) {
-                    if (this.a.f31329b != null) {
-                        this.a.f31329b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f31333f);
+                    if (this.a.b != null) {
+                        this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    c.a.p0.c0.f.f.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    hq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
-                    this.a.f31332e = recentHistoryData.a;
-                    List<c.a.p0.c0.f.f.b.b> list = recentHistoryData.f13055b;
-                    if (!this.a.f31333f) {
+                    this.a.e = recentHistoryData.a;
+                    List<iq5> list = recentHistoryData.b;
+                    if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
                             this.a.a.addAll(list);
@@ -103,18 +91,18 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         AlaRecentHistoryModel.D(this.a);
                         this.a.a.addAll(list);
                     }
-                    if (this.a.f31329b != null) {
-                        this.a.f31329b.a(this.a.f31332e, this.a.a);
+                    if (this.a.b != null) {
+                        this.a.b.a(this.a.e, this.a.a);
                     }
                 }
-                this.a.f31333f = false;
+                this.a.f = false;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<c.a.p0.c0.f.f.b.b> list);
+        void a(boolean z, List<iq5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -134,17 +122,17 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                 return;
             }
         }
-        this.f31330c = i;
-        this.f31329b = bVar;
-        this.f31334g = BdUniqueId.gen();
+        this.c = i;
+        this.b = bVar;
+        this.g = BdUniqueId.gen();
         this.a = new ArrayList();
         registerListener();
         registerTask();
     }
 
     public static /* synthetic */ int D(AlaRecentHistoryModel alaRecentHistoryModel) {
-        int i = alaRecentHistoryModel.f31331d;
-        alaRecentHistoryModel.f31331d = i + 1;
+        int i = alaRecentHistoryModel.d;
+        alaRecentHistoryModel.d = i + 1;
         return i;
     }
 
@@ -158,7 +146,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<c.a.p0.c0.f.f.b.b> getData() {
+    public List<iq5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -176,13 +164,13 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f31332e && !this.f31333f) {
-            this.f31333f = true;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e && !this.f) {
+            this.f = true;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-            httpMessage.addParam("type", this.f31330c);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f31331d + 1);
-            httpMessage.setTag(this.f31334g);
+            httpMessage.addParam("type", this.c);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.d + 1);
+            httpMessage.setTag(this.g);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -191,20 +179,20 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
-            MessageManager.getInstance().unRegisterListener(this.f31335h);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f31333f = false;
-            this.f31331d = 0;
+            this.f = false;
+            this.d = 0;
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-            httpMessage.addParam("type", this.f31330c);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.f31331d);
-            httpMessage.setTag(this.f31334g);
+            httpMessage.addParam("type", this.c);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.d);
+            httpMessage.setTag(this.g);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -212,8 +200,8 @@ public class AlaRecentHistoryModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f31335h = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
-            MessageManager.getInstance().registerListener(this.f31335h);
+            this.h = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
+            MessageManager.getInstance().registerListener(this.h);
         }
     }
 

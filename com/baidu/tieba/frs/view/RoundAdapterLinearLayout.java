@@ -20,28 +20,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f33014h = 2131100693;
+    public static final int h = 2131100693;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public float f33015c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Shape f33016d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f33017e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Paint f33018f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RectF f33019g;
+    public float c;
+    public Shape d;
+    public Paint e;
+    public Paint f;
+    public RectF g;
 
     static {
         InterceptResult invokeClinit;
@@ -86,13 +74,13 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f33016d;
+            Shape shape = this.d;
             if (shape != null) {
-                shape.draw(canvas, this.f33017e);
+                shape.draw(canvas, this.e);
             }
-            RectF rectF = this.f33019g;
-            float f2 = this.f33015c;
-            canvas.drawRoundRect(rectF, f2, f2, this.f33018f);
+            RectF rectF = this.g;
+            float f = this.c;
+            canvas.drawRoundRect(rectF, f, f, this.f);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
             }
@@ -106,7 +94,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             if (z) {
-                if (this.f33016d == null) {
+                if (this.d == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -115,19 +103,19 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                     float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f33015c);
-                    this.f33016d = new RoundRectShape(fArr, rectF, fArr2);
-                    this.f33019g.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
+                    Arrays.fill(fArr2, this.c);
+                    this.d = new RoundRectShape(fArr, rectF, fArr2);
+                    this.g.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
                 }
-                this.f33016d.resize(getWidth(), getHeight());
+                this.d.resize(getWidth(), getHeight());
             }
         }
     }
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f33015c = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.c = f;
         }
     }
 
@@ -171,21 +159,21 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 return;
             }
         }
-        this.f33015c = 0.0f;
+        this.c = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f33017e = paint;
+        this.e = paint;
         paint.setAntiAlias(true);
-        this.f33017e.setColor(-7829368);
-        this.f33017e.setStyle(Paint.Style.FILL);
-        this.f33017e.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.e.setColor(-7829368);
+        this.e.setStyle(Paint.Style.FILL);
+        this.e.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f33018f = paint2;
+        this.f = paint2;
         paint2.setAntiAlias(true);
-        this.f33018f.setColor(getResources().getColor(f33014h));
-        this.f33018f.setStyle(Paint.Style.FILL);
-        this.f33018f.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(f33014h));
-        this.f33018f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.f33019g = new RectF();
+        this.f.setColor(getResources().getColor(h));
+        this.f.setStyle(Paint.Style.FILL);
+        this.f.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(h));
+        this.f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.g = new RectF();
     }
 }

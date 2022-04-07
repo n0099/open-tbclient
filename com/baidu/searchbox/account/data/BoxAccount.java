@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BoxAccount {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class BoxAccount {
     public String uk;
     public int vip;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ErrorBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -602,8 +602,8 @@ public class BoxAccount {
                 jSONObject.put("portrait", this.portrait);
                 jSONObject.put("nickname", this.nickname);
                 return jSONObject;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.vr.dynamite.client.IObjectWrapper;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ObjectWrapper<T> extends IObjectWrapper.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +79,12 @@ public final class ObjectWrapper<T> extends IObjectWrapper.a {
                             return cls.cast(obj);
                         }
                         throw new IllegalArgumentException("remoteBinder is the wrong class.");
-                    } catch (IllegalAccessException e2) {
-                        throw new IllegalArgumentException("Could not access the field in remoteBinder.", e2);
-                    } catch (IllegalArgumentException e3) {
-                        throw new IllegalArgumentException("remoteBinder is the wrong class.", e3);
-                    } catch (NullPointerException e4) {
-                        throw new IllegalArgumentException("Binder object is null.", e4);
+                    } catch (IllegalAccessException e) {
+                        throw new IllegalArgumentException("Could not access the field in remoteBinder.", e);
+                    } catch (IllegalArgumentException e2) {
+                        throw new IllegalArgumentException("remoteBinder is the wrong class.", e2);
+                    } catch (NullPointerException e3) {
+                        throw new IllegalArgumentException("Binder object is null.", e3);
                     }
                 }
                 throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly one declared *private* field for the wrapped object. Preferably, this is an instance of the ObjectWrapper<T> class.");

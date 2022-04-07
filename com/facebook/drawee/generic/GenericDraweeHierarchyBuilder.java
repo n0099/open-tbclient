@@ -20,7 +20,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GenericDraweeHierarchyBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ScalingUtils.ScaleType DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
@@ -318,11 +318,11 @@ public class GenericDraweeHierarchyBuilder {
         return (GenericDraweeHierarchyBuilder) invokeL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setDesiredAspectRatio(float f2) {
+    public GenericDraweeHierarchyBuilder setDesiredAspectRatio(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f2)) == null) {
-            this.mDesiredAspectRatio = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
+            this.mDesiredAspectRatio = f;
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeF.objValue;

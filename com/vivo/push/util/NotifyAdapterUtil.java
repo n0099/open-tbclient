@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HIDE_TITLE = 1;
@@ -236,8 +236,8 @@ public class NotifyAdapterUtil {
             intent.putExtra("command_type", "reflect_receiver");
             try {
                 intent.putExtra("security_avoid_pull", a.a(context).a("com.vivo.pushservice"));
-            } catch (Exception e2) {
-                p.a(TAG, "pushNotificationByCustom encrypt ：" + e2.getMessage());
+            } catch (Exception e) {
+                p.a(TAG, "pushNotificationByCustom encrypt ：" + e.getMessage());
             }
             new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
             notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, LaunchTaskConstants.OTHER_PROCESS);
@@ -257,8 +257,8 @@ public class NotifyAdapterUtil {
                     } else {
                         p.a(TAG, "unknow notify style ".concat(String.valueOf(k)));
                     }
-                } catch (Exception e3) {
-                    p.a(TAG, e3);
+                } catch (Exception e2) {
+                    p.a(TAG, e2);
                     if (aVar != null) {
                         aVar.b();
                     }
@@ -365,8 +365,8 @@ public class NotifyAdapterUtil {
             intent.putExtra("command_type", "reflect_receiver");
             try {
                 intent.putExtra("security_avoid_pull", a.a(context).a("com.vivo.pushservice"));
-            } catch (Exception e2) {
-                p.a(TAG, "pushNotificationBySystem encrypt ：" + e2.getMessage());
+            } catch (Exception e) {
+                p.a(TAG, "pushNotificationBySystem encrypt ：" + e.getMessage());
             }
             new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
             builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, LaunchTaskConstants.OTHER_PROCESS));
@@ -388,8 +388,8 @@ public class NotifyAdapterUtil {
                     } else {
                         p.a(TAG, "unknow notify style ".concat(String.valueOf(k)));
                     }
-                } catch (Exception e3) {
-                    p.a(TAG, e3);
+                } catch (Exception e2) {
+                    p.a(TAG, e2);
                     if (aVar != null) {
                         aVar.b();
                     }
@@ -410,14 +410,14 @@ public class NotifyAdapterUtil {
                 p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k)));
                 return false;
             }
-            long b2 = x.b().b("com.vivo.push.notify_key", -1L);
-            if (b2 == j) {
+            long b = x.b().b("com.vivo.push.notify_key", -1L);
+            if (b == j) {
                 p.d(TAG, "undo showed message ".concat(String.valueOf(j)));
                 p.a(context, "回收已展示的通知： ".concat(String.valueOf(j)));
                 return cancelNotify(context, sNotifyId);
             }
-            p.d(TAG, "current showing message id " + b2 + " not match " + j);
-            p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + j + "不匹配");
+            p.d(TAG, "current showing message id " + b + " not match " + j);
+            p.a(context, "与已展示的通知" + b + "与待回收的通知" + j + "不匹配");
             return false;
         }
         return invokeLJ.booleanValue;

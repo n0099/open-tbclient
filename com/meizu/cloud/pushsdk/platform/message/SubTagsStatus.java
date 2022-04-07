@@ -1,18 +1,18 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import c.h.a.a.a;
+import com.repackage.rm9;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
     public List<Tag> tagList;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class Tag implements Serializable {
         public int tagId;
         public String tagName;
@@ -77,7 +77,7 @@ public class SubTagsStatus extends BasicPushStatus {
             }
             arrayList.add(tag);
         }
-        a.b(BasicPushStatus.TAG, "tags " + arrayList);
+        rm9.b(BasicPushStatus.TAG, "tags " + arrayList);
         setTagList(arrayList);
     }
 

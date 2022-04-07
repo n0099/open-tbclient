@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fu extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,7 @@ public class fu extends XMPushService.i {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Exception f395a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f44264b;
+    public final /* synthetic */ int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu(fs fsVar, int i, int i2, Exception exc) {
@@ -39,7 +37,7 @@ public class fu extends XMPushService.i {
             }
         }
         this.a = fsVar;
-        this.f44264b = i2;
+        this.b = i2;
         this.f395a = exc;
     }
 
@@ -48,7 +46,7 @@ public class fu extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "shutdown the connection. " + this.f44264b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f395a;
+            return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f395a;
         }
         return (String) invokeV.objValue;
     }
@@ -57,7 +55,7 @@ public class fu extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.f44258b.a(this.f44264b, this.f395a);
+            this.a.b.a(this.b, this.f395a);
         }
     }
 }

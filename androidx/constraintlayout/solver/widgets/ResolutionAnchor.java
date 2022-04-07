@@ -124,12 +124,12 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void resolve(ResolutionAnchor resolutionAnchor, float f2) {
+    public void resolve(ResolutionAnchor resolutionAnchor, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, resolutionAnchor, f2) == null) {
-            if (this.state == 0 || !(this.resolvedTarget == resolutionAnchor || this.resolvedOffset == f2)) {
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, resolutionAnchor, f) == null) {
+            if (this.state == 0 || !(this.resolvedTarget == resolutionAnchor || this.resolvedOffset == f)) {
                 this.resolvedTarget = resolutionAnchor;
-                this.resolvedOffset = f2;
+                this.resolvedOffset = f;
                 if (this.state == 1) {
                     invalidate();
                 }
@@ -144,11 +144,11 @@ public class ResolutionAnchor extends ResolutionNode {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 1 ? VideoFreeFlowConfigManager.DIRECT : i == 2 ? "CENTER" : i == 3 ? "MATCH" : i == 4 ? "CHAIN" : i == 5 ? "BARRIER" : "UNCONNECTED" : (String) invokeI.objValue;
     }
 
-    public void setOpposite(ResolutionAnchor resolutionAnchor, float f2) {
+    public void setOpposite(ResolutionAnchor resolutionAnchor, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048586, this, resolutionAnchor, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048586, this, resolutionAnchor, f) == null) {
             this.opposite = resolutionAnchor;
-            this.oppositeOffset = f2;
+            this.oppositeOffset = f;
         }
     }
 
@@ -218,11 +218,11 @@ public class ResolutionAnchor extends ResolutionNode {
         ResolutionAnchor resolutionAnchor4;
         ResolutionAnchor resolutionAnchor5;
         ResolutionAnchor resolutionAnchor6;
+        float f;
         float f2;
-        float f3;
         ConstraintAnchor constraintAnchor;
         float width;
-        float f4;
+        float f3;
         ResolutionAnchor resolutionAnchor7;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -267,40 +267,40 @@ public class ResolutionAnchor extends ResolutionNode {
                     z = false;
                 }
                 if (z) {
-                    f2 = this.target.resolvedOffset;
-                    f3 = this.opposite.target.resolvedOffset;
-                } else {
+                    f = this.target.resolvedOffset;
                     f2 = this.opposite.target.resolvedOffset;
-                    f3 = this.target.resolvedOffset;
+                } else {
+                    f = this.opposite.target.resolvedOffset;
+                    f2 = this.target.resolvedOffset;
                 }
-                float f5 = f2 - f3;
+                float f4 = f - f2;
                 ConstraintAnchor.Type type2 = this.myAnchor.mType;
                 if (type2 != ConstraintAnchor.Type.LEFT && type2 != ConstraintAnchor.Type.RIGHT) {
-                    width = f5 - constraintAnchor.mOwner.getHeight();
-                    f4 = this.myAnchor.mOwner.mVerticalBiasPercent;
+                    width = f4 - constraintAnchor.mOwner.getHeight();
+                    f3 = this.myAnchor.mOwner.mVerticalBiasPercent;
                 } else {
-                    width = f5 - this.myAnchor.mOwner.getWidth();
-                    f4 = this.myAnchor.mOwner.mHorizontalBiasPercent;
+                    width = f4 - this.myAnchor.mOwner.getWidth();
+                    f3 = this.myAnchor.mOwner.mHorizontalBiasPercent;
                 }
                 int margin = this.myAnchor.getMargin();
                 int margin2 = this.opposite.myAnchor.getMargin();
                 if (this.myAnchor.getTarget() == this.opposite.myAnchor.getTarget()) {
-                    f4 = 0.5f;
+                    f3 = 0.5f;
                     margin2 = 0;
                 } else {
                     i = margin;
                 }
-                float f6 = i;
-                float f7 = margin2;
-                float f8 = (width - f6) - f7;
+                float f5 = i;
+                float f6 = margin2;
+                float f7 = (width - f5) - f6;
                 if (z) {
                     ResolutionAnchor resolutionAnchor10 = this.opposite;
-                    resolutionAnchor10.resolvedOffset = resolutionAnchor10.target.resolvedOffset + f7 + (f8 * f4);
-                    this.resolvedOffset = (this.target.resolvedOffset - f6) - (f8 * (1.0f - f4));
+                    resolutionAnchor10.resolvedOffset = resolutionAnchor10.target.resolvedOffset + f6 + (f7 * f3);
+                    this.resolvedOffset = (this.target.resolvedOffset - f5) - (f7 * (1.0f - f3));
                 } else {
-                    this.resolvedOffset = this.target.resolvedOffset + f6 + (f8 * f4);
+                    this.resolvedOffset = this.target.resolvedOffset + f5 + (f7 * f3);
                     ResolutionAnchor resolutionAnchor11 = this.opposite;
-                    resolutionAnchor11.resolvedOffset = (resolutionAnchor11.target.resolvedOffset - f7) - (f8 * (1.0f - f4));
+                    resolutionAnchor11.resolvedOffset = (resolutionAnchor11.target.resolvedOffset - f6) - (f7 * (1.0f - f3));
                 }
                 didResolve();
                 this.opposite.didResolve();

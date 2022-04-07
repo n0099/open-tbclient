@@ -13,15 +13,6 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.m.a.b3;
-import c.m.a.h2;
-import c.m.a.n1;
-import c.m.a.r0;
-import c.m.a.t1;
-import c.m.a.t2;
-import c.m.a.u0;
-import c.m.a.w1;
-import c.m.a.x2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tieba.R;
@@ -31,28 +22,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.repackage.fr9;
+import com.repackage.lq9;
+import com.repackage.pp9;
+import com.repackage.rq9;
+import com.repackage.rr9;
+import com.repackage.sp9;
+import com.repackage.uq9;
+import com.repackage.vr9;
+import com.repackage.zr9;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WDownLoadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b */
-    public String f44022b;
-
-    /* renamed from: c */
-    public String f44023c;
-
-    /* renamed from: d */
-    public NotificationManager f44024d;
-
-    /* renamed from: e */
-    public Notification f44025e;
+    public String b;
+    public String c;
+    public NotificationManager d;
+    public Notification e;
 
     public WDownLoadService() {
         Interceptable interceptable = $ic;
@@ -68,12 +60,12 @@ public class WDownLoadService extends Service {
         }
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [c.m.a.t1.c():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.rq9.c():void] */
     public static /* synthetic */ void a(WDownLoadService wDownLoadService, Info info) {
         wDownLoadService.b(info);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [c.m.a.t1.a():void, c.m.a.t1.d():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.rq9.a():void, com.repackage.rq9.d():void] */
     public static /* synthetic */ boolean a(WDownLoadService wDownLoadService) {
         return wDownLoadService.a();
     }
@@ -81,7 +73,7 @@ public class WDownLoadService extends Service {
     public final PendingIntent a(Info info) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, info)) == null) ? PendingIntent.getActivity(this, 0, r0.d(info, getApplicationContext(), this.a), 134217728) : (PendingIntent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, info)) == null) ? PendingIntent.getActivity(this, 0, pp9.d(info, getApplicationContext(), this.a), 134217728) : (PendingIntent) invokeL.objValue;
     }
 
     public void a(Info info, String str, String str2, int i) {
@@ -92,7 +84,7 @@ public class WDownLoadService extends Service {
                 if (Build.VERSION.SDK_INT >= 26) {
                     notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f08125f).setTicker(str).setContentText(str2).build();
+                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f081266).setTicker(str).setContentText(str2).build();
                     if (i <= 0 || i > 100) {
                         builder.setProgress(0, 0, false);
                         builder.setContentText(str2);
@@ -106,8 +98,8 @@ public class WDownLoadService extends Service {
                 return;
             }
             NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f08125f);
-            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08125f));
+            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f081266);
+            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081266));
             builder2.setContentTitle(str);
             if (i <= 0 || i >= 100) {
                 builder2.setProgress(0, 0, false);
@@ -119,8 +111,8 @@ public class WDownLoadService extends Service {
             builder2.setTicker(str);
             builder2.setContentIntent(i >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
             Notification build = builder2.build();
-            this.f44025e = build;
-            this.f44024d.notify(w0.c1, build);
+            this.e = build;
+            this.d.notify(w0.c1, build);
         }
     }
 
@@ -140,41 +132,41 @@ public class WDownLoadService extends Service {
     public final void b(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, info) == null) {
-            new Handler().postDelayed(new w1(this, info), 400L);
+            new Handler().postDelayed(new uq9(this, info), 400L);
         }
     }
 
     public final void c(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, info) == null) {
-            t2 a = x2.a(getApplicationContext());
-            b3 b3Var = new b3(info);
-            String str = this.f44022b;
+            rr9 a = vr9.a(getApplicationContext());
+            zr9 zr9Var = new zr9(info);
+            String str = this.b;
             try {
-                a.f23575b = x2.d("wdst", b3Var);
-                a.l("msg", x2.b(str));
+                a.b = vr9.d("wdst", zr9Var);
+                a.l("msg", vr9.b(str));
             } catch (JSONException unused) {
             }
             String str2 = this.a;
             try {
-                str2 = r0.g(str2);
+                str2 = pp9.g(str2);
             } catch (Exception unused2) {
             }
             a.l("desc", str2);
             a.m();
             try {
-                r0.o(info, 300, "");
+                pp9.o(info, 300, "");
                 if (info != null && !TextUtils.isEmpty(info.getVv_downs_urls())) {
-                    r0.K(info.getVv_downs_urls());
+                    pp9.K(info.getVv_downs_urls());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            u0 u0Var = u0.f23588d;
-            String str3 = this.f44022b;
+            sp9 sp9Var = sp9.d;
+            String str3 = this.b;
             String str4 = this.a;
-            t1 t1Var = new t1(this, info);
-            if (u0Var.f23590c) {
+            rq9 rq9Var = new rq9(this, info);
+            if (sp9Var.c) {
                 return;
             }
             File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
@@ -185,13 +177,13 @@ public class WDownLoadService extends Service {
             if (!file2.exists()) {
                 try {
                     file2.createNewFile();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
             }
-            n1 n1Var = new n1(str3, str4, t1Var);
-            u0Var.f23589b = n1Var;
-            new WeakReference(u0Var.a.submit(n1Var));
+            lq9 lq9Var = new lq9(str3, str4, rq9Var);
+            sp9Var.b = lq9Var;
+            new WeakReference(sp9Var.a.submit(lq9Var));
         }
     }
 
@@ -209,7 +201,7 @@ public class WDownLoadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f44024d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            this.d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
     }
 
@@ -219,12 +211,12 @@ public class WDownLoadService extends Service {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             try {
-                u0.f23588d.f23590c = false;
-                if (this.f44024d != null) {
-                    this.f44024d.cancel(w0.c1);
+                sp9.d.c = false;
+                if (this.d != null) {
+                    this.d.cancel(w0.c1);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -236,26 +228,26 @@ public class WDownLoadService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {
             Info info = null;
             try {
-                this.f44022b = intent.getStringExtra("down_load_apk_url");
-                this.f44023c = intent.getStringExtra("down_load_pkg_name");
-                this.a = r0.e(getApplicationContext()) + File.separator + "win" + File.separator + r0.G(this.f44022b);
+                this.b = intent.getStringExtra("down_load_apk_url");
+                this.c = intent.getStringExtra("down_load_pkg_name");
+                this.a = pp9.e(getApplicationContext()) + File.separator + "win" + File.separator + pp9.G(this.b);
                 File parentFile = new File(this.a).getParentFile();
                 if (!parentFile.exists()) {
                     parentFile.mkdirs();
                 }
                 try {
-                    info = (Info) h2.i(getApplicationContext(), this.f44023c);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                    info = (Info) fr9.i(getApplicationContext(), this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f1564), getString(R.string.obfuscated_res_0x7f0f1564), 0);
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f156b), getString(R.string.obfuscated_res_0x7f0f156b), 0);
                 c(info);
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 if (info != null) {
-                    t2 a = x2.a(getApplicationContext());
-                    a.q(new b3(info), 3);
-                    a.l("desc", e3.getMessage());
+                    rr9 a = vr9.a(getApplicationContext());
+                    a.q(new zr9(info), 3);
+                    a.l("desc", e2.getMessage());
                     a.m();
                 }
             }

@@ -42,7 +42,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ApkSignatureSchemeV2Verifier {
     public static final int APK_SIGNATURE_SCHEME_V2_BLOCK_ID = 1896449818;
     public static final long APK_SIG_BLOCK_MAGIC_HI = 3617552046287187010L;
@@ -61,7 +61,7 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SIGNATURE_RSA_PSS_WITH_SHA256 = 257;
     public static final int SIGNATURE_RSA_PSS_WITH_SHA512 = 258;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ByteBufferDataSource implements DataSource {
         public final ByteBuffer mBuf;
 
@@ -90,14 +90,14 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DataSource {
         void feedIntoMessageDigests(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
 
         long size();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MemoryMappedFileDataSource implements DataSource {
         public final FileChannel mChannel;
         public final long mFilePosition;
@@ -124,7 +124,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SignatureInfo {
         public final long apkSigningBlockOffset;
         public final long centralDirOffset;
@@ -141,7 +141,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SignatureNotFoundException extends Exception {
         public static final long serialVersionUID = 1;
 
@@ -154,7 +154,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VerbatimX509Certificate extends WrappedX509Certificate {
         public byte[] encodedVerbatim;
 
@@ -169,7 +169,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 
@@ -364,8 +364,8 @@ public class ApkSignatureSchemeV2Verifier {
                 String contentDigestAlgorithmJcaDigestAlgorithm = getContentDigestAlgorithmJcaDigestAlgorithm(iArr[i3]);
                 try {
                     messageDigestArr[i3] = MessageDigest.getInstance(contentDigestAlgorithmJcaDigestAlgorithm);
-                } catch (NoSuchAlgorithmException e2) {
-                    throw new RuntimeException(contentDigestAlgorithmJcaDigestAlgorithm + " digest not supported", e2);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(contentDigestAlgorithmJcaDigestAlgorithm + " digest not supported", e);
                 }
             }
             int length2 = dataSourceArr2.length;
@@ -409,8 +409,8 @@ public class ApkSignatureSchemeV2Verifier {
                         i5++;
                         bArr3 = bArr3;
                         j = 0;
-                    } catch (IOException e3) {
-                        throw new DigestException("Failed to digest chunk #" + i5 + " of section #" + i6, e3);
+                    } catch (IOException e2) {
+                        throw new DigestException("Failed to digest chunk #" + i5 + " of section #" + i6, e2);
                     }
                 }
                 i6++;
@@ -426,8 +426,8 @@ public class ApkSignatureSchemeV2Verifier {
                 String contentDigestAlgorithmJcaDigestAlgorithm2 = getContentDigestAlgorithmJcaDigestAlgorithm(i14);
                 try {
                     bArr6[i13] = MessageDigest.getInstance(contentDigestAlgorithmJcaDigestAlgorithm2).digest(bArr7);
-                } catch (NoSuchAlgorithmException e4) {
-                    throw new RuntimeException(contentDigestAlgorithmJcaDigestAlgorithm2 + " digest not supported", e4);
+                } catch (NoSuchAlgorithmException e3) {
+                    throw new RuntimeException(contentDigestAlgorithmJcaDigestAlgorithm2 + " digest not supported", e3);
                 }
             }
             return bArr6;
@@ -756,11 +756,11 @@ public class ApkSignatureSchemeV2Verifier {
                         randomAccessFile.seek(j2);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
                         byteBufferDataSource2 = new ByteBufferDataSource(allocate2);
-                    } catch (IOException e2) {
-                        throw new SecurityException("Failed to get apk contents", e2);
+                    } catch (IOException e) {
+                        throw new SecurityException("Failed to get apk contents", e);
                     }
-                } catch (IOException e3) {
-                    throw new SecurityException("Failed to get apk contents", e3);
+                } catch (IOException e2) {
+                    throw new SecurityException("Failed to get apk contents", e2);
                 }
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
@@ -783,8 +783,8 @@ public class ApkSignatureSchemeV2Verifier {
                     }
                 }
                 return;
-            } catch (DigestException e4) {
-                throw new SecurityException("Failed to compute digest(s) of contents", e4);
+            } catch (DigestException e3) {
+                throw new SecurityException("Failed to compute digest(s) of contents", e3);
             }
         }
         throw new SecurityException("No digests provided");
@@ -814,8 +814,8 @@ public class ApkSignatureSchemeV2Verifier {
                 } else {
                     throw new SecurityException("Signature record too short");
                 }
-            } catch (IOException | BufferUnderflowException e2) {
-                throw new SecurityException("Failed to parse signature record #" + i2, e2);
+            } catch (IOException | BufferUnderflowException e) {
+                throw new SecurityException("Failed to parse signature record #" + i2, e);
             }
         }
         if (i == -1) {
@@ -854,8 +854,8 @@ public class ApkSignatureSchemeV2Verifier {
                         } else {
                             throw new IOException("Record too short");
                         }
-                    } catch (IOException | BufferUnderflowException e3) {
-                        throw new IOException("Failed to parse digest record #" + i4, e3);
+                    } catch (IOException | BufferUnderflowException e2) {
+                        throw new IOException("Failed to parse digest record #" + i4, e2);
                     }
                 }
                 if (arrayList.equals(arrayList2)) {
@@ -871,8 +871,8 @@ public class ApkSignatureSchemeV2Verifier {
                         byte[] readLengthPrefixedByteArray2 = readLengthPrefixedByteArray(lengthPrefixedSlice6);
                         try {
                             arrayList3.add(new VerbatimX509Certificate((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(readLengthPrefixedByteArray2)), readLengthPrefixedByteArray2));
-                        } catch (CertificateException e4) {
-                            throw new SecurityException("Failed to decode certificate #" + i6, e4);
+                        } catch (CertificateException e3) {
+                            throw new SecurityException("Failed to decode certificate #" + i6, e3);
                         }
                     }
                     if (!arrayList3.isEmpty()) {
@@ -886,8 +886,8 @@ public class ApkSignatureSchemeV2Verifier {
                 throw new SecurityException("Signature algorithms don't match between digests and signatures records");
             }
             throw new SecurityException(str + " signature did not verify");
-        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e5) {
-            throw new SecurityException("Failed to verify " + str + " signature", e5);
+        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e4) {
+            throw new SecurityException("Failed to verify " + str + " signature", e4);
         }
     }
 
@@ -932,8 +932,8 @@ public class ApkSignatureSchemeV2Verifier {
                     i++;
                     try {
                         arrayList.add(verifySigner(getLengthPrefixedSlice(lengthPrefixedSlice), hashMap, certificateFactory));
-                    } catch (IOException | SecurityException | BufferUnderflowException e2) {
-                        throw new SecurityException("Failed to parse/verify signer #" + i + " block", e2);
+                    } catch (IOException | SecurityException | BufferUnderflowException e) {
+                        throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                     }
                 }
                 if (i >= 1) {
@@ -944,11 +944,11 @@ public class ApkSignatureSchemeV2Verifier {
                     throw new SecurityException("No content digests found");
                 }
                 throw new SecurityException("No signers found");
-            } catch (IOException e3) {
-                throw new SecurityException("Failed to read list of signers", e3);
+            } catch (IOException e2) {
+                throw new SecurityException("Failed to read list of signers", e2);
             }
-        } catch (CertificateException e4) {
-            throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e4);
+        } catch (CertificateException e3) {
+            throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e3);
         }
     }
 }

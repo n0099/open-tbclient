@@ -7,7 +7,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface NSPVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
@@ -36,15 +36,15 @@ public interface NSPVI extends LADI {
 
     void setFetchDelay(int i);
 
-    void setFloatView(View view);
+    void setFloatView(View view2);
 
     void setLoadAdParams(LoadAdParams loadAdParams);
 
     @Deprecated
-    void setPreloadView(View view);
+    void setPreloadView(View view2);
 
     @Deprecated
-    void setSkipView(View view);
+    void setSkipView(View view2);
 
     void setSupportZoomOut(boolean z);
 

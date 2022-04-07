@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;
@@ -97,13 +97,13 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, options)) == null) {
             if (options != null) {
                 int i = options.inSampleSize;
-                float f2 = i > 1 ? 1.0f / i : 1.0f;
+                float f = i > 1 ? 1.0f / i : 1.0f;
                 if (options.inScaled) {
                     int i2 = options.inDensity;
                     int i3 = options.inTargetDensity;
-                    return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f2 : i3 / i2;
+                    return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f : i3 / i2;
                 }
-                return f2;
+                return f;
             }
             return 1.0f;
         }
@@ -294,10 +294,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f2, byte[] bArr2);
+    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f, byte[] bArr2);
 
     @DoNotStrip
-    public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
+    public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f, byte[] bArr);
 
     @DoNotStrip
     public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);

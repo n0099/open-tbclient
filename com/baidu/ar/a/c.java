@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Integer> bQ;
@@ -88,8 +88,8 @@ public class c {
                 }
                 com.baidu.ar.h.b.b("DEVICE_INFO", (String) hashMap.get("Hardware"));
                 return hashMap;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -120,8 +120,8 @@ public class c {
                 for (int i4 = 0; i4 < jSONArray4.length(); i4++) {
                     bQ.put(jSONArray4.get(i4).toString(), -1);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

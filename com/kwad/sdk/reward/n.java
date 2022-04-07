@@ -5,7 +5,7 @@ import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static boolean a(@NonNull AdTemplate adTemplate) {
         if (b(adTemplate)) {
@@ -38,7 +38,7 @@ public class n {
     }
 
     public static boolean b(@NonNull AdTemplate adTemplate) {
-        File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)));
-        return b2 != null && b2.exists();
+        File b = com.kwad.sdk.core.diskcache.a.a.a().b(com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)));
+        return b != null && b.exists();
     }
 }

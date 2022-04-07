@@ -83,7 +83,7 @@ public class Loader<D> {
 
     /* loaded from: classes.dex */
     public interface OnLoadCompleteListener<D> {
-        void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d2);
+        void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d);
     }
 
     public Loader(@NonNull Context context) {
@@ -133,12 +133,12 @@ public class Loader<D> {
     }
 
     @NonNull
-    public String dataToString(@Nullable D d2) {
+    public String dataToString(@Nullable D d) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
             StringBuilder sb = new StringBuilder(64);
-            DebugUtils.buildShortClassTag(d2, sb);
+            DebugUtils.buildShortClassTag(d, sb);
             sb.append("}");
             return sb.toString();
         }
@@ -156,13 +156,13 @@ public class Loader<D> {
     }
 
     @MainThread
-    public void deliverResult(@Nullable D d2) {
+    public void deliverResult(@Nullable D d) {
         OnLoadCompleteListener<D> onLoadCompleteListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, d2) == null) || (onLoadCompleteListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, d) == null) || (onLoadCompleteListener = this.mListener) == null) {
             return;
         }
-        onLoadCompleteListener.onLoadComplete(this, d2);
+        onLoadCompleteListener.onLoadComplete(this, d);
     }
 
     @Deprecated

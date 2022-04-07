@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -34,23 +34,23 @@ public class bj {
         }
         a = System.getProperty("line.separator");
         f138a = new char[64];
-        char c2 = 'A';
+        char c = 'A';
         int i = 0;
-        while (c2 <= 'Z') {
+        while (c <= 'Z') {
+            f138a[i] = c;
+            c = (char) (c + 1);
+            i++;
+        }
+        char c2 = 'a';
+        while (c2 <= 'z') {
             f138a[i] = c2;
             c2 = (char) (c2 + 1);
             i++;
         }
-        char c3 = 'a';
-        while (c3 <= 'z') {
+        char c3 = '0';
+        while (c3 <= '9') {
             f138a[i] = c3;
             c3 = (char) (c3 + 1);
-            i++;
-        }
-        char c4 = '0';
-        while (c4 <= '9') {
-            f138a[i] = c4;
-            c4 = (char) (c4 + 1);
             i++;
         }
         char[] cArr = f138a;
@@ -78,7 +78,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m222a(String str) {
+    public static byte[] m218a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -93,9 +93,9 @@ public class bj {
     public static byte[] a(char[] cArr, int i, int i2) {
         InterceptResult invokeLII;
         int i3;
-        char c2;
+        char c;
         int i4;
-        char c3;
+        char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr, i, i2)) == null) {
             if (i2 % 4 == 0) {
@@ -108,37 +108,37 @@ public class bj {
                 int i7 = 0;
                 while (i < i6) {
                     int i8 = i + 1;
-                    char c4 = cArr[i];
+                    char c3 = cArr[i];
                     int i9 = i8 + 1;
-                    char c5 = cArr[i8];
+                    char c4 = cArr[i8];
                     if (i9 < i6) {
                         i3 = i9 + 1;
-                        c2 = cArr[i9];
+                        c = cArr[i9];
                     } else {
                         i3 = i9;
-                        c2 = 'A';
+                        c = 'A';
                     }
                     if (i3 < i6) {
                         i4 = i3 + 1;
-                        c3 = cArr[i3];
+                        c2 = cArr[i3];
                     } else {
                         i4 = i3;
-                        c3 = 'A';
+                        c2 = 'A';
                     }
-                    if (c4 > 127 || c5 > 127 || c2 > 127 || c3 > 127) {
+                    if (c3 > 127 || c4 > 127 || c > 127 || c2 > 127) {
                         throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                     }
                     byte[] bArr2 = f137a;
+                    byte b = bArr2[c3];
                     byte b2 = bArr2[c4];
-                    byte b3 = bArr2[c5];
+                    byte b3 = bArr2[c];
                     byte b4 = bArr2[c2];
-                    byte b5 = bArr2[c3];
-                    if (b2 < 0 || b3 < 0 || b4 < 0 || b5 < 0) {
+                    if (b < 0 || b2 < 0 || b3 < 0 || b4 < 0) {
                         throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                     }
-                    int i10 = (b2 << 2) | (b3 >>> 4);
-                    int i11 = ((b3 & 15) << 4) | (b4 >>> 2);
-                    int i12 = ((b4 & 3) << 6) | b5;
+                    int i10 = (b << 2) | (b2 >>> 4);
+                    int i11 = ((b2 & 15) << 4) | (b3 >>> 2);
+                    int i12 = ((b3 & 3) << 6) | b4;
                     int i13 = i7 + 1;
                     bArr[i7] = (byte) i10;
                     if (i13 < i5) {
@@ -202,13 +202,13 @@ public class bj {
                 cArr[i8] = cArr2[i11];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[i12];
-                char c2 = '=';
+                char c = '=';
                 cArr[i16] = i16 < i6 ? cArr2[i13] : '=';
                 int i17 = i16 + 1;
                 if (i17 < i6) {
-                    c2 = f138a[i14];
+                    c = f138a[i14];
                 }
-                cArr[i17] = c2;
+                cArr[i17] = c;
                 i8 = i17 + 1;
                 i = i3;
             }
@@ -220,6 +220,6 @@ public class bj {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m222a(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m218a(str)) : (String) invokeL.objValue;
     }
 }

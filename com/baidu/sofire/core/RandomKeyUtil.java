@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RandomKeyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CHAR_LIST = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -79,9 +79,9 @@ public class RandomKeyUtil {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr) == null) {
             int length = bArr.length / 2;
             for (int i = 0; i < length; i++) {
-                byte b2 = bArr[i];
+                byte b = bArr[i];
                 bArr[i] = bArr[(bArr.length - i) - 1];
-                bArr[(bArr.length - i) - 1] = b2;
+                bArr[(bArr.length - i) - 1] = b;
             }
         }
     }

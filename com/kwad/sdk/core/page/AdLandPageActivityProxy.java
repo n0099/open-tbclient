@@ -34,7 +34,7 @@ import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_DIALOG_URL = "key_dialog_url";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -71,18 +71,18 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         aVar.a(this.mAdTemplate);
         com.kwad.sdk.core.webview.a aVar2 = this.mJsBridgeContext;
         aVar2.a = 0;
-        aVar2.f39984e = this.mAdWebView;
-        aVar2.f39983d = this.mWebContainer;
+        aVar2.e = this.mAdWebView;
+        aVar2.d = this.mWebContainer;
     }
 
     private void initTipBarView() {
-        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091191);
-        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091192);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091193);
+        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09118a);
+        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09118b);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118c);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.6
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdLandPageActivityProxy.this.mWebTipBarLayout.setVisibility(8);
             }
         });
@@ -106,23 +106,23 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     private void initView() {
         KsAdWebView ksAdWebView;
         String G;
-        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091188);
+        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091181);
         this.mAdWebView = ksAdWebView2;
         handlerLandingPageAtEndCard(ksAdWebView2);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
         this.mAdWebView.b();
         this.mAdWebView.setOnWebViewScrollChangeListener(new KsAdWebView.c() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.2
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.c
-            public void a(View view, int i, int i2, int i3, int i4) {
+            public void a(View view2, int i, int i2, int i3, int i4) {
                 if (AdLandPageActivityProxy.this.mWebTipBarLayout.getVisibility() == 0) {
                     AdLandPageActivityProxy.this.mWebTipBarLayout.setVisibility(8);
                 }
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ac);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ad);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ae);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910b3);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a5);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ac);
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
@@ -130,13 +130,13 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
                 textView.setText(adBaseInfo.productName);
                 imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.3
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         AdLandPageActivityProxy.this.finish();
                     }
                 });
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.4
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         AdLandPageActivityProxy.this.onBackPressed();
                     }
                 });
@@ -179,13 +179,13 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         textView.setText("详情页面");
         imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdLandPageActivityProxy.this.finish();
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.4
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdLandPageActivityProxy.this.onBackPressed();
             }
         });
@@ -281,7 +281,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
 
     @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d0417);
+        setContentView(R.layout.obfuscated_res_0x7f0d0412);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mDialogUrl = getIntent().getStringExtra(KEY_DIALOG_URL);
         try {

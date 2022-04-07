@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";

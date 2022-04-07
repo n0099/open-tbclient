@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.u1.w.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,10 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x87;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,18 +89,18 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.d.f.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.repackage.ef
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemViewClick(View view, int i, int i2, long j) {
+    public void onItemViewClick(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.onItemViewClick(view, i, i2, j);
-            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && c.q(msg) && content != null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.onItemViewClick(view2, i, i2, j);
+            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && x87.q(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {
@@ -108,8 +108,8 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                         if (jSONArray.length() > 0) {
                             jSONObject = jSONArray.getJSONObject(0);
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 } catch (Exception unused) {
                     jSONObject = new JSONObject(content);

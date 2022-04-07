@@ -13,7 +13,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientConfigManagerImpl implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ClientConfigManager";
@@ -107,16 +107,16 @@ public class ClientConfigManagerImpl implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                String c2 = preparePushConfigSettings().c("DPL");
-                if (!TextUtils.isEmpty(c2)) {
+                String c = preparePushConfigSettings().c("DPL");
+                if (!TextUtils.isEmpty(c)) {
                     try {
-                        return Integer.parseInt(c2);
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
+                        return Integer.parseInt(c);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
                 }
-            } catch (NumberFormatException e3) {
-                e3.printStackTrace();
+            } catch (NumberFormatException e2) {
+                e2.printStackTrace();
             }
             return 0;
         }
@@ -174,12 +174,12 @@ public class ClientConfigManagerImpl implements d {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048582, this)) != null) {
             return invokeV.booleanValue;
         }
-        String c2 = preparePushConfigSettings().c("PSM");
-        if (!TextUtils.isEmpty(c2)) {
+        String c = preparePushConfigSettings().c("PSM");
+        if (!TextUtils.isEmpty(c)) {
             try {
-                parseInt = Integer.parseInt(c2);
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
+                parseInt = Integer.parseInt(c);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
             return (parseInt & 4) == 0;
         }
@@ -203,9 +203,9 @@ public class ClientConfigManagerImpl implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             prepareAppConfig();
-            com.vivo.push.model.a c2 = this.mAppConfigSettings.c(this.mContext.getPackageName());
-            if (c2 != null) {
-                return "1".equals(c2.b());
+            com.vivo.push.model.a c = this.mAppConfigSettings.c(this.mContext.getPackageName());
+            if (c != null) {
+                return "1".equals(c.b());
             }
             return true;
         }
@@ -218,15 +218,15 @@ public class ClientConfigManagerImpl implements d {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            String c2 = preparePushConfigSettings().c("BL");
-            if (!TextUtils.isEmpty(c2)) {
-                for (String str : c2.split(",")) {
+            String c = preparePushConfigSettings().c("BL");
+            if (!TextUtils.isEmpty(c)) {
+                for (String str : c.split(",")) {
                     try {
                         if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
                             return true;
                         }
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
                 }
             }

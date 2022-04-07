@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public DataOutputStream f24737b;
+    public DataOutputStream b;
 
     public e(OutputStream outputStream) {
         Interceptable interceptable = $ic;
@@ -32,14 +30,14 @@ public class e {
                 return;
             }
         }
-        this.f24737b = new DataOutputStream(outputStream);
+        this.b = new DataOutputStream(outputStream);
         this.a = new byte[8];
     }
 
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24737b.close();
+            this.b.close();
         }
     }
 
@@ -49,7 +47,7 @@ public class e {
             byte[] bArr = this.a;
             bArr[1] = (byte) (i >> 8);
             bArr[0] = (byte) i;
-            this.f24737b.write(bArr, 0, 2);
+            this.b.write(bArr, 0, 2);
         }
     }
 
@@ -65,14 +63,14 @@ public class e {
             bArr[2] = (byte) (j >> 16);
             bArr[1] = (byte) (j >> 8);
             bArr[0] = (byte) j;
-            this.f24737b.write(bArr, 0, 8);
+            this.b.write(bArr, 0, 8);
         }
     }
 
     public void a(byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            this.f24737b.write(bArr);
+            this.b.write(bArr);
         }
     }
 
@@ -84,7 +82,7 @@ public class e {
             bArr[2] = (byte) (i >> 16);
             bArr[1] = (byte) (i >> 8);
             bArr[0] = (byte) i;
-            this.f24737b.write(bArr, 0, 4);
+            this.b.write(bArr, 0, 4);
         }
     }
 }

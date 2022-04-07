@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AccessState implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2345844599685454996L;
@@ -20,7 +20,7 @@ public class AccessState implements Serializable {
     public String type;
     public UserInfo userInfo;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class UserInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,8 +93,8 @@ public class AccessState implements Serializable {
                 return;
             }
             parserJson(optJSONObject.optJSONObject(AccountAccessActivityConfig.KEY_ACCESS_STATE));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -113,8 +113,8 @@ public class AccessState implements Serializable {
             this.userInfo.strMobile = jSONObject2.optString("strMobile");
             this.userInfo.strEmail = jSONObject2.optString("strEmail");
             this.userInfo.bduss = jSONObject2.optString("bduss");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

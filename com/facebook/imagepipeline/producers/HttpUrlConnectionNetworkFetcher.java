@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -216,8 +216,8 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
                         try {
                             inputStream = httpURLConnection.getInputStream();
                             callback.onResponse(inputStream, -1);
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             callback.onFailure(e);
                             if (inputStream != null) {
                                 try {
@@ -253,8 +253,8 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
                 if (httpURLConnection == null) {
                     return;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 httpURLConnection = null;
             } catch (Throwable th2) {
                 th = th2;

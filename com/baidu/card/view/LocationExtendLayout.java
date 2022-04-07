@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.l.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,23 +19,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class LocationExtendLayout extends LinearLayout implements q {
+import com.repackage.gz;
+/* loaded from: classes.dex */
+public class LocationExtendLayout extends LinearLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f25083b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f25084c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f25085d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f25086e;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LocationExtendLayout(Context context) {
@@ -62,11 +54,11 @@ public class LocationExtendLayout extends LinearLayout implements q {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.f25083b, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f25086e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f25084c, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f25085d, (int) R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080920, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
         }
     }
 
@@ -74,12 +66,12 @@ public class LocationExtendLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a1, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905ed);
-            this.f25083b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ea);
-            this.f25086e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905eb);
-            this.f25084c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
-            this.f25085d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ef);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049c, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f3);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f8);
         }
     }
 
@@ -88,25 +80,25 @@ public class LocationExtendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             setVisibility(0);
             if (!TextUtils.isEmpty(str)) {
-                this.f25083b.setText(str);
-                this.f25083b.setVisibility(0);
+                this.b.setText(str);
+                this.b.setVisibility(0);
                 this.a.setVisibility(0);
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f25085d.setVisibility(0);
+                    this.d.setVisibility(0);
                 } else {
-                    this.f25085d.setVisibility(8);
+                    this.d.setVisibility(8);
                 }
             } else {
-                this.f25083b.setVisibility(8);
+                this.b.setVisibility(8);
                 this.a.setVisibility(8);
-                this.f25085d.setVisibility(8);
+                this.d.setVisibility(8);
             }
-            this.f25086e.setText(str2);
+            this.e.setText(str2);
             a();
         }
     }
 
-    @Override // c.a.l.q
+    @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {

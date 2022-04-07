@@ -25,28 +25,16 @@ import com.kwad.sdk.core.webview.kwai.g;
 import com.kwad.sdk.utils.bb;
 import com.kwad.sdk.utils.be;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public View a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f40574c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f40575d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public KsAdWebView f40576e;
+    public AdBaseFrameLayout c;
+    public FrameLayout d;
+    public KsAdWebView e;
     @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public JSONObject f40577f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f40578g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public AdTemplate f40579h;
+    public JSONObject f;
+    public int g;
+    public AdTemplate h;
     @Nullable
     public com.kwad.sdk.core.download.a.b i;
     @Nullable
@@ -55,9 +43,7 @@ public class b {
     public com.kwad.sdk.core.webview.a l;
     public s n;
     public int m = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f40573b = false;
+    public boolean b = false;
     public i.b o = new i.b() { // from class: com.kwad.sdk.i.b.2
         @Override // com.kwad.sdk.core.webview.jshandler.i.b
         public void a(int i) {
@@ -76,7 +62,7 @@ public class b {
     }
 
     public b(@Nullable JSONObject jSONObject) {
-        this.f40577f = jSONObject;
+        this.f = jSONObject;
     }
 
     private void a(g gVar) {
@@ -97,26 +83,26 @@ public class b {
 
     @SuppressLint({"ClickableViewAccessibility"})
     private void h() {
-        this.f40575d.removeAllViews();
-        this.f40575d.setVisibility(4);
-        this.a = com.kwad.sdk.a.kwai.a.a((ViewGroup) this.f40575d, a(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.f40575d.findViewById(R.id.obfuscated_res_0x7f09118b);
-        this.f40576e = ksAdWebView;
+        this.d.removeAllViews();
+        this.d.setVisibility(4);
+        this.a = com.kwad.sdk.a.kwai.a.a((ViewGroup) this.d, a(), true);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.d.findViewById(R.id.obfuscated_res_0x7f091184);
+        this.e = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
-        this.f40576e.getBackground().setAlpha(0);
-        this.f40576e.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.i.b.1
+        this.e.getBackground().setAlpha(0);
+        this.e.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.i.b.1
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a() {
             }
 
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a(int i, String str, String str2) {
-                b.this.f40573b = false;
+                b.this.b = false;
             }
 
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void b() {
-                b.this.f40573b = true;
+                b.this.b = true;
             }
         });
     }
@@ -124,25 +110,25 @@ public class b {
     private void i() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.l = aVar;
-        aVar.a(this.f40579h);
+        aVar.a(this.h);
         com.kwad.sdk.core.webview.a aVar2 = this.l;
-        aVar2.a = this.f40578g;
-        aVar2.f39981b = this.f40574c;
-        aVar2.f39983d = this.f40575d;
-        aVar2.f39984e = this.f40576e;
-        aVar2.f39982c = this.f40577f;
+        aVar2.a = this.g;
+        aVar2.b = this.c;
+        aVar2.d = this.d;
+        aVar2.e = this.e;
+        aVar2.c = this.f;
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void j() {
         k();
-        WebSettings a = be.a(this.f40576e);
+        WebSettings a = be.a(this.e);
         a.setAllowContentAccess(false);
         a.setAllowFileAccess(true);
-        g gVar = new g(this.f40576e);
+        g gVar = new g(this.e);
         this.k = gVar;
         a(gVar);
-        this.f40576e.addJavascriptInterface(this.k, "KwaiAd");
+        this.e.addJavascriptInterface(this.k, "KwaiAd");
     }
 
     private void k() {
@@ -160,11 +146,11 @@ public class b {
     }
 
     public int a() {
-        return R.layout.obfuscated_res_0x7f0d0422;
+        return R.layout.obfuscated_res_0x7f0d041d;
     }
 
     public String a(AdTemplate adTemplate) {
-        return com.kwad.sdk.core.response.a.b.g(this.f40579h);
+        return com.kwad.sdk.core.response.a.b.g(this.h);
     }
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, @Nullable com.kwad.sdk.core.download.a.b bVar) {
@@ -173,10 +159,10 @@ public class b {
 
     public void a(FrameLayout frameLayout, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.sdk.core.download.a.b bVar, int i) {
         this.i = bVar;
-        this.f40574c = adBaseFrameLayout;
-        this.f40575d = frameLayout;
-        this.f40578g = i;
-        this.f40579h = adTemplate;
+        this.c = adBaseFrameLayout;
+        this.d = frameLayout;
+        this.g = i;
+        this.h = adTemplate;
         h();
         i();
     }
@@ -186,14 +172,14 @@ public class b {
     }
 
     public void b() {
-        this.f40575d.setVisibility(4);
+        this.d.setVisibility(4);
         this.m = -1;
-        String a = a(this.f40579h);
+        String a = a(this.h);
         if (TextUtils.isEmpty(a)) {
             return;
         }
         j();
-        this.f40576e.loadUrl(a);
+        this.e.loadUrl(a);
     }
 
     public boolean c() {
@@ -202,7 +188,7 @@ public class b {
 
     public boolean d() {
         if (!c()) {
-            FrameLayout frameLayout = this.f40575d;
+            FrameLayout frameLayout = this.d;
             if (frameLayout != null) {
                 frameLayout.setVisibility(4);
             }
@@ -213,7 +199,7 @@ public class b {
         if (sVar != null) {
             sVar.c();
         }
-        FrameLayout frameLayout2 = this.f40575d;
+        FrameLayout frameLayout2 = this.d;
         if (frameLayout2 != null) {
             frameLayout2.setVisibility(0);
         }
@@ -226,12 +212,12 @@ public class b {
     }
 
     public void e() {
-        if (bb.a(this.f40576e, 50, false)) {
+        if (bb.a(this.e, 50, false)) {
             s sVar = this.n;
             if (sVar != null) {
                 sVar.e();
             }
-            this.f40575d.setVisibility(4);
+            this.d.setVisibility(4);
             s sVar2 = this.n;
             if (sVar2 != null) {
                 sVar2.f();

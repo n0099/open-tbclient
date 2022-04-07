@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hk {
     public static /* synthetic */ Interceptable $ic;
     public static final hk A;
@@ -93,9 +93,7 @@ public final class hk {
     public static final hk ax;
     public static final hk ay;
     public static final hk az;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hk f44344b;
+    public static final hk b;
     public static final hk ba;
     public static final hk bb;
     public static final hk bc;
@@ -111,24 +109,12 @@ public final class hk {
     public static final hk bm;
     public static final hk bn;
     public static final hk bo;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final hk f44345c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final hk f44346d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final hk f44347e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final hk f44348f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final hk f44349g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final hk f44350h;
+    public static final hk c;
+    public static final hk d;
+    public static final hk e;
+    public static final hk f;
+    public static final hk g;
+    public static final hk h;
     public static final hk i;
     public static final hk j;
     public static final hk k;
@@ -166,13 +152,13 @@ public final class hk {
             }
         }
         a = new hk("UploadSwitch", 0, 1);
-        f44344b = new hk("UploadFrequency", 1, 2);
-        f44345c = new hk("ScreenSizeCollectionSwitch", 2, 3);
-        f44346d = new hk("MacCollectionSwitch", 3, 4);
-        f44347e = new hk("IMSICollectionSwitch", 4, 5);
-        f44348f = new hk("AndroidVnCollectionSwitch", 5, 6);
-        f44349g = new hk("AndroidVcCollectionSwitch", 6, 7);
-        f44350h = new hk("AndroidIdCollectionSwitch", 7, 8);
+        b = new hk("UploadFrequency", 1, 2);
+        c = new hk("ScreenSizeCollectionSwitch", 2, 3);
+        d = new hk("MacCollectionSwitch", 3, 4);
+        e = new hk("IMSICollectionSwitch", 4, 5);
+        f = new hk("AndroidVnCollectionSwitch", 5, 6);
+        g = new hk("AndroidVcCollectionSwitch", 6, 7);
+        h = new hk("AndroidIdCollectionSwitch", 7, 8);
         i = new hk("DeviceInfoCollectionFrequency", 8, 9);
         j = new hk("AppInstallListCollectionSwitch", 9, 10);
         k = new hk("AppInstallListCollectionFrequency", 10, 11);
@@ -285,7 +271,7 @@ public final class hk {
         bn = new hk("CollectionPluginMd5", 117, 1003);
         hk hkVar = new hk("CollectionPluginForceStop", 118, 1004);
         bo = hkVar;
-        f473a = new hk[]{a, f44344b, f44345c, f44346d, f44347e, f44348f, f44349g, f44350h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
+        f473a = new hk[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
     }
 
     public hk(String str, int i2, int i3) {

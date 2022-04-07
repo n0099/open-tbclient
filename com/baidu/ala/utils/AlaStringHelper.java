@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaStringHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,16 +34,16 @@ public class AlaStringHelper {
         }
     }
 
-    public static String formatLowercasekDou(float f2) {
+    public static String formatLowercasekDou(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) {
-            if (f2 < 100.0f) {
-                return String.valueOf(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (f < 100.0f) {
+                return String.valueOf(f);
             }
             DecimalFormat decimalFormat = new DecimalFormat("0.0k");
             decimalFormat.setRoundingMode(RoundingMode.FLOOR);
-            return decimalFormat.format(f2 / 1000.0d);
+            return decimalFormat.format(f / 1000.0d);
         }
         return (String) invokeF.objValue;
     }
@@ -77,21 +77,21 @@ public class AlaStringHelper {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             long j3 = j2 - j;
             if (j3 < 60000) {
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0242);
+                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0243);
             }
-            StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0217));
+            StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0218));
             if (j3 < 3600000) {
-                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c5);
+                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13cd);
                 sb.append((int) (j3 / 60000));
                 sb.append(string);
                 return sb.toString();
             } else if (j3 < 86400000) {
-                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13be);
+                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c6);
                 sb.append(j3 / 3600000);
                 sb.append(string2);
                 return sb.toString();
             } else {
-                String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f046f);
+                String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0476);
                 sb.append(j3 / 86400000);
                 sb.append(string3);
                 return sb.toString();
@@ -106,39 +106,39 @@ public class AlaStringHelper {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65542, null, j)) == null) {
             StringBuilder sb = new StringBuilder();
             if (j < 60) {
-                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c7);
+                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13cf);
                 sb.append(j);
                 sb.append(string);
                 return sb.toString();
             } else if (j < 3600) {
-                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abb);
+                String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abd);
                 sb.append((int) (j / 60));
                 sb.append(string2);
                 int i = (int) (j % 60);
                 if (i > 0) {
-                    String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c7);
+                    String string3 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13cf);
                     sb.append(i);
                     sb.append(string3);
                 }
                 return sb.toString();
             } else if (j < 86400) {
-                String string4 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13be);
+                String string4 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c6);
                 sb.append((int) (j / 3600));
                 sb.append(string4);
                 int i2 = ((int) (j % 3600)) / 60;
                 if (i2 > 0) {
-                    String string5 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abb);
+                    String string5 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0abd);
                     sb.append(i2);
                     sb.append(string5);
                 }
                 return sb.toString();
             } else {
-                String string6 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f046f);
+                String string6 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0476);
                 sb.append((int) (j / 86400));
                 sb.append(string6);
                 int i3 = ((int) (j % 86400)) / 3600;
                 if (i3 > 0) {
-                    String string7 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13be);
+                    String string7 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c6);
                     sb.append(i3);
                     sb.append(string7);
                 }
@@ -222,17 +222,17 @@ public class AlaStringHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
             if (j > 99990000) {
-                return String.format("9999%s+", TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d));
+                return String.format("9999%s+", TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475));
             }
             if (j >= 10000000) {
-                return String.valueOf(j / 10000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return String.valueOf(j / 10000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
             }
             int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
             if (i > 0) {
-                return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d));
+                return String.format(Locale.getDefault(), "%.1f%s", Float.valueOf(((float) j) / 10000.0f), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475));
             }
             if (i == 0) {
-                return "1" + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
+                return "1" + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1475);
             } else if (j < 0) {
                 return "--";
             } else {

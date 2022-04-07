@@ -154,10 +154,10 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderView(View view) {
+    public SubMenu setHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view)) == null) ? (SubMenu) super.setHeaderViewInt(view) : (SubMenu) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) ? (SubMenu) super.setHeaderViewInt(view2) : (SubMenu) invokeL.objValue;
     }
 
     @Override // android.view.SubMenu

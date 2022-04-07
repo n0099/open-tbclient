@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.h0.t;
-import c.a.a0.j.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
@@ -22,37 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class AdInstallTipsView extends LinearLayout implements d, View.OnClickListener {
+import com.repackage.om0;
+import com.repackage.pm0;
+import com.repackage.r11;
+import com.repackage.tk0;
+import com.repackage.vk0;
+/* loaded from: classes2.dex */
+public class AdInstallTipsView extends LinearLayout implements vk0, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f27515b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f27516c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f27517d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public CountDownTextView f27518e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f27519f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f27520g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public CountDownTextView f27521h;
-    public c.a.a0.j.j.b<AdInstallTipsView> i;
+    public TextView b;
+    public FrameLayout c;
+    public TextView d;
+    public CountDownTextView e;
+    public FrameLayout f;
+    public TextView g;
+    public CountDownTextView h;
+    public tk0<AdInstallTipsView> i;
     public b j;
 
-    /* loaded from: classes4.dex */
-    public class a implements c.a.a0.r.b {
+    /* loaded from: classes2.dex */
+    public class a implements pm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
@@ -75,14 +64,14 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
             this.a = adInstallTipsView;
         }
 
-        @Override // c.a.a0.r.b
+        @Override // com.repackage.pm0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.a0.r.b
+        @Override // com.repackage.pm0
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
@@ -91,7 +80,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(ClogBuilder.Area area, boolean z, long j, long j2);
 
@@ -119,12 +108,12 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             e().a(j);
-            ClogBuilder.Area area = this.f27521h.getVisibility() == 0 ? ClogBuilder.Area.INSTALL_NOW_BUTTON : ClogBuilder.Area.INSTALL_LATER_BUTTON;
+            ClogBuilder.Area area = this.h.getVisibility() == 0 ? ClogBuilder.Area.INSTALL_NOW_BUTTON : ClogBuilder.Area.INSTALL_LATER_BUTTON;
             b bVar = this.j;
             if (bVar != null) {
                 bVar.a(area, false, this.i.e(), this.i.j());
@@ -132,7 +121,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -140,7 +129,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -156,10 +145,10 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f27521h.getVisibility() == 0) {
-                return this.f27521h;
+            if (this.h.getVisibility() == 0) {
+                return this.h;
             }
-            return this.f27518e;
+            return this.e;
         }
         return (CountDownTextView) invokeV.objValue;
     }
@@ -167,59 +156,59 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b5, this));
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db3));
+            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b1, this));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db5));
             setOrientation(0);
             setGravity(16);
-            this.i = new c.a.a0.j.j.b<>(this);
+            this.i = new tk0<>(this);
         }
     }
 
-    public final void g(View view) {
+    public final void g(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.a = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f0900b1);
-            this.f27515b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.f27517d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0900b6);
-            this.f27518e = (CountDownTextView) view.findViewById(R.id.obfuscated_res_0x7f0900b4);
-            this.f27520g = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0900b9);
-            this.f27521h = (CountDownTextView) view.findViewById(R.id.obfuscated_res_0x7f0900b7);
-            this.f27516c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.f27519f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b8);
-            this.f27518e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b41));
-            this.f27521h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b50));
-            this.f27518e.setTimerTextFormat(null, "s");
-            this.f27521h.setTimerTextFormat(null, "s");
-            this.f27518e.setTextColor(Color.parseColor("#FF4141"));
-            this.f27521h.setTextColor(Color.parseColor("#FFFFFF"));
-            this.f27518e.setTextSize(12);
-            this.f27521h.setTextSize(12);
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900ba);
+            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bd);
+            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bb);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b9);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bc);
+            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b43));
+            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b52));
+            this.e.setTimerTextFormat(null, "s");
+            this.h.setTimerTextFormat(null, "s");
+            this.e.setTextColor(Color.parseColor("#FF4141"));
+            this.h.setTextColor(Color.parseColor("#FFFFFF"));
+            this.e.setTextSize(12);
+            this.h.setTextSize(12);
             this.a.setOnClickListener(this);
-            this.f27515b.setOnClickListener(this);
-            this.f27517d.setOnClickListener(this);
-            this.f27518e.setOnClickListener(this);
-            this.f27520g.setOnClickListener(this);
-            this.f27521h.setOnClickListener(this);
-            this.f27516c.setOnClickListener(this);
-            this.f27519f.setOnClickListener(this);
+            this.b.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.g.setOnClickListener(this);
+            this.h.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.f.setOnClickListener(this);
             setOnClickListener(this);
-            t.a(getContext(), this.f27516c, 10.0f);
+            r11.a(getContext(), this.c, 10.0f);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         ClogBuilder.Area area;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            int id = view.getId();
-            if (id == R.id.obfuscated_res_0x7f0900b1) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f0900b5) {
                 area = ClogBuilder.Area.ICON;
-            } else if (id == R.id.obfuscated_res_0x7f0900b2) {
+            } else if (id == R.id.obfuscated_res_0x7f0900b6) {
                 area = ClogBuilder.Area.NAME;
-            } else if (id == R.id.obfuscated_res_0x7f0900b6 || id == R.id.obfuscated_res_0x7f0900b4 || id == R.id.obfuscated_res_0x7f0900b5) {
+            } else if (id == R.id.obfuscated_res_0x7f0900ba || id == R.id.obfuscated_res_0x7f0900b8 || id == R.id.obfuscated_res_0x7f0900b9) {
                 area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
-            } else if (id != R.id.obfuscated_res_0x7f0900b9 && id != R.id.obfuscated_res_0x7f0900b7 && id != R.id.obfuscated_res_0x7f0900b8) {
+            } else if (id != R.id.obfuscated_res_0x7f0900bd && id != R.id.obfuscated_res_0x7f0900bb && id != R.id.obfuscated_res_0x7f0900bc) {
                 area = ClogBuilder.Area.HOTAREA;
             } else {
                 area = ClogBuilder.Area.INSTALL_NOW_BUTTON;
@@ -232,7 +221,7 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -250,18 +239,18 @@ public class AdInstallTipsView extends LinearLayout implements d, View.OnClickLi
     public void update(String str, String str2, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            c.a.a0.r.a.a().b(str, new a(this));
-            this.f27515b.setText(str2);
+            om0.a().b(str, new a(this));
+            this.b.setText(str2);
             if (z) {
-                this.f27517d.setVisibility(8);
-                this.f27518e.setVisibility(0);
-                this.f27520g.setVisibility(0);
-                this.f27521h.setVisibility(8);
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
+                this.g.setVisibility(0);
+                this.h.setVisibility(8);
             } else {
-                this.f27517d.setVisibility(0);
-                this.f27518e.setVisibility(8);
-                this.f27520g.setVisibility(8);
-                this.f27521h.setVisibility(0);
+                this.d.setVisibility(0);
+                this.e.setVisibility(8);
+                this.g.setVisibility(8);
+                this.h.setVisibility(0);
             }
             this.i.h(j);
         }

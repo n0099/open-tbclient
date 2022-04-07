@@ -24,9 +24,7 @@ public class ThreadUtils {
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Exception f45368e;
+        public Exception e;
 
         public C1CaughtException() {
             Interceptable interceptable = $ic;
@@ -208,8 +206,8 @@ public class ThreadUtils {
             if (handler.getLooper().getThread() == Thread.currentThread()) {
                 try {
                     return callable.call();
-                } catch (Exception e2) {
-                    throw new RuntimeException(e2);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
             C1Result c1Result = new C1Result();
@@ -251,19 +249,19 @@ public class ThreadUtils {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             this.val$result.value = this.val$callable.call();
-                        } catch (Exception e3) {
-                            this.val$caughtException.f45368e = e3;
+                        } catch (Exception e2) {
+                            this.val$caughtException.e = e2;
                         }
                         this.val$barrier.countDown();
                     }
                 }
             });
             awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.f45368e == null) {
+            if (c1CaughtException.e == null) {
                 return c1Result.value;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f45368e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f45368e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.e);
+            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         return (V) invokeLL.objValue;

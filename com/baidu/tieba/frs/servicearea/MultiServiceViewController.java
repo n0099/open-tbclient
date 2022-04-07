@@ -11,11 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
-import c.a.p0.a4.d0;
-import c.a.p0.a4.e0;
-import c.a.p0.f1.k2.b;
-import c.a.p0.f1.k2.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,54 +31,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ak8;
+import com.repackage.bk8;
+import com.repackage.bo6;
+import com.repackage.kf6;
+import com.repackage.mg;
+import com.repackage.oi;
+import com.repackage.zn6;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class MultiServiceViewController implements b {
+/* loaded from: classes3.dex */
+public class MultiServiceViewController implements zn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
+    public RecyclerView b;
+    public List<bk8> c;
+    public FrsViewData d;
+    public RecyclerView.Adapter e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f32818b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<e0> f32819c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public FrsViewData f32820d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public RecyclerView.Adapter f32821e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ServiceViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
+        public FrameLayout b;
+        public TbClipImageView c;
+        public TextView d;
+        public bk8 e;
+        public List<String> f;
+        public FrsViewData g;
+        public View.OnClickListener h;
 
-        /* renamed from: b  reason: collision with root package name */
-        public FrameLayout f32822b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TbClipImageView f32823c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f32824d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public e0 f32825e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public List<String> f32826f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public FrsViewData f32827g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public View.OnClickListener f32828h;
-
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -108,44 +88,44 @@ public class MultiServiceViewController implements b {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.a.f32825e != null && "tiebaclient://accelerator".equals(this.a.f32825e.f12183d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new c.a.p0.f1.g1.b.a(3));
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new kf6(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
-                        customMessage.setTag(this.a.f32827g.getFrsFragmentTag());
+                        customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
-                    if (!TextUtils.equals(view.getResources().getString(R.string.obfuscated_res_0x7f0f0886), this.a.f32825e.f12181b) || this.a.f32827g == null || this.a.f32827g.getForum() == null || TextUtils.isEmpty(this.a.f32827g.getForum().getId())) {
-                        if (this.a.f32825e != null && this.a.f32825e.f12185f != null) {
-                            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.f32825e.f12186g).param("obj_source", "frs_card").param("obj_id", this.a.f32825e.f12185f.f12192b).param("obj_name", this.a.f32825e.f12185f.a).param("obj_param1", this.a.f32825e.f12185f.f12194d.intValue()));
+                    if (!TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0886), this.a.e.b) || this.a.g == null || this.a.g.getForum() == null || TextUtils.isEmpty(this.a.g.getForum().getId())) {
+                        if (this.a.e != null && this.a.e.f != null) {
+                            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                         }
-                        if (this.a.f32825e != null && !"tiebaclient://accelerator".equals(this.a.f32825e.f12183d)) {
-                            d.b(view.getContext(), this.a.f32825e);
+                        if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
+                            bo6.b(view2.getContext(), this.a.e);
                         }
-                        d.c(this.a.f32825e);
+                        bo6.c(this.a.e);
                         return;
                     }
-                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(c.a.d.f.m.b.g(this.a.f32827g.getForum().getId(), 0L)));
+                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(mg.g(this.a.g.getForum().getId(), 0L)));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                     StatisticItem statisticItem = new StatisticItem("c13666");
-                    statisticItem.param("fid", this.a.f32827g.getForum().getId());
+                    statisticItem.param("fid", this.a.g.getForum().getId());
                     TiebaStatic.log(statisticItem);
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ServiceViewHolder(View view, FrsViewData frsViewData) {
-            super(view);
+        public ServiceViewHolder(View view2, FrsViewData frsViewData) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, frsViewData};
+                Object[] objArr = {view2, frsViewData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -156,60 +136,60 @@ public class MultiServiceViewController implements b {
                     return;
                 }
             }
-            this.f32826f = new ArrayList();
-            this.f32828h = new a(this);
-            Context context = view.getContext();
-            this.f32827g = frsViewData;
-            LinearLayout linearLayout = (LinearLayout) view;
+            this.f = new ArrayList();
+            this.h = new a(this);
+            Context context = view2.getContext();
+            this.g = frsViewData;
+            LinearLayout linearLayout = (LinearLayout) view2;
             this.a = linearLayout;
             linearLayout.setGravity(16);
             this.a.setOrientation(0);
-            this.f32822b = new FrameLayout(context);
-            this.f32823c = new TbClipImageView(context);
-            int f2 = n.f(context, R.dimen.tbds57);
-            this.f32823c.setDrawerType(1);
-            this.f32823c.setIsRound(true);
-            this.f32823c.setBorderWidth(R.dimen.L_X01);
-            this.f32823c.setBorderColor(R.color.CAM_X0401);
-            this.f32823c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f32823c.setPlaceHolder(1);
-            this.f32822b.addView(this.f32823c, new FrameLayout.LayoutParams(f2, f2));
-            this.a.addView(this.f32822b, new LinearLayout.LayoutParams(-2, n.f(this.f32823c.getContext(), R.dimen.tbds62)));
+            this.b = new FrameLayout(context);
+            this.c = new TbClipImageView(context);
+            int f = oi.f(context, R.dimen.tbds57);
+            this.c.setDrawerType(1);
+            this.c.setIsRound(true);
+            this.c.setBorderWidth(R.dimen.L_X01);
+            this.c.setBorderColor(R.color.CAM_X0401);
+            this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.c.setPlaceHolder(1);
+            this.b.addView(this.c, new FrameLayout.LayoutParams(f, f));
+            this.a.addView(this.b, new LinearLayout.LayoutParams(-2, oi.f(this.c.getContext(), R.dimen.tbds62)));
             TextView textView = new TextView(context);
-            this.f32824d = textView;
-            textView.setTextSize(0, n.f(context, R.dimen.T_X08));
+            this.d = textView;
+            textView.setTextSize(0, oi.f(context, R.dimen.T_X08));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = n.f(context, R.dimen.tbds10);
-            layoutParams.rightMargin = n.f(context, R.dimen.M_W_X008);
-            this.a.addView(this.f32824d, layoutParams);
-            view.setOnClickListener(this.f32828h);
+            layoutParams.leftMargin = oi.f(context, R.dimen.tbds10);
+            layoutParams.rightMargin = oi.f(context, R.dimen.M_W_X008);
+            this.a.addView(this.d, layoutParams);
+            view2.setOnClickListener(this.h);
         }
 
-        public void c(e0 e0Var) {
+        public void c(bk8 bk8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, e0Var) == null) || e0Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bk8Var) == null) || bk8Var == null) {
                 return;
             }
-            this.f32825e = e0Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0886), e0Var.f12181b)) {
-                this.f32823c.setImageResource(R.drawable.icon_mask_service_celebrity24);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f32823c.getLayoutParams();
-                layoutParams.width = n.f(this.f32823c.getContext(), R.dimen.tbds62);
-                layoutParams.height = n.f(this.f32823c.getContext(), R.dimen.tbds62);
+            this.e = bk8Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0886), bk8Var.b)) {
+                this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
+                layoutParams.width = oi.f(this.c.getContext(), R.dimen.tbds62);
+                layoutParams.height = oi.f(this.c.getContext(), R.dimen.tbds62);
             } else {
-                this.f32823c.J(e0Var.f12181b, 10, false);
+                this.c.K(bk8Var.b, 10, false);
             }
-            this.f32824d.setText(StringHelper.cutChineseAndEnglishWithSuffix(e0Var.f12182c, 10, ""));
-            SkinManager.setViewTextColor(this.f32824d, (int) R.color.CAM_X0105);
-            if (this.f32826f.contains(e0Var.f12182c)) {
+            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(bk8Var.c, 10, ""));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            if (this.f.contains(bk8Var.c)) {
                 return;
             }
-            d.d(e0Var);
-            this.f32826f.add(e0Var.f12182c);
+            bo6.d(bk8Var);
+            this.f.add(bk8Var.c);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.Adapter<ServiceViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +219,7 @@ public class MultiServiceViewController implements b {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.c((e0) this.a.f32819c.get(i));
+                serviceViewHolder.c((bk8) this.a.c.get(i));
             }
         }
 
@@ -249,14 +229,14 @@ public class MultiServiceViewController implements b {
         public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), this.a.f32820d) : (ServiceViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), this.a.d) : (ServiceViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f32819c.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c.size() : invokeV.intValue;
         }
     }
 
@@ -275,42 +255,42 @@ public class MultiServiceViewController implements b {
                 return;
             }
         }
-        this.f32819c = new ArrayList();
-        this.f32821e = new a(this);
+        this.c = new ArrayList();
+        this.e = new a(this);
         this.a = context;
-        this.f32818b = new RecyclerView(context);
+        this.b = new RecyclerView(context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(0);
-        this.f32818b.setLayoutManager(linearLayoutManager);
-        this.f32818b.setAdapter(this.f32821e);
+        this.b.setLayoutManager(linearLayoutManager);
+        this.b.setAdapter(this.e);
     }
 
-    @Override // c.a.p0.f1.k2.b
-    public void a(d0 d0Var, FrsViewData frsViewData) {
+    @Override // com.repackage.zn6
+    public void a(ak8 ak8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, d0Var, frsViewData) == null) || d0Var == null || ListUtils.isEmpty(d0Var.f12177b)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ak8Var, frsViewData) == null) || ak8Var == null || ListUtils.isEmpty(ak8Var.b)) {
             return;
         }
-        this.f32819c = d0Var.f12177b;
-        this.f32820d = frsViewData;
-        this.f32821e.notifyDataSetChanged();
-        RecyclerView recyclerView = this.f32818b;
-        recyclerView.setPadding(n.f(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
-        this.f32818b.setClipToPadding(false);
+        this.c = ak8Var.b;
+        this.d = frsViewData;
+        this.e.notifyDataSetChanged();
+        RecyclerView recyclerView = this.b;
+        recyclerView.setPadding(oi.f(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
+        this.b.setClipToPadding(false);
     }
 
-    @Override // c.a.p0.f1.k2.b
+    @Override // com.repackage.zn6
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32818b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.f1.k2.b
+    @Override // com.repackage.zn6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f32821e.notifyDataSetChanged();
+            this.e.notifyDataSetChanged();
         }
     }
 }

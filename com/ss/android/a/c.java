@@ -11,18 +11,10 @@ public class c {
     /* loaded from: classes7.dex */
     public static class a {
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f42623b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f42624c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f42625d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f42626e;
+        public int b;
+        public int c;
+        public long d;
+        public String e;
 
         public a() {
         }
@@ -59,7 +51,7 @@ public class c {
     }
 
     public static int a(String str, File file, b bVar) {
-        String b2;
+        String b;
         if (str == null || str.length() == 0) {
             return 2;
         }
@@ -83,28 +75,28 @@ public class c {
                     if (a2.a > 1) {
                         return 3;
                     }
-                    i = a2.f42624c;
-                    j = a2.f42625d;
+                    i = a2.c;
+                    j = a2.d;
                 }
                 a aVar = null;
                 if (bVar != null) {
-                    b2 = a(bVar, i, j);
+                    b = a(bVar, i, j);
                 } else {
-                    b2 = b(file, i, j);
+                    b = b(file, i, j);
                 }
-                if (b2 != null && b2.length() != 0) {
-                    if (a2 != null && (a2.a != 1 || a2.f42623b != 1)) {
-                        if (a2.f42626e != null) {
+                if (b != null && b.length() != 0) {
+                    if (a2 != null && (a2.a != 1 || a2.b != 1)) {
+                        if (a2.e != null) {
                             try {
-                                aVar = a(b2);
+                                aVar = a(b);
                             } catch (Throwable unused2) {
                             }
-                            if (aVar != null && a2.f42624c == aVar.f42624c && a2.f42625d == aVar.f42625d && a2.f42626e.equals(aVar.f42626e)) {
+                            if (aVar != null && a2.c == aVar.c && a2.d == aVar.d && a2.e.equals(aVar.e)) {
                                 return 0;
                             }
                         }
                     }
-                    return b2.equals(str) ? 0 : 1;
+                    return b.equals(str) ? 0 : 1;
                 }
                 return 6;
             } catch (Throwable unused3) {
@@ -228,11 +220,11 @@ public class c {
             if (aVar.a > 1) {
                 return aVar;
             }
-            aVar.f42623b = Integer.parseInt(split2[2]);
+            aVar.b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            aVar.f42624c = (int) b(split3[0]);
-            aVar.f42625d = b(split3[1]);
-            aVar.f42626e = split[1];
+            aVar.c = (int) b(split3[0]);
+            aVar.d = b(split3[1]);
+            aVar.e = split[1];
             return aVar;
         }
         return null;

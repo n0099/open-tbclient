@@ -3,9 +3,6 @@ package com.sina.weibo.sdk.sso;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.l.a.a;
-import c.l.a.b;
-import c.l.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,6 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vn9;
+import com.repackage.wn9;
+import com.repackage.xn9;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
 /* loaded from: classes7.dex */
@@ -77,7 +77,7 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                WeiboSsoSdk.i().m(new b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                WeiboSsoSdk.i().m(new wn9(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WeiboSsoManager this$0;
@@ -100,7 +100,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // c.l.a.b
+                    @Override // com.repackage.wn9
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -112,9 +112,9 @@ public final class WeiboSsoManager {
                         }
                     }
                 });
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                LogUtil.e(TAG, e2.getMessage());
+            } catch (Exception e) {
+                e.printStackTrace();
+                LogUtil.e(TAG, e.getMessage());
             }
         }
     }
@@ -135,19 +135,19 @@ public final class WeiboSsoManager {
     public String getMfp(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? a.n(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? vn9.n(context) : (String) invokeL.objValue;
     }
 
     public void init(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
-            c cVar = new c();
-            cVar.j(context);
-            cVar.i(str);
-            cVar.k("1478195010");
-            cVar.l("1000_0001");
-            WeiboSsoSdk.j(cVar);
+            xn9 xn9Var = new xn9();
+            xn9Var.j(context);
+            xn9Var.i(str);
+            xn9Var.k("1478195010");
+            xn9Var.l("1000_0001");
+            WeiboSsoSdk.j(xn9Var);
             initAid();
         }
     }

@@ -17,17 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.util.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f28188b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f28189c;
+    public boolean b;
+    public boolean c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,8 +38,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f28188b = true;
-        this.f28189c = true;
+        this.b = true;
+        this.c = true;
         this.a = new com.baidu.platform.util.a();
     }
 
@@ -54,7 +50,7 @@ public abstract class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SearchType.f28177h == searchType ? a(str) : str;
+            return SearchType.h == searchType ? a(str) : str;
         }
         return (String) invokeLL.objValue;
     }
@@ -70,8 +66,8 @@ public abstract class e {
             byte[] bArr = {0};
             try {
                 bArr = AlgorithmUtil.setUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), substring.getBytes());
-            } catch (Exception e2) {
-                Log.e("BaseSearch", "get location failed", e2);
+            } catch (Exception e) {
+                Log.e("BaseSearch", "get location failed", e);
             }
             return str.replace(substring, Base64.encodeToString(bArr, 0).trim());
         }
@@ -81,7 +77,7 @@ public abstract class e {
     private boolean b(SearchType searchType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f28177h == searchType : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.h == searchType : invokeL.booleanValue;
     }
 
     public final String a(PlanNode planNode) {
@@ -132,7 +128,7 @@ public abstract class e {
                 }
                 authToken = HttpClient.getAuthToken();
             }
-            if (this.f28188b) {
+            if (this.b) {
                 this.a.a("token", authToken);
             }
             String a2 = this.a.a();
@@ -140,7 +136,7 @@ public abstract class e {
                 a2 = a(searchType, a2);
             }
             String str = a2 + HttpClient.getPhoneInfo();
-            if (this.f28189c) {
+            if (this.c) {
                 str = str + "&sign=" + AppMD5.getSignMD5String(str);
             }
             return a + "?" + str;
@@ -153,14 +149,14 @@ public abstract class e {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f28189c = z;
+            this.c = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f28188b = z;
+            this.b = z;
         }
     }
 }

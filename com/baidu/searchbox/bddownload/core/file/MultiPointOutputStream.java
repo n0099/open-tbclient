@@ -39,7 +39,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MultiPointOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService FILE_IO_EXECUTOR;
@@ -72,7 +72,7 @@ public class MultiPointOutputStream {
     public final Runnable syncRunnable;
     public final DownloadTask task;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class StreamsState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,8 +217,8 @@ public class MultiPointOutputStream {
                     for (Integer num : this.requireStreamBlocks) {
                         try {
                             close(num.intValue());
-                        } catch (IOException e2) {
-                            Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + PreferencesUtil.RIGHT_MOUNT + e2);
+                        } catch (IOException e) {
+                            Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num + PreferencesUtil.RIGHT_MOUNT + e);
                         }
                     }
                     this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
@@ -238,8 +238,8 @@ public class MultiPointOutputStream {
                 for (Integer num2 : this.requireStreamBlocks) {
                     try {
                         close(num2.intValue());
-                    } catch (IOException e3) {
-                        Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + PreferencesUtil.RIGHT_MOUNT + e3);
+                    } catch (IOException e2) {
+                        Util.d(TAG, "OutputStream close failed task[" + this.task.getId() + "] block[" + num2 + PreferencesUtil.RIGHT_MOUNT + e2);
                     }
                 }
                 this.store.onTaskEnd(this.task.getId(), EndCause.CANCELED, null);
@@ -397,8 +397,8 @@ public class MultiPointOutputStream {
                     this.outputStreamMap.get(keyAt).flushAndSync();
                 }
                 i++;
-            } catch (IOException e2) {
-                Util.w(TAG, "OutputStream flush and sync data to filesystem failed " + e2);
+            } catch (IOException e) {
+                Util.w(TAG, "OutputStream flush and sync data to filesystem failed " + e);
                 z = false;
             }
             if (z) {
@@ -637,9 +637,9 @@ public class MultiPointOutputStream {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             try {
                 runSync();
-            } catch (IOException e2) {
-                this.syncException = e2;
-                Util.w(TAG, "Sync to breakpoint-store for task[" + this.task.getId() + "] failed with cause: " + e2);
+            } catch (IOException e) {
+                this.syncException = e;
+                Util.w(TAG, "Sync to breakpoint-store for task[" + this.task.getId() + "] failed with cause: " + e);
             }
         }
     }

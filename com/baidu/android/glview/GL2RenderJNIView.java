@@ -22,7 +22,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GL2RenderJNIView extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -45,13 +45,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
     public boolean mloaded;
 
     /* renamed from: com.baidu.android.glview.GL2RenderJNIView$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_OPENGL_ES2_BIT = 4;
@@ -183,7 +183,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -245,7 +245,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Renderer implements GLSurfaceView.Renderer, SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,11 +476,11 @@ public class GL2RenderJNIView extends GLSurfaceView {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
             if (!this.mfixed) {
-                float f3 = 0.0f;
+                float f2 = 0.0f;
                 float x = motionEvent.getX(0);
                 float y = motionEvent.getY(0);
                 int action = motionEvent.getAction() & 255;
@@ -489,15 +489,15 @@ public class GL2RenderJNIView extends GLSurfaceView {
                 }
                 if (this.mActionState == 5 || action == 6) {
                     float x2 = motionEvent.getX(1);
-                    f3 = motionEvent.getY(1);
-                    f2 = x2;
+                    f2 = motionEvent.getY(1);
+                    f = x2;
                 } else {
-                    f2 = 0.0f;
+                    f = 0.0f;
                 }
                 if (this.mActionState == 6) {
                     this.mActionState = 0;
                 }
-                GL2JNILib.transform(this.mRender.m_hRender, x, f2, y, f3, motionEvent.getAction() & 255);
+                GL2JNILib.transform(this.mRender.m_hRender, x, f, y, f2, motionEvent.getAction() & 255);
             }
             return false;
         }

@@ -1,10 +1,10 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class InterceptableDelegate implements Interceptable {
     public Interceptable delegate;
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeB(int i, Object obj, byte b2) {
+    public InterceptResult invokeB(int i, Object obj, byte b) {
         if (this.delegate == null) {
             waitLoad();
         }
@@ -12,7 +12,7 @@ public abstract class InterceptableDelegate implements Interceptable {
         if (interceptable == null) {
             return null;
         }
-        return interceptable.invokeB(i, obj, b2);
+        return interceptable.invokeB(i, obj, b);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -28,7 +28,7 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeF(int i, Object obj, float f2) {
+    public InterceptResult invokeF(int i, Object obj, float f) {
         if (this.delegate == null) {
             waitLoad();
         }
@@ -36,7 +36,7 @@ public abstract class InterceptableDelegate implements Interceptable {
         if (interceptable == null) {
             return null;
         }
-        return interceptable.invokeF(i, obj, f2);
+        return interceptable.invokeF(i, obj, f);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -172,7 +172,7 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLF(int i, Object obj, Object obj2, float f2) {
+    public InterceptResult invokeLF(int i, Object obj, Object obj2, float f) {
         if (this.delegate == null) {
             waitLoad();
         }
@@ -180,7 +180,7 @@ public abstract class InterceptableDelegate implements Interceptable {
         if (interceptable == null) {
             return null;
         }
-        return interceptable.invokeLF(i, obj, obj2, f2);
+        return interceptable.invokeLF(i, obj, obj2, f);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable

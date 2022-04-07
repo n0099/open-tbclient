@@ -44,8 +44,8 @@ public final class MessageSerializedForm<M extends Message<M, B>, B extends Mess
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return ProtoAdapter.get(this.messageClass).decode(this.bytes);
-            } catch (IOException e2) {
-                throw new StreamCorruptedException(e2.getMessage());
+            } catch (IOException e) {
+                throw new StreamCorruptedException(e.getMessage());
             }
         }
         return invokeV.objValue;

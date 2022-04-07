@@ -3,12 +3,10 @@ package com.kwad.sdk.crash.a;
 import android.text.TextUtils;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public Set<String> a = new HashSet();
-
-    /* renamed from: b  reason: collision with root package name */
-    public Set<String> f40147b = new HashSet();
+    public Set<String> b = new HashSet();
 
     public synchronized void a(String[] strArr, String[] strArr2) {
         if (strArr != null) {
@@ -27,7 +25,7 @@ public class b {
         if (strArr2 != null && strArr2.length > 0) {
             for (String str2 : strArr2) {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f40147b.add(str2);
+                    this.b.add(str2);
                 }
             }
         }
@@ -38,6 +36,6 @@ public class b {
     }
 
     public synchronized String[] b() {
-        return (String[]) this.f40147b.toArray(new String[this.f40147b.size()]);
+        return (String[]) this.b.toArray(new String[this.b.size()]);
     }
 }

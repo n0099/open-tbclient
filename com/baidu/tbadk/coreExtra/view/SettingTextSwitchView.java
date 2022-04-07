@@ -20,23 +20,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SettingTextSwitchView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f30423b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f30424c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f30425d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BdSwitchView f30426e;
+    public LinearLayout b;
+    public TextView c;
+    public TextView d;
+    public BdSwitchView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
@@ -66,7 +58,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public void a() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.f30425d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.d) == null) {
             return;
         }
         textView.setVisibility(8);
@@ -75,31 +67,31 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f040548});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040581, R.attr.obfuscated_res_0x7f040582, R.attr.obfuscated_res_0x7f040583, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f040585, R.attr.obfuscated_res_0x7f040586});
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             float dimension = obtainStyledAttributes.getDimension(3, -1.0f);
             String string2 = obtainStyledAttributes.getString(4);
             int color2 = obtainStyledAttributes.getColor(5, -1);
-            TextView textView = this.f30425d;
+            TextView textView = this.d;
             if (textView != null && string2 != null) {
                 textView.setVisibility(0);
-                this.f30425d.setText(string2);
+                this.d.setText(string2);
                 if (color2 > -1) {
-                    this.f30425d.setTextColor(color2);
+                    this.d.setTextColor(color2);
                 }
             }
             if (string != null) {
-                this.f30424c.setText(string);
+                this.c.setText(string);
             }
             if (color > -1) {
-                this.f30424c.setTextColor(color);
+                this.c.setTextColor(color);
             }
             if (dimension > -1.0f) {
-                this.f30424c.setTextSize(0, dimension);
+                this.c.setTextSize(0, dimension);
             }
-            this.f30423b.setClickable(false);
-            this.f30423b.setFocusable(false);
+            this.b.setClickable(false);
+            this.b.setFocusable(false);
             obtainStyledAttributes.recycle();
         }
     }
@@ -107,29 +99,29 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) this, true);
-            this.f30423b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
-            this.f30424c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f09045c);
-            this.f30426e = bdSwitchView;
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f090464);
+            this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092002);
-            this.f30425d = textView;
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);
             }
-            setTag(this.f30426e);
-            this.f30423b.setClickable(false);
-            this.f30423b.setFocusable(false);
+            setTag(this.e);
+            this.b.setClickable(false);
+            this.b.setFocusable(false);
         }
     }
 
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f30426e.setBackgroundRes(SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e8), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e7), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f080398));
-            SkinManager.setViewTextColor(this.f30424c, R.color.CAM_X0105, 1);
-            TextView textView = this.f30425d;
+            this.e.setBackgroundRes(SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e5), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e4), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f080398));
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1);
+            TextView textView = this.d;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0109, 1);
             }
@@ -139,76 +131,76 @@ public class SettingTextSwitchView extends FrameLayout {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f30426e.g(z);
-            BdSwitchView bdSwitchView = this.f30426e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f133f) + this.a.getString(R.string.obfuscated_res_0x7f0f133d));
+            this.e.g(z);
+            BdSwitchView bdSwitchView = this.e;
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1347) + this.a.getString(R.string.obfuscated_res_0x7f0f1345));
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f30426e.k(z);
-            BdSwitchView bdSwitchView = this.f30426e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f133f) + this.a.getString(R.string.obfuscated_res_0x7f0f1340));
+            this.e.k(z);
+            BdSwitchView bdSwitchView = this.e;
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1347) + this.a.getString(R.string.obfuscated_res_0x7f0f1348));
         }
     }
 
     public BdSwitchView getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30426e : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (BdSwitchView) invokeV.objValue;
     }
 
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30423b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f30426e.setOnSwitchStateChangeListener(bVar);
+            this.e.setOnSwitchStateChangeListener(bVar);
         }
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdSwitchView) == null) {
-            this.f30426e = bdSwitchView;
+            this.e = bdSwitchView;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f30424c.setText(str);
+            this.c.setText(str);
         }
     }
 
     public void setTextLeftMargin(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (this.f30424c.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30424c.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (this.c.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelSize(i);
-            this.f30424c.setLayoutParams(layoutParams);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
     public void setTip(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null || this.f30425d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null || this.d == null) {
             return;
         }
         a();
-        this.f30425d.setText(str);
+        this.d.setText(str);
     }
 
     public void setTipColor(int i) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (textView = this.f30425d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (textView = this.d) == null) {
             return;
         }
         textView.setTextColor(i);
@@ -216,11 +208,11 @@ public class SettingTextSwitchView extends FrameLayout {
 
     public void setTip(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == -1 || this.f30425d == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == -1 || this.d == null) {
             return;
         }
         a();
-        this.f30425d.setText(i);
+        this.d.setText(i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

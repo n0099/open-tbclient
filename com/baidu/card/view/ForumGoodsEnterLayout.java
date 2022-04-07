@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -18,20 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.qn4;
+/* loaded from: classes.dex */
 public class ForumGoodsEnterLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ThreadForumEnterGoodsButton f25068b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f25069c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f25070d;
+    public ThreadForumEnterGoodsButton b;
+    public View.OnClickListener c;
+    public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGoodsEnterLayout(Context context) {
@@ -58,41 +52,41 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            this.f25068b = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a3d);
+            this.b = (ThreadForumEnterGoodsButton) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019f, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a44);
         }
     }
 
-    public final boolean b(a aVar) {
+    public final boolean b(qn4 qn4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().isVideoThreadType() || aVar.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qn4Var)) == null) ? (qn4Var == null || qn4Var.getThreadData() == null || !qn4Var.getThreadData().isVideoThreadType() || qn4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean c(a aVar) {
+    public final boolean c(qn4 qn4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().getPollData() == null || aVar.getThreadData().getPollData().getOptions() == null || aVar.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var)) == null) ? (qn4Var == null || qn4Var.getThreadData() == null || qn4Var.getThreadData().getPollData() == null || qn4Var.getThreadData().getPollData().getOptions() == null || qn4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     public void d(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.f25068b.e();
+            this.b.e();
         }
     }
 
-    public void setData(a aVar) {
+    public void setData(qn4 qn4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            ThreadData threadData = aVar.getThreadData();
-            if (c(aVar) || b(aVar) || aVar.getThreadData() == null || !aVar.getThreadData().isGoods() || this.f25070d == 3) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) {
+            ThreadData threadData = qn4Var.getThreadData();
+            if (c(qn4Var) || b(qn4Var) || qn4Var.getThreadData() == null || !qn4Var.getThreadData().isGoods() || this.d == 3) {
                 z = false;
             } else {
-                this.f25068b.setVisibility(0);
-                this.f25068b.setFrom(2);
-                this.f25068b.a(threadData);
-                this.f25068b.setAfterClickListener(this.f25069c);
+                this.b.setVisibility(0);
+                this.b.setFrom(2);
+                this.b.a(threadData);
+                this.b.setAfterClickListener(this.c);
                 z = true;
             }
             setVisibility(z ? 0 : 8);
@@ -108,14 +102,14 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setFrstype(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f25070d = i;
+            this.d = i;
         }
     }
 
     public void setOnAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f25069c = onClickListener;
+            this.c = onClickListener;
         }
     }
 

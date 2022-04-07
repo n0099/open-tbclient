@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.config.item.i;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ca implements com.kwad.sdk.core.d<i.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,7 +11,7 @@ public class ca implements com.kwad.sdk.core.d<i.a> {
             return;
         }
         aVar.a = jSONObject.optInt("horizontalShowDuration", new Integer("180000").intValue());
-        aVar.f39344b = jSONObject.optInt("verticalShowDuration", new Integer("90000").intValue());
+        aVar.b = jSONObject.optInt("verticalShowDuration", new Integer("90000").intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ca implements com.kwad.sdk.core.d<i.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "horizontalShowDuration", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "verticalShowDuration", aVar.f39344b);
+        com.kwad.sdk.utils.t.a(jSONObject, "verticalShowDuration", aVar.b);
         return jSONObject;
     }
 }

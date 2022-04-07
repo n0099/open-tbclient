@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RecommendViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f33241b;
+    public float b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendViewPager(@NonNull Context context) {
@@ -40,7 +38,7 @@ public class RecommendViewPager extends ViewPager {
             }
         }
         this.a = 0.0f;
-        this.f33241b = 0.0f;
+        this.b = 0.0f;
     }
 
     public void a(boolean z) {
@@ -69,9 +67,9 @@ public class RecommendViewPager extends ViewPager {
                 if (action != 1) {
                     if (action == 2) {
                         float abs = Math.abs(motionEvent.getX() - this.a);
-                        float abs2 = Math.abs(motionEvent.getY() - this.f33241b);
+                        float abs2 = Math.abs(motionEvent.getY() - this.b);
                         this.a = motionEvent.getX();
-                        this.f33241b = motionEvent.getY();
+                        this.b = motionEvent.getY();
                         if (abs2 / abs < 1.0f && z) {
                             a(true);
                         } else {
@@ -82,7 +80,7 @@ public class RecommendViewPager extends ViewPager {
                 a(false);
             } else {
                 this.a = motionEvent.getX();
-                this.f33241b = motionEvent.getY();
+                this.b = motionEvent.getY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -109,6 +107,6 @@ public class RecommendViewPager extends ViewPager {
             }
         }
         this.a = 0.0f;
-        this.f33241b = 0.0f;
+        this.b = 0.0f;
     }
 }

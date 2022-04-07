@@ -15,14 +15,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, List<e>> kM;
     public static final a[] kN;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,10 +258,10 @@ public class f {
             if (list != null) {
                 return list;
             }
-            List<e> b2 = b(cls);
-            if (!b2.isEmpty()) {
-                kM.put(cls, b2);
-                return b2;
+            List<e> b = b(cls);
+            if (!b.isEmpty()) {
+                kM.put(cls, b);
+                return b;
             }
             com.baidu.ar.h.b.aS("Subscriber " + cls + " and its super classes have no public methods with the @CallBack annotation");
             return null;

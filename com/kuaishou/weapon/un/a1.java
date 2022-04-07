@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "/proc/cpuinfo";
@@ -43,9 +43,9 @@ public class a1 {
                 if (!TextUtils.isEmpty(str2)) {
                     sb.append(";" + str2);
                 }
-                String b2 = x0.b("ro.product.cpu.abilist");
-                if (!TextUtils.isEmpty(b2)) {
-                    sb.append(";" + b2);
+                String b = x0.b("ro.product.cpu.abilist");
+                if (!TextUtils.isEmpty(b)) {
+                    sb.append(";" + b);
                 }
                 return sb.toString();
             } catch (Throwable th) {

@@ -1,15 +1,15 @@
 package com.baidu.searchbox.looper.ioc;
 
-import c.a.g0.a.a;
 import com.baidu.searchbox.ruka.ubc.UBCLooperRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pb1;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class ILooperRegister_LooperRuntime_ListProvider implements a {
+/* loaded from: classes2.dex */
+public class ILooperRegister_LooperRuntime_ListProvider implements pb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class ILooperRegister_LooperRuntime_ListProvider implements a {
         }
     }
 
-    @Override // c.a.g0.a.a
+    @Override // com.repackage.pb1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

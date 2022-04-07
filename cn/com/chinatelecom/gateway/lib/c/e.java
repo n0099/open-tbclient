@@ -19,31 +19,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "e";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public ConnectivityManager c;
+    public ConnectivityManager.NetworkCallback d;
+    public a e;
+    public long f;
+    public long g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f23692b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ConnectivityManager f23693c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f23694d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f23695e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f23696f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f23697g;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a();
 
@@ -80,11 +68,11 @@ public class e {
                 return;
             }
         }
-        this.f23692b = false;
-        this.f23693c = null;
-        this.f23694d = null;
-        this.f23696f = 0L;
-        this.f23697g = 0L;
+        this.b = false;
+        this.c = null;
+        this.d = null;
+        this.f = 0L;
+        this.g = 0L;
     }
 
     public static int a(String str) {
@@ -106,9 +94,9 @@ public class e {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            this.f23696f = 0L;
-            this.f23693c = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            this.f23697g = System.currentTimeMillis();
+            this.f = 0L;
+            this.c = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            this.g = System.currentTimeMillis();
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
             builder.addCapability(12);
             builder.addTransportType(0);
@@ -142,15 +130,15 @@ public class e {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         e eVar = this.a;
-                        eVar.f23696f = currentTimeMillis - eVar.f23697g;
-                        this.a.f23692b = true;
-                        if (this.a.f23695e != null) {
-                            this.a.f23695e.a(network, this.a.f23696f);
+                        eVar.f = currentTimeMillis - eVar.g;
+                        this.a.b = true;
+                        if (this.a.e != null) {
+                            this.a.e.a(network, this.a.f);
                         }
-                        if (this.a.f23693c != null) {
+                        if (this.a.c != null) {
                             try {
-                                this.a.f23693c.unregisterNetworkCallback(this);
-                                this.a.f23693c = null;
+                                this.a.c.unregisterNetworkCallback(this);
+                                this.a.c = null;
                             } catch (Throwable th) {
                                 CtAuth.warn(e.a, "switchToMobileForAboveL", th);
                             }
@@ -158,8 +146,8 @@ public class e {
                     }
                 }
             };
-            this.f23694d = networkCallback;
-            this.f23693c.requestNetwork(build, networkCallback);
+            this.d = networkCallback;
+            this.c.requestNetwork(build, networkCallback);
         }
     }
 
@@ -190,7 +178,7 @@ public class e {
         ConnectivityManager connectivityManager;
         ConnectivityManager.NetworkCallback networkCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || Build.VERSION.SDK_INT < 21 || (connectivityManager = this.f23693c) == null || (networkCallback = this.f23694d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || Build.VERSION.SDK_INT < 21 || (connectivityManager = this.c) == null || (networkCallback = this.d) == null) {
             return;
         }
         try {
@@ -198,7 +186,7 @@ public class e {
         } catch (Throwable th) {
             CtAuth.warn(a, "unregisterNetworkCallback", th);
         }
-        this.f23693c = null;
+        this.c = null;
     }
 
     private boolean b(Context context, String str) {
@@ -208,29 +196,29 @@ public class e {
             boolean z = false;
             try {
                 Class<?> cls = Class.forName("android.net.ConnectivityManager");
-                this.f23696f = 0L;
-                this.f23697g = System.currentTimeMillis();
+                this.f = 0L;
+                this.g = System.currentTimeMillis();
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                this.f23693c = connectivityManager;
+                this.c = connectivityManager;
                 if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0) {
                     Method method = cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class);
-                    ConnectivityManager connectivityManager2 = this.f23693c;
+                    ConnectivityManager connectivityManager2 = this.c;
                     Object[] objArr = new Object[2];
                     objArr[0] = 0;
                     objArr[1] = "enableHIPRI";
                     method.invoke(connectivityManager2, objArr);
-                    for (int i = 0; i < 5 && this.f23693c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
+                    for (int i = 0; i < 5 && this.c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
                         Thread.sleep(500L);
                     }
                 }
-                z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.f23693c, 5, Integer.valueOf(a(b(str))))).booleanValue();
-                this.f23696f = System.currentTimeMillis() - this.f23697g;
+                z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.c, 5, Integer.valueOf(a(b(str))))).booleanValue();
+                this.f = System.currentTimeMillis() - this.g;
                 String str2 = a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("Switch network result ： ");
                 sb.append(z);
                 sb.append(" (4.x) , expendTime ：");
-                sb.append(this.f23696f);
+                sb.append(this.f);
                 CtAuth.info(str2, sb.toString());
             } catch (Throwable th) {
                 CtAuth.warn(a, "4.x网络切换异常", th);
@@ -247,9 +235,7 @@ public class e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f23698b;
+                public final /* synthetic */ e b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -266,7 +252,7 @@ public class e {
                             return;
                         }
                     }
-                    this.f23698b = this;
+                    this.b = this;
                     this.a = i;
                 }
 
@@ -290,22 +276,22 @@ public class e {
                             } catch (Throwable th) {
                                 CtAuth.warn(e.a, "timeoutCheckRunnable exception!", th);
                             }
-                            if (!this.f23698b.f23692b) {
-                                if (this.f23698b.f23695e != null) {
-                                    this.f23698b.f23695e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                            if (!this.b.b) {
+                                if (this.b.e != null) {
+                                    this.b.e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                                 }
                                 CtAuth.info(e.a, "切换网络超时(L)");
-                                this.f23698b.b();
+                                this.b.b();
                             }
                         }
                         Thread.sleep(this.a <= 2500 ? this.a : this.a - 2500);
-                        if (this.f23698b.f23695e != null) {
-                            if (this.f23698b.f23692b) {
-                                this.f23698b.f23695e.a();
+                        if (this.b.e != null) {
+                            if (this.b.b) {
+                                this.b.e.a();
                                 return;
                             }
-                            this.f23698b.f23695e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-                            this.f23698b.b();
+                            this.b.e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                            this.b.b();
                         }
                     }
                 }
@@ -316,12 +302,12 @@ public class e {
     public void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar) == null) {
-            this.f23695e = aVar;
+            this.e = aVar;
             try {
                 a(context);
             } catch (Throwable th) {
                 CtAuth.warn(a, "switchToMobileForAboveL", th);
-                a aVar2 = this.f23695e;
+                a aVar2 = this.e;
                 if (aVar2 != null) {
                     aVar2.a(80801, "WIFI切换异常", -1L);
                 }

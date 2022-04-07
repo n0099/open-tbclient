@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class faceunity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
@@ -38,13 +38,11 @@ public class faceunity {
     public static int[] ret_wh;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f38500h;
+        public int h;
         public byte[] nv21_data;
         public int tex;
         public int w;
@@ -160,7 +158,7 @@ public class faceunity {
 
     public static native byte[] fuItemGetParamu8v(int i, String str);
 
-    public static native int fuItemSetParam(int i, String str, double d2);
+    public static native int fuItemSetParam(int i, String str, double d);
 
     public static native int fuItemSetParam(int i, String str, String str2);
 
@@ -230,11 +228,11 @@ public class faceunity {
 
     public static native void fuSetExpressionCalibration(int i);
 
-    public static native void fuSetFocalLengthScale(float f2);
+    public static native void fuSetFocalLengthScale(float f);
 
     public static native int fuSetMaxFaces(int i);
 
-    public static native void fuSetQualityTradeoff(float f2);
+    public static native void fuSetQualityTradeoff(float f);
 
     public static native void fuSetStrictTracking(int i);
 

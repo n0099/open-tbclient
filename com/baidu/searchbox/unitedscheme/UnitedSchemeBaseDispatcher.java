@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -29,7 +29,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 
@@ -87,7 +87,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     /* JADX INFO: Access modifiers changed from: private */
     public boolean onDispatcher(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
-        char c2;
+        char c;
         boolean invoke;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -98,25 +98,25 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
                 if (subDispatcher != null) {
                     try {
                         return subDispatcher.newInstance().dispatch(context, unitedSchemeEntity, callbackHandler);
-                    } catch (IllegalAccessException e2) {
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e2) {
                         e2.printStackTrace();
-                    } catch (InstantiationException e3) {
-                        e3.printStackTrace();
                     }
                 } else if (!unitedSchemeEntity.isAction()) {
-                    c2 = 301;
+                    c = 301;
                     invoke = invoke(context, unitedSchemeEntity, callbackHandler);
-                    if (!invoke && (jSONObject = unitedSchemeEntity.result) != null && jSONObject.optInt("status", -1) == 302 && c2 == 301) {
+                    if (!invoke && (jSONObject = unitedSchemeEntity.result) != null && jSONObject.optInt("status", -1) == 302 && c == 301) {
                         try {
                             unitedSchemeEntity.result.put("status", String.valueOf(301));
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return invoke;
                 }
             }
-            c2 = 0;
+            c = 0;
             invoke = invoke(context, unitedSchemeEntity, callbackHandler);
             if (!invoke) {
                 unitedSchemeEntity.result.put("status", String.valueOf(301));

@@ -14,26 +14,26 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] size;
     public SizeViewTarget viewTarget;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SizeViewTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SizeViewTarget(@NonNull View view, @NonNull SizeReadyCallback sizeReadyCallback) {
-            super(view);
+        public SizeViewTarget(@NonNull View view2, @NonNull SizeReadyCallback sizeReadyCallback) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, sizeReadyCallback};
+                Object[] objArr = {view2, sizeReadyCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,19 +93,19 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
         }
     }
 
-    public void setView(@NonNull View view) {
+    public void setView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && this.size == null && this.viewTarget == null) {
-            this.viewTarget = new SizeViewTarget(view, this);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && this.size == null && this.viewTarget == null) {
+            this.viewTarget = new SizeViewTarget(view2, this);
         }
     }
 
-    public ViewPreloadSizeProvider(@NonNull View view) {
+    public ViewPreloadSizeProvider(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -115,6 +115,6 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
                 return;
             }
         }
-        this.viewTarget = new SizeViewTarget(view, this);
+        this.viewTarget = new SizeViewTarget(view2, this);
     }
 }

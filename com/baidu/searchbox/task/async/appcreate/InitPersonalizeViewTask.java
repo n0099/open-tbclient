@@ -1,7 +1,6 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import android.view.View;
-import c.a.o0.h0.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.p45;
+/* loaded from: classes2.dex */
 public class InitPersonalizeViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class InitPersonalizeViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (e.e().a()) {
-                    e.e().f(TbadkCoreApplication.getInst());
+                if (p45.e().a()) {
+                    p45.e().f(TbadkCoreApplication.getInst());
                 } else if (PreInitMainTabViewSwitch.getIsOn()) {
                     MessageManager.getInstance().runTask(2921676, View.class, TbadkCoreApplication.getInst());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

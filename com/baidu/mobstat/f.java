@@ -24,26 +24,20 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static f a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f27400b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f27401b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f27402c;
+        public String b;
+        public String c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -61,8 +55,8 @@ public class f {
                 }
             }
             this.a = str == null ? "" : str;
-            this.f27401b = str2 == null ? "" : str2;
-            this.f27402c = str3 == null ? "" : str3;
+            this.b = str2 == null ? "" : str2;
+            this.c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -72,11 +66,11 @@ public class f {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f27401b);
-                    jSONObject.put("w", this.f27402c);
+                    jSONObject.put("v", this.b);
+                    jSONObject.put("w", this.c);
                     return jSONObject;
-                } catch (JSONException e2) {
-                    bb.c().b(e2);
+                } catch (JSONException e) {
+                    bb.c().b(e);
                     return null;
                 }
             }
@@ -119,7 +113,7 @@ public class f {
                 return;
             }
         }
-        this.f27400b = "";
+        this.b = "";
     }
 
     private boolean a(int i) {
@@ -135,8 +129,8 @@ public class f {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, context, i)) == null) {
             try {
                 list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(50);
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 list = null;
             }
             if (list == null) {
@@ -200,9 +194,9 @@ public class f {
             return;
         }
         if (z) {
-            String b2 = a2.get(0).b();
-            if (a(b2, this.f27400b)) {
-                this.f27400b = b2;
+            String b = a2.get(0).b();
+            if (a(b, this.b)) {
+                this.b = b;
             }
         }
         a(context, a2, z);
@@ -223,7 +217,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f27400b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -237,8 +231,8 @@ public class f {
             }
             try {
                 str2 = packageManager.getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e2) {
-                bb.c().b(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                bb.c().b(e);
                 str2 = "";
             }
             return str2 == null ? "" : str2;
@@ -266,14 +260,14 @@ public class f {
                 jSONObject.put("app_trace", jSONArray);
                 jSONObject.put("meta-data", sb.toString());
                 str = bm.a.a(jSONObject.toString().getBytes());
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 str = "";
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f27413c.a(System.currentTimeMillis(), str);
+            k.c.a(System.currentTimeMillis(), str);
         }
     }
 
@@ -291,8 +285,8 @@ public class f {
                     return false;
                 }
                 return (applicationInfo.flags & 1) != 0;
-            } catch (PackageManager.NameNotFoundException e2) {
-                bb.c().b(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                bb.c().b(e);
                 return false;
             }
         }

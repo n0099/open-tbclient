@@ -377,9 +377,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         }
 
                         @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-                        public void onAnimationEnd(View view) {
+                        public void onAnimationEnd(View view2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                                 this.this$1.this$0.mActionModeView.setVisibility(8);
                                 AppCompatDelegateImpl appCompatDelegateImpl4 = this.this$1.this$0;
                                 PopupWindow popupWindow = appCompatDelegateImpl4.mActionModePopup;
@@ -1112,7 +1112,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (i2 != 0) {
                     newTheme.applyStyle(i2, true);
                 } else {
-                    newTheme.applyStyle(R$style.obfuscated_res_0x7f100212, true);
+                    newTheme.applyStyle(R$style.obfuscated_res_0x7f100213, true);
                 }
                 androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, 0);
                 contextThemeWrapper.getTheme().setTo(newTheme);
@@ -1465,16 +1465,16 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                             }
 
                             @Override // androidx.core.view.OnApplyWindowInsetsListener
-                            public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
+                            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
                                 InterceptResult invokeLL;
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, windowInsetsCompat)) == null) {
+                                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, windowInsetsCompat)) == null) {
                                     int systemWindowInsetTop = windowInsetsCompat.getSystemWindowInsetTop();
                                     int updateStatusGuard = this.this$0.updateStatusGuard(windowInsetsCompat, null);
                                     if (systemWindowInsetTop != updateStatusGuard) {
                                         windowInsetsCompat = windowInsetsCompat.replaceSystemWindowInsets(windowInsetsCompat.getSystemWindowInsetLeft(), updateStatusGuard, windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                                     }
-                                    return ViewCompat.onApplyWindowInsets(view, windowInsetsCompat);
+                                    return ViewCompat.onApplyWindowInsets(view2, windowInsetsCompat);
                                 }
                                 return (WindowInsetsCompat) invokeLL.objValue;
                             }
@@ -1634,10 +1634,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             Configuration configuration3 = new Configuration();
             configuration3.fontScale = 0.0f;
             if (configuration2 != null && configuration.diff(configuration2) != 0) {
-                float f2 = configuration.fontScale;
-                float f3 = configuration2.fontScale;
-                if (f2 != f3) {
-                    configuration3.fontScale = f3;
+                float f = configuration.fontScale;
+                float f2 = configuration2.fontScale;
+                if (f != f2) {
+                    configuration3.fontScale = f2;
                 }
                 int i = configuration.mcc;
                 int i2 = configuration2.mcc;
@@ -1776,9 +1776,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, panelFeatureState)) == null) {
-            View view = panelFeatureState.createdPanelView;
-            if (view != null) {
-                panelFeatureState.shownPanelView = view;
+            View view2 = panelFeatureState.createdPanelView;
+            if (view2 != null) {
+                panelFeatureState.shownPanelView = view2;
                 return true;
             } else if (panelFeatureState.menu == null) {
                 return false;
@@ -1786,9 +1786,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (this.mPanelMenuPresenterCallback == null) {
                     this.mPanelMenuPresenterCallback = new PanelMenuPresenterCallback(this);
                 }
-                View view2 = (View) panelFeatureState.getListMenuView(this.mPanelMenuPresenterCallback);
-                panelFeatureState.shownPanelView = view2;
-                return view2 != null;
+                View view3 = (View) panelFeatureState.getListMenuView(this.mPanelMenuPresenterCallback);
+                panelFeatureState.shownPanelView = view3;
+                return view3 != null;
             }
         }
         return invokeL.booleanValue;
@@ -1876,8 +1876,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     }
                     ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i);
                     this.mActivityHandlesUiMode = (activityInfo == null || (activityInfo.configChanges & 512) == 0) ? false : true;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e2);
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e);
                     this.mActivityHandlesUiMode = false;
                 }
             }
@@ -1974,8 +1974,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
         if (windowManager != null && preparePanel(panelFeatureState, keyEvent)) {
             if (panelFeatureState.decorView != null && !panelFeatureState.refreshDecorView) {
-                View view = panelFeatureState.createdPanelView;
-                if (view != null && (layoutParams = view.getLayoutParams()) != null && layoutParams.width == -1) {
+                View view2 = panelFeatureState.createdPanelView;
+                if (view2 != null && (layoutParams = view2.getLayoutParams()) != null && layoutParams.width == -1) {
                     i = -1;
                     panelFeatureState.isHandled = false;
                     WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
@@ -2293,25 +2293,25 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private void updateStatusGuardColor(View view) {
+    private void updateStatusGuardColor(View view2) {
         int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65572, this, view) == null) {
-            if ((ViewCompat.getWindowSystemUiVisibility(view) & 8192) != 0) {
+        if (interceptable == null || interceptable.invokeL(65572, this, view2) == null) {
+            if ((ViewCompat.getWindowSystemUiVisibility(view2) & 8192) != 0) {
                 color = ContextCompat.getColor(this.mContext, R$color.abc_decor_view_status_guard_light);
             } else {
                 color = ContextCompat.getColor(this.mContext, R$color.abc_decor_view_status_guard);
             }
-            view.setBackgroundColor(color);
+            view2.setBackgroundColor(color);
         }
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
             ensureSubDecor();
-            ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view, layoutParams);
+            ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view2, layoutParams);
             this.mAppCompatWindowCallback.getWrapped().onContentChanged();
         }
     }
@@ -2353,7 +2353,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 Configuration configuration = context.getPackageManager().getResourcesForApplication(context.getApplicationInfo()).getConfiguration();
                 Configuration configuration2 = context.getResources().getConfiguration();
                 Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration.equals(configuration2) ? null : generateConfigDelta(configuration, configuration2));
-                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.obfuscated_res_0x7f10021e);
+                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.obfuscated_res_0x7f10021f);
                 contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
                 boolean z = false;
                 try {
@@ -2364,8 +2364,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     ResourcesCompat.ThemeCompat.rebase(contextThemeWrapper.getTheme());
                 }
                 return super.attachBaseContext2(contextThemeWrapper);
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new RuntimeException("Application failed to obtain resources from itself", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new RuntimeException("Application failed to obtain resources from itself", e);
             }
         }
         return (Context) invokeL.objValue;
@@ -2413,11 +2413,11 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, view, str, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, view2, str, context, attributeSet)) == null) {
             boolean z2 = false;
             if (this.mAppCompatViewInflater == null) {
                 String string = this.mContext.obtainStyledAttributes(R$styleable.AppCompatTheme).getString(R$styleable.AppCompatTheme_viewInflaterClass);
@@ -2438,13 +2438,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         z2 = true;
                     }
                 } else {
-                    z2 = shouldInheritContext((ViewParent) view);
+                    z2 = shouldInheritContext((ViewParent) view2);
                 }
                 z = z2;
             } else {
                 z = false;
             }
-            return this.mAppCompatViewInflater.createView(view, str, context, attributeSet, z, IS_PRE_LOLLIPOP, true, VectorEnabledTintResources.shouldBeUsed());
+            return this.mAppCompatViewInflater.createView(view2, str, context, attributeSet, z, IS_PRE_LOLLIPOP, true, VectorEnabledTintResources.shouldBeUsed());
         }
         return (View) invokeLLLL.objValue;
     }
@@ -2804,10 +2804,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // android.view.LayoutInflater.Factory2
-    public final View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    public final View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048608, this, view, str, context, attributeSet)) == null) ? createView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048608, this, view2, str, context, attributeSet)) == null) ? createView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x005f  */
@@ -3066,13 +3066,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, view2) == null) {
             ensureSubDecor();
             ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
             viewGroup.removeAllViews();
-            viewGroup.addView(view);
+            viewGroup.addView(view2);
             this.mAppCompatWindowCallback.getWrapped().onContentChanged();
         }
     }
@@ -3298,9 +3298,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                                 }
 
                                                 @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-                                                public void onAnimationEnd(View view) {
+                                                public void onAnimationEnd(View view2) {
                                                     Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
+                                                    if (interceptable3 == null || interceptable3.invokeL(1048576, this, view2) == null) {
                                                         this.this$1.this$0.mActionModeView.setAlpha(1.0f);
                                                         this.this$1.this$0.mFadeAnim.setListener(null);
                                                         this.this$1.this$0.mFadeAnim = null;
@@ -3308,9 +3308,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                                 }
 
                                                 @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-                                                public void onAnimationStart(View view) {
+                                                public void onAnimationStart(View view2) {
                                                     Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                                                         this.this$1.this$0.mActionModeView.setVisibility(0);
                                                     }
                                                 }
@@ -3366,9 +3366,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                     }
 
                                     @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-                                    public void onAnimationEnd(View view) {
+                                    public void onAnimationEnd(View view2) {
                                         Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                                             this.this$0.mActionModeView.setAlpha(1.0f);
                                             this.this$0.mFadeAnim.setListener(null);
                                             this.this$0.mFadeAnim = null;
@@ -3376,9 +3376,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                     }
 
                                     @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-                                    public void onAnimationStart(View view) {
+                                    public void onAnimationStart(View view2) {
                                         Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                                             this.this$0.mActionModeView.setVisibility(0);
                                             this.this$0.mActionModeView.sendAccessibilityEvent(32);
                                             if (this.this$0.mActionModeView.getParent() instanceof View) {
@@ -3466,17 +3466,17 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         z2 = true;
                     }
                     if (i2 > 0 && this.mStatusGuard == null) {
-                        View view = new View(this.mContext);
-                        this.mStatusGuard = view;
-                        view.setVisibility(8);
+                        View view2 = new View(this.mContext);
+                        this.mStatusGuard = view2;
+                        view2.setVisibility(8);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, marginLayoutParams.topMargin, 51);
                         layoutParams.leftMargin = systemWindowInsetLeft;
                         layoutParams.rightMargin = systemWindowInsetRight;
                         this.mSubDecor.addView(this.mStatusGuard, -1, layoutParams);
                     } else {
-                        View view2 = this.mStatusGuard;
-                        if (view2 != null) {
-                            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+                        View view3 = this.mStatusGuard;
+                        if (view3 != null) {
+                            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view3.getLayoutParams();
                             if (marginLayoutParams2.height != marginLayoutParams.topMargin || marginLayoutParams2.leftMargin != systemWindowInsetLeft || marginLayoutParams2.rightMargin != systemWindowInsetRight) {
                                 marginLayoutParams2.height = marginLayoutParams.topMargin;
                                 marginLayoutParams2.leftMargin = systemWindowInsetLeft;
@@ -3505,9 +3505,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     this.mActionModeView.setLayoutParams(marginLayoutParams);
                 }
             }
-            View view3 = this.mStatusGuard;
-            if (view3 != null) {
-                view3.setVisibility(z ? 0 : 8);
+            View view4 = this.mStatusGuard;
+            if (view4 != null) {
+                view4.setVisibility(z ? 0 : 8);
             }
             return i;
         }
@@ -3715,10 +3715,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view, Menu menu) {
+        public boolean onPreparePanel(int i, View view2, Menu menu) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view, menu)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, menu)) == null) {
                 MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
                 if (i == 0 && menuBuilder == null) {
                     return false;
@@ -3726,7 +3726,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (menuBuilder != null) {
                     menuBuilder.setOverrideVisibleItems(true);
                 }
-                boolean onPreparePanel = super.onPreparePanel(i, view, menu);
+                boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
                 if (menuBuilder != null) {
                     menuBuilder.setOverrideVisibleItems(false);
                 }
@@ -3906,13 +3906,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048628, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048628, this, view2, layoutParams) == null) {
             ensureSubDecor();
             ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
             viewGroup.removeAllViews();
-            viewGroup.addView(view, layoutParams);
+            viewGroup.addView(view2, layoutParams);
             this.mAppCompatWindowCallback.getWrapped().onContentChanged();
         }
     }

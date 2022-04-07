@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f extends a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public class f extends a implements c {
                 String a2 = this.yw.a(this.zb);
                 int i = (int) a[0];
                 if (i == 0) {
-                    int b2 = b(fArr, this.zb.hg());
-                    if (b2 == 0) {
+                    int b = b(fArr, this.zb.hg());
+                    if (b == 0) {
                         this.yw.hl();
-                    } else if (b2 == 1) {
+                    } else if (b == 1) {
                         this.yw.hm();
                     }
                     this.yw.r(new float[16]);

@@ -3,9 +3,6 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import c.a.p0.s4.u.j;
-import c.a.p0.s4.u.k;
-import c.a.p0.s4.u.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,7 +18,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes6.dex */
+import com.repackage.a19;
+import com.repackage.b19;
+import com.repackage.h19;
+/* loaded from: classes4.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OUTSTATE_KEY_CURRENT_INDEX = "OutState_Current_Index";
@@ -29,11 +29,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public static final String OUTSTATE_KEY_WRITE_IMG_INFO = "OutState_Write_Img_Info";
     public static final String OUTSTATE_KEY_WRITE_INFO_DATA = "OutState_Write_Info_Data";
     public transient /* synthetic */ FieldHolder $fh;
-    public k mControler;
-    public j mMainView;
+    public b19 mControler;
+    public a19 mMainView;
 
-    /* loaded from: classes6.dex */
-    public class a implements c {
+    /* loaded from: classes4.dex */
+    public class a implements h19 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -56,7 +56,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // c.a.p0.s4.u.n.b.c
+        @Override // com.repackage.h19
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -65,7 +65,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.p0.s4.u.n.b.c
+        @Override // com.repackage.h19
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -73,14 +73,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.p0.s4.u.n.b.c
+        @Override // com.repackage.h19
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.a.mControler.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // c.a.p0.s4.u.n.b.c
+        @Override // com.repackage.h19
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -105,29 +105,29 @@ public class WriteMultiImgsActivity extends BaseActivity {
     }
 
     public void addAction() {
-        k kVar;
+        b19 b19Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (kVar = this.mControler) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b19Var = this.mControler) == null) {
             return;
         }
-        kVar.n();
+        b19Var.n();
     }
 
     public void delAction() {
-        k kVar;
+        b19 b19Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kVar = this.mControler) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (b19Var = this.mControler) == null) {
             return;
         }
-        kVar.s();
+        b19Var.s();
     }
 
     public void finishActivity(boolean z, WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, writeImagesInfo) == null) {
-            k kVar = this.mControler;
-            if (kVar != null) {
-                if (1 == kVar.u()) {
+            b19 b19Var = this.mControler;
+            if (b19Var != null) {
+                if (1 == b19Var.u()) {
                     ForumWriteData v = this.mControler.v();
                     if (v != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {
@@ -178,11 +178,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            j jVar = this.mMainView;
-            if (jVar != null) {
-                jVar.h(i);
+            a19 a19Var = this.mMainView;
+            if (a19Var != null) {
+                a19Var.h(i);
             }
-            this.mControler.f18521c.notifyDataSetChanged();
+            this.mControler.c.notifyDataSetChanged();
         }
     }
 
@@ -192,12 +192,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            j jVar = new j(getPageContext(), new a(this));
-            this.mMainView = jVar;
-            setContentView(jVar.k);
-            k kVar = new k(getPageContext(), this.mMainView, bundle);
-            this.mControler = kVar;
-            if (kVar.j != TbadkCoreApplication.getInst().getSkinType()) {
+            a19 a19Var = new a19(getPageContext(), new a(this));
+            this.mMainView = a19Var;
+            setContentView(a19Var.k);
+            b19 b19Var = new b19(getPageContext(), this.mMainView, bundle);
+            this.mControler = b19Var;
+            if (b19Var.j != TbadkCoreApplication.getInst().getSkinType()) {
                 TbadkCoreApplication.getInst().setSkinType(this.mControler.j);
             }
         }
@@ -207,14 +207,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            k kVar = this.mControler;
-            if (kVar != null) {
-                kVar.t();
+            b19 b19Var = this.mControler;
+            if (b19Var != null) {
+                b19Var.t();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            j jVar = this.mMainView;
-            if (jVar != null) {
-                jVar.o();
+            a19 a19Var = this.mMainView;
+            if (a19Var != null) {
+                a19Var.o();
             }
             super.onDestroy();
         }
@@ -225,12 +225,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            k kVar = this.mControler;
-            if (kVar != null && (multiImagePagerAdapter = kVar.f18521c) != null) {
+            b19 b19Var = this.mControler;
+            if (b19Var != null && (multiImagePagerAdapter = b19Var.c) != null) {
                 bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
                 bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
                 bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.f18521c.h(true);
+                this.mControler.c.h(true);
                 if (this.mControler.w() != null) {
                     bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
                 }

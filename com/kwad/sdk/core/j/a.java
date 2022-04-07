@@ -12,29 +12,21 @@ import com.kwad.sdk.utils.bc;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements c, bc.a {
-
-    /* renamed from: c  reason: collision with root package name */
-    public Set<d> f39555c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final View f39556d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final int f39557e;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f39554b = new AtomicBoolean(false);
+    public Set<d> c;
+    public final View d;
+    public final int e;
+    public final AtomicBoolean b = new AtomicBoolean(false);
     public final bc a = new bc(this);
 
-    public a(@NonNull View view, int i) {
-        this.f39556d = view;
-        this.f39557e = i;
+    public a(@NonNull View view2, int i) {
+        this.d = view2;
+        this.e = i;
     }
 
     private void a(boolean z) {
-        Set<d> set = this.f39555c;
+        Set<d> set = this.c;
         if (set == null) {
             return;
         }
@@ -78,10 +70,10 @@ public abstract class a implements c, bc.a {
         } else {
             dVar.f();
         }
-        if (this.f39555c == null) {
-            this.f39555c = new HashSet();
+        if (this.c == null) {
+            this.c = new HashSet();
         }
-        this.f39555c.add(dVar);
+        this.c.add(dVar);
     }
 
     public final void b() {
@@ -93,7 +85,7 @@ public abstract class a implements c, bc.a {
     public final void b(d dVar) {
         Set<d> set;
         ae.a();
-        if (dVar == null || (set = this.f39555c) == null) {
+        if (dVar == null || (set = this.c) == null) {
             return;
         }
         set.remove(dVar);
@@ -102,18 +94,18 @@ public abstract class a implements c, bc.a {
     public abstract boolean c();
 
     public final boolean d() {
-        return bb.a(this.f39556d, this.f39557e, false);
+        return bb.a(this.d, this.e, false);
     }
 
     public final void e() {
-        if (this.f39554b.getAndSet(true)) {
+        if (this.b.getAndSet(true)) {
             return;
         }
         a(true);
     }
 
     public final void f() {
-        if (this.f39554b.getAndSet(false)) {
+        if (this.b.getAndSet(false)) {
             a(false);
         }
     }
@@ -121,7 +113,7 @@ public abstract class a implements c, bc.a {
     @CallSuper
     public void g() {
         b();
-        Set<d> set = this.f39555c;
+        Set<d> set = this.c;
         if (set != null) {
             set.clear();
         }

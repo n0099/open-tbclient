@@ -13,7 +13,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ReflectUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String sReflectErrorDetail = "none";
@@ -62,8 +62,8 @@ public class ReflectUtils implements INoProGuard {
                     Array.set(newInstance, i, fileArr[i - 1]);
                 }
                 declaredField.set(pathList, newInstance);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

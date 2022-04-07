@@ -17,22 +17,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.lu4;
+/* loaded from: classes3.dex */
 public class DownloadManagerNotLoginLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public ImageView b;
+    public TextView c;
+    public TBSpecificationBtn d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f31765b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f31766c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TBSpecificationBtn f31767d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +52,9 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ViewHelper.checkUpIsLogin(this.a.a);
             }
         }
@@ -89,26 +84,26 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0242, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0243, (ViewGroup) this, true);
             this.a = context;
-            this.f31765b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09081e);
-            this.f31766c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09081f);
-            this.f31767d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09081d);
-            c.a.o0.r.l0.n.a aVar = new c.a.o0.r.l0.n.a();
-            this.f31767d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03da));
-            this.f31767d.setTextSize(R.dimen.T_X06);
-            this.f31767d.setTextHorizontalCenter(true);
-            this.f31767d.setConfig(aVar);
-            this.f31767d.setOnClickListener(new a(this));
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090827);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090828);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090826);
+            lu4 lu4Var = new lu4();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03e1));
+            this.d.setTextSize(R.dimen.T_X06);
+            this.d.setTextHorizontalCenter(true);
+            this.d.setConfig(lu4Var);
+            this.d.setOnClickListener(new a(this));
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f31765b, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f31766c, (int) R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f31767d;
+            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();
             }

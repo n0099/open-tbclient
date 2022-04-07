@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.Drawable2d;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FullFrameRect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class FullFrameRect {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             float[] fArr = this.mModelViewMatrix;
             Matrix.setIdentityM(fArr, 0);
-            float f2 = this.mAngle;
-            if (f2 != 0.0f) {
-                Matrix.rotateM(fArr, 0, f2, 0.0f, 0.0f, 1.0f);
+            float f = this.mAngle;
+            if (f != 0.0f) {
+                Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
             }
             Matrix.scaleM(fArr, 0, this.mScaleX, this.mScaleY, 1.0f);
         }
@@ -116,47 +116,47 @@ public class FullFrameRect {
         this.mProgram = null;
     }
 
-    public void setAlpha(float f2) {
+    public void setAlpha(float f) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || (texture2dProgram = this.mProgram) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048587, this, f) == null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        texture2dProgram.setAlpha(f2);
+        texture2dProgram.setAlpha(f);
     }
 
-    public void setAngle(float f2) {
+    public void setAngle(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.mAngle = f2;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            this.mAngle = f;
         }
     }
 
-    public void setDistance(float f2) {
+    public void setDistance(float f) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || (texture2dProgram = this.mProgram) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        texture2dProgram.setDistance(f2);
+        texture2dProgram.setDistance(f);
     }
 
-    public void setDxDy(float f2, float f3) {
+    public void setDxDy(float f, float f2) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (texture2dProgram = this.mProgram) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        texture2dProgram.setDxDy(f2, f3);
+        texture2dProgram.setDxDy(f, f2);
     }
 
-    public void setHumanSegMaskParams(int i, String str, float f2) {
+    public void setHumanSegMaskParams(int i, String str, float f) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f2)}) == null) || (texture2dProgram = this.mProgram) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        texture2dProgram.setHumanSegMaskParams(i, str, f2);
+        texture2dProgram.setHumanSegMaskParams(i, str, f);
     }
 
     public void setMirror(boolean z) {
@@ -166,17 +166,17 @@ public class FullFrameRect {
         }
     }
 
-    public void setScale(float f2, float f3) {
+    public void setScale(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mRectDrawable.setScale(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRectDrawable.setScale(f, f2);
         }
     }
 
-    public void setScaleAndTranslate(float f2, float f3, float f4, float f5) {
+    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.mRectDrawable.setScaleAndTranslate(f2, f3, f4, f5);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.mRectDrawable.setScaleAndTranslate(f, f2, f3, f4);
         }
     }
 

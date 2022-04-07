@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AdSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_BEAR_LOAD_DURATION = "bearLoad";
@@ -187,6 +187,9 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j > j2) {
+                return 0L;
+            }
             long j3 = this.mAdShowEndTimeStamp;
             if (this.mAdShowStartTimeStamp > 0 && j3 < 0) {
                 j3 = this.mAdViewEndTimeStamp;
@@ -211,7 +214,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         return invokeCommon.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:176:0x02f8 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x02f6 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x0073  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x007d  */
@@ -386,9 +389,9 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                         try {
                             jSONObject.put(SpeedStatsMainTable.AD_SHOW, jsonData);
                             return true;
-                        } catch (JSONException e2) {
+                        } catch (JSONException e) {
                             if (AppConfig.isDebug()) {
-                                e2.printStackTrace();
+                                e.printStackTrace();
                                 return true;
                             }
                             return true;

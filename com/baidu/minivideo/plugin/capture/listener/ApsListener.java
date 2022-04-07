@@ -1,4 +1,4 @@
 package com.baidu.minivideo.plugin.capture.listener;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ApsListener {
 }

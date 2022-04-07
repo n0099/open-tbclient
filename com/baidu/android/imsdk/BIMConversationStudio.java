@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMConversationStudio extends BIMConversation {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "BIMConversationStudio";
@@ -86,9 +86,9 @@ public class BIMConversationStudio extends BIMConversation {
             this.mCastService = createCastService;
             try {
                 iMcastSetListener.onResult(createCastService.startService(this.mCastId, this.mCastUrl, this.mCastType), this.session.getContacter(), -1L);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -117,9 +117,9 @@ public class BIMConversationStudio extends BIMConversation {
             }
             try {
                 unregisterLiveMsgReceiveListener(Long.valueOf(this.mCastId).longValue());
-            } catch (NumberFormatException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (NumberFormatException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

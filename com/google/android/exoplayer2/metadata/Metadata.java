@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Metadata implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Metadata> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Entry[] entries;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Entry extends Parcelable {
     }
 

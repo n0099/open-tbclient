@@ -1,15 +1,15 @@
 package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
-import c.b.b.q.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r7;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Circle implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class Circle implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float f2 = this.radius;
-            return f2 * f2 * 3.1415927f;
+            float f = this.radius;
+            return f * f * 3.1415927f;
         }
         return invokeV.floatValue;
     }
@@ -47,15 +47,15 @@ public class Circle implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.radius * 6.2831855f : invokeV.floatValue;
     }
 
-    public boolean contains(float f2, float f3) {
+    public boolean contains(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = this.x - f2;
-            float f5 = this.y - f3;
-            float f6 = (f4 * f4) + (f5 * f5);
-            float f7 = this.radius;
-            return f6 <= f7 * f7;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float f3 = this.x - f;
+            float f4 = this.y - f2;
+            float f5 = (f3 * f3) + (f4 * f4);
+            float f6 = this.radius;
+            return f5 <= f6 * f6;
         }
         return invokeCommon.booleanValue;
     }
@@ -79,28 +79,28 @@ public class Circle implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((t.b(this.radius) + 41) * 41) + t.b(this.x)) * 41) + t.b(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((r7.b(this.radius) + 41) * 41) + r7.b(this.x)) * 41) + r7.b(this.y) : invokeV.intValue;
     }
 
     public boolean overlaps(Circle circle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, circle)) == null) {
-            float f2 = this.x - circle.x;
-            float f3 = this.y - circle.y;
-            float f4 = (f2 * f2) + (f3 * f3);
-            float f5 = this.radius + circle.radius;
-            return f4 < f5 * f5;
+            float f = this.x - circle.x;
+            float f2 = this.y - circle.y;
+            float f3 = (f * f) + (f2 * f2);
+            float f4 = this.radius + circle.radius;
+            return f3 < f4 * f4;
         }
         return invokeL.booleanValue;
     }
 
-    public void set(float f2, float f3, float f4) {
+    public void set(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.x = f2;
-            this.y = f3;
-            this.radius = f4;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.x = f;
+            this.y = f2;
+            this.radius = f3;
         }
     }
 
@@ -112,24 +112,24 @@ public class Circle implements Serializable {
         }
     }
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.radius = f2;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            this.radius = f;
         }
     }
 
-    public void setX(float f2) {
+    public void setX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.x = f2;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+            this.x = f;
         }
     }
 
-    public void setY(float f2) {
+    public void setY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.y = f2;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.y = f;
         }
     }
 
@@ -142,12 +142,12 @@ public class Circle implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public Circle(float f2, float f3, float f4) {
+    public Circle(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,16 +157,16 @@ public class Circle implements Serializable {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
-        this.radius = f4;
+        this.x = f;
+        this.y = f2;
+        this.radius = f3;
     }
 
-    public void setPosition(float f2, float f3) {
+    public void setPosition(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.x = f2;
-            this.y = f3;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.x = f;
+            this.y = f2;
         }
     }
 
@@ -174,29 +174,29 @@ public class Circle implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vector2)) == null) {
-            float f2 = this.x - vector2.x;
-            float f3 = this.y - vector2.y;
-            float f4 = this.radius;
-            return (f2 * f2) + (f3 * f3) <= f4 * f4;
+            float f = this.x - vector2.x;
+            float f2 = this.y - vector2.y;
+            float f3 = this.radius;
+            return (f * f) + (f2 * f2) <= f3 * f3;
         }
         return invokeL.booleanValue;
     }
 
-    public void set(Vector2 vector2, float f2) {
+    public void set(Vector2 vector2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048586, this, vector2, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048586, this, vector2, f) == null) {
             this.x = vector2.x;
             this.y = vector2.y;
-            this.radius = f2;
+            this.radius = f;
         }
     }
 
-    public Circle(Vector2 vector2, float f2) {
+    public Circle(Vector2 vector2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vector2, Float.valueOf(f2)};
+            Object[] objArr = {vector2, Float.valueOf(f)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -208,24 +208,24 @@ public class Circle implements Serializable {
         }
         this.x = vector2.x;
         this.y = vector2.y;
-        this.radius = f2;
+        this.radius = f;
     }
 
     public boolean contains(Circle circle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, circle)) == null) {
-            float f2 = this.radius;
-            float f3 = circle.radius;
-            float f4 = f2 - f3;
-            if (f4 < 0.0f) {
+            float f = this.radius;
+            float f2 = circle.radius;
+            float f3 = f - f2;
+            if (f3 < 0.0f) {
                 return false;
             }
-            float f5 = this.x - circle.x;
-            float f6 = this.y - circle.y;
-            float f7 = (f5 * f5) + (f6 * f6);
-            float f8 = f2 + f3;
-            return f4 * f4 >= f7 && f7 < f8 * f8;
+            float f4 = this.x - circle.x;
+            float f5 = this.y - circle.y;
+            float f6 = (f4 * f4) + (f5 * f5);
+            float f7 = f + f2;
+            return f3 * f3 >= f6 && f6 < f7 * f7;
         }
         return invokeL.booleanValue;
     }
@@ -262,11 +262,11 @@ public class Circle implements Serializable {
     public void set(Vector2 vector2, Vector2 vector22) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, vector2, vector22) == null) {
-            float f2 = vector2.x;
-            this.x = f2;
-            float f3 = vector2.y;
-            this.y = f3;
-            this.radius = Vector2.len(f2 - vector22.x, f3 - vector22.y);
+            float f = vector2.x;
+            this.x = f;
+            float f2 = vector2.y;
+            this.y = f2;
+            this.radius = Vector2.len(f - vector22.x, f2 - vector22.y);
         }
     }
 
@@ -285,10 +285,10 @@ public class Circle implements Serializable {
                 return;
             }
         }
-        float f2 = vector2.x;
-        this.x = f2;
-        float f3 = vector2.y;
-        this.y = f3;
-        this.radius = Vector2.len(f2 - vector22.x, f3 - vector22.y);
+        float f = vector2.x;
+        this.x = f;
+        float f2 = vector2.y;
+        this.y = f2;
+        this.radius = Vector2.len(f - vector22.x, f2 - vector22.y);
     }
 }

@@ -139,11 +139,11 @@ public class TypefaceCompatBaseImpl {
                 Field declaredField = Typeface.class.getDeclaredField("native_instance");
                 declaredField.setAccessible(true);
                 return ((Number) declaredField.get(typeface)).longValue();
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Could not retrieve font from family.", e2);
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Could not retrieve font from family.", e);
                 return 0L;
-            } catch (NoSuchFieldException e3) {
-                Log.e(TAG, "Could not retrieve font from family.", e3);
+            } catch (NoSuchFieldException e2) {
+                Log.e(TAG, "Could not retrieve font from family.", e2);
                 return 0L;
             }
         }

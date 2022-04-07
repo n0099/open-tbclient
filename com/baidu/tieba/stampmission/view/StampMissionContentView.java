@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.p0.x3.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.stampmission.view.SingleStampView;
@@ -14,15 +12,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hi8;
+import com.repackage.oi;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StampMissionContentView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public CountDownView f36077b;
+    public CountDownView b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public StampMissionContentView(Context context) {
@@ -48,7 +46,7 @@ public class StampMissionContentView extends LinearLayout {
     public void a() {
         CountDownView countDownView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownView = this.f36077b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownView = this.b) == null) {
             return;
         }
         countDownView.j();
@@ -58,7 +56,7 @@ public class StampMissionContentView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             CountDownView countDownView = new CountDownView(getContext());
-            this.f36077b = countDownView;
+            this.b = countDownView;
             addView(countDownView);
         }
     }
@@ -68,7 +66,7 @@ public class StampMissionContentView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = new LinearLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(n.f(getContext(), R.dimen.tbds61), n.f(getContext(), R.dimen.M_H_X008), n.f(getContext(), R.dimen.tbds61), n.f(getContext(), R.dimen.M_H_X012));
+            layoutParams.setMargins(oi.f(getContext(), R.dimen.tbds61), oi.f(getContext(), R.dimen.M_H_X008), oi.f(getContext(), R.dimen.tbds61), oi.f(getContext(), R.dimen.M_H_X012));
             this.a.setLayoutParams(layoutParams);
             this.a.setOrientation(0);
             addView(this.a);
@@ -93,16 +91,16 @@ public class StampMissionContentView extends LinearLayout {
         }
     }
 
-    public void setData(List<a> list, long j, SingleStampView.a aVar) {
+    public void setData(List<hi8> list, long j, SingleStampView.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Long.valueOf(j), aVar}) == null) {
-            for (a aVar2 : list) {
+            for (hi8 hi8Var : list) {
                 SingleStampView singleStampView = new SingleStampView(getContext());
-                singleStampView.setData(aVar2, aVar);
+                singleStampView.setData(hi8Var, aVar);
                 singleStampView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2, 1.0f));
                 this.a.addView(singleStampView);
             }
-            this.f36077b.i(j);
+            this.b.i(j);
         }
     }
 

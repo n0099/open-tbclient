@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import c.a.d.f.p.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -11,8 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.di;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARMARS_BCAST_CONTENT = "content";
@@ -53,7 +53,7 @@ public class ForumBroadcastHelper {
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
+            di.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
         }
     }
 

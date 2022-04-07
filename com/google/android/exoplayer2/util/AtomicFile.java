@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AtomicFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AtomicFile";
@@ -23,7 +23,7 @@ public final class AtomicFile {
     public final File backupName;
     public final File baseName;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AtomicFileOutputStream extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,8 +59,8 @@ public final class AtomicFile {
             flush();
             try {
                 this.fileOutputStream.getFD().sync();
-            } catch (IOException e2) {
-                Log.w(AtomicFile.TAG, "Failed to sync file descriptor:", e2);
+            } catch (IOException e) {
+                Log.w(AtomicFile.TAG, "Failed to sync file descriptor:", e);
             }
             this.fileOutputStream.close();
         }
@@ -166,15 +166,15 @@ public final class AtomicFile {
             }
             try {
                 return new AtomicFileOutputStream(this.baseName);
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
                 if (this.baseName.getParentFile().mkdirs()) {
                     try {
                         return new AtomicFileOutputStream(this.baseName);
-                    } catch (FileNotFoundException e3) {
-                        throw new IOException("Couldn't create " + this.baseName, e3);
+                    } catch (FileNotFoundException e2) {
+                        throw new IOException("Couldn't create " + this.baseName, e2);
                     }
                 }
-                throw new IOException("Couldn't create directory " + this.baseName, e2);
+                throw new IOException("Couldn't create directory " + this.baseName, e);
             }
         }
         return (OutputStream) invokeV.objValue;

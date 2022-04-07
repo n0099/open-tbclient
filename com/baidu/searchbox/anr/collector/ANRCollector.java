@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ANRCollector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";
@@ -61,7 +61,7 @@ public class ANRCollector {
         InterceptResult invokeL;
         Throwable th;
         BufferedReader bufferedReader;
-        IOException e2;
+        IOException e;
         String readLine;
         String readLine2;
         Interceptable interceptable = $ic;
@@ -111,9 +111,9 @@ public class ANRCollector {
                             } while (!readLine2.contains("----- end "));
                         }
                     }
-                } catch (IOException e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -133,9 +133,9 @@ public class ANRCollector {
                 }
                 throw th;
             }
-        } catch (IOException e4) {
+        } catch (IOException e3) {
             bufferedReader = null;
-            e2 = e4;
+            e = e3;
         } catch (Throwable th3) {
             r1 = 0;
             th = th3;
@@ -169,7 +169,7 @@ public class ANRCollector {
         InterceptResult invokeL;
         Throwable th;
         BufferedReader bufferedReader;
-        IOException e2;
+        IOException e;
         String readLine;
         String readLine2;
         String readLine3;
@@ -233,9 +233,9 @@ public class ANRCollector {
                             } while (!readLine3.equals(""));
                         }
                     }
-                } catch (IOException e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -255,9 +255,9 @@ public class ANRCollector {
                 }
                 throw th;
             }
-        } catch (IOException e4) {
+        } catch (IOException e3) {
             bufferedReader = null;
-            e2 = e4;
+            e = e3;
         } catch (Throwable th3) {
             r5 = 0;
             th = th3;

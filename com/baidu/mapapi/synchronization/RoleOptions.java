@@ -11,32 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class RoleOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "RoleOptions";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26524b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f26525c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26526d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f26527e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SyncCoordinateConverter.CoordType f26528f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LatLng f26529g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f26530h;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public SyncCoordinateConverter.CoordType f;
+    public LatLng g;
+    public String h;
     public String i;
     public LatLng j;
     public String k;
@@ -73,18 +59,18 @@ public final class RoleOptions {
                 return;
             }
         }
-        this.f26524b = null;
-        this.f26525c = 0;
-        this.f26526d = null;
-        this.f26527e = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
         SyncCoordinateConverter.CoordType coordType = SyncCoordinateConverter.CoordType.BD09LL;
-        this.f26528f = coordType;
-        this.f26524b = null;
-        this.f26525c = 0;
-        this.f26526d = null;
-        this.f26527e = null;
-        this.f26529g = null;
-        this.f26530h = null;
+        this.f = coordType;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
+        this.g = null;
+        this.h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -92,25 +78,25 @@ public final class RoleOptions {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.f26528f = coordType;
+        this.f = coordType;
     }
 
     private LatLng a(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, latLng)) == null) ? new SyncCoordinateConverter().from(this.f26528f).coord(latLng).convert() : (LatLng) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, latLng)) == null) ? new SyncCoordinateConverter().from(this.f).coord(latLng).convert() : (LatLng) invokeL.objValue;
     }
 
     public SyncCoordinateConverter.CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26528f : (SyncCoordinateConverter.CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (SyncCoordinateConverter.CoordType) invokeV.objValue;
     }
 
     public String getDriverId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26526d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public LatLng getDriverPosition() {
@@ -152,19 +138,19 @@ public final class RoleOptions {
     public String getOrderId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26524b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public int getRoleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26525c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public LatLng getStartPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26529g : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (LatLng) invokeV.objValue;
     }
 
     public String getStartPositionName() {
@@ -176,13 +162,13 @@ public final class RoleOptions {
     public String getStartPositionPoiUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26530h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26527e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public RoleOptions setCoordType(SyncCoordinateConverter.CoordType coordType) {
@@ -190,7 +176,7 @@ public final class RoleOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, coordType)) == null) {
             if (SyncCoordinateConverter.CoordType.BD09LL == coordType || SyncCoordinateConverter.CoordType.COMMON == coordType) {
-                this.f26528f = coordType;
+                this.f = coordType;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: CoordType only can be BD09LL or COMMON, please check!");
@@ -205,7 +191,7 @@ public final class RoleOptions {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("BDMapSDKException: driverId is null");
             }
-            this.f26526d = str;
+            this.d = str;
             return this;
         }
         return (RoleOptions) invokeL.objValue;
@@ -219,7 +205,7 @@ public final class RoleOptions {
                 this.m = null;
                 return this;
             }
-            if (SyncCoordinateConverter.CoordType.COMMON == this.f26528f) {
+            if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
                 latLng = a(latLng);
             }
             this.m = latLng;
@@ -253,7 +239,7 @@ public final class RoleOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, latLng)) == null) {
             if (latLng != null) {
-                if (SyncCoordinateConverter.CoordType.COMMON == this.f26528f) {
+                if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
                     latLng = a(latLng);
                 }
                 this.j = latLng;
@@ -291,7 +277,7 @@ public final class RoleOptions {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("BDMapSDKException: orderId is null.");
             }
-            this.f26524b = str;
+            this.b = str;
             return this;
         }
         return (RoleOptions) invokeL.objValue;
@@ -302,7 +288,7 @@ public final class RoleOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
             if (i == 0) {
-                this.f26525c = i;
+                this.c = i;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: role type is invalid: " + i);
@@ -315,10 +301,10 @@ public final class RoleOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, latLng)) == null) {
             if (latLng != null) {
-                if (SyncCoordinateConverter.CoordType.COMMON == this.f26528f) {
+                if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
                     latLng = a(latLng);
                 }
-                this.f26529g = latLng;
+                this.g = latLng;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: StartPosition is null, must be applied!");
@@ -340,7 +326,7 @@ public final class RoleOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            this.f26530h = str;
+            this.h = str;
             return this;
         }
         return (RoleOptions) invokeL.objValue;
@@ -353,7 +339,7 @@ public final class RoleOptions {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("BDMapSDKException: user id is null");
             }
-            this.f26527e = str;
+            this.e = str;
             return this;
         }
         return (RoleOptions) invokeL.objValue;

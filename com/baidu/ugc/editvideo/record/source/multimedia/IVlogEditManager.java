@@ -12,7 +12,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlProtocol {
     public static final String FILTER_ORIGINAL = "FILTER_ORIGINAL";
 
@@ -56,7 +56,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void replaceStickerData(int i, MultiMediaData multiMediaData, String str);
 
-    void setAngle(int i, float f2);
+    void setAngle(int i, float f);
 
     @Deprecated
     void setAngle(int i, int i2);
@@ -69,9 +69,9 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setEffectList(List<MediaSegment> list, Map<String, ShaderConfig> map);
 
-    void setFilter(float f2, String str);
+    void setFilter(float f, String str);
 
-    void setFilter(int i, float f2, String str);
+    void setFilter(int i, float f, String str);
 
     void setFrameRate(int i);
 
@@ -79,7 +79,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setMultiMediaData(List<MultiMediaData> list);
 
-    void setScale(float f2, float f3);
+    void setScale(float f, float f2);
 
     void setScaleType(String str);
 
@@ -93,11 +93,11 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setTransitionByIndex(int i, MediaTransitionConfig mediaTransitionConfig);
 
-    void setVideoRatio(float f2);
+    void setVideoRatio(float f);
 
-    void setX(float f2);
+    void setX(float f);
 
-    void setY(float f2);
+    void setY(float f);
 
     void split(int i, long j, OnMultiMediaSplitListener onMultiMediaSplitListener);
 

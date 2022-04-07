@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.source.dash.DashSegmentIndex;
 import com.google.android.exoplayer2.source.dash.manifest.SegmentBase;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class Representation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long REVISION_ID_DEFAULT = -1;
@@ -27,13 +27,13 @@ public abstract class Representation {
     public final long revisionId;
 
     /* renamed from: com.google.android.exoplayer2.source.dash.manifest.Representation$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class MultiSegmentRepresentation extends Representation implements DashSegmentIndex {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public abstract class Representation {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SingleSegmentRepresentation extends Representation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

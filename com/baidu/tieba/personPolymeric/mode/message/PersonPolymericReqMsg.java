@@ -1,9 +1,5 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
-import c.a.o0.r.l;
-import c.a.p0.y2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,9 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cn4;
+import com.repackage.oi;
+import com.repackage.rc5;
+import com.repackage.s08;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,12 +50,12 @@ public class PersonPolymericReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.uid = Long.valueOf(this.uid);
             builder.pn = Integer.valueOf(this.pn);
-            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(l.c().e());
-            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp()));
+            builder.q_type = Integer.valueOf(cn4.c().e());
+            builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -64,13 +64,13 @@ public class PersonPolymericReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public b getPersonCenterData() {
+    public s08 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (b) invokeV.objValue;
+        return (s08) invokeV.objValue;
     }
 
     public int getPn() {

@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DelegateFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
     public final KsFragmentManager.FragmentLifecycleCallbacks mBase;
     public final KsFragmentManager mFragmentManager;
@@ -113,10 +113,10 @@ public class DelegateFragmentLifecycleCallbacks extends FragmentManager.Fragment
     }
 
     @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-    public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment, View view, Bundle bundle) {
-        super.onFragmentViewCreated(fragmentManager, fragment, view, bundle);
+    public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment, View view2, Bundle bundle) {
+        super.onFragmentViewCreated(fragmentManager, fragment, view2, bundle);
         if (fragment instanceof IDelegateFragment) {
-            this.mBase.onFragmentViewCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), view, bundle);
+            this.mBase.onFragmentViewCreated(this.mFragmentManager, ((IDelegateFragment) fragment).getBase(), view2, bundle);
         }
     }
 

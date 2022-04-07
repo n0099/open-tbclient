@@ -43,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HiidoSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile String HIIDO_HOST = "mlog.bigda.com";
@@ -62,12 +62,12 @@ public class HiidoSDK {
     public Options mOptions;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
@@ -499,13 +499,13 @@ public class HiidoSDK {
             return (Options) invokeZ.objValue;
         }
 
-        public Options setSensorThreshold(float f2, float f3, float f4) {
+        public Options setSensorThreshold(float f, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-                this.gyroscopeThreshold = f2;
-                this.accelerometerThreshold = f3;
-                this.lightThreshold = f4;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                this.gyroscopeThreshold = f;
+                this.accelerometerThreshold = f2;
+                this.lightThreshold = f3;
                 return this;
             }
             return (Options) invokeCommon.objValue;
@@ -553,7 +553,7 @@ public class HiidoSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PageActionReportOption {
         public static final /* synthetic */ PageActionReportOption[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -912,10 +912,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
-            this.api.reportCountEvent(j, str, d2);
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            this.api.reportCountEvent(j, str, d);
         }
     }
 
@@ -960,10 +960,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportLocation(double d2, double d3, double d4) {
+    public void reportLocation(double d, double d2, double d3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)}) == null) {
-            this.api.reportLocation(d2, d3, d4);
+        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            this.api.reportLocation(d, d2, d3);
         }
     }
 
@@ -1191,10 +1191,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            this.api.reportCountEvent(j, str, d2, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            this.api.reportCountEvent(j, str, d, str2);
         }
     }
 
@@ -1254,10 +1254,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
-            this.api.reportCountEvent(j, str, d2, str2, property);
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
+            this.api.reportCountEvent(j, str, d, str2, property);
         }
     }
 

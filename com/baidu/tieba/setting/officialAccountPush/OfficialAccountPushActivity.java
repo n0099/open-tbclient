@@ -6,9 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.p0.p3.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -27,8 +24,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.oe8;
+import com.repackage.oi;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCEPT_MSG = 0;
@@ -36,7 +36,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public static final int UNACCEPT_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<OfficialAccountPushInfo> list;
-    public a mAdapter;
+    public oe8 mAdapter;
     public BdListView mList;
     public NavigationBar mNavigationBar;
     public NoNetworkView mNetworkView;
@@ -63,21 +63,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (!l.z() && ListUtils.isEmpty(this.list)) {
+            if (!mi.z() && ListUtils.isEmpty(this.list)) {
                 showNoNetWorkView();
             } else if (ListUtils.isEmpty(this.list)) {
                 showNoData();
             } else {
-                a aVar = this.mAdapter;
-                if (aVar == null) {
-                    a aVar2 = new a(getPageContext());
-                    this.mAdapter = aVar2;
-                    aVar2.a(this.list);
+                oe8 oe8Var = this.mAdapter;
+                if (oe8Var == null) {
+                    oe8 oe8Var2 = new oe8(getPageContext());
+                    this.mAdapter = oe8Var2;
+                    oe8Var2.a(this.list);
                     this.mList.setAdapter((ListAdapter) this.mAdapter);
                     this.mAdapter.b(this);
                     return;
                 }
-                aVar.a(this.list);
+                oe8Var.a(this.list);
                 this.mAdapter.notifyDataSetChanged();
             }
         }
@@ -86,16 +86,16 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915e3);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915de);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca0));
-            this.mList = (BdListView) findViewById(R.id.obfuscated_res_0x7f091277);
-            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070235)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2d), null);
+            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca3));
+            this.mList = (BdListView) findViewById(R.id.obfuscated_res_0x7f09126c);
+            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07023f)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c30), null);
             this.mNoDataView = a;
             a.setVisibility(0);
-            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091594);
+            this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09158f);
         }
     }
 
@@ -113,7 +113,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.list == null || this.mAdapter == null) {
             return;
         }
-        if (!l.z()) {
+        if (!mi.z()) {
             this.mAdapter.notifyDataSetChanged();
             return;
         }
@@ -130,11 +130,11 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
+    public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
             boolean z = BdSwitchView.SwitchState.ON == switchState;
-            OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) view.getTag();
+            OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) view2.getTag();
             if (officialAccountPushInfo == null) {
                 return;
             }
@@ -159,7 +159,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0635);
+            setContentView(R.layout.obfuscated_res_0x7f0d0631);
             dealWithIntent();
             InitUI();
             InitData();
@@ -179,7 +179,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2d));
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c30));
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
     }
@@ -189,7 +189,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mList.setVisibility(8);
             this.mNoDataView.setVisibility(0);
-            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0f65));
+            this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0f6a));
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
     }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class ByteString implements Iterable<Byte> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,18 +30,18 @@ public abstract class ByteString implements Iterable<Byte> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.protobuf.ByteString$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class CodedBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,8 +149,8 @@ public abstract class ByteString implements Iterable<Byte> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
                 return new LiteralByteString(str.getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException("UTF-8 not supported?", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UTF-8 not supported?", e);
             }
         }
         return (ByteString) invokeL.objValue;
@@ -300,8 +300,8 @@ public abstract class ByteString implements Iterable<Byte> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             try {
                 return toString("UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException("UTF-8 not supported?", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UTF-8 not supported?", e);
             }
         }
         return (String) invokeV.objValue;
@@ -365,7 +365,7 @@ public abstract class ByteString implements Iterable<Byte> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Output extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] EMPTY_BYTE_ARRAY;

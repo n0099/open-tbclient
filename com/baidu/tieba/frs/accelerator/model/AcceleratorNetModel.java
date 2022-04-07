@@ -15,19 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AcceleratorNetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public boolean b;
+    public HttpMessageListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f32355b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f32356c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,21 +56,21 @@ public class AcceleratorNetModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003524 || !(httpResponsedMessage instanceof GetAcceleratorInfoRespondedMessage)) {
-                    this.a.f32355b = false;
+                    this.a.b = false;
                 } else if (httpResponsedMessage.getError() == 0 || this.a.a == null) {
                     if (this.a.a != null) {
                         this.a.a.b(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
                     }
-                    this.a.f32355b = false;
+                    this.a.b = false;
                 } else {
                     this.a.a.a();
-                    this.a.f32355b = false;
+                    this.a.b = false;
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -94,21 +90,21 @@ public class AcceleratorNetModel extends BdBaseModel {
                 return;
             }
         }
-        this.f32355b = false;
-        this.f32356c = new a(this, CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
+        this.b = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
         B();
         registerListener();
     }
 
     public void A(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.f32355b) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.b) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
         httpMessage.addParam("item_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.f32355b = true;
+        this.b = true;
     }
 
     public final void B() {
@@ -141,7 +137,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
-            MessageManager.getInstance().unRegisterListener(this.f32356c);
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 
@@ -158,7 +154,7 @@ public class AcceleratorNetModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().registerListener(this.f32356c);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 }

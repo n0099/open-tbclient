@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class en extends Notification.Builder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class en extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m331a() {
+    public void m327a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -111,7 +111,7 @@ public class en extends Notification.Builder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m331a();
+            m327a();
             return super.build();
         }
         return (Notification) invokeV.objValue;

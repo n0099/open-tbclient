@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -93,20 +93,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
             a aVar = new a();
-            byte[] b2 = z ? aVar.b(context) : aVar.a(context);
-            if (b2 == null || b2.length >= 307200) {
+            byte[] b = z ? aVar.b(context) : aVar.a(context);
+            if (b == null || b.length >= 307200) {
                 b(context, aVar);
             } else {
-                com.baidu.android.pushservice.h.b.a(context).a(null, b2, "", new com.baidu.android.pushservice.h.c(z, context, aVar) { // from class: com.baidu.android.pushservice.h.a.c.2
+                com.baidu.android.pushservice.h.b.a(context).a(null, b, "", new com.baidu.android.pushservice.h.c(z, context, aVar) { // from class: com.baidu.android.pushservice.h.a.c.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ boolean a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f24653b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f24654c;
+                    public final /* synthetic */ Context b;
+                    public final /* synthetic */ a c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,8 +120,8 @@ public class c {
                             }
                         }
                         this.a = z;
-                        this.f24653b = context;
-                        this.f24654c = aVar;
+                        this.b = context;
+                        this.c = aVar;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
@@ -134,26 +130,26 @@ public class c {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) || this.a) {
                             return;
                         }
-                        PushSettings.m(this.f24653b);
+                        PushSettings.m(this.b);
                         if (i == 0) {
-                            c.b(this.f24653b, this.f24654c);
+                            c.b(this.b, this.c);
                             int unused = c.a = 0;
                             return;
                         }
                         int i2 = 1;
                         if (c.a < 1) {
-                            c.b(this.f24653b, false);
+                            c.b(this.b, false);
                             c.b();
                             return;
                         }
                         int unused2 = c.a = 0;
-                        int o = PushSettings.o(this.f24653b);
+                        int o = PushSettings.o(this.b);
                         if (o >= 3) {
-                            c.b(this.f24653b, this.f24654c);
+                            c.b(this.b, this.c);
                         } else {
                             i2 = 1 + o;
                         }
-                        PushSettings.b(this.f24653b, i2);
+                        PushSettings.b(this.b, i2);
                     }
                 });
             }

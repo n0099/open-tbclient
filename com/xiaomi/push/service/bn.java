@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -51,7 +51,7 @@ public class bn {
             String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
             if (TextUtils.isEmpty(a2)) {
                 a2 = com.xiaomi.push.bm.a(20);
-                com.xiaomi.push.p.a(context).m582a("mipush", "td_key", a2);
+                com.xiaomi.push.p.a(context).m578a("mipush", "td_key", a2);
             }
             return a(a2);
         }
@@ -62,7 +62,7 @@ public class bn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m222a(str), 16);
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m218a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -90,34 +90,34 @@ public class bn {
         BufferedOutputStream a2 = a(context);
         try {
             try {
-                byte[] b2 = com.xiaomi.push.h.b(a2, ip.a(hjVar));
-                if (b2 != null && b2.length >= 1) {
-                    if (b2.length > 10240) {
+                byte[] b = com.xiaomi.push.h.b(a2, ip.a(hjVar));
+                if (b != null && b.length >= 1) {
+                    if (b.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m112a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m108a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
                     BufferedOutputStream bufferedOutputStream3 = new BufferedOutputStream(new FileOutputStream(new File(context.getFilesDir(), "tiny_data.data"), true));
                     try {
-                        bufferedOutputStream3.write(com.xiaomi.push.ac.a(b2.length));
-                        bufferedOutputStream3.write(b2);
+                        bufferedOutputStream3.write(com.xiaomi.push.ac.a(b.length));
+                        bufferedOutputStream3.write(b);
                         bufferedOutputStream3.flush();
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a(bufferedOutputStream3);
                         return;
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
                         bufferedOutputStream2 = bufferedOutputStream3;
-                        e = e2;
+                        e = e;
                         str = "TinyData write to cache file failed cause io exception item:" + hjVar.d();
                         a2 = bufferedOutputStream2;
                         com.xiaomi.channel.commonutils.logger.b.a(str, e);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) a2);
                         return;
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                         bufferedOutputStream = bufferedOutputStream3;
-                        e = e3;
+                        e = e2;
                         str = "TinyData write to cache file  failed item:" + hjVar.d();
                         a2 = bufferedOutputStream;
                         com.xiaomi.channel.commonutils.logger.b.a(str, e);
@@ -133,17 +133,17 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m112a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m108a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             bufferedOutputStream2 = null;
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
+            e = e4;
             bufferedOutputStream = null;
         } catch (Throwable th3) {
             th = th3;

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FingerprintHelper extends FingerprintManager.AuthenticationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_CANCLE = -2;
@@ -91,8 +91,8 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                 try {
                     dialog.dismiss();
                     return;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return;
                 }
             }
@@ -128,9 +128,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.stopAuthenticate();
                         this.this$0.fingerprintCallback.onCall(-2);
                     }
@@ -168,9 +168,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.stopAuthenticate();
                         this.this$0.fingerprintCallback.onCall(-2);
                     }
@@ -199,9 +199,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.stopAuthenticate();
                         this.this$0.fingerprintCallback.onCall(-3);
                     }
@@ -238,9 +238,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.stopAuthenticate();
                         this.this$0.fingerprintCallback.onCall(-2);
                     }
@@ -279,9 +279,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAuthenticationFailed();
             Log.i(TAG, "Authentication failed ");
-            char c2 = (char) (this.maxErrorCount - 1);
-            this.maxErrorCount = c2;
-            if (c2 > 0) {
+            char c = (char) (this.maxErrorCount - 1);
+            this.maxErrorCount = c;
+            if (c > 0) {
                 if (this.authType == 3) {
                     showTryAgainLoginDialog();
                     return;

@@ -8,40 +8,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.d;
-import g.e;
-import g.f;
-import g.j;
-import g.k;
-import g.o.a.a;
-import g.t.d;
+import com.repackage.az9;
+import com.repackage.bz9;
+import com.repackage.gz9;
+import com.repackage.n3a;
+import com.repackage.pz9;
+import com.repackage.uy9;
+import com.repackage.vy9;
+import com.repackage.wy9;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
-public final class PublishSubject<T> extends d<T, T> {
+public final class PublishSubject<T> extends n3a<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final PublishSubjectState<T> f45480b;
+    public final PublishSubjectState<T> b;
 
     /* loaded from: classes8.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
+    public static final class PublishSubjectProducer<T> extends AtomicLong implements wy9, bz9, vy9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final j<? super T> actual;
+        public final az9<? super T> actual;
         public final PublishSubjectState<T> parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, j<? super T> jVar) {
+        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, az9<? super T> az9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {publishSubjectState, jVar};
+                Object[] objArr = {publishSubjectState, az9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,17 +51,17 @@ public final class PublishSubject<T> extends d<T, T> {
                 }
             }
             this.parent = publishSubjectState;
-            this.actual = jVar;
+            this.actual = az9Var;
         }
 
-        @Override // g.k
+        @Override // com.repackage.bz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == Long.MIN_VALUE) {
@@ -71,7 +70,7 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onCompleted();
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || get() == Long.MIN_VALUE) {
@@ -80,7 +79,7 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -98,21 +97,21 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // g.f
+        @Override // com.repackage.wy9
         public void request(long j) {
             long j2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && a.h(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && pz9.h(j)) {
                 do {
                     j2 = get();
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, a.a(j2, j)));
+                } while (!compareAndSet(j2, pz9.a(j2, j)));
             }
         }
 
-        @Override // g.k
+        @Override // com.repackage.bz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
@@ -123,7 +122,7 @@ public final class PublishSubject<T> extends d<T, T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements d.a<T>, e<T> {
+    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements uy9.a<T>, vy9<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
         public static final PublishSubjectProducer[] TERMINATED;
@@ -185,12 +184,12 @@ public final class PublishSubject<T> extends d<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // g.d.a, g.n.b
+        @Override // com.repackage.uy9.a, com.repackage.iz9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((j) ((j) obj));
+            call((az9) ((az9) obj));
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -200,7 +199,7 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -216,11 +215,11 @@ public final class PublishSubject<T> extends d<T, T> {
                         arrayList.add(th2);
                     }
                 }
-                g.m.a.d(arrayList);
+                gz9.d(arrayList);
             }
         }
 
-        @Override // g.e
+        @Override // com.repackage.vy9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
@@ -268,12 +267,12 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        public void call(j<? super T> jVar) {
+        public void call(az9<? super T> az9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar) == null) {
-                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, jVar);
-                jVar.b(publishSubjectProducer);
-                jVar.f(publishSubjectProducer);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, az9Var) == null) {
+                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, az9Var);
+                az9Var.b(publishSubjectProducer);
+                az9Var.f(publishSubjectProducer);
                 if (add(publishSubjectProducer)) {
                     if (publishSubjectProducer.isUnsubscribed()) {
                         remove(publishSubjectProducer);
@@ -283,9 +282,9 @@ public final class PublishSubject<T> extends d<T, T> {
                 }
                 Throwable th = this.error;
                 if (th != null) {
-                    jVar.onError(th);
+                    az9Var.onError(th);
                 } else {
-                    jVar.onCompleted();
+                    az9Var.onCompleted();
                 }
             }
         }
@@ -303,13 +302,13 @@ public final class PublishSubject<T> extends d<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d.a) newInitContext.callArgs[0]);
+                super((uy9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45480b = publishSubjectState;
+        this.b = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> F() {
@@ -318,27 +317,27 @@ public final class PublishSubject<T> extends d<T, T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new PublishSubject<>(new PublishSubjectState()) : (PublishSubject) invokeV.objValue;
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f45480b.onCompleted();
+            this.b.onCompleted();
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f45480b.onError(th);
+            this.b.onError(th);
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f45480b.onNext(t);
+            this.b.onNext(t);
         }
     }
 }

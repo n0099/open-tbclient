@@ -46,8 +46,8 @@ public class d {
         } else {
             if (str.equals("vbi")) {
                 IDownloadFileUriProvider downloadFileUriProvider = Downloader.getInstance(context).getDownloadFileUriProvider(downloadInfo.getId());
-                String d2 = com.ss.android.socialbase.appdownloader.d.j().d();
-                return new m(context, a, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d2, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
+                String d = com.ss.android.socialbase.appdownloader.d.j().d();
+                return new m(context, a, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
             }
             return null;
         }
@@ -58,26 +58,26 @@ public class d {
             return false;
         }
         a aVar2 = null;
-        String b2 = com.ss.android.socialbase.appdownloader.c.b();
-        if (TextUtils.isEmpty(b2) || TextUtils.isEmpty(str)) {
+        String b = com.ss.android.socialbase.appdownloader.c.b();
+        if (TextUtils.isEmpty(b) || TextUtils.isEmpty(str)) {
             return false;
         }
         if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v1")) {
-            aVar2 = new j(context, aVar, b2);
+            aVar2 = new j(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
-            aVar2 = new k(context, aVar, b2);
+            aVar2 = new k(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("v3")) {
-            aVar2 = new l(context, aVar, b2);
+            aVar2 = new l(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.d() && str.equals("o1")) {
-            aVar2 = new g(context, aVar, b2);
+            aVar2 = new g(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.d() && str.equals("o2")) {
-            aVar2 = new h(context, aVar, b2);
+            aVar2 = new h(context, aVar, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.d() && str.equals("o3")) {
-            aVar2 = new i(context, aVar, b2, b2, b2);
+            aVar2 = new i(context, aVar, b, b, b);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("custom")) {
-            aVar2 = new c(context, aVar, b2, jSONObject);
+            aVar2 = new c(context, aVar, b, jSONObject);
         } else if (com.ss.android.socialbase.appdownloader.f.d.c() && str.equals("vbi")) {
-            aVar2 = new m(context, aVar, b2);
+            aVar2 = new m(context, aVar, b);
         }
         return aVar2 != null && aVar2.a();
     }

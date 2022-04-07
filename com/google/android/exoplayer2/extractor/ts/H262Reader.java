@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class H262Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double[] FRAME_RATE_VALUES;
@@ -42,7 +42,7 @@ public final class H262Reader implements ElementaryStreamReader {
     public boolean startedFirstSample;
     public long totalBytesWritten;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class CsdBuffer {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] START_CODE;
@@ -173,9 +173,9 @@ public final class H262Reader implements ElementaryStreamReader {
     */
     public static Pair<Format, Long> parseCsdBuffer(CsdBuffer csdBuffer, String str) {
         InterceptResult invokeLL;
-        float f2;
+        float f;
         int i;
-        float f3;
+        float f2;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
@@ -186,35 +186,35 @@ public final class H262Reader implements ElementaryStreamReader {
             int i6 = ((i4 & 15) << 8) | (copyOf[6] & 255);
             int i7 = (copyOf[7] & 240) >> 4;
             if (i7 == 2) {
-                f2 = i6 * 4;
+                f = i6 * 4;
                 i = i5 * 3;
             } else if (i7 == 3) {
-                f2 = i6 * 16;
+                f = i6 * 16;
                 i = i5 * 9;
             } else if (i7 != 4) {
-                f3 = 1.0f;
-                Format createVideoSampleFormat = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
+                f2 = 1.0f;
+                Format createVideoSampleFormat = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f2, null);
                 long j = 0;
                 i2 = (copyOf[7] & 15) - 1;
                 if (i2 >= 0) {
                     double[] dArr = FRAME_RATE_VALUES;
                     if (i2 < dArr.length) {
-                        double d2 = dArr[i2];
+                        double d = dArr[i2];
                         int i8 = csdBuffer.sequenceExtensionPosition + 9;
                         int i9 = (copyOf[i8] & 96) >> 5;
                         if (i9 != (copyOf[i8] & 31)) {
-                            d2 *= (i9 + 1.0d) / (i3 + 1);
+                            d *= (i9 + 1.0d) / (i3 + 1);
                         }
-                        j = (long) (1000000.0d / d2);
+                        j = (long) (1000000.0d / d);
                     }
                 }
                 return Pair.create(createVideoSampleFormat, Long.valueOf(j));
             } else {
-                f2 = i6 * 121;
+                f = i6 * 121;
                 i = i5 * 100;
             }
-            f3 = f2 / i;
-            Format createVideoSampleFormat2 = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
+            f2 = f / i;
+            Format createVideoSampleFormat2 = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f2, null);
             long j2 = 0;
             i2 = (copyOf[7] & 15) - 1;
             if (i2 >= 0) {

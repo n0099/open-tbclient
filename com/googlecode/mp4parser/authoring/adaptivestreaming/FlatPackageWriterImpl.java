@@ -29,7 +29,7 @@ import java.nio.channels.FileChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FlatPackageWriterImpl implements PackageWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -208,11 +208,11 @@ public class FlatPackageWriterImpl implements PackageWriter {
                 logger.finer("Created : " + file2.getCanonicalPath());
                 long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track2, correctTimescale);
                 long j = 0;
-                char c2 = 0;
+                char c = 0;
                 int i = 0;
                 while (it2.hasNext()) {
                     Box next2 = it2.next();
-                    if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c2] == trackId) {
+                    if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c] == trackId) {
                         FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j)));
                         int i2 = i + 1;
                         j += calculateFragmentDurations[i];
@@ -223,7 +223,7 @@ public class FlatPackageWriterImpl implements PackageWriter {
                         channel.close();
                         i = i2;
                     }
-                    c2 = 0;
+                    c = 0;
                 }
             }
             FileWriter fileWriter = new FileWriter(new File(this.outputDirectory, "Manifest"));

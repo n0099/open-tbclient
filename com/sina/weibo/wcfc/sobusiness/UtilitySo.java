@@ -29,8 +29,8 @@ public class UtilitySo {
         }
         try {
             System.loadLibrary("utility");
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
+        } catch (UnsatisfiedLinkError e) {
+            e.printStackTrace();
         }
     }
 

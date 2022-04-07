@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mi;
+/* loaded from: classes3.dex */
 public class NetWorkCoreFacotry {
     public static /* synthetic */ Interceptable $ic = null;
     public static int INTERVAL_TIME = 300000;
@@ -68,7 +68,7 @@ public class NetWorkCoreFacotry {
                             currentType = 0;
                             BdLog.e("切换会老的网络内核");
                             TbadkCoreApplication.getInst().setNetWorkCoreType(currentType);
-                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + l.J() + ", TelType:" + l.f() + ", wap:" + getNetType(), 1, new Object[0]);
+                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + mi.J() + ", TelType:" + mi.f() + ", wap:" + getNetType(), 1, new Object[0]);
                         }
                     } else {
                         errorTime = 0;
@@ -100,13 +100,13 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                if (l.z()) {
-                    if (l.H()) {
+                if (mi.z()) {
+                    if (mi.H()) {
                         return "wifi";
                     }
-                    String c2 = l.c();
-                    if (c2 != null) {
-                        if (c2.length() > 0) {
+                    String c = mi.c();
+                    if (c != null) {
+                        if (c.length() > 0) {
                             return "wap";
                         }
                     }

@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class GZIP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -46,8 +46,8 @@ public final class GZIP {
                 bArr2 = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
                 return bArr2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return bArr2;
             }
         }
@@ -118,8 +118,8 @@ public final class GZIP {
                     return bArr2;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return bArr2;
         }
     }

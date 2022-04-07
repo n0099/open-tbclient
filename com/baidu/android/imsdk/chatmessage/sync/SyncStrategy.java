@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class SyncStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
@@ -51,7 +51,7 @@ public abstract class SyncStrategy {
     public int mTriggerReason;
 
     @FunctionalInterface
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface CompleteListener {
         void onComplete(DialogRecord dialogRecord);
     }
@@ -188,16 +188,16 @@ public abstract class SyncStrategy {
                 if (1 != i4) {
                     try {
                         Dispatcher.dispatchMessage(this.mContext, this.mTriggerReason, arrayList);
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                        LogUtils.e(LogUtils.TAG, e2.getMessage(), e2);
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(LogUtils.TAG, e.getMessage(), e);
                     }
                 } else if (GroupMessageDAOImpl.isActiveGroup(this.mContext, String.valueOf(j2))) {
                     try {
                         Dispatcher.dispatchMessage(this.mContext, this.mTriggerReason, arrayList);
-                    } catch (Exception e3) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                        LogUtils.e(LogUtils.TAG, e3.getMessage(), e3);
+                    } catch (Exception e2) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                        LogUtils.e(LogUtils.TAG, e2.getMessage(), e2);
                     }
                 }
             }
@@ -228,8 +228,8 @@ public abstract class SyncStrategy {
                 try {
                     Thread.currentThread();
                     Thread.sleep(6000L);
-                } catch (Exception e4) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                } catch (Exception e3) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
                     LogUtils.d(TAG, "fetch msg thread sleep exception");
                 }
                 LogUtils.d(TAG, "fetch msg thread sleep end, start to fetch");

@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class StatisticItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class StatisticItem {
     public void delete(String str) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || m.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || ni.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
             return;
         }
         this.params.remove(indexOf);
@@ -129,7 +129,7 @@ public class StatisticItem {
         InterceptResult invokeL;
         int indexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !m.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !ni.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
     }
 
     public StatisticItem key(String str) {
@@ -238,27 +238,27 @@ public class StatisticItem {
         return (StatisticItem) invokeLJ.objValue;
     }
 
-    public StatisticItem param(String str, double d2) {
+    public StatisticItem param(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Double.valueOf(d)})) == null) {
             this.params.add(str);
-            this.params.add(Double.valueOf(d2));
+            this.params.add(Double.valueOf(d));
             return this;
         }
         return (StatisticItem) invokeCommon.objValue;
     }
 
-    public StatisticItem addParam(String str, double d2) {
+    public StatisticItem addParam(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
             int index = getIndex(str);
             if (index > 0) {
-                this.params.set(index, Double.valueOf(d2));
+                this.params.set(index, Double.valueOf(d));
                 return this;
             }
-            return param(str, d2);
+            return param(str, d);
         }
         return (StatisticItem) invokeCommon.objValue;
     }

@@ -14,7 +14,7 @@ import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientStrokeParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", "lc", "lj", "ml", "hd", "d");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
@@ -31,7 +31,7 @@ public class GradientStrokeParser {
         AnimatableFloatValue animatableFloatValue = null;
         ShapeStroke.LineCapType lineCapType = null;
         ShapeStroke.LineJoinType lineJoinType = null;
-        float f2 = 0.0f;
+        float f = 0.0f;
         AnimatableFloatValue animatableFloatValue2 = null;
         boolean z = false;
         AnimatableIntegerValue animatableIntegerValue = null;
@@ -83,7 +83,7 @@ public class GradientStrokeParser {
                     lineJoinType = ShapeStroke.LineJoinType.values()[jsonReader.nextInt() - 1];
                     break;
                 case 9:
-                    f2 = (float) jsonReader.nextDouble();
+                    f = (float) jsonReader.nextDouble();
                     break;
                 case 10:
                     z = jsonReader.nextBoolean();
@@ -137,6 +137,6 @@ public class GradientStrokeParser {
         if (animatableIntegerValue == null) {
             animatableIntegerValue = new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100)));
         }
-        return new GradientStroke(str, gradientType, animatableGradientColorValue2, animatableIntegerValue, animatablePointValue, animatablePointValue2, animatableFloatValue, lineCapType, lineJoinType, f2, arrayList, animatableFloatValue2, z);
+        return new GradientStroke(str, gradientType, animatableGradientColorValue2, animatableIntegerValue, animatablePointValue, animatablePointValue2, animatableFloatValue, lineCapType, lineJoinType, f, arrayList, animatableFloatValue2, z);
     }
 }

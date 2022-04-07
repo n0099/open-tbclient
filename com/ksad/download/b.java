@@ -6,16 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static File f38773b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static a f38774c;
+    public static File b;
+    public static a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
@@ -34,27 +30,27 @@ public final class b {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            f38774c = aVar;
+            c = aVar;
         }
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            f38773b = file;
+            b = file;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f38774c.installApp(a(), str);
+            c.installApp(a(), str);
         }
     }
 
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f38773b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : (File) invokeV.objValue;
     }
 }

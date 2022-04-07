@@ -1,7 +1,0 @@
-package c.a.n0.n;
-
-import com.baidu.swan.menu.BaseMenuView;
-/* loaded from: classes2.dex */
-public interface a {
-    void a(BaseMenuView baseMenuView);
-}

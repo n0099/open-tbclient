@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.s.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,10 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static int sRetrytimes;
@@ -144,9 +144,9 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject3.put("rpc_retry_time", sRetrytimes);
                 jSONObject.put("rpc", jSONObject3.toString());
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(this.TAG, " IMUserLoginByTokenMsg buildBody", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(this.TAG, " IMUserLoginByTokenMsg buildBody", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -199,11 +199,11 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!a.f21228e) {
+                    if (!p70.e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(this.TAG, "handle login msg exception :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(this.TAG, "handle login msg exception :", e);
                 }
             } else if (110 != i && 7 != i && 23 != i) {
                 sRetrytimes++;

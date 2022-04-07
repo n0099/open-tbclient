@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import c.a.v0.r.c;
-import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
+import com.repackage.tb9;
+import com.repackage.yb9;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BaseGlRenderer implements IGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,15 +79,15 @@ public class BaseGlRenderer implements IGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                if (h.b(this.runOnProcess) > 0) {
-                    c.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+                if (yb9.b(this.runOnProcess) > 0) {
+                    tb9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
                 }
                 while (!this.runOnProcess.isEmpty()) {
                     this.runOnProcess.removeFirst().run();
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 this.runOnProcess.clear();
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

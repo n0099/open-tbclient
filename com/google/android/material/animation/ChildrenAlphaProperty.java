@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static /* synthetic */ Interceptable $ic;
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA;
@@ -62,19 +62,19 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            Float f2 = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f09146b);
-            return f2 != null ? f2 : Float.valueOf(1.0f);
+            Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f091464);
+            return f != null ? f : Float.valueOf(1.0f);
         }
         return (Float) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public void set(@NonNull ViewGroup viewGroup, @NonNull Float f2) {
+    public void set(@NonNull ViewGroup viewGroup, @NonNull Float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f2) == null) {
-            float floatValue = f2.floatValue();
-            viewGroup.setTag(R.id.obfuscated_res_0x7f09146b, Float.valueOf(floatValue));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f) == null) {
+            float floatValue = f.floatValue();
+            viewGroup.setTag(R.id.obfuscated_res_0x7f091464, Float.valueOf(floatValue));
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 viewGroup.getChildAt(i).setAlpha(floatValue);

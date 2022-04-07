@@ -2,12 +2,6 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.o0.c1.k0;
-import c.a.o0.c1.n0;
-import c.a.o0.c1.s;
-import c.a.o0.r.t.a;
-import c.a.p0.u1.h.m;
-import c.a.p0.v1.a.b.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,24 +26,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements f.e, BdSwitchView.b {
+import com.repackage.a87;
+import com.repackage.ad5;
+import com.repackage.dd5;
+import com.repackage.dr4;
+import com.repackage.ic5;
+import com.repackage.k97;
+import com.repackage.kr8;
+import com.repackage.l97;
+import com.repackage.m67;
+import com.repackage.pg;
+import com.repackage.ya;
+import com.repackage.zx4;
+/* loaded from: classes3.dex */
+public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements k97.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.v1.a.b.b.f mModel;
-    public c.a.p0.h4.a mUserReportController;
-    public c.a.p0.v1.a.b.b.g mView;
-    public c.a.d.c.g.c switchListener;
+    public k97 mModel;
+    public kr8 mUserReportController;
+    public l97 mView;
+    public ya switchListener;
     public long userId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f33981b;
+        public final /* synthetic */ PersonalTalkSettingActivity b;
 
         public a(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -66,7 +70,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     return;
                 }
             }
-            this.f33981b = personalTalkSettingActivity;
+            this.b = personalTalkSettingActivity;
             this.a = z;
         }
 
@@ -74,15 +78,15 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33981b.mView.e(null);
-                this.f33981b.mView.b(!this.a);
-                this.f33981b.mView.e(this.f33981b);
+                this.b.mView.e(null);
+                this.b.mView.b(!this.a);
+                this.b.mView.e(this.b);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements a.e {
+    /* loaded from: classes3.dex */
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -105,17 +109,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements a.e {
+    /* loaded from: classes3.dex */
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -138,18 +142,18 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.mModel.q(false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements a.e {
+    /* loaded from: classes3.dex */
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -172,23 +176,23 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements a.e {
+    /* loaded from: classes3.dex */
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
 
-        /* loaded from: classes5.dex */
-        public class a extends k0<Boolean> {
+        /* loaded from: classes3.dex */
+        public class a extends ad5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -213,16 +217,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.o0.c1.k0
+            @Override // com.repackage.ad5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().o(String.valueOf(this.a.a.userId))) : (Boolean) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m67.t().o(String.valueOf(this.a.a.userId))) : (Boolean) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes5.dex */
-        public class b implements s<Boolean> {
+        /* loaded from: classes3.dex */
+        public class b implements ic5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -246,14 +250,14 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.o0.c1.s
+            @Override // com.repackage.ic5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                     this.a.a.closeLoadingDialog();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f049c, false);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f04a3, false);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.a.a.userId), 2, null, 1)));
                 }
             }
@@ -277,19 +281,19 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.showLoadingDialog(null);
-                n0.c(new a(this), new b(this));
+                dd5.c(new a(this), new b(this));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements a.e {
+    /* loaded from: classes3.dex */
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -312,17 +316,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class g implements a.e {
+    /* loaded from: classes3.dex */
+    public class g implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -345,32 +349,30 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 TiebaStatic.log("personalchat_morepage_addblack");
                 this.a.mModel.q(true);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class h implements a.e {
+    /* loaded from: classes3.dex */
+    public class h implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.o0.r.t.a a;
+        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ PersonalTalkSettingActivity b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f33982b;
-
-        public h(PersonalTalkSettingActivity personalTalkSettingActivity, c.a.o0.r.t.a aVar) {
+        public h(PersonalTalkSettingActivity personalTalkSettingActivity, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalTalkSettingActivity, aVar};
+                Object[] objArr = {personalTalkSettingActivity, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -380,21 +382,21 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     return;
                 }
             }
-            this.f33982b = personalTalkSettingActivity;
-            this.a = aVar;
+            this.b = personalTalkSettingActivity;
+            this.a = dr4Var;
         }
 
-        @Override // c.a.o0.r.t.a.e
-        public void onClick(c.a.o0.r.t.a aVar) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class i extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class i extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -437,14 +439,12 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class j extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f33983b;
+        public final /* synthetic */ PersonalTalkSettingActivity b;
 
         public j(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -461,7 +461,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     return;
                 }
             }
-            this.f33983b = personalTalkSettingActivity;
+            this.b = personalTalkSettingActivity;
             this.a = z;
         }
 
@@ -472,10 +472,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
                 if (!this.a) {
-                    c.a.p0.u1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f33983b.userId), false);
+                    a87.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.userId), false);
                     return null;
                 }
-                c.a.p0.u1.t.e.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f33983b.userId), true);
+                a87.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.userId), true);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -506,16 +506,16 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             } else {
                 this.userId = bundle.getLong("userId");
             }
-            this.mModel = new c.a.p0.v1.a.b.b.f(this, this, this.userId);
+            this.mModel = new k97(this, this, this.userId);
         }
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            c.a.p0.v1.a.b.b.g gVar = new c.a.p0.v1.a.b.b.g(this);
-            this.mView = gVar;
-            gVar.e(this);
+            l97 l97Var = new l97(this);
+            this.mView = l97Var;
+            l97Var.e(this);
         }
     }
 
@@ -534,27 +534,27 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 }
                 return;
             }
-            c.a.d.f.m.e.a().postDelayed(new a(this, z2), 500L);
+            pg.a().postDelayed(new a(this, z2), 500L);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
+    public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
             boolean z = BdSwitchView.SwitchState.ON == switchState;
             if (z) {
-                if (c.a.o0.s.d.d.d().u() && c.a.o0.s.d.d.d().r()) {
+                if (zx4.d().u() && zx4.d().r()) {
                     closeLoadingDialog();
                     showLoadingDialog(null);
                     this.mModel.p(z);
                     return;
                 }
-                c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getActivity());
-                aVar.setMessageId(R.string.obfuscated_res_0x7f0f0591);
-                aVar.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f07d4), new h(this, aVar));
-                aVar.create(getPageContext());
-                aVar.show();
+                dr4 dr4Var = new dr4(getActivity());
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0598);
+                dr4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f07d8), new h(this, dr4Var));
+                dr4Var.create(getPageContext());
+                dr4Var.show();
                 onSettingChanged(false, z);
                 return;
             }
@@ -575,39 +575,39 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            int id = view.getId();
-            if (id == R.id.obfuscated_res_0x7f0922b1) {
-                c.a.p0.v1.a.b.b.f fVar = this.mModel;
-                if (fVar == null || fVar.j() == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f092294) {
+                k97 k97Var = this.mModel;
+                if (k97Var == null || k97Var.j() == null) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.mModel.j().name)));
-            } else if (id == R.id.obfuscated_res_0x7f091a3f) {
-                c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getPageContext().getPageActivity());
-                aVar.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f00b7, this.mModel.j().nameShow)).setPositiveButton(R.string.obfuscated_res_0x7f0f025c, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new b(this)).create(getPageContext());
-                aVar.show();
-            } else if (id == R.id.obfuscated_res_0x7f091d8e) {
-                c.a.o0.r.t.a aVar2 = new c.a.o0.r.t.a(getPageContext().getPageActivity());
-                aVar2.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0f81)).setPositiveButton(R.string.obfuscated_res_0x7f0f025c, new e(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new d(this)).create(getPageContext());
-                aVar2.show();
-            } else if (id != R.id.obfuscated_res_0x7f091d8f) {
-                if (id == R.id.obfuscated_res_0x7f09011c) {
-                    c.a.o0.r.t.a aVar3 = new c.a.o0.r.t.a(getPageContext().getPageActivity());
-                    aVar3.setTitle(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f11f9, this.mModel.j().nameShow));
-                    aVar3.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0f78)).setPositiveButton(R.string.obfuscated_res_0x7f0f025c, new g(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new f(this)).create(getPageContext());
-                    aVar3.show();
+            } else if (id == R.id.obfuscated_res_0x7f091a2f) {
+                dr4 dr4Var = new dr4(getPageContext().getPageActivity());
+                dr4Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f00b8, this.mModel.j().nameShow)).setPositiveButton(R.string.obfuscated_res_0x7f0f025d, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(this)).create(getPageContext());
+                dr4Var.show();
+            } else if (id == R.id.obfuscated_res_0x7f091d7b) {
+                dr4 dr4Var2 = new dr4(getPageContext().getPageActivity());
+                dr4Var2.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0f86)).setPositiveButton(R.string.obfuscated_res_0x7f0f025d, new e(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(this)).create(getPageContext());
+                dr4Var2.show();
+            } else if (id != R.id.obfuscated_res_0x7f091d7c) {
+                if (id == R.id.obfuscated_res_0x7f090125) {
+                    dr4 dr4Var3 = new dr4(getPageContext().getPageActivity());
+                    dr4Var3.setTitle(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1201, this.mModel.j().nameShow));
+                    dr4Var3.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0f7d)).setPositiveButton(R.string.obfuscated_res_0x7f0f025d, new g(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(this)).create(getPageContext());
+                    dr4Var3.show();
                 }
             } else {
-                if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, c.a.p0.h4.a.class, getPageContext().getPageActivity())) != null) {
-                    this.mUserReportController = (c.a.p0.h4.a) runTask.getData();
+                if (this.mUserReportController == null && (runTask = MessageManager.getInstance().runTask(2921343, kr8.class, getPageContext().getPageActivity())) != null) {
+                    this.mUserReportController = (kr8) runTask.getData();
                 }
-                c.a.p0.h4.a aVar4 = this.mUserReportController;
-                if (aVar4 != null) {
-                    aVar4.b(getUniqueId());
+                kr8 kr8Var = this.mUserReportController;
+                if (kr8Var != null) {
+                    kr8Var.b(getUniqueId());
                     this.mUserReportController.c(String.valueOf(this.userId));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
                 }
@@ -647,17 +647,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         }
     }
 
-    @Override // c.a.p0.v1.a.b.b.f.e
+    @Override // com.repackage.k97.e
     public void updateUI() {
-        c.a.p0.v1.a.b.b.f fVar;
+        k97 k97Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             closeLoadingDialog();
-            c.a.p0.v1.a.b.b.g gVar = this.mView;
-            if (gVar == null || (fVar = this.mModel) == null) {
+            l97 l97Var = this.mView;
+            if (l97Var == null || (k97Var = this.mModel) == null) {
                 return;
             }
-            gVar.g(fVar);
+            l97Var.g(k97Var);
         }
     }
 }

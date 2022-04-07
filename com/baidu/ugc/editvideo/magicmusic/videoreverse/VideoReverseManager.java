@@ -1,6 +1,5 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.tb9;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoReverseManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile VideoReverseManager mVideoReverseManager;
@@ -20,7 +20,7 @@ public class VideoReverseManager {
     public VideoReverseHelper mReverseHelper;
     public Map<String, ReverseTask> mTaskMap;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class ReverseTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_DONE = 2;
@@ -121,12 +121,12 @@ public class VideoReverseManager {
             synchronized (this) {
                 WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
                 try {
-                } catch (Exception e2) {
-                    c.g(e2);
+                } catch (Exception e) {
+                    tb9.g(e);
                     OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
                     if (onTimeReverseListener2 != null) {
                         String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";
-                        onTimeReverseListener2.onTimeReverseError(new Exception(str2 + e2.getMessage()));
+                        onTimeReverseListener2.onTimeReverseError(new Exception(str2 + e.getMessage()));
                     }
                 }
                 if (FileUtils.checkFile(str)) {
@@ -140,8 +140,8 @@ public class VideoReverseManager {
                                 if (reverseTask.state == 1) {
                                     try {
                                         reverseTask.wait();
-                                    } catch (InterruptedException e3) {
-                                        e3.printStackTrace();
+                                    } catch (InterruptedException e2) {
+                                        e2.printStackTrace();
                                     }
                                 }
                             }

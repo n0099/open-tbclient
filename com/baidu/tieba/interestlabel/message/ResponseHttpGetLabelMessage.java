@@ -1,6 +1,5 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.p0.z1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -8,9 +7,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tb7;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
             return;
         }
         RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-        b labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
+        tb7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
         if (labelDataSet != null) {
-            labelDataSet.d(getTagListResIdl.data);
+            labelDataSet.c(getTagListResIdl.data);
         }
     }
 }

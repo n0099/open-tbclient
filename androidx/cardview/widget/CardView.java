@@ -179,10 +179,10 @@ public class CardView extends FrameLayout {
         }
     }
 
-    public void setCardElevation(float f2) {
+    public void setCardElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            IMPL.setElevation(this.mCardViewDelegate, f2);
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            IMPL.setElevation(this.mCardViewDelegate, f);
         }
     }
 
@@ -194,10 +194,10 @@ public class CardView extends FrameLayout {
         }
     }
 
-    public void setMaxCardElevation(float f2) {
+    public void setMaxCardElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            IMPL.setMaxElevation(this.mCardViewDelegate, f2);
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+            IMPL.setMaxElevation(this.mCardViewDelegate, f);
         }
     }
 
@@ -242,10 +242,10 @@ public class CardView extends FrameLayout {
         IMPL.onPreventCornerOverlapChanged(this.mCardViewDelegate);
     }
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            IMPL.setRadius(this.mCardViewDelegate, f2);
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            IMPL.setRadius(this.mCardViewDelegate, f);
         }
     }
 
@@ -423,10 +423,10 @@ public class CardView extends FrameLayout {
         this.mContentPadding.top = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CardView_contentPaddingTop, dimensionPixelSize);
         this.mContentPadding.right = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CardView_contentPaddingRight, dimensionPixelSize);
         this.mContentPadding.bottom = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CardView_contentPaddingBottom, dimensionPixelSize);
-        float f2 = dimension2 > dimension3 ? dimension2 : dimension3;
+        float f = dimension2 > dimension3 ? dimension2 : dimension3;
         this.mUserSetMinWidth = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CardView_android_minWidth, 0);
         this.mUserSetMinHeight = obtainStyledAttributes.getDimensionPixelSize(R$styleable.CardView_android_minHeight, 0);
         obtainStyledAttributes.recycle();
-        IMPL.initialize(this.mCardViewDelegate, context, colorStateList, dimension, dimension2, f2);
+        IMPL.initialize(this.mCardViewDelegate, context, colorStateList, dimension, dimension2, f);
     }
 }

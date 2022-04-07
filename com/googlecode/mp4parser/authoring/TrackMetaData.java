@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.EditListBox;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TrackMetaData implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,10 +154,10 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setHeight(double d2) {
+    public void setHeight(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.height = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.height = d;
         }
     }
 
@@ -203,17 +203,17 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            this.volume = f2;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            this.volume = f;
         }
     }
 
-    public void setWidth(double d2) {
+    public void setWidth(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.width = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.width = d;
         }
     }
 }

@@ -258,9 +258,9 @@ public final class Stringer {
             int i4;
             int i5;
             int i6;
+            byte b;
             byte b2;
             byte b3;
-            byte b4;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) != null) {
                 return;
@@ -332,12 +332,12 @@ public final class Stringer {
                 int i15 = this.tailLen;
                 if (i3 - i15 == i7 - 1) {
                     if (i15 > 0) {
-                        b4 = this.tail[0];
+                        b3 = this.tail[0];
                         i9 = 1;
                     } else {
-                        b4 = bArr[i3];
+                        b3 = bArr[i3];
                     }
-                    int i16 = (b4 & 255) << 4;
+                    int i16 = (b3 & 255) << 4;
                     this.tailLen -= i9;
                     int i17 = i5 + 1;
                     bArr3[i5] = bArr2[(i16 >> 6) & 63];
@@ -348,21 +348,21 @@ public final class Stringer {
                     return;
                 } else if (i3 - i15 == i7 - 2) {
                     if (i15 > 1) {
-                        b2 = this.tail[0];
+                        b = this.tail[0];
                         i9 = 1;
                     } else {
-                        byte b5 = bArr[i3];
+                        byte b4 = bArr[i3];
                         i3++;
-                        b2 = b5;
+                        b = b4;
                     }
-                    int i19 = (b2 & 255) << 10;
+                    int i19 = (b & 255) << 10;
                     if (this.tailLen > 0) {
-                        b3 = this.tail[i9];
+                        b2 = this.tail[i9];
                         i9++;
                     } else {
-                        b3 = bArr[i3];
+                        b2 = bArr[i3];
                     }
-                    int i20 = ((b3 & 255) << 2) | i19;
+                    int i20 = ((b2 & 255) << 2) | i19;
                     this.tailLen -= i9;
                     int i21 = i5 + 1;
                     bArr3[i5] = bArr2[(i20 >> 12) & 63];

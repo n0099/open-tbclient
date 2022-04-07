@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cx implements Comparable<cx> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class cx implements Comparable<cx> {
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cn> it = this.f192a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m260a());
+                    jSONArray.put(it.next().m256a());
                 }
                 jSONObject.put("ah", jSONArray);
             }

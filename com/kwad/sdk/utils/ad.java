@@ -7,7 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ad {
     public static boolean a(Context context) {
         ConnectivityManager connectivityManager;
@@ -17,8 +17,8 @@ public class ad {
                 return false;
             }
             return activeNetworkInfo.isConnected();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -30,8 +30,8 @@ public class ad {
             if ((ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0) && (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
                 return 1 == activeNetworkInfo.getType();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -48,39 +48,39 @@ public class ad {
         }
         try {
             telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         if (telephonyManager == null) {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 22) {
             String simOperator = telephonyManager.getSimOperator();
-            char c2 = 65535;
+            char c = 65535;
             int hashCode = simOperator.hashCode();
             if (hashCode != 49679502) {
                 switch (hashCode) {
                     case 49679470:
                         if (simOperator.equals("46000")) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                     case 49679471:
                         if (simOperator.equals("46001")) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
                         break;
                     case 49679472:
                         if (simOperator.equals("46002")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
                         break;
                     case 49679473:
                         if (simOperator.equals("46003")) {
-                            c2 = 7;
+                            c = 7;
                             break;
                         }
                         break;
@@ -88,40 +88,40 @@ public class ad {
                         switch (hashCode) {
                             case 49679475:
                                 if (simOperator.equals("46005")) {
-                                    c2 = '\b';
+                                    c = '\b';
                                     break;
                                 }
                                 break;
                             case 49679476:
                                 if (simOperator.equals("46006")) {
-                                    c2 = 5;
+                                    c = 5;
                                     break;
                                 }
                                 break;
                             case 49679477:
                                 if (simOperator.equals("46007")) {
-                                    c2 = 2;
+                                    c = 2;
                                     break;
                                 }
                                 break;
                             case 49679478:
                                 if (simOperator.equals("46008")) {
-                                    c2 = 3;
+                                    c = 3;
                                     break;
                                 }
                                 break;
                             case 49679479:
                                 if (simOperator.equals("46009")) {
-                                    c2 = 6;
+                                    c = 6;
                                     break;
                                 }
                                 break;
                         }
                 }
             } else if (simOperator.equals("46011")) {
-                c2 = '\t';
+                c = '\t';
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                 case 1:
                 case 2:
@@ -141,15 +141,15 @@ public class ad {
             }
         }
         if (i == 0) {
-            String h2 = av.h(context);
-            if (TextUtils.isEmpty(h2)) {
+            String h = av.h(context);
+            if (TextUtils.isEmpty(h)) {
                 return i;
             }
-            if (!h2.startsWith("46000") && !h2.startsWith("46002")) {
-                if (h2.startsWith("46001")) {
+            if (!h.startsWith("46000") && !h.startsWith("46002")) {
+                if (h.startsWith("46001")) {
                     return 3;
                 }
-                if (h2.startsWith("46003")) {
+                if (h.startsWith("46003")) {
                     return 2;
                 }
             }

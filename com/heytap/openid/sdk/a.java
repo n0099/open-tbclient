@@ -6,13 +6,11 @@ import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f38726b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a(Context context) {
@@ -28,7 +26,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (!a) {
                 str = "SDK Need Init First!";
-            } else if (!f38726b) {
+            } else if (!b) {
                 str = "NOT Supported";
             } else if (Looper.myLooper() != Looper.getMainLooper()) {
                 return true;

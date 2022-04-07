@@ -8,11 +8,11 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class n {
-    public static void a(Context context, View view) {
+    public static void a(Context context, View view2) {
         InputMethodManager inputMethodManager;
-        if (context == null || view == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+        if (context == null || view2 == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
@@ -45,18 +45,18 @@ public class n {
         a(context, decorView);
     }
 
-    public static synchronized void a(View view) {
+    public static synchronized void a(View view2) {
         synchronized (n.class) {
-            if (view == null) {
+            if (view2 == null) {
                 return;
             }
-            if (view instanceof WebView) {
+            if (view2 instanceof WebView) {
                 try {
-                    ((WebView) view).destroy();
+                    ((WebView) view2).destroy();
                 } catch (Throwable unused) {
                 }
-            } else if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     a(viewGroup.getChildAt(i));
@@ -83,8 +83,8 @@ public class n {
         if (dVar == null) {
             return;
         }
-        View view = dVar.getView();
+        View view2 = dVar.getView();
         a(dVar.getView());
-        a(dVar.getContext(), view);
+        a(dVar.getContext(), view2);
     }
 }

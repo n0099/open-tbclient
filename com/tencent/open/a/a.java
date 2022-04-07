@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.tencent.open.log.SLog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Uri a;
@@ -41,42 +41,42 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int d2 = d(context);
-            if (d2 == 2) {
+            int d = d(context);
+            if (d == 2) {
                 return "wifi";
             }
-            if (d2 == 1) {
+            if (d == 1) {
                 return ConectivityUtils.APN_CMWAP;
             }
-            if (d2 == 4) {
+            if (d == 4) {
                 return ConectivityUtils.APN_CMNET;
             }
-            if (d2 == 16) {
+            if (d == 16) {
                 return ConectivityUtils.APN_UNIWAP;
             }
-            if (d2 == 8) {
+            if (d == 8) {
                 return ConectivityUtils.APN_UNINET;
             }
-            if (d2 == 64) {
+            if (d == 64) {
                 return "wap";
             }
-            if (d2 == 32) {
+            if (d == 32) {
                 return "net";
             }
-            if (d2 == 512) {
+            if (d == 512) {
                 return ConectivityUtils.APN_CTWAP;
             }
-            if (d2 == 256) {
+            if (d == 256) {
                 return ConectivityUtils.APN_CTNET;
             }
-            if (d2 == 2048) {
+            if (d == 2048) {
                 return ConectivityUtils.APN_3GNET;
             }
-            if (d2 == 1024) {
+            if (d == 1024) {
                 return ConectivityUtils.APN_3GWAP;
             }
-            String b2 = b(context);
-            return (b2 == null || b2.length() == 0) ? "none" : b2;
+            String b = b(context);
+            return (b == null || b.length() == 0) ? "none" : b;
         }
         return (String) invokeL.objValue;
     }
@@ -108,8 +108,8 @@ public class a {
                     query.close();
                 }
                 return string;
-            } catch (SecurityException e2) {
-                SLog.e("openSDK_LOG.APNUtil", "getApnProxy has exception: " + e2.getMessage());
+            } catch (SecurityException e) {
+                SLog.e("openSDK_LOG.APNUtil", "getApnProxy has exception: " + e.getMessage());
                 return "";
             }
         }
@@ -124,8 +124,8 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.APNUtil", "getMProxyType has exception: " + e2.getMessage());
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.APNUtil", "getMProxyType has exception: " + e.getMessage());
             }
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                 return 128;
@@ -163,9 +163,9 @@ public class a {
                     return 2048;
                 }
                 if (lowerCase.startsWith("#777")) {
-                    String c2 = c(context);
-                    if (c2 != null) {
-                        if (c2.length() > 0) {
+                    String c = c(context);
+                    if (c != null) {
+                        if (c.length() > 0) {
                             return 512;
                         }
                     }

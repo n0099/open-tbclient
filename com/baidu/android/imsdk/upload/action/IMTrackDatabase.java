@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "im_track.db";
@@ -45,7 +45,7 @@ public class IMTrackDatabase {
     public Context context;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -114,7 +114,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -187,7 +187,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -254,7 +254,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -330,7 +330,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
@@ -441,9 +441,9 @@ public class IMTrackDatabase {
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS db");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS ack");
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS msg");
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = IMTrackDatabase.TAG;
-                    LogUtils.d(str, "dropTables Exception: " + e2);
+                    LogUtils.d(str, "dropTables Exception: " + e);
                 }
             }
         }
@@ -460,9 +460,9 @@ public class IMTrackDatabase {
                     sQLiteDatabase.execSQL(SQL_TABLE_CREATE_REQUEST);
                     sQLiteDatabase.execSQL(SQL_TABLE_CREATE_ACK);
                     sQLiteDatabase.execSQL(SQL_TABLE_CREATE_MESSAGE);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = IMTrackDatabase.TAG;
-                    LogUtils.d(str, "DbOpenHelper onCreate E: " + e2);
+                    LogUtils.d(str, "DbOpenHelper onCreate E: " + e);
                 }
             }
         }
@@ -500,7 +500,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -573,7 +573,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -646,7 +646,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -768,8 +768,8 @@ public class IMTrackDatabase {
                         if (rawQuery.moveToFirst() && rawQuery.getInt(0) > 1000) {
                             sQLiteDatabase.delete(str, null, null);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         cursor = rawQuery;
                         e.printStackTrace();
                         if (cursor != null) {
@@ -789,8 +789,8 @@ public class IMTrackDatabase {
                 if (rawQuery != null) {
                     rawQuery.close();
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             sQLiteDatabase.close();
         } catch (Throwable th2) {
@@ -847,9 +847,9 @@ public class IMTrackDatabase {
                     db.delete("request", null, null);
                     db.delete(AckEnum.TABLE_NAME, null, null);
                     db.delete("msg", null, null);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack clearAllTables Exception: " + e2);
+                    LogUtils.e(str, "IMTrack clearAllTables Exception: " + e);
                 }
                 db.close();
             }
@@ -866,9 +866,9 @@ public class IMTrackDatabase {
                 }
                 try {
                     db.delete("crash", null, null);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack clearCrashTable Exception: " + e2);
+                    LogUtils.e(str, "IMTrack clearCrashTable Exception: " + e);
                 }
                 db.close();
             }
@@ -901,9 +901,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getAcks error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getAcks error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -934,8 +934,8 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -975,9 +975,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getConnections error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getConnections error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1008,8 +1008,8 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1046,9 +1046,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getCrashes error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getCrashes error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1090,9 +1090,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getDbs error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getDbs error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1132,9 +1132,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getMsgs error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getMsgs error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1165,8 +1165,8 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1206,9 +1206,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getRequests error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getRequests error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1248,9 +1248,9 @@ public class IMTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack getUis error " + e2.getMessage());
+                    LogUtils.e(str, "IMTrack getUis error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -1278,9 +1278,9 @@ public class IMTrackDatabase {
                     contentValues.put(AckEnum.ext.name(), ack.ext);
                     contentValues.put(AckEnum.aliasId.name(), Long.valueOf(ack.aliasId));
                     db.insert(AckEnum.TABLE_NAME, null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Ack exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Ack exception : " + e);
                 }
                 db.close();
             }
@@ -1305,9 +1305,9 @@ public class IMTrackDatabase {
                     contentValues.put(ConnectionEnum.ext.name(), connection.ext);
                     contentValues.put(ConnectionEnum.aliasId.name(), Long.valueOf(connection.aliasId));
                     db.insert("connection", null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Connection exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Connection exception : " + e);
                 }
                 db.close();
             }
@@ -1329,9 +1329,9 @@ public class IMTrackDatabase {
                     contentValues.put(CrashEnum.ext.name(), crash.ext);
                     contentValues.put(CrashEnum.aliasId.name(), Long.valueOf(crash.aliasId));
                     db.insert("crash", null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Crash exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Crash exception : " + e);
                 }
                 db.close();
             }
@@ -1358,9 +1358,9 @@ public class IMTrackDatabase {
                     contentValues.put(DbEnum.ext.name(), db.ext);
                     contentValues.put(DbEnum.aliasId.name(), Long.valueOf(db.aliasId));
                     db2.insert(DbEnum.TABLE_NAME, null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Db exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Db exception : " + e);
                 }
                 db2.close();
             }
@@ -1385,9 +1385,9 @@ public class IMTrackDatabase {
                     contentValues.put(MsgEnum.ext.name(), msg.ext);
                     contentValues.put(MsgEnum.aliasId.name(), Long.valueOf(msg.aliasId));
                     db.insert("msg", null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Ack exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Ack exception : " + e);
                 }
                 db.close();
             }
@@ -1412,9 +1412,9 @@ public class IMTrackDatabase {
                     contentValues.put(RequestEnum.ext.name(), request.ext);
                     contentValues.put(RequestEnum.aliasId.name(), Long.valueOf(request.aliasId));
                     db.insert("request", null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Request exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert Request exception : " + e);
                 }
                 db.close();
             }
@@ -1439,9 +1439,9 @@ public class IMTrackDatabase {
                     contentValues.put(UiEnum.ext.name(), ui.ext);
                     contentValues.put(UiEnum.aliasId.name(), Long.valueOf(ui.aliasId));
                     db.insert("ui", null, contentValues);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "IMTrack insert ui exception : " + e2);
+                    LogUtils.e(str, "IMTrack insert ui exception : " + e);
                 }
                 db.close();
             }

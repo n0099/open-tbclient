@@ -11,11 +11,11 @@ public interface BufferedSource extends Source, ReadableByteChannel {
 
     boolean exhausted() throws IOException;
 
-    long indexOf(byte b2) throws IOException;
+    long indexOf(byte b) throws IOException;
 
-    long indexOf(byte b2, long j) throws IOException;
+    long indexOf(byte b, long j) throws IOException;
 
-    long indexOf(byte b2, long j, long j2) throws IOException;
+    long indexOf(byte b, long j, long j2) throws IOException;
 
     long indexOf(ByteString byteString) throws IOException;
 

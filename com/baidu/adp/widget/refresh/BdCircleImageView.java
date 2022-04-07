@@ -18,26 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdCircleImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Animation.AnimationListener a;
+    public int b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f24059b;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a extends OvalShape {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RadialGradient a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Paint f24060b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BdCircleImageView f24061c;
+        public Paint b;
+        public final /* synthetic */ BdCircleImageView c;
 
         public a(BdCircleImageView bdCircleImageView, int i) {
             Interceptable interceptable = $ic;
@@ -54,19 +48,19 @@ public class BdCircleImageView extends ImageView {
                     return;
                 }
             }
-            this.f24061c = bdCircleImageView;
-            this.f24060b = new Paint();
-            bdCircleImageView.f24059b = i;
+            this.c = bdCircleImageView;
+            this.b = new Paint();
+            bdCircleImageView.b = i;
             a((int) rect().width());
         }
 
         public final void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                float f2 = i / 2;
-                RadialGradient radialGradient = new RadialGradient(f2, f2, this.f24061c.f24059b, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
+                float f = i / 2;
+                RadialGradient radialGradient = new RadialGradient(f, f, this.c.b, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
                 this.a = radialGradient;
-                this.f24060b.setShader(radialGradient);
+                this.b.setShader(radialGradient);
             }
         }
 
@@ -75,19 +69,19 @@ public class BdCircleImageView extends ImageView {
             int width;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, paint) == null) {
-                float width2 = this.f24061c.getWidth() / 2;
-                float height = this.f24061c.getHeight() / 2;
-                canvas.drawCircle(width2, height, width2, this.f24060b);
-                canvas.drawCircle(width2, height, width - this.f24061c.f24059b, paint);
+                float width2 = this.c.getWidth() / 2;
+                float height = this.c.getHeight() / 2;
+                canvas.drawCircle(width2, height, width2, this.b);
+                canvas.drawCircle(width2, height, width - this.c.b, paint);
             }
         }
 
         @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
-        public void onResize(float f2, float f3) {
+        public void onResize(float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                super.onResize(f2, f3);
-                a((int) f2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                super.onResize(f, f2);
+                a((int) f);
             }
         }
     }
@@ -111,18 +105,18 @@ public class BdCircleImageView extends ImageView {
                 return;
             }
         }
-        float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i4 = (int) (1.75f * f2);
-        int i5 = (int) (0.0f * f2);
-        this.f24059b = (int) (3.5f * f2);
+        float f = getContext().getResources().getDisplayMetrics().density;
+        int i4 = (int) (1.75f * f);
+        int i5 = (int) (0.0f * f);
+        this.b = (int) (3.5f * f);
         if (a()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
-            ViewCompat.setElevation(this, f2 * 4.0f);
+            ViewCompat.setElevation(this, f * 4.0f);
         } else {
-            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this, this.f24059b));
+            ShapeDrawable shapeDrawable2 = new ShapeDrawable(new a(this, this.b));
             ViewCompat.setLayerType(this, 1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.f24059b, i5, i4, CircleImageView.KEY_SHADOW_COLOR);
-            int i6 = this.f24059b;
+            shapeDrawable2.getPaint().setShadowLayer(this.b, i5, i4, CircleImageView.KEY_SHADOW_COLOR);
+            int i6 = this.b;
             setPadding(i6, i6, i6, i6);
             shapeDrawable = shapeDrawable2;
         }
@@ -168,7 +162,7 @@ public class BdCircleImageView extends ImageView {
             if (a()) {
                 return;
             }
-            setMeasuredDimension(getMeasuredWidth() + (this.f24059b * 2), getMeasuredHeight() + (this.f24059b * 2));
+            setMeasuredDimension(getMeasuredWidth() + (this.b * 2), getMeasuredHeight() + (this.b * 2));
         }
     }
 

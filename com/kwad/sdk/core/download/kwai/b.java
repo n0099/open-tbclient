@@ -14,28 +14,20 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.x;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends AlertDialog {
     public static b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f39486b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a f39487c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f39488d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f39489e;
+    public String b;
+    public a c;
+    public AdTemplate d;
+    public boolean e;
 
     public b(Activity activity, @NonNull AdTemplate adTemplate, String str) {
         super(Wrapper.wrapContextIfNeed(activity));
-        this.f39489e = false;
+        this.e = false;
         setOwnerActivity(activity);
-        this.f39488d = adTemplate;
-        this.f39486b = str;
+        this.d = adTemplate;
+        this.b = str;
     }
 
     public static b a(Activity activity, AdTemplate adTemplate, String str) {
@@ -60,13 +52,13 @@ public class b extends AlertDialog {
         if (context instanceof ResContext) {
             context = ((ResContext) context).getDelegatedContext();
         }
-        Activity c2 = context instanceof Activity ? (Activity) context : x.a().c();
-        if (c2 == null || c2.isFinishing()) {
+        Activity c = context instanceof Activity ? (Activity) context : x.a().c();
+        if (c == null || c.isFinishing()) {
             return false;
         }
         try {
             if (a == null) {
-                b a2 = a(c2, adTemplate, str);
+                b a2 = a(c, adTemplate, str);
                 a = a2;
                 if (onShowListener != null) {
                     a2.setOnShowListener(onShowListener);
@@ -88,12 +80,12 @@ public class b extends AlertDialog {
     }
 
     public void a(boolean z) {
-        this.f39489e = z;
+        this.e = z;
         dismiss();
     }
 
     public boolean b() {
-        return this.f39489e;
+        return this.e;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -110,24 +102,24 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.a.n(this.f39488d);
+        com.kwad.sdk.core.report.a.n(this.d);
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f39487c == null) {
-            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f39488d, !af.e(getOwnerActivity()) ? 1 : 0, this.f39486b);
-            this.f39487c = aVar;
+        if (this.c == null) {
+            a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.d, !af.e(getOwnerActivity()) ? 1 : 0, this.b);
+            this.c = aVar;
             aVar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.b.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.kwad.sdk.core.report.a.n(b.this.f39488d);
+                public void onClick(View view2) {
+                    com.kwad.sdk.core.report.a.n(b.this.d);
                     b.this.dismiss();
                 }
             });
         }
-        setContentView(this.f39487c);
+        setContentView(this.c);
         setCanceledOnTouchOutside(true);
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -137,7 +129,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a aVar = this.f39487c;
+        a aVar = this.c;
         if (aVar != null) {
             aVar.c();
         }
@@ -157,8 +149,8 @@ public class b extends AlertDialog {
     public void show() {
         try {
             super.show();
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
     }
 }

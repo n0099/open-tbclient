@@ -5,27 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.b;
-import g.c;
-import g.k;
-import g.u.d;
+import com.repackage.bz9;
+import com.repackage.r3a;
+import com.repackage.sy9;
+import com.repackage.ty9;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements c {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements ty9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c actual;
+    public final ty9 actual;
     public int index;
-    public final d sd;
-    public final b[] sources;
+    public final r3a sd;
+    public final sy9[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(c cVar, b[] bVarArr) {
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(ty9 ty9Var, sy9[] sy9VarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, bVarArr};
+            Object[] objArr = {ty9Var, sy9VarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,23 +35,23 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
                 return;
             }
         }
-        this.actual = cVar;
-        this.sources = bVarArr;
-        this.sd = new d();
+        this.actual = ty9Var;
+        this.sources = sy9VarArr;
+        this.sd = new r3a();
     }
 
     public void next() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-            b[] bVarArr = this.sources;
+            sy9[] sy9VarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 int i = this.index;
                 this.index = i + 1;
-                if (i == bVarArr.length) {
+                if (i == sy9VarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                bVarArr[i].j(this);
+                sy9VarArr[i].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }
@@ -59,7 +59,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // g.c
+    @Override // com.repackage.ty9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -67,7 +67,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // g.c
+    @Override // com.repackage.ty9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -75,11 +75,11 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // g.c
-    public void onSubscribe(k kVar) {
+    @Override // com.repackage.ty9
+    public void onSubscribe(bz9 bz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
-            this.sd.a(kVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bz9Var) == null) {
+            this.sd.a(bz9Var);
         }
     }
 }

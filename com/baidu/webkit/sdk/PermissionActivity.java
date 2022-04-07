@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CAMERA_RECORD_CODE = 1003;
@@ -52,10 +52,10 @@ public class PermissionActivity extends Activity {
                     }
                     LogUtil.logActivity(this, "onCreate");
                     return;
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (NoSuchFieldException e2) {
                     e2.printStackTrace();
-                } catch (NoSuchFieldException e3) {
-                    e3.printStackTrace();
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }

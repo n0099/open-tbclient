@@ -17,7 +17,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class UPCEANExtension5Support {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;
@@ -185,8 +185,8 @@ public final class UPCEANExtension5Support {
             int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
             String sb2 = sb.toString();
             Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
-            float f2 = i;
-            Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f2), new ResultPoint(decodeMiddle, f2)}, BarcodeFormat.UPC_EAN_EXTENSION);
+            float f = i;
+            Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f), new ResultPoint(decodeMiddle, f)}, BarcodeFormat.UPC_EAN_EXTENSION);
             if (parseExtensionString != null) {
                 result.putAllMetadata(parseExtensionString);
             }

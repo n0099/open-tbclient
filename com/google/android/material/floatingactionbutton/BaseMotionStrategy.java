@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import com.google.android.material.animation.MotionSpec;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseMotionStrategy implements MotionStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,8 +153,8 @@ public abstract class BaseMotionStrategy implements MotionStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionSpec)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (motionSpec.hasPropertyValues("opacity")) {
-                arrayList.add(motionSpec.getAnimator("opacity", this.fab, View.ALPHA));
+            if (motionSpec.hasPropertyValues(NativeConstants.OPACITY)) {
+                arrayList.add(motionSpec.getAnimator(NativeConstants.OPACITY, this.fab, View.ALPHA));
             }
             if (motionSpec.hasPropertyValues(AnimationProperty.SCALE)) {
                 arrayList.add(motionSpec.getAnimator(AnimationProperty.SCALE, this.fab, View.SCALE_Y));

@@ -26,7 +26,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;
@@ -39,12 +39,8 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f953a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f44590b = 1;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f44591c = 2;
+    public static int b = 1;
+    public static int c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
@@ -64,7 +60,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             }
         }
         f951a = new LinkedBlockingQueue();
-        f952a = new ThreadPoolExecutor(a, f44590b, f44591c, TimeUnit.SECONDS, f951a);
+        f952a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f951a);
         f953a = false;
     }
 
@@ -108,37 +104,37 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m146a() && b.m153a(context).m162c() && !b.m153a(context).m165f()) {
+            if (!an.a(context).m142a() && b.m149a(context).m158c() && !b.m149a(context).m161f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                     intent.setAction("com.xiaomi.push.network_status_changed");
                     ServiceClient.getInstance(context).startServiceSafely(intent);
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            gq.m401a(context);
-            if (bg.b(context) && an.a(context).m149b()) {
-                an.a(context).m150c();
+            gq.m397a(context);
+            if (bg.b(context) && an.a(context).m145b()) {
+                an.a(context).m146c();
             }
             if (bg.b(context)) {
                 if ("syncing".equals(ae.a(context).a(at.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f44067b))) {
+                if ("syncing".equals(ae.a(context).a(at.b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f44068c))) {
+                if ("syncing".equals(ae.a(context).a(at.c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f44069d))) {
+                if ("syncing".equals(ae.a(context).a(at.d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f44070e))) {
+                if ("syncing".equals(ae.a(context).a(at.e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f44071f))) {
+                if ("syncing".equals(ae.a(context).a(at.f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {

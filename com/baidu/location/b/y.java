@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class y extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class y extends Handler {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009d -> B:44:0x00a0). Please submit an issue!!! */
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.baidu.location.c.a c2;
+        com.baidu.location.c.a c;
         com.baidu.location.c.h n;
-        Location d2;
+        Location d;
         String a;
         Handler handler;
         Handler handler2;
@@ -51,14 +51,14 @@ public class y extends Handler {
             try {
                 if (i != 1) {
                     if (i == 2) {
-                        c2 = t.c();
+                        c = t.c();
                         n = com.baidu.location.c.i.a().n();
-                        d2 = t.d();
+                        d = t.d();
                         a = t.a();
                     } else if (i == 3) {
-                        c2 = t.c();
+                        c = t.c();
                         n = null;
-                        d2 = t.d();
+                        d = t.d();
                         a = a.a().c();
                     } else if (i != 4) {
                         if (i == 7) {
@@ -78,13 +78,13 @@ public class y extends Handler {
                         if (i2) {
                             h.a().d();
                         }
-                        handler = this.a.f25995d;
+                        handler = this.a.d;
                         if (handler != null) {
-                            handler2 = this.a.f25995d;
+                            handler2 = this.a.d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }
-                    w.a(c2, n, d2, a);
+                    w.a(c, n, d, a);
                     return;
                 }
                 Bundle data = message.getData();
@@ -93,8 +93,8 @@ public class y extends Handler {
                 if (location != null) {
                     d.a().a(location);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

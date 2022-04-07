@@ -8,8 +8,8 @@ import kotlin.internal.InlineOnly;
 public final class BitwiseOperationsKt {
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte and(byte b2, byte b3) {
-        return (byte) (b2 & b3);
+    public static final byte and(byte b, byte b2) {
+        return (byte) (b & b2);
     }
 
     @SinceKotlin(version = "1.1")
@@ -20,8 +20,8 @@ public final class BitwiseOperationsKt {
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte inv(byte b2) {
-        return (byte) (~b2);
+    public static final byte inv(byte b) {
+        return (byte) (~b);
     }
 
     @SinceKotlin(version = "1.1")
@@ -32,8 +32,8 @@ public final class BitwiseOperationsKt {
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte or(byte b2, byte b3) {
-        return (byte) (b2 | b3);
+    public static final byte or(byte b, byte b2) {
+        return (byte) (b | b2);
     }
 
     @SinceKotlin(version = "1.1")
@@ -44,8 +44,8 @@ public final class BitwiseOperationsKt {
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final byte xor(byte b2, byte b3) {
-        return (byte) (b2 ^ b3);
+    public static final byte xor(byte b, byte b2) {
+        return (byte) (b ^ b2);
     }
 
     @SinceKotlin(version = "1.1")

@@ -14,14 +14,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TrapezoidButton extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Path f31601b;
+    public Path b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TrapezoidButton(Context context) {
@@ -47,7 +45,7 @@ public class TrapezoidButton extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31601b = new Path();
+            this.b = new Path();
             Paint paint = new Paint();
             this.a = paint;
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
@@ -65,13 +63,13 @@ public class TrapezoidButton extends LinearLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             int height = canvas.getHeight();
-            this.f31601b.reset();
-            this.f31601b.moveTo(0.0f, 0.0f);
-            float f2 = height;
-            this.f31601b.lineTo(0.0f, f2);
-            this.f31601b.lineTo(f2 * 0.45f, 0.0f);
-            this.f31601b.close();
-            canvas.drawPath(this.f31601b, this.a);
+            this.b.reset();
+            this.b.moveTo(0.0f, 0.0f);
+            float f = height;
+            this.b.lineTo(0.0f, f);
+            this.b.lineTo(f * 0.45f, 0.0f);
+            this.b.close();
+            canvas.drawPath(this.b, this.a);
             canvas.restoreToCount(saveLayer);
         }
     }

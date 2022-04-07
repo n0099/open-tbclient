@@ -196,18 +196,18 @@ public final class Okio {
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     try {
                         this.val$socket.close();
-                    } catch (AssertionError e2) {
-                        if (Okio.isAndroidGetsocknameError(e2)) {
+                    } catch (AssertionError e) {
+                        if (Okio.isAndroidGetsocknameError(e)) {
                             Logger logger2 = Okio.logger;
                             Level level = Level.WARNING;
-                            logger2.log(level, "Failed to close timed out socket " + this.val$socket, (Throwable) e2);
+                            logger2.log(level, "Failed to close timed out socket " + this.val$socket, (Throwable) e);
                             return;
                         }
-                        throw e2;
-                    } catch (Exception e3) {
+                        throw e;
+                    } catch (Exception e2) {
                         Logger logger3 = Okio.logger;
                         Level level2 = Level.WARNING;
-                        logger3.log(level2, "Failed to close timed out socket " + this.val$socket, (Throwable) e3);
+                        logger3.log(level2, "Failed to close timed out socket " + this.val$socket, (Throwable) e2);
                     }
                 }
             }
@@ -375,11 +375,11 @@ public final class Okio {
                                         long j2 = read;
                                         buffer.size += j2;
                                         return j2;
-                                    } catch (AssertionError e2) {
-                                        if (Okio.isAndroidGetsocknameError(e2)) {
-                                            throw new IOException(e2);
+                                    } catch (AssertionError e) {
+                                        if (Okio.isAndroidGetsocknameError(e)) {
+                                            throw new IOException(e);
                                         }
-                                        throw e2;
+                                        throw e;
                                     }
                                 }
                             }
